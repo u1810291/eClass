@@ -29,7 +29,6 @@ Axios.instance.interceptors.request.use((config) => {
   config.headers.Authorization = `Bearer ${token}`;
   return config;
 });
-
 export function execute(promise) {
   return new Promise((resolve, reject) => {
     promise
