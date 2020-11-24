@@ -1,5 +1,5 @@
 import React from "react";
 
 export default () => {
-  return <div>App page</div>;
+  return <div>Pin code sign in</div>;
 };
