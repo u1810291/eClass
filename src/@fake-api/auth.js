@@ -4,6 +4,7 @@ export default (mock) => {
   mock.onPost("/auth").reply(
     (config) =>
       new Promise((resolve) => {
+        console.log("hello");
         const { username, password } = JSON.parse(config.data);
         const find = users.find((user) => user.username === username);
         if (find && find.password === password) {

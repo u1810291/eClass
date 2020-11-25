@@ -8,7 +8,7 @@ export const Title = styled.span`
 
 export const Container = styled.button`
   ${buttons};
-  background: #f24142;
+  background: #6e00ff;
   cursor: pointer;
   svg {
     path {
@@ -19,7 +19,7 @@ export const Container = styled.button`
     outline: none;
   }
   &:not(:disabled):focus {
-    background: #d5031e;
+    background: #5c00d6;
   }
   &:not(:disabled):hover svg {
     path {
@@ -27,10 +27,10 @@ export const Container = styled.button`
     }
   }
   &:not(:disabled):hover {
-    background: #e86868;
+    background: #5c00d6;
   }
   &:not(:disabled):active {
-    background: #d5031e;
+    background: #5c00d6;
   }
   &:disabled {
     background: #f5f5f5;
