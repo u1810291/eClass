@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
 export const Text = styled.div``;
-
+export const ExamplesWrapper = styled.div`
+  background: #edeff0;
+`;
 export const AuthWrapper = styled("div")`
   display: flex;
   height: 100vh;
