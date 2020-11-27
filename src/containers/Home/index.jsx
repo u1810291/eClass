@@ -10,13 +10,12 @@ export default () => {
   useEffect(() => {
     const path = window.location.pathname.split("/");
     const pathTitle = path ? path[1] : "";
-    const title =
-      pathTitle !== "main" && pathTitle.length
-        ? `${pathTitle.charAt(0).toUpperCase()}${pathTitle.slice(
-            1,
-            pathTitle.length
-          )}`
-        : "";
+    const title = pathTitle.length
+      ? `${pathTitle.charAt(0).toUpperCase()}${pathTitle.slice(
+          1,
+          pathTitle.length
+        )}`
+      : "";
     dispatch(setTitle(title));
   });
 
