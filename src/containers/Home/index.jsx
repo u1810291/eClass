@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setTitle } from "../../redux/modules/nav/actions";
-import { Container } from "./style";
+import Container from "../../components/Container";
 import Sidebar from "../../components/Sidebar";
 import Content from "../../components/Content";
 
