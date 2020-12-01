@@ -21,6 +21,7 @@ export default () => {
 
   return (
     <Container>
+      Hello
       <Sidebar />
       <Content />
     </Container>
