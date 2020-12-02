@@ -1,16 +1,16 @@
 import types from "../../../constants/action-types";
 
 const defaultState = {
-  token: localStorage.getItem("token"),
+  token: sessionStorage.getItem("token"),
 };
 
 const map = {
   [types.AUTH_LOGIN]: (state, { token }) => {
-    localStorage.setItem("token", token);
+    sessionStorage.setItem("token", token);
     return { ...state, token };
   },
   [types.AUTH_LOGOUT]: (state) => {
-    localStorage.removeItem("token");
+    sessionStorage.removeItem("token");
     return { ...state, token: "" };
   },
 };

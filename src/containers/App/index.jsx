@@ -27,7 +27,7 @@ export default () => {
   );
 
   const protectedRoutes = (
-    <Container show={showModal}>
+    <Container>
       <Switch>
         <Route path="/" component={Home} />
       </Switch>

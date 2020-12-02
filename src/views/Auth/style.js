@@ -1,15 +1,13 @@
 import styled from "styled-components";
 
 export const Text = styled.div``;
-export const VerifyContainer = styled.div`
-  background: #edeff0;
-`;
 export const AuthWrapper = styled("div")`
   display: flex;
   height: 100vh;
   max-height: 100vh;
   overflow: hidden;
   width: 100%;
+  background: #e5e5e5;
 `;
 
 AuthWrapper.Left = styled.div`
