@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Text = styled.div``;
-export const ExamplesWrapper = styled.div`
+export const VerifyContainer = styled.div`
   background: #edeff0;
 `;
 export const AuthWrapper = styled("div")`

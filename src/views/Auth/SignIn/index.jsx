@@ -29,7 +29,6 @@ export default () => {
       setSubmitting(true);
       auth.getToken(values).then((data) => {
         setSubmitting(false);
-        console.log(values);
         history.push(`/verified?userId=${data.userId}&token=${data.token}`);
       });
     },
