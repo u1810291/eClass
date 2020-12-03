@@ -8,4 +8,32 @@ export const childRoutes = [
     title: "Example",
     children: [],
   },
+  {
+    path: "/example",
+    component: Examples,
+    icon: "",
+    title: "Example",
+    children: [],
+  },
+  {
+    path: "/example",
+    component: Examples,
+    icon: "",
+    title: "Example",
+    children: [],
+  },
+  {
+    path: "/example",
+    component: Examples,
+    icon: "",
+    title: "Example",
+    children: [],
+  },
+  {
+    path: "/example",
+    component: Examples,
+    icon: "",
+    title: "Example",
+    children: [],
+  },
 ];
