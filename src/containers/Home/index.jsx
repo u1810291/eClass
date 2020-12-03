@@ -21,7 +21,6 @@ export default () => {
 
   return (
     <Container>
-      {console.log("sadfdsf")}
       <Sidebar />
       <Content />
     </Container>

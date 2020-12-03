@@ -10,9 +10,17 @@ export const ViewportProvider = ({ children }) => {
   const [device, setDevice] = useState("");
 
   const handleWindowResize = () => {
-    if (window.matchMedia(sizes.MOBILE).matches) setDevice(devices.MOBILE);
-    if (window.matchMedia(sizes.TABLET).matches) setDevice(devices.TABLET);
-    if (window.matchMedia(sizes.DESKTOP).matches) setDevice(devices.DESKTOP);
+    if (window.matchMedia(sizes.MOBILE).matches) {
+      console.log("hello");
+      setDevice(devices.MOBILE);
+    }
+    if (window.matchMedia(sizes.TABLET).matches) {
+      setDevice(devices.TABLET);
+    }
+    if (window.matchMedia(sizes.DESKTOP).matches) {
+      console.log("hello");
+      setDevice(devices.DESKTOP);
+    }
     setWidth(window.innerWidth);
     setHeight(window.innerHeight);
   };
