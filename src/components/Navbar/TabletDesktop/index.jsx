@@ -40,7 +40,7 @@ export default () => {
     <Container className="shadow-primary-4">
       <span className={titleClass}>{title}</span>
       <Content>
-        <Bell Component={<div></div>} margin="0 20px" value="4" />
+        <Bell Component={<div></div>} margin="0 20px" value="" />
         <PopupContainer>
           <UserInfoContainer>
             <span
