@@ -24,5 +24,7 @@ export const InputGrid = styled.div`
 `;
 
 export const InputsGroup = styled.div`
-  display: flex;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(4, 1fr);
 `;
