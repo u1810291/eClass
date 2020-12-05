@@ -24,21 +24,7 @@ const SidebarHeader = ({ collapsed, handleExpand, handleCollapse }) => {
   );
   const tabletDesktop = (
     <Header collapsed={collapsed}>
-      <TitleContainer collapsed={collapsed}>
-        {!collapsed && (
-          <Logo
-            className="pointer"
-            onClick={() => {
-              history.push("/dashboard");
-            }}
-          />
-        )}
-        {collapsed ? (
-          <ExpandButton onClick={handleExpand} />
-        ) : (
-          <CollapseButton onClick={handleCollapse} />
-        )}
-      </TitleContainer>
+      <TitleContainer collapsed={collapsed}></TitleContainer>
     </Header>
   );
   if (device === devices.MOBILE) return mobile;

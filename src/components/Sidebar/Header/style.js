@@ -8,8 +8,6 @@ const common = css`
 `;
 
 export const Header = styled.div`
-  background: #507eaa;
-  border-bottom: 2px solid #f5f5f5;
   grid-area: header;
   display: grid;
   place-items: center;

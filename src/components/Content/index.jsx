@@ -1,16 +1,16 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import { Container, Content } from "./style";
-import Navbar from "../Navbar";
 import { childRoutes } from "../../routes/sidebar-elemets";
+import Navbar from "../Navbar";
 
 export default () => (
   <Container>
-    <Navbar />
     <Content>
       {childRoutes.map(({ path, component, children }, index) =>
         children.length ? (
           <div key={`${index + 1}`}>
+            <Navbar />
             {children.map((child, childIndex) => (
               <Route
                 key={`${childIndex + 1}`}

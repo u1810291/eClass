@@ -1,3 +1,9 @@
+import Examples from "../../components/Examples";
+
 export default () => {
-  return <div></div>;
+  return (
+    <>
+      <Examples />
+    </>
+  );
 };

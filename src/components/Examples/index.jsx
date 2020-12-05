@@ -6,6 +6,11 @@ export default () => {
     <Container>
       <ButtonGrid>
         <PrimaryButton title="Save" />
+        <PrimaryButton title="Save" />
+        <PrimaryButton title="Save" />
+        <PrimaryButton title="Save" />
+        <PrimaryButton title="Save" />
+        <PrimaryButton title="Save" />
       </ButtonGrid>
     </Container>
   );

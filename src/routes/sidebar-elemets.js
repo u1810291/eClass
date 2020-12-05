@@ -54,7 +54,7 @@ export const childRoutes = [
     path: "/video-materials",
     component: Profile,
     icon: "",
-    title: "Vide materials",
+    title: "Video materials",
     children: [],
   },
   {
