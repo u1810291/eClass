@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, ButtonGrid, InputGrid, InputsGroup } from "./style";
 import { PrimaryButton } from "../Buttons";
-import { NormalInput, SearchableInput } from "../Forms/Inputs";
+import { NormalInput, SearchableInput, LinkedlInput } from "../Forms/Inputs";
 export default () => {
   return (
     <Container>
@@ -22,6 +22,17 @@ export default () => {
           <SearchableInput size="large" placeholder="Enter first name" />
           <SearchableInput size="large" placeholder="Enter email" />
           <SearchableInput size="large" placeholder="Enter phone number" />
+        </InputGrid>
+        <InputGrid>
+          <LinkedlInput
+            size="large"
+            placeholder="LinkedlInput Enter first name"
+          />
+          <LinkedlInput size="large" placeholder="LinkedlInput Enter email" />
+          <LinkedlInput
+            size="large"
+            placeholder="LinkedlInput Enter phone number"
+          />
         </InputGrid>
         <InputGrid>
           <NormalInput size="large" placeholder="Enter first name" />
