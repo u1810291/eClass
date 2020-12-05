@@ -17,12 +17,8 @@ export default () => {
           <NormalInput size="large" />
           <NormalInput size="large" />
           <NormalInput size="large" />
-          <NormalInput size="large" />
-          <NormalInput size="large" />
         </InputGrid>
         <InputGrid>
-          <SearchableInput size="large" />
-          <SearchableInput size="large" />
           <SearchableInput size="large" />
           <SearchableInput size="large" />
           <SearchableInput size="large" />
@@ -31,12 +27,8 @@ export default () => {
           <NormalInput size="large" />
           <NormalInput size="large" />
           <NormalInput size="large" />
-          <NormalInput size="large" />
-          <NormalInput size="large" />
         </InputGrid>
         <InputGrid>
-          <SearchableInput size="large" />
-          <SearchableInput size="large" />
           <SearchableInput size="large" />
           <SearchableInput size="large" />
           <SearchableInput size="large" />
