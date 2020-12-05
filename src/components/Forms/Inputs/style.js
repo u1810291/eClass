@@ -158,12 +158,12 @@ export const normal = css`
   &:focus {
     outline: none;
     color: #9d9d9d;
-    border: 1px solid #262626;
+    border: 1px solid #50b5ff;
   }
   &:not(:disabled):focus {
     color: #9d9d9d;
     background: #fff;
-    border: 1px solid #262626;
+    border: 1px solid #50b5ff;
   }
   &:not(:focus)&:not(:disabled):hover {
     color: #9d9d9d;

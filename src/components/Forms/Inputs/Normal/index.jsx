@@ -12,7 +12,6 @@ const NormalInput = ({
   ...others
 }) => (
   <Container>
-    <Label></Label>
     <Input
       type={type}
       disabled={disabled}
@@ -20,6 +19,7 @@ const NormalInput = ({
       placeholder={placeholder}
       {...others}
     />
+    <Label></Label>
     <Helper type={type} size={size}>
       {helperText}
     </Helper>

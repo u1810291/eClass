@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import { getType, label, helperText, getBorderRadius } from "../style";
 
 const search = css`
@@ -24,8 +24,13 @@ export const Input = styled.input`
   }
 `;
 
-export const Label = styled.div`
+export const Label = styled.span`
   ${label}
+  position: absolute;
+  pointer-events: none;
+  left: 20px;
+  top: 18px;
+  transition: 0.2s ease all;
   color: #262626;
 `;
 

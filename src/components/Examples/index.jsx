@@ -14,24 +14,24 @@ export default () => {
       </ButtonGrid>
       <InputsGroup>
         <InputGrid>
-          <NormalInput size="large" />
-          <NormalInput size="large" />
-          <NormalInput size="large" />
+          <NormalInput size="large" placeholder="Enter first name" />
+          <NormalInput size="large" placeholder="Enter email" />
+          <NormalInput size="large" placeholder="Enter phone number" />
         </InputGrid>
         <InputGrid>
-          <SearchableInput size="large" />
-          <SearchableInput size="large" />
-          <SearchableInput size="large" />
+          <SearchableInput size="large" placeholder="Enter first name" />
+          <SearchableInput size="large" placeholder="Enter email" />
+          <SearchableInput size="large" placeholder="Enter phone number" />
         </InputGrid>
         <InputGrid>
-          <NormalInput size="large" />
-          <NormalInput size="large" />
-          <NormalInput size="large" />
+          <NormalInput size="large" placeholder="Enter first name" />
+          <NormalInput size="large" placeholder="Enter email" />
+          <NormalInput size="large" placeholder="Enter phone number" />
         </InputGrid>
         <InputGrid>
-          <SearchableInput size="large" />
-          <SearchableInput size="large" />
-          <SearchableInput size="large" />
+          <SearchableInput size="large" placeholder="Enter first name" />
+          <SearchableInput size="large" placeholder="Enter email" />
+          <SearchableInput size="large" placeholder="Enter phone number" />
         </InputGrid>
       </InputsGroup>
     </Container>
