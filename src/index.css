@@ -14,12 +14,12 @@ body {
   --custom-primary-light: #FFE5E8;
   --custom-secondary: #FFA800;
   --custom-secondary-light: #FFF4DE;
-  --sidebar-width: 280px;
+  --sidebar-width: 310px;
   --navbar-height: 63px;
   --secondary-navbar-height: 63px;
   --content-body-padding: 32px;
-  --sidebar-padding-x: 24px;
-  --sidebar-collapsed-width: 108px;
+  --sidebar-padding-x: 14px;
+  --sidebar-collapsed-width: 112px;
   --sidebar-background: white;
   --sidebar-item-active: #F5F5F8;
   --sidebaricon-hovered-primary: #673237;
