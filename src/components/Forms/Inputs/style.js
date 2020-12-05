@@ -83,7 +83,7 @@ export const getColor = ({ type }) => {
 };
 
 export const getBorderRadius = ({ size }) =>
-  `${["small", "Small"].includes(size) ? "4px" : "8px"}`;
+  `${["small", "Small"].includes(size) ? "4px" : "12px"}`;
 
 export const inputs = css`
   border: none;

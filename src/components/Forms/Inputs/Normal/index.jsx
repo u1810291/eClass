@@ -12,7 +12,7 @@ const NormalInput = ({
   ...others
 }) => (
   <Container>
-    <Label></Label>
+    <Label>Some</Label>
     <Input
       type={type}
       disabled={disabled}

@@ -15,3 +15,10 @@ export const ButtonGrid = styled.div`
   grid-gap: 15px;
   grid-template-rows: 1fr;
 `;
+export const InputGrid = styled.div`
+  padding: 25px;
+  background: white;
+  display: flex;
+  grid-gap: 15px;
+  grid-template-rows: 1fr;
+`;
