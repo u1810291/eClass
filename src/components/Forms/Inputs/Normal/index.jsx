@@ -19,7 +19,7 @@ const NormalInput = ({
       placeholder={placeholder}
       {...others}
     />
-    <Label></Label>
+    <Label>Some</Label>
     <Helper type={type} size={size}>
       {helperText}
     </Helper>
