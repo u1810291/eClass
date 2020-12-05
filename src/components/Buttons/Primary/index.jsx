@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Container, Title } from "./style";
 
 const PrimaryButton = ({ title, size, iconAlign, color, ...others }) => (
-  <Container size={size} {...others}>
+  <Container size={size} color={color} {...others}>
     <Title>{title}</Title>
   </Container>
 );

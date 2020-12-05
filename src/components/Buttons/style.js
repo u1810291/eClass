@@ -36,7 +36,7 @@ export const getPadding = ({ size }) => {
 };
 
 export const getBorderRadius = ({ size }) =>
-  `${["small", "Small"].includes(size) ? "4px" : "8px"}`;
+  `${["small", "Small"].includes(size) ? "4px" : "15px"}`;
 
 export const buttons = css`
   border: none;

@@ -3,7 +3,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useHistory } from "react-router-dom";
 import auth from "../../../services/auth";
-import { NormalInput } from "../../../components/Inputs";
+import { NormalInput } from "../../../components/Forms/Inputs";
 import { PrimaryButton } from "../../../components/Buttons";
 import {
   AuthForm,

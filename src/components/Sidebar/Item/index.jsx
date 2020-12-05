@@ -26,13 +26,15 @@ const Item = ({ title, path, icon, collapsed, elements }) => {
       <Container
         onMouseOver={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        collapsed={collapsed}
-        active={isActive(path)}
-        hovered={hovered}
         onClick={() => history.push(path)}
       >
         <IconContainer collapsed={collapsed}></IconContainer>
-        <Title collapsed={collapsed} className={textClassName}>
+        <Title
+          active={isActive(path)}
+          hovered={hovered}
+          collapsed={collapsed}
+          className={textClassName}
+        >
           {title}
         </Title>
       </Container>
