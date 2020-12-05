@@ -1,7 +1,7 @@
 import React from "react";
-import { Container, ButtonGrid, InputGrid } from "./style";
+import { Container, ButtonGrid, InputGrid, InputsGroup } from "./style";
 import { PrimaryButton } from "../Buttons";
-import NormalInput from "../Forms/Inputs/Normal";
+import { NormalInput, SearchableInput } from "../Forms/Inputs";
 export default () => {
   return (
     <Container>
@@ -12,13 +12,36 @@ export default () => {
         <PrimaryButton size="large" title="Save" color="#A461D8" />
         <PrimaryButton size="large" title="Save" color="#FF9AD5" />
       </ButtonGrid>
-      <InputGrid>
-        <NormalInput size="large" />
-        <NormalInput size="large" />
-        <NormalInput size="large" />
-        <NormalInput size="large" />
-        <NormalInput size="large" />
-      </InputGrid>
+      <InputsGroup>
+        <InputGrid>
+          <NormalInput size="large" />
+          <NormalInput size="large" />
+          <NormalInput size="large" />
+          <NormalInput size="large" />
+          <NormalInput size="large" />
+        </InputGrid>
+        <InputGrid>
+          <SearchableInput size="large" />
+          <SearchableInput size="large" />
+          <SearchableInput size="large" />
+          <SearchableInput size="large" />
+          <SearchableInput size="large" />
+        </InputGrid>
+        <InputGrid>
+          <NormalInput size="large" />
+          <NormalInput size="large" />
+          <NormalInput size="large" />
+          <NormalInput size="large" />
+          <NormalInput size="large" />
+        </InputGrid>
+        <InputGrid>
+          <SearchableInput size="large" />
+          <SearchableInput size="large" />
+          <SearchableInput size="large" />
+          <SearchableInput size="large" />
+          <SearchableInput size="large" />
+        </InputGrid>
+      </InputsGroup>
     </Container>
   );
 };
