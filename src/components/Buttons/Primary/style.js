@@ -8,7 +8,7 @@ export const Title = styled.span`
 
 export const Container = styled.button`
   ${buttons};
-  background: #6e00ff;
+  background: ${({ color }) => color};
   cursor: pointer;
   svg {
     path {

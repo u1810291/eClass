@@ -5,7 +5,7 @@ export const Container = styled.div`
   padding: 20px;
   margin: 20px;
   border-radius: 42px;
-  height: 90%;
+  height: 92%;
   min-width: 95%;
 `;
 export const ButtonGrid = styled.div`
