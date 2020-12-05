@@ -18,7 +18,11 @@ export const ButtonGrid = styled.div`
 export const InputGrid = styled.div`
   padding: 25px;
   background: white;
-  display: flex;
+  display: grid;
   grid-gap: 15px;
-  grid-template-rows: 1fr;
+  grid-template-columns: 340px;
+`;
+
+export const InputsGroup = styled.div`
+  display: flex;
 `;

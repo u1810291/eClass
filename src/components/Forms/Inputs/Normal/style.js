@@ -1,5 +1,10 @@
-import styled, { css } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import { getType, label, helperText, getBorderRadius } from "../style";
+
+const transition = keyframes`    
+  transition: all 0.2s;
+  touch-action: manipulation;
+`;
 
 const search = css`
   background-color: white;
@@ -24,8 +29,15 @@ export const Input = styled.input`
   }
 `;
 
-export const Label = styled.div`
+export const Label = styled.label`
   ${label}
+  animation: ${transition} all 0.2s;
+
+  position: absolute;
+  pointer-events: none;
+  left: 20px;
+  top: 18px;
+  transition: 0.2s ease all;
   color: #262626;
 `;
 
