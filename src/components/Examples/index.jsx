@@ -1,14 +1,7 @@
 import React from "react";
-import {
-  Container,
-  ButtonGrid,
-  InputGrid,
-  InputsGroup,
-  Item,
-  DefaultGrid,
-} from "./style";
+import { Container, ButtonGrid, Item, DefaultGrid } from "./style";
 import { PrimaryButton } from "../Buttons";
-import { NormalInput, SearchableInput, LinkedlInput } from "../Forms/Inputs";
+import Inputs from "./Inputs";
 import iconSets from "./icons";
 import Icon from "../Icon";
 import { copyTxt } from "../../utils/computes";
@@ -25,40 +18,7 @@ export default () => {
         <PrimaryButton icon="word" size="large" title="Save" color="#FF9AD5" />
       </ButtonGrid>
       <h1>Inputs</h1>
-      <InputsGroup>
-        <InputGrid>
-          <NormalInput white size="large" placeholder="Enter first name" />
-          <NormalInput white size="medium" placeholder="Enter phone number" />
-          <NormalInput white size="small" placeholder="Enter email" />
-        </InputGrid>
-        <InputGrid>
-          <SearchableInput white size="large" placeholder="Enter first name" />
-          <SearchableInput white size="medium" placeholder="Enter email" />
-          <SearchableInput white size="small" placeholder="Enter phone" />
-        </InputGrid>
-        <InputGrid>
-          <LinkedlInput
-            white
-            size="large"
-            placeholder="Linked Input Enter first name"
-          />
-          <LinkedlInput
-            white
-            size="medium"
-            placeholder="Linked Input Enter email first"
-          />
-          <LinkedlInput
-            white
-            size="small"
-            placeholder="Linked Input Enter phone number"
-          />
-        </InputGrid>
-        <InputGrid>
-          <NormalInput white size="large" placeholder="Enter first name" />
-          <NormalInput white size="medium" placeholder="Enter email" />
-          <NormalInput white size="small" placeholder="Enter phone number" />
-        </InputGrid>
-      </InputsGroup>
+      <Inputs />
       <h1>Icons</h1>
       <DefaultGrid>
         {iconSets.map((props, index) => (

@@ -16,25 +16,12 @@ export const ButtonGrid = styled.div`
   grid-gap: 15px;
   grid-template-rows: 1fr;
 `;
-export const InputGrid = styled.div`
-  padding: 25px;
-  background: white;
-  width: 95%;
-  display: grid;
-  grid-gap: 15px;
-`;
 export const DefaultGrid = styled.div`
   display: grid;
   grid-gap: 5px;
   grid-template-columns: repeat(30, 1fr);
 `;
 
-export const InputsGroup = styled.div`
-  display: grid;
-  grid-gap: 10px;
-  width: 95%;
-  grid-template-columns: repeat(4, 1fr);
-`;
 export const Item = styled.div`
   cursor: pointer;
 `;

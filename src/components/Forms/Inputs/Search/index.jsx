@@ -14,7 +14,7 @@ const NormalInput = ({
   ...others
 }) => (
   <Container>
-    <IconWrapper>{icon ? <Icon icon={icon} /> : ""}</IconWrapper>
+    {icon ? <Icon icon={icon} /> : ""}
     <Input
       type={type}
       disabled={disabled}
@@ -31,6 +31,7 @@ const NormalInput = ({
 NormalInput.propTypes = {
   label: PropTypes.string,
   size: PropTypes.string,
+  icon: PropTypes.string,
 };
 
 NormalInput.defaultProps = {
