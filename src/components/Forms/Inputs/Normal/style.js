@@ -18,6 +18,7 @@ export const Input = styled.input`
   ${getType};
   border-radius: ${getBorderRadius};
   outline: none !important;
+  text-indent: 10px;
 
   ${({ search: isSearch }) => isSearch && search} ::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -32,8 +33,6 @@ export const Input = styled.input`
 export const Label = styled.label`
   ${label}
   animation: ${transition} all 0.2s;
-
-  position: absolute;
   pointer-events: none;
   left: 20px;
   top: 18px;

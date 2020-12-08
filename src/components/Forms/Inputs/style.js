@@ -86,7 +86,7 @@ export const getBorderRadius = ({ size }) =>
   `${["small", "Small"].includes(size) ? "4px" : "12px"}`;
 
 export const inputs = css`
-  border: none;
+  border: 1px solid #e2e2ea;
   padding: ${getPadding};
   height: ${getHeight};
   display: flex;
@@ -149,7 +149,7 @@ export const normal = css`
 
   max-height: ${getHeight};
   box-sizing: border-box;
-  border: none;
+  border: 1px solid #e2e2ea;
   background: ${({ white }) => (white ? "#ffffff" : "#f5f5f5")};
   color: #9d9d9d;
   .left-right {

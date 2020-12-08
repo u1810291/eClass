@@ -5,44 +5,46 @@ import { NormalInput, SearchableInput, LinkedlInput } from "../Forms/Inputs";
 export default () => {
   return (
     <Container>
+      <h1>Buttons</h1>
       <ButtonGrid>
-        <PrimaryButton size="large" title="Save" color="#FF974A" />
-        <PrimaryButton size="large" title="Save" color="#FC5A5A" />
+        <PrimaryButton size="small" title="Save" color="#FF974A" />
+        <PrimaryButton size="medium" title="Save" color="#FC5A5A" />
         <PrimaryButton size="large" title="Save" color="#82C43C" />
         <PrimaryButton size="large" title="Save" color="#A461D8" />
         <PrimaryButton size="large" title="Save" color="#FF9AD5" />
       </ButtonGrid>
       <InputsGroup>
         <InputGrid>
-          <NormalInput size="large" placeholder="Enter first name" />
-          <NormalInput size="large" placeholder="Enter email" />
-          <NormalInput size="large" placeholder="Enter phone number" />
+          <NormalInput white size="large" placeholder="Enter first name" />
+          <NormalInput white size="large" placeholder="Enter phone number" />
+          <NormalInput white size="large" placeholder="Enter email" />
         </InputGrid>
         <InputGrid>
-          <SearchableInput size="large" placeholder="Enter first name" />
-          <SearchableInput size="large" placeholder="Enter email" />
-          <SearchableInput size="large" placeholder="Enter phone number" />
+          <SearchableInput white size="large" placeholder="Enter first name" />
+          <SearchableInput white size="large" placeholder="Enter email" />
+          <SearchableInput white size="large" placeholder="Enter phone" />
         </InputGrid>
         <InputGrid>
           <LinkedlInput
+            white
             size="large"
-            placeholder="LinkedlInput Enter first name"
+            placeholder="Linked Input Enter first name"
           />
-          <LinkedlInput size="large" placeholder="LinkedlInput Enter email" />
           <LinkedlInput
+            white
             size="large"
-            placeholder="LinkedlInput Enter phone number"
+            placeholder="Linked Input Enter email first"
+          />
+          <LinkedlInput
+            white
+            size="large"
+            placeholder="Linked Input Enter phone number"
           />
         </InputGrid>
         <InputGrid>
-          <NormalInput size="large" placeholder="Enter first name" />
-          <NormalInput size="large" placeholder="Enter email" />
-          <NormalInput size="large" placeholder="Enter phone number" />
-        </InputGrid>
-        <InputGrid>
-          <SearchableInput size="large" placeholder="Enter first name" />
-          <SearchableInput size="large" placeholder="Enter email" />
-          <SearchableInput size="large" placeholder="Enter phone number" />
+          <NormalInput white size="large" placeholder="Enter first name" />
+          <NormalInput white size="large" placeholder="Enter email" />
+          <NormalInput white size="large" placeholder="Enter phone number" />
         </InputGrid>
       </InputsGroup>
     </Container>
