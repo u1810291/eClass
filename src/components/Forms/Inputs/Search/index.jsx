@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Input, Helper, IconWrapper } from "./style";
+import { Container, Input, Helper, Label, IconWrapper } from "./style";
 import Icon from "../../../Icon";
 import PropTypes from "prop-types";
 
@@ -22,6 +22,7 @@ const NormalInput = ({
       placeholder={placeholder}
       {...others}
     />
+    <Label>{label}</Label>
     <Helper type={type} size={size}>
       {helperText}
     </Helper>
