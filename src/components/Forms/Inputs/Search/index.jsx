@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Input, Helper } from "./style";
+import { Container, Input, Helper, IconWrapper } from "./style";
 import Icon from "../../../Icon";
 import PropTypes from "prop-types";
 
@@ -14,7 +14,7 @@ const NormalInput = ({
   ...others
 }) => (
   <Container>
-    <Icon icon={icon} color="#333333" />
+    <IconWrapper>{icon ? <Icon icon={icon} /> : ""}</IconWrapper>
     <Input
       type={type}
       disabled={disabled}

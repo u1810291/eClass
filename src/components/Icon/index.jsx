@@ -25,7 +25,7 @@ Icon.prototypes = {
 
 Icon.defaultProps = {
   classNames: "",
-  color: "#262626",
+  color: "#7F88B1",
   size: "1.5em",
 };
 

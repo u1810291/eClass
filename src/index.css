@@ -12,12 +12,6 @@ body {
   right: 0%;
   top: 0%;
   bottom: 0%;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none; 
   background: #333366;}
 
 :root {
@@ -122,7 +116,7 @@ body {
   border-radius: 8px;
 }
 .Dropdown-root {
- width: -webkit-fill-available;
+  width: -webkit-fill-available;
 }
 
 .custom-spline-tooltip {

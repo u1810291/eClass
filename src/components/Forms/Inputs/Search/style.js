@@ -9,8 +9,14 @@ const search = css`
   }
 `;
 
+export const IconWrapper = styled.div`
+  position: absolute;
+  padding: 2.5%;
+`;
+
 export const Input = styled.input`
   ${getType};
+  text-indent: 10px;
   border-radius: ${getBorderRadius};
   outline: none !important;
 
@@ -31,6 +37,7 @@ export const Label = styled.div`
 
 export const Container = styled.div`
   width: 100%;
+  position: relative;
 `;
 export const Helper = styled.div`
   ${helperText}

@@ -16,28 +16,13 @@ export default () => {
       <InputsGroup>
         <InputGrid>
           <NormalInput white size="large" placeholder="Enter first name" />
-          <NormalInput white size="large" placeholder="Enter email" />
           <NormalInput white size="large" placeholder="Enter phone number" />
+          <NormalInput white size="large" placeholder="Enter email" />
         </InputGrid>
         <InputGrid>
-          <SearchableInput
-            white
-            size="large"
-            icon="envelope-o"
-            placeholder="Enter first name"
-          />
-          <SearchableInput
-            white
-            size="large"
-            icon="envelope-o"
-            placeholder="Enter email"
-          />
-          <SearchableInput
-            white
-            size="large"
-            icon="envelope-o"
-            placeholder="Enter phone"
-          />
+          <SearchableInput white size="large" placeholder="Enter first name" />
+          <SearchableInput white size="large" placeholder="Enter email" />
+          <SearchableInput white size="large" placeholder="Enter phone" />
         </InputGrid>
         <InputGrid>
           <LinkedlInput

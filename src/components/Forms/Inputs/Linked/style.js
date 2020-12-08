@@ -18,6 +18,7 @@ export const Input = styled.input`
   ${getType};
   border-radius: ${getBorderRadius};
   outline: none !important;
+  text-indent: 10px;
 
   ${({ search: isSearch }) => isSearch && search} ::-webkit-inner-spin-button {
     -webkit-appearance: none;
