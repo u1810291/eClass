@@ -8,6 +8,5 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   position: relative;
-  overflow-x: hidden;
-  overflow-y: scroll;
+  width: 100%;
 `;
