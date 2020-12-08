@@ -32,8 +32,6 @@ export const Input = styled.input`
 export const Label = styled.label`
   ${label}
   animation: ${transition} all 0.2s;
-
-  position: absolute;
   pointer-events: none;
   left: 20px;
   top: 18px;

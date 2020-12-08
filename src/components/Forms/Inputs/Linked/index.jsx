@@ -19,7 +19,7 @@ const LinkedlInput = ({
       placeholder={placeholder}
       {...others}
     />
-    <Label>Some</Label>
+    <Label></Label>
     <Helper type={type} size={size}>
       {helperText}
     </Helper>
