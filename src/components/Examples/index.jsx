@@ -11,18 +11,18 @@ export default () => {
         <PrimaryButton size="medium" title="Save" color="#FC5A5A" />
         <PrimaryButton size="large" title="Save" color="#82C43C" />
         <PrimaryButton size="large" title="Save" color="#A461D8" />
-        <PrimaryButton size="large" title="Save" color="#FF9AD5" />
+        <PrimaryButton icon="word" size="large" title="Save" color="#FF9AD5" />
       </ButtonGrid>
       <InputsGroup>
         <InputGrid>
           <NormalInput white size="large" placeholder="Enter first name" />
-          <NormalInput white size="large" placeholder="Enter phone number" />
-          <NormalInput white size="large" placeholder="Enter email" />
+          <NormalInput white size="medium" placeholder="Enter phone number" />
+          <NormalInput white size="small" placeholder="Enter email" />
         </InputGrid>
         <InputGrid>
           <SearchableInput white size="large" placeholder="Enter first name" />
-          <SearchableInput white size="large" placeholder="Enter email" />
-          <SearchableInput white size="large" placeholder="Enter phone" />
+          <SearchableInput white size="medium" placeholder="Enter email" />
+          <SearchableInput white size="small" placeholder="Enter phone" />
         </InputGrid>
         <InputGrid>
           <LinkedlInput
@@ -32,19 +32,19 @@ export default () => {
           />
           <LinkedlInput
             white
-            size="large"
+            size="medium"
             placeholder="Linked Input Enter email first"
           />
           <LinkedlInput
             white
-            size="large"
+            size="small"
             placeholder="Linked Input Enter phone number"
           />
         </InputGrid>
         <InputGrid>
           <NormalInput white size="large" placeholder="Enter first name" />
-          <NormalInput white size="large" placeholder="Enter email" />
-          <NormalInput white size="large" placeholder="Enter phone number" />
+          <NormalInput white size="medium" placeholder="Enter email" />
+          <NormalInput white size="small" placeholder="Enter phone number" />
         </InputGrid>
       </InputsGroup>
     </Container>

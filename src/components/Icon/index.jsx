@@ -5,7 +5,7 @@ import iconSet from "../../assets/icons/design/icons.json";
 
 const Icon = (props) => {
   const { icon, size, color, classNames } = props;
-  return (
+  return icon ? (
     <IcommonReact
       className={classNames}
       iconSet={iconSet}
@@ -13,6 +13,8 @@ const Icon = (props) => {
       color={color}
       icon={icon}
     />
+  ) : (
+    ""
   );
 };
 

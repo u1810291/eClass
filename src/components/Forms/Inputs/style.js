@@ -46,6 +46,7 @@ export const getHeight = ({ size }) => {
       return "33px";
   }
 };
+
 export const getPadding = ({ size }) => {
   switch (size) {
     case "large" || "Large":
@@ -82,8 +83,18 @@ export const getColor = ({ type }) => {
   }
 };
 
-export const getBorderRadius = ({ size }) =>
-  `${["small", "Small"].includes(size) ? "4px" : "12px"}`;
+export const getBorderRadius = ({ size }) => {
+  switch (size) {
+    case "large" || "Large":
+      return "12px";
+    case "medium" || "Medium":
+      return "10px";
+    case "small" || "Small":
+      return "8px";
+    default:
+      return "12px";
+  }
+};
 
 export const inputs = css`
   border: 1px solid #e2e2ea;
