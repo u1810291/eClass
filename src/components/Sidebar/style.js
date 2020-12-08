@@ -5,6 +5,10 @@ export const BodyContainer = styled.div`
   overflow-x: hidden;
   overflow-y: scroll;
   grid-area: body;
+  width: 245px;
+  height: 938.73px;
+  left: 67px;
+  top: 98.06px;
 
   &::-webkit-scrollbar {
     position: absolute;

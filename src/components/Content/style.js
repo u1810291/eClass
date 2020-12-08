@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  height: 100vh;
-  display: grid;
-  grid-template-rows: var(--navbar-height) 1fr;
+  height: 100%;
+  display: flex;
+  width: 100%;
+  overflow: scroll;
 `;
 
 export const Content = styled.div`
   position: relative;
-  overflow-x: hidden;
-  overflow-y: scroll;
+  width: 100%;
 `;

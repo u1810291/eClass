@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Input, Label, Helper } from "./style";
 import PropTypes from "prop-types";
 
-const NormalInput = ({
+const LinkedlInput = ({
   placeholder,
   disabled,
   size,
@@ -12,7 +12,6 @@ const NormalInput = ({
   ...others
 }) => (
   <Container>
-    <Label></Label>
     <Input
       type={type}
       disabled={disabled}
@@ -20,19 +19,20 @@ const NormalInput = ({
       placeholder={placeholder}
       {...others}
     />
+    <Label></Label>
     <Helper type={type} size={size}>
       {helperText}
     </Helper>
   </Container>
 );
-NormalInput.propTypes = {
+LinkedlInput.propTypes = {
   label: PropTypes.string,
   size: PropTypes.string,
 };
 
-NormalInput.defaultProps = {
+LinkedlInput.defaultProps = {
   label: "",
   size: "medium",
 };
 
-export default NormalInput;
+export default LinkedlInput;

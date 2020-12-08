@@ -1,27 +1,32 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('assets/fonts/index.css');
 * {
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Museo Sans Cyrl 500';
 }
 
 body {
-  background:  #F5F5F8;
-}
+
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
+  background: #333366;}
 
 :root {
   --custom-primary: #F64E60;
   --custom-primary-light: #FFE5E8;
   --custom-secondary: #FFA800;
   --custom-secondary-light: #FFF4DE;
-  --sidebar-width: 280px;
+  --sidebar-width: 245px;
   --navbar-height: 63px;
   --secondary-navbar-height: 63px;
   --content-body-padding: 32px;
-  --sidebar-padding-x: 24px;
-  --sidebar-collapsed-width: 108px;
+  --sidebar-padding-x: 98px;
+  --sidebar-collapsed-width: 112px;
   --sidebar-background: white;
-  --sidebar-item-active: #F5F5F8;
+  --sidebar-item-active: #FFFFFF;
   --sidebaricon-hovered-primary: #673237;
   --sidebaricon-hovered-light: #f64e60;
   --sidebaricon-active-primary: #673237;
@@ -53,17 +58,17 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #F8F8F8;
+  background:transparent;
   border-radius: 8px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(73, 75, 116, 0.1);
+  background: transparent;
   border-radius: 8px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(73, 75, 116, 1);
+  background:transparent;
   border-radius: 8px;
 }
 
@@ -111,7 +116,7 @@ body {
   border-radius: 8px;
 }
 .Dropdown-root {
- width: -webkit-fill-available;
+  width: -webkit-fill-available;
 }
 
 .custom-spline-tooltip {
@@ -120,7 +125,7 @@ body {
   background-color: #fff;
   border-radius: 4px 8px;
   box-shadow: 0px 6px 12px 0px rgba(73, 75, 116, 0.04);
-  border: 1px solid #f8f8f8;
+  border: 1px solid #E2E2EA;
 }
 
 .custom-legend-shape,

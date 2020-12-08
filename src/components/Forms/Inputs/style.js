@@ -46,6 +46,7 @@ export const getHeight = ({ size }) => {
       return "33px";
   }
 };
+
 export const getPadding = ({ size }) => {
   switch (size) {
     case "large" || "Large":
@@ -82,11 +83,21 @@ export const getColor = ({ type }) => {
   }
 };
 
-export const getBorderRadius = ({ size }) =>
-  `${["small", "Small"].includes(size) ? "4px" : "8px"}`;
+export const getBorderRadius = ({ size }) => {
+  switch (size) {
+    case "large" || "Large":
+      return "12px";
+    case "medium" || "Medium":
+      return "10px";
+    case "small" || "Small":
+      return "8px";
+    default:
+      return "12px";
+  }
+};
 
 export const inputs = css`
-  border: none;
+  border: 1px solid #e2e2ea;
   padding: ${getPadding};
   height: ${getHeight};
   display: flex;
@@ -149,7 +160,7 @@ export const normal = css`
 
   max-height: ${getHeight};
   box-sizing: border-box;
-  border: none;
+  border: 1px solid #e2e2ea;
   background: ${({ white }) => (white ? "#ffffff" : "#f5f5f5")};
   color: #9d9d9d;
   .left-right {
@@ -158,12 +169,12 @@ export const normal = css`
   &:focus {
     outline: none;
     color: #9d9d9d;
-    border: 1px solid #262626;
+    border: 1px solid #50b5ff;
   }
   &:not(:disabled):focus {
     color: #9d9d9d;
     background: #fff;
-    border: 1px solid #262626;
+    border: 1px solid #50b5ff;
   }
   &:not(:focus)&:not(:disabled):hover {
     color: #9d9d9d;

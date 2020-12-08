@@ -9,34 +9,53 @@ export const getFontSize = ({ size }) => {
   // }
 };
 
+export const getHovered = ({ hover }) => {
+  switch (hover) {
+    case "linked" || "Linked":
+      return "white";
+    default:
+      return;
+  }
+};
+
 export const getHeight = ({ size }) => {
   switch (size) {
     case "large" || "Large":
-      return "46px";
+      return "50px";
     case "medium" || "Medium":
-      return "35px";
+      return "46px";
     case "small" || "Small":
-      return "27px";
+      return "39px";
     default:
-      return "35px";
+      return "39px";
   }
 };
 
 export const getPadding = ({ size }) => {
   switch (size) {
     case "large" || "Large":
-      return "0 25px";
+      return "0 22px";
     case "medium" || "Medium":
-      return "0 17px";
-    case "small" || "Small":
       return "0 12px";
+    case "small" || "Small":
+      return "0 18px";
     default:
-      return "0 17px";
+      return "0 18px";
   }
 };
 
-export const getBorderRadius = ({ size }) =>
-  `${["small", "Small"].includes(size) ? "4px" : "8px"}`;
+export const getBorderRadius = ({ size }) => {
+  switch (size) {
+    case "small" || "Small":
+      return "11111px";
+    case "medium" || "Medium":
+      return "8px";
+    case "large" || "Large":
+      return "15px";
+    default:
+      return "15px";
+  }
+};
 
 export const buttons = css`
   border: none;
