@@ -2,7 +2,6 @@ import React from "react";
 import { Container, Input, Helper } from "./style";
 import Icon from "../../../Icon";
 import PropTypes from "prop-types";
-import icon from "../../../../assets/icons/menu.svg";
 
 const NormalInput = ({
   placeholder,
@@ -11,10 +10,11 @@ const NormalInput = ({
   helperText,
   label,
   type,
+  icon,
   ...others
 }) => (
   <Container>
-    <Icon size={size} icon={icon} color="#333333" />
+    <Icon icon={icon} color="#333333" />
     <Input
       type={type}
       disabled={disabled}

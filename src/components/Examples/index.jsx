@@ -20,9 +20,24 @@ export default () => {
           <NormalInput white size="large" placeholder="Enter phone number" />
         </InputGrid>
         <InputGrid>
-          <SearchableInput white size="large" placeholder="Enter first name" />
-          <SearchableInput white size="large" placeholder="Enter email" />
-          <SearchableInput white size="large" placeholder="Enter phone" />
+          <SearchableInput
+            white
+            size="large"
+            icon="envelope-o"
+            placeholder="Enter first name"
+          />
+          <SearchableInput
+            white
+            size="large"
+            icon="envelope-o"
+            placeholder="Enter email"
+          />
+          <SearchableInput
+            white
+            size="large"
+            icon="envelope-o"
+            placeholder="Enter phone"
+          />
         </InputGrid>
         <InputGrid>
           <LinkedlInput
