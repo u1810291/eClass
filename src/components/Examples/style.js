@@ -5,7 +5,7 @@ export const Container = styled.div`
   padding: 20px;
   margin: 20px;
   border-radius: 42px;
-  height: 90%;
+  height: 92%;
   width: 95%;
   overflow-y: scroll;
 `;
@@ -25,7 +25,8 @@ export const InputGrid = styled.div`
 `;
 export const DefaultGrid = styled.div`
   display: grid;
-  grid-template-rows: repeat(auto, 1fr);
+  grid-gap: 5px;
+  grid-template-columns: repeat(30, 1fr);
 `;
 
 export const InputsGroup = styled.div`

@@ -59,6 +59,7 @@ export default () => {
           <NormalInput white size="small" placeholder="Enter phone number" />
         </InputGrid>
       </InputsGroup>
+      <h1>Icons</h1>
       <DefaultGrid>
         {iconSets.map((props, index) => (
           <Item
@@ -68,7 +69,7 @@ export default () => {
             data-tip={props.icon}
             key={`${index + 1}`}
           >
-            <Icon {...props} />
+            <Icon {...props} color="#7F88B1" />
           </Item>
         ))}
       </DefaultGrid>
