@@ -58,17 +58,17 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #F8F8F8;
+  background:transparent;
   border-radius: 8px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(73, 75, 116, 0.1);
+  background: transparent;
   border-radius: 8px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(73, 75, 116, 1);
+  background:transparent;
   border-radius: 8px;
 }
 

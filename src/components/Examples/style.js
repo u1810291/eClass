@@ -7,6 +7,7 @@ export const Container = styled.div`
   border-radius: 42px;
   height: 90%;
   width: 95%;
+  overflow-y: scroll;
 `;
 export const ButtonGrid = styled.div`
   padding: 25px;
@@ -22,10 +23,17 @@ export const InputGrid = styled.div`
   display: grid;
   grid-gap: 15px;
 `;
+export const DefaultGrid = styled.div`
+  display: grid;
+  grid-template-rows: repeat(auto, 1fr);
+`;
 
 export const InputsGroup = styled.div`
   display: grid;
   grid-gap: 10px;
   width: 95%;
   grid-template-columns: repeat(4, 1fr);
+`;
+export const Item = styled.div`
+  cursor: pointer;
 `;

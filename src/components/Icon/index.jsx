@@ -1,4 +1,3 @@
-import { IconWrapper } from "./style";
 import PropTypes from "prop-types";
 import IcommonReact from "icomoon-react";
 import iconSet from "../../assets/icons/design/icons.json";

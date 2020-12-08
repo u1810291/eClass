@@ -1,7 +1,18 @@
 import React from "react";
-import { Container, ButtonGrid, InputGrid, InputsGroup } from "./style";
+import {
+  Container,
+  ButtonGrid,
+  InputGrid,
+  InputsGroup,
+  Item,
+  DefaultGrid,
+} from "./style";
 import { PrimaryButton } from "../Buttons";
 import { NormalInput, SearchableInput, LinkedlInput } from "../Forms/Inputs";
+import iconSets from "./icons";
+import Icon from "../Icon";
+import { copyTxt } from "../../utils/computes";
+
 export default () => {
   return (
     <Container>
@@ -13,6 +24,7 @@ export default () => {
         <PrimaryButton size="large" title="Save" color="#A461D8" />
         <PrimaryButton icon="word" size="large" title="Save" color="#FF9AD5" />
       </ButtonGrid>
+      <h1>Inputs</h1>
       <InputsGroup>
         <InputGrid>
           <NormalInput white size="large" placeholder="Enter first name" />
@@ -47,6 +59,19 @@ export default () => {
           <NormalInput white size="small" placeholder="Enter phone number" />
         </InputGrid>
       </InputsGroup>
+      <DefaultGrid>
+        {iconSets.map((props, index) => (
+          <Item
+            onClick={() => {
+              copyTxt(props.icon);
+            }}
+            data-tip={props.icon}
+            key={`${index + 1}`}
+          >
+            <Icon {...props} />
+          </Item>
+        ))}
+      </DefaultGrid>
     </Container>
   );
 };
