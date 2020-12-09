@@ -1,13 +1,23 @@
 import NormalInput from "./Normal";
 import Searchable from "./Search";
 import ErrorInputs from "./Error";
-export default () => {
+import { InputsGroup } from "./style";
+export default ({ icon }) => {
   return (
-    <>
-      <NormalInput />
-      <Searchable />
-      <ErrorInputs />
-      <NormalInput />
-    </>
+    <InputsGroup>
+      {icon ? (
+        <>
+          <NormalInput icon={icon} />
+          <Searchable icons={icons} />
+          <ErrorInputs icons={icons} />
+        </>
+      ) : (
+        <>
+          <NormalInput />
+          <Searchable />
+          <ErrorInputs />
+        </>
+      )}
+    </InputsGroup>
   );
 };
