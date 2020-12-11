@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # INHA-eClass
 
 # Getting Started with Create React App
@@ -70,3 +71,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+=======
+# FivePlus Learning System - Sturdent adn Teacher
+>>>>>>> f4773df658c323507baa095a403bc8df77ff8b6a
