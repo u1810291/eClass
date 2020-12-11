@@ -16,7 +16,7 @@ build-npm:
     - develop
   artifacts:
     paths:
-      - dist/
+      - build/
     expire_in: 5 minute
   cache:
     key: "$CI_COMMIT_REF_SLUG"
