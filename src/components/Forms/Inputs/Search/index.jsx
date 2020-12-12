@@ -1,20 +1,17 @@
 import React from "react";
-import { Container, Input, Helper, Label, IconWrapper } from "./style";
-import Icon from "../../../Icon";
+import { Container, Input, Label, Helper } from "./style";
 import PropTypes from "prop-types";
 
-const NormalInput = ({
+const SearchableInput = ({
   placeholder,
   disabled,
   size,
   helperText,
   label,
   type,
-  icon,
   ...others
 }) => (
   <Container>
-    {icon ? <Icon icon={icon} /> : ""}
     <Input
       type={type}
       disabled={disabled}
@@ -28,15 +25,14 @@ const NormalInput = ({
     </Helper>
   </Container>
 );
-NormalInput.propTypes = {
+SearchableInput.propTypes = {
   label: PropTypes.string,
   size: PropTypes.string,
-  icon: PropTypes.string,
 };
 
-NormalInput.defaultProps = {
+SearchableInput.defaultProps = {
   label: "",
   size: "medium",
 };
 
-export default NormalInput;
+export default SearchableInput;

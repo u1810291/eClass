@@ -5,6 +5,7 @@ import { PrimaryButton } from "../Buttons";
 import Inputs from "./Inputs";
 import iconSets from "./icons";
 import Icon from "../Icon";
+import { SingleDropdown } from "../Forms/Dropdowns";
 import { copyTxt } from "../../utils/computes";
 
 export default () => {
@@ -37,6 +38,8 @@ export default () => {
         ))}
       </DefaultGrid>
       <ReactTooltip />
+      <h1>Single dropdown</h1>
+      <SingleDropdown />
     </Container>
   );
 };
