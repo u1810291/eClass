@@ -7,6 +7,7 @@ import iconSets from "./icons";
 import Icon from "../Icon";
 import { SingleDropdown } from "../Forms/Dropdowns";
 import { copyTxt } from "../../utils/computes";
+import { single } from "../../data/dropdown";
 
 export default () => {
   return (
@@ -39,7 +40,11 @@ export default () => {
       </DefaultGrid>
       <ReactTooltip />
       <h1>Single dropdown</h1>
-      <SingleDropdown />
+      <SingleDropdown
+        onSelect={(value) => console.log(value)}
+        size="large"
+        options={single}
+      />
     </Container>
   );
 };
