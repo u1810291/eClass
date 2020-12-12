@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, ButtonGrid, Item, DefaultGrid } from "./style";
+import ReactTooltip from "react-tooltip";
 import { PrimaryButton } from "../Buttons";
 import Inputs from "./Inputs";
 import iconSets from "./icons";
@@ -19,6 +20,8 @@ export default () => {
       </ButtonGrid>
       <h1>Inputs</h1>
       <Inputs />
+      <h1>Inputs with icons</h1>
+      <Inputs icons="add-person" />
       <h1>Icons</h1>
       <DefaultGrid>
         {iconSets.map((props, index) => (
@@ -33,6 +36,7 @@ export default () => {
           </Item>
         ))}
       </DefaultGrid>
+      <ReactTooltip />
     </Container>
   );
 };
