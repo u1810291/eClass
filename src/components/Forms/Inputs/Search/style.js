@@ -22,7 +22,7 @@ const search = css`
 
 export const IconWrapper = styled.div`
   position: absolute;
-  padding: 2%;
+  padding-left: 5px;
   svg {
     height: ${getIconSize};
     width: ${getIconSize};
@@ -57,7 +57,9 @@ export const Label = styled.label`
 
 export const Container = styled.div`
   width: 100%;
+  display: flex;
   position: relative;
+  align-items: center;
 `;
 export const Helper = styled.div`
   ${helperText}
