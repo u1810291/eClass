@@ -1,13 +1,7 @@
-import {
-  Container,
-  Input,
-  Label,
-  Helper,
-  IconWrapper,
-  getIconSize,
-} from "./style";
+import { Container, Input, Label, Helper } from "./style";
 import PropTypes from "prop-types";
 import Icon from "../../../Icon";
+import { IconWrapper, getIconSize } from "../style";
 
 const NormalInput = ({
   placeholder,

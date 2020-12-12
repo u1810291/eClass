@@ -1,24 +1,6 @@
 import styled, { css, keyframes } from "styled-components";
 import { getType, label, helperText, getBorderRadius } from "../style";
 
-export const getIconSize = ({ size }) => {
-  switch (size) {
-    case "large" || "Large":
-      return "24px";
-    case "medium" || "Medium":
-      return "18px";
-    case "small" || "Small":
-      return "16px";
-    default:
-      return "24px";
-  }
-};
-
-export const IconWrapper = styled.div`
-  position: absolute;
-  padding: 2%;
-`;
-
 const transition = keyframes`    
   transition: all 0.2s;
   touch-action: manipulation;

@@ -42,6 +42,7 @@ export const Label = styled.label`
 
 export const Container = styled.div`
   width: 100%;
+  position: relative;
 `;
 export const Helper = styled.div`
   ${helperText}

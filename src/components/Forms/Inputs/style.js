@@ -8,6 +8,24 @@ export const InputContainer = styled.div`
   grid-template-columns: 1fr 1fr 1fr 1fr;
 `;
 
+export const IconWrapper = styled.div`
+  position: absolute;
+  padding: 2%;
+`;
+
+export const getIconSize = ({ size }) => {
+  switch (size) {
+    case "large" || "Large":
+      return "24px";
+    case "medium" || "Medium":
+      return "18px";
+    case "small" || "Small":
+      return "16px";
+    default:
+      return "24px";
+  }
+};
+
 export const getFontSize = ({ size }) => {
   switch (size) {
     case "large" || "Large":
