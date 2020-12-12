@@ -7,15 +7,33 @@ export default ({ icon }) => {
     <InputsGroup>
       {icon ? (
         <>
-          <NormalInput icon={icon} />
-          <Searchable icons={icons} />
-          <ErrorInputs icons={icons} />
+          <div>
+            <h4>Normal inputs</h4>
+            <NormalInput icon={icon} />
+          </div>
+          <div>
+            <h4>Searchable inputs</h4>
+            <Searchable icon={icon} />
+          </div>
+          <div>
+            <h4>Error inputs</h4>
+            <ErrorInputs icon={icon} type="error" />
+          </div>
         </>
       ) : (
         <>
-          <NormalInput />
-          <Searchable />
-          <ErrorInputs />
+          <div>
+            <h4>Normal inputs</h4>
+            <NormalInput />
+          </div>
+          <div>
+            <h4>Searchable inputs</h4>
+            <Searchable />
+          </div>
+          <div>
+            <h4>Error inputs</h4>
+            <ErrorInputs type="error" />
+          </div>
         </>
       )}
     </InputsGroup>

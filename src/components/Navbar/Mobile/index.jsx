@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import { useState, useRef } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Container } from "./style";

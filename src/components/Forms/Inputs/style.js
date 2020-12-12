@@ -1,5 +1,18 @@
 import styled, { css } from "styled-components";
 
+export const getIconSize = ({ size }) => {
+  switch (size) {
+    case "large" || "Large":
+      return "24px";
+    case "medium" || "Medium":
+      return "18px";
+    case "small" || "Small":
+      return "12px";
+    default:
+      return "24px";
+  }
+};
+
 export const InputContainer = styled.div`
   /* display: flex;
   flex-direction: column;
@@ -114,7 +127,6 @@ export const fonts = css`
 
 export const error = css`
   ${inputs};
-  background: #ffe9ed;
   border: 1px solid #f29392;
   color: #e71923;
   box-sizing: border-box;
@@ -125,7 +137,6 @@ export const error = css`
   }
   &:not(:focus)&:not(:disabled):hover {
     color: #e71923;
-    background: #ffe9ed;
   }
   ::placeholder {
     color: #e5858a;

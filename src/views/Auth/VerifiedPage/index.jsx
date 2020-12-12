@@ -1,5 +1,4 @@
-import React from "react";
-import { useHistory, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { VerifiedContainer } from "./style";
 import { PrimaryButton } from "../../../components/Buttons";

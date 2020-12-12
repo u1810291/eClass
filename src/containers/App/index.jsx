@@ -1,4 +1,3 @@
-import React from "react";
 import { useSelector, shallowEqual } from "react-redux";
 import { Switch, Route, Redirect } from "react-router-dom";
 import SignIn from "../../views/Auth/SignIn";

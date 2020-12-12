@@ -5,7 +5,9 @@ import { PrimaryButton } from "../Buttons";
 import Inputs from "./Inputs";
 import iconSets from "./icons";
 import Icon from "../Icon";
+import { SingleDropdown } from "../Forms/Dropdowns";
 import { copyTxt } from "../../utils/computes";
+import { single } from "../../data/dropdown";
 
 export default () => {
   return (
@@ -21,7 +23,7 @@ export default () => {
       <h1>Inputs</h1>
       <Inputs />
       <h1>Inputs with icons</h1>
-      <Inputs icons="add-person" />
+      <Inputs icon="add" />
       <h1>Icons</h1>
       <DefaultGrid>
         {iconSets.map((props, index) => (
@@ -37,6 +39,12 @@ export default () => {
         ))}
       </DefaultGrid>
       <ReactTooltip />
+      <h1>Single dropdown</h1>
+      <SingleDropdown
+        onSelect={(value) => console.log(value)}
+        size="large"
+        options={single}
+      />
     </Container>
   );
 };

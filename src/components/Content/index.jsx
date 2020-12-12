@@ -1,4 +1,3 @@
-import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import { Container, Content } from "./style";
 import { childRoutes } from "../../routes/sidebar-elemets";

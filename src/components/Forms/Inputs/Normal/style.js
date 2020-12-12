@@ -1,5 +1,20 @@
 import styled, { css, keyframes } from "styled-components";
-import { getType, label, helperText, getBorderRadius } from "../style";
+import {
+  getType,
+  label,
+  helperText,
+  getBorderRadius,
+  getIconSize,
+} from "../style";
+
+export const IconWrapper = styled.div`
+  position: absolute;
+  padding-left: 5px;
+  svg {
+    height: ${getIconSize};
+    width: ${getIconSize};
+  }
+`;
 
 const transition = keyframes`    
   transition: all 0.2s;
@@ -16,6 +31,9 @@ const search = css`
 
 export const Input = styled.input`
   ${getType};
+  ${({ error: error }) => error && error} ::-webkit-input-placeholder {
+    color: #535875 !important;
+  }
   border-radius: ${getBorderRadius};
   outline: none !important;
   text-indent: 10px;
@@ -42,6 +60,9 @@ export const Label = styled.label`
 
 export const Container = styled.div`
   width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
 `;
 export const Helper = styled.div`
   ${helperText}

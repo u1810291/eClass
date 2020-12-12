@@ -1,4 +1,3 @@
-import React from "react";
 import { Container, Input, Label, Helper } from "./style";
 import PropTypes from "prop-types";
 
