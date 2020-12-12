@@ -1,5 +1,11 @@
 import styled, { css, keyframes } from "styled-components";
-import { getType, label, helperText, getBorderRadius } from "../style";
+import {
+  getType,
+  label,
+  helperText,
+  getBorderRadius,
+  getIconSize,
+} from "../style";
 
 const transition = keyframes`    
   transition: all 0.2s;
@@ -11,6 +17,15 @@ const search = css`
   &:focus {
     /* outline: none !important;
     border: none !important; */
+  }
+`;
+
+export const IconWrapper = styled.div`
+  position: absolute;
+  padding: 2%;
+  svg {
+    height: ${getIconSize};
+    width: ${getIconSize};
   }
 `;
 

@@ -1,7 +1,6 @@
-import { Container, Input, Label, Helper } from "./style";
+import { Container, Input, Label, Helper, IconWrapper } from "./style";
 import PropTypes from "prop-types";
 import Icon from "../../../Icon";
-import { IconWrapper, getIconSize } from "../style";
 
 const SearchableInput = ({
   placeholder,
@@ -14,8 +13,8 @@ const SearchableInput = ({
   ...others
 }) => (
   <Container>
-    <IconWrapper>
-      <Icon icon={icon} size={getIconSize(size)} />
+    <IconWrapper size={size}>
+      <Icon icon={icon} />
     </IconWrapper>
     <Input
       type={type}

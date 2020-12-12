@@ -1,5 +1,20 @@
 import styled, { css, keyframes } from "styled-components";
-import { getType, label, helperText, getBorderRadius } from "../style";
+import {
+  getType,
+  label,
+  helperText,
+  getBorderRadius,
+  getIconSize,
+} from "../style";
+
+export const IconWrapper = styled.div`
+  position: absolute;
+  padding: 4px;
+  svg {
+    height: ${getIconSize};
+    width: ${getIconSize};
+  }
+`;
 
 const transition = keyframes`    
   transition: all 0.2s;
@@ -42,7 +57,6 @@ export const Label = styled.label`
 
 export const Container = styled.div`
   width: 100%;
-  position: relative;
 `;
 export const Helper = styled.div`
   ${helperText}

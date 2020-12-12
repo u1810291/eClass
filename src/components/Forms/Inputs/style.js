@@ -1,18 +1,5 @@
 import styled, { css } from "styled-components";
 
-export const InputContainer = styled.div`
-  /* display: flex;
-  flex-direction: column;
-  justify-content: space-around; */
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-`;
-
-export const IconWrapper = styled.div`
-  position: absolute;
-  padding: 2%;
-`;
-
 export const getIconSize = ({ size }) => {
   switch (size) {
     case "large" || "Large":
@@ -20,11 +7,19 @@ export const getIconSize = ({ size }) => {
     case "medium" || "Medium":
       return "18px";
     case "small" || "Small":
-      return "16px";
+      return "12px";
     default:
       return "24px";
   }
 };
+
+export const InputContainer = styled.div`
+  /* display: flex;
+  flex-direction: column;
+  justify-content: space-around; */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+`;
 
 export const getFontSize = ({ size }) => {
   switch (size) {
