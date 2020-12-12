@@ -31,6 +31,9 @@ const search = css`
 
 export const Input = styled.input`
   ${getType};
+  ${({ error: error }) => error && error} ::-webkit-input-placeholder {
+    color: #535875 !important;
+  }
   border-radius: ${getBorderRadius};
   outline: none !important;
   text-indent: 10px;

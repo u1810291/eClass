@@ -14,7 +14,7 @@ const SearchableInput = ({
 }) => (
   <Container>
     <IconWrapper size={size}>
-      <Icon icon={icon} />
+      <Icon icon="search" color="#9d9d9d" />
     </IconWrapper>
     <Input
       type={type}
