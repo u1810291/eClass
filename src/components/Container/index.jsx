@@ -1,4 +1,3 @@
-import React from "react";
 import { MobileContainer, DesktopContainer, TabletContainer } from "./style";
 import { useWindowSize } from "../../hooks/use-window-size";
 import * as devices from "../../constants/devices";

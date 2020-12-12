@@ -13,11 +13,11 @@ export default ({ icon }) => {
           </div>
           <div>
             <h4>Searchable inputs</h4>
-            <Searchable icons={icons} />
+            <Searchable icon={icon} />
           </div>
           <div>
             <h4>Error inputs</h4>
-            <ErrorInputs icons={icons} type="error" />
+            <ErrorInputs icon={icon} type="error" />
           </div>
         </>
       ) : (

@@ -22,7 +22,7 @@ export default () => {
       <h1>Inputs</h1>
       <Inputs />
       <h1>Inputs with icons</h1>
-      <Inputs icons="add-person" />
+      <Inputs icon="add" />
       <h1>Icons</h1>
       <DefaultGrid>
         {iconSets.map((props, index) => (

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import classNames from "classnames";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";

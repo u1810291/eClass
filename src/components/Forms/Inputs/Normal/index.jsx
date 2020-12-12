@@ -1,6 +1,13 @@
-import React from "react";
-import { Container, Input, Label, Helper } from "./style";
+import {
+  Container,
+  Input,
+  Label,
+  Helper,
+  IconWrapper,
+  getIconSize,
+} from "./style";
 import PropTypes from "prop-types";
+import Icon from "../../../Icon";
 
 const NormalInput = ({
   placeholder,
@@ -9,9 +16,13 @@ const NormalInput = ({
   helperText,
   label,
   type,
+  icon,
   ...others
 }) => (
   <Container>
+    <IconWrapper>
+      <Icon icon={icon} size={getIconSize(size)} />
+    </IconWrapper>
     <Input
       type={type}
       disabled={disabled}
