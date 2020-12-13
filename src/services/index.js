@@ -24,9 +24,10 @@ Axios.instance.interceptors.response.use(
 );
 
 Axios.instance.interceptors.request.use((config) => {
-  const token = localStorage.getItem("token");
+  const access_token = sessionStorage.getItem("access_token");
+  const refresh_token = sessionStorage.getItem("refresh_token");
   // eslint-disable-next-line no-param-reassign
-  config.headers.Authorization = `Bearer ${token}`;
+  config.headers.Authorization = `Bearer ${access_token}`;
   return config;
 });
 export function execute(promise) {

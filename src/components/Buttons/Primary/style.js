@@ -19,7 +19,7 @@ export const Container = styled.button`
     outline: none;
   }
   &:not(:disabled):focus {
-    background: #0062ff;
+    background: #297bff;
   }
   &:not(:disabled):hover svg {
     path {

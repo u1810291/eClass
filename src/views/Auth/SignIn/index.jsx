@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import auth from "../../../services/auth";
 import { NormalInput } from "../../../components/Forms/Inputs";
 import { PrimaryButton } from "../../../components/Buttons";
+import Axios from "axios";
 import {
   AuthForm,
   ResetPassword,
@@ -27,9 +28,13 @@ export default () => {
     onSubmit: (values, { setSubmitting }) => {
       setSubmitting(true);
       auth.getToken(values).then((data) => {
+        console.log(data);
         setSubmitting(false);
         history.push(`/verified?userId=${data.userId}&token=${data.token}`);
       });
+      // Axios.post("https://five-plus.co/api/v1/login", values)
+      //   .then((data) => console.log(data))
+      //   .catch((err) => console.log(err));
     },
   });
   return (
