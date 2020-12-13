@@ -1,5 +1,11 @@
 import styled, { css, keyframes } from "styled-components";
-import { getType, label, helperText, getBorderRadius } from "../style";
+import {
+  getType,
+  label,
+  helperText,
+  getBorderRadius,
+  getIconSize,
+} from "../style";
 
 const transition = keyframes`    
   transition: all 0.2s;
@@ -11,6 +17,15 @@ const search = css`
   &:focus {
     /* outline: none !important;
     border: none !important; */
+  }
+`;
+
+export const IconWrapper = styled.div`
+  position: absolute;
+  padding-left: 5px;
+  svg {
+    height: ${getIconSize};
+    width: ${getIconSize};
   }
 `;
 
@@ -42,7 +57,9 @@ export const Label = styled.label`
 
 export const Container = styled.div`
   width: 100%;
+  display: flex;
   position: relative;
+  align-items: center;
 `;
 export const Helper = styled.div`
   ${helperText}

@@ -72,6 +72,9 @@ body {
   border-radius: 8px;
 }
 
+::-webkit-input-placeholder {
+  color: #535875 !important;
+}
 .apexcharts-legend.apexcharts-align-right .apexcharts-legend-series, .apexcharts-legend.apexcharts-align-left .apexcharts-legend-series {
   display: flex !important;
   align-items: center;
