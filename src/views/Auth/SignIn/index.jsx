@@ -36,8 +36,11 @@ export default () => {
     <AuthWrapper>
       <AuthWrapper.Left>
         <AuthHeader>
-          <Text>Please sign in</Text>
+          <Text>Sign In</Text>
         </AuthHeader>
+        <TextCenter>
+          Just sign in if you have an account. Enjoy our Website.
+        </TextCenter>
         <AuthForm onSubmit={formik.handleSubmit}>
           <NormalInput
             white

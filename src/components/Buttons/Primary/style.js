@@ -8,7 +8,7 @@ export const Title = styled.span`
 
 export const Container = styled.button`
   ${buttons};
-  background: ${({ color }) => color};
+  background: ${({ color }) => (color ? color : "#0062FF")};
   cursor: pointer;
   svg {
     path {
@@ -19,7 +19,7 @@ export const Container = styled.button`
     outline: none;
   }
   &:not(:disabled):focus {
-    background: #5c00d6;
+    background: #0062ff;
   }
   &:not(:disabled):hover svg {
     path {
@@ -27,10 +27,10 @@ export const Container = styled.button`
     }
   }
   &:not(:disabled):hover {
-    background: #5c00d6;
+    background: #297bff;
   }
   &:not(:disabled):active {
-    background: #5c00d6;
+    background: #0062ff;
   }
   &:disabled {
     background: #f5f5f5;
