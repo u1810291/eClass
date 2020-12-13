@@ -1,23 +1,23 @@
 import { InputGrid } from "../style";
-import { NormalInput } from "../../../Forms/Inputs";
+import { IconInput } from "../../../Forms/Inputs";
 export default ({ icon, type }) => {
   return (
     <InputGrid>
-      <NormalInput
+      <IconInput
         white
         icon={icon}
         size="large"
         placeholder="Enter first name"
         type={type}
       />
-      <NormalInput
+      <IconInput
         white
         icon={icon}
         size="medium"
         placeholder="Enter email"
         type={type}
       />
-      <NormalInput
+      <IconInput
         white
         icon={icon}
         size="small"
