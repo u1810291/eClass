@@ -9,10 +9,6 @@ export default ({ icon }) => {
       {icon ? (
         <>
           <div>
-            <h4>Normal inputs</h4>
-            <NormalInput />
-          </div>
-          <div>
             <h4>Icon inputs</h4>
             <IconInputs icon={icon} />
           </div>
@@ -23,6 +19,10 @@ export default ({ icon }) => {
           <div>
             <h4>Error inputs</h4>
             <ErrorInputs icon={icon} type="error" />
+          </div>
+          <div>
+            <h4>Success inputs</h4>
+            <NormalInput icon={icon} type="success" />
           </div>
         </>
       ) : (
@@ -42,6 +42,10 @@ export default ({ icon }) => {
           <div>
             <h4>Error inputs</h4>
             <ErrorInputs type="error" />
+          </div>
+          <div>
+            <h4>Success inputs</h4>
+            <NormalInput icon={icon} type="success" />
           </div>
         </>
       )}
