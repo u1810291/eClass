@@ -1,0 +1,81 @@
+import Examples from "../components/Examples";
+import Profile from "../views/Profile";
+export const childRoutes = [
+  {
+    path: "/profile",
+    component: Profile,
+    icon: "",
+    title: "Profile",
+    children: [],
+  },
+  {
+    path: "/lectures",
+    component: Profile,
+    icon: "",
+    title: "Lectures",
+    children: [],
+  },
+  {
+    path: "/homework",
+    component: Profile,
+    icon: "",
+    title: "Homeworks",
+    children: [],
+  },
+  {
+    path: "/quiz",
+    component: Profile,
+    icon: "",
+    title: "Quiz",
+    children: [],
+  },
+  {
+    path: "/grades",
+    component: Profile,
+    icon: "",
+    title: "Grades",
+    children: [],
+  },
+  {
+    path: "/attendance",
+    component: Profile,
+    icon: "",
+    title: "Attendance",
+    children: [],
+  },
+  {
+    path: "/library",
+    component: Profile,
+    icon: "",
+    title: "Library",
+    children: [],
+  },
+  {
+    path: "/video-materials",
+    component: Profile,
+    icon: "",
+    title: "Video materials",
+    children: [],
+  },
+  {
+    path: "/chat",
+    component: Profile,
+    icon: "",
+    title: "Chat",
+    children: [],
+  },
+  {
+    path: "/tech-support",
+    component: Profile,
+    icon: "",
+    title: "Tech support",
+    children: [],
+  },
+  {
+    path: "/example",
+    component: Examples,
+    icon: "",
+    title: "Example",
+    children: [],
+  },
+];
