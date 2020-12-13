@@ -1,6 +1,5 @@
 import { Container, Input, Label, Helper, IconWrapper } from "./style";
 import PropTypes from "prop-types";
-import Icon from "../../../Icon";
 
 const NormalInput = ({
   placeholder,
@@ -9,13 +8,9 @@ const NormalInput = ({
   helperText,
   label,
   type,
-  icon,
   ...others
 }) => (
   <Container>
-    <IconWrapper size={size}>
-      <Icon icon={icon} />
-    </IconWrapper>
     <Input
       type={type}
       disabled={disabled}

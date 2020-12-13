@@ -1,6 +1,7 @@
-import NormalInput from "./Normal";
+import IconInputs from "./Icon";
 import Searchable from "./Search";
 import ErrorInputs from "./Error";
+import NormalInput from "./Normal";
 import { InputsGroup } from "./style";
 export default ({ icon }) => {
   return (
@@ -9,7 +10,11 @@ export default ({ icon }) => {
         <>
           <div>
             <h4>Normal inputs</h4>
-            <NormalInput icon={icon} />
+            <NormalInput />
+          </div>
+          <div>
+            <h4>Icon inputs</h4>
+            <IconInputs icon={icon} />
           </div>
           <div>
             <h4>Searchable inputs</h4>
@@ -25,6 +30,10 @@ export default ({ icon }) => {
           <div>
             <h4>Normal inputs</h4>
             <NormalInput />
+          </div>
+          <div>
+            <h4>Icon inputs</h4>
+            <IconInputs />
           </div>
           <div>
             <h4>Searchable inputs</h4>
