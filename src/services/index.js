@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const baseURL = process.env.REACT_APP_SERVICE_URL || "/api";
+console.log(baseURL);
 
 const Axios = {
   _instance: null,
@@ -11,6 +12,7 @@ const Axios = {
     return this._instance;
   },
 };
+console.log(Axios);
 
 Axios.instance.interceptors.response.use(
   (res) => res,
@@ -24,17 +26,18 @@ Axios.instance.interceptors.response.use(
 );
 
 Axios.instance.interceptors.request.use((config) => {
-  const access_token = sessionStorage.getItem("access_token");
-  const refresh_token = sessionStorage.getItem("refresh_token");
+  const token = sessionStorage.getItem("token");
   // eslint-disable-next-line no-param-reassign
-  config.headers.Authorization = `Bearer ${access_token}`;
+  config.headers.Authorization = `Bearer ${token}`;
   return config;
 });
 export function execute(promise) {
   return new Promise((resolve, reject) => {
+    console.log(promise);
     promise
       .then((response) => {
-        resolve(response.data);
+        console.log(baseURL);
+        resolve(response);
       })
       .catch(reject);
   });
