@@ -2,7 +2,6 @@ import axios from "axios";
 const baseURL = process.env.REACT_APP_SERVICE_URL;
 
 const service = axios.create({ baseURL });
-console.log(baseURL);
 const CustomAxios = {
   _instance: null,
   get instance() {
@@ -24,9 +23,9 @@ service.interceptors.response.use(
 );
 
 service.interceptors.request.use((config) => {
-  const token = localStorage.getItem("token");
+  const access_token = sessionStorage.getItem("access_token");
   // eslint-disable-next-line no-param-reassign
-  config.headers.Authorization = `Bearer ${token}`;
+  config.headers.Authorization = `Bearer ${access_token}`;
   return config;
 });
 

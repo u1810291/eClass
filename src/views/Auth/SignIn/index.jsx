@@ -1,10 +1,10 @@
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import auth from "../../../services/auth";
 import { NormalInput } from "../../../components/Forms/Inputs";
 import { PrimaryButton } from "../../../components/Buttons";
-import Axios from "axios";
 import {
   AuthForm,
   ResetPassword,
@@ -13,9 +13,11 @@ import {
   AuthWrapper,
   Text,
 } from "../style";
+import { login } from "../../../redux/modules/auth/actions";
 
 export default () => {
   const history = useHistory();
+  const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
       username: "",
@@ -28,9 +30,10 @@ export default () => {
     onSubmit: (values, { setSubmitting }) => {
       setSubmitting(true);
       auth.getToken(values).then((data) => {
-        console.log(data);
         setSubmitting(false);
-        history.push(`/verified?userId=${data.userId}&token=${data.token}`);
+        history.push(
+          `/verified?userId=${data.userId}&access_token=${data.access_token}&refresh_token=${data.refresh_token}`
+        );
       });
     },
   });
