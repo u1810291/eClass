@@ -16,8 +16,8 @@ AuthWrapper.Left = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 120px 0;
-  font-weight: 600;
+  padding: 220px 0;
+  font-weight: 200;
 
   @media (max-width: 960px) {
     width: 100%;

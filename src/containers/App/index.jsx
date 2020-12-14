@@ -10,7 +10,7 @@ import appSelector from "../../redux/selectors/app";
 import Home from "../Home";
 
 export default () => {
-  const { token, showModal } = useSelector(appSelector, shallowEqual);
+  const { access_token, showModal } = useSelector(appSelector, shallowEqual);
 
   const publicRoutes = (
     <Container>
@@ -33,5 +33,5 @@ export default () => {
     </Container>
   );
 
-  return token ? protectedRoutes : publicRoutes;
+  return access_token ? protectedRoutes : publicRoutes;
 };
