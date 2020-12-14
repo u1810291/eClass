@@ -60,6 +60,9 @@ export const Label = styled.label`
 
 export const Container = styled.div`
   width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
 `;
 export const Helper = styled.div`
   ${helperText}

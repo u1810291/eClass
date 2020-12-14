@@ -1,6 +1,5 @@
 import { InputGrid } from "../style";
 import { IconInput } from "../../../Forms/Inputs";
-
 export default ({ icon, type }) => {
   return (
     <InputGrid>
@@ -8,22 +7,22 @@ export default ({ icon, type }) => {
         white
         icon={icon}
         size="large"
-        type={type}
         placeholder="Enter first name"
+        type={type}
       />
       <IconInput
         white
         icon={icon}
         size="medium"
+        placeholder="Enter email"
         type={type}
-        placeholder="Enter phone number"
       />
       <IconInput
         white
         icon={icon}
         size="small"
+        placeholder="Enter phone"
         type={type}
-        placeholder="Enter email"
       />
     </InputGrid>
   );

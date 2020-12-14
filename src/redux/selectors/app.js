@@ -7,7 +7,7 @@ export default createSelector(
     alert: state.alertReducer,
   }),
   ({ auth, modal, alert }) => ({
-    token: auth.token,
+    access_token: auth.access_token,
     showModal: modal.blured.show,
     showAlert: alert.show,
   })

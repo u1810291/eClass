@@ -1,17 +1,20 @@
 import types from "../../../constants/action-types";
 
 const defaultState = {
-  token: sessionStorage.getItem("token"),
+  access_token: sessionStorage.getItem("access_token"),
+  refresh_token: sessionStorage.getItem("refresh_token"),
 };
 
 const map = {
-  [types.AUTH_LOGIN]: (state, { token }) => {
-    sessionStorage.setItem("token", token);
-    return { ...state, token };
+  [types.AUTH_LOGIN]: (state, { access_token, refresh_token }) => {
+    sessionStorage.setItem("access_token", access_token);
+    sessionStorage.setItem("refresh_token", refresh_token);
+    return { ...state, access_token, refresh_token };
   },
   [types.AUTH_LOGOUT]: (state) => {
-    sessionStorage.removeItem("token");
-    return { ...state, token: "" };
+    sessionStorage.removeItem("access_token");
+    sessionStorage.removeItem("refresh_token");
+    return { ...state, access_token: "", refresh_token: "" };
   },
 };
 

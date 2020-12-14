@@ -14,11 +14,13 @@ export default () => {
   const query = useQuery();
   const handleClick = () => {
     const params = {
-      id: query.get("userId"),
-      verified_token: query.get("token"),
+      verified_access_token: query.get("access_token"),
+      verified_refresh_token: query.get("refresh_token"),
     };
     auth.authVerify(params).then(() => {
-      dispatch(login(params.verified_token));
+      dispatch(
+        login(params.verified_access_token, params.verified_refresh_token)
+      );
     });
   };
   return (

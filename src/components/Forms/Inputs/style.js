@@ -147,7 +147,7 @@ export const success = css`
   ${inputs};
 
   box-sizing: border-box;
-  background: #e3f7ec;
+  background: white;
   border: 1px solid #8edfb2;
   color: #00ae59;
   &:focus {
@@ -159,7 +159,7 @@ export const success = css`
   }
   &:not(:focus)&:not(:disabled):hover {
     color: #00ae59;
-    background: #e3f7ec;
+    background: white;
   }
   ::placeholder {
     color: #57e59f;
