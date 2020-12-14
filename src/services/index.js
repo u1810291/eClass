@@ -1,23 +1,21 @@
 import axios from "axios";
+const baseURL = process.env.REACT_APP_SERVICE_URL;
 
-const baseURL = process.env.REACT_APP_SERVICE_URL || "/api";
+const service = axios.create({ baseURL });
 console.log(baseURL);
-
-const Axios = {
+const CustomAxios = {
   _instance: null,
   get instance() {
     if (!this._instance) {
-      this._instance = axios.create({ baseURL });
+      this._instance = axios.create({ baseURL: "/api" });
     }
     return this._instance;
   },
 };
-console.log(Axios);
 
-Axios.instance.interceptors.response.use(
+service.interceptors.response.use(
   (res) => res,
   (error) => {
-    console.log(error);
     if (error.response.status === 401) {
       window.location.replace("/logout");
     }
@@ -25,28 +23,22 @@ Axios.instance.interceptors.response.use(
   }
 );
 
-Axios.instance.interceptors.request.use((config) => {
-  const token = sessionStorage.getItem("token");
+service.interceptors.request.use((config) => {
+  const token = localStorage.getItem("token");
   // eslint-disable-next-line no-param-reassign
   config.headers.Authorization = `Bearer ${token}`;
   return config;
 });
+
 export function execute(promise) {
   return new Promise((resolve, reject) => {
-    console.log(promise);
     promise
       .then((response) => {
-        console.log(baseURL);
-        resolve(response);
+        resolve(response.data);
       })
       .catch(reject);
   });
 }
 
-// Depreciated
-export function paginate(url, params) {
-  const [startRow = 0, endRow = 10] = params;
-  return execute(Axios.instance.get(url, { startRow, endRow }));
-}
-
-export default Axios.instance;
+export { service };
+export default CustomAxios.instance;

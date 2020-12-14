@@ -32,9 +32,6 @@ export default () => {
         setSubmitting(false);
         history.push(`/verified?userId=${data.userId}&token=${data.token}`);
       });
-      // Axios.post("https://five-plus.co/api/v1/login", values)
-      //   .then((data) => console.log(data))
-      //   .catch((err) => console.log(err));
     },
   });
   return (
