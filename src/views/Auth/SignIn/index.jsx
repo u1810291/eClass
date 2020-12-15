@@ -12,6 +12,9 @@ import {
   AuthHeader,
   AuthWrapper,
   Text,
+  Privacy,
+  SignUp,
+  CustomLink,
   FooterText,
 } from "../style";
 import { PureCheckbox } from "../../../components/Forms/CheckBox";
@@ -88,7 +91,24 @@ export default () => {
             </TextCenter.Right>
           </TextCenter>
           <PrimaryButton title="Sign in" type="submit" size="large" />
-          <FooterText>Some</FooterText>
+          <FooterText>
+            <SignUp onClick={() => history.push("/reset")}>
+              Cant login? Sign up for new user?
+            </SignUp>
+            <Privacy>
+              By signing up, you confirm that you've read and accepted our
+              <CustomLink onClick={() => history.push("/reset")}>
+                {" "}
+                User Notice{" "}
+              </CustomLink>
+              and
+              <CustomLink onClick={() => history.push("/reset")}>
+                {" "}
+                Privacy Policy
+              </CustomLink>
+              .
+            </Privacy>
+          </FooterText>
         </AuthForm>
       </AuthWrapper.Center>
     </AuthWrapper>

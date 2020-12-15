@@ -91,7 +91,32 @@ export const ResetPassword = styled.span`
 `;
 
 export const FooterText = styled.div`
+  text-align: center;
   display: grid;
-  grid-template-columns: 30% 70% 1fr;
+  grid-template-columns: 1fr;
   grid-template-rows: 1fr;
+  grid-gap: 25px;
+`;
+
+export const Privacy = styled.div`
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 20px;
+  text-align: center;
+
+  color: #92929d;
+`;
+
+export const CustomLink = styled.span`
+  color: #0062ff;
+  cursor: pointer;
+`;
+export const SignUp = styled.div`
+  color: #0062ff;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 18px;
+  cursor: pointer;
 `;
