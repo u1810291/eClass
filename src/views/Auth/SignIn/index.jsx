@@ -12,8 +12,10 @@ import {
   AuthHeader,
   AuthWrapper,
   Text,
+  FooterText,
 } from "../style";
-import { login } from "../../../redux/modules/auth/actions";
+import { PureCheckbox } from "../../../components/Forms/CheckBox";
+import logo from "../../../assets/icons/logo2.svg";
 
 export default () => {
   const history = useHistory();
@@ -39,14 +41,15 @@ export default () => {
   });
   return (
     <AuthWrapper>
-      <AuthWrapper.Left>
-        <AuthHeader>
-          <Text>Sign In</Text>
-        </AuthHeader>
-        <TextCenter>
-          Just sign in if you have an account. Enjoy our Website.
-        </TextCenter>
+      <AuthWrapper.Center className="noselect">
+        <img src={logo} />
         <AuthForm onSubmit={formik.handleSubmit}>
+          <AuthHeader>
+            <Text>Sign In</Text>
+          </AuthHeader>
+          <TextCenter>
+            Just sign in if you have an account. Enjoy our Website.
+          </TextCenter>
           <NormalInput
             white
             size="large"
@@ -73,14 +76,21 @@ export default () => {
             value={formik.values.password}
             onChange={(e) => formik.setFieldValue("password", e.target.value)}
           />
-          <PrimaryButton title="Sign in" type="submit" size="large" />
           <TextCenter>
-            <ResetPassword onClick={() => history.push("/reset")}>
-              Forget password?
-            </ResetPassword>
+            <TextCenter.Left>
+              <PureCheckbox type="checkbox" readOnly />
+            </TextCenter.Left>
+            Remember me
+            <TextCenter.Right>
+              <ResetPassword onClick={() => history.push("/reset")}>
+                Forget password?
+              </ResetPassword>
+            </TextCenter.Right>
           </TextCenter>
+          <PrimaryButton title="Sign in" type="submit" size="large" />
+          <FooterText>Some</FooterText>
         </AuthForm>
-      </AuthWrapper.Left>
+      </AuthWrapper.Center>
     </AuthWrapper>
   );
 };
