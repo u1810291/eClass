@@ -8,6 +8,7 @@ import Icon from "../Icon";
 import { SingleDropdown } from "../Forms/Dropdowns";
 import { copyTxt } from "../../utils/computes";
 import { single } from "../../data/dropdown";
+import { PureCheckbox } from "../Forms/CheckBox";
 
 export default () => {
   return (
@@ -45,6 +46,8 @@ export default () => {
         size="large"
         options={single}
       />
+      <h1>Checkbox</h1>
+      <PureCheckbox type="checkbox" readOnly />
     </Container>
   );
 };

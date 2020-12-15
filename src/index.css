@@ -16,7 +16,7 @@ body {
 
 :root {
   --custom-primary: #F64E60;
-  --custom-primary-light: #FFE5E8;
+  --custom-primary-light: white;
   --custom-secondary: #FFA800;
   --custom-secondary-light: #FFF4DE;
   --sidebar-width: 245px;
