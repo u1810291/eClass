@@ -4,14 +4,14 @@ export const childRoutes = [
   {
     path: "/profile",
     component: Profile,
-    icon: "",
+    icon: "category",
     title: "Profile",
     children: [],
   },
   {
     path: "/lectures",
     component: Profile,
-    icon: "",
+    icon: "lesson",
     title: "Lectures",
     children: [],
   },

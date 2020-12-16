@@ -4,7 +4,8 @@ export const Container = styled.div`
   height: 100%;
   display: flex;
   width: 100%;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: auto;
 `;
 
 export const Content = styled.div`
