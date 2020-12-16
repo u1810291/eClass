@@ -1,4 +1,4 @@
-import { Container, Input, Label, Helper, IconWrapper } from "./style";
+import { Container, Input, Label, Helper, InnerContainer } from "./style";
 import PropTypes from "prop-types";
 
 const NormalInput = ({
@@ -11,14 +11,16 @@ const NormalInput = ({
   ...others
 }) => (
   <Container>
-    <Input
-      type={type}
-      disabled={disabled}
-      size={size}
-      placeholder={placeholder}
-      {...others}
-    />
-    <Label>{label}</Label>
+    <InnerContainer>
+      <Input
+        type={type}
+        disabled={disabled}
+        size={size}
+        placeholder={placeholder}
+        {...others}
+      />
+      <Label>{label}</Label>
+    </InnerContainer>
     <Helper type={type} size={size}>
       {helperText}
     </Helper>

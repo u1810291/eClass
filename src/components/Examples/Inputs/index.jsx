@@ -29,7 +29,7 @@ export default ({ icon }) => {
         <>
           <div>
             <h4>Normal inputs</h4>
-            <NormalInput />
+            <NormalInput type="normal" />
           </div>
           <div>
             <h4>Icon inputs</h4>

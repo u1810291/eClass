@@ -8,6 +8,8 @@ export const Container = styled.div`
   height: 92%;
   width: 95%;
   overflow-y: scroll;
+  display: grid;
+  grid-gap: 20px;
 `;
 export const ButtonGrid = styled.div`
   padding: 25px;
