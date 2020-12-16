@@ -9,6 +9,7 @@ import {
   SubElements,
   SubElement,
 } from "./style";
+import Icon from "../../Icon";
 
 const Item = ({ title, path, icon, collapsed, elements }) => {
   const [hovered, setHovered] = useState(false);
@@ -28,7 +29,9 @@ const Item = ({ title, path, icon, collapsed, elements }) => {
         onMouseLeave={() => setHovered(false)}
         onClick={() => history.push(path)}
       >
-        <IconContainer collapsed={collapsed}></IconContainer>
+        <IconContainer collapsed={collapsed}>
+          <Icon icon={icon} size="1.5em" />
+        </IconContainer>
         <Title
           active={isActive(path)}
           hovered={hovered}

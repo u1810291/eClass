@@ -7,7 +7,7 @@ export const Container = styled.div`
   border-radius: 42px;
   height: 92%;
   width: 95%;
-  overflow-y: scroll;
+  overflow-y: auto;
   display: grid;
   grid-gap: 20px;
 `;

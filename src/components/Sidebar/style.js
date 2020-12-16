@@ -3,7 +3,7 @@ import { device } from "../../utils/responsive";
 
 export const BodyContainer = styled.div`
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
   grid-area: body;
   width: 245px;
   height: 938.73px;
