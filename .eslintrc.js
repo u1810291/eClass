@@ -14,6 +14,5 @@ module.exports = {
     "jsx-a11y/anchor-is-valid": "off",
     "no-underscore-dangle": 0,
     "react/prop-types": 0,
-    "no-console": "warn",
   },
 };
