@@ -1,14 +1,19 @@
 import React from "react";
-import { Container, ButtonGrid, Item, DefaultGrid } from "./style";
+import {
+  Container,
+  ButtonGrid,
+  Item,
+  DefaultGrid,
+  DropdownExamples,
+} from "./style";
 import ReactTooltip from "react-tooltip";
 import { PrimaryButton } from "../Buttons";
 import Inputs from "./Inputs";
 import iconSets from "./icons";
 import Icon from "../Icon";
-import { SingleDropdown } from "../Forms/Dropdowns";
 import { copyTxt } from "../../utils/computes";
-import { single } from "../../data/dropdown";
-import { PureCheckbox } from "../Forms/CheckBox";
+import { PureCheckbox } from "../CheckBox";
+import Dropdowns from "./Dropdowns";
 
 export default () => {
   return (
@@ -41,13 +46,10 @@ export default () => {
       </DefaultGrid>
       <ReactTooltip />
       <h1>Single dropdown</h1>
-      <SingleDropdown
-        onSelect={(value) => console.log(value)}
-        size="large"
-        options={single}
-      />
-      <h1>Checkbox</h1>
-      <PureCheckbox type="checkbox" readOnly />
+      <DropdownExamples>
+        <Dropdowns />
+      </DropdownExamples>
+      <PureCheckbox type="checkbox" />
     </Container>
   );
 };

@@ -1,5 +1,11 @@
 import styled from "styled-components";
 
+export const DropdownExamples = styled.div`
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+`;
+
 export const Container = styled.div`
   background: white;
   padding: 20px;

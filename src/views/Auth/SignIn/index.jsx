@@ -17,12 +17,11 @@ import {
   CustomLink,
   FooterText,
 } from "../style";
-import { PureCheckbox } from "../../../components/Forms/CheckBox";
+import { PureCheckbox } from "../../../components/CheckBox";
 import logo from "../../../assets/icons/logo2.svg";
 
 export default () => {
   const history = useHistory();
-  const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
       username: "",

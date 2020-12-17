@@ -4,7 +4,7 @@ export const childRoutes = [
   {
     path: "/profile",
     component: Profile,
-    icon: "category",
+    icon: "add-user",
     title: "Profile",
     children: [],
   },
