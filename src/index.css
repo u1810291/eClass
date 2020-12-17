@@ -22,7 +22,7 @@ body {
   --navbar-height: 63px;
   --secondary-navbar-height: 63px;
   --content-body-padding: 32px;
-  --sidebar-padding-x: 98px;
+  --sidebar-padding-x: 20px;
   --sidebar-collapsed-width: 112px;
   --sidebar-background: white;
   --sidebar-item-active: #FFFFFF;
