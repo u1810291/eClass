@@ -24,12 +24,17 @@ export default () => {
         <PrimaryButton size="medium" title="Save" color="#FC5A5A" />
         <PrimaryButton size="large" title="Save" color="#82C43C" />
         <PrimaryButton size="large" title="Save" color="#A461D8" />
-        <PrimaryButton icon="word" size="large" title="Save" color="#FF9AD5" />
+        <PrimaryButton
+          icon="classess2"
+          size="large"
+          title="Save"
+          color="#FF9AD5"
+        />
       </ButtonGrid>
       <h1>Inputs</h1>
       <Inputs />
       <h1>Inputs with icons</h1>
-      <Inputs icon="add" />
+      <Inputs icon="balance" />
       <h1>Icons</h1>
       <DefaultGrid>
         {iconSets.map((props, index) => (

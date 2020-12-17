@@ -35,7 +35,7 @@ export default () => (
           <Route key={`${index + 1}`} path={path} component={component} />
         )
       )}
-      <Redirect from="*" to="/" />
+      <Redirect from="*" to="/profile" />
     </Content>
   </Container>
 );
