@@ -1,3 +1,5 @@
+import Profile from "../../components/Profile";
+
 export default () => {
-  return <div>Profile</div>;
+  return <Profile />;
 };
