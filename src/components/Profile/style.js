@@ -19,4 +19,7 @@ export const InputsContainer = styled.div`
   }
 `;
 
-export const UserDetails = styled.div``;
+export const UserDetails = styled.div`
+  padding-top: 25px;
+  border-bottom: 1px solid #e2e7f7;
+`;

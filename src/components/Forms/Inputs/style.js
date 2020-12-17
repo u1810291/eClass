@@ -5,9 +5,9 @@ export const getIconSize = ({ size }) => {
     case "large" || "Large":
       return "24px";
     case "medium" || "Medium":
-      return "18px";
+      return "22px";
     case "small" || "Small":
-      return "12px";
+      return "18px";
     default:
       return "24px";
   }
@@ -99,9 +99,9 @@ export const getColor = ({ type }) => {
 export const getBorderRadius = ({ size }) => {
   switch (size) {
     case "large" || "Large":
-      return "12px";
+      return "9px";
     case "medium" || "Medium":
-      return "18px";
+      return "12px";
     case "small" || "Small":
       return "24px";
     default:

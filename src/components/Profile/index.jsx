@@ -5,7 +5,6 @@ export default () => {
   return (
     <Container>
       <UserDetails></UserDetails>
-
       <Form>
         <Card>
           Student
@@ -20,10 +19,16 @@ export default () => {
           </InputsContainer>
         </Card>
         <Card>
-          <NormalInput size="medium" white />
-          <NormalInput size="medium" white />
-          <NormalInput size="medium" white />
-          <NormalInput size="medium" white />
+          Parent
+          <InputsContainer>
+            <NormalInput size="medium" white />
+            <NormalInput size="medium" white />
+            <NormalInput size="medium" white />
+            <NormalInput size="medium" white />
+            <NormalInput size="medium" white />
+            <NormalInput size="medium" white />
+            <NormalInput size="medium" white />
+          </InputsContainer>
         </Card>
       </Form>
     </Container>
