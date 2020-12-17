@@ -14,6 +14,9 @@ import { Image, Content } from "../style";
 import Bell from "../../Bell";
 import { logout } from "../../../redux/modules/auth/actions";
 import { ClickOutside } from "../../../hooks/click-outside";
+import Icon from "../../Icon";
+import { ReactComponent as Avatar } from "../../../assets/images/avatar-2.jpg";
+
 const titleClass = classNames("body-large", "weight-medium", "text-black-800");
 
 export default () => {
@@ -40,9 +43,18 @@ export default () => {
     <Container className="shadow-primary-4">
       <span className={titleClass}>{title}</span>
       <Content>
-        <Bell Component={<div></div>} margin="0 20px" value="" />
+        <Bell
+          Component={<Icon icon="notification2" />}
+          margin="0 20px"
+          value=""
+        />
         <PopupContainer>
           <UserInfoContainer>
+            <Image
+              ref={clickRef}
+              src={require("../../../assets/images/avatar-2.jpg")}
+              onClick={() => setIsOpen((prevState) => !prevState)}
+            />
             <span
               className={classNames(
                 "weight-regular",
@@ -53,11 +65,6 @@ export default () => {
               Hi, Bro
             </span>
             {/* eslint-disable-next-line global-require */}
-            <Image
-              ref={clickRef}
-              src={require("../../../assets/images/avatar-2.jpg")}
-              onClick={() => setIsOpen((prevState) => !prevState)}
-            />
           </UserInfoContainer>
           <ClickOutside
             outClickRef={clickRef}

@@ -1,0 +1,33 @@
+@import './margins.css';
+@import './fonts.css';
+@import './weights.css';
+@import './border.css';
+@import './colors.css';
+@import './shadow.css';
+@import './notification.css';
+
+.center {
+  display: grid;
+  place-items: center;
+}
+
+.scrollable {
+  overflow-x: hidden;
+  overflow-y: overlay;
+}
+
+.scrollable:hover::-webkit-scrollbar-thumb {
+  background: rgba(73, 75, 116, 0.1);
+}
+
+.scrollable::-webkit-scrollbar-thumb {
+  background: rgba(73, 75, 116, 0);
+}
+
+.scrollable::-webkit-scrollbar-thumb:hover {
+  background: rgba(73, 75, 116, 1);
+}
+
+.pointer {
+  cursor: pointer;
+}
