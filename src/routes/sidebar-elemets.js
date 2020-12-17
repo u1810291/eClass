@@ -1,5 +1,6 @@
 import Examples from "../components/Examples";
 import Profile from "../views/Profile";
+import Courses from "../views/Courses";
 export const childRoutes = [
   {
     path: "/profile",
@@ -10,7 +11,7 @@ export const childRoutes = [
   },
   {
     path: "/courses",
-    component: Examples,
+    component: Courses,
     icon: "courses",
     title: "Courses",
     children: [],

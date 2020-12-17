@@ -7,6 +7,7 @@ import {
   Text,
 } from "./style";
 import classNames from "classnames";
+import Avatar from "../../../assets/images/avatar-2.jpg";
 
 export default () => {
   return (
@@ -18,7 +19,7 @@ export default () => {
         This information can be edited from your profile page.
       </Description>
       <UserInfo>
-        <ImageWrapper>Image</ImageWrapper>
+        <ImageWrapper src={Avatar} />
         <Text>
           <Text.Name>Isaac Williams</Text.Name>
           <Text.Email>kinanthayani@mail.com</Text.Email>
