@@ -1,8 +1,8 @@
-import styled, { css } from 'styled-components';
-import { ReactComponent as NotificationIcon } from '../../assets/icons/navbar-notification.svg';
-import { ReactComponent as ChatIcon } from '../../assets/icons/navbar-chat.svg';
-import { ReactComponent as MenuIcon } from '../../assets/icons/menu.svg';
-import { device } from '../../utils/responsive';
+import styled, { css } from "styled-components";
+import { ReactComponent as NotificationIcon } from "../../assets/icons/navbar-notification.svg";
+import { ReactComponent as ChatIcon } from "../../assets/icons/navbar-chat.svg";
+import { ReactComponent as MenuIcon } from "../../assets/icons/menu.svg";
+import { device } from "../../utils/responsive";
 
 const fixedNav = css`
   position: fixed;
@@ -60,7 +60,7 @@ export const Image = styled.div`
 export const Title = styled.span`
   font-weight: 500;
   font-size: 13px;
-  color: ${({ primary }) => (primary ? '#7E8299' : '#B5B5C3')};
+  color: ${({ primary }) => (primary ? "#7E8299" : "#B5B5C3")};
 `;
 
 export const ChatButton = styled(ChatIcon)``;

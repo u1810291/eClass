@@ -1,12 +1,23 @@
 import styled from "styled-components";
 
+export const Header = styled.div`
+  display: flex;
+  width: 30%;
+`;
+
+export const ButtonContainer = styled.div`
+  display: flex;
+  margin: 16px;
+`;
+export const UserData = styled.span`
+  margin: 25px;
+`;
 export const Container = styled.div`
   background: white;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 50px;
-  height: --;
 `;
 
 export const UserInfoContainer = styled.div`
