@@ -29,7 +29,7 @@ const Item = ({ title, path, icon, collapsed, elements }) => {
         onMouseLeave={() => setHovered(false)}
         onClick={() => history.push(path)}
       >
-        <IconContainer collapsed={collapsed}>
+        <IconContainer collapsed={collapsed} active={isActive(path)}>
           <Icon icon={icon} size="1.5em" />
         </IconContainer>
         <Title

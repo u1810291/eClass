@@ -42,4 +42,8 @@ export const IconContainer = styled.div`
   display: "flex";
   padding-left: 38px;
   padding-right: 14px;
+  svg {
+    background: ${({ active }) => (active ? "#ffffff" : "")};
+    border-radius: 6px;
+  }
 `;
