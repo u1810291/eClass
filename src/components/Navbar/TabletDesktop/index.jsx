@@ -9,19 +9,31 @@ import {
   DropdownContainer,
   Item,
   Text,
+  UserData,
+  Header,
+  ButtonContainer,
+  BellContainer,
 } from "./style";
 import { Image, Content } from "../style";
 import Bell from "../../Bell";
 import { logout } from "../../../redux/modules/auth/actions";
 import { ClickOutside } from "../../../hooks/click-outside";
+import Icon from "../../Icon";
+import Avatar from "../../../assets/images/avatar-2.jpg";
+import Dropdown from "../../Forms/Dropdowns";
+import { language } from "./options";
+import SearchableInput from "../../Forms/Inputs/Search";
+import PrimaryButton from "../../Buttons/Primary";
+
 const titleClass = classNames("body-large", "weight-medium", "text-black-800");
 
 export default () => {
   const clickRef = useRef(null);
+
+  const [commonDropdown, setCommonDropdown] = useState(undefined);
   const dispatch = useDispatch();
   const history = useHistory();
   const [isOpen, setIsOpen] = useState(false);
-  const title = useSelector(({ navReducer }) => navReducer.title);
   const handleOnClick = (type) => {
     switch (type) {
       case "profile":
@@ -37,28 +49,57 @@ export default () => {
     }
   };
   return (
-    <Container className="shadow-primary-4">
-      <span className={titleClass}>{title}</span>
+    <Container>
+      <Header>
+        <SearchableInput placeholder="Search here..." size="small" />
+      </Header>
       <Content>
-        <Bell Component={<div></div>} margin="0 20px" value="" />
+        <ButtonContainer>
+          <PrimaryButton
+            block="block"
+            title="Technical support"
+            size="small"
+            color="#E8523F"
+            icon="support"
+          />
+        </ButtonContainer>
+        <ButtonContainer>
+          <PrimaryButton
+            block="block"
+            title="Chat"
+            size="small"
+            color="#333366"
+            icon="chat"
+          />
+        </ButtonContainer>
+        <BellContainer>
+          <Bell
+            Component={<Icon icon="notification2" />}
+            margin="0 18px"
+            value="1"
+          />
+        </BellContainer>
         <PopupContainer>
           <UserInfoContainer>
-            <span
-              className={classNames(
-                "weight-regular",
-                "button-large",
-                "text-black-800"
-              )}
-            >
-              Hi, Bro
-            </span>
-            {/* eslint-disable-next-line global-require */}
             <Image
               ref={clickRef}
-              src={require("../../../assets/images/avatar-2.jpg")}
+              src={Avatar}
               onClick={() => setIsOpen((prevState) => !prevState)}
             />
+            <UserData className={classNames(titleClass)}>
+              Isaac Williams
+            </UserData>
+
+            {/* eslint-disable-next-line global-require */}
+            <Dropdown
+              placeholder="RU"
+              options={language}
+              value={commonDropdown}
+              onChange={setCommonDropdown}
+              size="medium"
+            />
           </UserInfoContainer>
+
           <ClickOutside
             outClickRef={clickRef}
             outsideClicked={() => {

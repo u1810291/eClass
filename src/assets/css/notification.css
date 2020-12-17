@@ -1,0 +1,14 @@
+.notification-item-enter {
+  opacity: 0;
+}
+.notification-item-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+.notification-item-exit {
+  opacity: 1;
+}
+.notification-item-exit-active {
+  opacity: 0;
+  transition: opacity 500ms ease-in;
+}

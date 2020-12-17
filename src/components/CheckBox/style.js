@@ -13,7 +13,7 @@ export const Checkbox = styled.input`
   z-index: 1;
   cursor: pointer;
   &:hover {
-    background: ${({ white }) => (white ? "#FFFFFF" : "#68bdfc")};
+    background: ${({ white }) => (white ? "#FFFFFF" : "#78c6ff")};
   }
   &:before {
     content: "";
@@ -27,7 +27,7 @@ export const Checkbox = styled.input`
   &:checked {
     background: #50b5ff;
     &:hover {
-      background: #68bdfc;
+      background: #78c6ff;
     }
   }
 

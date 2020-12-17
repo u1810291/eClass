@@ -1,0 +1,83 @@
+.display-1 {
+  font-size: clamp(3.3147rem, -0.0002rem + 8.8545vw, 5.3125rem);
+}
+
+.display-2 {
+  font-size: clamp(2.8858rem, 7.7084vw, 4.625rem);
+}
+
+.display-3 {
+  font-size: clamp(2.5348rem, -0.0001rem + 6.771vw, 4.0625rem);
+}
+
+.display-4 {
+  font-size: clamp(2.1838rem, -0.0001rem + 5.8336vw, 3.5rem);
+}
+
+.display-5 {
+  font-size: clamp(1.9108rem, -0.0002rem + 5.1045vw, 3.0625rem);
+}
+
+.display-6 {
+  font-size: clamp(1.6768rem, -0.0002rem + 4.4796vw, 2.6875rem);
+}
+
+.heading-1 {
+  font-size: clamp(1.4429rem, 3.8542vw, 2.3125rem);
+}
+
+.heading-2 {
+  font-size: clamp(1.2479rem, 3.3334vw, 2rem);
+}
+
+.heading-3 {
+  font-size: clamp(1.0919rem, -0.0001rem + 2.9168vw, 1.75rem);
+}
+
+.heading-4 {
+  font-size: clamp(0.9359rem, -0.0001rem + 2.5002vw, 1.5rem);
+}
+
+.heading-5 {
+  font-size: clamp(0.8189rem, -0.0001rem + 2.1877vw, 1.3125rem);
+}
+
+.heading-6 {
+  font-size: clamp(0.7019rem, -0.0001rem + 1.8752vw, 1.125rem);
+}
+
+.body-large {
+  font-size: clamp(0.6239rem, -0.0002rem + 1.6669vw, 1rem);
+}
+
+.body-medium-14 {
+  font-size: clamp(0.5459rem, -0.0002rem + 1.4586vw, 0.875rem);
+}
+
+.body-medium {
+  font-size: clamp(0.5069rem, -0.0002rem + 1.3545vw, 0.8125rem);
+}
+
+.button-large {
+  font-size: clamp(0.5069rem, -0.0002rem + 1.3545vw, 0.8125rem);
+}
+
+.button-medium {
+  font-size: clamp(0.4679rem, -0.0002rem + 1.2503vw, 0.75rem);
+}
+
+.button-small {
+  font-size: clamp(0.3899rem, -0.0002rem + 1.042vw, 0.625rem);
+}
+
+.caption {
+  font-size: clamp(0.4679rem, -0.0002rem + 1.2503vw, 0.75rem);
+}
+
+.overline {
+  font-size: clamp(0.3899rem, -0.0002rem + 1.042vw, 0.625rem);
+}
+
+.helper {
+  font-size: clamp(0.3509rem, -0.0002rem + 0.9378vw, 0.5625rem);
+}
