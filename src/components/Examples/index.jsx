@@ -14,6 +14,8 @@ import Icon from "../Icon";
 import { copyTxt } from "../../utils/computes";
 import { PureCheckbox } from "../CheckBox";
 import Dropdowns from "./Dropdowns";
+import Typography from "./Typography";
+import TextArea from "../Forms/Inputs/TextArea";
 
 export default () => {
   return (
@@ -55,6 +57,8 @@ export default () => {
         <Dropdowns />
       </DropdownExamples>
       <PureCheckbox type="checkbox" />
+      <TextArea placeholder="Textarea..." white />
+      <Typography />
     </Container>
   );
 };
