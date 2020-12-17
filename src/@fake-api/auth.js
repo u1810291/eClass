@@ -1,7 +1,7 @@
 import users from "../data/users";
 
 export default (mock) => {
-  mock.onPost("/v1/login").reply(
+  mock.onPost("/api/v1/login").reply(
     (config) =>
       new Promise((resolve) => {
         const { username, password } = JSON.parse(config.data);
