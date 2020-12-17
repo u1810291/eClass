@@ -1,0 +1,41 @@
+import { Container, Forms, InputsContainer } from "./style";
+import Card from "../../Card";
+import { NormalInput } from "../../Forms/Inputs";
+export default ({ title }) => {
+  return (
+    <Container>
+      <Forms>
+        <Card>
+          {title}
+          <InputsContainer>
+            <InputsContainer.Head>
+              <NormalInput size="medium" white placeholder="Имя Ученика" />
+              <NormalInput size="medium" white placeholder="Фамилия" />
+            </InputsContainer.Head>
+            <InputsContainer.Body>
+              <NormalInput size="medium" white placeholder="+998" />
+              <NormalInput
+                size="medium"
+                white
+                placeholder="Номер телефона ученика"
+              />
+            </InputsContainer.Body>
+            <InputsContainer.Footer>
+              <NormalInput size="medium" white placeholder="Mail Address" />
+              <NormalInput size="medium" white placeholder="Дата рождения" />
+              {title !== "Parent" ? (
+                <NormalInput
+                  size="medium"
+                  white
+                  placeholder="Школа N или где сейчас учится"
+                />
+              ) : (
+                ""
+              )}
+            </InputsContainer.Footer>
+          </InputsContainer>
+        </Card>
+      </Forms>
+    </Container>
+  );
+};
