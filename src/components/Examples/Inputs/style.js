@@ -1,7 +1,6 @@
 import styled from "styled-components";
 export const InputGrid = styled.div`
   padding: 25px;
-  background: white;
   width: 95%;
   display: grid;
   grid-gap: 15px;

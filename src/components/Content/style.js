@@ -5,11 +5,11 @@ export const Container = styled.div`
   overflow-x: auto;
 
   background: white;
-  padding: 20px;
+  padding: 30px;
   margin: 20px;
   border-radius: 42px;
-  height: 92%;
-  width: 95%;
+  height: 90%;
+  width: 94%;
   overflow-y: auto;
   display: grid;
   grid-gap: 20px;
@@ -18,5 +18,9 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   position: relative;
-  width: 100%;
+  width: 98%;
+  border-radius: 25px;
+  padding: 0 10px;
+
+  background: #f4f7fc;
 `;

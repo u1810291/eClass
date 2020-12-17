@@ -9,7 +9,6 @@ export const DropdownExamples = styled.div`
 export const Container = styled.div``;
 export const ButtonGrid = styled.div`
   padding: 25px;
-  background: white;
   display: flex;
   grid-gap: 15px;
   grid-template-rows: 1fr;
