@@ -7,7 +7,7 @@ export const VerifiedContainer = styled.div`
   align-items: center;
   width: 100%;
   height: 100vh;
-  background: #e5e5e5;
+  background: white;
 `;
 
 VerifiedContainer.Inner = styled.div`

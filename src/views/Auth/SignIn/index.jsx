@@ -36,7 +36,7 @@ export default () => {
       auth.getToken(values).then((data) => {
         setSubmitting(false);
         history.push(
-          `/verified?userId=${data.userId}&access_token=${data.access_token}&refresh_token=${data.refresh_token}`
+          `/verified?access_token=${data.access_token}&refresh_token=${data.refresh_token}`
         );
       });
     },
