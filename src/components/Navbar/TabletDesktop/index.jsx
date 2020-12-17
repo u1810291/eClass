@@ -12,13 +12,14 @@ import {
   UserData,
   Header,
   ButtonContainer,
+  BellContainer,
 } from "./style";
 import { Image, Content } from "../style";
 import Bell from "../../Bell";
 import { logout } from "../../../redux/modules/auth/actions";
 import { ClickOutside } from "../../../hooks/click-outside";
 import Icon from "../../Icon";
-import { ReactComponent as Avatar } from "../../../assets/images/avatar-2.jpg";
+import Avatar from "../../../assets/images/avatar-2.jpg";
 import Dropdown from "../../Forms/Dropdowns";
 import { language } from "./options";
 import SearchableInput from "../../Forms/Inputs/Search";
@@ -71,30 +72,25 @@ export default () => {
             icon="chat"
           />
         </ButtonContainer>
-        <Bell
-          Component={<Icon icon="notification2" />}
-          margin="0 30px"
-          value="1"
-        />
+        <BellContainer>
+          <Bell
+            Component={<Icon icon="notification2" />}
+            margin="0 18px"
+            value="1"
+          />
+        </BellContainer>
         <PopupContainer>
           <UserInfoContainer>
             <Image
               ref={clickRef}
-              src={require("../../../assets/images/avatar-2.jpg")}
+              src={Avatar}
               onClick={() => setIsOpen((prevState) => !prevState)}
             />
-            <UserData
-              className={classNames(
-                "weight-regular",
-                "button-large",
-                "text-black-800"
-              )}
-            >
+            <UserData className={classNames(titleClass)}>
               Isaac Williams
             </UserData>
 
             {/* eslint-disable-next-line global-require */}
-
             <Dropdown
               placeholder="RU"
               options={language}
@@ -103,6 +99,7 @@ export default () => {
               size="medium"
             />
           </UserInfoContainer>
+
           <ClickOutside
             outClickRef={clickRef}
             outsideClicked={() => {

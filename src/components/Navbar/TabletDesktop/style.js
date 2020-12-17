@@ -5,6 +5,12 @@ export const Header = styled.div`
   width: 30%;
 `;
 
+export const BellContainer = styled.div`
+  border-right: solid 1px #dddee3;
+  border-left: solid 1px #dddee3;
+  margin: 10px;
+`;
+
 export const ButtonContainer = styled.div`
   display: flex;
   margin: 16px;

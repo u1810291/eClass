@@ -5,7 +5,7 @@ import Icon from "../../Icon";
 const PrimaryButton = ({ title, size, iconAlign, icon, color, ...others }) =>
   iconAlign.includes(["right" || "Right"]) ? (
     <Container size={size} color={color} {...others}>
-      <Title>{title}</Title>
+      <Title icon={icon}>{title}</Title>
       <Icon icon={icon} color={color} />
     </Container>
   ) : (

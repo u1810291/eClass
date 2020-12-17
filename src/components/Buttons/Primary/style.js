@@ -4,6 +4,7 @@ import { buttons } from "../style";
 export const Title = styled.span`
   color: white;
   margin-left: ${({ icon }) => (icon ? "15px" : "unset")};
+  margin-right: ${({ icon }) => (icon ? "15px" : "unset")};
 `;
 
 export const Container = styled.button`
