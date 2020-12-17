@@ -20,7 +20,6 @@ export const Container = styled.button`
     outline: none;
   }
   &:not(:disabled):focus {
-    background: #297bff;
   }
   &:not(:disabled):hover svg {
     path {
@@ -28,10 +27,10 @@ export const Container = styled.button`
     }
   }
   &:not(:disabled):hover {
-    background: #297bff;
+    opacity: 0.9;
   }
   &:not(:disabled):active {
-    background: #0062ff;
+    opacity: 0.9;
   }
   &:disabled {
     background: #f5f5f5;
