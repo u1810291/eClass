@@ -40,7 +40,7 @@ export default () => {
     }
   };
   return (
-    <Container className="shadow-primary-4">
+    <Container>
       <span className={titleClass}>{title}</span>
       <Content>
         <Bell

@@ -13,6 +13,7 @@ export const Container = styled.div`
   overflow-y: auto;
   display: grid;
   grid-gap: 20px;
+  grid-template-rows: var(--navbar-height) 1fr;
 `;
 
 export const Content = styled.div`
