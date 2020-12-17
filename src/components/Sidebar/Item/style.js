@@ -40,5 +40,10 @@ export const Title = styled.span`
 
 export const IconContainer = styled.div`
   display: "flex";
-  min-width: 40px;
+  padding-left: 38px;
+  padding-right: 14px;
+  svg {
+    background: ${({ active }) => (active ? "#ffffff" : "")};
+    border-radius: 6px;
+  }
 `;

@@ -1,11 +1,29 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
+export const Header = styled.div`
+  display: flex;
+  width: 30%;
+`;
+
+export const BellContainer = styled.div`
+  border-right: solid 1px #dddee3;
+  border-left: solid 1px #dddee3;
+  margin: 10px;
+`;
+
+export const ButtonContainer = styled.div`
+  display: flex;
+  margin: 16px;
+`;
+export const UserData = styled.span`
+  margin: 25px;
+`;
 export const Container = styled.div`
   background: white;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 50px;
+  padding: 0 10px;
 `;
 
 export const UserInfoContainer = styled.div`
@@ -15,7 +33,7 @@ export const UserInfoContainer = styled.div`
 `;
 
 export const DropdownContainer = styled.div`
-  display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
+  display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
   padding: 16px 24px;
   flex-direction: column;
   position: absolute;

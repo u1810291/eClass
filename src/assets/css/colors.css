@@ -1,0 +1,280 @@
+
+/* Primary color */
+.primary-900 {
+  background-color: #B90007;
+}
+.primary-800 {
+  background-color: #C90016;
+}
+.primary-700 {
+  background-color: #D5031E;
+}
+.primary-600 {
+  background-color: #E71923;
+}
+.primary-500 {
+  background-color: #F62822;
+}
+.primary-400 {
+  background-color: #F24142;
+}
+.primary-300 {
+  background-color: #E86868;
+}
+.primary-200 {
+  background-color: #F29392;
+}
+.primary-100 {
+  background-color: #FFC9CE;
+}
+.primary-50 {
+  background-color: #FFE9ED;
+}
+
+/* Secondary color */
+.secondary-900 {
+  background-color: #FE7F00;
+}
+.secondary-800 {
+  background-color: #FFAA00;
+}
+.secondary-700 {
+  background-color: #FFC30F;
+}
+.secondary-600 {
+  background-color: #FFDC1C;
+}
+.secondary-500 {
+  background-color: #F8E814;
+}
+.secondary-400 {
+  background-color: #FBED46;
+}
+.secondary-300 {
+  background-color: #FDF16B;
+}
+.secondary-200 {
+  background-color: #FEF697;
+}
+.secondary-100 {
+  background-color: #FFFAC1;
+}
+.secondary-50 {
+  background-color: #FFFEE6;
+}
+
+/* Success color */
+.success-600 {
+  background-color: #00AE59;
+}
+.success-50 {
+  background-color: #E3F7EC;
+}
+
+/* Danger color */
+.danger-600 {
+  background-color: #E71923;
+}
+.danger-50 {
+  background-color: #FFE9ED;
+}
+
+/* Warning color */
+.warning-600 {
+  background-color: #FEDF37;
+}
+.warning-50 {
+  background-color: #FFFFED;
+}
+
+/* Black color */
+.black-900 {
+  background-color: #000000;
+}
+.black-800 {
+  background-color: #262626;
+}
+.black-700 {
+  background-color: #434343;
+}
+.black-600 {
+  background-color: #555555;
+}
+.black-500 {
+  background-color: #7B7B7B;
+}
+.black-400 {
+  background-color: #9D9D9D;
+}
+.black-300 {
+  background-color: #C4C4C4;
+}
+.black-200 {
+  background-color: #D9D9D9;
+}
+.black-100 {
+  background-color: #E9E9E9;
+}
+.black-50 {
+  background-color: #F5F5F5;
+}
+
+/* White color */
+.white-900 {
+  background-color: #ffffff;
+}
+
+/* Other colors */
+.bg-50 {
+  background-color: #f5f5f8;
+}
+.bg-secondary-50 {
+  background-color: #FFF4DE;
+}
+.bg-border-50 {
+  background-color: #f5f5f5;
+}
+.disabled-300 {
+  background-color: #C4C4C4;
+}
+
+/* Texts */
+
+/* Primary */
+.text-primary-900 {
+  color: #B90007;
+}
+.text-primary-800 {
+  color: #C90016;
+}
+.text-primary-700 {
+  color: #D5031E;
+}
+.text-primary-600 {
+  color: #E71923;
+}
+.text-primary-500 {
+  color: #F62822;
+}
+.text-primary-400 {
+  color: #F24142;
+}
+.text-primary-300 {
+  color: #E86868;
+}
+.text-primary-200 {
+  color: #F29392;
+}
+.text-primary-100 {
+  color: #FFC9CE;
+}
+.text-primary-50 {
+  color: #FFE9ED;
+}
+
+/* Secondary */
+.text-secondary-900 {
+  color: #FE7F00;
+}
+.text-secondary-800 {
+  color: #FFAA00;
+}
+.text-secondary-700 {
+  color: #FFC30F;
+}
+.text-secondary-600 {
+  color: #FFDC1C;
+}
+.text-secondary-500 {
+  color: #F8E814;
+}
+.text-secondary-400 {
+  color: #FBED46;
+}
+.text-secondary-300 {
+  color: #FDF16B;
+}
+.text-secondary-200 {
+  color: #FEF697;
+}
+.text-secondary-100 {
+  color: #FFFAC1;
+}
+.text-secondary-50 {
+  color: #FFFEE6;
+}
+
+/* Success */
+.text-success-600 {
+  color: #00AE59;
+}
+.text-success-50 {
+  color: #E3F7EC;
+}
+
+/* Danger */
+.text-danger-600 {
+  color: #E71923;
+}
+.text-danger-50 {
+  color: #FFE9ED;
+}
+
+/* Warning */
+.text-warning-600 {
+  color: #FEDF37;
+}
+.text-warning-50 {
+  color: #FFFFED;
+}
+
+/* Black */
+.text-black-900 {
+  color: #000000;
+}
+.text-black-800 {
+  color: #262626;
+}
+.text-black-700 {
+  color: #434343;
+}
+.text-black-600 {
+  color: #555555;
+}
+.text-black-500 {
+  color: #7B7B7B;
+}
+.text-black-400 {
+  color: #9D9D9D;
+}
+.text-black-300 {
+  color: #C4C4C4;
+}
+.text-black-200 {
+  color: #D9D9D9;
+}
+.text-black-100 {
+  color: #E9E9E9;
+}
+.text-black-50 {
+  color: #F5F5F5;
+}
+
+/* White */
+.text-white-900 {
+  color: #ffffff;
+}
+
+/* Others */
+.text-bg-50 {
+  color: #f5f5f8;
+}
+.text-bg-secondary-50 {
+  color: #FFF4DE;
+}
+.text-bg-border-50 {
+  color: #f5f5f5;
+}
+.text-disabled-300 {
+  color: #C4C4C4;
+}

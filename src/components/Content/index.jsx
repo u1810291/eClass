@@ -5,11 +5,11 @@ import Navbar from "../Navbar";
 
 export default () => (
   <Container>
+    <Navbar />
     <Content>
       {childRoutes.map(({ path, component, children }, index) =>
         children.length ? (
           <div key={`${index + 1}`}>
-            <Navbar />
             {children.map((child, childIndex) => (
               <Route
                 key={`${childIndex + 1}`}
@@ -35,7 +35,7 @@ export default () => (
           <Route key={`${index + 1}`} path={path} component={component} />
         )
       )}
-      <Redirect from="*" to="/" />
+      <Redirect from="*" to="/profile" />
     </Content>
   </Container>
 );

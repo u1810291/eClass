@@ -1,19 +1,14 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-  background: white;
-  padding: 20px;
-  margin: 20px;
-  border-radius: 42px;
-  height: 92%;
-  width: 95%;
-  overflow-y: scroll;
+export const DropdownExamples = styled.div`
+  position: relative;
   display: grid;
-  grid-gap: 20px;
+  grid-template-columns: 1fr;
 `;
+
+export const Container = styled.div``;
 export const ButtonGrid = styled.div`
   padding: 25px;
-  background: white;
   display: flex;
   grid-gap: 15px;
   grid-template-rows: 1fr;

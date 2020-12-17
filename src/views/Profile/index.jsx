@@ -1,5 +1,5 @@
-import Examples from "../../components/Examples";
+import Profile from "../../components/Profile";
 
 export default () => {
-  return <Examples />;
+  return <Profile />;
 };

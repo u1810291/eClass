@@ -23,6 +23,7 @@ const search = css`
 export const IconWrapper = styled.div`
   position: absolute;
   padding-left: 5px;
+  padding-right: 5px;
   svg {
     height: ${getIconSize};
     width: ${getIconSize};
@@ -33,7 +34,7 @@ export const Input = styled.input`
   ${getType};
   border-radius: ${getBorderRadius};
   outline: none !important;
-  text-indent: 10px;
+  text-indent: 15px;
 
   ${({ search: isSearch }) => isSearch && search} ::-webkit-inner-spin-button {
     -webkit-appearance: none;

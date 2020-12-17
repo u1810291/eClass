@@ -1,12 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Container, Space } from "./style";
+import { Container, Space, ImageWrapper, Text } from "./style";
 import Item from "../Item";
 import { childRoutes } from "../../../routes/sidebar-elemets";
+import url from "../../../assets/icons/logo3.svg";
 
 export const SidebarBody = ({ collapsed }) => (
   <Container>
-    <Space />
+    <Space>
+      <Text>Menu</Text>
+    </Space>
+
     {childRoutes.map(
       ({ title, icon, path, children, except }, index) =>
         !except && (

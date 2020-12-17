@@ -5,9 +5,9 @@ export const getIconSize = ({ size }) => {
     case "large" || "Large":
       return "24px";
     case "medium" || "Medium":
-      return "18px";
+      return "22px";
     case "small" || "Small":
-      return "12px";
+      return "18px";
     default:
       return "24px";
   }
@@ -50,13 +50,13 @@ export const getLabelPadding = ({ size }) => {
 export const getHeight = ({ size }) => {
   switch (size) {
     case "large" || "Large":
-      return "43px";
+      return "50px";
     case "medium" || "Medium":
-      return "33px";
+      return "46px";
     case "small" || "Small":
-      return "27px";
+      return "39px";
     default:
-      return "33px";
+      return "39px";
   }
 };
 
@@ -99,11 +99,11 @@ export const getColor = ({ type }) => {
 export const getBorderRadius = ({ size }) => {
   switch (size) {
     case "large" || "Large":
-      return "12px";
+      return "9px";
     case "medium" || "Medium":
-      return "10px";
+      return "12px";
     case "small" || "Small":
-      return "8px";
+      return "24px";
     default:
       return "12px";
   }
@@ -172,7 +172,7 @@ export const normal = css`
   max-height: ${getHeight};
   box-sizing: border-box;
   border: 1px solid #e2e2ea;
-  background: ${({ white }) => (white ? "#ffffff" : "#f5f5f5")};
+  background: ${({ white }) => (white ? "#ffffff" : "#F0F8FF")};
   color: #9d9d9d;
   .left-right {
     display: none;
@@ -189,7 +189,7 @@ export const normal = css`
   }
   &:not(:focus)&:not(:disabled):hover {
     color: #9d9d9d;
-    background: ${({ white }) => (white ? "#ffffff" : "#e9e9e9")};
+    background: ${({ white }) => (white ? "#ffffff" : "#F0F8FF")};
   }
   &:not(:disabled):active {
     color: ${({ white }) => (white ? "#262626" : "#9d9d9d")};
