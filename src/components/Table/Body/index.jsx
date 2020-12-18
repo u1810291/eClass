@@ -1,10 +1,21 @@
+import React from "react";
 import { Container, Header } from "./style";
-
+import Item from "../Item";
+import Icon from "../../Icon";
+import { header } from "./data";
 export default () => {
   return (
     <Container>
-      <Header>Header</Header>
+      <Header>
+        {header.length &&
+          header.map((i) => (
+            <Header.Item key={i.id}>
+              {i.value} <Icon icon="bottom" size="1em" color="#97A0C3" />
+            </Header.Item>
+          ))}
+      </Header>
       Body
+      <Item />
     </Container>
   );
 };

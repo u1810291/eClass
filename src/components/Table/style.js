@@ -29,5 +29,5 @@ Filter.Right = styled.div`
   position: absolute;
   right: 0px;
   padding-top: 30px;
-  margin-right: 25px;
+  margin-right: 50px;
 `;
