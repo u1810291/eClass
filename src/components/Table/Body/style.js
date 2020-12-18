@@ -13,3 +13,4 @@ export const Header = styled.div`
 Header.Item = styled.div`
   color: #97a0c3;
 `;
+export const Body = styled.div``;

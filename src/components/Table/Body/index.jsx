@@ -1,8 +1,8 @@
 import React from "react";
-import { Container, Header } from "./style";
+import { Container, Header, Body } from "./style";
 import Item from "../Item";
 import Icon from "../../Icon";
-import { header } from "./data";
+import { header, bodyItem } from "./data";
 export default () => {
   return (
     <Container>
@@ -14,8 +14,12 @@ export default () => {
             </Header.Item>
           ))}
       </Header>
-      Body
-      <Item />
+      <Body>
+        Body
+        {bodyItem.map((item, index) => (
+          <Item key={index + 1} data={item} />
+        ))}
+      </Body>
     </Container>
   );
 };
