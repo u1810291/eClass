@@ -8,6 +8,7 @@ import VerifiedPage from "../../views/Auth/VerifiedPage";
 import { Container } from "./style";
 import appSelector from "../../redux/selectors/app";
 import Home from "../Home";
+import SignUp from "../../views/Auth/SignUp";
 
 export default () => {
   const { access_token, showModal } = useSelector(appSelector, shallowEqual);
@@ -16,6 +17,7 @@ export default () => {
     <Container>
       <Switch>
         <Route exact path="/signin" component={SignIn} />
+        <Route exact path="/signup" component={SignUp} />
         <Route exact path="/reset" component={ResetForm} />
         <Route exact path="/pin-signin" component={PinCodeSignIn} />
         <Route exact path="/change-password" component={ChangePassword} />

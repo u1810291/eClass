@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import classNames from "classnames";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import {
   Container,
@@ -9,10 +9,10 @@ import {
   DropdownContainer,
   Item,
   Text,
-  UserData,
   Header,
   ButtonContainer,
   BellContainer,
+  TextContainer,
 } from "./style";
 import { Image, Content } from "../style";
 import Bell from "../../Bell";
@@ -24,8 +24,6 @@ import Dropdown from "../../Forms/Dropdowns";
 import { language } from "./options";
 import SearchableInput from "../../Forms/Inputs/Search";
 import PrimaryButton from "../../Buttons/Primary";
-
-const titleClass = classNames("body-large", "weight-medium", "text-black-800");
 
 export default () => {
   const clickRef = useRef(null);
@@ -86,9 +84,10 @@ export default () => {
               src={Avatar}
               onClick={() => setIsOpen((prevState) => !prevState)}
             />
-            <UserData className={classNames(titleClass)}>
-              Isaac Williams
-            </UserData>
+            <TextContainer>
+              <TextContainer.Name>Isaac Williams</TextContainer.Name>
+              <TextContainer.Email>kinanthayani@mail.com</TextContainer.Email>
+            </TextContainer>
 
             {/* eslint-disable-next-line global-require */}
             <Dropdown

@@ -64,3 +64,30 @@ export const PopupContainer = styled.div`
   flex-direction: column;
   position: relative;
 `;
+
+export const TextContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  margin-right: 10px;
+`;
+TextContainer.Name = styled.span`
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 18px;
+  color: #59748a;
+`;
+TextContainer.Email = styled.span`
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 16px;
+
+  letter-spacing: 0.5px;
+
+  color: #636e95;
+
+  mix-blend-mode: normal;
+  opacity: 0.9;
+`;

@@ -12,7 +12,18 @@ export const Description = styled.div`
   letter-spacing: 0.5px;
 `;
 export const ImageWrapper = styled.div`
-  padding-right: 10px;
+  margin-right: 10px;
+  width: 35px;
+  height: 35px;
+  margin-left: 10px;
+  background-image: url(${({ src }) => src});
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  border-radius: 50%;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 export const UserInfo = styled.div`
   display: flex;

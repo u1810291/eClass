@@ -149,4 +149,14 @@ export default [
     color: "#444",
     size: "2em",
   },
+  {
+    color: "#444",
+    icon: "bottom",
+    size: "2em",
+  },
+  {
+    icon: "top",
+    color: "#444",
+    size: "2em",
+  },
 ];
