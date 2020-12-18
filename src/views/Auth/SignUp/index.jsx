@@ -15,7 +15,7 @@ import {
   AuthWrapper,
   Text,
 } from "./style";
-import loginBg from "../../../assets/images/signUp.svg";
+import dashboard from "../../../assets/images/dashboard.jpg";
 
 export default () => {
   const history = useHistory();
@@ -114,7 +114,8 @@ export default () => {
         </AuthFooter>
       </AuthWrapper.Left>
       <AuthWrapper.Right>
-        {/* <img src={loginBg} alt="loginBg" /> */}
+        <div></div>
+        <img src={dashboard} alt="dashboard" />
       </AuthWrapper.Right>
     </AuthWrapper>
   );

@@ -31,9 +31,25 @@ AuthWrapper.Left = styled.div`
 AuthWrapper.Right = styled.div`
   flex-grow: 1;
   background: #0080ff;
+  border-radius: 42px;
+  height: 98%;
+  width: 98%;
+  margin-top: 10px;
+  div {
+    border: solid 1pc black;
+    position: absolute;
+    bottom: 300px;
+    right: 200px;
+    width: 100px;
+    height: 100px;
+    background: #0d6fd0;
+  }
   img {
-    width: 100%;
-    height: 100%;
+    border-radius: 42px;
+    position: absolute;
+    bottom: 250px;
+    right: 150px;
+    height: 30%;
     object-fit: cover;
   }
 `;
