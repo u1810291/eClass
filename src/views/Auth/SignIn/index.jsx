@@ -91,7 +91,7 @@ export default () => {
           </TextCenter>
           <PrimaryButton title="Sign in" type="submit" size="large" />
           <FooterText>
-            <SignUp onClick={() => history.push("/reset")}>
+            <SignUp onClick={() => history.push("/signup")}>
               Cant login? Sign up for new user?
             </SignUp>
             <Privacy>
