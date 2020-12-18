@@ -7,7 +7,6 @@ export const TextArea = styled.textarea`
   height: 98px;
   padding: 16px;
   outline: none;
-  font-family: Poppins;
   border: 1px solid rgba(174, 179, 205, 0.58);
   &:focus {
     outline: none;

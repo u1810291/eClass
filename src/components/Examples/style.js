@@ -4,6 +4,7 @@ export const DropdownExamples = styled.div`
   position: relative;
   display: grid;
   grid-template-columns: 1fr;
+  margin: 10px;
 `;
 
 export const Container = styled.div``;

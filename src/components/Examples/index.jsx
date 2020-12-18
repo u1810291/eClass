@@ -12,14 +12,14 @@ import Inputs from "./Inputs";
 import iconSets from "./icons";
 import Icon from "../Icon";
 import { copyTxt } from "../../utils/computes";
-import { PureCheckbox } from "../CheckBox";
 import Dropdowns from "./Dropdowns";
 import Typography from "./Typography";
 import TextArea from "../Forms/Inputs/TextArea";
-
+import Color from "../Color";
 export default () => {
   return (
     <Container>
+      <Color />
       <h1>Buttons</h1>
       <ButtonGrid>
         <PrimaryButton size="small" title="Save" color="#FF974A" />
@@ -56,7 +56,6 @@ export default () => {
       <DropdownExamples>
         <Dropdowns />
       </DropdownExamples>
-      <PureCheckbox type="checkbox" />
       <TextArea placeholder="Textarea..." white />
       <Typography />
     </Container>

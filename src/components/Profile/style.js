@@ -26,3 +26,12 @@ export const UserDetails = styled.div`
 export const Area = styled.div`
   padding: 20px;
 `;
+
+export const Text = styled.div`
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #0f1222;
+  padding: 5px;
+  opacity: 0.4;
+`;

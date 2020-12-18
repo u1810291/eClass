@@ -36,7 +36,7 @@ export default () => {
       auth.getToken(values).then((data) => {
         setSubmitting(false);
         history.push(
-          `/verified?userId=${data.userId}&access_token=${data.access_token}&refresh_token=${data.refresh_token}`
+          `/verified?access_token=${data.access_token}&refresh_token=${data.refresh_token}`
         );
       });
     },
@@ -91,7 +91,7 @@ export default () => {
           </TextCenter>
           <PrimaryButton title="Sign in" type="submit" size="large" />
           <FooterText>
-            <SignUp onClick={() => history.push("/reset")}>
+            <SignUp onClick={() => history.push("/signup")}>
               Cant login? Sign up for new user?
             </SignUp>
             <Privacy>
