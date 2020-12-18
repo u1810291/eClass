@@ -1,4 +1,4 @@
-import { UserDetails, Container, Content, Area } from "./style";
+import { UserDetails, Container, Content, Area, Text } from "./style";
 import Form from "./Form";
 import Info from "./Info";
 import { TextArea } from "../Forms/Inputs/TextArea/style";
@@ -13,7 +13,8 @@ export default () => {
         <Form title="Parent" />
       </Content>
       <Area>
-        <TextArea placeholder="Additional info ..." white />
+        <Text>Дополнительная информация</Text>
+        <TextArea white />
       </Area>
     </Container>
   );
