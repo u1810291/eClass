@@ -1,6 +1,6 @@
 import Examples from "../components/Examples";
 import Profile from "../views/Profile";
-import Courses from "../views/Courses";
+import Courses from "../views/Student/Courses";
 export const childRoutes = [
   {
     path: "/profile",

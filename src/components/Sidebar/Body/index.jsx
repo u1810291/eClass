@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Container, Space, ImageWrapper, Text } from "./style";
 import Item from "../Item";
-import { childRoutes } from "../../../routes/sidebar-elemets";
+import { childRoutes } from "../../../routes/student-sidebar-elemets";
 import url from "../../../assets/icons/logo3.svg";
 
 export const SidebarBody = ({ collapsed }) => (
