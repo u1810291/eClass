@@ -5,9 +5,12 @@ import Container from "../../components/Container";
 import Sidebar from "../../components/Sidebar";
 import Content from "../../components/Content";
 import user from "../../services/user";
+import { useAsync } from "../../hooks/mounted";
 
 export default () => {
+  const asyncTask = useAsync();
   const dispatch = useDispatch();
+  const promise = user.whoAmI();
   useEffect(() => {
     const path = window.location.pathname.split("/");
     const pathTitle = path ? path[1] : "";
@@ -18,7 +21,10 @@ export default () => {
         )}`
       : "";
     dispatch(setTitle(title));
-    user.whoAmI().then((data) => console.log(data));
+
+    asyncTask(promise).then((res) => {
+      console.log(res);
+    });
   });
   return (
     <Container>
