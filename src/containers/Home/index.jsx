@@ -4,6 +4,7 @@ import { setTitle } from "../../redux/modules/nav/actions";
 import Container from "../../components/Container";
 import Sidebar from "../../components/Sidebar";
 import Content from "../../components/Content";
+import user from "../../services/user";
 
 export default () => {
   const dispatch = useDispatch();
@@ -17,8 +18,8 @@ export default () => {
         )}`
       : "";
     dispatch(setTitle(title));
+    user.whoAmI().then((data) => console.log(data));
   });
-
   return (
     <Container>
       <Sidebar />
