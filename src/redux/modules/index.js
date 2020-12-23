@@ -3,3 +3,4 @@ export { default as modalReducer } from "./modal/reducers";
 export { default as alertReducer } from "./alert/reducers";
 export { default as navReducer } from "./nav/reducers";
 export { default as sidebarReducer } from "./sidebar/reducers";
+export { default as userReducer } from "./user/reducers";
