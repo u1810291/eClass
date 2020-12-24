@@ -13,7 +13,7 @@ import Home from "../Home";
 import SignUp from "../../views/Auth/SignUp";
 import user from "../../services/user";
 import { userInfo } from "../../redux/modules/user/actions";
-import { useAsync } from "../../hooks/mounted";
+import { useAsync } from "../../hooks";
 
 export default () => {
   const dispatch = useDispatch();
