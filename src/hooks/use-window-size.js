@@ -16,6 +16,9 @@ export const ViewportProvider = ({ children }) => {
     if (window.matchMedia(sizes.TABLET).matches) {
       setDevice(devices.TABLET);
     }
+    if (window.matchMedia(sizes.NOTEBOOK).matches) {
+      setDevice(devices.NOTEBOOK);
+    }
     if (window.matchMedia(sizes.DESKTOP).matches) {
       setDevice(devices.DESKTOP);
     }
