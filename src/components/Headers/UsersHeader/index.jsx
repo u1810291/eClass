@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import {useDispatch} from "react-redux";
-import CreateOrderForm from "../../Orders";
 
 import {Container, Header, ButtonContainer} from "../style";
 import {PrimaryButton} from "../../Buttons";
@@ -43,7 +42,7 @@ export default () => {
   const handleOnCreateOrder = () => {
     showFullScreen({
       title: "Order create",
-      body: () => <CreateOrderForm />,
+      body: () => alert("Hello create modal"),
     });
   };
 

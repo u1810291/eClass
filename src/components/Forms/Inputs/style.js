@@ -227,6 +227,23 @@ export const TextareaView = styled.textarea`
   }
 `;
 
+export const DatepickerInput = styled.div`
+  display: flex;
+  align-items: center;
+  background-color: ${({white}) => (white ? "#FFFFFF" : "#f8f8f8")};
+  border-radius: 8px;
+  color: ${({white}) => (white ? "#262626" : "#7E8299")};
+  line-height: 18px;
+  height: 43px;
+  padding: 0px 24px;
+  border: 0;
+  outline: none;
+  justify-content: center;
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
 export const getType = ({type}) => {
   switch (type) {
     case "error" || "Error":
