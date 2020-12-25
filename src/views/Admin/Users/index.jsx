@@ -6,7 +6,7 @@ import {headerToolTips, toolTips} from "./helper";
 import {headerMaker, getData} from "../../../components/TableV2/helpers";
 import {useAsync} from "../../../hooks/mounted";
 import Service from "../../../services/user";
-
+import axios from "axios";
 export default () => {
   const asyncTask = useAsync();
 
@@ -16,7 +16,13 @@ export default () => {
   const data = items;
   const headers = useMemo(() => headerMaker(headerData), [headerData]);
   const [loading, setLoading] = useState(false);
-
+  axios
+    .get("https://five-plus.co/api/v1/profiles/student/list", {
+      headers: {
+        Authorization: `Bearer ${sessionStorage.getItem("access_token")}`,
+      },
+    })
+    .then((res) => console.log(res));
   const fetchData = useCallback(
     (params) =>
       getData({
@@ -29,10 +35,10 @@ export default () => {
       }),
     [asyncTask]
   );
+  console.log(items);
 
   return (
     <Container>
-      Hello
       <Table
         headers={headers}
         data={data}
