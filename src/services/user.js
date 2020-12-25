@@ -3,4 +3,5 @@ import { authSelector } from "./selectors";
 
 export default {
   whoAmI: () => authSelector(service.get("/profiles/whoami")),
+  getAllStudents: () => authSelector(service.get("profiles/student/list")),
 };
