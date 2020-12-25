@@ -12,7 +12,9 @@ export default () => {
 
   const [items, setItems] = useState([]);
   const [total, setTotal] = useState(0);
-  const headerData = useSelector(({ userReducer }) => userReducer.userReducer);
+  const headerData = useSelector(
+    ({ tableReducer }) => tableReducer.userReducer
+  );
   const data = useMemo(() => dataMaker(items), [items]);
   const headers = useMemo(() => headerMaker(headerData), [headerData]);
   const [loading, setLoading] = useState(false);
