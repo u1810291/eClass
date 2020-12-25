@@ -1,6 +1,5 @@
-import Wrapper from "../Wrapper";
+import { Container } from "./style";
 
-export default (props) => {
-  const {} = props;
-  return <Wrapper></Wrapper>;
+export default ({ child }) => {
+  return <Container>{child}</Container>;
 };
