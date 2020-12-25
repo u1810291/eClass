@@ -1,5 +1,4 @@
 import axios from "axios";
-import auth from "./auth";
 const baseURL = process.env.REACT_APP_SERVICE_URL;
 
 const service = axios.create({baseURL});
@@ -14,36 +13,13 @@ const CustomAxios = {
 };
 
 service.interceptors.response.use(
-  (response) => {
-    return response;
-  },
+  (res) => res,
   (error) => {
-    return new Promise((resolve, reject) => {
-      const originalReq = error.config;
-      console.log(originalReq);
-      console.log(error);
-      const refresh_token = sessionStorage.getItem("refresh_token");
-      if (error.response.status === 403 && refresh_token !== null) {
-        originalReq._retry = true;
-        let res = auth
-          .refreshToken(refresh_token)
-          .then((res) => {
-            console.log(res);
-            sessionStorage.setItem("access_token", res.access_token);
-            sessionStorage.setItem("refresh_token", res.refresh_token);
-            return service(originalReq);
-          })
-          .catch(reject);
-        resolve(res);
-      }
-      if (error.response.status === 403) {
-        alert("Invalid Login or password");
-      }
-      if (error.response.status === 401) {
-        window.location.replace("/logout");
-      }
-      return Promise.reject(error);
-    });
+    if (error.response.status === 401) {
+      window.location.replace("/logout");
+      localStorage.removeItem("token");
+    }
+    return Promise.reject(error);
   }
 );
 
