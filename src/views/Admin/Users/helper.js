@@ -1,9 +1,3 @@
-import React from "react";
-import Invoice from "../../../components/Invoice";
-import BoxDetails from "../../../components/BoxDetails";
-import EditOrder from "../../../components/Orders";
-import { getOrder, clearOrder } from "../../../redux/modules/orders/actions";
-
 export const dataMaker = (data) =>
   data.map(({ ...rest }) => ({
     ...rest,
@@ -13,8 +7,8 @@ export const toolTips = [
   {
     name: "View",
     icon: "pdf",
-    onClick: (id, { history }) => {
-      history.push(`/orders/view/${id}`);
+    onClick: () => {
+      alert("Delete");
     },
   },
   {
@@ -27,33 +21,22 @@ export const toolTips = [
   {
     name: "Box details",
     icon: "box",
-    onClick: (_, { showBlured }) => {
-      showBlured({
-        title: "Box Details",
-        body: BoxDetails,
-      });
+    onClick: () => {
+      alert("Delete");
     },
   },
   {
     name: "Invoice",
     icon: "invoise",
-    onClick: (_, { showBlured }) => {
-      showBlured({
-        title: "InvoiceOpen",
-        body: Invoice,
-      });
+    onClick: () => {
+      alert("Delete");
     },
   },
   {
     name: "Edit",
     icon: "edit",
-    onClick: (id, { dispatch, showFullScreen }) => {
-      dispatch(clearOrder());
-      dispatch(getOrder(id));
-      showFullScreen({
-        title: "Edit order",
-        body: () => <EditOrder editId={id} />,
-      });
+    onClick: () => {
+      alert("Delete");
     },
   },
   {

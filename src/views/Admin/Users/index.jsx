@@ -3,23 +3,23 @@ import { useSelector } from "react-redux";
 import Table from "../../../components/TableV2";
 import { Container } from "./style";
 import { headerToolTips, toolTips, dataMaker } from "./helper";
+import { headerMaker, getData } from "../../../components/TableV2/helpers";
 import { useAsync } from "../../../hooks/mounted";
 import Service from "../../../services/user";
-import { getDefaultLocale } from "javascript-time-ago";
 
 export default () => {
   const asyncTask = useAsync();
 
   const [items, setItems] = useState([]);
   const [total, setTotal] = useState(0);
-  const headerData = useSelector(({ tableReducer }) => tableReducer.usersData);
+  const headerData = useSelector(({ userReducer }) => userReducer.userReducer);
   const data = useMemo(() => dataMaker(items), [items]);
   const headers = useMemo(() => headerMaker(headerData), [headerData]);
   const [loading, setLoading] = useState(false);
 
   const fetchData = useCallback(
     (params) =>
-      getDefaultLocale({
+      getData({
         ...params,
         setLoading,
         setItems,
