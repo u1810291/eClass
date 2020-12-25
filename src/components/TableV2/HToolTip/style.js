@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from "styled-components";
 
 const isVisible = css`
   opacity: ${({ open }) => (open ? 1 : 0)};
@@ -19,7 +19,7 @@ export const Container = styled.div`
   transition: 0.2s display;
   ${isVisible};
   &:before {
-    content: '';
+    content: "";
     width: 18px;
     height: 18px;
     position: absolute;

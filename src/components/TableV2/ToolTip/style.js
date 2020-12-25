@@ -1,7 +1,8 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from "styled-components";
 
 const isVisible = css`
-  display: ${({ index, indexT, open }) => ((index === indexT && open) ? '' : 'none')};
+  display: ${({ index, indexT, open }) =>
+    index === indexT && open ? "" : "none"};
 `;
 
 export const ToolTip = styled.div`
@@ -14,14 +15,14 @@ export const ToolTip = styled.div`
   z-index: 3;
   transition: 0.2s display;
   border-radius: 8px;
-  box-shadow: 2px 2px 31px -14px rgba(0,0,0,0.38);
+  box-shadow: 2px 2px 31px -14px rgba(0, 0, 0, 0.38);
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
   padding: 11px 0;
   ${isVisible};
   &:before {
-    content: '';
+    content: "";
     background: white;
     width: 18px;
     height: 18px;
@@ -60,7 +61,7 @@ export const OptionButton = styled.button`
   align-items: center;
   cursor: pointer;
   &:hover {
-    background: #F8F8F8;
+    background: #f8f8f8;
   }
   &:focus {
     outline: none;

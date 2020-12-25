@@ -1,17 +1,17 @@
-import React, { useRef, useState } from 'react';
-import classNames from 'classnames';
-import { useHistory } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { Button, ToolTip, OptionButton } from './style';
-import Icon from '../../Icon';
-import { ClickOutside } from '../../../hooks/click-outside';
-import { useShowModal } from '../../../hooks/modal';
+import React, { useRef, useState } from "react";
+import classNames from "classnames";
+import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Button, ToolTip, OptionButton } from "./style";
+import Icon from "../../Icon";
+import { ClickOutside } from "../../../hooks/click-outside";
+import { useShowModal } from "../../../hooks/modal";
 
 const caption = classNames(
-  'button-medium',
-  'weight-medium',
-  'text-black-800',
-  'ml-2'
+  "button-medium",
+  "weight-medium",
+  "text-black-800",
+  "ml-2"
 );
 
 export default ({ index, indexT, setIndexT, data, itemId }) => {
@@ -30,7 +30,7 @@ export default ({ index, indexT, setIndexT, data, itemId }) => {
           setOpen((prevState) => !prevState);
         }}
       >
-        <Icon icon='menu-dot' />
+        <Icon icon="menu-dot" />
       </Button>
       <ClickOutside
         outClickRef={refClick}
@@ -51,7 +51,7 @@ export default ({ index, indexT, setIndexT, data, itemId }) => {
               }
               key={`${positionIndex + 1}`}
             >
-              <Icon icon={icon} size='16px' color='#7e8299' />
+              <Icon icon={icon} size="16px" color="#7e8299" />
               <span className={caption}>{name}</span>
             </OptionButton>
           ))}

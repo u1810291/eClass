@@ -1,10 +1,10 @@
-@import 'assets/fonts/index.css';
-@import './assets/css/index.css';
+@import "assets/fonts/index.css";
+@import "./assets/css/index.css";
 
 * {
   margin: 0;
   padding: 0;
-  font-family: 'Museo Sans Cyrl 500';
+  font-family: "Museo Sans Cyrl 500";
 }
 
 body {
@@ -13,13 +13,14 @@ body {
   right: 0%;
   top: 0%;
   bottom: 0%;
-  background: #333366;}
+  background: #333366;
+}
 
 :root {
-  --custom-primary: #F64E60;
+  --custom-primary: #f64e60;
   --custom-primary-light: white;
-  --custom-secondary: #FFA800;
-  --custom-secondary-light: #FFF4DE;
+  --custom-secondary: #ffa800;
+  --custom-secondary-light: #fff4de;
   --sidebar-width: 245px;
   --navbar-height: 63px;
   --secondary-navbar-height: 63px;
@@ -27,7 +28,7 @@ body {
   --sidebar-padding-x: 20px;
   --sidebar-collapsed-width: 112px;
   --sidebar-background: white;
-  --sidebar-item-active: #FFFFFF;
+  --sidebar-item-active: #ffffff;
   --sidebaricon-hovered-primary: #673237;
   --sidebaricon-hovered-light: #f64e60;
   --sidebaricon-active-primary: #673237;
@@ -39,7 +40,9 @@ body {
   --font-medium: 500;
   --font-semibold: 600;
   --font-bold: 700;
-  --content-body-height: calc(100vh - var(--navbar-height) - calc(2 * var(--content-body-padding)));
+  --content-body-height: calc(
+    100vh - var(--navbar-height) - calc(2 * var(--content-body-padding))
+  );
   --fullpage-modal-header-height: 60px;
   --basic-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.04);
 }
@@ -59,7 +62,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background:transparent;
+  background: transparent;
   border-radius: 8px;
 }
 
@@ -69,14 +72,15 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background:transparent;
+  background: transparent;
   border-radius: 8px;
 }
 
 ::-webkit-input-placeholder {
   color: #535875 !important;
 }
-.apexcharts-legend.apexcharts-align-right .apexcharts-legend-series, .apexcharts-legend.apexcharts-align-left .apexcharts-legend-series {
+.apexcharts-legend.apexcharts-align-right .apexcharts-legend-series,
+.apexcharts-legend.apexcharts-align-left .apexcharts-legend-series {
   display: flex !important;
   align-items: center;
 }
@@ -87,7 +91,7 @@ body {
 }
 
 .apexcharts-legend-marker::after {
-  content: '';
+  content: "";
   width: 4px;
   height: 4px;
   background-color: #fff;
@@ -113,7 +117,7 @@ body {
   max-height: 10em;
 }
 
-.react-tiny-popover-container{
+.react-tiny-popover-container {
   z-index: 1000;
   background: #fff;
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
@@ -129,17 +133,17 @@ body {
   background-color: #fff;
   border-radius: 4px 8px;
   box-shadow: 0px 6px 12px 0px rgba(73, 75, 116, 0.04);
-  border: 1px solid #E2E2EA;
+  border: 1px solid #e2e2ea;
 }
 
 .custom-legend-shape,
-  .tooltip-shape {
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    margin-right: 8px;
-    background-color: #fff;
-  }
+.tooltip-shape {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  margin-right: 8px;
+  background-color: #fff;
+}
 
 .custom-spline-tooltip-item {
   display: flex;

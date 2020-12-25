@@ -1,6 +1,6 @@
-import styled, { css } from 'styled-components';
-import { ReactComponent as SpinnerIcon } from '../../assets/icons/spinner.svg';
-import { ReactComponent as SpinnerBlackIcon } from '../../assets/icons/spinner-black.svg';
+import styled, { css } from "styled-components";
+import { ReactComponent as SpinnerIcon } from "../../assets/icons/spinner.svg";
+import { ReactComponent as SpinnerBlackIcon } from "../../assets/icons/spinner-black.svg";
 
 const fullScreen = css`
   position: fixed;

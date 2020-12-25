@@ -1,3 +1,55 @@
+import types from "../../../constants/action-types";
+export const genericTypes = [
+  {
+    key: types.ORDERS,
+    headerName: "ordersHeader",
+  },
+  {
+    key: types.SINGLE_BRANCH_ORDERS,
+    headerName: "branchOrdersHeader",
+  },
+  {
+    key: types.PICKUPS,
+    headerName: "pickupsHeader",
+  },
+  {
+    key: types.DELIVERIES,
+    headerName: "deliveriesHeader",
+  },
+  {
+    key: types.SHIPMENTS,
+    headerName: "shipmentsHeader",
+  },
+  {
+    key: types.FEDEX,
+    headerName: "fedexHeader",
+  },
+  {
+    key: types.WAREHOUSE,
+    headerName: "warehouseHeader",
+  },
+  {
+    key: types.SPENDINGS,
+    headerName: "spendingsHeader",
+  },
+  {
+    key: types.SHIPMENT_SINGLE_VIEW,
+    headerName: "singleShipmentHeader",
+  },
+  {
+    key: types.UPC_ORDERS,
+    headerName: "UPCOrdersHeader",
+  },
+  {
+    key: types.UPC_FEDEX,
+    headerName: "UPCFedexHeader",
+  },
+  {
+    key: types.UPC_ONLINE_ORDERS,
+    headerName: "UPCOnlineOrdersHeader",
+  },
+];
+
 export const usersHeader = [
   {
     id: 1,

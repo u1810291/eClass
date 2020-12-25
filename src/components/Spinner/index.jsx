@@ -1,5 +1,5 @@
-import React from 'react';
-import { Container, Spinner, SpinnerBlack } from './style';
+import React from "react";
+import { Container, Spinner, SpinnerBlack } from "./style";
 
 // Whole screen spinner
 export default (props) => (
