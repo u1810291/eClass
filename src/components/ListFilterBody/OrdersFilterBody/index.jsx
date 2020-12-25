@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import FilterSelect from "../../Forms/DropdownV3";
-import DatePicker from "../../FormElements/Input/DatePicker";
+import DatePicker from "../../Forms/Inputs/DatePicker";
 import {FilterBodyContainer, FilterBodyFlex, FilterClearAction, FilterItem} from "../style";
 import {defaultOptions} from "../helper";
 
