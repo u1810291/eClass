@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 import Scrollable from "react-indiana-drag-scroll";
-import { PureCheckbox } from "../Checkbox";
+import { PureCheckbox } from "../CheckBox";
 
 const upArrowIcon = css`
   width: 0;
@@ -97,7 +97,7 @@ export const TH = styled.th`
   white-space: nowrap;
   position: sticky;
   top: 0;
-  background: #F5F5F8;
+  background: #f5f5f8;
   z-index: 2;
   ${stickyTH}
   & ${Cell} {
@@ -118,11 +118,14 @@ export const TD = styled.td`
 
 export const TR = styled.tr`
   ${stickyTD};
-  & ${TD}:nth-child(${({ notCheckable }) => (notCheckable ? 1 : 2)}) ${Cell},
-  & ${TH}:nth-child(${({ notCheckable }) => (notCheckable ? 1 : 2)}) ${Cell}
-  {
-    border-right: 2px solid #F5F5F8;
-  };
+  &
+    ${TD}:nth-child(${({ notCheckable }) => (notCheckable ? 1 : 2)})
+    ${Cell},
+    &
+    ${TH}:nth-child(${({ notCheckable }) => (notCheckable ? 1 : 2)})
+    ${Cell} {
+    border-right: 2px solid #f5f5f8;
+  }
 `;
 export const TREmpty = styled.tr`
   height: 12px !important;

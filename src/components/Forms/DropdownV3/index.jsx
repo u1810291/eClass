@@ -21,7 +21,7 @@ import {
   OptionTextWrapper,
 } from "./style";
 import { PureCheckbox as Checkbox } from "../../CheckBox";
-import { ReactComponent as SearchIcon } from "../../../../assets/icons/search.svg";
+import { ReactComponent as SearchIcon } from "../../../assets/icons/search.svg";
 import Icon from "../../Icon";
 
 const FilterSelect = ({
