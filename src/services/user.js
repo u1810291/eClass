@@ -1,4 +1,4 @@
-import axios, { service, execute } from ".";
+import { service } from ".";
 import { authSelector } from "./selectors";
 
 export default {

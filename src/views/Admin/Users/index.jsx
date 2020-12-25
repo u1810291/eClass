@@ -1,5 +1,9 @@
 import Users from "../../../components/Users";
-
+import { Container } from "./style";
 export default () => {
-  return <Users>Users</Users>;
+  return (
+    <Container>
+      <Users>Users</Users>;
+    </Container>
+  );
 };
