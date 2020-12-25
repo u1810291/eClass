@@ -1,5 +1,5 @@
 import styled, {keyframes} from "styled-components";
-import TertiaryButton from "../FormElements/Buttons/Tertiary";
+import PrimaryButton from "../Buttons/Primary";
 import {ReactComponent as IconFilter} from "../../assets/icons/filter.svg";
 import {ReactComponent as IconPlus} from "../../assets/icons/plus.svg";
 import {ReactComponent as IconLocation} from "../../assets/icons/location.svg";
@@ -26,7 +26,7 @@ export const PlusIcon = styled(IconPlus)`
   }
 `;
 
-export const GridButton = styled(TertiaryButton)`
+export const GridButton = styled(PrimaryButton)`
   &:not(:disabled):hover #Path_320,
   &:not(:disabled):hover #Path_321,
   &:not(:disabled):hover #Path_322,
@@ -47,7 +47,7 @@ export const GridButton = styled(TertiaryButton)`
   }
 `;
 
-export const FilterButton = styled(TertiaryButton)`
+export const FilterButton = styled(PrimaryButton)`
   &:not(:disabled):hover #Path_260,
   &:not(:disabled):hover #Path_261,
   &:not(:disabled):hover #Path_262 {

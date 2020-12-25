@@ -3,8 +3,7 @@ import moment from "moment";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import classNames from "classnames";
-import {InputBlock} from "../style";
-import {DatepickerInput} from "../../style";
+import {InputBlock, DatepickerInput} from "../style";
 import {ErrorText} from "../../Error/style";
 import CalendarComponent from "./Container";
 import {ClickOutside} from "../../../../hooks/click-outside";
