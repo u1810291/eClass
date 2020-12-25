@@ -1,7 +1,18 @@
 import Examples from "../components/Examples";
 import Users from "../views/Admin/Users";
 import Courses from "../views/Student/Courses";
+import Profile from "../views/Profile";
+
 export const childRoutes = [
+  {
+    path: "/profile",
+    component: Profile,
+    icon: "profile2",
+    title: "Profile",
+    permission: "",
+    role: [""],
+    children: [],
+  },
   {
     path: "/users",
     component: Users,
