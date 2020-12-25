@@ -1,10 +1,10 @@
-import { useState, useCallback, useMemo } from "react";
-import { useSelector } from "react-redux";
+import {useState, useCallback, useMemo} from "react";
+import {useSelector} from "react-redux";
 import Table from "../../../components/TableV2";
-import { Container } from "./style";
-import { headerToolTips, toolTips, dataMaker } from "./helper";
-import { headerMaker, getData } from "../../../components/TableV2/helpers";
-import { useAsync } from "../../../hooks/mounted";
+import {Container} from "./style";
+import {headerToolTips, toolTips} from "./helper";
+import {headerMaker, getData} from "../../../components/TableV2/helpers";
+import {useAsync} from "../../../hooks/mounted";
 import Service from "../../../services/user";
 
 export default () => {
@@ -12,10 +12,8 @@ export default () => {
 
   const [items, setItems] = useState([]);
   const [total, setTotal] = useState(0);
-  const headerData = useSelector(
-    ({ tableReducer }) => tableReducer.userReducer
-  );
-  const data = useMemo(() => dataMaker(items), [items]);
+  const headerData = useSelector(({tableReducer}) => tableReducer.usersHeader);
+  const data = items;
   const headers = useMemo(() => headerMaker(headerData), [headerData]);
   const [loading, setLoading] = useState(false);
 

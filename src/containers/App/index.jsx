@@ -1,24 +1,24 @@
-import { useSelector, shallowEqual } from "react-redux";
-import { Switch, Route, Redirect } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import {useSelector, shallowEqual} from "react-redux";
+import {Switch, Route, Redirect} from "react-router-dom";
+import {useDispatch} from "react-redux";
 
 import SignIn from "../../views/Auth/SignIn";
 import ResetForm from "../../views/Auth/ResetForm";
 import PinCodeSignIn from "../../views/Auth/PinCodeSignIn";
 import ChangePassword from "../../views/Auth/ChangePassword";
 import VerifiedPage from "../../views/Auth/VerifiedPage";
-import { Container } from "./style";
+import {Container} from "./style";
 import appSelector from "../../redux/selectors/app";
 import Home from "../Home";
 import SignUp from "../../views/Auth/SignUp";
 import user from "../../services/user";
-import { userInfo } from "../../redux/modules/user/actions";
-import { useAsync } from "../../hooks";
+import {userInfo} from "../../redux/modules/user/actions";
+import {useAsync} from "../../hooks";
 
 export default () => {
   const dispatch = useDispatch();
   const asyncTask = useAsync();
-  const { access_token, showModal } = useSelector(appSelector, shallowEqual);
+  const {access_token, showModal} = useSelector(appSelector, shallowEqual);
 
   const publicRoutes = (
     <Container>
@@ -36,9 +36,11 @@ export default () => {
 
   if (access_token) {
     const promise = user.whoAmI();
-    asyncTask(promise).then((res) => {
-      dispatch(userInfo(res));
-    });
+    asyncTask(promise)
+      .then((res) => {
+        dispatch(userInfo(res));
+      })
+      .catch((error) => console.log(error));
   }
   const protectedRoutes = (
     <Container show={showModal}>

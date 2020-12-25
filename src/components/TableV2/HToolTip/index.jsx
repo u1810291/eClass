@@ -1,23 +1,17 @@
-import React, { useState, useRef } from "react";
+import React, {useState, useRef} from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import { Container } from "./style";
-import { Button, OptionButton } from "../ToolTip/style";
+import {Container} from "./style";
+import {Button, OptionButton} from "../ToolTip/style";
 import Icon from "../../Icon";
-import { ClickOutside } from "../../../hooks/click-outside";
+import {ClickOutside} from "../../../hooks/click-outside";
 
-import { useHistory } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { useShowModal } from "../../../hooks/modal";
+import {useHistory} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import {useShowModal} from "../../../hooks/modal";
 
-const caption = classNames(
-  "button-medium",
-  "weight-medium",
-  "text-black-800",
-  "ml-2"
-);
-const HeaderToolTip = ({ open, data }) => {
-  const [opening, setOpen] = useState(false);
+const caption = classNames("button-medium", "weight-medium", "text-black-800", "ml-2");
+const HeaderToolTip = ({open, data}) => {
   const refClick = useRef(null);
   const history = useHistory();
   const dispatch = useDispatch();
@@ -28,20 +22,19 @@ const HeaderToolTip = ({ open, data }) => {
       <Button
         ref={refClick}
         onClick={() => {
-          setOpen((prevState) => !prevState);
+          alert("Hello world");
         }}
       >
-        {console.log(opening)}
         <Icon icon="menu-dot" />
       </Button>
       <ClickOutside
         outClickRef={refClick}
         outsideClicked={() => {
-          setOpen(false);
+          alert("Hello world");
         }}
       >
         <Container open={open}>
-          {data.map(({ name, icon, onClick: ItemClick }, index) => (
+          {data.map(({name, icon, onClick: ItemClick}, index) => (
             <OptionButton
               onClick={() =>
                 ItemClick({

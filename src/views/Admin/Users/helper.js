@@ -1,8 +1,3 @@
-export const dataMaker = (data) =>
-  data.map(({ ...rest }) => ({
-    ...rest,
-  }));
-
 export const toolTips = [
   {
     name: "View",

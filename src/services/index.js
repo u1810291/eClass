@@ -2,22 +2,26 @@ import axios from "axios";
 import auth from "./auth";
 const baseURL = process.env.REACT_APP_SERVICE_URL;
 
-const service = axios.create({ baseURL });
+const service = axios.create({baseURL});
 const CustomAxios = {
   _instance: null,
   get instance() {
     if (!this._instance) {
-      this._instance = axios.create({ baseURL: "/api" });
+      this._instance = axios.create({baseURL: "/api"});
     }
     return this._instance;
   },
 };
 
 service.interceptors.response.use(
-  (res) => res,
+  (response) => {
+    return response;
+  },
   (error) => {
     return new Promise((resolve, reject) => {
       const originalReq = error.config;
+      console.log(originalReq);
+      console.log(error);
       const refresh_token = sessionStorage.getItem("refresh_token");
       if (error.response.status === 403 && refresh_token !== null) {
         originalReq._retry = true;
@@ -27,7 +31,7 @@ service.interceptors.response.use(
             console.log(res);
             sessionStorage.setItem("access_token", res.access_token);
             sessionStorage.setItem("refresh_token", res.refresh_token);
-            return axios(originalReq);
+            return service(originalReq);
           })
           .catch(reject);
         resolve(res);
@@ -60,5 +64,5 @@ export function execute(promise) {
   });
 }
 
-export { service };
+export {service};
 export default CustomAxios.instance;
