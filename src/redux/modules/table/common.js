@@ -1,0 +1,45 @@
+export const usersHeader = [
+  {
+    id: 1,
+    Header: "ID",
+    accessor: "id",
+    show: true,
+  },
+  {
+    id: 2,
+    Header: "Full name",
+    accessor: "fullname",
+    type: "user",
+    show: true,
+  },
+  {
+    id: 3,
+    Header: "Email",
+    accessor: "email",
+    type: "email",
+    show: true,
+  },
+  {
+    id: 4,
+    Header: "Date of birth",
+    accessor: "dateOfBirth",
+    align: "end",
+    suffix: "pcs",
+    show: true,
+  },
+  {
+    id: 5,
+    Header: "Phones",
+    accessor: "phones",
+    align: "end",
+    prefix: "+",
+    show: true,
+  },
+  {
+    id: 6,
+    Header: "Address",
+    accessor: "address",
+    align: "end",
+    show: true,
+  },
+];
