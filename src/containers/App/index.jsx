@@ -17,8 +17,9 @@ import { useAsync } from "../../hooks";
 
 export default () => {
   const dispatch = useDispatch();
-  const { access_token, showModal } = useSelector(appSelector, shallowEqual);
   const asyncTask = useAsync();
+  const { access_token, showModal } = useSelector(appSelector, shallowEqual);
+
   const publicRoutes = (
     <Container>
       <Switch>
