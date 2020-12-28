@@ -12,13 +12,9 @@ import appSelector from "../../redux/selectors/app";
 import Home from "../Home";
 import SignUp from "../../views/Auth/SignUp";
 import {userInfo} from "../../redux/modules/user/actions";
-import {useAsync} from "../../hooks";
-import user from "../../services/user";
-import auth from "../../services/auth";
-
+import refreshHook from "./refreshHook";
 export default () => {
   const dispatch = useDispatch();
-  const asyncTask = useAsync();
   const {access_token, showModal} = useSelector(appSelector, shallowEqual);
 
   const publicRoutes = (
@@ -36,25 +32,7 @@ export default () => {
   );
 
   if (access_token) {
-    const promise = user.whoAmI();
-    asyncTask(promise)
-      .then((res) => {
-        dispatch(userInfo(res));
-      })
-      .catch((error) => {
-        const originalReq = error.config;
-        console.log(originalReq);
-        console.log(error);
-        const refresh_token = sessionStorage.getItem("refresh_token");
-        auth
-          .refreshToken(refresh_token)
-          .then((res) => {
-            console.log(res);
-            sessionStorage.setItem("access_token", res.access_token);
-            sessionStorage.setItem("refresh_token", res.refresh_token);
-          })
-          .catch((err) => console.log(err));
-      });
+    dispatch(userInfo(refreshHook()));
   }
   const protectedRoutes = (
     <Container show={showModal}>
