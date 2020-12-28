@@ -1,10 +1,10 @@
-@import './margins.css';
-@import './fonts.css';
-@import './weights.css';
-@import './border.css';
-@import './colors.css';
-@import './shadow.css';
-@import './notification.css';
+@import "./margins.css";
+@import "./fonts.css";
+@import "./weights.css";
+@import "./border.css";
+@import "./colors.css";
+@import "./shadow.css";
+@import "./notification.css";
 
 .center {
   display: grid;

@@ -1,31 +1,22 @@
-import { useSelector, shallowEqual } from "react-redux";
-import { Switch, Route, Redirect } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import {useSelector, shallowEqual} from "react-redux";
+import {Switch, Route, Redirect} from "react-router-dom";
+import {useDispatch} from "react-redux";
 
 import SignIn from "../../views/Auth/SignIn";
 import ResetForm from "../../views/Auth/ResetForm";
 import PinCodeSignIn from "../../views/Auth/PinCodeSignIn";
 import ChangePassword from "../../views/Auth/ChangePassword";
 import VerifiedPage from "../../views/Auth/VerifiedPage";
-import { Container } from "./style";
+import {Container} from "./style";
 import appSelector from "../../redux/selectors/app";
 import Home from "../Home";
 import SignUp from "../../views/Auth/SignUp";
-import user from "../../services/user";
-import { userInfo } from "../../redux/modules/user/actions";
-import { useAsync } from "../../hooks/mounted";
-
+import {userInfo} from "../../redux/modules/user/actions";
+import refreshHook from "./refreshHook";
 export default () => {
   const dispatch = useDispatch();
-  const { access_token, showModal } = useSelector(appSelector, shallowEqual);
-  const asyncTask = useAsync();
-  const promise = user.whoAmI();
-  if (access_token) {
-    asyncTask(promise).then((res) => {
-      console.log(res);
-      dispatch(userInfo(res));
-    });
-  }
+  const {access_token, showModal} = useSelector(appSelector, shallowEqual);
+
   const publicRoutes = (
     <Container>
       <Switch>
@@ -40,6 +31,9 @@ export default () => {
     </Container>
   );
 
+  if (access_token) {
+    dispatch(userInfo(refreshHook()));
+  }
   const protectedRoutes = (
     <Container show={showModal}>
       <Switch>

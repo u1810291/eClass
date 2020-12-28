@@ -8,4 +8,6 @@ export default {
     execute(axios.post("/front-end/auth/verify", { params })),
   changePassword: (data) =>
     execute(axios.post("/auth/changePassword"), { data }),
+  refreshToken: ({ refresh_token }) =>
+    authSelector(service.post("/refresh", { refresh_token })),
 };

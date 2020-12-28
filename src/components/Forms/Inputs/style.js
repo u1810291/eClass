@@ -1,6 +1,6 @@
-import styled, { css } from "styled-components";
+import styled, {css} from "styled-components";
 
-export const getIconSize = ({ size }) => {
+export const getIconSize = ({size}) => {
   switch (size) {
     case "large" || "Large":
       return "24px";
@@ -21,7 +21,7 @@ export const InputContainer = styled.div`
   grid-template-columns: 1fr 1fr 1fr 1fr;
 `;
 
-export const getFontSize = ({ size }) => {
+export const getFontSize = ({size}) => {
   switch (size) {
     case "large" || "Large":
       return "14px";
@@ -34,7 +34,7 @@ export const getFontSize = ({ size }) => {
   }
 };
 
-export const getLabelPadding = ({ size }) => {
+export const getLabelPadding = ({size}) => {
   switch (size) {
     case "large" || "Large":
       return "25px";
@@ -47,7 +47,7 @@ export const getLabelPadding = ({ size }) => {
   }
 };
 
-export const getHeight = ({ size }) => {
+export const getHeight = ({size}) => {
   switch (size) {
     case "large" || "Large":
       return "50px";
@@ -60,7 +60,7 @@ export const getHeight = ({ size }) => {
   }
 };
 
-export const getPadding = ({ size }) => {
+export const getPadding = ({size}) => {
   switch (size) {
     case "large" || "Large":
       return "0 25px";
@@ -73,7 +73,7 @@ export const getPadding = ({ size }) => {
   }
 };
 
-export const getIconPadding = ({ size }) => {
+export const getIconPadding = ({size}) => {
   switch (size) {
     case "large" || "Large":
       return "0 16px";
@@ -85,7 +85,7 @@ export const getIconPadding = ({ size }) => {
       return "11px 13px";
   }
 };
-export const getColor = ({ type }) => {
+export const getColor = ({type}) => {
   switch (type) {
     case "error" || "Error":
       return "#E71923";
@@ -96,7 +96,7 @@ export const getColor = ({ type }) => {
   }
 };
 
-export const getBorderRadius = ({ size }) => {
+export const getBorderRadius = ({size}) => {
   switch (size) {
     case "large" || "Large":
       return "9px";
@@ -172,7 +172,7 @@ export const normal = css`
   max-height: ${getHeight};
   box-sizing: border-box;
   border: 1px solid #e2e2ea;
-  background: ${({ white }) => (white ? "#ffffff" : "#F0F8FF")};
+  background: ${({white}) => (white ? "#ffffff" : "#F0F8FF")};
   color: #9d9d9d;
   .left-right {
     display: none;
@@ -189,17 +189,17 @@ export const normal = css`
   }
   &:not(:focus)&:not(:disabled):hover {
     color: #9d9d9d;
-    background: ${({ white }) => (white ? "#ffffff" : "#F0F8FF")};
+    background: ${({white}) => (white ? "#ffffff" : "#F0F8FF")};
   }
   &:not(:disabled):active {
-    color: ${({ white }) => (white ? "#262626" : "#9d9d9d")};
+    color: ${({white}) => (white ? "#262626" : "#9d9d9d")};
   }
   &:active {
-    color: ${({ white }) => (white ? "#262626" : "#9d9d9d")};
+    color: ${({white}) => (white ? "#262626" : "#9d9d9d")};
   }
   &:disabled {
     color: #c4c4c4;
-    background: ${({ white }) => (white ? "#e9e9e9" : "#f5f5f5")};
+    background: ${({white}) => (white ? "#e9e9e9" : "#f5f5f5")};
     cursor: not-allowed;
   }
   &::placeholder {
@@ -207,7 +207,44 @@ export const normal = css`
   }
 `;
 
-export const getType = ({ type }) => {
+export const InputBlock = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: relative;
+`;
+
+export const TextareaView = styled.textarea`
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  line-height: 17px;
+  padding: 13px 16px;
+  border: 0;
+  outline: none;
+  font-size: 12px;
+  font-weight: 500;
+  &::placeholder {
+    color: #7e8299;
+  }
+`;
+
+export const DatepickerInput = styled.div`
+  display: flex;
+  align-items: center;
+  background-color: ${({white}) => (white ? "#FFFFFF" : "#f8f8f8")};
+  border-radius: 8px;
+  color: ${({white}) => (white ? "#262626" : "#7E8299")};
+  line-height: 18px;
+  height: 43px;
+  padding: 0px 24px;
+  border: 0;
+  outline: none;
+  justify-content: center;
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+export const getType = ({type}) => {
   switch (type) {
     case "error" || "Error":
       return error;
@@ -218,7 +255,7 @@ export const getType = ({ type }) => {
   }
 };
 
-export const getPwd = ({ typePwd }) => {
+export const getPwd = ({typePwd}) => {
   switch (typePwd) {
     case "error" || "Error":
       return error;

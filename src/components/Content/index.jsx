@@ -1,6 +1,6 @@
 import { Route, Redirect } from "react-router-dom";
 import { Container, Content } from "./style";
-import { childRoutes } from "../../routes/student-sidebar-elemets";
+import { childRoutes } from "../../routes/sidebar-routes";
 import Navbar from "../Navbar";
 
 export default () => (
