@@ -1,6 +1,6 @@
 import {useState, useCallback, useMemo} from "react";
 import {useSelector} from "react-redux";
-import Table from "../../../components/TableV2";
+import Table from "../../../components/Table";
 import {Container} from "./style";
 import {headerToolTips, toolTips} from "./helper";
 import {headerMaker, getData} from "../../../components/TableV2/helpers";
@@ -17,13 +17,6 @@ export default () => {
   const data = items;
   const headers = useMemo(() => headerMaker(headerData), [headerData]);
   const [loading, setLoading] = useState(false);
-  // axios
-  //   .get("https://five-plus.co/api/v1/profiles/student/list", {
-  //     headers: {
-  //       Authorization: `Bearer ${sessionStorage.getItem("access_token")}`,
-  //     },
-  //   })
-  //   .then((res) => console.log(res));
   const fetchData = useCallback(
     (params) =>
       getData({
@@ -40,16 +33,7 @@ export default () => {
 
   return (
     <Container>
-      <Header />
-      <Table
-        headers={headers}
-        data={data}
-        toolTips={toolTips}
-        headerToolTips={headerToolTips}
-        fetchData={fetchData}
-        total={total}
-        loading={loading}
-      />
+      <Table />
     </Container>
   );
 };
