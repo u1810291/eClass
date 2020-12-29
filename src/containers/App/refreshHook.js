@@ -8,7 +8,7 @@ function refreshHook() {
   const promise = user.whoAmI();
   asyncTask(promise)
     .then((res) => {
-      console.log("object");
+      console.log(res);
       return {res};
     })
     .catch((error) => {
