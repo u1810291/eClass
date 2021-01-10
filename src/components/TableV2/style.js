@@ -1,6 +1,6 @@
-import styled, { css } from "styled-components";
+import styled, {css} from "styled-components";
 import Scrollable from "react-indiana-drag-scroll";
-import { PureCheckbox } from "../CheckBox";
+import {PureCheckbox} from "../CheckBox";
 
 const upArrowIcon = css`
   width: 0;
@@ -17,14 +17,12 @@ const downArrowIcon = css`
   border-bottom: 0;
   border-left: var(--table-sort-icon-size) solid transparent;
   border-right: var(--table-sort-icon-size) solid transparent;
-  border-top: var(--table-sort-icon-size) solid
-    ${({ df }) => (df ? "#9D9D9D" : "#181C32")};
+  border-top: var(--table-sort-icon-size) solid ${({df}) => (df ? "#9D9D9D" : "#181C32")};
 `;
 
 const paddings = css`
-  padding-left: ${({ left }) => left && "var(--table-left-right-row-paddings)"};
-  padding-right: ${({ right }) =>
-    right && "var(--table-left-right-row-paddings)"};
+  padding-left: ${({left}) => left && "var(--table-left-right-row-paddings)"};
+  padding-right: ${({right}) => right && "var(--table-left-right-row-paddings)"};
 `;
 
 const stickyTH = css`
@@ -32,7 +30,7 @@ const stickyTH = css`
     left: 0;
     z-index: 3;
   }
-  ${({ notCheckable }) =>
+  ${({notCheckable}) =>
     !notCheckable &&
     `
       &:nth-child(2) {
@@ -49,7 +47,7 @@ const stickyTD = css`
     z-index: 1;
     background-color: white;
   }
-  ${({ notCheckable }) =>
+  ${({notCheckable}) =>
     !notCheckable &&
     `
       & td:nth-child(2) {
@@ -76,7 +74,7 @@ export const Container = styled.div`
 `;
 
 export const Wrapper = styled(Scrollable)`
-  height: ${({ height }) => (height ? height : "550px")};
+  height: ${({height}) => (height ? height : "550px")};
   overflow-x: auto;
   overflow-y: auto;
 `;
@@ -87,7 +85,7 @@ export const Cell = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: ${({ align }) => align && `flex-${align}`};
+  justify-content: ${({align}) => align && `flex-${align}`};
 `;
 
 export const THead = styled.thead``;
@@ -119,10 +117,10 @@ export const TD = styled.td`
 export const TR = styled.tr`
   ${stickyTD};
   &
-    ${TD}:nth-child(${({ notCheckable }) => (notCheckable ? 1 : 2)})
+    ${TD}:nth-child(${({notCheckable}) => (notCheckable ? 1 : 2)})
     ${Cell},
     &
-    ${TH}:nth-child(${({ notCheckable }) => (notCheckable ? 1 : 2)})
+    ${TH}:nth-child(${({notCheckable}) => (notCheckable ? 1 : 2)})
     ${Cell} {
     border-right: 2px solid #f5f5f8;
   }
@@ -166,7 +164,7 @@ export const Icon = styled.span`
     position: absolute;
     right: var(--table-cell-right-padding);
     bottom: -2px;
-    ${({ down }) => (!down ? downArrowIcon : upArrowIcon)};
+    ${({down}) => (!down ? downArrowIcon : upArrowIcon)};
   }
 `;
 

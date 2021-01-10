@@ -1,20 +1,15 @@
-import React, { useRef, useState } from "react";
+import React, {useRef, useState} from "react";
 import classNames from "classnames";
-import { useHistory } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { Button, ToolTip, OptionButton } from "./style";
+import {useHistory} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import {Button, ToolTip, OptionButton} from "./style";
 import Icon from "../../Icon";
-import { ClickOutside } from "../../../hooks/click-outside";
-import { useShowModal } from "../../../hooks/modal";
+import {ClickOutside} from "../../../hooks/click-outside";
+import {useShowModal} from "../../../hooks/modal";
 
-const caption = classNames(
-  "button-medium",
-  "weight-medium",
-  "text-black-800",
-  "ml-2"
-);
+const caption = classNames("button-medium", "weight-medium", "text-black-800", "ml-2");
 
-export default ({ index, indexT, setIndexT, data, itemId }) => {
+export default ({index, indexT, setIndexT, data, itemId}) => {
   const [open, setOpen] = useState(false);
   const refClick = useRef(null);
   const history = useHistory();
@@ -39,7 +34,7 @@ export default ({ index, indexT, setIndexT, data, itemId }) => {
         }}
       >
         <ToolTip index={index} indexT={indexT} open={open}>
-          {data.map(({ name, icon, onClick: ItemClick }, positionIndex) => (
+          {data.map(({name, icon, onClick: ItemClick}, positionIndex) => (
             <OptionButton
               onClick={() =>
                 ItemClick(itemId, {

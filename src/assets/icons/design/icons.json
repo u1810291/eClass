@@ -1356,7 +1356,7 @@
         "isMulticolor2": false,
         "grid": 0,
         "tags": ["bottom"],
-        "colorPermutations": { "012552552551": [{}] }
+        "colorPermutations": {"012552552551": [{}]}
       },
       "attrs": [{}],
       "properties": {
@@ -1380,7 +1380,7 @@
         "isMulticolor2": false,
         "grid": 0,
         "tags": ["top"],
-        "colorPermutations": { "012552552551": [{}] }
+        "colorPermutations": {"012552552551": [{}]}
       },
       "attrs": [{}],
       "properties": {
@@ -1404,7 +1404,7 @@
         "isMulticolor2": false,
         "grid": 0,
         "tags": ["search"],
-        "colorPermutations": { "012552552551": [{}] }
+        "colorPermutations": {"012552552551": [{}]}
       },
       "attrs": [{}],
       "properties": {

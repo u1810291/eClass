@@ -1,5 +1,5 @@
-import React, { useRef, useMemo, useState, useEffect } from "react";
-import { useTable, useSortBy, usePagination } from "react-table";
+import React, {useRef, useMemo, useState, useEffect} from "react";
+import {useTable, useSortBy, usePagination} from "react-table";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import {
@@ -19,48 +19,25 @@ import {
 } from "./style";
 import ButtonIcon from "../Icon";
 import HeaderToolTip from "./HToolTip";
-import { ClickOutside } from "../../hooks/click-outside";
+import {ClickOutside} from "../../hooks/click-outside";
 import ToolTip from "./ToolTip";
 import Pagination from "./Pagination";
 import Spinner from "../Spinner";
 
-const textClass = classNames(
-  "button-large",
-  "weight-regular",
-  "text-black-800"
-);
-const headerClass = classNames(
-  "body-medium",
-  "text-black-800",
-  "weight-medium"
-);
+const textClass = classNames("button-large", "weight-regular", "text-black-800");
+const headerClass = classNames("body-medium", "text-black-800", "weight-medium");
 
-const CustomCheckbox = ({ shouldCheck }) => {
+const CustomCheckbox = ({shouldCheck}) => {
   const [checked, setChecked] = useState(false);
   useEffect(() => {
     setChecked(shouldCheck);
   }, [shouldCheck]);
-  return (
-    <CheckBox
-      type="checkbox"
-      checked={checked}
-      onChange={(e) => setChecked(e.target.checked)}
-    />
-  );
+  return <CheckBox type="checkbox" checked={checked} onChange={(e) => setChecked(e.target.checked)} />;
 };
 
 // toolTips = [{ name: String, icon: String, onClick: Function }]
 // HeaderToolTips = [{ name: String, icon: String, onClick: Function }]
-const CustomTable = ({
-  toolTips,
-  headerToolTips,
-  headers,
-  data,
-  fetchData,
-  total,
-  height,
-  loading,
-}) => {
+const CustomTable = ({toolTips, headerToolTips, headers, data, fetchData, total, height, loading}) => {
   const refClick = useRef(null);
   const [openH, setOpenH] = useState(false);
   const [indexT, setIndexT] = useState(-1);
@@ -83,12 +60,12 @@ const CustomTable = ({
     nextPage,
     previousPage,
     setPageSize,
-    state: { pageIndex, pageSize },
+    state: {pageIndex, pageSize},
   } = useTable(
     {
       columns: headers,
       data,
-      initialState: { pageIndex: 0, pageSize: 10 },
+      initialState: {pageIndex: 0, pageSize: 10},
       manualPagination: true,
       pageCount: pgCount,
       autoResetPage: false,
@@ -98,7 +75,7 @@ const CustomTable = ({
   );
 
   useEffect(() => {
-    fetchData({ pageIndex, pageSize });
+    fetchData({pageIndex, pageSize});
   }, [pageIndex, pageSize, fetchData]);
 
   useEffect(() => {
@@ -130,10 +107,7 @@ const CustomTable = ({
             <Table {...getTableProps()}>
               <THead>
                 {headerGroups.map((headerGroup) => (
-                  <TR
-                    {...headerGroup.getHeaderGroupProps()}
-                    notCheckable={notCheckable}
-                  >
+                  <TR {...headerGroup.getHeaderGroupProps()} notCheckable={notCheckable}>
                     {!notCheckable && (
                       <TH left>
                         <Cell>
@@ -143,10 +117,7 @@ const CustomTable = ({
                               setAllChecked(e.target.checked);
                             }}
                           />
-                          <MenuButton
-                            ref={refClick}
-                            onClick={() => setOpenH(!openH)}
-                          >
+                          <MenuButton ref={refClick} onClick={() => setOpenH(!openH)}>
                             <ButtonIcon color="#9D9D9D" icon="buttom" />
                           </MenuButton>
                         </Cell>
@@ -154,16 +125,12 @@ const CustomTable = ({
                     )}
                     {headerGroup.headers.map((header) => (
                       <TH
-                        {...header.getHeaderProps(
-                          header.getSortByToggleProps()
-                        )}
+                        {...header.getHeaderProps(header.getSortByToggleProps())}
                         notCheckable={notCheckable}
                       >
                         <Cell className={headerClass}>
                           {header.render("Header")}
-                          <Icon
-                            {...getIcon(header.isSorted, header.isSortedDesc)}
-                          />
+                          <Icon {...getIcon(header.isSorted, header.isSortedDesc)} />
                         </Cell>
                       </TH>
                     ))}
@@ -191,10 +158,7 @@ const CustomTable = ({
                         )}
                         {row.cells.map((cell, ind) => (
                           <TD key={`${ind + 1}`}>
-                            <Cell
-                              align={cell.column.align}
-                              className={textClass}
-                            >
+                            <Cell align={cell.column.align} className={textClass}>
                               {cell.column.prefix}
                               {cell.render("Cell")}
                               {` ${cell.column.suffix || ""}`}

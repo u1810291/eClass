@@ -5,7 +5,7 @@ const defaultState = {
 };
 
 const map = {
-  [types.APPLICATION_SHOW_ALERT]: (state, { payload }) => ({
+  [types.APPLICATION_SHOW_ALERT]: (state, {payload}) => ({
     show: true,
     ...payload,
   }),

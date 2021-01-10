@@ -1,7 +1,7 @@
-import { useState } from "react";
+import {useState} from "react";
 
 import Dropdown from "../../Forms/Dropdowns";
-import { dropdownOptions } from "../../../data/dropdown";
+import {dropdownOptions} from "../../../data/dropdown";
 
 const DropdownExample = () => {
   const [commonDropdown, setCommonDropdown] = useState(undefined);
@@ -16,7 +16,7 @@ const DropdownExample = () => {
         gridGap: 30,
       }}
     >
-      <div style={{ display: "grid", gridTemplateColumns: "1fr", gridGap: 15 }}>
+      <div style={{display: "grid", gridTemplateColumns: "1fr", gridGap: 15}}>
         <h5>Common dropdown</h5>
         <Dropdown
           label="Label"
@@ -43,7 +43,7 @@ const DropdownExample = () => {
           size="small"
         />
       </div>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr", gridGap: 15 }}>
+      <div style={{display: "grid", gridTemplateColumns: "1fr", gridGap: 15}}>
         <h5>Multiselectable dropdown</h5>
         <Dropdown
           label="Label"
@@ -73,7 +73,7 @@ const DropdownExample = () => {
           multiple
         />
       </div>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr", gridGap: 15 }}>
+      <div style={{display: "grid", gridTemplateColumns: "1fr", gridGap: 15}}>
         <h5>Searchable dropdown</h5>
         <Dropdown
           label="Label"
@@ -103,7 +103,7 @@ const DropdownExample = () => {
           searchable
         />
       </div>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr", gridGap: 15 }}>
+      <div style={{display: "grid", gridTemplateColumns: "1fr", gridGap: 15}}>
         <h5>Searchable dropdown</h5>
         <Dropdown
           label="Label"

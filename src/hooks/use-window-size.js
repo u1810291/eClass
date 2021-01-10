@@ -1,10 +1,10 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, {createContext, useState, useEffect} from "react";
 import * as sizes from "../utils/responsive";
 import * as devices from "../constants/devices";
 
 const viewPortContext = createContext({});
 
-export const ViewportProvider = ({ children }) => {
+export const ViewportProvider = ({children}) => {
   const [width, setWidth] = useState(window.innerWidth);
   const [height, setHeight] = useState(window.innerHeight);
   const [device, setDevice] = useState("");
@@ -32,14 +32,10 @@ export const ViewportProvider = ({ children }) => {
     return () => window.removeEventListener("resize", handleWindowResize);
   }, []);
 
-  return (
-    <viewPortContext.Provider value={{ width, height, device }}>
-      {children}
-    </viewPortContext.Provider>
-  );
+  return <viewPortContext.Provider value={{width, height, device}}>{children}</viewPortContext.Provider>;
 };
 
 export const useWindowSize = () => {
-  const { width, height, device } = React.useContext(viewPortContext);
-  return { width, height, device };
+  const {width, height, device} = React.useContext(viewPortContext);
+  return {width, height, device};
 };

@@ -1,6 +1,6 @@
-import { css } from "styled-components";
+import {css} from "styled-components";
 
-export const getFontSize = ({ size }) => {
+export const getFontSize = ({size}) => {
   // switch (size) {
   // case ('large' || 'Large'): return '14px';
   // case ('medium' || 'Medium'): return '13px';
@@ -9,7 +9,7 @@ export const getFontSize = ({ size }) => {
   // }
 };
 
-export const getHovered = ({ hover }) => {
+export const getHovered = ({hover}) => {
   switch (hover) {
     case "linked" || "Linked":
       return "white";
@@ -18,7 +18,7 @@ export const getHovered = ({ hover }) => {
   }
 };
 
-export const getHeight = ({ size }) => {
+export const getHeight = ({size}) => {
   switch (size) {
     case "large" || "Large":
       return "50px";
@@ -31,7 +31,7 @@ export const getHeight = ({ size }) => {
   }
 };
 
-export const getPadding = ({ size }) => {
+export const getPadding = ({size}) => {
   switch (size) {
     case "large" || "Large":
       return "0 22px";
@@ -44,7 +44,7 @@ export const getPadding = ({ size }) => {
   }
 };
 
-export const getBorderRadius = ({ size }) => {
+export const getBorderRadius = ({size}) => {
   switch (size) {
     case "small" || "Small":
       return "11111px";
@@ -63,7 +63,7 @@ export const buttons = css`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: ${({ block }) => block && "100%"};
+  width: ${({block}) => block && "100%"};
   padding: ${getPadding};
   height: ${getHeight};
 `;

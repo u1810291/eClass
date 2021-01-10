@@ -1,5 +1,5 @@
 import Card from "../Card";
-import { Container } from "./style";
+import {Container} from "./style";
 export default () => {
   return (
     <Container>

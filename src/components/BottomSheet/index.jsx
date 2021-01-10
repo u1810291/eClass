@@ -1,12 +1,7 @@
-import React from 'react';
-import SwipeableBottomSheet from 'react-swipeable-bottom-sheet';
-import {
-  Cotainer,
-  UpperContainer,
-  TopInnerContainer,
-  SwipeButton,
-} from './style';
-export default ({ children, handleOnExpand, swipeableProps }) => {
+import React from "react";
+import SwipeableBottomSheet from "react-swipeable-bottom-sheet";
+import {Cotainer, UpperContainer, TopInnerContainer, SwipeButton} from "./style";
+export default ({children, handleOnExpand, swipeableProps}) => {
   return (
     <UpperContainer>
       <SwipeableBottomSheet {...swipeableProps}>

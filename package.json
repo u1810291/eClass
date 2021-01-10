@@ -42,7 +42,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
-    "format": "prettier --write \"**/*.+(js|jsx|json|css|md)\""
+    "format": "eslint --write \"**/*.+(js|jsx|json|css|md)\""
   },
   "eslintConfig": {
     "extends": [
@@ -53,7 +53,7 @@
   "prettier": {
     "printWidth": 110,
     "bracketSpacing": false,
-    "trailingComma": "es5"
+    "trailingComma": "es6"
   },
   "husky": {
     "hooks": {

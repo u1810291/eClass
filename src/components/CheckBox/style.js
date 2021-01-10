@@ -4,16 +4,16 @@ export const Checkbox = styled.input`
   position: relative;
   width: 24px;
   height: 24px;
-  margin-right: ${({ initial }) => !initial && "8px"};
+  margin-right: ${({initial}) => !initial && "8px"};
   -webkit-appearance: none;
   outline: none;
   border-radius: 8px;
-  background: ${({ white }) => (white ? "#FFFFFF" : "#50B5FF")};
+  background: ${({white}) => (white ? "#FFFFFF" : "#50B5FF")};
   transition: 0.1s;
   z-index: 1;
   cursor: pointer;
   &:hover {
-    background: ${({ white }) => (white ? "#FFFFFF" : "#78c6ff")};
+    background: ${({white}) => (white ? "#FFFFFF" : "#78c6ff")};
   }
   &:before {
     content: "";
@@ -21,7 +21,7 @@ export const Checkbox = styled.input`
     transition: 0.1s;
   }
   &:disabled {
-    background-color: ${({ white }) => (white ? "#E9E9E9" : "#f5f5f5")};
+    background-color: ${({white}) => (white ? "#E9E9E9" : "#f5f5f5")};
   }
 
   &:checked {
