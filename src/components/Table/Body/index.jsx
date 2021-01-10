@@ -1,25 +1,52 @@
 import React from "react";
-import { Container, Header, Body } from "./style";
-import Item from "../Item";
-import Icon from "../../Icon";
-import { header, bodyItem } from "./data";
+import {useTable, useExpanded} from "react-table";
+
 export default () => {
+  const {
+    getTableProps,
+    getTableBodyProps,
+    headerGroups,
+    rows,
+    prepareRow,
+    state: {expanded},
+  } = useTable(
+    {
+      columns: userColumns,
+      data,
+    },
+    useExpanded
+  );
+
   return (
-    <Container>
-      <Header>
-        {header.length &&
-          header.map((i) => (
-            <Header.Item key={i.id}>
-              {i.value} <Icon icon="bottom" size="1em" color="#97A0C3" />
-            </Header.Item>
+    <>
+      <table {...getTableProps()}>
+        <thead>
+          {headerGroups.map((headerGroup) => (
+            <tr {...headerGroup.getHeaderGroupProps()}>
+              {headerGroup.headers.map((column) => (
+                <th {...column.getHeaderProps()}>{column.render("Header")}</th>
+              ))}
+            </tr>
           ))}
-      </Header>
-      <Body>
-        Body
-        {bodyItem.map((item, index) => (
-          <Item key={index + 1} data={item} />
-        ))}
-      </Body>
-    </Container>
+        </thead>
+        <tbody {...getTableBodyProps()}>
+          {rows.map((row, i) => {
+            prepareRow(row);
+            return (
+              <tr {...row.getRowProps()}>
+                {row.cells.map((cell) => {
+                  return <td {...cell.getCellProps()}>{cell.render("Cell")}</td>;
+                })}
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+      <br />
+      <div>Showing the first 20 results of {rows.length} rows</div>
+      <pre>
+        <code>{JSON.stringify({expanded: expanded}, null, 2)}</code>
+      </pre>
+    </>
   );
 };
