@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <g id="grid" transform="translate(-1.6 -1.6)">
+    <path id="Path_320" data-name="Path 320" d="M2.4,2.4H8V8H2.4Z" fill="none" stroke="#7e8299" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"/>
+    <path id="Path_321" data-name="Path 321" d="M11.2,2.4h5.6V8H11.2Z" fill="none" stroke="#7e8299" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"/>
+    <path id="Path_322" data-name="Path 322" d="M11.2,11.2h5.6v5.6H11.2Z" fill="none" stroke="#7e8299" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"/>
+    <path id="Path_323" data-name="Path 323" d="M2.4,11.2H8v5.6H2.4Z" fill="none" stroke="#7e8299" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"/>
+  </g>
+</svg>

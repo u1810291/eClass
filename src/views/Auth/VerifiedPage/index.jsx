@@ -1,13 +1,9 @@
-import { useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { VerifiedContainer } from "./style";
 import { PrimaryButton } from "../../../components/Buttons";
 import { login } from "../../../redux/modules/auth/actions";
 import auth from "../../../services/auth";
-
-function useQuery() {
-  return new URLSearchParams(useLocation().search);
-}
+import { useQuery } from "../../../hooks";
 
 export default () => {
   const dispatch = useDispatch();

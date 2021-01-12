@@ -12,7 +12,7 @@ import {
 } from "../style";
 import Bell from "../../Bell";
 import { expand } from "../../../redux/modules/sidebar/actions";
-import { ClickOutside } from "../../../hooks/click-outside";
+import { ClickOutside } from "../../../hooks";
 import { logout } from "../../../redux/modules/auth/actions";
 import classNames from "classnames";
 import { DropdownContainer } from "./style";

@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { setTitle } from "../../redux/modules/nav/actions";
 import Container from "../../components/Container";
 import Sidebar from "../../components/Sidebar";
 import Content from "../../components/Content";
+import { setTitle } from "../../redux/modules/nav/actions";
 
 export default () => {
   const dispatch = useDispatch();
@@ -18,7 +18,6 @@ export default () => {
       : "";
     dispatch(setTitle(title));
   });
-
   return (
     <Container>
       <Sidebar />

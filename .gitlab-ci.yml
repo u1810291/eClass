@@ -73,7 +73,6 @@ load-and-run-docker:
       ${CI_REGISTRY_IMAGE}/frontend-main:${CI_COMMIT_REF_SLUG}
     - docker start fiveplus-frontend-main
 
-
 check-services-running:
   tags:
     - local

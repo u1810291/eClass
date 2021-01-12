@@ -1,4 +1,4 @@
-version: '3.7'
+version: "3.7"
 
 services:
   frontend-admin:
@@ -13,7 +13,7 @@ services:
     #  - ./build:/usr/share/nginx/html
     ports:
       - 8082:80
-    
+
 networks:
   fiveplus-network:
     name: fiveplus-network

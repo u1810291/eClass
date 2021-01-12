@@ -1,34 +1,71 @@
-import { useState } from "react";
-import { Container, Filter } from "./style";
-import Body from "./Body";
-import Droprown from "../Forms/Dropdowns";
-import classNames from "classnames";
-import { commonOption } from "./option";
+import React, {useMemo} from "react";
+import {Container} from "./style";
+import makeData from "./makeData";
 
 export default () => {
-  const [commonDropdown, setCommonDropdown] = useState(1);
+  const columns = useMemo(
+    () => [
+      {
+        id: "expander",
+        Header: ({getToggleAllRowsExpandedProps, isAllRowsExpanded}) => (
+          <span {...getToggleAllRowsExpandedProps()}>{isAllRowsExpanded ? "👇" : "👉"}</span>
+        ),
+        Cell: ({row}) =>
+          row.canExpand ? (
+            <span
+              {...row.getToggleRowExpandedProps({
+                style: {
+                  paddingLeft: `${row.depth * 2}rem`,
+                },
+              })}
+            >
+              {row.isExpanded ? "👇" : "👉"}
+            </span>
+          ) : null,
+      },
+      {
+        Header: "Name",
+        columns: [
+          {
+            Header: "First Name",
+            accessor: "firstName",
+          },
+          {
+            Header: "Last Name",
+            accessor: "lastName",
+          },
+        ],
+      },
+      {
+        Header: "Info",
+        columns: [
+          {
+            Header: "Age",
+            accessor: "age",
+          },
+          {
+            Header: "Visits",
+            accessor: "visits",
+          },
+          {
+            Header: "Status",
+            accessor: "status",
+          },
+          {
+            Header: "Profile Progress",
+            accessor: "progress",
+          },
+        ],
+      },
+    ],
+    []
+  );
+
+  const data = useMemo(() => makeData(5, 5, 5), []);
 
   return (
     <Container>
-      <Filter>
-        <Filter.Title className={classNames("heading-5", "weight-semibold")}>
-          Мои уроки
-        </Filter.Title>
-        <Filter.Option className={classNames("body-large")}>
-          Показать:
-        </Filter.Option>
-        <Filter.OptionLink>Все Уроки</Filter.OptionLink>
-        <Filter.Right>
-          <Droprown
-            placeholder="Select"
-            options={commonOption}
-            value={commonDropdown}
-            onChange={setCommonDropdown}
-            size="medium"
-          />
-        </Filter.Right>
-      </Filter>
-      <Body />
+      <Table columns={columns} data={data} />
     </Container>
   );
 };
