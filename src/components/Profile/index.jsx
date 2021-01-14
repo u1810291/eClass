@@ -1,7 +1,7 @@
-import { UserDetails, Container, Content, Area, Text } from "./style";
+import {UserDetails, Container, Content, Area, Text} from "./style";
 import Form from "./Form";
 import Info from "./Info";
-import { TextArea } from "../Forms/Inputs/TextArea/style";
+import {TextArea} from "../Forms/Inputs/TextArea/style";
 export default () => {
   return (
     <Container>

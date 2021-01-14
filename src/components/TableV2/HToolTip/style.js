@@ -1,8 +1,8 @@
-import styled, { css } from "styled-components";
+import styled, {css} from "styled-components";
 
 const isVisible = css`
-  opacity: ${({ open }) => (open ? 1 : 0)};
-  transform: scale(${({ open }) => (open ? 1 : 0)});
+  opacity: ${({open}) => (open ? 1 : 0)};
+  transform: scale(${({open}) => (open ? 1 : 0)});
 `;
 
 export const Container = styled.div`

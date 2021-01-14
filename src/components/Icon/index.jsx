@@ -3,15 +3,9 @@ import IcommonReact from "icomoon-react";
 import iconSet from "../../assets/icons/design/icons.json";
 
 const Icon = (props) => {
-  const { icon, size, color, classNames } = props;
+  const {icon, size, color, classNames} = props;
   return icon ? (
-    <IcommonReact
-      className={classNames}
-      iconSet={iconSet}
-      size={size}
-      color={color}
-      icon={icon}
-    />
+    <IcommonReact className={classNames} iconSet={iconSet} size={size} color={color} icon={icon} />
   ) : (
     ""
   );

@@ -5,4 +5,4 @@ export const login = (access_token, refresh_token) => ({
   access_token,
   refresh_token,
 });
-export const logout = () => ({ type: types.AUTH_LOGOUT });
+export const logout = () => ({type: types.AUTH_LOGOUT});

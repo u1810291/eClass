@@ -12,11 +12,20 @@ import appSelector from "../../redux/selectors/app";
 import Home from "../Home";
 import SignUp from "../../views/Auth/SignUp";
 import {userInfo} from "../../redux/modules/user/actions";
-import refreshHook from "./refreshHook";
+import {useAsync} from "../../hooks";
+import user from "../../services/user";
+
 export default () => {
   const dispatch = useDispatch();
   const {access_token, showModal} = useSelector(appSelector, shallowEqual);
-
+  const asyncTask = useAsync();
+  if (access_token) {
+    const promise = user.whoAmI();
+    asyncTask(promise).then((res) => {
+      console.log(res);
+      dispatch(userInfo(res));
+    });
+  }
   const publicRoutes = (
     <Container>
       <Switch>
@@ -31,9 +40,6 @@ export default () => {
     </Container>
   );
 
-  if (access_token) {
-    dispatch(userInfo(refreshHook()));
-  }
   const protectedRoutes = (
     <Container show={showModal}>
       <Switch>

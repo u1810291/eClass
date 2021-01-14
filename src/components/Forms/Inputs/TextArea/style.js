@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const TextArea = styled.textarea`
   width: -webkit-fill-available;
   border-radius: 11px;
-  background: ${({ white }) => (white ? " #ffffff" : " #f5f5f5")};
+  background: ${({white}) => (white ? " #ffffff" : " #f5f5f5")};
   height: 98px;
   padding: 16px;
   outline: none;
@@ -20,17 +20,17 @@ export const TextArea = styled.textarea`
   }
   &:not(:focus)&:not(:disabled):hover {
     color: #9d9d9d;
-    background: ${({ white }) => (white ? "#ffffff" : "#e9e9e9")};
+    background: ${({white}) => (white ? "#ffffff" : "#e9e9e9")};
   }
   &:not(:disabled):active {
-    color: ${({ white }) => (white ? "#262626" : "#9d9d9d")};
+    color: ${({white}) => (white ? "#262626" : "#9d9d9d")};
   }
   &:active {
-    color: ${({ white }) => (white ? "#262626" : "#9d9d9d")};
+    color: ${({white}) => (white ? "#262626" : "#9d9d9d")};
   }
   &:disabled {
     color: #c4c4c4;
-    background: ${({ white }) => (white ? "#e9e9e9" : "#f5f5f5")};
+    background: ${({white}) => (white ? "#e9e9e9" : "#f5f5f5")};
     cursor: not-allowed;
   }
   &::placeholder {

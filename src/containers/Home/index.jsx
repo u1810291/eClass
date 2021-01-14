@@ -1,9 +1,9 @@
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import {useEffect} from "react";
+import {useDispatch} from "react-redux";
 import Container from "../../components/Container";
 import Sidebar from "../../components/Sidebar";
 import Content from "../../components/Content";
-import { setTitle } from "../../redux/modules/nav/actions";
+import {setTitle} from "../../redux/modules/nav/actions";
 
 export default () => {
   const dispatch = useDispatch();
@@ -11,10 +11,7 @@ export default () => {
     const path = window.location.pathname.split("/");
     const pathTitle = path ? path[1] : "";
     const title = pathTitle.length
-      ? `${pathTitle.charAt(0).toUpperCase()}${pathTitle.slice(
-          1,
-          pathTitle.length
-        )}`
+      ? `${pathTitle.charAt(0).toUpperCase()}${pathTitle.slice(1, pathTitle.length)}`
       : "";
     dispatch(setTitle(title));
   });

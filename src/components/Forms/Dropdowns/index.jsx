@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { useEffect, useRef, useState, useCallback } from "react";
+import React, {useEffect, useRef, useState, useCallback} from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import {
@@ -16,10 +16,10 @@ import {
   SelectedValue,
   SelectLabel,
 } from "./style";
-import { ReactComponent as ArrowDown } from "../../../assets/icons/arrowClose.svg";
-import { ReactComponent as ArrowUp } from "../../../assets/icons/arrowUp.svg";
-import { PureCheckbox as Checkbox } from "../../CheckBox";
-import { ReactComponent as SearchIcon } from "../../../assets/icons/search.svg";
+import {ReactComponent as ArrowDown} from "../../../assets/icons/arrowClose.svg";
+import {ReactComponent as ArrowUp} from "../../../assets/icons/arrowUp.svg";
+import {PureCheckbox as Checkbox} from "../../CheckBox";
+import {ReactComponent as SearchIcon} from "../../../assets/icons/search.svg";
 
 const FilterSelect = ({
   value,
@@ -41,16 +41,14 @@ const FilterSelect = ({
   useEffect(() => {
     if (value) {
       let displayValue = null;
-      let $selected = { ...setSelected };
+      let $selected = {...setSelected};
 
       if (Array.isArray(value) && value.length > 0) {
         for (let i = 0; i < value.length; i += 1) {
           $selected[value[i]] = options.find((item) => item.id === value[i]);
         }
         if (options && value.length !== options.length) {
-          displayValue = `${
-            options.find((item) => item.id === value[0]).value
-          } (${value.length})`;
+          displayValue = `${options.find((item) => item.id === value[0]).value} (${value.length})`;
         } else {
           displayValue = "All";
         }
@@ -71,7 +69,7 @@ const FilterSelect = ({
 
   const handleClick = useCallback(
     (item) => {
-      let $selected = { ...selected };
+      let $selected = {...selected};
       let data;
       if (multiple) {
         data = [];
@@ -142,15 +140,9 @@ const FilterSelect = ({
         onClick={() => setIsPopoverOpen(!isPopoverOpen)}
         {...props}
         size={size}
-        color={
-          !multiple && selected[value] && selected[value].color
-            ? selected[value].color
-            : undefined
-        }
+        color={!multiple && selected[value] && selected[value].color ? selected[value].color : undefined}
       >
-        {!multiple && placeholder && !selectedValue && (
-          <InnerLabel>{placeholder}</InnerLabel>
-        )}
+        {!multiple && placeholder && !selectedValue && <InnerLabel>{placeholder}</InnerLabel>}
         {multiple && placeholder && <InnerLabel>{placeholder}</InnerLabel>}
         {selectedValue && <SelectedValue>{selectedValue}</SelectedValue>}
         {isPopoverOpen ? <ArrowUp /> : <ArrowDown />}
@@ -179,13 +171,7 @@ const FilterSelect = ({
               active={!!selected[item.id]}
               className={classNames("body-medium-14", "weight-regular")}
             >
-              {multiple && (
-                <Checkbox
-                  type="checkbox"
-                  readOnly
-                  checked={!!selected[item.id]}
-                />
-              )}
+              {multiple && <Checkbox type="checkbox" readOnly checked={!!selected[item.id]} />}
               {item.img && (
                 <OptionsItemImg>
                   <img src={item.img} alt="avatar" />

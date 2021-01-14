@@ -1,26 +1,16 @@
-import { useState } from "react";
+import {useState} from "react";
 import PropTypes from "prop-types";
-import { useHistory } from "react-router-dom";
+import {useHistory} from "react-router-dom";
 import classNames from "classnames";
-import {
-  Container,
-  Title,
-  IconContainer,
-  SubElements,
-  SubElement,
-} from "./style";
+import {Container, Title, IconContainer, SubElements, SubElement} from "./style";
 import Icon from "../../Icon";
 
-const Item = ({ title, path, icon, collapsed, elements }) => {
+const Item = ({title, path, icon, collapsed, elements}) => {
   const [hovered, setHovered] = useState(false);
   const isActive = (checkPath) => window.location.pathname.includes(checkPath);
   const history = useHistory();
 
-  const textClassName = classNames(
-    "text-black-800",
-    "body-large",
-    "weight-regular"
-  );
+  const textClassName = classNames("text-black-800", "body-large", "weight-regular");
 
   return (
     <>
@@ -32,12 +22,7 @@ const Item = ({ title, path, icon, collapsed, elements }) => {
         <IconContainer collapsed={collapsed} active={isActive(path)}>
           <Icon icon={icon} size="1.5em" />
         </IconContainer>
-        <Title
-          active={isActive(path)}
-          hovered={hovered}
-          collapsed={collapsed}
-          className={textClassName}
-        >
+        <Title active={isActive(path)} hovered={hovered} collapsed={collapsed} className={textClassName}>
           {title}
         </Title>
       </Container>

@@ -5,7 +5,7 @@ const defaultState = {
 };
 
 const userInfo = {
-  [types.APPLICATION_USER_INFO]: (state, { user }) => ({
+  [types.APPLICATION_USER_INFO]: (state, {user}) => ({
     ...state,
     userInfo: user,
   }),
@@ -16,6 +16,4 @@ const map = {
 };
 
 export default (state, action) =>
-  (map[action.type] && map[action.type](state, action)) ||
-  state ||
-  defaultState;
+  (map[action.type] && map[action.type](state, action)) || state || defaultState;

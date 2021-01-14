@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { PureCheckbox as Checkbox } from "../../CheckBox";
+import {PureCheckbox as Checkbox} from "../../CheckBox";
 
-export const getFontSize = ({ size }) => {
+export const getFontSize = ({size}) => {
   switch (size) {
     case "large" || "Large":
       return "14px";
@@ -14,7 +14,7 @@ export const getFontSize = ({ size }) => {
   }
 };
 
-export const getHeight = ({ size }) => {
+export const getHeight = ({size}) => {
   switch (size) {
     case "large" || "Large":
       return "46px";
@@ -27,7 +27,7 @@ export const getHeight = ({ size }) => {
   }
 };
 
-export const getPadding = ({ size }) => {
+export const getPadding = ({size}) => {
   switch (size) {
     case "large" || "Large":
       return "0 25px";
@@ -40,8 +40,7 @@ export const getPadding = ({ size }) => {
   }
 };
 
-export const getBorderRadius = ({ size }) =>
-  `${["small", "Small"].includes(size) ? "4px" : "8px"}`;
+export const getBorderRadius = ({size}) => `${["small", "Small"].includes(size) ? "4px" : "8px"}`;
 
 export const SelectContainer = styled.div`
   position: relative;
@@ -70,7 +69,7 @@ export const SelectedValue = styled.div`
 export const Options = styled.div`
   padding: 8px 0;
   flex-direction: column;
-  display: ${({ open }) => (open ? "flex" : "none")};
+  display: ${({open}) => (open ? "flex" : "none")};
   position: absolute;
   left: 0;
   top: 100%;
@@ -89,12 +88,12 @@ export const OptionsWrap = styled.div`
 
 export const OptionsItem = styled.div`
   padding: 11px 24px;
-  color: ${({ active }) => (active ? "#262626" : "#9D9D9D")};
+  color: ${({active}) => (active ? "#262626" : "#9D9D9D")};
 
   line-height: 24px;
 
   transition: 0.2s ease;
-  background: ${({ active }) => (active ? "#E9E9E9" : "unset")};
+  background: ${({active}) => (active ? "#E9E9E9" : "unset")};
   cursor: pointer;
   white-space: nowrap;
 
@@ -123,8 +122,8 @@ export const Select = styled.div`
   align-items: center;
   padding: ${getPadding};
   height: ${getHeight};
-  background-color: ${({ color }) => (color ? color.bg : "#EAEBF8")};
-  color: ${({ color }) => (color ? color.text : "#33333")};
+  background-color: ${({color}) => (color ? color.bg : "#EAEBF8")};
+  color: ${({color}) => (color ? color.text : "#33333")};
   font-weight: 500;
   border-radius: ${getBorderRadius};
   justify-content: space-between;
@@ -132,7 +131,7 @@ export const Select = styled.div`
   font-size: ${getFontSize};
 
   #Path_72 {
-    fill: ${({ color }) => (color ? color.text : "#7E8299")};
+    fill: ${({color}) => (color ? color.text : "#7E8299")};
   }
 `;
 

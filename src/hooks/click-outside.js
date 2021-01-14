@@ -1,15 +1,11 @@
-import React, { useEffect, useRef } from "react";
+import React, {useEffect, useRef} from "react";
 
-export function ClickOutside({ outsideClicked, children, outClickRef }) {
+export function ClickOutside({outsideClicked, children, outClickRef}) {
   const wrapper = useRef(null);
   useEffect(() => {
     function handleClickOutside(event) {
       if (wrapper.current && !wrapper.current.contains(event.target)) {
-        if (
-          outClickRef &&
-          outClickRef.current &&
-          outClickRef.current.contains(event.target)
-        ) {
+        if (outClickRef && outClickRef.current && outClickRef.current.contains(event.target)) {
           return;
         }
         outsideClicked();

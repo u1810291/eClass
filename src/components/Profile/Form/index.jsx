@@ -1,7 +1,7 @@
-import { Container, Forms, InputsContainer } from "./style";
+import {Container, Forms, InputsContainer} from "./style";
 import Card from "../../Card";
-import { NormalInput } from "../../Forms/Inputs";
-export default ({ title }) => {
+import {NormalInput} from "../../Forms/Inputs";
+export default ({title}) => {
   return (
     <Container>
       <Forms>
@@ -14,21 +14,13 @@ export default ({ title }) => {
             </InputsContainer.Head>
             <InputsContainer.Body>
               <NormalInput size="medium" white placeholder="+998" />
-              <NormalInput
-                size="medium"
-                white
-                placeholder="Номер телефона ученика"
-              />
+              <NormalInput size="medium" white placeholder="Номер телефона ученика" />
             </InputsContainer.Body>
             <InputsContainer.Footer>
               <NormalInput size="medium" white placeholder="Mail Address" />
               <NormalInput size="medium" white placeholder="Дата рождения" />
               {title !== "Parent" ? (
-                <NormalInput
-                  size="medium"
-                  white
-                  placeholder="Школа N или где сейчас учится"
-                />
+                <NormalInput size="medium" white placeholder="Школа N или где сейчас учится" />
               ) : (
                 ""
               )}
