@@ -5,5 +5,6 @@ export const copyTxt = (txt) => {
   t.select();
   document.execCommand('copy');
   document.body.removeChild(t);
+  // eslint-disable-next-line no-alert
   alert('Copied to clipboard!');
 };
