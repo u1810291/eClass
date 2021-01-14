@@ -1,22 +1,15 @@
-import { useState, useRef } from "react";
-import { useHistory } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { Container } from "./style";
-import {
-  Image,
-  Title,
-  ChatButton,
-  MenuButton,
-  NotificationButton,
-  Content,
-} from "../style";
+import {useState, useRef} from "react";
+import {useHistory} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {Container} from "./style";
+import {Image, Title, ChatButton, MenuButton, NotificationButton, Content} from "../style";
 import Bell from "../../Bell";
-import { expand } from "../../../redux/modules/sidebar/actions";
-import { ClickOutside } from "../../../hooks";
-import { logout } from "../../../redux/modules/auth/actions";
+import {expand} from "../../../redux/modules/sidebar/actions";
+import {ClickOutside} from "../../../hooks";
+import {logout} from "../../../redux/modules/auth/actions";
 import classNames from "classnames";
-import { DropdownContainer } from "./style";
-import { UserInfoContainer, Item, Text } from "../TabletDesktop/style";
+import {DropdownContainer} from "./style";
+import {UserInfoContainer, Item, Text} from "../TabletDesktop/style";
 
 export default () => {
   const history = useHistory();
@@ -61,26 +54,10 @@ export default () => {
         >
           <DropdownContainer isOpen={isOpen}>
             <Item onClick={() => handleOnClick("profile")}>
-              <Text
-                className={classNames(
-                  "caption",
-                  "weight-semibold",
-                  "text-black-800"
-                )}
-              >
-                Profile
-              </Text>
+              <Text className={classNames("caption", "weight-semibold", "text-black-800")}>Profile</Text>
             </Item>
             <Item onClick={() => handleOnClick("logout")}>
-              <Text
-                className={classNames(
-                  "caption",
-                  "weight-semibold",
-                  "text-black-800"
-                )}
-              >
-                Log out
-              </Text>
+              <Text className={classNames("caption", "weight-semibold", "text-black-800")}>Log out</Text>
             </Item>
           </DropdownContainer>
         </ClickOutside>

@@ -1,6 +1,6 @@
-import { InputGrid } from "../style";
-import { NormalInput } from "../../../Forms/Inputs";
-export default ({ type }) => {
+import {InputGrid} from "../style";
+import {NormalInput} from "../../../Forms/Inputs";
+export default ({type}) => {
   return (
     <InputGrid>
       <NormalInput white size="large" placeholder="Enter name" type={type} />

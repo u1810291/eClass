@@ -1,6 +1,6 @@
-import styled, { css } from "styled-components";
-import { ReactComponent as SpinnerIcon } from "../../assets/icons/spinner.svg";
-import { ReactComponent as SpinnerBlackIcon } from "../../assets/icons/spinner-black.svg";
+import styled, {css} from "styled-components";
+import {ReactComponent as SpinnerIcon} from "../../assets/icons/spinner.svg";
+import {ReactComponent as SpinnerBlackIcon} from "../../assets/icons/spinner-black.svg";
 
 const fullScreen = css`
   position: fixed;
@@ -23,7 +23,7 @@ export const Container = styled.div`
   background: unset;
   position: relative;
   box-sizing: border-box;
-  ${({ contain }) => (contain ? inParent : fullScreen)}
+  ${({contain}) => (contain ? inParent : fullScreen)}
 `;
 
 export const Spinner = styled(SpinnerIcon)`

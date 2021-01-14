@@ -9,7 +9,7 @@ export const Container = styled.div`
 `;
 
 export const DropdownContainer = styled.div`
-  display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
+  display: ${({isOpen}) => (isOpen ? "flex" : "none")};
   padding: 16px 24px;
   flex-direction: column;
   position: absolute;

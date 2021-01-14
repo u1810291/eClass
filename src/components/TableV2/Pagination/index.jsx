@@ -1,21 +1,15 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, {useState, useEffect, useMemo} from "react";
 import PropTypes from "prop-types";
-import {
-  Container,
-  PageButtons,
-  ChangeButtons,
-  Button,
-  ChangeButton,
-} from "./style";
+import {Container, PageButtons, ChangeButtons, Button, ChangeButton} from "./style";
 import Dropdown from "../../Forms/DropdownV3";
-import { buttons as allButtons } from "./helper";
+import {buttons as allButtons} from "./helper";
 import Icon from "../../Icon";
 
 const optionData = [
-  { value: 10, label: "10 item view" },
-  { value: 25, label: "25 item view" },
-  { value: 50, label: "50 item view" },
-  { value: 100, label: "100 item view" },
+  {value: 10, label: "10 item view"},
+  {value: 25, label: "25 item view"},
+  {value: 50, label: "50 item view"},
+  {value: 100, label: "100 item view"},
 ];
 
 const Pagination = ({
@@ -31,10 +25,7 @@ const Pagination = ({
 }) => {
   const [aIndex, setAIndex] = useState(0);
 
-  const buttons = useMemo(() => allButtons(pageIndex + 1, pageCount), [
-    pageIndex,
-    pageCount,
-  ]);
+  const buttons = useMemo(() => allButtons(pageIndex + 1, pageCount), [pageIndex, pageCount]);
 
   useEffect(() => {
     if (pageCount - (pageIndex + 1) > 2 && pageIndex >= 3) {
@@ -78,11 +69,7 @@ const Pagination = ({
             }
           }}
         >
-          <Icon
-            icon="left"
-            color={!canPreviousPage ? "#C4C4C4" : "#262626"}
-            size="16px"
-          />
+          <Icon icon="left" color={!canPreviousPage ? "#C4C4C4" : "#262626"} size="16px" />
         </ChangeButton>
         <ChangeButton
           disabled={!canNextPage}
@@ -93,11 +80,7 @@ const Pagination = ({
             }
           }}
         >
-          <Icon
-            icon="right"
-            color={!canNextPage ? "#C4C4C4" : "#262626"}
-            size="16px"
-          />
+          <Icon icon="right" color={!canNextPage ? "#C4C4C4" : "#262626"} size="16px" />
         </ChangeButton>
       </ChangeButtons>
     </Container>

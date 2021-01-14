@@ -1,17 +1,11 @@
 import React from "react";
-import {
-  Container,
-  ButtonGrid,
-  Item,
-  DefaultGrid,
-  DropdownExamples,
-} from "./style";
+import {Container, ButtonGrid, Item, DefaultGrid, DropdownExamples} from "./style";
 import ReactTooltip from "react-tooltip";
-import { PrimaryButton } from "../Buttons";
+import {PrimaryButton} from "../Buttons";
 import Inputs from "./Inputs";
 import iconSets from "./icons";
 import Icon from "../Icon";
-import { copyTxt } from "../../utils/computes";
+import {copyTxt} from "../../utils/computes";
 import Dropdowns from "./Dropdowns";
 import Typography from "./Typography";
 import TextArea from "../Forms/Inputs/TextArea";
@@ -26,12 +20,7 @@ export default () => {
         <PrimaryButton size="medium" title="Save" color="#FC5A5A" />
         <PrimaryButton size="large" title="Save" color="#82C43C" />
         <PrimaryButton size="large" title="Save" color="#A461D8" />
-        <PrimaryButton
-          icon="classess2"
-          size="large"
-          title="Save"
-          color="#FF9AD5"
-        />
+        <PrimaryButton icon="classess2" size="large" title="Save" color="#FF9AD5" />
       </ButtonGrid>
       <h1>Inputs</h1>
       <Inputs />

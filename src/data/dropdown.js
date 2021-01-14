@@ -140,17 +140,17 @@ export const dropdownOptions = {
     {
       id: 1,
       value: "Pending",
-      color: { bg: "#FFF4DE", text: "#FFA800" },
+      color: {bg: "#FFF4DE", text: "#FFA800"},
     },
     {
       id: 2,
       value: "Rejected",
-      color: { bg: "#FFE5E8", text: "#F24142" },
+      color: {bg: "#FFE5E8", text: "#F24142"},
     },
     {
       id: 3,
       value: "Paid",
-      color: { bg: "#E3F7EC", text: "#00AE59" },
+      color: {bg: "#E3F7EC", text: "#00AE59"},
     },
   ],
   viewOptions: [

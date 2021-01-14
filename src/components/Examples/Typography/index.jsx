@@ -1,20 +1,14 @@
 import React from "react";
 import classNames from "classnames";
 import ReactTooltip from "react-tooltip";
-import { TextContainer, Text } from "./style";
-import { copyTxt } from "../../../utils/computes";
+import {TextContainer, Text} from "./style";
+import {copyTxt} from "../../../utils/computes";
 
 const capitalize = (string) => string.charAt(0).toUpperCase() + string.slice(1);
 
 const split = (str, index) => str.split(" ")[index];
 
-const weights = [
-  "weight-light",
-  "weight-regular",
-  "weight-medium",
-  "weight-semibold",
-  "weight-bold",
-];
+const weights = ["weight-light", "weight-regular", "weight-medium", "weight-semibold", "weight-bold"];
 
 const typographies = [
   [

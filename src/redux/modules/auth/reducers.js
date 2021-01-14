@@ -6,15 +6,15 @@ const defaultState = {
 };
 
 const map = {
-  [types.AUTH_LOGIN]: (state, { access_token, refresh_token }) => {
+  [types.AUTH_LOGIN]: (state, {access_token, refresh_token}) => {
     sessionStorage.setItem("access_token", access_token);
     sessionStorage.setItem("refresh_token", refresh_token);
-    return { ...state, access_token, refresh_token };
+    return {...state, access_token, refresh_token};
   },
   [types.AUTH_LOGOUT]: (state) => {
     sessionStorage.removeItem("access_token");
     sessionStorage.removeItem("refresh_token");
-    return { ...state, access_token: "", refresh_token: "" };
+    return {...state, access_token: "", refresh_token: ""};
   },
 };
 
