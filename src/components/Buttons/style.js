@@ -1,13 +1,13 @@
 import { css } from 'styled-components';
 
-// export const getFontSize = ({ size }) => {
-// switch (size) {
-// case ('large' || 'Large'): return '14px';
-// case ('medium' || 'Medium'): return '13px';
-// case ('small' || 'Small'): return '12px';
-// default: return '13px';
-// }
-// };
+export const getFontSize = ({ size }) => {
+  switch (size) {
+    case ('large' || 'Large'): return '14px';
+    case ('medium' || 'Medium'): return '13px';
+    case ('small' || 'Small'): return '12px';
+    default: return '13px';
+  }
+};
 
 export const getHovered = ({ hover }) => {
   switch (hover) {

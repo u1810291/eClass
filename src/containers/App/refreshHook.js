@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { useAsync } from '../../hooks';
 import user from '../../services/user';
 import auth from '../../services/auth';
