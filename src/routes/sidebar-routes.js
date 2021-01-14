@@ -1,43 +1,43 @@
-import Examples from "../components/Examples";
-import Users from "../views/Admin/Users";
-import Courses from "../views/Student/Courses";
-import Profile from "../views/Profile";
+import Examples from '../components/Examples';
+import Users from '../views/Admin/Users';
+import Courses from '../views/Student/Courses';
+import Profile from '../views/Profile';
 
 export const childRoutes = [
   {
-    path: "/profile",
+    path: '/profile',
     component: Profile,
-    icon: "profile2",
-    title: "Profile",
-    permission: "",
-    role: [""],
+    icon: 'profile2',
+    title: 'Profile',
+    permission: '',
+    role: [''],
     children: [],
   },
   {
-    path: "/users",
+    path: '/users',
     component: Users,
-    icon: "profile2",
-    title: "Users",
-    permission: "",
-    role: [""],
+    icon: 'profile2',
+    title: 'Users',
+    permission: '',
+    role: [''],
     children: [],
   },
   {
-    path: "/balance",
+    path: '/balance',
     component: Examples,
-    icon: "balance",
-    title: "Balance",
+    icon: 'balance',
+    title: 'Balance',
     children: [],
-    permission: "VIEW_OWN_GROUP",
-    role: [""],
+    permission: 'VIEW_OWN_GROUP',
+    role: [''],
   },
   {
-    path: "/courses",
+    path: '/courses',
     component: Courses,
-    icon: "profile2",
-    title: "Courses",
-    permission: "VIEW_ANY_GROUP",
-    role: [""],
+    icon: 'profile2',
+    title: 'Courses',
+    permission: 'VIEW_ANY_GROUP',
+    role: [''],
     children: [],
   },
   // {

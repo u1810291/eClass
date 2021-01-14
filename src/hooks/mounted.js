@@ -1,4 +1,4 @@
-import {useCallback, useEffect, useRef} from "react";
+import { useCallback, useEffect, useRef } from 'react';
 
 export const useMounted = () => {
   const mounted = useRef(false);
@@ -14,25 +14,24 @@ export const useMounted = () => {
 export const useAsync = () => {
   const isMounted = useMounted();
   return useCallback(
-    (promise, onCancle) =>
-      new Promise((resolve, reject) => {
-        promise
-          .then((result) => {
-            if (isMounted()) {
-              resolve(result);
-            }
-          })
-          .catch((error) => {
-            if (isMounted()) {
-              reject(error);
-            }
-          })
-          .finally(() => {
-            if (!isMounted() && onCancle) {
-              onCancle();
-            }
-          });
-      }),
-    [isMounted]
+    (promise, onCancle) => new Promise((resolve, reject) => {
+      promise
+        .then((result) => {
+          if (isMounted()) {
+            resolve(result);
+          }
+        })
+        .catch((error) => {
+          if (isMounted()) {
+            reject(error);
+          }
+        })
+        .finally(() => {
+          if (!isMounted() && onCancle) {
+            onCancle();
+          }
+        });
+    }),
+    [isMounted],
   );
 };

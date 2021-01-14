@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
   padding: 20px;
@@ -16,7 +16,7 @@ export const ImageWrapper = styled.div`
   width: 35px;
   height: 35px;
   margin-left: 10px;
-  background-image: url(${({src}) => src});
+  background-image: url(${({ src }) => src});
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 50%;

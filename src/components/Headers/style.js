@@ -1,12 +1,12 @@
-import styled, {keyframes} from "styled-components";
-import PrimaryButton from "../Buttons/Primary";
-import {ReactComponent as IconFilter} from "../../assets/icons/filter.svg";
-import {ReactComponent as IconPlus} from "../../assets/icons/plus.svg";
-import {ReactComponent as IconLocation} from "../../assets/icons/location.svg";
+import styled, { keyframes } from 'styled-components';
+import PrimaryButton from '../Buttons/Primary';
+import { ReactComponent as IconFilter } from '../../assets/icons/filter.svg';
+import { ReactComponent as IconPlus } from '../../assets/icons/plus.svg';
+import { ReactComponent as IconLocation } from '../../assets/icons/location.svg';
 
-import {device} from "../../utils/responsive";
+import { device } from '../../utils/responsive';
 
-export {ReactComponent as GridIcon} from "../../assets/icons/grid.svg";
+export { ReactComponent as GridIcon } from '../../assets/icons/grid.svg';
 
 export const LocationIcon = styled(IconLocation)`
   margin: 0px 3px;
@@ -131,7 +131,7 @@ const sildeDown = keyframes`
 
 Header.FilterContainer = styled.div`
   width: 100%;
-  display: ${({open}) => (open ? "block" : "none")};
+  display: ${({ open }) => (open ? 'block' : 'none')};
   /* animation: ${sildeDown} 0.4s; */
   z-index: 1;
   transition: all 0.2s;
@@ -139,6 +139,6 @@ Header.FilterContainer = styled.div`
 `;
 
 export const ButtonContainer = styled.div`
-  opacity: ${({active, hovered}) => (active || hovered ? "0.6" : "")};
+  opacity: ${({ active, hovered }) => (active || hovered ? '0.6' : '')};
   cursor: pointer;
 `;

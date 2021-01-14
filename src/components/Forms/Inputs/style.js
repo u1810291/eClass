@@ -1,15 +1,15 @@
-import styled, {css} from "styled-components";
+import styled, { css } from 'styled-components';
 
-export const getIconSize = ({size}) => {
+export const getIconSize = ({ size }) => {
   switch (size) {
-    case "large" || "Large":
-      return "24px";
-    case "medium" || "Medium":
-      return "22px";
-    case "small" || "Small":
-      return "18px";
+    case 'large' || 'Large':
+      return '24px';
+    case 'medium' || 'Medium':
+      return '22px';
+    case 'small' || 'Small':
+      return '18px';
     default:
-      return "24px";
+      return '24px';
   }
 };
 
@@ -21,91 +21,91 @@ export const InputContainer = styled.div`
   grid-template-columns: 1fr 1fr 1fr 1fr;
 `;
 
-export const getFontSize = ({size}) => {
+export const getFontSize = ({ size }) => {
   switch (size) {
-    case "large" || "Large":
-      return "14px";
-    case "medium" || "Medium":
-      return "13px";
-    case "small" || "Small":
-      return "12px";
+    case 'large' || 'Large':
+      return '14px';
+    case 'medium' || 'Medium':
+      return '13px';
+    case 'small' || 'Small':
+      return '12px';
     default:
-      return "13px";
+      return '13px';
   }
 };
 
-export const getLabelPadding = ({size}) => {
+export const getLabelPadding = ({ size }) => {
   switch (size) {
-    case "large" || "Large":
-      return "25px";
-    case "medium" || "Medium":
-      return "17px";
-    case "small" || "Small":
-      return "12px";
+    case 'large' || 'Large':
+      return '25px';
+    case 'medium' || 'Medium':
+      return '17px';
+    case 'small' || 'Small':
+      return '12px';
     default:
-      return "17px";
+      return '17px';
   }
 };
 
-export const getHeight = ({size}) => {
+export const getHeight = ({ size }) => {
   switch (size) {
-    case "large" || "Large":
-      return "50px";
-    case "medium" || "Medium":
-      return "46px";
-    case "small" || "Small":
-      return "39px";
+    case 'large' || 'Large':
+      return '50px';
+    case 'medium' || 'Medium':
+      return '46px';
+    case 'small' || 'Small':
+      return '39px';
     default:
-      return "39px";
+      return '39px';
   }
 };
 
-export const getPadding = ({size}) => {
+export const getPadding = ({ size }) => {
   switch (size) {
-    case "large" || "Large":
-      return "0 25px";
-    case "medium" || "Medium":
-      return "0 17px";
-    case "small" || "Small":
-      return "0 12px";
+    case 'large' || 'Large':
+      return '0 25px';
+    case 'medium' || 'Medium':
+      return '0 17px';
+    case 'small' || 'Small':
+      return '0 12px';
     default:
-      return "0 17px";
+      return '0 17px';
   }
 };
 
-export const getIconPadding = ({size}) => {
+export const getIconPadding = ({ size }) => {
   switch (size) {
-    case "large" || "Large":
-      return "0 16px";
-    case "medium" || "Medium":
-      return "0 13px";
-    case "small" || "Small":
-      return "0 9px";
+    case 'large' || 'Large':
+      return '0 16px';
+    case 'medium' || 'Medium':
+      return '0 13px';
+    case 'small' || 'Small':
+      return '0 9px';
     default:
-      return "11px 13px";
+      return '11px 13px';
   }
 };
-export const getColor = ({type}) => {
+export const getColor = ({ type }) => {
   switch (type) {
-    case "error" || "Error":
-      return "#E71923";
-    case "success" || "Success":
-      return "#00AE59";
+    case 'error' || 'Error':
+      return '#E71923';
+    case 'success' || 'Success':
+      return '#00AE59';
     default:
-      return "#9D9D9D";
+      return '#9D9D9D';
   }
 };
 
-export const getBorderRadius = ({size}) => {
+export const getBorderRadius = ({ size }) => {
   switch (size) {
-    case "large" || "Large":
-      return "9px";
-    case "medium" || "Medium":
-      return "12px";
-    case "small" || "Small":
-      return "24px";
+    case 'large' || 'Large':
+      return '9px';
+    case 'medium' || 'Medium':
+      return '12px';
+    case 'small' || 'Small':
+      return '24px';
     default:
-      return "12px";
+      return '12px';
   }
 };
 
@@ -172,7 +172,7 @@ export const normal = css`
   max-height: ${getHeight};
   box-sizing: border-box;
   border: 1px solid #e2e2ea;
-  background: ${({white}) => (white ? "#ffffff" : "#F0F8FF")};
+  background: ${({ white }) => (white ? '#ffffff' : '#F0F8FF')};
   color: #9d9d9d;
   .left-right {
     display: none;
@@ -189,17 +189,17 @@ export const normal = css`
   }
   &:not(:focus)&:not(:disabled):hover {
     color: #9d9d9d;
-    background: ${({white}) => (white ? "#ffffff" : "#F0F8FF")};
+    background: ${({ white }) => (white ? '#ffffff' : '#F0F8FF')};
   }
   &:not(:disabled):active {
-    color: ${({white}) => (white ? "#262626" : "#9d9d9d")};
+    color: ${({ white }) => (white ? '#262626' : '#9d9d9d')};
   }
   &:active {
-    color: ${({white}) => (white ? "#262626" : "#9d9d9d")};
+    color: ${({ white }) => (white ? '#262626' : '#9d9d9d')};
   }
   &:disabled {
     color: #c4c4c4;
-    background: ${({white}) => (white ? "#e9e9e9" : "#f5f5f5")};
+    background: ${({ white }) => (white ? '#e9e9e9' : '#f5f5f5')};
     cursor: not-allowed;
   }
   &::placeholder {
@@ -230,9 +230,9 @@ export const TextareaView = styled.textarea`
 export const DatepickerInput = styled.div`
   display: flex;
   align-items: center;
-  background-color: ${({white}) => (white ? "#FFFFFF" : "#f8f8f8")};
+  background-color: ${({ white }) => (white ? '#FFFFFF' : '#f8f8f8')};
   border-radius: 8px;
-  color: ${({white}) => (white ? "#262626" : "#7E8299")};
+  color: ${({ white }) => (white ? '#262626' : '#7E8299')};
   line-height: 18px;
   height: 43px;
   padding: 0px 24px;
@@ -244,22 +244,22 @@ export const DatepickerInput = styled.div`
   }
 `;
 
-export const getType = ({type}) => {
+export const getType = ({ type }) => {
   switch (type) {
-    case "error" || "Error":
+    case 'error' || 'Error':
       return error;
-    case "success" || "Success":
+    case 'success' || 'Success':
       return success;
     default:
       return normal;
   }
 };
 
-export const getPwd = ({typePwd}) => {
+export const getPwd = ({ typePwd }) => {
   switch (typePwd) {
-    case "error" || "Error":
+    case 'error' || 'Error':
       return error;
-    case "success" || "Success":
+    case 'success' || 'Success':
       return success;
     default:
       return normal;

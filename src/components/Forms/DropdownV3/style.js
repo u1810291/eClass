@@ -1,76 +1,74 @@
-import styled from "styled-components";
-import {PureCheckbox as Checkbox} from "../../CheckBox";
+import styled from 'styled-components';
+import { PureCheckbox as Checkbox } from '../../CheckBox';
 
-export const getFontSize = ({size}) => {
+export const getFontSize = ({ size }) => {
   switch (size) {
-    case "large" || "Large":
-      return "14px";
-    case "medium" || "Medium":
-      return "13px";
-    case "small" || "Small":
-      return "12px";
+    case 'large' || 'Large':
+      return '14px';
+    case 'medium' || 'Medium':
+      return '13px';
+    case 'small' || 'Small':
+      return '12px';
     default:
-      return "13px";
+      return '13px';
   }
 };
 
-export const getHeight = ({size}) => {
+export const getHeight = ({ size }) => {
   switch (size) {
-    case "large" || "Large":
-      return "43px";
-    case "medium" || "Medium":
-      return "35px";
-    case "small" || "Small":
-      return "27px";
+    case 'large' || 'Large':
+      return '43px';
+    case 'medium' || 'Medium':
+      return '35px';
+    case 'small' || 'Small':
+      return '27px';
     default:
-      return "35px";
+      return '35px';
   }
 };
 
-export const getPadding = ({size}) => {
+export const getPadding = ({ size }) => {
   switch (size) {
-    case "large" || "Large":
-      return "0 25px";
-    case "medium" || "Medium":
-      return "0 17px";
-    case "small" || "Small":
-      return "0 12px";
+    case 'large' || 'Large':
+      return '0 25px';
+    case 'medium' || 'Medium':
+      return '0 17px';
+    case 'small' || 'Small':
+      return '0 12px';
     default:
-      return "0 17px";
+      return '0 17px';
   }
 };
 
 export const getBackgroundColor = (props) => {
   if (props.color) {
     return props.color.bg;
-  } else if (props.white) {
-    return "#FFFFFF";
-  } else if (props.tertiary) {
-    return "unset";
-  } else {
-    return "#F5F5F5";
+  } if (props.white) {
+    return '#FFFFFF';
+  } if (props.tertiary) {
+    return 'unset';
   }
+  return '#F5F5F5';
 };
 
 export const getColor = (props) => {
   if (props.disabled) {
-    return "#C4C4C4 !important";
-  } else if (props.color) {
+    return '#C4C4C4 !important';
+  } if (props.color) {
     return `${props.color.text} !important`;
-  } else if (props.white || props.tertiary) {
-    return "#262626 !important";
-  } else {
-    return "#9D9D9D !important";
+  } if (props.white || props.tertiary) {
+    return '#262626 !important';
   }
+  return '#9D9D9D !important';
 };
 
 export const getJustifyContent = (props) => {
   if (props.multiple) {
-    return "flex-end";
-  } else if (props.selectedValue) {
-    return "space-between";
+    return 'flex-end';
+  } if (props.selectedValue) {
+    return 'space-between';
   }
-  return "flex-end";
+  return 'flex-end';
 };
 
 export const ItemWrapper = styled.div`
@@ -78,14 +76,14 @@ export const ItemWrapper = styled.div`
   align-items: center;
   justify-content: center;
   justify-content: ${getJustifyContent};
-  column-gap: ${({multiple}) => (multiple ? "0px" : "8px")};
-  width: ${({selectedValue, multiple}) => (selectedValue && !multiple ? "100%" : "unset")};
+  column-gap: ${({ multiple }) => (multiple ? '0px' : '8px')};
+  width: ${({ selectedValue, multiple }) => (selectedValue && !multiple ? '100%' : 'unset')};
 `;
 
-export const getBorderRadius = ({size}) => `${["small", "Small"].includes(size) ? "4px" : "8px"}`;
+export const getBorderRadius = ({ size }) => `${['small', 'Small'].includes(size) ? '4px' : '8px'}`;
 
 export const SelectContainer = styled.div`
-  cursor: ${({disabled}) => (disabled ? "not-allowed" : "pointer")};
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
   position: relative;
 `;
 
@@ -123,7 +121,7 @@ export const MultiSelectValue = styled.div`
 export const Options = styled.div`
   padding: 8px 0;
   flex-direction: column;
-  display: ${({open}) => (open ? "flex" : "none")};
+  display: ${({ open }) => (open ? 'flex' : 'none')};
   position: absolute;
   left: 0;
   top: 100%;
@@ -150,10 +148,10 @@ export const OptionsItem = styled.div`
   display: flex;
   height: ${getHeight};
   padding: 11px 24px;
-  color: ${({active}) => (active ? "#262626" : "#9D9D9D")};
+  color: ${({ active }) => (active ? '#262626' : '#9D9D9D')};
   box-sizing: border-box;
   transition: 0.2s ease;
-  background: ${({active}) => (active ? "#E9E9E9" : "unset")};
+  background: ${({ active }) => (active ? '#E9E9E9' : 'unset')};
   cursor: pointer;
 
   align-items: center;
@@ -183,8 +181,8 @@ export const Select = styled.div`
   background-color: ${getBackgroundColor};
   color: ${getColor};
   border-radius: ${getBorderRadius};
-  pointer-events: ${({disabled}) => (disabled ? "none" : "auto")};
-  border: ${({tertiary}) => (tertiary ? "1px solid #262626" : "0px")};
+  pointer-events: ${({ disabled }) => (disabled ? 'none' : 'auto')};
+  border: ${({ tertiary }) => (tertiary ? '1px solid #262626' : '0px')};
   justify-content: space-between;
   column-gap: 8px;
   path {

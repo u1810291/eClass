@@ -1,1 +1,1 @@
-export {default as OrdersFilterBody} from "./OrdersFilterBody";
+export { default as OrdersFilterBody } from './OrdersFilterBody';

@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import {device} from "../../../utils/responsive";
+import styled from 'styled-components';
+import { device } from '../../../utils/responsive';
 
 export const Container = styled.div`
   display: flex;
@@ -18,7 +18,7 @@ export const PageButtons = styled.div`
   height: 43px;
   display: grid;
   overflow: hidden;
-  grid-template-columns: ${({repeat}) => (repeat ? `repeat(${repeat}, 1fr)` : "repeat(7, 1fr)")};
+  grid-template-columns: ${({ repeat }) => (repeat ? `repeat(${repeat}, 1fr)` : 'repeat(7, 1fr)')};
 `;
 
 export const Button = styled.button`
@@ -29,14 +29,13 @@ export const Button = styled.button`
   min-width: calc(300px / 7);
   cursor: pointer;
   &:hover {
-    background: ${({active}) => !active && "#f5f5f5"};
+    background: ${({ active }) => !active && '#f5f5f5'};
   }
   &:focus {
     outline: none;
   }
-  ${({active}) =>
-    active &&
-    `
+  ${({ active }) => active
+    && `
     background: #FFE9ED;
     color: #F24142;
   `}

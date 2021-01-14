@@ -1,6 +1,6 @@
-import React, {useEffect, useRef} from "react";
+import React, { useEffect, useRef } from 'react';
 
-export function ClickOutside({outsideClicked, children, outClickRef}) {
+export function ClickOutside({ outsideClicked, children, outClickRef }) {
   const wrapper = useRef(null);
   useEffect(() => {
     function handleClickOutside(event) {
@@ -11,10 +11,10 @@ export function ClickOutside({outsideClicked, children, outClickRef}) {
         outsideClicked();
       }
     }
-    document.addEventListener("mouseup", handleClickOutside);
+    document.addEventListener('mouseup', handleClickOutside);
 
     return () => {
-      document.removeEventListener("mouseup", handleClickOutside);
+      document.removeEventListener('mouseup', handleClickOutside);
     };
   }, [wrapper, outsideClicked, outClickRef]);
   return <div ref={wrapper}>{children}</div>;

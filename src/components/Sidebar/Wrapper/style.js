@@ -1,7 +1,7 @@
-import styled, {css} from "styled-components";
+import styled, { css } from 'styled-components';
 
 const tabletDesktop = css`
-  width: ${({collapsed}) => (collapsed ? "var(--sidebar-collapsed-width)" : "var(--sidebar-width)")};
+  width: ${({ collapsed }) => (collapsed ? 'var(--sidebar-collapsed-width)' : 'var(--sidebar-width)')};
   transition: 0.2s width;
   grid-area: sidebar;
   position: relative;
@@ -29,7 +29,7 @@ export const MobileSidebar = styled.div`
   background: var(--sidebar-background);
   position: fixed;
   top: 0;
-  right: ${({collapsed}) => (collapsed ? "calc(-1*var(--sidebar-width))" : "0")};
+  right: ${({ collapsed }) => (collapsed ? 'calc(-1*var(--sidebar-width))' : '0')};
   transition: 0.2s;
   z-index: 11;
   display: grid;

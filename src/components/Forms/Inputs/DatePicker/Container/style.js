@@ -1,11 +1,11 @@
-import styled from "styled-components";
-import {DateRangePicker} from "react-date-range";
-import CloseSvg from "../../../../../assets/icons/close.svg";
-import {device} from "../../../../../utils/responsive";
+import styled from 'styled-components';
+import { DateRangePicker } from 'react-date-range';
+import CloseSvg from '../../../../../assets/icons/close.svg';
+import { device } from '../../../../../utils/responsive';
 
 export const Container = styled.div`
   display: flex;
-  flex-direction: ${({showTimePicker}) => (showTimePicker ? "row" : "column")};
+  flex-direction: ${({ showTimePicker }) => (showTimePicker ? 'row' : 'column')};
   @media ${device.mobile} {
     flex-direction: column;
   }
@@ -20,7 +20,7 @@ export const MobileContainer = styled.div`
 `;
 
 export const TabletAndDesktopContainer = styled.div`
-  display: ${({open}) => (open ? "flex" : "none")};
+  display: ${({ open }) => (open ? 'flex' : 'none')};
   width: fit-content;
   border-radius: 8px;
   background: #fff;

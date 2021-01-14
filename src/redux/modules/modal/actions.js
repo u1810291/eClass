@@ -1,10 +1,10 @@
-import types from "../../../constants/action-types";
+import types from '../../../constants/action-types';
 
 export const show = (payload) => ({
   type: types.APPLICATION_SHOW_MODAL,
   payload,
 });
-export const hide = () => ({type: types.APPLICATION_HIDE_MODAL});
+export const hide = () => ({ type: types.APPLICATION_HIDE_MODAL });
 // eslint-disable-next-line max-len
 export const showFullScreen = (payload) => ({
   type: types.APPLICATION_SHOW_FULLSCREEN_MODAL,
