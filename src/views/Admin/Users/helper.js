@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 export const toolTips = [
   {
     name: 'View',

@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import types from '../../../constants/action-types';
 
 const defaultState = {
