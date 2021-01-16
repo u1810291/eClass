@@ -1,6 +1,6 @@
 import styled, { css, keyframes } from 'styled-components';
 import {
-  getType, label, helperText, getBorderRadius, getIconSize,
+  getType, label, helperText, getBorderRadius, getIconSize
 } from '../style';
 
 export const IconWrapper = styled.div`

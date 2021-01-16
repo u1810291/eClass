@@ -1,6 +1,6 @@
 import styled, { css, keyframes } from 'styled-components';
 import {
-  getType, label, helperText, getBorderRadius,
+  getType, label, helperText, getBorderRadius
 } from '../style';
 
 const transition = keyframes`    
