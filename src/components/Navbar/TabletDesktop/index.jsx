@@ -1,7 +1,8 @@
-import {useRef, useState} from "react";
-import classNames from "classnames";
-import {useDispatch} from "react-redux";
-import {useHistory} from "react-router-dom";
+import React, { useRef, useState } from 'react';
+
+import classNames from 'classnames';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import {
   Container,
   UserInfoContainer,
@@ -12,18 +13,18 @@ import {
   Header,
   ButtonContainer,
   BellContainer,
-  TextContainer,
-} from "./style";
-import {Image, Content} from "../style";
-import Bell from "../../Bell";
-import {logout} from "../../../redux/modules/auth/actions";
-import {ClickOutside} from "../../../hooks/click-outside";
-import Icon from "../../Icon";
-import Avatar from "../../../assets/images/avatar-2.jpg";
-import Dropdown from "../../Forms/Dropdowns";
-import {language} from "./options";
-import SearchableInput from "../../Forms/Inputs/Search";
-import PrimaryButton from "../../Buttons/Primary";
+  TextContainer
+} from './style';
+import { Image, Content } from '../style';
+import Bell from '../../Bell';
+import { logout } from '../../../redux/modules/auth/actions';
+import { ClickOutside } from '../../../hooks/click-outside';
+import Icon from '../../Icon';
+import Avatar from '../../../assets/images/avatar-2.jpg';
+import Dropdown from '../../Forms/Dropdowns';
+import { language } from './options';
+import SearchableInput from '../../Forms/Inputs/Search';
+import PrimaryButton from '../../Buttons/Primary';
 
 export default () => {
   const clickRef = useRef(null);
@@ -34,16 +35,16 @@ export default () => {
   const [isOpen, setIsOpen] = useState(false);
   const handleOnClick = (type) => {
     switch (type) {
-      case "profile":
-        setIsOpen(false);
-        history.push("/users/all-users/1/users-basic-info");
-        break;
-      case "logout":
-        setIsOpen(false);
-        dispatch(logout());
-        break;
-      default:
-        break;
+    case 'profile':
+      setIsOpen(false);
+      history.push('/users/all-users/1/users-basic-info');
+      break;
+    case 'logout':
+      setIsOpen(false);
+      dispatch(logout());
+      break;
+    default:
+      break;
     }
   };
   return (
@@ -69,7 +70,11 @@ export default () => {
         </BellContainer>
         <PopupContainer>
           <UserInfoContainer>
-            <Image ref={clickRef} src={Avatar} onClick={() => setIsOpen((prevState) => !prevState)} />
+            <Image
+              ref={clickRef}
+              src={Avatar}
+              onClick={() => setIsOpen((prevState) => !prevState)}
+            />
             <TextContainer>
               <TextContainer.Name>Isaac Williams</TextContainer.Name>
               <TextContainer.Email>kinanthayani@mail.com</TextContainer.Email>
@@ -92,11 +97,11 @@ export default () => {
             }}
           >
             <DropdownContainer isOpen={isOpen}>
-              <Item onClick={() => handleOnClick("profile")}>
-                <Text className={classNames("caption", "weight-semibold", "text-black-800")}>Profile</Text>
+              <Item onClick={() => handleOnClick('profile')}>
+                <Text className={classNames('caption', 'weight-semibold', 'text-black-800')}>Profile</Text>
               </Item>
-              <Item onClick={() => handleOnClick("logout")}>
-                <Text className={classNames("caption", "weight-semibold", "text-black-800")}>Log out</Text>
+              <Item onClick={() => handleOnClick('logout')}>
+                <Text className={classNames('caption', 'weight-semibold', 'text-black-800')}>Log out</Text>
               </Item>
             </DropdownContainer>
           </ClickOutside>

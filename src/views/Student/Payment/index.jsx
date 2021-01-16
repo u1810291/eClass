@@ -1,5 +1,3 @@
-import React from "react";
+import React from 'react';
 
-export default () => {
-  return <div>Payments</div>;
-};
+export default () => <div>Payments</div>;

@@ -1,5 +1,4 @@
-import {Container} from "./style";
+import React from 'react';
+import { Container } from './style';
 
-export default ({child}) => {
-  return <Container>{child}</Container>;
-};
+export default ({ child }) => <Container>{child}</Container>;

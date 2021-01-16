@@ -1,9 +1,10 @@
 export const copyTxt = (txt) => {
-  const t = document.createElement("textarea");
+  const t = document.createElement('textarea');
   t.value = txt;
   document.body.appendChild(t);
   t.select();
-  document.execCommand("copy");
+  document.execCommand('copy');
   document.body.removeChild(t);
-  alert(`Copied to clipboard!`);
+  // eslint-disable-next-line no-alert
+  alert('Copied to clipboard!');
 };

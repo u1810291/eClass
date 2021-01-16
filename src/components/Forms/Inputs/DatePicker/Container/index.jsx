@@ -1,9 +1,9 @@
-import React from "react";
-import TimePicker from "react-time-picker";
-import moment from "moment";
-import * as devices from "../../../../../constants/devices";
-import {useWindowSize} from "../../../../../hooks/use-window-size";
-import BottomSheet from "../../../../BottomSheet";
+import React from 'react';
+import TimePicker from 'react-time-picker';
+import moment from 'moment';
+import * as devices from '../../../../../constants/devices';
+import { useWindowSize } from '../../../../../hooks/use-window-size';
+import BottomSheet from '../../../../BottomSheet';
 
 import {
   Container,
@@ -16,9 +16,9 @@ import {
   Selection,
   FromTo,
   Close,
-  ButtonContiner,
-} from "./style";
-import PrimaryButton from "../../../../Buttons/Primary";
+  ButtonContiner
+} from './style';
+import PrimaryButton from '../../../../Buttons/Primary';
 
 export default ({
   selectionRange,
@@ -34,9 +34,9 @@ export default ({
   endDate,
   handleOnExpand,
   handleOnClear,
-  showTimePicker = true,
+  showTimePicker = true
 }) => {
-  const {device} = useWindowSize();
+  const { device } = useWindowSize();
   const content = (
     <Container showTimePicker={showTimePicker}>
       <DateRange
@@ -46,7 +46,7 @@ export default ({
         showMonthAndYearPickers={false}
         color="red"
         editableDateInputs={false}
-        rangeColors={["#F64E60"]}
+        rangeColors={['#F64E60']}
       />
       {!showTimePicker && (
         <ButtonContiner>
@@ -56,12 +56,12 @@ export default ({
             title="Clear"
             onClick={handleOnClear}
             style={{
-              maxWidth: "71px",
-              width: "100%",
-              height: "43px",
-              borderRadius: "8px",
-              fontWeight: "400",
-              alignSelf: "flex-end",
+              maxWidth: '71px',
+              width: '100%',
+              height: '43px',
+              borderRadius: '8px',
+              fontWeight: '400',
+              alignSelf: 'flex-end'
             }}
           />
           <PrimaryButton
@@ -70,12 +70,12 @@ export default ({
             title="Set"
             onClick={handleSelect}
             style={{
-              maxWidth: "71px",
-              width: "100%",
-              height: "43px",
-              borderRadius: "8px",
-              fontWeight: "400",
-              alignSelf: "flex-end",
+              maxWidth: '71px',
+              width: '100%',
+              height: '43px',
+              borderRadius: '8px',
+              fontWeight: '400',
+              alignSelf: 'flex-end'
             }}
           />
         </ButtonContiner>
@@ -88,8 +88,8 @@ export default ({
             <FromTo>
               <FromTo.Title>From</FromTo.Title>
               <DateContainer>
-                <DateContainer.Day>{moment(startDate).format("D")}</DateContainer.Day>
-                <DateContainer.Month>{moment(startDate).format("MMM YYYY")}</DateContainer.Month>
+                <DateContainer.Day>{moment(startDate).format('D')}</DateContainer.Day>
+                <DateContainer.Month>{moment(startDate).format('MMM YYYY')}</DateContainer.Month>
               </DateContainer>
               <Selection>
                 <TimePicker
@@ -105,8 +105,8 @@ export default ({
             <FromTo>
               <FromTo.Title>To</FromTo.Title>
               <DateContainer>
-                <DateContainer.Day>{moment(endDate).format("D")}</DateContainer.Day>
-                <DateContainer.Month>{moment(endDate).format("MMM YYYY")}</DateContainer.Month>
+                <DateContainer.Day>{moment(endDate).format('D')}</DateContainer.Day>
+                <DateContainer.Month>{moment(endDate).format('MMM YYYY')}</DateContainer.Month>
               </DateContainer>
               <Selection>
                 <TimePicker
@@ -125,12 +125,12 @@ export default ({
                 title="Clear"
                 onClick={handleOnClear}
                 style={{
-                  maxWidth: "71px",
-                  width: "100%",
-                  height: "43px",
-                  borderRadius: "8px",
-                  fontWeight: "400",
-                  alignSelf: "flex-end",
+                  maxWidth: '71px',
+                  width: '100%',
+                  height: '43px',
+                  borderRadius: '8px',
+                  fontWeight: '400',
+                  alignSelf: 'flex-end'
                 }}
               />
               <PrimaryButton
@@ -139,11 +139,11 @@ export default ({
                 title="Set"
                 onClick={handleSelect}
                 style={{
-                  maxWidth: "71px",
-                  width: "100%",
-                  height: "43px",
-                  borderRadius: "8px",
-                  fontWeight: "400",
+                  maxWidth: '71px',
+                  width: '100%',
+                  height: '43px',
+                  borderRadius: '8px',
+                  fontWeight: '400'
                 }}
               />
             </ButtonContiner>
@@ -158,7 +158,7 @@ export default ({
       swipeableProps={{
         open: isPopoverOpen,
         onChange: handleOnExpand,
-        style: {zIndex: "10"},
+        style: { zIndex: '10' }
       }}
       handleOnExpand={handleOnExpand}
     >

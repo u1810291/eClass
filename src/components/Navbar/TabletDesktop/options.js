@@ -1,10 +1,10 @@
 export const language = [
   {
     id: 1,
-    value: "RU",
+    value: 'RU'
   },
   {
     id: 2,
-    value: "EN",
-  },
+    value: 'EN'
+  }
 ];

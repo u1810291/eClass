@@ -1,8 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import {useExpanded, useTable} from "react-table";
+/* eslint-disable react/jsx-props-no-spreading */
+import React from 'react';
+import styled from 'styled-components';
+import { useExpanded, useTable } from 'react-table';
 
-import makeData from "./makeData";
+import makeData from './makeData';
 
 const Styles = styled.div`
   padding: 1rem;
@@ -33,12 +34,16 @@ const Styles = styled.div`
   }
 `;
 
-function SubRows({row, rowProps, visibleColumns, data, loading}) {
+function SubRows({
+  row, rowProps, visibleColumns, data, loading
+}) {
   if (loading) {
     return (
       <tr>
         <td />
-        <td colSpan={visibleColumns.length - 1}>Loading...</td>
+        <td colSpan={visibleColumns.length - 1}>
+          Loading...
+        </td>
       </tr>
     );
   }
@@ -46,12 +51,20 @@ function SubRows({row, rowProps, visibleColumns, data, loading}) {
   return (
     <>
       {data.map((x, i) => (
-        <tr {...rowProps} key={`${rowProps.key}-expanded-${i}`}>
+        <tr
+          {...rowProps}
+          // eslint-disable-next-line react/no-array-index-key
+          key={`${rowProps.key}-expanded-${i}`}
+        >
           {row.cells.map((cell) => (
-            <td {...cell.getCellProps()}>
-              {cell.render(cell.column.SubCell ? "SubCell" : "Cell", {
-                value: cell.column.accessor && cell.column.accessor(x, i),
-                row: {...row, original: x},
+            <td
+              {...cell.getCellProps()}
+            >
+              {cell.render(cell.column.SubCell ? 'SubCell' : 'Cell', {
+                value:
+                      cell.column.accessor
+                      && cell.column.accessor(x, i),
+                row: { ...row, original: x }
               })}
             </td>
           ))}
@@ -61,7 +74,7 @@ function SubRows({row, rowProps, visibleColumns, data, loading}) {
   );
 }
 
-function SubRowAsync({row, rowProps, visibleColumns}) {
+function SubRowAsync({ row, rowProps, visibleColumns }) {
   const [loading, setLoading] = React.useState(true);
   const [data, setData] = React.useState([]);
 
@@ -77,11 +90,17 @@ function SubRowAsync({row, rowProps, visibleColumns}) {
   }, []);
 
   return (
-    <SubRows row={row} rowProps={rowProps} visibleColumns={visibleColumns} data={data} loading={loading} />
+    <SubRows
+      row={row}
+      rowProps={rowProps}
+      visibleColumns={visibleColumns}
+      data={data}
+      loading={loading}
+    />
   );
 }
 
-function Table({columns: userColumns, data, renderRowSubComponent}) {
+function Table({ columns: userColumns, data, renderRowSubComponent }) {
   const {
     getTableProps,
     getTableBodyProps,
@@ -89,11 +108,11 @@ function Table({columns: userColumns, data, renderRowSubComponent}) {
     rows,
     prepareRow,
     visibleColumns,
-    state: {expanded},
+    state: { expanded }
   } = useTable(
     {
       columns: userColumns,
-      data,
+      data
     },
     useExpanded
   );
@@ -101,30 +120,31 @@ function Table({columns: userColumns, data, renderRowSubComponent}) {
   return (
     <>
       <pre>
-        <code>{JSON.stringify({expanded}, null, 2)}</code>
+        <code>{JSON.stringify({ expanded }, null, 2)}</code>
       </pre>
       <table {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup) => (
             <tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map((column) => (
-                <th {...column.getHeaderProps()}>{column.render("Header")}</th>
+                <th {...column.getHeaderProps()}>{column.render('Header')}</th>
               ))}
             </tr>
           ))}
         </thead>
         <tbody {...getTableBodyProps()}>
-          {rows.map((row, i) => {
+          {rows.map((row) => {
             prepareRow(row);
             const rowProps = row.getRowProps();
             return (
               <React.Fragment key={rowProps.key}>
                 <tr {...rowProps}>
                   {row.cells.map((cell) => (
-                    <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
+                    <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
                   ))}
                 </tr>
-                {row.isExpanded && renderRowSubComponent({row, rowProps, visibleColumns})}
+                {row.isExpanded
+                && renderRowSubComponent({ row, rowProps, visibleColumns })}
               </React.Fragment>
             );
           })}
@@ -133,7 +153,9 @@ function Table({columns: userColumns, data, renderRowSubComponent}) {
       <br />
       <div>
         Showing the first 20 results of
-        {rows.length} rows
+        {rows.length}
+        {' '}
+        rows
       </div>
     </>
   );
@@ -143,52 +165,57 @@ function App() {
   const columns = React.useMemo(
     () => [
       {
-        Header: () => null,
-        id: "expander",
-        Cell: ({row}) => <span {...row.getToggleRowExpandedProps()}>{row.isExpanded ? "👇" : "👉"}</span>,
-        SubCell: () => null,
+        Header: () => null, // No header
+        id: 'expander', // It needs an ID
+        Cell: ({ row }) => (
+          <span {...row.getToggleRowExpandedProps()}>
+            {row.isExpanded ? '👇' : '👉'}
+          </span>
+        ),
+        SubCell: () => null // No expander on an expanded row
       },
       {
-        Header: "Name",
+        Header: 'Name',
         columns: [
           {
-            Header: "First Name",
+            Header: 'First Name',
             accessor: (d) => d.firstName,
             SubCell: (cellProps) => (
               <>
                 🥳
-                {cellProps.value} 🎉
+                {cellProps.value}
+                {' '}
+                🎉
               </>
-            ),
+            )
           },
           {
-            Header: "Last Name",
-            accessor: (d) => d.lastName,
-          },
-          {
-            Header: "Age",
-            accessor: (d) => d.age,
-          },
-          {
-            Header: "Visits",
-            accessor: (d) => d.visits,
-          },
-          {
-            Header: "Status",
-            accessor: (d) => d.status,
-          },
-          {
-            Header: "Profile Progress",
-            accessor: (d) => d.progress,
-          },
-        ],
+            Header: 'Last Name',
+            accessor: (d) => d.lastName
+          }
+        ]
       },
-      // {
-      //   Header: 'Info',
-      //   columns: [
-
-      //   ]
-      // }
+      {
+        Header: 'Info',
+        columns: [
+          {
+            Header: 'Age',
+            accessor: (d) => d.age
+          },
+          {
+            Header: 'Visits',
+            accessor: (d) => d.visits
+          },
+          {
+            Header: 'Status',
+            accessor: (d) => d.status
+          },
+          {
+            Header: 'Profile Progress',
+            accessor: (d) => d.progress
+          }
+        ]
+      }
     ],
     []
   );
@@ -196,15 +223,23 @@ function App() {
   const data = React.useMemo(() => makeData(10), []);
 
   const renderRowSubComponent = React.useCallback(
-    ({row, rowProps, visibleColumns}) => (
-      <SubRowAsync row={row} rowProps={rowProps} visibleColumns={visibleColumns} />
+    ({ row, rowProps, visibleColumns }) => (
+      <SubRowAsync
+        row={row}
+        rowProps={rowProps}
+        visibleColumns={visibleColumns}
+      />
     ),
     []
   );
 
   return (
     <Styles>
-      <Table columns={columns} data={data} renderRowSubComponent={renderRowSubComponent} />
+      <Table
+        columns={columns}
+        data={data}
+        renderRowSubComponent={renderRowSubComponent}
+      />
     </Styles>
   );
 }

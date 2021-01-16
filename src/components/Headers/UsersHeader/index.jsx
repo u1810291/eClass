@@ -1,30 +1,30 @@
-import React, {useState} from "react";
-import {useDispatch} from "react-redux";
+import React, { useState } from 'react';
 
-import {Container, Header, ButtonContainer} from "../style";
-import {PrimaryButton} from "../../Buttons";
-import ModalContent from "../Modal";
-import {update, set as setHeader, reset, save} from "../../../redux/modules/table/actions";
-import {USERS} from "../../../constants/tables";
-import {useShowModal} from "../../../hooks/modal";
-import {IconInput} from "../../Forms/Inputs";
+import { Container, Header, ButtonContainer } from '../style';
+import { PrimaryButton } from '../../Buttons';
+import ModalContent from '../Modal';
+import {
+  update, set as setHeader, reset, save
+} from '../../../redux/modules/table/actions';
+import { USERS } from '../../../constants/tables';
+import { useShowModal } from '../../../hooks/modal';
+import { IconInput } from '../../Forms/Inputs';
 
-import {OrdersFilterBody} from "../../ListFilterBody";
-import Icon from "../../Icon";
+import { OrdersFilterBody } from '../../ListFilterBody';
+import Icon from '../../Icon';
 
 export default () => {
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState('');
   const [filtered, setFiltered] = useState(false);
-  const dispatch = useDispatch();
-  const {showBlured, showFullScreen} = useShowModal();
+  const { showBlured, showFullScreen } = useShowModal();
   const [filterHovered, setFilterHovered] = useState(false);
   const [categoryHovered, setCategoryHovered] = useState(false);
   const [filterActive, setFilterActive] = useState(false);
 
   const handleOpenModal = () => {
     showBlured({
-      title: "Customize Columns",
-      maxWidth: "448px",
+      title: 'Customize Columns',
+      maxWidth: '448px',
 
       body: () => (
         <ModalContent
@@ -35,14 +35,15 @@ export default () => {
           set={setHeader}
           update={update}
         />
-      ),
+      )
     });
   };
 
   const handleOnCreateOrder = () => {
     showFullScreen({
-      title: "Order create",
-      body: () => alert("Hello create modal"),
+      title: 'Order create',
+      // eslint-disable-next-line no-alert
+      body: () => alert('Hello create modal')
     });
   };
 
@@ -63,7 +64,8 @@ export default () => {
               }}
               className="mx-1"
             >
-              <Icon icon="filter" size="24px" />{" "}
+              <Icon icon="filter" size="24px" />
+              {' '}
             </ButtonContainer>
             <ButtonContainer
               onMouseOver={() => setCategoryHovered(true)}
@@ -73,7 +75,8 @@ export default () => {
               align="left"
               className="mx-1"
             >
-              <Icon icon="category" size="24px" />{" "}
+              <Icon icon="category" size="24px" />
+              {' '}
             </ButtonContainer>
             <PrimaryButton
               size="large"

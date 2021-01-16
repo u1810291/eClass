@@ -1,18 +1,22 @@
-import React, {useState} from "react";
-import {useDispatch, useSelector} from "react-redux";
-import {DragDropContext, Droppable, Draggable} from "react-beautiful-dnd";
-import {isEmpty} from "lodash";
-import {useHideModal} from "../../../hooks/modal";
-import {Container, Item, Checkbox, Title, Content, DropPlaceholder} from "./style";
-import {PrimaryButton} from "../../Buttons";
-import {ReactComponent as GridIcon} from "../../../assets/icons/grid-2.svg";
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import { isEmpty } from 'lodash';
+import { useHideModal } from '../../../hooks/modal';
+import {
+  Container, Item, Checkbox, Title, Content, DropPlaceholder
+} from './style';
+import { PrimaryButton } from '../../Buttons';
+import { ReactComponent as GridIcon } from '../../../assets/icons/grid-2.svg';
 
-export default ({headerKey, set, update, reset, save, type}) => {
+export default ({
+  headerKey, set, update, save, type
+}) => {
   const dispatch = useDispatch();
-  const queryAttr = "data-rbd-drag-handle-draggable-id";
+  const queryAttr = 'data-rbd-drag-handle-draggable-id';
   const [placeholderProps, setPlaceholderProps] = useState({});
-  const headers = useSelector(({tableReducer}) => tableReducer[headerKey]);
-  const {hideModal} = useHideModal();
+  const headers = useSelector(({ tableReducer }) => tableReducer[headerKey]);
+  const { hideModal } = useHideModal();
 
   const reorder = (list, startIndex, endIndex) => {
     const result = Array.from(list);
@@ -22,17 +26,17 @@ export default ({headerKey, set, update, reset, save, type}) => {
     return result;
   };
   const handleDragStart = (event) => {
+    // eslint-disable-next-line no-use-before-define
     const draggedDOM = getDraggedDom(event.draggableId);
 
     if (!draggedDOM) {
       return;
     }
 
-    const {clientHeight, clientWidth} = draggedDOM;
+    const { clientHeight, clientWidth } = draggedDOM;
     const sourceIndex = event.source.index;
-    const clientY =
-      parseFloat(window.getComputedStyle(draggedDOM.parentNode).paddingTop) +
-      [...draggedDOM.parentNode.children].slice(0, sourceIndex).reduce((total, curr) => {
+    const clientY = parseFloat(window.getComputedStyle(draggedDOM.parentNode).paddingTop)
+      + [...draggedDOM.parentNode.children].slice(0, sourceIndex).reduce((total, curr) => {
         const style = curr.currentStyle || window.getComputedStyle(curr);
         const marginBottom = parseFloat(style.marginBottom);
         return total + curr.clientHeight + marginBottom;
@@ -42,7 +46,7 @@ export default ({headerKey, set, update, reset, save, type}) => {
       clientHeight,
       clientWidth,
       clientY,
-      clientX: parseFloat(window.getComputedStyle(draggedDOM.parentNode).paddingLeft),
+      clientX: parseFloat(window.getComputedStyle(draggedDOM.parentNode).paddingLeft)
     });
   };
 
@@ -62,13 +66,14 @@ export default ({headerKey, set, update, reset, save, type}) => {
       return;
     }
 
+    // eslint-disable-next-line no-use-before-define
     const draggedDOM = getDraggedDom(event.draggableId);
 
     if (!draggedDOM) {
       return;
     }
 
-    const {clientHeight, clientWidth} = draggedDOM;
+    const { clientHeight, clientWidth } = draggedDOM;
     const destinationIndex = event.destination.index;
     const sourceIndex = event.source.index;
 
@@ -79,23 +84,22 @@ export default ({headerKey, set, update, reset, save, type}) => {
     const updatedArray = [
       ...childrenArray.slice(0, destinationIndex),
       movedItem,
-      ...childrenArray.slice(destinationIndex + 1),
+      ...childrenArray.slice(destinationIndex + 1)
     ];
 
-    const clientY =
-      parseFloat(window.getComputedStyle(draggedDOM.parentNode).paddingTop) +
-      updatedArray.slice(0, destinationIndex).reduce((total, curr) => {
+    const clientY = parseFloat(window.getComputedStyle(draggedDOM.parentNode).paddingTop)
+      + updatedArray.slice(0, destinationIndex).reduce((total, curr) => {
         const style = curr.currentStyle || window.getComputedStyle(curr);
         const marginBottom = parseFloat(style.marginBottom);
         return total + curr.clientHeight + marginBottom;
-      }, 0) +
-      22;
+      }, 0)
+      + 22;
 
     setPlaceholderProps({
       clientHeight,
       clientWidth,
       clientY,
-      clientX: 25,
+      clientX: 25
     });
   };
 
@@ -131,10 +135,10 @@ export default ({headerKey, set, update, reset, save, type}) => {
                       {...provided.draggableProps}
                       // eslint-disable-next-line react/jsx-props-no-spreading
                       {...provided.dragHandleProps}
-                      style={{...provided.draggableProps.style}}
+                      style={{ ...provided.draggableProps.style }}
                     >
                       <Content>
-                        <GridIcon style={{width: "30px", height: "28px"}} />
+                        <GridIcon style={{ width: '30px', height: '28px' }} />
                         <Checkbox
                           initial
                           checked={header.show}
@@ -153,7 +157,7 @@ export default ({headerKey, set, update, reset, save, type}) => {
                     top: placeholderProps.clientY,
                     left: placeholderProps.clientX,
                     height: placeholderProps.clientHeight,
-                    width: placeholderProps.clientWidth,
+                    width: placeholderProps.clientWidth
                   }}
                 />
               )}
@@ -161,7 +165,7 @@ export default ({headerKey, set, update, reset, save, type}) => {
           )}
         </Droppable>
       </DragDropContext>
-      <div style={{display: "flex", justifyContent: "flex-end", gap: "8px"}}>
+      <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '8px' }}>
         <PrimaryButton
           size="large"
           title="Save"

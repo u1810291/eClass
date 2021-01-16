@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Text = styled.div`
   padding: 10px;
@@ -8,7 +8,7 @@ export const Text = styled.div`
   font-weight: bold;
   font-style: normal;
 `;
-export const AuthWrapper = styled("div")`
+export const AuthWrapper = styled('div')`
   display: flex;
   height: 100vh;
   max-height: 100vh;

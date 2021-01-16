@@ -7,7 +7,7 @@ export const buttons = (aLabel, pageCount) => {
       case 0:
         return 1;
       case 1:
-        return aLabel >= 4 ? "..." : 2;
+        return aLabel >= 4 ? '...' : 2;
       case 2: {
         if (aLabel - 2 <= 1) return 3;
         if (pageCount - aLabel < 4) return pageCount - 4;
@@ -24,11 +24,11 @@ export const buttons = (aLabel, pageCount) => {
         return aLabel + 1;
       }
       case 5:
-        return pageCount - aLabel <= 2 ? pageCount - 1 : "...";
+        return pageCount - aLabel <= 2 ? pageCount - 1 : '...';
       case 6:
         return pageCount;
       default:
-        return "";
+        return '';
     }
   });
 };

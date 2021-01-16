@@ -1,5 +1,7 @@
-import styled, {css, keyframes} from "styled-components";
-import {getType, label, helperText, getBorderRadius} from "../style";
+import styled, { css, keyframes } from 'styled-components';
+import {
+  getType, label, helperText, getBorderRadius
+} from '../style';
 
 const transition = keyframes`    
   transition: all 0.2s;
@@ -20,7 +22,7 @@ export const Input = styled.input`
   outline: none !important;
   text-indent: 10px;
 
-  ${({search: isSearch}) => isSearch && search} ::-webkit-inner-spin-button {
+  ${({ search: isSearch }) => isSearch && search} ::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }

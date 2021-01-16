@@ -1,7 +1,7 @@
-export {default as authReducer} from "./auth/reducers";
-export {default as modalReducer} from "./modal/reducers";
-export {default as alertReducer} from "./alert/reducers";
-export {default as navReducer} from "./nav/reducers";
-export {default as sidebarReducer} from "./sidebar/reducers";
-export {default as userReducer} from "./user/reducers";
-export {default as tableReducer} from "./table/reducers";
+export { default as authReducer } from './auth/reducers';
+export { default as modalReducer } from './modal/reducers';
+export { default as alertReducer } from './alert/reducers';
+export { default as navReducer } from './nav/reducers';
+export { default as sidebarReducer } from './sidebar/reducers';
+export { default as userReducer } from './user/reducers';
+export { default as tableReducer } from './table/reducers';

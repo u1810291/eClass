@@ -1,5 +1,5 @@
-import styled, {css} from "styled-components";
-import CustomCheckbox from "../../CheckBox";
+import styled, { css } from 'styled-components';
+import CustomCheckbox from '../../CheckBox';
 
 export const DropPlaceholder = styled.div`
   position: absolute;
@@ -30,7 +30,7 @@ export const Item = styled.div`
   padding: 0 15px;
   height: 43px;
   cursor: pointer;
-  ${({dragging}) => dragging && ItemDragging};
+  ${({ dragging }) => dragging && ItemDragging};
   &:hover ${Checkbox}:not(:checked) {
     background: white;
   }

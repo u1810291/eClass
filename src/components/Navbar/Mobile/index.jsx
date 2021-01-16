@@ -1,15 +1,18 @@
-import {useState, useRef} from "react";
-import {useHistory} from "react-router-dom";
-import {useDispatch} from "react-redux";
-import {Container} from "./style";
-import {Image, Title, ChatButton, MenuButton, NotificationButton, Content} from "../style";
-import Bell from "../../Bell";
-import {expand} from "../../../redux/modules/sidebar/actions";
-import {ClickOutside} from "../../../hooks";
-import {logout} from "../../../redux/modules/auth/actions";
-import classNames from "classnames";
-import {DropdownContainer} from "./style";
-import {UserInfoContainer, Item, Text} from "../TabletDesktop/style";
+import React, { useState, useRef } from 'react';
+
+import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import classNames from 'classnames';
+import { Container, DropdownContainer } from './style';
+import {
+  Image, Title, ChatButton, MenuButton, NotificationButton, Content
+} from '../style';
+import Bell from '../../Bell';
+import { expand } from '../../../redux/modules/sidebar/actions';
+import { ClickOutside } from '../../../hooks';
+import { logout } from '../../../redux/modules/auth/actions';
+
+import { UserInfoContainer, Item, Text } from '../TabletDesktop/style';
 
 export default () => {
   const history = useHistory();
@@ -19,30 +22,32 @@ export default () => {
 
   const handleOnClick = (type) => {
     switch (type) {
-      case "profile":
-        setIsOpen(false);
-        history.push("/users/all-users/1/users-basic-info");
-        break;
-      case "logout":
-        setIsOpen(false);
-        dispatch(logout());
-        break;
-      default:
-        break;
+    case 'profile':
+      setIsOpen(false);
+      history.push('/users/all-users/1/users-basic-info');
+      break;
+    case 'logout':
+      setIsOpen(false);
+      dispatch(logout());
+      break;
+    default:
+      break;
     }
   };
   return (
     <Container>
       <Content>
         <UserInfoContainer>
-          {/* eslint-disable-next-line global-require */}
           <Image
             ref={refClick}
-            src={require("../../../assets/images/avatar-2.jpg")}
+            // eslint-disable-next-line global-require
+            src={require('../../../assets/images/avatar-2.jpg')}
             onClick={() => setIsOpen((prevState) => !prevState)}
           />
           <Title>
-            Hi, <Title primary>Mirsaid</Title>
+            Hi,
+            {' '}
+            <Title primary>Mirsaid</Title>
           </Title>
         </UserInfoContainer>
 
@@ -53,11 +58,11 @@ export default () => {
           }}
         >
           <DropdownContainer isOpen={isOpen}>
-            <Item onClick={() => handleOnClick("profile")}>
-              <Text className={classNames("caption", "weight-semibold", "text-black-800")}>Profile</Text>
+            <Item onClick={() => handleOnClick('profile')}>
+              <Text className={classNames('caption', 'weight-semibold', 'text-black-800')}>Profile</Text>
             </Item>
-            <Item onClick={() => handleOnClick("logout")}>
-              <Text className={classNames("caption", "weight-semibold", "text-black-800")}>Log out</Text>
+            <Item onClick={() => handleOnClick('logout')}>
+              <Text className={classNames('caption', 'weight-semibold', 'text-black-800')}>Log out</Text>
             </Item>
           </DropdownContainer>
         </ClickOutside>

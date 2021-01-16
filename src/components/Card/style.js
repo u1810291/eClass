@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
-  background: ${({color}) => (color ? color : "#ffffff")};
+  background: ${({ color }) => (color || '#ffffff')};
   border: 1px solid rgba(174, 179, 205, 0.47);
   box-sizing: border-box;
   border-radius: 25px;

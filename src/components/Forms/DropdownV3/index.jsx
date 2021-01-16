@@ -1,7 +1,9 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React, {useEffect, useRef, useState, useCallback} from "react";
-import PropTypes from "prop-types";
-import classNames from "classnames";
+import React, {
+  useEffect, useRef, useState, useCallback
+} from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import {
   IconWrapper,
   InnerLabel,
@@ -18,11 +20,11 @@ import {
   NoOptionsText,
   ItemWrapper,
   ValueText,
-  OptionTextWrapper,
-} from "./style";
-import {PureCheckbox as Checkbox} from "../../CheckBox";
-import {ReactComponent as SearchIcon} from "../../../assets/icons/search.svg";
-import Icon from "../../Icon";
+  OptionTextWrapper
+} from './style';
+import { PureCheckbox as Checkbox } from '../../CheckBox';
+import { ReactComponent as SearchIcon } from '../../../assets/icons/search.svg';
+import Icon from '../../Icon';
 
 const FilterSelect = ({
   value,
@@ -45,7 +47,7 @@ const FilterSelect = ({
   useEffect(() => {
     if (value) {
       let displayValue = null;
-      let $selected = {...setSelected};
+      let $selected = { ...setSelected };
       if (Array.isArray(value) && value.length > 0) {
         for (let i = 0; i < value.length; i += 1) {
           $selected[value[i]] = options.find((item) => item.value === value[i]);
@@ -54,7 +56,7 @@ const FilterSelect = ({
         if (options && value.length !== options.length) {
           displayValue = `${value.length}`;
         } else {
-          displayValue = "All";
+          displayValue = 'All';
         }
       } else {
         $selected = {};
@@ -75,7 +77,7 @@ const FilterSelect = ({
 
   const handleClick = useCallback(
     (item) => {
-      let $selected = {...selected};
+      let $selected = { ...selected };
       let data;
       if (multiple) {
         data = [];
@@ -128,12 +130,12 @@ const FilterSelect = ({
         handler(event);
       };
 
-      document.addEventListener("mousedown", listener);
-      document.addEventListener("touchstart", listener);
+      document.addEventListener('mousedown', listener);
+      document.addEventListener('touchstart', listener);
 
       return () => {
-        document.removeEventListener("mousedown", listener);
-        document.removeEventListener("touchstart", listener);
+        document.removeEventListener('mousedown', listener);
+        document.removeEventListener('touchstart', listener);
       };
     }, [ref, handler]);
   };
@@ -147,21 +149,27 @@ const FilterSelect = ({
         onClick={() => setIsPopoverOpen(!isPopoverOpen)}
         {...props}
         size={size}
-        color={!multiple && selected[value] && selected[value].color ? selected[value].color : undefined}
+        color={!multiple
+          && selected[value]
+          && selected[value].color
+          ? selected[value].color : undefined}
       >
         {!multiple && placeholder && !selectedValue && (
-          <InnerLabel className={classNames("body-medium", "weight-regular")}>{placeholder}</InnerLabel>
+          <InnerLabel className={classNames('body-medium', 'weight-regular')}>{placeholder}</InnerLabel>
         )}
         {multiple && placeholder && (
-          <InnerLabel className={classNames("body-medium", "weight-regular")}>{placeholder}</InnerLabel>
+          <InnerLabel className={classNames('body-medium', 'weight-regular')}>{placeholder}</InnerLabel>
         )}
         <ItemWrapper selectedValue={selectedValue} multiple={multiple}>
           {selectedValue && (
-            <SelectedValue className={classNames("body-medium", "weight-regular")}>
-              <ValueText> {selectedValue}</ValueText>
+            <SelectedValue className={classNames('body-medium', 'weight-regular')}>
+              <ValueText>
+                {' '}
+                {selectedValue}
+              </ValueText>
             </SelectedValue>
           )}
-          <Icon icon={isPopoverOpen ? "top" : "buttom"} size="1.3rem" />
+          <Icon icon={isPopoverOpen ? 'top' : 'buttom'} size="1.3rem" />
         </ItemWrapper>
       </Select>
       <Options open={isPopoverOpen}>
@@ -173,7 +181,7 @@ const FilterSelect = ({
               value={searchValue}
               onChange={handleSearch}
               placeholder="Search..."
-              className={classNames("caption", "weight-medium")}
+              className={classNames('caption', 'weight-medium')}
             />
             <IconWrapper>
               <SearchIcon />
@@ -182,12 +190,13 @@ const FilterSelect = ({
         )}
         <OptionsWrap>
           {options.length > 0 ? (
-            options.map((item, index) => (
+            options.map((item, i) => (
               <OptionsItem
-                key={index}
+                // eslint-disable-next-line react/no-array-index-key
+                key={i}
                 onClick={() => handleClick(item)}
                 active={!!(item.value === value)}
-                className={classNames("body-medium-14", "weight-regular")}
+                className={classNames('body-medium-14', 'weight-regular')}
                 size={size}
               >
                 {multiple && <Checkbox type="checkbox" readOnly checked={!!selected[item.value]} />}
@@ -196,14 +205,17 @@ const FilterSelect = ({
                     <img src={item.img} alt="avatar" />
                   </OptionsItemImg>
                 )}
-                {item.icon && <Icon icon={item.icon} color={item.value === value ? "#262626" : "#9D9D9D"} />}
+                {item.icon && <Icon icon={item.icon} color={item.value === value ? '#262626' : '#9D9D9D'} />}
                 <OptionTextWrapper>
-                  <ValueText> {item.label}</ValueText>
+                  <ValueText>
+                    {' '}
+                    {item.label}
+                  </ValueText>
                 </OptionTextWrapper>
               </OptionsItem>
             ))
           ) : (
-            <NoOptionsText className={classNames("body-medium", "weight-regular")}>
+            <NoOptionsText className={classNames('body-medium', 'weight-regular')}>
               There are no options
             </NoOptionsText>
           )}
@@ -217,10 +229,11 @@ export default FilterSelect;
 
 FilterSelect.propTypes = {
   size: PropTypes.string,
-  options: PropTypes.array,
+  // eslint-disable-next-line react/forbid-prop-types
+  options: PropTypes.array
 };
 
 FilterSelect.defaultProps = {
-  size: "medium",
-  options: [],
+  size: 'medium',
+  options: []
 };

@@ -1,3 +1,3 @@
-export default () => {
-  return <div>Reset password page</div>;
-};
+import React from 'react';
+
+export default () => <div>Reset password page</div>;

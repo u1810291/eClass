@@ -1,5 +1,7 @@
-import styled, {css, keyframes} from "styled-components";
-import {getType, label, helperText, getBorderRadius, getIconSize} from "../style";
+import styled, { css, keyframes } from 'styled-components';
+import {
+  getType, label, helperText, getBorderRadius, getIconSize
+} from '../style';
 
 export const IconWrapper = styled.div`
   position: absolute;
@@ -25,14 +27,14 @@ const search = css`
 
 export const Input = styled.input`
   ${getType};
-  ${({error: error}) => error && error} ::-webkit-input-placeholder {
+  ${({ error }) => error && error} ::-webkit-input-placeholder {
     color: #535875 !important;
   }
   border-radius: ${getBorderRadius};
   outline: none !important;
   text-indent: 10px;
 
-  ${({search: isSearch}) => isSearch && search} ::-webkit-inner-spin-button {
+  ${({ search: isSearch }) => isSearch && search} ::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }
