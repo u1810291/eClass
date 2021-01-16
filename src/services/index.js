@@ -17,6 +17,7 @@ const CustomAxios = {
 service.interceptors.response.use(
   (res) => res,
   (error) => {
+    console.log(error);
     if (error.response.status === 401) {
       window.location.replace('/logout');
       localStorage.removeItem('token');
