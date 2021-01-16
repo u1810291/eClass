@@ -1,5 +1,4 @@
 import Examples from '../components/Examples';
-import Users from '../views/Admin/Users';
 import Courses from '../views/Student/Courses';
 import Balance from '../views/Balance';
 import Homeworks from '../views/Homeworks';
