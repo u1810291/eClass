@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
-import { Container, Title } from "./style";
+import {Container, Title} from "./style";
 import Icon from "../../Icon";
 
-const PrimaryButton = ({ title, size, iconAlign, icon, color, ...others }) =>
+const PrimaryButton = ({title, size, iconAlign, icon, color, ...others}) =>
   iconAlign.includes(["right" || "Right"]) ? (
     <Container size={size} color={color} {...others}>
       <Title icon={icon}>{title}</Title>

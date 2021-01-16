@@ -32,7 +32,7 @@ export const header = [
   },
 ];
 
-export const bodyItem = Array.from({ length: 100 }).map((_, index) => ({
+export const bodyItem = Array.from({length: 100}).map((_, index) => ({
   id: index + 1,
   date: moment(new Date()).format("L"),
   time: moment(new Date()).format("LT"),

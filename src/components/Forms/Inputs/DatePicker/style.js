@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Wrapper = styled.div`
   display: flex;
-  color: ${({ white }) => (white ? '#262626' : '#7E8299')};
+  color: ${({white}) => (white ? "#262626" : "#7E8299")};
   justify-content: space-between;
   align-items: center;
   column-gap: 8px;

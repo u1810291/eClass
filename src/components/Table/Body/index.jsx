@@ -1,8 +1,8 @@
 import React from "react";
-import { Container, Header, Body } from "./style";
+import {Container, Header, Body} from "./style";
 import Item from "../Item";
 import Icon from "../../Icon";
-import { header, bodyItem } from "./data";
+import {header, bodyItem} from "./data";
 export default () => {
   return (
     <Container>

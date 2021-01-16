@@ -1,16 +1,5 @@
-import {
-  Container,
-  ItemGrid,
-  Date,
-  Time,
-  Image,
-  Duration,
-  Source,
-  Name,
-  Subject,
-  TeacherData,
-} from "./style";
-export default ({ data }) => {
+import {Container, ItemGrid, Date, Time, Image, Duration, Source, Name, Subject, TeacherData} from "./style";
+export default ({data}) => {
   return (
     <Container>
       <ItemGrid>

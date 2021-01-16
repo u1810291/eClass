@@ -1,9 +1,9 @@
-import { useState } from "react";
-import { Container, Filter } from "./style";
+import {useState} from "react";
+import {Container, Filter} from "./style";
 import Body from "./Body";
 import Droprown from "../Forms/Dropdowns";
 import classNames from "classnames";
-import { commonOption } from "./option";
+import {commonOption} from "./option";
 
 export default () => {
   const [commonDropdown, setCommonDropdown] = useState(1);
@@ -11,12 +11,8 @@ export default () => {
   return (
     <Container>
       <Filter>
-        <Filter.Title className={classNames("heading-5", "weight-semibold")}>
-          Мои уроки
-        </Filter.Title>
-        <Filter.Option className={classNames("body-large")}>
-          Показать:
-        </Filter.Option>
+        <Filter.Title className={classNames("heading-5", "weight-semibold")}>Мои уроки</Filter.Title>
+        <Filter.Option className={classNames("body-large")}>Показать:</Filter.Option>
         <Filter.OptionLink>Все Уроки</Filter.OptionLink>
         <Filter.Right>
           <Droprown

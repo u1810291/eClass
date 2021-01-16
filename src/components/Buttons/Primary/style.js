@@ -1,15 +1,15 @@
 import styled from "styled-components";
-import { buttons } from "../style";
+import {buttons} from "../style";
 
 export const Title = styled.span`
   color: white;
-  margin-left: ${({ icon }) => (icon ? "15px" : "unset")};
-  margin-right: ${({ icon }) => (icon ? "15px" : "unset")};
+  margin-left: ${({icon}) => (icon ? "15px" : "unset")};
+  margin-right: ${({icon}) => (icon ? "15px" : "unset")};
 `;
 
 export const Container = styled.button`
   ${buttons};
-  background: ${({ color }) => (color ? color : "#0062FF")};
+  background: ${({color}) => (color ? color : "#0062FF")};
   cursor: pointer;
   svg {
     path {

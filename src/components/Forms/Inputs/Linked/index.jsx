@@ -1,23 +1,9 @@
-import { Container, Input, Label, Helper } from "./style";
+import {Container, Input, Label, Helper} from "./style";
 import PropTypes from "prop-types";
 
-const LinkedlInput = ({
-  placeholder,
-  disabled,
-  size,
-  helperText,
-  label,
-  type,
-  ...others
-}) => (
+const LinkedlInput = ({placeholder, disabled, size, helperText, label, type, ...others}) => (
   <Container>
-    <Input
-      type={type}
-      disabled={disabled}
-      size={size}
-      placeholder={placeholder}
-      {...others}
-    />
+    <Input type={type} disabled={disabled} size={size} placeholder={placeholder} {...others} />
     <Label></Label>
     <Helper type={type} size={size}>
       {helperText}

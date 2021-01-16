@@ -1,13 +1,13 @@
 import PropTypes from "prop-types";
-import { useHistory } from "react-router-dom";
-import { Header, TitleContainer, CollapseButton, ExpandButton } from "./style";
-import { useWindowSize } from "../../../hooks/use-window-size";
+import {useHistory} from "react-router-dom";
+import {Header, TitleContainer, CollapseButton, ExpandButton} from "./style";
+import {useWindowSize} from "../../../hooks/use-window-size";
 import * as devices from "../../../constants/devices";
-import { ReactComponent as Logo } from "../../../assets/icons/logo3.svg";
+import {ReactComponent as Logo} from "../../../assets/icons/logo3.svg";
 
-const SidebarHeader = ({ collapsed, handleExpand, handleCollapse }) => {
+const SidebarHeader = ({collapsed, handleExpand, handleCollapse}) => {
   const history = useHistory();
-  const { device } = useWindowSize();
+  const {device} = useWindowSize();
   const mobile = (
     <Header>
       <TitleContainer>

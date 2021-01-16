@@ -1,24 +1,10 @@
-import { Container, Input, Label, Helper, InnerContainer } from "./style";
+import {Container, Input, Label, Helper, InnerContainer} from "./style";
 import PropTypes from "prop-types";
 
-const NormalInput = ({
-  placeholder,
-  disabled,
-  size,
-  helperText,
-  label,
-  type,
-  ...others
-}) => (
+const NormalInput = ({placeholder, disabled, size, helperText, label, type, ...others}) => (
   <Container>
     <InnerContainer>
-      <Input
-        type={type}
-        disabled={disabled}
-        size={size}
-        placeholder={placeholder}
-        {...others}
-      />
+      <Input type={type} disabled={disabled} size={size} placeholder={placeholder} {...others} />
       <Label>{label}</Label>
     </InnerContainer>
     <Helper type={type} size={size}>

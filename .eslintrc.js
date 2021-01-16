@@ -3,9 +3,10 @@ module.exports = {
     browser: true,
     jasmine: true,
   },
+  extends: ["airbnb"],
   plugins: ["react"],
   rules: {
-    "react/jsx-filename-extension": [1, { extensions: [".js", ".jsx"] }],
+    "react/jsx-filename-extension": [1, {extensions: [".js", ".jsx"]}],
     "react/prefer-stateless-function": "off",
     "no-shadow": "off",
     "react/no-children-prop": "off",

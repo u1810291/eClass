@@ -40,9 +40,7 @@ body {
   --font-medium: 500;
   --font-semibold: 600;
   --font-bold: 700;
-  --content-body-height: calc(
-    100vh - var(--navbar-height) - calc(2 * var(--content-body-padding))
-  );
+  --content-body-height: calc(100vh - var(--navbar-height) - calc(2 * var(--content-body-padding)));
   --fullpage-modal-header-height: 60px;
   --basic-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.04);
 }
