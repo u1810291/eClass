@@ -37,12 +37,17 @@
   "web-vitals": "^0.2.4",
   "yup": "^0.31.0"
  },
- "scripts": {
-  "start": "react-scripts start",
-  "build": "react-scripts build",
-  "test": "react-scripts test",
-  "eject": "react-scripts eject"
- },
+ "scripts": {	 
+  "start": "react-scripts start",	  
+  "build": "react-scripts build",	  
+  "test": "react-scripts test",	
+  "eject": "react-scripts eject",	  
+  "lint": "eslint .",	 
+  "lint:fix": "eslint --fix .",	
+
+  "format": "prettier --write \"{,!(node_modules)/**/}*.{js,jsx}\""	 
+  },
+
  "eslintConfig": {
   "extends": "react-app"
  },
