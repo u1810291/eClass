@@ -1,11 +1,11 @@
 import types from '../../../constants/action-types';
 
 const defaultState = {
-  title: '',
+  title: ''
 };
 
 const map = {
-  [types.NAVBER_SET_TITLE]: (state, { title }) => ({ ...state, title }),
+  [types.NAVBER_SET_TITLE]: (state, { title }) => ({ ...state, title })
 };
 
 // eslint-disable-next-line max-len

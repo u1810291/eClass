@@ -11,7 +11,7 @@ const CustomAxios = {
       this._instance = axios.create({ baseURL: '/api' });
     }
     return this._instance;
-  },
+  }
 };
 
 service.interceptors.response.use(
@@ -22,7 +22,7 @@ service.interceptors.response.use(
       localStorage.removeItem('token');
     }
     return Promise.reject(error);
-  },
+  }
 );
 
 service.interceptors.request.use((config) => {

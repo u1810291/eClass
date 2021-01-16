@@ -1,5 +1,3 @@
-import React from "react";
+import React from 'react';
 
-export default () => {
-  return <div>Library</div>;
-};
+export default () => <div>Library</div>;

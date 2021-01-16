@@ -1,7 +1,9 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React, {useEffect, useRef, useState, useCallback} from "react";
-import PropTypes from "prop-types";
-import classNames from "classnames";
+import React, {
+  useEffect, useRef, useState, useCallback
+} from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import {
   IconWrapper,
   InnerLabel,
@@ -14,12 +16,12 @@ import {
   Select,
   SelectContainer,
   SelectedValue,
-  SelectLabel,
-} from "./style";
-import {ReactComponent as ArrowDown} from "../../../assets/icons/arrowClose.svg";
-import {ReactComponent as ArrowUp} from "../../../assets/icons/arrowUp.svg";
-import {PureCheckbox as Checkbox} from "../../CheckBox";
-import {ReactComponent as SearchIcon} from "../../../assets/icons/search.svg";
+  SelectLabel
+} from './style';
+import { ReactComponent as ArrowDown } from '../../../assets/icons/arrowClose.svg';
+import { ReactComponent as ArrowUp } from '../../../assets/icons/arrowUp.svg';
+import { PureCheckbox as Checkbox } from '../../CheckBox';
+import { ReactComponent as SearchIcon } from '../../../assets/icons/search.svg';
 
 const FilterSelect = ({
   value,
@@ -41,7 +43,7 @@ const FilterSelect = ({
   useEffect(() => {
     if (value) {
       let displayValue = null;
-      let $selected = {...setSelected};
+      let $selected = { ...setSelected };
 
       if (Array.isArray(value) && value.length > 0) {
         for (let i = 0; i < value.length; i += 1) {
@@ -50,7 +52,7 @@ const FilterSelect = ({
         if (options && value.length !== options.length) {
           displayValue = `${options.find((item) => item.id === value[0]).value} (${value.length})`;
         } else {
-          displayValue = "All";
+          displayValue = 'All';
         }
       } else {
         $selected = {};
@@ -69,7 +71,7 @@ const FilterSelect = ({
 
   const handleClick = useCallback(
     (item) => {
-      let $selected = {...selected};
+      let $selected = { ...selected };
       let data;
       if (multiple) {
         data = [];
@@ -121,12 +123,12 @@ const FilterSelect = ({
         handler(event);
       };
 
-      document.addEventListener("mousedown", listener);
-      document.addEventListener("touchstart", listener);
+      document.addEventListener('mousedown', listener);
+      document.addEventListener('touchstart', listener);
 
       return () => {
-        document.removeEventListener("mousedown", listener);
-        document.removeEventListener("touchstart", listener);
+        document.removeEventListener('mousedown', listener);
+        document.removeEventListener('touchstart', listener);
       };
     }, [ref, handler]);
   };
@@ -140,7 +142,10 @@ const FilterSelect = ({
         onClick={() => setIsPopoverOpen(!isPopoverOpen)}
         {...props}
         size={size}
-        color={!multiple && selected[value] && selected[value].color ? selected[value].color : undefined}
+        color={!multiple
+          && selected[value]
+          && selected[value].color
+          ? selected[value].color : undefined}
       >
         {!multiple && placeholder && !selectedValue && <InnerLabel>{placeholder}</InnerLabel>}
         {multiple && placeholder && <InnerLabel>{placeholder}</InnerLabel>}
@@ -156,7 +161,7 @@ const FilterSelect = ({
               value={searchValue}
               onChange={handleSearch}
               placeholder="Search..."
-              className={classNames("caption", "weight-medium")}
+              className={classNames('caption', 'weight-medium')}
             />
             <IconWrapper>
               <SearchIcon />
@@ -169,7 +174,7 @@ const FilterSelect = ({
               key={item.id}
               onClick={() => handleClick(item)}
               active={!!selected[item.id]}
-              className={classNames("body-medium-14", "weight-regular")}
+              className={classNames('body-medium-14', 'weight-regular')}
             >
               {multiple && <Checkbox type="checkbox" readOnly checked={!!selected[item.id]} />}
               {item.img && (
@@ -189,9 +194,9 @@ const FilterSelect = ({
 export default FilterSelect;
 
 FilterSelect.propTypes = {
-  size: PropTypes.string,
+  size: PropTypes.string
 };
 
 FilterSelect.defaultProps = {
-  size: "medium",
+  size: 'medium'
 };

@@ -1,11 +1,13 @@
-import React, {useState} from "react";
-import FilterSelect from "../../Forms/DropdownV3";
-import DatePicker from "../../Forms/Inputs/DatePicker";
-import {FilterBodyContainer, FilterBodyFlex, FilterClearAction, FilterItem} from "../style";
-import {defaultOptions} from "../helper";
+import React, { useState } from 'react';
+import FilterSelect from '../../Forms/DropdownV3';
+import DatePicker from '../../Forms/Inputs/DatePicker';
+import {
+  FilterBodyContainer, FilterBodyFlex, FilterClearAction, FilterItem
+} from '../style';
+import { defaultOptions } from '../helper';
 
 export default () => {
-  const [paymentStatus, setPaymentStatus] = useState(["Options1", "Options2", "Options3", "Date", "Pending"]);
+  const [paymentStatus, setPaymentStatus] = useState(['Options1', 'Options2', 'Options3', 'Date', 'Pending']);
   const [status, setStatus] = useState(undefined);
   const [date, setDate] = useState(undefined);
   const [paymentType, setPaymentType] = useState(undefined);

@@ -1,9 +1,13 @@
-import {DesktopView, NotebookView, TabletView, MobileView} from "./style";
+import React from 'react';
+import {
+  DesktopView, NotebookView, TabletView, MobileView
+} from './style';
 
-import {useWindowSize} from "../../hooks/use-window-size";
-import * as devices from "../../constants/devices";
-export default ({child}) => {
-  const {device} = useWindowSize();
+import { useWindowSize } from '../../hooks/use-window-size';
+import * as devices from '../../constants/devices';
+
+export default ({ child }) => {
+  const { device } = useWindowSize();
 
   if (device === devices.DESKTOP) return <DesktopView>{child}</DesktopView>;
   if (device === devices.NOTEBOOK) return <NotebookView>{child}</NotebookView>;

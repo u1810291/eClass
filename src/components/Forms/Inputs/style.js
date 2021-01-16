@@ -2,14 +2,14 @@ import styled, { css } from 'styled-components';
 
 export const getIconSize = ({ size }) => {
   switch (size) {
-    case 'large' || 'Large':
-      return '24px';
-    case 'medium' || 'Medium':
-      return '22px';
-    case 'small' || 'Small':
-      return '18px';
-    default:
-      return '24px';
+  case 'large' || 'Large':
+    return '24px';
+  case 'medium' || 'Medium':
+    return '22px';
+  case 'small' || 'Small':
+    return '18px';
+  default:
+    return '24px';
   }
 };
 
@@ -23,89 +23,89 @@ export const InputContainer = styled.div`
 
 export const getFontSize = ({ size }) => {
   switch (size) {
-    case 'large' || 'Large':
-      return '14px';
-    case 'medium' || 'Medium':
-      return '13px';
-    case 'small' || 'Small':
-      return '12px';
-    default:
-      return '13px';
+  case 'large' || 'Large':
+    return '14px';
+  case 'medium' || 'Medium':
+    return '13px';
+  case 'small' || 'Small':
+    return '12px';
+  default:
+    return '13px';
   }
 };
 
 export const getLabelPadding = ({ size }) => {
   switch (size) {
-    case 'large' || 'Large':
-      return '25px';
-    case 'medium' || 'Medium':
-      return '17px';
-    case 'small' || 'Small':
-      return '12px';
-    default:
-      return '17px';
+  case 'large' || 'Large':
+    return '25px';
+  case 'medium' || 'Medium':
+    return '17px';
+  case 'small' || 'Small':
+    return '12px';
+  default:
+    return '17px';
   }
 };
 
 export const getHeight = ({ size }) => {
   switch (size) {
-    case 'large' || 'Large':
-      return '50px';
-    case 'medium' || 'Medium':
-      return '46px';
-    case 'small' || 'Small':
-      return '39px';
-    default:
-      return '39px';
+  case 'large' || 'Large':
+    return '50px';
+  case 'medium' || 'Medium':
+    return '46px';
+  case 'small' || 'Small':
+    return '39px';
+  default:
+    return '39px';
   }
 };
 
 export const getPadding = ({ size }) => {
   switch (size) {
-    case 'large' || 'Large':
-      return '0 25px';
-    case 'medium' || 'Medium':
-      return '0 17px';
-    case 'small' || 'Small':
-      return '0 12px';
-    default:
-      return '0 17px';
+  case 'large' || 'Large':
+    return '0 25px';
+  case 'medium' || 'Medium':
+    return '0 17px';
+  case 'small' || 'Small':
+    return '0 12px';
+  default:
+    return '0 17px';
   }
 };
 
 export const getIconPadding = ({ size }) => {
   switch (size) {
-    case 'large' || 'Large':
-      return '0 16px';
-    case 'medium' || 'Medium':
-      return '0 13px';
-    case 'small' || 'Small':
-      return '0 9px';
-    default:
-      return '11px 13px';
+  case 'large' || 'Large':
+    return '0 16px';
+  case 'medium' || 'Medium':
+    return '0 13px';
+  case 'small' || 'Small':
+    return '0 9px';
+  default:
+    return '11px 13px';
   }
 };
 export const getColor = ({ type }) => {
   switch (type) {
-    case 'error' || 'Error':
-      return '#E71923';
-    case 'success' || 'Success':
-      return '#00AE59';
-    default:
-      return '#9D9D9D';
+  case 'error' || 'Error':
+    return '#E71923';
+  case 'success' || 'Success':
+    return '#00AE59';
+  default:
+    return '#9D9D9D';
   }
 };
 
 export const getBorderRadius = ({ size }) => {
   switch (size) {
-    case 'large' || 'Large':
-      return '9px';
-    case 'medium' || 'Medium':
-      return '12px';
-    case 'small' || 'Small':
-      return '24px';
-    default:
-      return '12px';
+  case 'large' || 'Large':
+    return '9px';
+  case 'medium' || 'Medium':
+    return '12px';
+  case 'small' || 'Small':
+    return '24px';
+  default:
+    return '12px';
   }
 };
 
@@ -246,23 +246,23 @@ export const DatepickerInput = styled.div`
 
 export const getType = ({ type }) => {
   switch (type) {
-    case 'error' || 'Error':
-      return error;
-    case 'success' || 'Success':
-      return success;
-    default:
-      return normal;
+  case 'error' || 'Error':
+    return error;
+  case 'success' || 'Success':
+    return success;
+  default:
+    return normal;
   }
 };
 
 export const getPwd = ({ typePwd }) => {
   switch (typePwd) {
-    case 'error' || 'Error':
-      return error;
-    case 'success' || 'Success':
-      return success;
-    default:
-      return normal;
+  case 'error' || 'Error':
+    return error;
+  case 'success' || 'Success':
+    return success;
+  default:
+    return normal;
   }
 };
 

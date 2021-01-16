@@ -9,7 +9,7 @@ export const device = {
   mobile: `(max-width: ${MAX_MOBILE_WIDTH}px)`,
   tablet: `(min-width: ${MIN_TABLET_WIDTH}px) and (max-width: ${MAX_TABLET_WIDTH}px)`,
   notebook: `(min-width: ${MIN_NOTEBOOK_WIDTH}px) and (max-width: ${MAX_NOTEBOOK_WIDTH}px)`,
-  desktop: `(min-width: ${MIN_DESKTOP_WIDTH}px)`,
+  desktop: `(min-width: ${MIN_DESKTOP_WIDTH}px)`
 };
 
 export const MOBILE = `(max-width: ${MAX_MOBILE_WIDTH}px)`;

@@ -1,5 +1,3 @@
-import React from "react";
+import React from 'react';
 
-export default () => {
-  return <div>Groups</div>;
-};
+export default () => <div>Groups</div>;
