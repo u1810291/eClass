@@ -18,8 +18,9 @@ export default () => (
     </Header>
     <Body>
       Body
-      {bodyItem.map((item, index) => (
-        <Item key={index + 1} data={item} />
+      {bodyItem.map((item, i) => (
+        // eslint-disable-next-line react/no-array-index-key
+        <Item key={i + 1} data={item} />
       ))}
     </Body>
   </Container>
