@@ -1,7 +1,7 @@
 import types from '../../../constants/action-types';
 
 const defaultState = {
-  collapsed: false,
+  collapsed: false
 };
 
 const map = {
@@ -9,8 +9,8 @@ const map = {
   [types.SIDEBAR_EXPAND]: (state) => ({ ...state, collapsed: false }),
   [types.SIDEBAR_COLLAPSED_BYVALUE]: (state, { value }) => ({
     ...state,
-    collapsed: value,
-  }),
+    collapsed: value
+  })
 };
 
 // eslint-disable-next-line max-len

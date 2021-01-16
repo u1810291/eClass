@@ -1,10 +1,22 @@
-import {Container, Input, Label, Helper} from "./style";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
+import {
+  Container, Input, Label, Helper
+} from './style';
 
-const LinkedlInput = ({placeholder, disabled, size, helperText, label, type, ...others}) => (
+const LinkedlInput = ({
+  placeholder, disabled, size, helperText, label, type, ...others
+}) => (
   <Container>
-    <Input type={type} disabled={disabled} size={size} placeholder={placeholder} {...others} />
-    <Label></Label>
+    <Input
+      type={type}
+      disabled={disabled}
+      size={size}
+      placeholder={placeholder}
+      // eslint-disable-next-line react/jsx-props-no-spreading
+      {...others}
+    />
+    <Label />
     <Helper type={type} size={size}>
       {helperText}
     </Helper>
@@ -12,12 +24,12 @@ const LinkedlInput = ({placeholder, disabled, size, helperText, label, type, ...
 );
 LinkedlInput.propTypes = {
   label: PropTypes.string,
-  size: PropTypes.string,
+  size: PropTypes.string
 };
 
 LinkedlInput.defaultProps = {
-  label: "",
-  size: "medium",
+  label: '',
+  size: 'medium'
 };
 
 export default LinkedlInput;

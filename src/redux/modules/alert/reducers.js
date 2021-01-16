@@ -1,17 +1,17 @@
 import types from '../../../constants/action-types';
 
 const defaultState = {
-  show: false,
+  show: false
 };
 
 const map = {
   [types.APPLICATION_SHOW_ALERT]: (state, { payload }) => ({
     show: true,
-    ...payload,
+    ...payload
   }),
   [types.APPLICATION_HIDE_ALERT]: () => ({
-    show: false,
-  }),
+    show: false
+  })
 };
 
 // eslint-disable-next-line max-len

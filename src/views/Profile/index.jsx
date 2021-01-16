@@ -1,5 +1,4 @@
-import Profile from "../../components/Profile";
+import React from 'react';
+import Profile from '../../components/Profile';
 
-export default () => {
-  return <Profile />;
-};
+export default () => <Profile />;

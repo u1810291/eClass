@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  hide, show, pushFullScreen, popFullScreen,
+  hide, show, pushFullScreen, popFullScreen
 } from '../redux/modules/modal/actions';
 
 export const useModal = () => useSelector(({ modalReducer }) => modalReducer);
@@ -13,14 +13,14 @@ export const useShowModal = () => {
     (props) => {
       dispatch(show({ ...props }));
     },
-    [dispatch],
+    [dispatch]
   );
 
   const pushFullScreenModal = useCallback(
     (props) => {
       dispatch(pushFullScreen({ ...props }));
     },
-    [dispatch],
+    [dispatch]
   );
 
   return { showBlured, showFullscree: pushFullScreenModal };

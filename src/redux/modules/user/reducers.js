@@ -1,18 +1,18 @@
 import types from '../../../constants/permission-types';
 
 const defaultState = {
-  userInfo: {},
+  userInfo: {}
 };
 
 const userInfo = {
   [types.APPLICATION_USER_INFO]: (state, { user }) => ({
     ...state,
-    userInfo: user,
-  }),
+    userInfo: user
+  })
 };
 
 const map = {
-  ...userInfo,
+  ...userInfo
 };
 
 export default (state, action) => (

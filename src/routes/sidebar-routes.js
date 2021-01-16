@@ -11,7 +11,7 @@ export const childRoutes = [
     title: 'Profile',
     permission: '',
     role: [''],
-    children: [],
+    children: []
   },
   {
     path: '/users',
@@ -20,7 +20,7 @@ export const childRoutes = [
     title: 'Users',
     permission: '',
     role: [''],
-    children: [],
+    children: []
   },
   {
     path: '/balance',
@@ -29,7 +29,7 @@ export const childRoutes = [
     title: 'Balance',
     children: [],
     permission: 'VIEW_OWN_GROUP',
-    role: [''],
+    role: ['']
   },
   {
     path: '/courses',
@@ -38,8 +38,8 @@ export const childRoutes = [
     title: 'Courses',
     permission: 'VIEW_ANY_GROUP',
     role: [''],
-    children: [],
-  },
+    children: []
+  }
   // {
   //   path: "/examples",
   //   component: Examples,

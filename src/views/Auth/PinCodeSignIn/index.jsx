@@ -1,3 +1,3 @@
-export default () => {
-  return <div>Pin code sign in</div>;
-};
+import React from 'react';
+
+export default () => <div>Pin code sign in</div>;

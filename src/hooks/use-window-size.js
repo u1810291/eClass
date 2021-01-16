@@ -36,7 +36,7 @@ export const ViewportProvider = ({ children }) => {
     <viewPortContext.Provider value={{
       width,
       height,
-      device,
+      device
     }}
     >
       {children}

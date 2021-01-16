@@ -3,7 +3,7 @@ import types from '../../../constants/action-types';
 
 const defaultState = {
   access_token: sessionStorage.getItem('access_token'),
-  refresh_token: sessionStorage.getItem('refresh_token'),
+  refresh_token: sessionStorage.getItem('refresh_token')
 };
 
 const map = {
@@ -16,7 +16,7 @@ const map = {
     sessionStorage.removeItem('access_token');
     sessionStorage.removeItem('refresh_token');
     return { ...state, access_token: '', refresh_token: '' };
-  },
+  }
 };
 
 // eslint-disable-next-line max-len
