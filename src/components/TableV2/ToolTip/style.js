@@ -1,7 +1,7 @@
-import styled, {css} from "styled-components";
+import styled, { css } from 'styled-components';
 
 const isVisible = css`
-  display: ${({index, indexT, open}) => (index === indexT && open ? "" : "none")};
+  display: ${({ index, indexT, open }) => (index === indexT && open ? '' : 'none')};
 `;
 
 export const ToolTip = styled.div`

@@ -1,6 +1,6 @@
-import styled, {css} from "styled-components";
-import {ReactComponent as CollapseIcon} from "../../../assets/icons/sidebar-collapse.svg";
-import {ReactComponent as ExpandIcon} from "../../../assets/icons/sidebar-expand.svg";
+import styled, { css } from 'styled-components';
+import { ReactComponent as CollapseIcon } from '../../../assets/icons/sidebar-collapse.svg';
+import { ReactComponent as ExpandIcon } from '../../../assets/icons/sidebar-expand.svg';
 
 const common = css`
   cursor: pointer;
@@ -13,13 +13,13 @@ export const Header = styled.div`
   place-items: center;
   height: var(--navbar-height);
   box-sizing: border-box;
-  padding: ${({collapsed}) => !collapsed && "0 var(--sidebar-padding-x)"};
+  padding: ${({ collapsed }) => !collapsed && '0 var(--sidebar-padding-x)'};
 `;
 
 export const TitleContainer = styled.div`
   width: 100%;
   display: flex;
-  justify-content: ${({collapsed}) => (collapsed ? "center" : "space-between")};
+  justify-content: ${({ collapsed }) => (collapsed ? 'center' : 'space-between')};
   align-items: center;
 `;
 

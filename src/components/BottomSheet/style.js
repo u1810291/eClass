@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import {device} from "../../utils/responsive";
+import styled from 'styled-components';
+import { device } from '../../utils/responsive';
 
 export const Cotainer = styled.div``;
 

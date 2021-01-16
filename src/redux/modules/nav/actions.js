@@ -1,3 +1,3 @@
-import types from "../../../constants/action-types";
+import types from '../../../constants/action-types';
 
-export const setTitle = (title) => ({type: types.NAVBER_SET_TITLE, title});
+export const setTitle = (title) => ({ type: types.NAVBER_SET_TITLE, title });

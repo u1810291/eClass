@@ -1,97 +1,98 @@
-import types from "../../../constants/action-types";
+import types from '../../../constants/action-types';
+
 export const genericTypes = [
   {
     key: types.ORDERS,
-    headerName: "ordersHeader",
+    headerName: 'ordersHeader',
   },
   {
     key: types.SINGLE_BRANCH_ORDERS,
-    headerName: "branchOrdersHeader",
+    headerName: 'branchOrdersHeader',
   },
   {
     key: types.PICKUPS,
-    headerName: "pickupsHeader",
+    headerName: 'pickupsHeader',
   },
   {
     key: types.DELIVERIES,
-    headerName: "deliveriesHeader",
+    headerName: 'deliveriesHeader',
   },
   {
     key: types.SHIPMENTS,
-    headerName: "shipmentsHeader",
+    headerName: 'shipmentsHeader',
   },
   {
     key: types.FEDEX,
-    headerName: "fedexHeader",
+    headerName: 'fedexHeader',
   },
   {
     key: types.WAREHOUSE,
-    headerName: "warehouseHeader",
+    headerName: 'warehouseHeader',
   },
   {
     key: types.SPENDINGS,
-    headerName: "spendingsHeader",
+    headerName: 'spendingsHeader',
   },
   {
     key: types.SHIPMENT_SINGLE_VIEW,
-    headerName: "singleShipmentHeader",
+    headerName: 'singleShipmentHeader',
   },
   {
     key: types.UPC_ORDERS,
-    headerName: "UPCOrdersHeader",
+    headerName: 'UPCOrdersHeader',
   },
   {
     key: types.UPC_FEDEX,
-    headerName: "UPCFedexHeader",
+    headerName: 'UPCFedexHeader',
   },
   {
     key: types.UPC_ONLINE_ORDERS,
-    headerName: "UPCOnlineOrdersHeader",
+    headerName: 'UPCOnlineOrdersHeader',
   },
 ];
 
 export const usersHeader = [
   {
     id: 1,
-    Header: "ID",
-    accessor: "id",
+    Header: 'ID',
+    accessor: 'id',
     show: true,
   },
   {
     id: 2,
-    Header: "Full name",
-    accessor: "fullname",
-    type: "user",
+    Header: 'Full name',
+    accessor: 'fullname',
+    type: 'user',
     show: true,
   },
   {
     id: 3,
-    Header: "Email",
-    accessor: "email",
-    type: "email",
+    Header: 'Email',
+    accessor: 'email',
+    type: 'email',
     show: true,
   },
   {
     id: 4,
-    Header: "Date of birth",
-    accessor: "dateOfBirth",
-    align: "end",
-    suffix: "pcs",
+    Header: 'Date of birth',
+    accessor: 'dateOfBirth',
+    align: 'end',
+    suffix: 'pcs',
     show: true,
   },
   {
     id: 5,
-    Header: "Phones",
-    accessor: "phones",
-    align: "end",
-    prefix: "+",
+    Header: 'Phones',
+    accessor: 'phones',
+    align: 'end',
+    prefix: '+',
     show: true,
   },
   {
     id: 6,
-    Header: "Address",
-    accessor: "address",
-    align: "end",
+    Header: 'Address',
+    accessor: 'address',
+    align: 'end',
     show: true,
   },
 ];

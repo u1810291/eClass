@@ -1,4 +1,4 @@
-export const getInitials = (name, delimeter = " ") => {
+export const getInitials = (name, delimeter = ' ') => {
   // if (name) {
   //   const array = name.split(delimeter);
 
@@ -12,7 +12,7 @@ export const getInitials = (name, delimeter = " ") => {
   // return false;
 
   const array = name.split(delimeter);
-  let str = "";
+  let str = '';
 
   for (let i = 0; i < array.length; i += 1) {
     str += array[i][0].toUpperCase();

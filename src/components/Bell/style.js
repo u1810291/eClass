@@ -1,9 +1,9 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
   height: 28px;
   position: relative;
-  margin: ${({margin}) => margin};
+  margin: ${({ margin }) => margin};
 `;
 
 export const Bell = styled.div`

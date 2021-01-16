@@ -1,27 +1,29 @@
-import {useCallback} from "react";
-import {useDispatch, useSelector} from "react-redux";
-import {hide, show, pushFullScreen, popFullScreen} from "../redux/modules/modal/actions";
+import { useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  hide, show, pushFullScreen, popFullScreen,
+} from '../redux/modules/modal/actions';
 
-export const useModal = () => useSelector(({modalReducer}) => modalReducer);
+export const useModal = () => useSelector(({ modalReducer }) => modalReducer);
 
 export const useShowModal = () => {
   const dispatch = useDispatch();
 
   const showBlured = useCallback(
     (props) => {
-      dispatch(show({...props}));
+      dispatch(show({ ...props }));
     },
-    [dispatch]
+    [dispatch],
   );
 
   const pushFullScreenModal = useCallback(
     (props) => {
-      dispatch(pushFullScreen({...props}));
+      dispatch(pushFullScreen({ ...props }));
     },
-    [dispatch]
+    [dispatch],
   );
 
-  return {showBlured, showFullscree: pushFullScreenModal};
+  return { showBlured, showFullscree: pushFullScreenModal };
 };
 
 export const useHideModal = () => {
@@ -34,4 +36,5 @@ export const useHideModal = () => {
   const popFullScreenModal = useCallback(() => {
     dispatch(popFullScreen());
   }, [dispatch]);
+  return { hideModal, hideFullScreen: popFullScreenModal };
 };

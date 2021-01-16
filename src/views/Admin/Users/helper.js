@@ -1,68 +1,69 @@
+/* eslint-disable no-alert */
 export const toolTips = [
   {
-    name: "View",
-    icon: "pdf",
+    name: 'View',
+    icon: 'pdf',
     onClick: () => {
-      alert("Delete");
+      alert('Delete');
     },
   },
   {
-    name: "Download as PDF",
-    icon: "pdf",
+    name: 'Download as PDF',
+    icon: 'pdf',
     onClick: () => {
-      alert("Download as PDF");
+      alert('Download as PDF');
     },
   },
   {
-    name: "Box details",
-    icon: "box",
+    name: 'Box details',
+    icon: 'box',
     onClick: () => {
-      alert("Delete");
+      alert('Delete');
     },
   },
   {
-    name: "Invoice",
-    icon: "invoise",
+    name: 'Invoice',
+    icon: 'invoise',
     onClick: () => {
-      alert("Delete");
+      alert('Delete');
     },
   },
   {
-    name: "Edit",
-    icon: "edit",
+    name: 'Edit',
+    icon: 'edit',
     onClick: () => {
-      alert("Delete");
+      alert('Delete');
     },
   },
   {
-    name: "Delete",
-    icon: "delete",
+    name: 'Delete',
+    icon: 'delete',
     onClick: () => {
-      alert("Delete");
+      alert('Delete');
     },
   },
 ];
 
 export const headerToolTips = [
   {
-    name: "PDF",
-    icon: "pdf",
+    name: 'PDF',
+    icon: 'pdf',
     onClick: () => {
-      alert("PDF");
+      alert('PDF');
     },
   },
   {
-    name: "Excel",
-    icon: "exel",
+    name: 'Excel',
+    icon: 'exel',
     onClick: () => {
-      alert("Excel");
+      alert('Excel');
     },
   },
   {
-    name: "Delete",
-    icon: "delete",
+    name: 'Delete',
+    icon: 'delete',
     onClick: () => {
-      alert("Delete");
+      alert('Delete');
     },
   },
 ];
