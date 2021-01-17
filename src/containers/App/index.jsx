@@ -14,19 +14,16 @@ import appSelector from '../../redux/selectors/app';
 import Home from '../Home';
 import SignUp from '../../views/Auth/SignUp';
 import { userInfo } from '../../redux/modules/user/actions';
-import { useAsync } from '../../hooks';
 import user from '../../services/user';
 
 export default () => {
-  const dispatch = useDispatch();
   const { access_token, showModal } = useSelector(appSelector, shallowEqual);
-  const asyncTask = useAsync();
+  const dispatch = useDispatch();
   if (access_token) {
-    const promise = user.whoAmI();
-    asyncTask(promise).then((res) => {
+    user.whoAmI().then((res) => {
       console.log(res);
       dispatch(userInfo(res));
-    });
+    }).catch((err) => console.log('err', err));
   }
   const publicRoutes = (
     <Container>

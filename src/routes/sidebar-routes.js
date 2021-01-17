@@ -1,7 +1,17 @@
 import Examples from '../components/Examples';
-import Users from '../views/Admin/Users';
 import Courses from '../views/Student/Courses';
+import Balance from '../views/Balance';
+import Homeworks from '../views/Homeworks';
 import Profile from '../views/Profile';
+import Quiz from '../views/Quiz';
+import Grades from '../views/Student/Grades';
+import Attendance from '../views/Student/Attendance';
+import Payment from '../views/Student/Payment';
+import Library from '../views/Library';
+import Video from '../views/Video';
+import Connection from '../views/Student/Connection';
+import Schedule from '../views/Teacher/Shedule';
+import Chat from '../views/Chat';
 
 export const childRoutes = [
   {
@@ -9,397 +19,372 @@ export const childRoutes = [
     component: Profile,
     icon: 'profile2',
     title: 'Profile',
-    permission: '',
-    role: [''],
+    permissions: [],
     children: []
-  },
-  {
-    path: '/users',
-    component: Users,
-    icon: 'profile2',
-    title: 'Users',
-    permission: '',
-    role: [''],
-    children: []
-  },
-  {
-    path: '/balance',
-    component: Examples,
-    icon: 'balance',
-    title: 'Balance',
-    children: [],
-    permission: 'VIEW_OWN_GROUP',
-    role: ['']
   },
   {
     path: '/courses',
     component: Courses,
     icon: 'profile2',
     title: 'Courses',
-    permission: 'VIEW_ANY_GROUP',
-    role: [''],
+    permissions: [],
+    children: []
+  },
+  {
+    path: '/balance',
+    component: Balance,
+    icon: 'balance',
+    title: 'Balance',
+    children: [],
+    permissions: []
+  },
+  {
+    path: '/homeworks',
+    component: Homeworks,
+    icon: 'profile2',
+    title: 'Homeworks',
+    permissions: [],
+    children: []
+  },
+  {
+    path: '/quiz',
+    component: Quiz,
+    icon: 'profile2',
+    title: 'Quiz',
+    permissions: [],
+    children: []
+  },
+  {
+    path: '/grades',
+    component: Grades,
+    icon: 'profile2',
+    title: 'Grades',
+    permissions: [],
+
+    children: []
+  },
+  {
+    path: '/attendance',
+    component: Attendance,
+    icon: 'profile2',
+    title: 'Attendance',
+    permissions: [],
+
+    children: []
+  },
+  {
+    path: '/payment',
+    component: Payment,
+    icon: 'profile2',
+    title: 'Payment',
+    permissions: [],
+
+    children: []
+  },
+  {
+    path: '/library',
+    component: Library,
+    icon: 'profile2',
+    title: 'Library',
+    permissions: [],
+
+    children: []
+  },
+  {
+    path: '/video',
+    component: Video,
+    icon: 'profile2',
+    title: 'Video',
+    permissions: [],
+
+    children: []
+  },
+  {
+    path: '/connection',
+    component: Connection,
+    icon: 'profile2',
+    title: 'Connection',
+    permissions: [],
+
+    children: []
+  },
+  {
+    path: '/schedule',
+    component: Schedule,
+    icon: 'profile2',
+    title: 'Schedule',
+    permissions: [],
+
+    children: []
+  },
+  {
+    path: '/chat',
+    component: Chat,
+    icon: 'profile2',
+    title: 'Chat',
+    permissions: [],
+
+    children: []
+  },
+  {
+    path: '/support',
+    component: Examples,
+    icon: 'profile2',
+    title: 'Support',
+    permissions: [],
+
     children: []
   }
   // {
-  //   path: "/examples",
+  //   path: '/examples',
   //   component: Examples,
-  //   icon: "profile2",
-  //   title: "Examples",
-  //   permission: "CREATE_GROUP",
-  //   role: [""],
-  //   children: [],
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
   // },
   // {
-  //   path: "/examples",
+  //   path: '/examples',
   //   component: Examples,
-  //   icon: "profile2",
-  //   title: "Examples",
-  //   permission: "UPDATE_GROUP",
-  //   role: [""],
-  //   children: [],
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
   // },
   // {
-  //   path: "/examples",
+  //   path: '/examples',
   //   component: Examples,
-  //   icon: "profile2",
-  //   title: "Examples",
-  //   permission: "VIEW_SUBJECTS_LIST",
-  //   role: [""],
-  //   children: [],
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
   // },
   // {
-  //   path: "/examples",
+  //   path: '/examples',
   //   component: Examples,
-  //   icon: "profile2",
-  //   title: "Examples",
-  //   permission: "VIEW_ANY_SUBJECT",
-  //   role: [""],
-  //   children: [],
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
   // },
   // {
-  //   path: "/examples",
+  //   path: '/examples',
   //   component: Examples,
-  //   icon: "profile2",
-  //   title: "Examples",
-  //   permission: "CREATE_SUBJECT",
-  //   role: [""],
-  //   children: [],
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
   // },
   // {
-  //   path: "/examples",
+  //   path: '/examples',
   //   component: Examples,
-  //   icon: "profile2",
-  //   title: "Examples",
-  //   permission: "UPDATE_SUBJECT",
-  //   role: [""],
-  //   children: [],
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
   // },
   // {
-  //   path: "/examples",
+  //   path: '/examples',
   //   component: Examples,
-  //   icon: "profile2",
-  //   title: "Examples",
-  //   permission: "VIEW_OWN_LOGS",
-  //   role: [""],
-  //   children: [],
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
   // },
   // {
-  //   path: "/examples",
+  //   path: '/examples',
   //   component: Examples,
-  //   icon: "profile2",
-  //   title: "Examples",
-  //   permission: "VIEW_ANONYMOUS_LOGS",
-  //   role: [""],
-  //   children: [],
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
   // },
   // {
-  //   path: "/examples",
+  //   path: '/examples',
   //   component: Examples,
-  //   icon: "profile2",
-  //   title: "Examples",
-  //   permission: "VIEW_ANY_LOGS",
-  //   role: [""],
-  //   children: [],
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
   // },
   // {
-  //   path: "/examples",
+  //   path: '/examples',
   //   component: Examples,
-  //   icon: "profile2",
-  //   title: "Examples",
-  //   permission: "REGISTER_STUDENT",
-  //   role: [""],
-  //   children: [],
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
   // },
   // {
-  //   path: "/examples",
+  //   path: '/examples',
   //   component: Examples,
-  //   icon: "profile2",
-  //   title: "Examples",
-  //   permission: "REGISTER_TEACHER",
-  //   role: [""],
-  //   children: [],
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
   // },
   // {
-  //   path: "/examples",
+  //   path: '/examples',
   //   component: Examples,
-  //   icon: "profile2",
-  //   title: "Examples",
-  //   permission: "REGISTER_ADMIN",
-  //   role: [""],
-  //   children: [],
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
   // },
   // {
-  //   path: "/examples",
+  //   path: '/examples',
   //   component: Examples,
-  //   icon: "profile2",
-  //   title: "Examples",
-  //   permission: "UPDATE_STUDENT",
-  //   role: [""],
-  //   children: [],
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
   // },
   // {
-  //   path: "/examples",
+  //   path: '/examples',
   //   component: Examples,
-  //   icon: "profile2",
-  //   title: "Examples",
-  //   permission: "UPDATE_TEACHER",
-  //   role: [""],
-  //   children: [],
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
   // },
   // {
-  //   path: "/examples",
+  //   path: '/examples',
   //   component: Examples,
-  //   icon: "profile2",
-  //   title: "Examples",
-  //   permission: "UPDATE_ADMIN",
-  //   role: [""],
-  //   children: [],
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
   // },
   // {
-  //   path: "/examples",
+  //   path: '/examples',
   //   component: Examples,
-  //   icon: "profile2",
-  //   title: "Examples",
-  //   permission: "UPDATE_OWN_PROFILE",
-  //   role: [""],
-  //   children: [],
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
   // },
   // {
-  //   path: "/examples",
+  //   path: '/examples',
   //   component: Examples,
-  //   icon: "profile2",
-  //   title: "Examples",
-  //   permission: "VIEW_ALL_STUDENTS_LIST",
-  //   role: [""],
-  //   children: [],
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
   // },
   // {
-  //   path: "/examples",
+  //   path: '/examples',
   //   component: Examples,
-  //   icon: "profile2",
-  //   title: "Examples",
-  //   permission: "VIEW_ALL_TEACHERS_LIST",
-  //   role: [""],
-  //   children: [],
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
   // },
   // {
-  //   path: "/examples",
+  //   path: '/examples',
   //   component: Examples,
-  //   icon: "profile2",
-  //   title: "Examples",
-  //   permission: "VIEW_ALL_ADMINS_LIST",
-  //   role: [""],
-  //   children: [],
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
   // },
   // {
-  //   path: "/examples",
+  //   path: '/examples',
   //   component: Examples,
-  //   icon: "profile2",
-  //   title: "Examples",
-  //   permission: "VIEW_STUDENT_PROFILE",
-  //   role: [""],
-  //   children: [],
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
   // },
   // {
-  //   path: "/examples",
+  //   path: '/examples',
   //   component: Examples,
-  //   icon: "profile2",
-  //   title: "Examples",
-  //   permission: "VIEW_TEACHER_PROFILE",
-  //   role: [""],
-  //   children: [],
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
   // },
   // {
-  //   path: "/examples",
+  //   path: '/examples',
   //   component: Examples,
-  //   icon: "profile2",
-  //   title: "Examples",
-  //   permission: "VIEW_ADMIN_PROFILE",
-  //   role: [""],
-  //   children: [],
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
   // },
   // {
-  //   path: "/examples",
+  //   path: '/examples',
   //   component: Examples,
-  //   icon: "profile2",
-  //   title: "Examples",
-  //   permission: "VIEW_TARIFFS_LIST",
-  //   role: [""],
-  //   children: [],
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
   // },
   // {
-  //   path: "/examples",
+  //   path: '/examples',
   //   component: Examples,
-  //   icon: "profile2",
-  //   title: "Examples",
-  //   permission: "VIEW_ANY_TARIFF",
-  //   role: [""],
-  //   children: [],
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
   // },
   // {
-  //   path: "/examples",
+  //   path: '/examples',
   //   component: Examples,
-  //   icon: "profile2",
-  //   title: "Examples",
-  //   permission: "CREATE_TARIFF",
-  //   role: [""],
-  //   children: [],
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
   // },
   // {
-  //   path: "/examples",
+  //   path: '/examples',
   //   component: Examples,
-  //   icon: "profile2",
-  //   title: "Examples",
-  //   permission: "UPDATE_TARIFF",
-  //   role: [""],
-  //   children: [],
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
   // },
   // {
-  //   path: "/examples",
+  //   path: '/examples',
   //   component: Examples,
-  //   icon: "profile2",
-  //   title: "Examples",
-  //   permission: "VIEW_ANY_PHOTO",
-  //   role: [""],
-  //   children: [],
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
   // },
   // {
-  //   path: "/examples",
+  //   path: '/examples',
   //   component: Examples,
-  //   icon: "profile2",
-  //   title: "Examples",
-  //   permission: "UPDATE_ANY_PHOTO",
-  //   role: [""],
-  //   children: [],
-  // },
-  // {
-  //   path: "/examples",
-  //   component: Examples,
-  //   icon: "profile2",
-  //   title: "Examples",
-  //   permission: "VIEW_ALL_GROUPS_LIST",
-  //   role: [""],
-  //   children: [],
-  // },
-  // {
-  //   path: "/examples",
-  //   component: Examples,
-  //   icon: "profile2",
-  //   title: "Examples",
-  //   permission: "VIEW_STUDENTS_IN_ANY_GROUP",
-  //   role: [""],
-  //   children: [],
-  // },
-  // {
-  //   path: "/examples",
-  //   component: Examples,
-  //   icon: "profile2",
-  //   title: "Examples",
-  //   permission: "ADD_STUDENTS_TO_ANY_GROUP",
-  //   role: [""],
-  //   children: [],
-  // },
-  // {
-  //   path: "/examples",
-  //   component: Examples,
-  //   icon: "profile2",
-  //   title: "Examples",
-  //   permission: "CONFIRM_STUDENT",
-  //   role: [""],
-  //   children: [],
-  // },
-  // {
-  //   path: "/examples",
-  //   component: Examples,
-  //   icon: "profile2",
-  //   title: "Examples",
-  //   permission: "UPDATE_ANY_STUDENT_PROFILE",
-  //   role: [""],
-  //   children: [],
-  // },
-  // {
-  //   path: "/examples",
-  //   component: Examples,
-  //   icon: "profile2",
-  //   title: "Examples",
-  //   permission: "UPDATE_ANY_TEACHER_PROFILE",
-  //   role: [""],
-  //   children: [],
-  // },
-  // {
-  //   path: "/examples",
-  //   component: Examples,
-  //   icon: "profile2",
-  //   title: "Examples",
-  //   permission: "UPDATE_ANY_ADMIN_PROFILE",
-  //   role: [""],
-  //   children: [],
-  // },
-  // {
-  //   path: "/examples",
-  //   component: Examples,
-  //   icon: "profile2",
-  //   title: "Examples",
-  //   permission: "UPLOAD_OWN_PHOTO",
-  //   role: [""],
-  //   children: [],
-  // },
-  // {
-  //   path: "/examples",
-  //   component: Examples,
-  //   icon: "profile2",
-  //   title: "Examples",
-  //   permission: "VIEW_ALL_FILES_LIST",
-  //   role: [""],
-  //   children: [],
-  // },
-  // {
-  //   path: "/examples",
-  //   component: Examples,
-  //   icon: "profile2",
-  //   title: "Examples",
-  //   permission: "VIEW_ANY_FILE",
-  //   role: [""],
-  //   children: [],
-  // },
-  // VIEW_RIGHTS_LIST,
-  // VIEW_ACCESS_RIGHTS_OF_ANY_USER,
-  // CREATE_ACCESS_RIGHT,
-  // UPDATE_ACCESS_RIGHT,
-  // CREATE_LIST_ITEM,
-  // UPDATE_LIST_ITEM,
-  // TOPUP_ACCOUNT,
-  // VIEW_ANY_TRANSACTION,
-  // VIEW_ANY_ACCOUNT,
-  // VIEW_ANY_LESSONS_LIST,
-  // CREATE_LESSON,
-  // UPDATE_LESSON,
-  // START_ANY_LESSON,
-  // FINISH_ANY_LESSON,
-  // VIEW_ANY_LESSONS_MATERIALS,
-  // UPLOAD_MATERIALS_FOR_ANY_TARGET,
-  // UPDATE_ANY_MATERIALS,
-  // SEND_PERSONAL_MESSAGE,
-  // SEND_ROOM_MESSAGE,
-  // CREATE_CHAT_ROOM,
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
+  // }
 ];

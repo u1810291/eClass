@@ -35,7 +35,7 @@ export default () => {
       setSubmitting(true);
       auth.getToken(values).then((data) => {
         setSubmitting(false);
-        history.push(`/verified?access_token=${data.access_token}&refresh_token=${data.refresh_token}`);
+        history.push(`/verified?access_token=${data.access_token}&refresh_token=${data.refresh_token}&expires_at=${data.refresh_token_expire_at}`);
       });
     }
   });
