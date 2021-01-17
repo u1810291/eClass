@@ -12,6 +12,7 @@ import Video from '../views/Video';
 import Connection from '../views/Student/Connection';
 import Schedule from '../views/Teacher/Shedule';
 import Chat from '../views/Chat';
+import Error from '../components/Error';
 
 export const childRoutes = [
   {
@@ -33,7 +34,7 @@ export const childRoutes = [
   {
     path: '/balance',
     component: Balance,
-    icon: 'balance',
+    icon: 'payment',
     title: 'Balance',
     children: [],
     permissions: []
@@ -41,7 +42,7 @@ export const childRoutes = [
   {
     path: '/homeworks',
     component: Homeworks,
-    icon: 'profile2',
+    icon: 'homeworks',
     title: 'Homeworks',
     permissions: [],
     children: []
@@ -49,7 +50,7 @@ export const childRoutes = [
   {
     path: '/quiz',
     component: Quiz,
-    icon: 'profile2',
+    icon: 'quiz',
     title: 'Quiz',
     permissions: [],
     children: []
@@ -57,7 +58,7 @@ export const childRoutes = [
   {
     path: '/grades',
     component: Grades,
-    icon: 'profile2',
+    icon: 'grades',
     title: 'Grades',
     permissions: [],
 
@@ -66,7 +67,7 @@ export const childRoutes = [
   {
     path: '/attendance',
     component: Attendance,
-    icon: 'profile2',
+    icon: 'attendance',
     title: 'Attendance',
     permissions: [],
 
@@ -75,7 +76,7 @@ export const childRoutes = [
   {
     path: '/payment',
     component: Payment,
-    icon: 'profile2',
+    icon: 'balance',
     title: 'Payment',
     permissions: [],
 
@@ -84,7 +85,7 @@ export const childRoutes = [
   {
     path: '/library',
     component: Library,
-    icon: 'profile2',
+    icon: 'library',
     title: 'Library',
     permissions: [],
 
@@ -93,7 +94,7 @@ export const childRoutes = [
   {
     path: '/video',
     component: Video,
-    icon: 'profile2',
+    icon: 'video-materials',
     title: 'Video',
     permissions: [],
 
@@ -102,7 +103,7 @@ export const childRoutes = [
   {
     path: '/connection',
     component: Connection,
-    icon: 'profile2',
+    icon: 'connection',
     title: 'Connection',
     permissions: [],
 
@@ -111,7 +112,7 @@ export const childRoutes = [
   {
     path: '/schedule',
     component: Schedule,
-    icon: 'profile2',
+    icon: 'reschedule',
     title: 'Schedule',
     permissions: [],
 
@@ -120,7 +121,7 @@ export const childRoutes = [
   {
     path: '/chat',
     component: Chat,
-    icon: 'profile2',
+    icon: 'chat2',
     title: 'Chat',
     permissions: [],
 
@@ -129,21 +130,21 @@ export const childRoutes = [
   {
     path: '/support',
     component: Examples,
-    icon: 'profile2',
+    icon: 'support2',
     title: 'Support',
     permissions: [],
 
     children: []
-  }
-  // {
-  //   path: '/examples',
-  //   component: Examples,
-  //   icon: 'profile2',
-  //   title: 'Examples',
-  //   permissions: [],
+  },
+  {
+    path: '/error',
+    component: Error,
+    icon: 'profile2',
+    title: 'Error',
+    permissions: [],
 
-  //   children: []
-  // },
+    children: []
+  }
   // {
   //   path: '/examples',
   //   component: Examples,
