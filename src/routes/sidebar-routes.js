@@ -134,257 +134,257 @@ export const childRoutes = [
     permissions: [],
 
     children: []
-  },
-  {
-    path: '/examples',
-    component: Examples,
-    icon: 'profile2',
-    title: 'Examples',
-    permissions: [],
-
-    children: []
-  },
-  {
-    path: '/examples',
-    component: Examples,
-    icon: 'profile2',
-    title: 'Examples',
-    permissions: [],
-
-    children: []
-  },
-  {
-    path: '/examples',
-    component: Examples,
-    icon: 'profile2',
-    title: 'Examples',
-    permissions: [],
-
-    children: []
-  },
-  {
-    path: '/examples',
-    component: Examples,
-    icon: 'profile2',
-    title: 'Examples',
-    permissions: [],
-
-    children: []
-  },
-  {
-    path: '/examples',
-    component: Examples,
-    icon: 'profile2',
-    title: 'Examples',
-    permissions: [],
-
-    children: []
-  },
-  {
-    path: '/examples',
-    component: Examples,
-    icon: 'profile2',
-    title: 'Examples',
-    permissions: [],
-
-    children: []
-  },
-  {
-    path: '/examples',
-    component: Examples,
-    icon: 'profile2',
-    title: 'Examples',
-    permissions: [],
-
-    children: []
-  },
-  {
-    path: '/examples',
-    component: Examples,
-    icon: 'profile2',
-    title: 'Examples',
-    permissions: [],
-
-    children: []
-  },
-  {
-    path: '/examples',
-    component: Examples,
-    icon: 'profile2',
-    title: 'Examples',
-    permissions: [],
-
-    children: []
-  },
-  {
-    path: '/examples',
-    component: Examples,
-    icon: 'profile2',
-    title: 'Examples',
-    permissions: [],
-
-    children: []
-  },
-  {
-    path: '/examples',
-    component: Examples,
-    icon: 'profile2',
-    title: 'Examples',
-    permissions: [],
-
-    children: []
-  },
-  {
-    path: '/examples',
-    component: Examples,
-    icon: 'profile2',
-    title: 'Examples',
-    permissions: [],
-
-    children: []
-  },
-  {
-    path: '/examples',
-    component: Examples,
-    icon: 'profile2',
-    title: 'Examples',
-    permissions: [],
-
-    children: []
-  },
-  {
-    path: '/examples',
-    component: Examples,
-    icon: 'profile2',
-    title: 'Examples',
-    permissions: [],
-
-    children: []
-  },
-  {
-    path: '/examples',
-    component: Examples,
-    icon: 'profile2',
-    title: 'Examples',
-    permissions: [],
-
-    children: []
-  },
-  {
-    path: '/examples',
-    component: Examples,
-    icon: 'profile2',
-    title: 'Examples',
-    permissions: [],
-
-    children: []
-  },
-  {
-    path: '/examples',
-    component: Examples,
-    icon: 'profile2',
-    title: 'Examples',
-    permissions: [],
-
-    children: []
-  },
-  {
-    path: '/examples',
-    component: Examples,
-    icon: 'profile2',
-    title: 'Examples',
-    permissions: [],
-
-    children: []
-  },
-  {
-    path: '/examples',
-    component: Examples,
-    icon: 'profile2',
-    title: 'Examples',
-    permissions: [],
-
-    children: []
-  },
-  {
-    path: '/examples',
-    component: Examples,
-    icon: 'profile2',
-    title: 'Examples',
-    permissions: [],
-
-    children: []
-  },
-  {
-    path: '/examples',
-    component: Examples,
-    icon: 'profile2',
-    title: 'Examples',
-    permissions: [],
-
-    children: []
-  },
-  {
-    path: '/examples',
-    component: Examples,
-    icon: 'profile2',
-    title: 'Examples',
-    permissions: [],
-
-    children: []
-  },
-  {
-    path: '/examples',
-    component: Examples,
-    icon: 'profile2',
-    title: 'Examples',
-    permissions: [],
-
-    children: []
-  },
-  {
-    path: '/examples',
-    component: Examples,
-    icon: 'profile2',
-    title: 'Examples',
-    permissions: [],
-
-    children: []
-  },
-  {
-    path: '/examples',
-    component: Examples,
-    icon: 'profile2',
-    title: 'Examples',
-    permissions: [],
-
-    children: []
-  },
-  {
-    path: '/examples',
-    component: Examples,
-    icon: 'profile2',
-    title: 'Examples',
-    permissions: [],
-
-    children: []
-  },
-  {
-    path: '/examples',
-    component: Examples,
-    icon: 'profile2',
-    title: 'Examples',
-    permissions: [],
-
-    children: []
-  },
-  {
-    path: '/examples',
-    component: Examples,
-    icon: 'profile2',
-    title: 'Examples',
-    permissions: [],
-
-    children: []
   }
+  // {
+  //   path: '/examples',
+  //   component: Examples,
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
+  // },
+  // {
+  //   path: '/examples',
+  //   component: Examples,
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
+  // },
+  // {
+  //   path: '/examples',
+  //   component: Examples,
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
+  // },
+  // {
+  //   path: '/examples',
+  //   component: Examples,
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
+  // },
+  // {
+  //   path: '/examples',
+  //   component: Examples,
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
+  // },
+  // {
+  //   path: '/examples',
+  //   component: Examples,
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
+  // },
+  // {
+  //   path: '/examples',
+  //   component: Examples,
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
+  // },
+  // {
+  //   path: '/examples',
+  //   component: Examples,
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
+  // },
+  // {
+  //   path: '/examples',
+  //   component: Examples,
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
+  // },
+  // {
+  //   path: '/examples',
+  //   component: Examples,
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
+  // },
+  // {
+  //   path: '/examples',
+  //   component: Examples,
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
+  // },
+  // {
+  //   path: '/examples',
+  //   component: Examples,
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
+  // },
+  // {
+  //   path: '/examples',
+  //   component: Examples,
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
+  // },
+  // {
+  //   path: '/examples',
+  //   component: Examples,
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
+  // },
+  // {
+  //   path: '/examples',
+  //   component: Examples,
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
+  // },
+  // {
+  //   path: '/examples',
+  //   component: Examples,
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
+  // },
+  // {
+  //   path: '/examples',
+  //   component: Examples,
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
+  // },
+  // {
+  //   path: '/examples',
+  //   component: Examples,
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
+  // },
+  // {
+  //   path: '/examples',
+  //   component: Examples,
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
+  // },
+  // {
+  //   path: '/examples',
+  //   component: Examples,
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
+  // },
+  // {
+  //   path: '/examples',
+  //   component: Examples,
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
+  // },
+  // {
+  //   path: '/examples',
+  //   component: Examples,
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
+  // },
+  // {
+  //   path: '/examples',
+  //   component: Examples,
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
+  // },
+  // {
+  //   path: '/examples',
+  //   component: Examples,
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
+  // },
+  // {
+  //   path: '/examples',
+  //   component: Examples,
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
+  // },
+  // {
+  //   path: '/examples',
+  //   component: Examples,
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
+  // },
+  // {
+  //   path: '/examples',
+  //   component: Examples,
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
+  // },
+  // {
+  //   path: '/examples',
+  //   component: Examples,
+  //   icon: 'profile2',
+  //   title: 'Examples',
+  //   permissions: [],
+
+  //   children: []
+  // }
 ];
