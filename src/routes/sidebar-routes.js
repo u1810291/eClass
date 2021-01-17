@@ -12,6 +12,7 @@ import Video from '../views/Video';
 import Connection from '../views/Student/Connection';
 import Schedule from '../views/Teacher/Shedule';
 import Chat from '../views/Chat';
+import Error from '../components/Error';
 
 export const childRoutes = [
   {
@@ -134,16 +135,16 @@ export const childRoutes = [
     permissions: [],
 
     children: []
-  }
-  // {
-  //   path: '/examples',
-  //   component: Examples,
-  //   icon: 'profile2',
-  //   title: 'Examples',
-  //   permissions: [],
+  },
+  {
+    path: '/error',
+    component: Error,
+    icon: 'profile2',
+    title: 'Error',
+    permissions: [],
 
-  //   children: []
-  // },
+    children: []
+  }
   // {
   //   path: '/examples',
   //   component: Examples,
