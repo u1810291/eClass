@@ -12,10 +12,15 @@ export default () => {
   const handleClick = () => {
     const params = {
       verified_access_token: query.get('access_token'),
-      verified_refresh_token: query.get('refresh_token')
+      verified_refresh_token: query.get('refresh_token'),
+      verified_expires_at: query.get('expires_at')
     };
     auth.authVerify(params).then(() => {
-      dispatch(login(params.verified_access_token, params.verified_refresh_token));
+      dispatch(login(
+        params.verified_access_token,
+        params.verified_refresh_token,
+        params.verified_expires_at
+      ));
     });
   };
   return (
