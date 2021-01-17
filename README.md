@@ -1,3 +1,3 @@
-# FivePlus Learning System - Sturdent adn Teacher
+# FivePlus Learning System - Administrator, Sturdent and Teacher
 
 npx prettier --write .
