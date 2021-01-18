@@ -6,7 +6,7 @@ import { BodyContainer } from './style';
 import { collapse, expand, setValue } from '../../redux/modules/sidebar/actions';
 import { useWindowSize } from '../../hooks/use-window-size';
 import ContainerLayout from './Wrapper';
-import { DESKTOP, MOBILE } from '../../constants/devices';
+import { DESKTOP, MOBILE, NOTEBOOK } from '../../constants/devices';
 
 export default () => {
   const { device } = useWindowSize();
@@ -14,7 +14,7 @@ export default () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(setValue(device !== DESKTOP));
+    dispatch(setValue(device !== DESKTOP && device !== NOTEBOOK));
   }, [device, dispatch]);
 
   return (

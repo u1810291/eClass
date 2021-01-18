@@ -34,6 +34,7 @@ const SidebarHeader = ({ collapsed, handleExpand, handleCollapse }) => {
   );
   if (device === devices.MOBILE) return mobile;
   if (device === devices.TABLET) return tabletDesktop;
+  if (device === devices.NOTEBOOK) return tabletDesktop;
   if (device === devices.DESKTOP) return tabletDesktop;
   return <></>;
 };

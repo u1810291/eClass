@@ -1,38 +1,11 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React from 'react';
-import styled from 'styled-components';
+import React, {
+  useEffect, useState, useCallback, useMemo
+} from 'react';
+
 import { useExpanded, useTable } from 'react-table';
-
+import { Styles } from './style';
 import makeData from './makeData';
-
-const Styles = styled.div`
-  padding: 1rem;
-
-  table {
-    border-spacing: 0;
-    border: 1px solid black;
-
-    tr {
-      :last-child {
-        td {
-          border-bottom: 0;
-        }
-      }
-    }
-
-    th,
-    td {
-      margin: 0;
-      padding: 0.5rem;
-      border-bottom: 1px solid black;
-      border-right: 1px solid black;
-
-      :last-child {
-        border-right: 0;
-      }
-    }
-  }
-`;
 
 function SubRows({
   row, rowProps, visibleColumns, data, loading
@@ -75,12 +48,12 @@ function SubRows({
 }
 
 function SubRowAsync({ row, rowProps, visibleColumns }) {
-  const [loading, setLoading] = React.useState(true);
-  const [data, setData] = React.useState([]);
+  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const timer = setTimeout(() => {
-      setData(makeData(3));
+      setData(makeData(1));
       setLoading(false);
     }, 500);
 
@@ -107,8 +80,7 @@ function Table({ columns: userColumns, data, renderRowSubComponent }) {
     headerGroups,
     rows,
     prepareRow,
-    visibleColumns,
-    state: { expanded }
+    visibleColumns
   } = useTable(
     {
       columns: userColumns,
@@ -119,9 +91,6 @@ function Table({ columns: userColumns, data, renderRowSubComponent }) {
 
   return (
     <>
-      <pre>
-        <code>{JSON.stringify({ expanded }, null, 2)}</code>
-      </pre>
       <table {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup) => (
@@ -150,13 +119,6 @@ function Table({ columns: userColumns, data, renderRowSubComponent }) {
           })}
         </tbody>
       </table>
-      <br />
-      <div>
-        Showing the first 20 results of
-        {rows.length}
-        {' '}
-        rows
-      </div>
     </>
   );
 }
@@ -175,54 +137,45 @@ function App() {
         SubCell: () => null // No expander on an expanded row
       },
       {
-        Header: 'Name',
-        columns: [
-          {
-            Header: 'First Name',
-            accessor: (d) => d.firstName,
-            SubCell: (cellProps) => (
-              <>
-                🥳
-                {cellProps.value}
-                {' '}
-                🎉
-              </>
-            )
-          },
-          {
-            Header: 'Last Name',
-            accessor: (d) => d.lastName
-          }
-        ]
+
+        Header: 'Date',
+        accessor: (d) => d.firstName,
+        SubCell: (cellProps) => (
+          <>
+            🥳
+            {cellProps.value}
+            {' '}
+            🎉
+          </>
+        )
       },
       {
-        Header: 'Info',
-        columns: [
-          {
-            Header: 'Age',
-            accessor: (d) => d.age
-          },
-          {
-            Header: 'Visits',
-            accessor: (d) => d.visits
-          },
-          {
-            Header: 'Status',
-            accessor: (d) => d.status
-          },
-          {
-            Header: 'Profile Progress',
-            accessor: (d) => d.progress
-          }
-        ]
+        Header: 'Time',
+        accessor: (d) => d.lastName
+      },
+      {
+        Header: 'Duration',
+        accessor: (d) => d.age
+      },
+      {
+        Header: 'Teacher',
+        accessor: (d) => d.visits
+      },
+      {
+        Header: 'Subject',
+        accessor: (d) => d.status
+      },
+      {
+        Header: 'Link',
+        accessor: (d) => d.progress
       }
     ],
     []
   );
 
-  const data = React.useMemo(() => makeData(10), []);
+  const data = useMemo(() => makeData(10), []);
 
-  const renderRowSubComponent = React.useCallback(
+  const renderRowSubComponent = useCallback(
     ({ row, rowProps, visibleColumns }) => (
       <SubRowAsync
         row={row}
