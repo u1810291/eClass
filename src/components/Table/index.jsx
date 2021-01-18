@@ -124,7 +124,7 @@ function Table({ columns: userColumns, data, renderRowSubComponent }) {
 }
 
 function App() {
-  const columns = React.useMemo(
+  const columns = useMemo(
     () => [
       {
         Header: () => null, // No header
@@ -137,7 +137,6 @@ function App() {
         SubCell: () => null // No expander on an expanded row
       },
       {
-
         Header: 'Date',
         accessor: (d) => d.firstName,
         SubCell: (cellProps) => (
