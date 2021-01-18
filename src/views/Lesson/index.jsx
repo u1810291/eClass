@@ -7,7 +7,6 @@ import { FIVEPLUSADMIN, STUDENT, TEACHER } from '../../constants/roles';
 
 export default () => {
   const { userInfo } = useSelector((state) => state.userReducer);
-  console.log(userInfo);
   const adminPage = (
     <Container>
       <Table />
