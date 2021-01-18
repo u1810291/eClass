@@ -8,6 +8,7 @@ export default () => {
   const { device } = useWindowSize();
   if (device === devices.MOBILE) return <Mobile />;
   if (device === devices.TABLET) return <TabletDesktop />;
+  if (device === devices.NOTEBOOK) return <TabletDesktop />;
   if (device === devices.DESKTOP) return <TabletDesktop />;
   return <></>;
 };

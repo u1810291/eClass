@@ -30,10 +30,6 @@ import Groups from '../views/Groups';
 'UPDATE_LIST_ITEM',
 'DELETE_LIST_ITEM',
 
-'UPLOAD_MATERIALS_FOR_ANY_TARGET',
-'UPDATE_ANY_MATERIALS',
-'DELETE_ANY_MATERIALS',
-
 */
 export const childRoutes = [
   {
@@ -49,32 +45,22 @@ export const childRoutes = [
     children: []
   },
   {
-    path: '/groups',
-    component: Groups,
+    path: '/lessons',
+    component: Examples,
     icon: 'classess2',
-    title: 'Groups',
+    title: 'Lessons',
     permissions: [
-      types.VIEW_OWN_GROUP,
-      types.VIEW_ANY_GROUP,
-      types.CREATE_GROUP,
-      types.UPDATE_GROUP,
-      types.DELETE_GROUP,
-      types.VIEW_ALL_GROUPS_LIST,
-      types.VIEW_STUDENTS_IN_ANY_GROUP,
-      types.ADD_STUDENTS_TO_ANY_GROUP,
-      types.DELETE_STUDENTS_FROM_ANY_GROUP,
-      types.VIEW_ANY_PHOTO,
-      types.UPDATE_ANY_PHOTO,
-      types.DELETE_ANY_PHOTO,
-      types.UPLOAD_OWN_PHOTO,
-      types.DELETE_OWN_PHOTO,
-      types.UPLOAD_TEACHER_CERTIFICATE,
-      types.DELETE_TEACHER_CERTIFICATE,
-      types.VIEW_ALL_FILES_LIST,
-      types.UPLOAD_ANY_FILE,
-      types.VIEW_ANY_FILE,
-      types.DELETE_ANY_FILE
+      types.VIEW_ANY_LESSONS_LIST,
+      types.CREATE_LESSON,
+      types.UPDATE_LESSON,
+      types.DELETE_LESSON,
+      types.CANCEL_ANY_LESSON,
+      types.RESCHEDULE_LESSON,
+      types.RESCHEDULE_ANY_LESSON,
+      types.START_ANY_LESSON,
+      types.FINISH_ANY_LESSON
     ],
+
     children: []
   },
   {
@@ -94,7 +80,9 @@ export const childRoutes = [
     component: Homeworks,
     icon: 'homeworks',
     title: 'Homeworks',
-    permissions: [],
+    permissions: [
+      types.VIEW_HOMEWORKS
+    ],
     children: []
   },
   {
@@ -102,7 +90,9 @@ export const childRoutes = [
     component: Quiz,
     icon: 'quiz',
     title: 'Quiz',
-    permissions: [],
+    permissions: [
+      types.VIEW_QUIZ
+    ],
     children: []
   },
   {
@@ -110,7 +100,9 @@ export const childRoutes = [
     component: Grades,
     icon: 'grades',
     title: 'Grades',
-    permissions: [],
+    permissions: [
+      types.VIEW_GRADES
+    ],
 
     children: []
   },
@@ -119,7 +111,9 @@ export const childRoutes = [
     component: Attendance,
     icon: 'attendance',
     title: 'Attendance',
-    permissions: [],
+    permissions: [
+      types.VIEW_ATTENDANCE
+    ],
 
     children: []
   },
@@ -128,7 +122,9 @@ export const childRoutes = [
     component: Payment,
     icon: 'balance',
     title: 'Payment',
-    permissions: [],
+    permissions: [
+      types.VIEW_PAYMENT
+    ],
 
     children: []
   },
@@ -137,7 +133,9 @@ export const childRoutes = [
     component: Library,
     icon: 'library',
     title: 'Library',
-    permissions: [],
+    permissions: [
+      types.VIEW_LIBRARY
+    ],
 
     children: []
   },
@@ -146,7 +144,13 @@ export const childRoutes = [
     component: Video,
     icon: 'video-materials',
     title: 'Video',
-    permissions: [],
+    permissions: [
+      types.VIEW_ANY_LESSONS_MATERIALS,
+      types.UPLOAD_MATERIALS_FOR_ANY_TARGET,
+      types.UPDATE_ANY_MATERIALS,
+      types.DELETE_ANY_MATERIALS
+
+    ],
 
     children: []
   },
@@ -155,7 +159,10 @@ export const childRoutes = [
     component: Connection,
     icon: 'connection',
     title: 'Connection',
-    permissions: [],
+    permissions: [
+      types.VIEW_CONNECTION
+
+    ],
 
     children: []
   },
@@ -164,7 +171,11 @@ export const childRoutes = [
     component: Schedule,
     icon: 'reschedule',
     title: 'Schedule',
-    permissions: [],
+    permissions: [
+      types.RESCHEDULE_LESSON,
+      types.RESCHEDULE_ANY_LESSON
+
+    ],
 
     children: []
   },
@@ -199,7 +210,9 @@ export const childRoutes = [
     component: Examples,
     icon: 'support2',
     title: 'Support',
-    permissions: [],
+    permissions: [
+      types.VIEW_SUPPORT
+    ],
 
     children: []
   },
@@ -280,24 +293,34 @@ export const childRoutes = [
 
     children: []
   },
-  {
-    path: '/lessons',
-    component: Examples,
-    icon: 'profile2',
-    title: 'Lessons',
-    permissions: [
-      types.VIEW_ANY_LESSONS_LIST,
-      types.CREATE_LESSON,
-      types.UPDATE_LESSON,
-      types.DELETE_LESSON,
-      types.CANCEL_ANY_LESSON,
-      types.RESCHEDULE_LESSON,
-      types.RESCHEDULE_ANY_LESSON,
-      types.START_ANY_LESSON,
-      types.FINISH_ANY_LESSON,
-      types.VIEW_ANY_LESSONS_MATERIALS
-    ],
 
+  {
+    path: '/groups',
+    component: Groups,
+    icon: 'classess2',
+    title: 'Groups',
+    permissions: [
+      types.VIEW_OWN_GROUP,
+      types.VIEW_ANY_GROUP,
+      types.CREATE_GROUP,
+      types.UPDATE_GROUP,
+      types.DELETE_GROUP,
+      types.VIEW_ALL_GROUPS_LIST,
+      types.VIEW_STUDENTS_IN_ANY_GROUP,
+      types.ADD_STUDENTS_TO_ANY_GROUP,
+      types.DELETE_STUDENTS_FROM_ANY_GROUP,
+      types.VIEW_ANY_PHOTO,
+      types.UPDATE_ANY_PHOTO,
+      types.DELETE_ANY_PHOTO,
+      types.UPLOAD_OWN_PHOTO,
+      types.DELETE_OWN_PHOTO,
+      types.UPLOAD_TEACHER_CERTIFICATE,
+      types.DELETE_TEACHER_CERTIFICATE,
+      types.VIEW_ALL_FILES_LIST,
+      types.UPLOAD_ANY_FILE,
+      types.VIEW_ANY_FILE,
+      types.DELETE_ANY_FILE
+    ],
     children: []
   }
   // {
