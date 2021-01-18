@@ -15,7 +15,7 @@ import Chat from '../views/Chat';
 import Error from '../components/Error';
 import Groups from '../views/Groups';
 import Lesson from '../views/Lesson';
-
+import { FIVEPLUSADMIN, STUDENT, TEACHER } from '../constants/roles';
 /*
 
 'CONFIRM_STUDENT',
@@ -43,7 +43,8 @@ export const childRoutes = [
       types.UPDATE_ANY_TEACHER_PROFILE,
       types.UPDATE_ANY_ADMIN_PROFILE
     ],
-    children: []
+    children: [],
+    role: [FIVEPLUSADMIN, STUDENT, TEACHER]
   },
   {
     path: '/lessons',
@@ -62,7 +63,8 @@ export const childRoutes = [
       types.FINISH_ANY_LESSON
     ],
 
-    children: []
+    children: [],
+    role: [FIVEPLUSADMIN, STUDENT, TEACHER]
   },
   {
     path: '/balance',
@@ -74,7 +76,8 @@ export const childRoutes = [
       types.VIEW_ANY_TRANSACTION,
       types.VIEW_ANY_ACCOUNT
     ],
-    children: []
+    children: [],
+    role: [FIVEPLUSADMIN, STUDENT, TEACHER]
   },
   {
     path: '/homeworks',
@@ -84,7 +87,8 @@ export const childRoutes = [
     permissions: [
       types.VIEW_HOMEWORKS
     ],
-    children: []
+    children: [],
+    role: [FIVEPLUSADMIN, STUDENT, TEACHER]
   },
   {
     path: '/quiz',
@@ -94,7 +98,8 @@ export const childRoutes = [
     permissions: [
       types.VIEW_QUIZ
     ],
-    children: []
+    children: [],
+    role: [FIVEPLUSADMIN, STUDENT, TEACHER]
   },
   {
     path: '/grades',
@@ -105,7 +110,8 @@ export const childRoutes = [
       types.VIEW_GRADES
     ],
 
-    children: []
+    children: [],
+    role: [FIVEPLUSADMIN, STUDENT, TEACHER]
   },
   {
     path: '/attendance',
@@ -116,7 +122,8 @@ export const childRoutes = [
       types.VIEW_ATTENDANCE
     ],
 
-    children: []
+    children: [],
+    role: [FIVEPLUSADMIN, STUDENT, TEACHER]
   },
   {
     path: '/payment',
@@ -127,7 +134,8 @@ export const childRoutes = [
       types.VIEW_PAYMENT
     ],
 
-    children: []
+    children: [],
+    role: [FIVEPLUSADMIN, STUDENT, TEACHER]
   },
   {
     path: '/library',
@@ -138,7 +146,8 @@ export const childRoutes = [
       types.VIEW_LIBRARY
     ],
 
-    children: []
+    children: [],
+    role: [FIVEPLUSADMIN, STUDENT, TEACHER]
   },
   {
     path: '/video',
@@ -153,7 +162,8 @@ export const childRoutes = [
 
     ],
 
-    children: []
+    children: [],
+    role: [FIVEPLUSADMIN, STUDENT, TEACHER]
   },
   {
     path: '/connection',
@@ -165,7 +175,8 @@ export const childRoutes = [
 
     ],
 
-    children: []
+    children: [],
+    role: [FIVEPLUSADMIN, STUDENT, TEACHER]
   },
   {
     path: '/schedule',
@@ -178,7 +189,8 @@ export const childRoutes = [
 
     ],
 
-    children: []
+    children: [],
+    role: [FIVEPLUSADMIN, STUDENT, TEACHER]
   },
   {
     path: '/chat',
@@ -204,7 +216,12 @@ export const childRoutes = [
       types.DELETE_GROUP_FROM_MEMBER_ROOM
     ],
 
-    children: []
+    children: [],
+    role: [
+      FIVEPLUSADMIN,
+      STUDENT,
+      TEACHER
+    ]
   },
   {
     path: '/support',
@@ -215,7 +232,8 @@ export const childRoutes = [
       types.VIEW_SUPPORT
     ],
 
-    children: []
+    children: [],
+    role: [FIVEPLUSADMIN, STUDENT, TEACHER]
   },
   {
     path: '/error',
@@ -224,7 +242,8 @@ export const childRoutes = [
     title: 'Error',
     permissions: [],
 
-    children: []
+    children: [],
+    role: []
   },
   {
     path: '/subject',
@@ -239,7 +258,8 @@ export const childRoutes = [
       types.DELETE_SUBJECT
     ],
 
-    children: []
+    children: [],
+    role: [FIVEPLUSADMIN, TEACHER]
   },
   {
     path: '/logs',
@@ -251,7 +271,8 @@ export const childRoutes = [
       types.VIEW_ANONYMOUS_LOGS,
       types.VIEW_ANY_LOGS],
 
-    children: []
+    children: [],
+    role: [FIVEPLUSADMIN]
   },
   {
     path: '/users',
@@ -277,7 +298,8 @@ export const childRoutes = [
       types.VIEW_ADMIN_PROFILE
     ],
 
-    children: []
+    children: [],
+    role: [FIVEPLUSADMIN, TEACHER]
   },
   {
     path: '/tariff',
@@ -292,7 +314,8 @@ export const childRoutes = [
       types.DELETE_TARIFF
     ],
 
-    children: []
+    children: [],
+    role: [FIVEPLUSADMIN]
   },
 
   {
@@ -322,7 +345,8 @@ export const childRoutes = [
       types.VIEW_ANY_FILE,
       types.DELETE_ANY_FILE
     ],
-    children: []
+    children: [],
+    role: [FIVEPLUSADMIN, TEACHER]
   }
   // {
   //   path: '/examples',

@@ -53,7 +53,7 @@ function SubRowAsync({ row, rowProps, visibleColumns }) {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setData(makeData(3));
+      setData(makeData(1));
       setLoading(false);
     }, 500);
 
