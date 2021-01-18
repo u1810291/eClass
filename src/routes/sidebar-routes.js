@@ -1,6 +1,5 @@
 import types from '../constants/action-types';
 import Examples from '../components/Examples';
-import Courses from '../views/Student/Courses';
 import Balance from '../views/Balance';
 import Homeworks from '../views/Homeworks';
 import Profile from '../views/Profile';
@@ -14,6 +13,8 @@ import Connection from '../views/Student/Connection';
 import Schedule from '../views/Teacher/Shedule';
 import Chat from '../views/Chat';
 import Error from '../components/Error';
+import Groups from '../views/Groups';
+
 /*
 
 'CONFIRM_STUDENT',
@@ -28,9 +29,6 @@ import Error from '../components/Error';
 'CREATE_LIST_ITEM',
 'UPDATE_LIST_ITEM',
 'DELETE_LIST_ITEM',
-'TOPUP_ACCOUNT',
-'VIEW_ANY_TRANSACTION',
-'VIEW_ANY_ACCOUNT',
 
 'UPLOAD_MATERIALS_FOR_ANY_TARGET',
 'UPDATE_ANY_MATERIALS',
@@ -51,11 +49,32 @@ export const childRoutes = [
     children: []
   },
   {
-    path: '/courses',
-    component: Courses,
-    icon: 'profile2',
-    title: 'Courses',
-    permissions: [],
+    path: '/groups',
+    component: Groups,
+    icon: 'classess2',
+    title: 'Groups',
+    permissions: [
+      types.VIEW_OWN_GROUP,
+      types.VIEW_ANY_GROUP,
+      types.CREATE_GROUP,
+      types.UPDATE_GROUP,
+      types.DELETE_GROUP,
+      types.VIEW_ALL_GROUPS_LIST,
+      types.VIEW_STUDENTS_IN_ANY_GROUP,
+      types.ADD_STUDENTS_TO_ANY_GROUP,
+      types.DELETE_STUDENTS_FROM_ANY_GROUP,
+      types.VIEW_ANY_PHOTO,
+      types.UPDATE_ANY_PHOTO,
+      types.DELETE_ANY_PHOTO,
+      types.UPLOAD_OWN_PHOTO,
+      types.DELETE_OWN_PHOTO,
+      types.UPLOAD_TEACHER_CERTIFICATE,
+      types.DELETE_TEACHER_CERTIFICATE,
+      types.VIEW_ALL_FILES_LIST,
+      types.UPLOAD_ANY_FILE,
+      types.VIEW_ANY_FILE,
+      types.DELETE_ANY_FILE
+    ],
     children: []
   },
   {
@@ -63,8 +82,12 @@ export const childRoutes = [
     component: Balance,
     icon: 'payment',
     title: 'Balance',
-    children: [],
-    permissions: []
+    permissions: [
+      types.TOPUP_ACCOUNT,
+      types.VIEW_ANY_TRANSACTION,
+      types.VIEW_ANY_ACCOUNT
+    ],
+    children: []
   },
   {
     path: '/homeworks',
@@ -187,35 +210,6 @@ export const childRoutes = [
     title: 'Error',
     permissions: [],
 
-    children: []
-  },
-  {
-    path: '/group',
-    component: Examples,
-    icon: 'profile2',
-    title: 'Group',
-    permissions: [
-      types.VIEW_OWN_GROUP,
-      types.VIEW_ANY_GROUP,
-      types.CREATE_GROUP,
-      types.UPDATE_GROUP,
-      types.DELETE_GROUP,
-      types.VIEW_ALL_GROUPS_LIST,
-      types.VIEW_STUDENTS_IN_ANY_GROUP,
-      types.ADD_STUDENTS_TO_ANY_GROUP,
-      types.DELETE_STUDENTS_FROM_ANY_GROUP,
-      types.VIEW_ANY_PHOTO,
-      types.UPDATE_ANY_PHOTO,
-      types.DELETE_ANY_PHOTO,
-      types.UPLOAD_OWN_PHOTO,
-      types.DELETE_OWN_PHOTO,
-      types.UPLOAD_TEACHER_CERTIFICATE,
-      types.DELETE_TEACHER_CERTIFICATE,
-      types.VIEW_ALL_FILES_LIST,
-      types.UPLOAD_ANY_FILE,
-      types.VIEW_ANY_FILE,
-      types.DELETE_ANY_FILE
-    ],
     children: []
   },
   {
