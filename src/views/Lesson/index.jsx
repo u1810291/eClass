@@ -7,7 +7,8 @@ import { FIVEPLUSADMIN, STUDENT, TEACHER } from '../../constants/roles';
 import { useAsync } from '../../hooks/mounted';
 import lesson from '../../services/lesson';
 
-const AdminPage = ({ userInfo, data, setData }) => {
+const AdminPage = ({ userInfo }) => {
+  const [data, setData] = useState([]);
   const asyncTask = useAsync();
   const promise = lesson.getAcminLessons();
   useEffect(() => {
@@ -22,7 +23,8 @@ const AdminPage = ({ userInfo, data, setData }) => {
   );
 };
 
-const StudentPage = ({ userInfo, data, setData }) => {
+const StudentPage = ({ userInfo }) => {
+  const [data, setData] = useState([]);
   const asyncTask = useAsync();
   const promise = lesson.getStudentLessons();
   useEffect(() => {
@@ -37,7 +39,8 @@ const StudentPage = ({ userInfo, data, setData }) => {
   );
 };
 
-const TeacherPage = ({ userInfo, data, setData }) => {
+const TeacherPage = ({ userInfo }) => {
+  const [data, setData] = useState([]);
   const asyncTask = useAsync();
   const promise = lesson.getTeacherLessons();
 
@@ -54,14 +57,11 @@ const TeacherPage = ({ userInfo, data, setData }) => {
 };
 export default () => {
   const { userInfo } = useSelector((state) => state.userReducer);
-  const [data, setData] = useState([]);
 
   if (userInfo.role === FIVEPLUSADMIN) {
     return (
       <AdminPage
         userInfo={userInfo}
-        data={data}
-        setData={setData}
       />
     );
   }
@@ -69,8 +69,6 @@ export default () => {
     return (
       <TeacherPage
         userInfo={userInfo}
-        data={data}
-        setData={setData}
       />
     );
   }
@@ -78,8 +76,6 @@ export default () => {
     return (
       <StudentPage
         userInfo={userInfo}
-        data={data}
-        setData={setData}
       />
     );
   }

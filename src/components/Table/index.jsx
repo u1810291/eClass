@@ -5,7 +5,7 @@ import React, {
 
 import { useExpanded, useTable } from 'react-table';
 import { Styles } from './style';
-import makeData from './makeData';
+import makeData, { dataSelector } from './makeData';
 
 function SubRows({
   row, rowProps, visibleColumns, data, loading
@@ -138,7 +138,7 @@ function App({ data: tableData }) {
       },
       {
         Header: 'Date',
-        accessor: (d) => d.firstName,
+        accessor: (d) => d.date,
         SubCell: (cellProps) => (
           <>
             🥳
@@ -150,30 +150,31 @@ function App({ data: tableData }) {
       },
       {
         Header: 'Time',
-        accessor: (d) => d.lastName
+        accessor: (d) => d.time
       },
       {
         Header: 'Duration',
-        accessor: (d) => d.age
+        accessor: (d) => d.duration
       },
       {
         Header: 'Teacher',
-        accessor: (d) => d.visits
+        accessor: (d) => d.teacher
       },
       {
         Header: 'Subject',
-        accessor: (d) => d.status
+        accessor: (d) => d.subject
       },
       {
         Header: 'Link',
-        accessor: (d) => d.progress
+        accessor: (d) => d.link
       }
     ],
     []
   );
 
-  const data = useMemo(() => tableData, []);
+  const data = useMemo(() => makeData(10), []);
   console.log(tableData);
+  dataSelector(tableData);
   const renderRowSubComponent = useCallback(
     ({ row, rowProps, visibleColumns }) => (
       <SubRowAsync
