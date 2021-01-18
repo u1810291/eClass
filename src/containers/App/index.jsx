@@ -21,7 +21,6 @@ export default () => {
   const dispatch = useDispatch();
   if (access_token) {
     user.whoAmI().then((res) => {
-      console.log(res);
       dispatch(userInfo(res));
     }).catch((err) => console.log('err', err));
   }

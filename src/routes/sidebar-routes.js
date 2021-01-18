@@ -14,6 +14,7 @@ import Schedule from '../views/Teacher/Shedule';
 import Chat from '../views/Chat';
 import Error from '../components/Error';
 import Groups from '../views/Groups';
+import Lesson from '../views/Lesson';
 
 /*
 
@@ -46,7 +47,7 @@ export const childRoutes = [
   },
   {
     path: '/lessons',
-    component: Examples,
+    component: Lesson,
     icon: 'classess2',
     title: 'Lessons',
     permissions: [
