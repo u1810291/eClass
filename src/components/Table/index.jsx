@@ -123,7 +123,7 @@ function Table({ columns: userColumns, data, renderRowSubComponent }) {
   );
 }
 
-function App() {
+function App({ data: tableData }) {
   const columns = useMemo(
     () => [
       {
@@ -172,8 +172,8 @@ function App() {
     []
   );
 
-  const data = useMemo(() => makeData(10), []);
-
+  const data = useMemo(() => tableData, []);
+  console.log(tableData);
   const renderRowSubComponent = useCallback(
     ({ row, rowProps, visibleColumns }) => (
       <SubRowAsync

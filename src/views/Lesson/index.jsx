@@ -7,22 +7,14 @@ import { FIVEPLUSADMIN, STUDENT, TEACHER } from '../../constants/roles';
 import { useAsync } from '../../hooks/mounted';
 import lesson from '../../services/lesson';
 
-export const AdminPage = ({ userInfo, data, setData }) => (
-  <Container>
-    <Table perms={userInfo.rights} />
-  </Container>
-);
-
-export const StudentPage = ({ userInfo, data, setData }) => {
+const AdminPage = ({ userInfo, data, setData }) => {
   const asyncTask = useAsync();
-
+  const promise = lesson.getAcminLessons();
   useEffect(() => {
-    const promise = lesson.getAll();
     asyncTask(promise)
       .then((res) => setData(res))
       .catch((err) => console.log(err));
-  });
-
+  }, [asyncTask]);
   return (
     <Container>
       <Table perms={userInfo.rights} data={data} />
@@ -30,14 +22,40 @@ export const StudentPage = ({ userInfo, data, setData }) => {
   );
 };
 
-export const TeacherPage = ({ userInfo, data, setData }) => (
-  <Container>
-    <Table perms={userInfo.rights} />
-  </Container>
-);
+const StudentPage = ({ userInfo, data, setData }) => {
+  const asyncTask = useAsync();
+  const promise = lesson.getStudentLessons();
+  useEffect(() => {
+    asyncTask(promise)
+      .then((res) => setData(res))
+      .catch((err) => console.log(err));
+  }, [asyncTask]);
+  return (
+    <Container>
+      <Table perms={userInfo.rights} data={data} />
+    </Container>
+  );
+};
+
+const TeacherPage = ({ userInfo, data, setData }) => {
+  const asyncTask = useAsync();
+  const promise = lesson.getTeacherLessons();
+
+  useEffect(() => {
+    asyncTask(promise)
+      .then((res) => setData(res))
+      .catch((err) => console.log(err));
+  }, [asyncTask]);
+  return (
+    <Container>
+      <Table perms={userInfo.rights} data={data} />
+    </Container>
+  );
+};
 export default () => {
   const { userInfo } = useSelector((state) => state.userReducer);
   const [data, setData] = useState([]);
+
   if (userInfo.role === FIVEPLUSADMIN) {
     return (
       <AdminPage
