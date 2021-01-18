@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  DesktopView, NotebookView, TabletView, MobileView
+  DesktopView, TabletView, MobileView
 } from './style';
 
 import { useWindowSize } from '../../hooks/use-window-size';
@@ -10,7 +10,7 @@ export default ({ child }) => {
   const { device } = useWindowSize();
 
   if (device === devices.DESKTOP) return <DesktopView>{child}</DesktopView>;
-  if (device === devices.NOTEBOOK) return <NotebookView>{child}</NotebookView>;
+  if (device === devices.NOTEBOOK) return <DesktopView>{child}</DesktopView>;
   if (device === devices.TABLET) return <TabletView>{child}</TabletView>;
   if (device === devices.MOBILE) return <MobileView>{child}</MobileView>;
   return <></>;

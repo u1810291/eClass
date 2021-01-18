@@ -11,6 +11,9 @@ export default ({ collapsed, children }) => {
   if (device === devices.TABLET) {
     return <TabletSidebar collapsed={collapsed}>{children}</TabletSidebar>;
   }
+  if (device === devices.NOTEBOOK) {
+    return <DesktopSidebar collapsed={collapsed}>{children}</DesktopSidebar>;
+  }
   if (device === devices.DESKTOP) {
     return <DesktopSidebar collapsed={collapsed}>{children}</DesktopSidebar>;
   }
