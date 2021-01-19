@@ -4,38 +4,63 @@ import { useSelector, useDispatch } from 'react-redux';
 import Table from '../../components/Table';
 import { Container } from './style';
 import { FIVEPLUSADMIN, STUDENT, TEACHER } from '../../constants/roles';
-import { fetchData } from '../../redux/modules/student/lessons/actions';
+import { fetchData as user } from '../../redux/modules/student/lessons/actions';
+import { fetchData as teacher } from '../../redux/modules/teacher/lessons/actions';
 
-export const AdminPage = ({ userInfo, data }) => (
-  <Container>
-    <Table perms={userInfo.rights} data={data} />
-  </Container>
-);
-export const StudentPage = ({ userInfo, data }) => (
-  <Container>
-    <Table perms={userInfo.rights} data={data} />
-  </Container>
-);
-
-export const TeacherPage = ({ userInfo, data }) => (
-  <Container>
-    <Table perms={userInfo.rights} data={data} />
-  </Container>
-);
-export default () => {
-  const { userInfo } = useSelector((state) => state.userReducer);
-  const { data } = useSelector((state) => state.studentLessonsReducers);
+export const AdminPage = ({ userInfo }) => {
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(fetchData());
-  }, [fetchData]);
+  const { data } = useSelector((state) => state.teacherLessonsReducers);
 
+  useEffect(() => {
+    dispatch(teacher());
+  }, [teacher]);
+
+  return (
+    <Container>
+      <Table perms={userInfo.rights} data={data} />
+    </Container>
+  );
+};
+export const StudentPage = ({ userInfo }) => {
+  const dispatch = useDispatch();
+
+  const { data } = useSelector((state) => state.studentLessonsReducers);
+
+  useEffect(() => {
+    dispatch(user());
+  }, [user]);
+
+  return (
+    <Container>
+      <Table perms={userInfo.rights} data={data} />
+    </Container>
+  );
+};
+
+export const TeacherPage = ({ userInfo }) => {
+  const dispatch = useDispatch();
+
+  const { data } = useSelector((state) => state.teacherLessonsReducers);
+
+  useEffect(() => {
+    dispatch(teacher());
+  }, [teacher]);
+
+  return (
+    <Container>
+      <Table perms={userInfo.rights} data={data} />
+    </Container>
+  );
+};
+export default () => {
+  const { userInfo } = useSelector((state) => state.userReducer);
+
+  console.log(userInfo.role);
   if (userInfo.role === FIVEPLUSADMIN) {
     return (
       <AdminPage
         userInfo={userInfo}
-        data={data}
       />
     );
   }
@@ -43,18 +68,15 @@ export default () => {
     return (
       <TeacherPage
         userInfo={userInfo}
-        data={data}
       />
     );
   }
-
   if (userInfo.role === STUDENT) {
     return (
       <StudentPage
         userInfo={userInfo}
-        data={data}
       />
     );
   }
-  return null;
+  return <></>;
 };

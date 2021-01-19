@@ -20,11 +20,11 @@ import { fetchData } from '../../redux/modules/user/actions';
 export default () => {
   const { access_token, showModal } = useSelector(appSelector, shallowEqual);
   const dispatch = useDispatch();
-  useEffect(() => {
-    if (access_token) {
+  if (access_token !== null) {
+    useEffect(() => {
       dispatch(fetchData());
-    }
-  });
+    }, [fetchData]);
+  }
   const publicRoutes = (
     <Container>
       <Switch>

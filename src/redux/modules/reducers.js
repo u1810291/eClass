@@ -6,3 +6,4 @@ export { default as sidebarReducer } from './sidebar/reducers';
 export { default as userReducer } from './user/reducers';
 export { default as tableReducer } from './table/reducers';
 export { default as studentLessonsReducers } from './student/lessons/reducers';
+export { default as teacherLessonsReducers } from './teacher/lessons/reducers';
