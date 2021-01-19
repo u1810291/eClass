@@ -36,19 +36,15 @@ export default function makeData(...lens) {
   return makeDataLevel();
 }
 
-export async function dataSelector(lesson) {
-  // eslint-disable-next-line camelcase
-  const { total_elements, content } = lesson;
-  console.log(content);
-  const filtered = await content.map((lesson) => (
-    {
-      date: lesson.scheduled_start,
-      time: lesson.scheduled_start,
-      duration: lesson.duration,
-      teacher: lesson.teacher.full_name,
-      subject: lesson.subject.name,
-      link: 'undefined'
-    }
-  ));
-  return { total_elements, content: filtered };
+export function dataSelector(lesson) {
+  const { content } = lesson;
+  const filtered = content.map(() => ({
+    date: lesson.scheduled_start,
+    time: lesson.scheduled_start,
+    duration: lesson.duration,
+    teacher: lesson.teacher.full_name,
+    subject: lesson.subject.name,
+    link: 'undefined'
+  }));
+  return filtered();
 }
