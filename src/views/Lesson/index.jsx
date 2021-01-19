@@ -24,13 +24,13 @@ export const TeacherPage = ({ userInfo, data }) => (
 );
 export default () => {
   const { userInfo } = useSelector((state) => state.userReducer);
-  const {
-    loading, data, total, error
-  } = useSelector((state) => state.studentLessonsReducers);
+  const { data } = useSelector((state) => state.studentLessonsReducers);
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(fetchData());
-  });
+  }, [fetchData]);
+
   if (userInfo.role === FIVEPLUSADMIN) {
     return (
       <AdminPage
@@ -51,9 +51,6 @@ export default () => {
   if (userInfo.role === STUDENT) {
     return (
       <StudentPage
-        loading={loading}
-        total={total}
-        error={error}
         userInfo={userInfo}
         data={data}
       />

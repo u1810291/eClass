@@ -5,7 +5,7 @@ import React, {
 
 import { useExpanded, useTable } from 'react-table';
 import { Styles } from './style';
-import makeData, { dataSelector } from './makeData';
+import makeData from './makeData';
 
 function SubRows({
   row, rowProps, visibleColumns, data, loading
@@ -131,7 +131,7 @@ function App({ data: tableData }) {
         id: 'expander', // It needs an ID
         Cell: ({ row }) => (
           <span {...row.getToggleRowExpandedProps()}>
-            {row.isExpanded ? '👇' : '👉'}
+            {row.isExpanded ? 'v' : '>'}
           </span>
         ),
         SubCell: () => null // No expander on an expanded row
@@ -172,9 +172,7 @@ function App({ data: tableData }) {
     []
   );
 
-  const data = useMemo(() => makeData(10), []);
-  console.log(tableData);
-  dataSelector(tableData);
+  const data = useMemo(() => tableData, []);
   const renderRowSubComponent = useCallback(
     ({ row, rowProps, visibleColumns }) => (
       <SubRowAsync
