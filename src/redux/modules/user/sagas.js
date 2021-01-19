@@ -3,10 +3,9 @@ import types from '../../../constants/action-types';
 import service from '../../../services/user';
 import { setData, setError } from './actions';
 
-function* userInfo() {
+function* fetchData() {
   try {
     const res = yield service.whoAmI();
-    console.log(res);
     yield put(setData(res.data));
   } catch (error) {
     yield put(setError(error.message));
@@ -14,5 +13,5 @@ function* userInfo() {
 }
 
 export default function* userInfoSaga() {
-  yield takeLatest(types.FETCH_USER_INFO, userInfo);
+  yield takeLatest(types.FETCH_USER_INFO, fetchData);
 }

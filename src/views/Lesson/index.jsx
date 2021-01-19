@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import Table from '../../components/Table';
 import { Container } from './style';
 import { FIVEPLUSADMIN, STUDENT, TEACHER } from '../../constants/roles';
+import { fetchData } from '../../redux/modules/student/lessons/actions';
 
 export const AdminPage = ({ userInfo, data }) => (
   <Container>
@@ -26,7 +27,10 @@ export default () => {
   const {
     loading, data, total, error
   } = useSelector((state) => state.studentLessonsReducers);
-
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchData());
+  });
   if (userInfo.role === FIVEPLUSADMIN) {
     return (
       <AdminPage

@@ -15,6 +15,7 @@ function* fetchData({ payload }) {
     if (payload.isSearch) yield delay(500);
     yield put(setLoading(true));
     const res = yield service.getStudentLessons(payload.query);
+    console.log(res);
     const { data, total } = dataSelector(res.data);
     yield put(setError(''));
     yield put(setData(data));
