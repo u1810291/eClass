@@ -44,7 +44,9 @@ export const childRoutes = [
       types.UPDATE_ANY_ADMIN_PROFILE
     ],
     children: [],
-    role: [FIVEPLUSADMIN, STUDENT, TEACHER]
+    role: [
+      // FIVEPLUSADMIN, STUDENT, TEACHER
+    ]
   },
   {
     path: '/lessons',
@@ -64,7 +66,9 @@ export const childRoutes = [
     ],
 
     children: [],
-    role: [FIVEPLUSADMIN, STUDENT, TEACHER]
+    role: [
+      FIVEPLUSADMIN, STUDENT, TEACHER
+    ]
   },
   {
     path: '/balance',
@@ -77,7 +81,9 @@ export const childRoutes = [
       types.VIEW_ANY_ACCOUNT
     ],
     children: [],
-    role: [FIVEPLUSADMIN, STUDENT, TEACHER]
+    role: [
+      // FIVEPLUSADMIN, STUDENT, TEACHER
+    ]
   },
   {
     path: '/homeworks',
@@ -88,7 +94,9 @@ export const childRoutes = [
       types.VIEW_HOMEWORKS
     ],
     children: [],
-    role: [FIVEPLUSADMIN, STUDENT, TEACHER]
+    role: [
+      // FIVEPLUSADMIN, STUDENT, TEACHER
+    ]
   },
   {
     path: '/quiz',
@@ -99,7 +107,9 @@ export const childRoutes = [
       types.VIEW_QUIZ
     ],
     children: [],
-    role: [FIVEPLUSADMIN, STUDENT, TEACHER]
+    role: [
+      // FIVEPLUSADMIN, STUDENT, TEACHER
+    ]
   },
   {
     path: '/grades',
@@ -111,7 +121,9 @@ export const childRoutes = [
     ],
 
     children: [],
-    role: [FIVEPLUSADMIN, STUDENT, TEACHER]
+    role: [
+      // FIVEPLUSADMIN, STUDENT, TEACHER
+    ]
   },
   {
     path: '/attendance',
@@ -123,7 +135,9 @@ export const childRoutes = [
     ],
 
     children: [],
-    role: [FIVEPLUSADMIN, STUDENT, TEACHER]
+    role: [
+      // FIVEPLUSADMIN, STUDENT, TEACHER
+    ]
   },
   {
     path: '/payment',
@@ -135,7 +149,9 @@ export const childRoutes = [
     ],
 
     children: [],
-    role: [FIVEPLUSADMIN, STUDENT, TEACHER]
+    role: [
+      // FIVEPLUSADMIN, STUDENT, TEACHER
+    ]
   },
   {
     path: '/library',
@@ -147,7 +163,9 @@ export const childRoutes = [
     ],
 
     children: [],
-    role: [FIVEPLUSADMIN, STUDENT, TEACHER]
+    role: [
+      // FIVEPLUSADMIN, STUDENT, TEACHER
+    ]
   },
   {
     path: '/video',
@@ -163,7 +181,9 @@ export const childRoutes = [
     ],
 
     children: [],
-    role: [FIVEPLUSADMIN, STUDENT, TEACHER]
+    role: [
+      // FIVEPLUSADMIN, STUDENT, TEACHER
+    ]
   },
   {
     path: '/connection',
@@ -176,7 +196,9 @@ export const childRoutes = [
     ],
 
     children: [],
-    role: [FIVEPLUSADMIN, STUDENT, TEACHER]
+    role: [
+      // FIVEPLUSADMIN, STUDENT, TEACHER
+    ]
   },
   {
     path: '/schedule',
@@ -190,7 +212,9 @@ export const childRoutes = [
     ],
 
     children: [],
-    role: [FIVEPLUSADMIN, STUDENT, TEACHER]
+    role: [
+      // FIVEPLUSADMIN, STUDENT, TEACHER
+    ]
   },
   {
     path: '/chat',
@@ -218,9 +242,7 @@ export const childRoutes = [
 
     children: [],
     role: [
-      FIVEPLUSADMIN,
-      STUDENT,
-      TEACHER
+      // FIVEPLUSADMIN, STUDENT, TEACHER
     ]
   },
   {
@@ -233,7 +255,9 @@ export const childRoutes = [
     ],
 
     children: [],
-    role: [FIVEPLUSADMIN, STUDENT, TEACHER]
+    role: [
+      // FIVEPLUSADMIN, STUDENT, TEACHER
+    ]
   },
   {
     path: '/error',
@@ -259,7 +283,9 @@ export const childRoutes = [
     ],
 
     children: [],
-    role: [FIVEPLUSADMIN, TEACHER]
+    role: [
+      // FIVEPLUSADMIN, TEACHER
+    ]
   },
   {
     path: '/logs',
@@ -272,7 +298,9 @@ export const childRoutes = [
       types.VIEW_ANY_LOGS],
 
     children: [],
-    role: [FIVEPLUSADMIN]
+    role: [
+      // FIVEPLUSADMIN
+    ]
   },
   {
     path: '/users',
@@ -299,7 +327,9 @@ export const childRoutes = [
     ],
 
     children: [],
-    role: [FIVEPLUSADMIN, TEACHER]
+    role: [
+      // FIVEPLUSADMIN, TEACHER
+    ]
   },
   {
     path: '/tariff',
@@ -315,7 +345,9 @@ export const childRoutes = [
     ],
 
     children: [],
-    role: [FIVEPLUSADMIN]
+    role: [
+      // FIVEPLUSADMIN
+    ]
   },
 
   {
@@ -346,7 +378,9 @@ export const childRoutes = [
       types.DELETE_ANY_FILE
     ],
     children: [],
-    role: [FIVEPLUSADMIN, TEACHER]
+    role: [
+      // FIVEPLUSADMIN, TEACHER
+    ]
   }
   // {
   //   path: '/examples',

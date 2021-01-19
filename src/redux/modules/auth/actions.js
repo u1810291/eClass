@@ -1,10 +1,9 @@
 import types from '../../../constants/action-types';
 
-// eslint-disable-next-line camelcase
-export const login = (access_token, refresh_token, expires_at) => ({
-  type: types.AUTH_LOGIN,
-  access_token,
-  refresh_token,
-  expires_at
-});
+export const setAccessToken = (payload) => ({ type: types.AUTH_SET_ACCESS_TOKEN, payload });
+export const setRefreshToken = (payload) => ({ type: types.AUTH_SET_REFRESH_TOKEN, payload });
+export const setExpiresAt = (payload) => ({ type: types.AUTH_SET_EXPIRES_AT, payload });
 export const logout = () => ({ type: types.AUTH_LOGOUT });
+export const setError = () => ({ type: types.AUTH_ERROR });
+export const verify = (payload) => ({ type: types.AUTH_VERIFY, payload });
+export const login = (payload, success) => ({ type: types.AUTH_LOGIN, payload, success });

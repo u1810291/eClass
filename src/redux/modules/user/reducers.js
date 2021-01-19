@@ -1,18 +1,19 @@
-import types from '../../../constants/permission-types';
+import types from '../../../constants/action-types';
 
 const defaultState = {
-  userInfo: {}
-};
-
-const userInfo = {
-  [types.APPLICATION_USER_INFO]: (state, { user }) => ({
-    ...state,
-    userInfo: user
-  })
+  userInfo: []
 };
 
 const map = {
-  ...userInfo
+  [types.SET_USER_INFO]: (state, { payload }) => ({
+    ...state,
+    userInfo: payload
+  }),
+
+  [types.ERROR_USER_INFO]: (state, { payload }) => ({
+    ...state,
+    error: payload
+  })
 };
 
 export default (state, action) => (

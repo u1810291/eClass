@@ -2,8 +2,8 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { VerifiedContainer } from './style';
 import { PrimaryButton } from '../../../components/Buttons';
-import { login } from '../../../redux/modules/auth/actions';
-import auth from '../../../services/auth';
+import { verify } from '../../../redux/modules/auth/actions';
+
 import { useQuery } from '../../../hooks';
 
 export default () => {
@@ -11,17 +11,12 @@ export default () => {
   const query = useQuery();
   const handleClick = () => {
     const params = {
-      verified_access_token: query.get('access_token'),
-      verified_refresh_token: query.get('refresh_token'),
-      verified_expires_at: query.get('expires_at')
+      access_token: query.get('access_token'),
+      refresh_token: query.get('refresh_token'),
+      refresh_token_expire_at: query.get('refresh_token_expire_at')
     };
-    auth.authVerify(params).then(() => {
-      dispatch(login(
-        params.verified_access_token,
-        params.verified_refresh_token,
-        params.verified_expires_at
-      ));
-    });
+
+    dispatch(verify(params));
   };
   return (
     <VerifiedContainer>
