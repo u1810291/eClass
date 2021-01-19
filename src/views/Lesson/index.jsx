@@ -56,7 +56,6 @@ export const TeacherPage = ({ userInfo }) => {
 export default () => {
   const { userInfo } = useSelector((state) => state.userReducer);
 
-  console.log(userInfo.role);
   if (userInfo.role === FIVEPLUSADMIN) {
     return (
       <AdminPage
