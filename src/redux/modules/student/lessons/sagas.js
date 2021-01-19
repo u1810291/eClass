@@ -14,7 +14,7 @@ function* fetchData({ payload }) {
   try {
     if (payload.isSearch) yield delay(500);
     yield put(setLoading(true));
-    const res = yield service.getAll(payload.query);
+    const res = yield service.getStudentLessons(payload.query);
     const { data, total } = dataSelector(res.data);
     yield put(setError(''));
     yield put(setData(data));
@@ -25,16 +25,6 @@ function* fetchData({ payload }) {
   }
 }
 
-function* fetchStatuses() {
-  try {
-    const statuses = yield service.getAllStatus();
-    yield put(setStatuses(statuses.data.statuses));
-  } catch (error) {
-    yield put(setError(error.message));
-  }
-}
-
-export default function* deliveriesSaga() {
-  yield takeLatest(types.TABLE_DELIVERIES_FETCH_DATA, fetchData);
-  yield takeLatest(types.TABLE_DELIVERIES_FETCH_STATUSES, fetchStatuses);
+export default function* lessonsSaga() {
+  yield takeLatest(types.TABLE_LESSONS_FETCH_DATA, fetchData);
 }
