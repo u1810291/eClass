@@ -1,9 +1,9 @@
-import * as table from './actions/table';
 import application from './actions/application';
-import sidebar from './actions/sidebar';
 import auth from './actions/auth';
+import sidebar from './actions/sidebar';
 import profile from './actions/profile';
 import others from './actions/others';
+import * as table from './actions/table';
 
 export default {
   ...table,

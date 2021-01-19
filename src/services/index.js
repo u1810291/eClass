@@ -19,7 +19,7 @@ service.interceptors.response.use(
   (error) => {
     if (error.response.status === 401) {
       window.location.replace('/logout');
-      localStorage.removeItem('token');
+      sessionStorage.removeItem('access_token');
     }
     return Promise.reject(error);
   }

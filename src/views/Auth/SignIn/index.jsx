@@ -1,8 +1,10 @@
+/* eslint-disable camelcase */
 import React from 'react';
+
+import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useHistory } from 'react-router-dom';
-import auth from '../../../services/auth';
 import { NormalInput } from '../../../components/Forms/Inputs';
 import { PrimaryButton } from '../../../components/Buttons';
 import {
@@ -18,10 +20,12 @@ import {
   FooterText
 } from '../style';
 import { PureCheckbox } from '../../../components/CheckBox';
+import { login } from '../../../redux/modules/auth/actions';
 import logo from '../../../assets/icons/logo2.svg';
 
 export default () => {
   const history = useHistory();
+  const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
       username: '',
@@ -33,10 +37,14 @@ export default () => {
     }),
     onSubmit: (values, { setSubmitting }) => {
       setSubmitting(true);
-      auth.getToken(values).then((data) => {
+      dispatch(login(values, (
+        access_token,
+        refresh_token,
+        refresh_token_expire_at
+      ) => {
         setSubmitting(false);
-        history.push(`/verified?access_token=${data.access_token}&refresh_token=${data.refresh_token}&expires_at=${data.refresh_token_expire_at}`);
-      });
+        history.push(`/verified?access_token=${access_token}&refresh_token=${refresh_token}&refresh_token_expire_at=${refresh_token_expire_at}`);
+      }));
     }
   });
   return (
