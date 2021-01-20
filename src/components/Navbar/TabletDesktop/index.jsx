@@ -37,7 +37,7 @@ export default () => {
     switch (type) {
     case 'profile':
       setIsOpen(false);
-      history.push('/users/all-users/1/users-basic-info');
+      history.push('/profile');
       break;
     case 'logout':
       setIsOpen(false);
