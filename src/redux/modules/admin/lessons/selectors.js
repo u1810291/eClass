@@ -1,14 +1,9 @@
-import moment from 'moment';
-
 export function dataSelector(lesson) {
   const { content } = lesson;
   const filtered = content.map((el) => ({
-    date: moment(el.scheduled_start).format('DD-MM-YYYY'),
-    time: moment(el.scheduled_start).format('hh:mm:ss'),
-    duration: el.duration,
-    teacher: el.teacher.full_name,
-    subject: el.subject.name,
-    link: 'undefined'
+    rescheduled: el.rescheduled,
+    scheduled_start: el.scheduled_start,
+    time_to_start: el.time_to_start
   }));
   return { data: filtered };
 }

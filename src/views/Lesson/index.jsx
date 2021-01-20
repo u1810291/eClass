@@ -6,14 +6,15 @@ import { Container } from './style';
 import { FIVEPLUSADMIN, STUDENT, TEACHER } from '../../constants/roles';
 import { fetchData as user } from '../../redux/modules/student/lessons/actions';
 import { fetchData as teacher } from '../../redux/modules/teacher/lessons/actions';
+import { fetchData as admin } from '../../redux/modules/admin/lessons/actions';
 
 const AdminPage = ({ userInfo }) => {
   const dispatch = useDispatch();
 
-  const { data } = useSelector((state) => state.teacherLessonsReducers);
+  const { data } = useSelector((state) => state.adminLessonsReducers);
   useEffect(() => {
-    dispatch(teacher());
-  }, [teacher]);
+    dispatch(admin());
+  }, [admin]);
 
   return (
     <Container>
