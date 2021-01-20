@@ -22,5 +22,5 @@ function* fetchData() {
 }
 
 export default function* lessonsSaga() {
-  yield takeLatest(types.TABLE_LESSONS_FETCH_DATA, fetchData);
+  yield takeLatest(types.TABLE_TEACHER_LESSONS_FETCH_DATA, fetchData);
 }
