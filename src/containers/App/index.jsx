@@ -1,6 +1,5 @@
-/* eslint-disable no-console */
 /* eslint-disable camelcase */
-import React, { useEffect } from 'react';
+import React from 'react';
 import {
   useSelector, shallowEqual, useDispatch
 } from 'react-redux';
@@ -21,9 +20,7 @@ export default () => {
   const { access_token, showModal } = useSelector(appSelector, shallowEqual);
   const dispatch = useDispatch();
   if (access_token !== null) {
-    useEffect(() => {
-      dispatch(fetchData());
-    }, [fetchData]);
+    dispatch(fetchData());
   }
   const publicRoutes = (
     <Container>
