@@ -13,7 +13,6 @@ function* fetchData() {
   try {
     const res = yield service.getStudentLessons();
     const { data } = dataSelector(res);
-    console.log(res);
     yield put(setError(''));
     yield put(setData(data));
     yield put(setLoading(false));
