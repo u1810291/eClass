@@ -173,7 +173,6 @@ function App({ data: tableData }) {
   );
 
   const data = useMemo(() => tableData, [tableData]);
-  console.log(tableData);
 
   const renderRowSubComponent = useCallback(
     ({ row, rowProps, visibleColumns }) => (
