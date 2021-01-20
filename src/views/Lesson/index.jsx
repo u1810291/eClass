@@ -6,27 +6,27 @@ import { Container } from './style';
 import { FIVEPLUSADMIN, STUDENT, TEACHER } from '../../constants/roles';
 import { fetchData as user } from '../../redux/modules/student/lessons/actions';
 import { fetchData as teacher } from '../../redux/modules/teacher/lessons/actions';
+import { fetchData as admin } from '../../redux/modules/admin/lessons/actions';
+import { adminHeader } from './helper';
 
-export const AdminPage = ({ userInfo }) => {
+const AdminPage = ({ userInfo }) => {
   const dispatch = useDispatch();
 
-  const { data } = useSelector((state) => state.teacherLessonsReducers);
-
+  const { data } = useSelector((state) => state.adminLessonsReducers);
   useEffect(() => {
-    dispatch(teacher());
-  }, [teacher]);
+    dispatch(admin());
+  }, [admin]);
 
   return (
     <Container>
-      <Table perms={userInfo.rights} data={data} />
+      <Table perms={userInfo.rights} data={data} header={adminHeader} />
     </Container>
   );
 };
-export const StudentPage = ({ userInfo }) => {
+const StudentPage = ({ userInfo }) => {
   const dispatch = useDispatch();
 
   const { data } = useSelector((state) => state.studentLessonsReducers);
-
   useEffect(() => {
     dispatch(user());
   }, [user]);
@@ -38,7 +38,7 @@ export const StudentPage = ({ userInfo }) => {
   );
 };
 
-export const TeacherPage = ({ userInfo }) => {
+const TeacherPage = ({ userInfo }) => {
   const dispatch = useDispatch();
 
   const { data } = useSelector((state) => state.teacherLessonsReducers);
