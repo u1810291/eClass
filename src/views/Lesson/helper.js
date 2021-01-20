@@ -9,11 +9,11 @@ export const adminHeader = [{
       {row.isExpanded ? 'v' : '>'}
     </span>
   ),
-  SubCell: () => null // No expander on an expanded row
+  SubCell: () => null
 },
 {
-  Header: 'Date',
-  accessor: (d) => d.date,
+  Header: 'Rescheduled',
+  accessor: (d) => d.rescheduled,
   SubCell: (cellProps) => (
     <>
       🥳
@@ -24,22 +24,11 @@ export const adminHeader = [{
   )
 },
 {
-  Header: 'Time',
-  accessor: (d) => d.time
+  Header: 'Scheduled start',
+  accessor: (d) => d.scheduled_start
 },
 {
-  Header: 'Duration',
-  accessor: (d) => d.duration
-},
-{
-  Header: 'Teacher',
-  accessor: (d) => d.teacher
-},
-{
-  Header: 'Subject',
-  accessor: (d) => d.subject
-},
-{
-  Header: 'Link',
-  accessor: (d) => d.link
-}];
+  Header: 'Time to start',
+  accessor: (d) => d.time_to_start
+}
+];
