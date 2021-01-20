@@ -1,7 +1,8 @@
-export { default as authReducer } from './auth/reducers';
-export { default as modalReducer } from './modal/reducers';
-export { default as alertReducer } from './alert/reducers';
-export { default as navReducer } from './nav/reducers';
-export { default as sidebarReducer } from './sidebar/reducers';
-export { default as userReducer } from './user/reducers';
-export { default as tableReducer } from './table/reducers';
+import { combineReducers } from 'redux';
+import { all } from 'redux-saga/effects';
+import * as reducers from './reducers';
+import * as sagas from './sagas';
+
+export const rootReducer = combineReducers({ ...reducers });
+
+export function* rootSaga() { yield all(Object.keys(sagas).map((key) => sagas[key]())); }

@@ -123,57 +123,10 @@ function Table({ columns: userColumns, data, renderRowSubComponent }) {
   );
 }
 
-function App() {
-  const columns = React.useMemo(
-    () => [
-      {
-        Header: () => null, // No header
-        id: 'expander', // It needs an ID
-        Cell: ({ row }) => (
-          <span {...row.getToggleRowExpandedProps()}>
-            {row.isExpanded ? '👇' : '👉'}
-          </span>
-        ),
-        SubCell: () => null // No expander on an expanded row
-      },
-      {
+function App({ data: tableData, header }) {
+  const columns = useMemo(() => header, [header]);
 
-        Header: 'Date',
-        accessor: (d) => d.firstName,
-        SubCell: (cellProps) => (
-          <>
-            🥳
-            {cellProps.value}
-            {' '}
-            🎉
-          </>
-        )
-      },
-      {
-        Header: 'Time',
-        accessor: (d) => d.lastName
-      },
-      {
-        Header: 'Duration',
-        accessor: (d) => d.age
-      },
-      {
-        Header: 'Teacher',
-        accessor: (d) => d.visits
-      },
-      {
-        Header: 'Subject',
-        accessor: (d) => d.status
-      },
-      {
-        Header: 'Link',
-        accessor: (d) => d.progress
-      }
-    ],
-    []
-  );
-
-  const data = useMemo(() => makeData(10), []);
+  const data = useMemo(() => tableData, [tableData]);
 
   const renderRowSubComponent = useCallback(
     ({ row, rowProps, visibleColumns }) => (

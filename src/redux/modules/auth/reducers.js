@@ -4,24 +4,33 @@ import types from '../../../constants/action-types';
 const defaultState = {
   access_token: sessionStorage.getItem('access_token'),
   refresh_token: sessionStorage.getItem('refresh_token'),
-  expires_at: ''
+  refresh_token_expire_at: ''
 };
 
 const map = {
-  [types.AUTH_LOGIN]: (state, { access_token, refresh_token, expires_at }) => {
-    sessionStorage.setItem('access_token', access_token);
-    sessionStorage.setItem('refresh_token', refresh_token);
-    return {
-      ...state, access_token, refresh_token, expires_at
-    };
-  },
   [types.AUTH_LOGOUT]: (state) => {
     sessionStorage.removeItem('access_token');
     sessionStorage.removeItem('refresh_token');
     return {
-      ...state, access_token: '', refresh_token: '', expires_at: ''
+      ...state, access_token: '', refresh_token: '', refresh_token_expire_at: ''
     };
-  }
+  },
+  [types.AUTH_ERROR]: (state, { payload }) => ({ ...state, error: payload }),
+  [types.AUTH_SET_ACCESS_TOKEN]: (state, { payload }) => {
+    sessionStorage.setItem('access_token', payload);
+    return {
+      ...state, access_token: payload
+    };
+  },
+  [types.AUTH_SET_REFRESH_TOKEN]: (state, { payload }) => {
+    sessionStorage.setItem('refresh_token', payload);
+    return {
+      ...state, refresh_token: payload
+    };
+  },
+  [types.AUTH_SET_EXPIRES_AT]: (state, { payload }) => ({
+    ...state, refresh_token_expire_at: payload
+  })
 };
 
 // eslint-disable-next-line max-len

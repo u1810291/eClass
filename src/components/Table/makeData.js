@@ -35,3 +35,16 @@ export default function makeData(...lens) {
 
   return makeDataLevel();
 }
+
+export function dataSelector(lesson) {
+  const { content } = lesson;
+  const filtered = content.map(() => ({
+    date: lesson.scheduled_start,
+    time: lesson.scheduled_start,
+    duration: lesson.duration,
+    teacher: lesson.teacher.full_name,
+    subject: lesson.subject.name,
+    link: 'undefined'
+  }));
+  return filtered();
+}
