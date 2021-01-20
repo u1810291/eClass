@@ -12,6 +12,7 @@ import { dataSelector } from './selectors';
 function* fetchData() {
   try {
     const res = yield service.getStudentLessons();
+    console.log(res);
     const { data } = dataSelector(res);
     yield put(setError(''));
     yield put(setData(data));

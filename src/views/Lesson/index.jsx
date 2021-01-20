@@ -7,7 +7,7 @@ import { FIVEPLUSADMIN, STUDENT, TEACHER } from '../../constants/roles';
 import { fetchData as user } from '../../redux/modules/student/lessons/actions';
 import { fetchData as teacher } from '../../redux/modules/teacher/lessons/actions';
 import { fetchData as admin } from '../../redux/modules/admin/lessons/actions';
-import { adminHeader } from './helper';
+import { adminHeader, teacherHeader, studentHeader } from './helper';
 
 const AdminPage = ({ userInfo }) => {
   const dispatch = useDispatch();
@@ -33,7 +33,7 @@ const StudentPage = ({ userInfo }) => {
 
   return (
     <Container>
-      <Table perms={userInfo.rights} data={data} />
+      <Table perms={userInfo.rights} data={data} header={studentHeader} />
     </Container>
   );
 };
@@ -49,7 +49,7 @@ const TeacherPage = ({ userInfo }) => {
 
   return (
     <Container>
-      <Table perms={userInfo.rights} data={data} />
+      <Table perms={userInfo.rights} data={data} header={teacherHeader} />
     </Container>
   );
 };
