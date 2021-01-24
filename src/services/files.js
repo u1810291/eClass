@@ -5,5 +5,4 @@ export default {
   uploadFile: ({ data }) => service.post('/api/v1/files/upload', { data }),
   downloadFile: ({ id }) => service.get(`/api/v1/files/download/${id}`),
   deleteFile: ({ id }) => service.delete(`/api/v1/files/download/${id}`)
-
 };
