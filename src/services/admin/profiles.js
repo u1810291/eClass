@@ -9,6 +9,7 @@ export default {
   deleteStudentRequest: ({ id }) => service.delete(`/api/v1/profiles/student/${id}/request`),
   deleteStudent: ({ id, token }) => service.delete(`/api/v1/profiles/student/${id}?token=${token}`),
   restoreStudent: ({ userName }) => service.delete(`/api/v1/profiles/student/restore?username=${userName}`),
+  topupStudent: ({ data }) => service.delete('/api/v1/finance/topup', { data }),
 
   // TODO Teacher GET & PUT & DELETE
   getTeachers: () => service.get('/api/v1/profiles/teacher/list'),

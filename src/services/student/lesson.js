@@ -9,6 +9,6 @@ export default {
   rescheduleRequest: ({ id, data }) => service.post(`/api/v1/student/lessons/${id}/request`, { data }),
   confirmRescheduleRequest: ({ id }) => service.post(`/api/v1/student/lessons/shift/confirm/${id}`),
   closeRequest: ({ id }) => service.post(`/api/v1/student/lessons/shift/close/${id}`),
-  addRating: ({ data }) => service.post('/api/v1/student/lessons/rating', { data })
-
+  addRating: ({ data }) => service.post('/api/v1/student/lessons/rating', { data }),
+  revokeRating: ({ tId, gId }) => service.post(`/api/v1/student/lessons/rating?teacher=${tId}&group=${gId}`)
 };
