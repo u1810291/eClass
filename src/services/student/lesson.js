@@ -1,7 +1,14 @@
 /* eslint-disable camelcase */
 import { service } from '..';
-import { authSelector } from '../selectors';
 
 export default {
-  getStudentLessons: () => authSelector(service.get('/api/v1/student/lessons/list'))
+  getAll: ({ params }) => service.get(`/api/v1/student/lessons/list?${params}`),
+  visitLesson: ({ id }) => service.post(`/api/v1/student/lessons/${id}/visit`),
+  declineLesson: ({ id, data }) => service.post(`/api/v1/student/lessons/${id}/decline`, { data }),
+  declineUndoLesson: ({ id }) => service.post(`/api/v1/student/lessons/${id}/decline/undo`),
+  rescheduleRequest: ({ id, data }) => service.post(`/api/v1/student/lessons/${id}/request`, { data }),
+  confirmRescheduleRequest: ({ id }) => service.post(`/api/v1/student/lessons/shift/confirm/${id}`),
+  closeRequest: ({ id }) => service.post(`/api/v1/student/lessons/shift/close/${id}`),
+  addRating: ({ data }) => service.post('/api/v1/student/lessons/rating', { data })
+
 };
