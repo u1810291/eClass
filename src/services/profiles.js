@@ -5,6 +5,10 @@ export default {
   resetPassword: ({ userName }) => service.post(`/api/v1/profiles/password/reset/request?username=${userName}`),
   requestSMS: ({ phoneNumber }) => service.post(`/api/v1/profiles/password/reset/request-sms?phone=${phoneNumber}`),
   confirmSMS: ({ phoneNumber, code }) => service.post(`/api/v1/profiles/password/reset/confirm-sms?phone=${phoneNumber}&code=${code}`),
-  resetNewPassword: ({ data }) => service.post('/api/v1/profiles/password/reset/new-password', { data })
+  resetNewPassword: ({ data }) => service.post('/api/v1/profiles/password/reset/new-password', { data }),
+
+  uploadPhoto: ({ id }) => service.post(`/api/v1/profiles/${id}/photo`),
+  downloadPhoto: ({ id }) => service.get(`/api/v1/profiles/${id}/photo`),
+  deletePhoto: ({ id }) => service.delete(`/api/v1/profiles/${id}/photo`)
 
 };
