@@ -19,6 +19,8 @@ export default {
   deleteTeacherRequest: ({ id }) => service.delete(`/api/v1/profiles/teacher/${id}/request`),
   deleteTeacher: ({ id, token }) => service.delete(`/api/v1/profiles/teacher/${id}?token=${token}`),
   restoreTeacher: ({ userName }) => service.delete(`/api/v1/profiles/teacher/restore?username=${userName}`),
+  downloadCertificate: ({ id }) => service.get(`/api/v1/teacher/certificate/${id}`),
+  deleteCertificate: ({ id }) => service.delete(`/api/v1/teacher/certificate/${id}`),
 
   // TODO Admin GET & PUT & DELETE
   getAdmin: () => service.get('/api/v1/profiles/admin/list'),
