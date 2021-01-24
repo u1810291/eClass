@@ -1,14 +1,5 @@
 import { service } from '..';
 
 export default {
-
-  // TODO Admin GET & PUT & DELETE
-  getSelf: () => service.get('/api/v1/admin/profile'),
-  getAdmin: () => service.get('/api/v1/profiles/admin/list'),
-  getAllSingleAdmin: ({ param }) => service.get(`/api/v1/profiles/admin?admin=${param}`),
-  updateAdmin: ({ id }) => service.put(`/api/v1/profiles/admin/${id}`),
-  searchAdmin: ({ mmi }) => service.get(`/api/v1/profiles/admin/search?username=${mmi}`),
-  deleteAdminRequest: ({ id }) => service.delete(`/api/v1/profiles/admin/${id}/request`),
-  deleteAdmin: ({ id, token }) => service.delete(`/api/v1/profiles/admin/${id}?token=${token}`),
-  restoreAdmin: ({ userName }) => service.delete(`/api/v1/profiles/admin/restore?username=${userName}`)
+  getSelf: () => service.get('/api/v1/admin/profile')
 };
