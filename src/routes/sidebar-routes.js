@@ -45,7 +45,7 @@ export const childRoutes = [
     ],
     children: [],
     role: [
-      // FIVEPLUSADMIN, STUDENT, TEACHER
+      FIVEPLUSADMIN, STUDENT, TEACHER
     ]
   },
   {
@@ -82,7 +82,7 @@ export const childRoutes = [
     ],
     children: [],
     role: [
-      // FIVEPLUSADMIN, STUDENT, TEACHER
+      FIVEPLUSADMIN, STUDENT, TEACHER
     ]
   },
   {
@@ -95,7 +95,7 @@ export const childRoutes = [
     ],
     children: [],
     role: [
-      // FIVEPLUSADMIN, STUDENT, TEACHER
+      FIVEPLUSADMIN, STUDENT, TEACHER
     ]
   },
   {
@@ -108,7 +108,7 @@ export const childRoutes = [
     ],
     children: [],
     role: [
-      // FIVEPLUSADMIN, STUDENT, TEACHER
+      FIVEPLUSADMIN, STUDENT, TEACHER
     ]
   },
   {
@@ -122,7 +122,7 @@ export const childRoutes = [
 
     children: [],
     role: [
-      // FIVEPLUSADMIN, STUDENT, TEACHER
+      FIVEPLUSADMIN, STUDENT, TEACHER
     ]
   },
   {
@@ -136,7 +136,7 @@ export const childRoutes = [
 
     children: [],
     role: [
-      // FIVEPLUSADMIN, STUDENT, TEACHER
+      FIVEPLUSADMIN, STUDENT, TEACHER
     ]
   },
   {
@@ -150,7 +150,7 @@ export const childRoutes = [
 
     children: [],
     role: [
-      // FIVEPLUSADMIN, STUDENT, TEACHER
+      FIVEPLUSADMIN, STUDENT, TEACHER
     ]
   },
   {
@@ -164,7 +164,7 @@ export const childRoutes = [
 
     children: [],
     role: [
-      // FIVEPLUSADMIN, STUDENT, TEACHER
+      FIVEPLUSADMIN, STUDENT, TEACHER
     ]
   },
   {
@@ -182,7 +182,7 @@ export const childRoutes = [
 
     children: [],
     role: [
-      // FIVEPLUSADMIN, STUDENT, TEACHER
+      FIVEPLUSADMIN, STUDENT, TEACHER
     ]
   },
   {
@@ -197,7 +197,7 @@ export const childRoutes = [
 
     children: [],
     role: [
-      // FIVEPLUSADMIN, STUDENT, TEACHER
+      FIVEPLUSADMIN, STUDENT, TEACHER
     ]
   },
   {
@@ -213,7 +213,7 @@ export const childRoutes = [
 
     children: [],
     role: [
-      // FIVEPLUSADMIN, STUDENT, TEACHER
+      FIVEPLUSADMIN, STUDENT, TEACHER
     ]
   },
   {
@@ -242,7 +242,7 @@ export const childRoutes = [
 
     children: [],
     role: [
-      // FIVEPLUSADMIN, STUDENT, TEACHER
+      FIVEPLUSADMIN, STUDENT, TEACHER
     ]
   },
   {
@@ -256,7 +256,7 @@ export const childRoutes = [
 
     children: [],
     role: [
-      // FIVEPLUSADMIN, STUDENT, TEACHER
+      FIVEPLUSADMIN, STUDENT, TEACHER
     ]
   },
   {
@@ -284,7 +284,7 @@ export const childRoutes = [
 
     children: [],
     role: [
-      // FIVEPLUSADMIN, TEACHER
+      FIVEPLUSADMIN, TEACHER
     ]
   },
   {
@@ -299,7 +299,7 @@ export const childRoutes = [
 
     children: [],
     role: [
-      // FIVEPLUSADMIN
+      FIVEPLUSADMIN
     ]
   },
   {
@@ -328,7 +328,7 @@ export const childRoutes = [
 
     children: [],
     role: [
-      // FIVEPLUSADMIN, TEACHER
+      FIVEPLUSADMIN, TEACHER
     ]
   },
   {
@@ -346,7 +346,7 @@ export const childRoutes = [
 
     children: [],
     role: [
-      // FIVEPLUSADMIN
+      FIVEPLUSADMIN
     ]
   },
 
@@ -379,7 +379,7 @@ export const childRoutes = [
     ],
     children: [],
     role: [
-      // FIVEPLUSADMIN, TEACHER
+      FIVEPLUSADMIN, TEACHER
     ]
   }
   // {
