@@ -1,69 +1,47 @@
-/* eslint-disable no-alert */
-export const toolTips = [
+/* eslint-disable react/jsx-props-no-spreading */
+import React from 'react';
+
+export const options = [
   {
-    name: 'View',
-    icon: 'pdf',
-    onClick: () => {
-      alert('Delete');
-    },
-  },
-  {
-    name: 'Download as PDF',
-    icon: 'pdf',
-    onClick: () => {
-      alert('Download as PDF');
-    },
-  },
-  {
-    name: 'Box details',
-    icon: 'box',
-    onClick: () => {
-      alert('Delete');
-    },
-  },
-  {
-    name: 'Invoice',
-    icon: 'invoise',
-    onClick: () => {
-      alert('Delete');
-    },
-  },
-  {
-    name: 'Edit',
-    icon: 'edit',
-    onClick: () => {
-      alert('Delete');
-    },
-  },
-  {
-    name: 'Delete',
-    icon: 'delete',
-    onClick: () => {
-      alert('Delete');
-    },
-  },
+    id: 1,
+    value: 'Student'
+  }, {
+    id: 2,
+    value: 'Teacher'
+  }, {
+    id: 3,
+    value: 'Admin'
+  }
 ];
 
-export const headerToolTips = [
-  {
-    name: 'PDF',
-    icon: 'pdf',
-    onClick: () => {
-      alert('PDF');
-    },
-  },
-  {
-    name: 'Excel',
-    icon: 'exel',
-    onClick: () => {
-      alert('Excel');
-    },
-  },
-  {
-    name: 'Delete',
-    icon: 'delete',
-    onClick: () => {
-      alert('Delete');
-    },
-  },
+export const header = [{
+  Header: () => null, // No header
+  id: 'expander', // It needs an ID
+  Cell: ({ row }) => (
+    <span {...row.getToggleRowExpandedProps()}>
+      {row.isExpanded ? 'v' : '>'}
+    </span>
+  ),
+  SubCell: () => null
+},
+{
+  Header: 'Rescheduled',
+  accessor: (d) => d.rescheduled,
+  SubCell: (cellProps) => (
+    <>
+      🥳
+      {cellProps.value}
+      {' '}
+      🎉
+    </>
+  )
+},
+{
+  Header: 'Scheduled start',
+  accessor: (d) => d.scheduled_start
+},
+{
+  Header: 'Time to start',
+  accessor: (d) => d.time_to_start
+}
 ];

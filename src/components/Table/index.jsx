@@ -124,6 +124,7 @@ function Table({ columns: userColumns, data, renderRowSubComponent }) {
 }
 
 function App({ data: tableData, header }) {
+  console.log(tableData);
   const columns = useMemo(() => header, [header]);
 
   const data = useMemo(() => tableData, [tableData]);

@@ -23,7 +23,7 @@ export const useShowModal = () => {
     [dispatch]
   );
 
-  return { showBlured, showFullscree: pushFullScreenModal };
+  return { showBlured, showFullScreen: pushFullScreenModal };
 };
 
 export const useHideModal = () => {

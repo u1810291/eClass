@@ -16,6 +16,7 @@ import Error from '../components/Error';
 import Groups from '../views/Groups';
 import Lesson from '../views/Lesson';
 import { FIVEPLUSADMIN, STUDENT, TEACHER } from '../constants/roles';
+import Users from '../views/Admin/Users';
 /*
 
 'CONFIRM_STUDENT',
@@ -304,7 +305,7 @@ export const childRoutes = [
   },
   {
     path: '/users',
-    component: Examples,
+    component: Users,
     icon: 'profile2',
     title: 'Users',
     permissions: [
