@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Table from '../../components/Table';
 import { Container } from './style';
 import { FIVEPLUSADMIN, STUDENT, TEACHER } from '../../constants/roles';
-import { fetchData as user } from '../../redux/modules/student/lessons/actions';
+import { fetchData as student } from '../../redux/modules/student/lessons/actions';
 import { fetchData as teacher } from '../../redux/modules/teacher/lessons/actions';
 import { fetchData as admin } from '../../redux/modules/admin/lessons/actions';
 import { adminHeader, teacherHeader, studentHeader } from './helper';
@@ -28,8 +28,8 @@ const StudentPage = ({ userInfo }) => {
 
   const { data } = useSelector((state) => state.studentLessonsReducers);
   useEffect(() => {
-    dispatch(user());
-  }, [user]);
+    dispatch(student());
+  }, [student]);
 
   return (
     <Container>

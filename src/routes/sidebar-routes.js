@@ -16,6 +16,7 @@ import Error from '../components/Error';
 import Groups from '../views/Groups';
 import Lesson from '../views/Lesson';
 import { FIVEPLUSADMIN, STUDENT, TEACHER } from '../constants/roles';
+import Users from '../views/Admin/Users';
 /*
 
 'CONFIRM_STUDENT',
@@ -34,6 +35,7 @@ import { FIVEPLUSADMIN, STUDENT, TEACHER } from '../constants/roles';
 */
 export const childRoutes = [
   {
+    exact: true,
     path: '/profile',
     component: Profile,
     icon: 'profile2',
@@ -49,6 +51,7 @@ export const childRoutes = [
     ]
   },
   {
+    exact: true,
     path: '/lessons',
     component: Lesson,
     icon: 'classess2',
@@ -71,6 +74,7 @@ export const childRoutes = [
     ]
   },
   {
+    exact: true,
     path: '/balance',
     component: Balance,
     icon: 'payment',
@@ -86,6 +90,7 @@ export const childRoutes = [
     ]
   },
   {
+    exact: true,
     path: '/homeworks',
     component: Homeworks,
     icon: 'homeworks',
@@ -99,6 +104,7 @@ export const childRoutes = [
     ]
   },
   {
+    exact: true,
     path: '/quiz',
     component: Quiz,
     icon: 'quiz',
@@ -112,6 +118,7 @@ export const childRoutes = [
     ]
   },
   {
+    exact: true,
     path: '/grades',
     component: Grades,
     icon: 'grades',
@@ -126,6 +133,7 @@ export const childRoutes = [
     ]
   },
   {
+    exact: true,
     path: '/attendance',
     component: Attendance,
     icon: 'attendance',
@@ -140,6 +148,7 @@ export const childRoutes = [
     ]
   },
   {
+    exact: true,
     path: '/payment',
     component: Payment,
     icon: 'balance',
@@ -154,6 +163,7 @@ export const childRoutes = [
     ]
   },
   {
+    exact: true,
     path: '/library',
     component: Library,
     icon: 'library',
@@ -168,6 +178,7 @@ export const childRoutes = [
     ]
   },
   {
+    exact: true,
     path: '/video',
     component: Video,
     icon: 'video-materials',
@@ -186,6 +197,7 @@ export const childRoutes = [
     ]
   },
   {
+    exact: true,
     path: '/connection',
     component: Connection,
     icon: 'connection',
@@ -201,6 +213,7 @@ export const childRoutes = [
     ]
   },
   {
+    exact: true,
     path: '/schedule',
     component: Schedule,
     icon: 'reschedule',
@@ -217,6 +230,7 @@ export const childRoutes = [
     ]
   },
   {
+    exact: true,
     path: '/chat',
     component: Chat,
     icon: 'chat2',
@@ -246,6 +260,7 @@ export const childRoutes = [
     ]
   },
   {
+    exact: true,
     path: '/support',
     component: Examples,
     icon: 'support2',
@@ -260,6 +275,7 @@ export const childRoutes = [
     ]
   },
   {
+    exact: true,
     path: '/error',
     component: Error,
     icon: 'profile2',
@@ -270,6 +286,7 @@ export const childRoutes = [
     role: []
   },
   {
+    exact: true,
     path: '/subject',
     component: Examples,
     icon: 'profile2',
@@ -288,6 +305,7 @@ export const childRoutes = [
     ]
   },
   {
+    exact: true,
     path: '/logs',
     component: Examples,
     icon: 'profile2',
@@ -303,8 +321,9 @@ export const childRoutes = [
     ]
   },
   {
+    exact: true,
     path: '/users',
-    component: Examples,
+    component: Users,
     icon: 'profile2',
     title: 'Users',
     permissions: [
@@ -332,6 +351,7 @@ export const childRoutes = [
     ]
   },
   {
+    exact: true,
     path: '/tariff',
     component: Examples,
     icon: 'profile2',
@@ -351,6 +371,7 @@ export const childRoutes = [
   },
 
   {
+    exact: true,
     path: '/groups',
     component: Groups,
     icon: 'classess2',
@@ -383,6 +404,7 @@ export const childRoutes = [
     ]
   }
   // {
+  // exact: true,
   //   path: '/examples',
   //   component: Examples,
   //   icon: 'profile2',

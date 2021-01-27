@@ -17,6 +17,7 @@ export default () => {
 
     dispatch(setTitle(title));
   });
+
   return (
     <Container>
       <Sidebar />
