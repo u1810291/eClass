@@ -350,18 +350,21 @@ export const childRoutes = [
       {
         path: '/add/student',
         title: 'Student',
+        exact: true,
         hidden: true,
         component: AddUser
       },
       {
         path: '/add/teacher',
         title: 'Student',
+        exact: true,
         hidden: true,
         component: AddUser
       },
       {
         path: '/add/admin',
         title: 'Student',
+        exact: true,
         hidden: true,
         component: AddUser
       }

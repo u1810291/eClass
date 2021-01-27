@@ -234,7 +234,7 @@ export const DatepickerInput = styled.div`
   border-radius: 8px;
   color: ${({ white }) => (white ? '#262626' : '#7E8299')};
   line-height: 18px;
-  height: 43px;
+  height: 50px;
   padding: 0px 24px;
   border: 0;
   outline: none;

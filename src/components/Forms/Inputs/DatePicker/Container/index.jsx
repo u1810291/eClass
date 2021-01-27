@@ -1,5 +1,4 @@
 import React from 'react';
-import TimePicker from 'react-time-picker';
 import moment from 'moment';
 import * as devices from '../../../../../constants/devices';
 import { useWindowSize } from '../../../../../hooks/use-window-size';
@@ -13,7 +12,6 @@ import {
   Line,
   ClockRange,
   DateContainer,
-  Selection,
   FromTo,
   Close,
   ButtonContiner
@@ -22,11 +20,7 @@ import PrimaryButton from '../../../../Buttons/Primary';
 
 export default ({
   selectionRange,
-  endTime,
-  startTime,
   isPopoverOpen,
-  changeStartTime,
-  changeEndTime,
   handleSelect,
   rangeChange,
   setIsPopoverOpen,
@@ -46,7 +40,7 @@ export default ({
         showMonthAndYearPickers={false}
         color="red"
         editableDateInputs={false}
-        rangeColors={['#F64E60']}
+        rangeColors={['#0062ff']}
       />
       {!showTimePicker && (
         <ButtonContiner>
@@ -84,39 +78,30 @@ export default ({
         <>
           <Line />
           <ClockRange>
-            {device !== devices.MOBILE && <Close onClick={() => setIsPopoverOpen(false)} />}
+            {device !== devices.MOBILE && (
+              <Close onClick={() => setIsPopoverOpen(false)} />
+            )}
             <FromTo>
               <FromTo.Title>From</FromTo.Title>
               <DateContainer>
-                <DateContainer.Day>{moment(startDate).format('D')}</DateContainer.Day>
-                <DateContainer.Month>{moment(startDate).format('MMM YYYY')}</DateContainer.Month>
+                <DateContainer.Day>
+                  {moment(startDate).format('D')}
+                </DateContainer.Day>
+                <DateContainer.Month>
+                  {moment(startDate).format('MMM YYYY')}
+                </DateContainer.Month>
               </DateContainer>
-              <Selection>
-                <TimePicker
-                  autoFocus={false}
-                  disableClock
-                  amPmAriaLabel="AM / PM"
-                  clockIcon={null}
-                  onChange={(time) => changeStartTime(time)}
-                  value={startTime}
-                />
-              </Selection>
             </FromTo>
             <FromTo>
               <FromTo.Title>To</FromTo.Title>
               <DateContainer>
-                <DateContainer.Day>{moment(endDate).format('D')}</DateContainer.Day>
-                <DateContainer.Month>{moment(endDate).format('MMM YYYY')}</DateContainer.Month>
+                <DateContainer.Day>
+                  {moment(endDate).format('D')}
+                </DateContainer.Day>
+                <DateContainer.Month>
+                  {moment(endDate).format('MMM YYYY')}
+                </DateContainer.Month>
               </DateContainer>
-              <Selection>
-                <TimePicker
-                  amPmAriaLabel="AM / PM"
-                  clockIcon={null}
-                  disableClock
-                  onChange={(time) => changeEndTime(time)}
-                  value={endTime}
-                />
-              </Selection>
             </FromTo>
             <ButtonContiner>
               <PrimaryButton
@@ -168,9 +153,18 @@ export default ({
 
   if (device === devices.MOBILE) return swipeableWrapper;
   if (device === devices.TABLET) {
-    return <TabletAndDesktopContainer open={isPopoverOpen}>{content}</TabletAndDesktopContainer>;
+    return (
+      <TabletAndDesktopContainer open={isPopoverOpen}>
+        {content}
+      </TabletAndDesktopContainer>
+    );
   }
   if (device === devices.DESKTOP) {
-    return <TabletAndDesktopContainer open={isPopoverOpen}>{content}</TabletAndDesktopContainer>;
+    return (
+      <TabletAndDesktopContainer open={isPopoverOpen}>
+        {content}
+      </TabletAndDesktopContainer>
+    );
   }
+  return <>Hello</>;
 };

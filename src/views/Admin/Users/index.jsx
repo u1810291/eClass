@@ -93,21 +93,21 @@ export default () => {
       <PrimaryButton
         className="my-2"
         size="large"
-        onClick={() => history.push('/add/student')}
+        onClick={() => history.push('/users/add/student')}
         title="Register Student"
 
       />
       <PrimaryButton
         className="my-2"
         size="large"
-        onClick={() => history.push('/add/teacher')}
+        onClick={() => history.push('/users/add/teacher')}
         title="Register Teacher"
 
       />
       <PrimaryButton
         className="my-2"
         size="large"
-        onClick={() => history.push('/add/admin')}
+        onClick={() => history.push('/users/add/admin')}
         title="Register Admin"
 
       />

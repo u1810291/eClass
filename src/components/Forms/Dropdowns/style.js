@@ -122,7 +122,7 @@ export const Select = styled.div`
   align-items: center;
   padding: ${getPadding};
   height: ${getHeight};
-  background-color: ${({ color }) => (color ? color.bg : '#EAEBF8')};
+  background-color: ${({ color }) => (color ? color.bg : '#FFFFFF')};
   color: ${({ color }) => (color ? color.text : '#33333')};
   font-weight: 500;
   border-radius: ${getBorderRadius};

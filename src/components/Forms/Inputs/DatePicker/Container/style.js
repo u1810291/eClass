@@ -100,7 +100,7 @@ export const DateRange = styled(DateRangePicker)`
   }
 
   .rdrInRange {
-    background-color: #ffe5e8 !important;
+    background-color: #6ea1f2 !important;
   }
 
   .rdrDay:not(.rdrDayPassive) .rdrInRange ~ .rdrDayNumber span {
@@ -110,6 +110,7 @@ export const DateRange = styled(DateRangePicker)`
 
 export const ClockRange = styled.div`
   display: flex;
+  padding-left: 250px;
   flex-direction: column;
   background: transparent;
   justify-content: space-around;
@@ -130,7 +131,7 @@ DateContainer.Day = styled.div`
   font-family: Poppins, sans-serif;
   font-weight: 300;
   font-size: 32px;
-  color: #f64e60;
+  color: #0062ff;
   background-color: transparent;
   padding-right: 4px;
 `;
@@ -190,7 +191,6 @@ export const Selection = styled.div`
   }
   .svg {
     margin-left: auto;
-    padding-right: 16px;
   }
 
   .react-time-picker__wrapper {
