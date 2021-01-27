@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Container } from './style';
 import Dropdown from '../../../components/Forms/Dropdowns';
 // import Table from '../../../components/Table';
@@ -65,6 +66,7 @@ export default () => {
 
   const [userType, setUserType] = useState(undefined);
   const { showFullScreen } = useShowModal();
+  const history = useHistory();
   const nestedFullScreenModals = () => (
     showFullScreen({
       title: 'Back to Home',
@@ -87,6 +89,13 @@ export default () => {
         size="large"
         onClick={nestedFullScreenModals}
         title="Nested modals"
+      />
+      <PrimaryButton
+        className="my-2"
+        size="large"
+        onClick={history.push('')}
+        title="Register Student"
+
       />
       {/* <Table data={data} header={header} /> */}
 
