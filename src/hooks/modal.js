@@ -9,21 +9,15 @@ export const useModal = () => useSelector(({ modalReducer }) => modalReducer);
 export const useShowModal = () => {
   const dispatch = useDispatch();
 
-  const showBlured = useCallback(
-    (props) => {
-      dispatch(show({ ...props }));
-    },
-    [dispatch]
-  );
+  const showBlured = useCallback((props) => {
+    dispatch(show({ ...props }));
+  }, [dispatch]);
 
-  const pushFullScreenModal = useCallback(
-    (props) => {
-      dispatch(pushFullScreen({ ...props }));
-    },
-    [dispatch]
-  );
+  const pushFullScreenModal = useCallback((props) => {
+    dispatch(pushFullScreen({ ...props }));
+  }, [dispatch]);
 
-  return { showBlured, showFullscree: pushFullScreenModal };
+  return { showBlured, showFullScreen: pushFullScreenModal };
 };
 
 export const useHideModal = () => {
@@ -36,5 +30,6 @@ export const useHideModal = () => {
   const popFullScreenModal = useCallback(() => {
     dispatch(popFullScreen());
   }, [dispatch]);
+
   return { hideModal, hideFullScreen: popFullScreenModal };
 };

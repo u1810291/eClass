@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import types from '../../../constants/action-types';
 
 const defaultState = {
@@ -14,20 +15,14 @@ const map = {
     ...state,
     blured: { show: true, ...payload }
   }),
-  [types.APPLICATION_HIDE_MODAL]: (state) => ({
-    ...state,
-    blured: { show: false }
-  }),
+  [types.APPLICATION_HIDE_MODAL]: (state) => ({ ...state, blured: { show: false } }),
+  // [types.APPLICATION_SHOW_FULLSCREEN_MODAL]: (state, { payload }) => ({ ...state, fullScreen: { show: true, ...payload } }),
+  // [types.APPLICATION_HIDE_FULLSCREEN_MODAL]: (state) => ({ ...state, fullScreen: { show: false } }),
   [types.APPLICATION_PUSH_STACK_FULLSCREEN_MODAL]: (state, { payload }) => ({
-    ...state,
-    fullScreen: { stack: [...state.fullScreen.stack, payload] }
+    ...state, fullScreen: { stack: [...state.fullScreen.stack, payload] }
   }),
   [types.APPLICATION_POP_STACK_FULLSCREEN_MODAL]: (state) => ({
-    ...state,
-    fullScreen: {
-      // eslint-disable-next-line max-len
-      stack: state.fullScreen.stack.filter((_, index) => index !== state.fullScreen.stack.length - 1)
-    }
+    ...state, fullScreen: { stack: state.fullScreen.stack.filter((_, index) => index !== (state.fullScreen.stack.length - 1)) }
   })
 };
 

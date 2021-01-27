@@ -11,8 +11,8 @@ import { dataSelector } from './selectors';
 
 function* fetchData() {
   try {
-    const res = yield service.getAdminLessons();
-    const { data } = dataSelector(res);
+    const res = yield service.getLessons();
+    const { data } = dataSelector(res.data);
     yield put(setError(''));
     yield put(setData(data));
     yield put(setLoading(false));
