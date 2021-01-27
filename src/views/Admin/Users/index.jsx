@@ -4,58 +4,58 @@ import { Container } from './style';
 import Dropdown from '../../../components/Forms/Dropdowns';
 // import Table from '../../../components/Table';
 import { options } from './helper';
-import { useShowModal } from '../../../hooks/modal';
+// import { useShowModal } from '../../../hooks/modal';
 import { PrimaryButton } from '../../../components/Buttons';
 // import Service from '../../../services/admin/student';
 
-const SecondChildComponent = () => (
-  <>
-    <h1>Child component: 2</h1>
-  </>
-);
+// const SecondChildComponent = () => (
+//   <>
+//     <h1>Child component: 2</h1>
+//   </>
+// );
 
-const FirstChildComponent = () => {
-  const { showFullScreen } = useShowModal();
-  const openFullScreenModal = () => {
-    showFullScreen({
-      title: 'Back to Child One',
-      body: SecondChildComponent
-    });
-  };
-  return (
-    <div style={{ position: 'absolute' }}>
-      <h1>Child component: 1</h1>
-      <PrimaryButton
-        className="my-2"
-        size="large"
-        onClick={openFullScreenModal}
-        title="Go to child 2"
-      />
-    </div>
-  );
-};
+// const FirstChildComponent = () => {
+//   const { showFullScreen } = useShowModal();
+//   const openFullScreenModal = () => {
+//     showFullScreen({
+//       title: 'Back to Child One',
+//       body: SecondChildComponent
+//     });
+//   };
+//   return (
+//     <div style={{ position: 'absolute' }}>
+//       <h1>Child component: 1</h1>
+//       <PrimaryButton
+//         className="my-2"
+//         size="large"
+//         onClick={openFullScreenModal}
+//         title="Go to child 2"
+//       />
+//     </div>
+//   );
+// };
 
-const ParentComponent = () => {
-  const { showFullScreen } = useShowModal();
-  const openFullScreenModal = () => {
-    showFullScreen({
-      title: 'Back to Parent',
-      body: FirstChildComponent
-    });
-  };
+// const ParentComponent = () => {
+//   const { showFullScreen } = useShowModal();
+//   const openFullScreenModal = () => {
+//     showFullScreen({
+//       title: 'Back to Parent',
+//       body: FirstChildComponent
+//     });
+//   };
 
-  return (
-    <div style={{ position: 'absolute' }}>
-      <h1>Parent component</h1>
-      <PrimaryButton
-        className="my-2"
-        size="large"
-        onClick={openFullScreenModal}
-        title="Go to child 1"
-      />
-    </div>
-  );
-};
+//   return (
+//     <div style={{ position: 'absolute' }}>
+//       <h1>Parent component</h1>
+//       <PrimaryButton
+//         className="my-2"
+//         size="large"
+//         onClick={openFullScreenModal}
+//         title="Go to child 1"
+//       />
+//     </div>
+//   );
+// };
 
 export default () => {
   // const [data, setData] = useState([]);
@@ -65,13 +65,13 @@ export default () => {
   // }).catch((err) => console.log(err));
 
   const [userType, setUserType] = useState(undefined);
-  const { showFullScreen } = useShowModal();
+  // const { showFullScreen } = useShowModal();
   const history = useHistory();
-  const nestedFullScreenModals = () => (
-    showFullScreen({
-      title: 'Back to Home',
-      body: ParentComponent
-    }));
+  // const nestedFullScreenModals = () => (
+  //   showFullScreen({
+  //     title: 'Back to Home',
+  //     body: ParentComponent
+  //   }));
 
   return (
     <Container>
@@ -84,30 +84,30 @@ export default () => {
         size="large"
       />
 
-      <PrimaryButton
+      {/* <PrimaryButton
         className="my-2"
         size="large"
         onClick={nestedFullScreenModals}
         title="Nested modals"
-      />
+      /> */}
       <PrimaryButton
         className="my-2"
         size="large"
-        onClick={history.push('/add/student')}
+        onClick={() => history.push('/add/student')}
         title="Register Student"
 
       />
       <PrimaryButton
         className="my-2"
         size="large"
-        onClick={history.push('/add/student')}
+        onClick={() => history.push('/add/teacher')}
         title="Register Teacher"
 
       />
       <PrimaryButton
         className="my-2"
         size="large"
-        onClick={history.push('/add/student')}
+        onClick={() => history.push('/add/admin')}
         title="Register Admin"
 
       />
