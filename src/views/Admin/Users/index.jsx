@@ -22,7 +22,7 @@ const FirstChildComponent = () => {
     });
   };
   return (
-    <>
+    <div style={{ position: 'absolute' }}>
       <h1>Child component: 1</h1>
       <PrimaryButton
         className="my-2"
@@ -30,7 +30,7 @@ const FirstChildComponent = () => {
         onClick={openFullScreenModal}
         title="Go to child 2"
       />
-    </>
+    </div>
   );
 };
 
@@ -44,7 +44,7 @@ const ParentComponent = () => {
   };
 
   return (
-    <>
+    <div style={{ position: 'absolute' }}>
       <h1>Parent component</h1>
       <PrimaryButton
         className="my-2"
@@ -52,7 +52,7 @@ const ParentComponent = () => {
         onClick={openFullScreenModal}
         title="Go to child 1"
       />
-    </>
+    </div>
   );
 };
 
@@ -65,12 +65,11 @@ export default () => {
 
   const [userType, setUserType] = useState(undefined);
   const { showFullScreen } = useShowModal();
-  const nestedFullScreenModals = () => {
+  const nestedFullScreenModals = () => (
     showFullScreen({
       title: 'Back to Home',
       body: ParentComponent
-    });
-  };
+    }));
 
   return (
     <Container>
