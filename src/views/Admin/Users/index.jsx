@@ -93,8 +93,22 @@ export default () => {
       <PrimaryButton
         className="my-2"
         size="large"
-        onClick={history.push('')}
+        onClick={history.push('/add/student')}
         title="Register Student"
+
+      />
+      <PrimaryButton
+        className="my-2"
+        size="large"
+        onClick={history.push('/add/student')}
+        title="Register Teacher"
+
+      />
+      <PrimaryButton
+        className="my-2"
+        size="large"
+        onClick={history.push('/add/student')}
+        title="Register Admin"
 
       />
       {/* <Table data={data} header={header} /> */}

@@ -17,6 +17,7 @@ import Groups from '../views/Groups';
 import Lesson from '../views/Lesson';
 import { FIVEPLUSADMIN, STUDENT, TEACHER } from '../constants/roles';
 import Users from '../views/Admin/Users';
+import AddUser from '../views/Admin/Users/Add';
 /*
 
 'CONFIRM_STUDENT',
@@ -345,7 +346,26 @@ export const childRoutes = [
       types.VIEW_ADMIN_PROFILE
     ],
 
-    children: [],
+    children: [
+      {
+        path: '/add/student',
+        title: 'Student',
+        hidden: true,
+        component: AddUser
+      },
+      {
+        path: '/add/teacher',
+        title: 'Student',
+        hidden: true,
+        component: AddUser
+      },
+      {
+        path: '/add/admin',
+        title: 'Student',
+        hidden: true,
+        component: AddUser
+      }
+    ],
     role: [
       FIVEPLUSADMIN, TEACHER
     ]
