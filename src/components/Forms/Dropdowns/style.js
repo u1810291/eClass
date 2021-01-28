@@ -44,6 +44,7 @@ export const getBorderRadius = ({ size }) => `${['small', 'Small'].includes(size
 
 export const SelectContainer = styled.div`
   position: relative;
+  height: 50px;
 `;
 
 export const SelectLabel = styled.div`

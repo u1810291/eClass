@@ -36,4 +36,5 @@ export const TextArea = styled.textarea`
   &::placeholder {
     color: #9d9d9d;
   }
+  min-width: 100%;
 `;

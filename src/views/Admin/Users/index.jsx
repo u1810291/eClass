@@ -73,10 +73,16 @@ export default () => {
   //     body: ParentComponent
   //   }));
 
+  const getType = () => {
+    // eslint-disable-next-line no-nested-ternary
+    const value = options.map((i) => (i.id === userType ? i.value.length
+      ? `${i.value.charAt(0).toLowerCase()}${i.value.slice(1, i.value.length)}`
+      : '' : ''));
+    return value.slice(',');
+  };
   return (
     <Container>
       <Dropdown
-        label="Users"
         placeholder="Select"
         options={options}
         value={userType}
@@ -93,22 +99,8 @@ export default () => {
       <PrimaryButton
         className="my-2"
         size="large"
-        onClick={() => history.push('/users/add/student')}
+        onClick={() => history.push(`/users/add/${getType()}`)}
         title="Register Student"
-
-      />
-      <PrimaryButton
-        className="my-2"
-        size="large"
-        onClick={() => history.push('/users/add/teacher')}
-        title="Register Teacher"
-
-      />
-      <PrimaryButton
-        className="my-2"
-        size="large"
-        onClick={() => history.push('/users/add/admin')}
-        title="Register Admin"
 
       />
       {/* <Table data={data} header={header} /> */}

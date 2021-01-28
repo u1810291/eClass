@@ -4,9 +4,10 @@ import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import Dropdown from '../../../../components/Forms/Dropdowns';
+import { PrimaryButton } from '../../../../components/Buttons';
 import { dropdownOptions } from '../../../../data/dropdown';
 import { Container, MainInfo } from './style';
-import { NormalInput } from '../../../../components/Forms/Inputs';
+import { NormalInput, TagsInput } from '../../../../components/Forms/Inputs';
 import { setStudent } from '../../../../redux/modules/auth/actions';
 import TextArea from '../../../../components/Forms/Inputs/TextArea';
 import DatePicker from '../../../../components/Forms/Inputs/DatePicker';
@@ -108,7 +109,7 @@ export default () => {
         />
         <Dropdown
           color="#FFFFFF"
-          placeholder="Select"
+          placeholder="Language"
           options={dropdownOptions.commonOptions}
           value={commonDropdown}
           onChange={setCommonDropdown}
@@ -116,7 +117,7 @@ export default () => {
         />
         <Dropdown
           color="#FFFFFF"
-          placeholder="Select"
+          placeholder="Country"
           options={dropdownOptions.commonOptions}
           value={commonDropdown}
           onChange={setCommonDropdown}
@@ -124,7 +125,7 @@ export default () => {
         />
         <Dropdown
           color="#FFFFFF"
-          placeholder="Select"
+          placeholder="City"
           options={dropdownOptions.commonOptions}
           value={commonDropdown}
           onChange={setCommonDropdown}
@@ -133,7 +134,7 @@ export default () => {
         <NormalInput
           white
           size="large"
-          placeholder="Email"
+          placeholder="Address"
           type={formik.touched.username && formik.errors.username && 'error'}
           helperText={formik.touched.username && formik.errors.username && formik.errors.username}
           value={formik.values.username}
@@ -142,14 +143,54 @@ export default () => {
         <NormalInput
           white
           size="large"
-          placeholder="Email"
+          placeholder="School number"
           type={formik.touched.username && formik.errors.username && 'error'}
           helperText={formik.touched.username && formik.errors.username && formik.errors.username}
           value={formik.values.username}
           onChange={(e) => formik.setFieldValue('username', e.target.value)}
         />
       </MainInfo.Body>
+      <MainInfo.Phone>
+        <TagsInput
+          white
+          placeholder="Phones"
+          size="large"
+          defaultValue={[]}
+          type={formik.touched.phone && formik.errors.phone && 'error'}
+          helperText={
+            formik.touched.phone && formik.errors.phone && formik.errors.phone
+          }
+          onChange={(e) => formik.setFieldValue('phone', e)}
 
+        />
+        <NormalInput
+          white
+          size="large"
+          placeholder="Description"
+          type={formik.touched.username && formik.errors.username && 'error'}
+          helperText={formik.touched.username && formik.errors.username && formik.errors.username}
+          value={formik.values.username}
+          onChange={(e) => formik.setFieldValue('username', e.target.value)}
+        />
+        <NormalInput
+          white
+          size="large"
+          placeholder="Specialization"
+          type={formik.touched.username && formik.errors.username && 'error'}
+          helperText={formik.touched.username && formik.errors.username && formik.errors.username}
+          value={formik.values.username}
+          onChange={(e) => formik.setFieldValue('username', e.target.value)}
+        />
+        <Dropdown
+          color="#FFFFFF"
+          placeholder="Subjects"
+          options={dropdownOptions.commonOptions}
+          value={commonDropdown}
+          onChange={setCommonDropdown}
+          size="large"
+        />
+      </MainInfo.Phone>
+      <PrimaryButton title="Submit form" size="medium" />
     </Container>
   );
 };
