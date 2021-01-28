@@ -11,12 +11,13 @@ import { NormalInput, TagsInput } from '../../../../components/Forms/Inputs';
 import { setStudent } from '../../../../redux/modules/auth/actions';
 import TextArea from '../../../../components/Forms/Inputs/TextArea';
 import DatePicker from '../../../../components/Forms/Inputs/DatePicker';
+import Parents from './Parents';
 
 export default () => {
   const dispatch = useDispatch();
   const [date, setDate] = useState(undefined);
   const [commonDropdown, setCommonDropdown] = useState(undefined);
-
+  const getPath = window.location.pathname.split('/');
   const formik = useFormik({
     initialValues: {
       username: '',
@@ -190,6 +191,7 @@ export default () => {
           size="large"
         />
       </MainInfo.Phone>
+      {getPath[getPath.length - 1] === 'student' ? <Parents formik={formik} /> : ''}
       <PrimaryButton title="Submit form" size="medium" />
     </Container>
   );
