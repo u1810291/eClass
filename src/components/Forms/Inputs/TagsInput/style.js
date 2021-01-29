@@ -18,6 +18,8 @@ const common = css`
 
 const normal = css`
   background-color: #f5f5f5;
+  border: 1px solid #e2e2ea;
+
   &:hover {
     background-color: #e9e9e9;
   }
@@ -60,7 +62,7 @@ export const TagItem = styled.div`
 export const TagsWrapper = styled.div`
   ${common};
   ${getType};
-  border: 1px solid white;
+  border: 1px solid #e2e2ea;
   background-color: ${({ white }) => (white ? '#ffffff' : '#F5F5F5')};
   &:hover {
     background-color: ${({ white }) => (white ? '#ffffff' : '#E9E9E9')};

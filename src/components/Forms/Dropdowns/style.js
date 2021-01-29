@@ -45,6 +45,7 @@ export const getBorderRadius = ({ size }) => `${['small', 'Small'].includes(size
 export const SelectContainer = styled.div`
   position: relative;
   height: 50px;
+  
 `;
 
 export const SelectLabel = styled.div`
@@ -118,6 +119,7 @@ export const OptionsItem = styled.div`
 `;
 
 export const Select = styled.div`
+  border: 1px solid #e2e2ea;
   outline: none;
   display: flex;
   align-items: center;
@@ -160,7 +162,7 @@ export const SearchInput = styled.input`
   border-radius: 8px;
   line-height: 18px;
   padding: 14px 24px;
-  border: 0;
+  border: 1px solid #e2e2ea;
   outline: none;
 
   &::placeholder {

@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
   align-items: center;
   column-gap: 8px;
   width: -webkit-fill-available;
+  
 `;
 
 export const UpperContainer = styled.div`
