@@ -2,6 +2,10 @@ import styled from 'styled-components';
 
 export const SubmitForm = styled.form``;
 
+export const Body = styled.div`
+  padding-top: 25px;
+`;
+
 export const Container = styled.div`
   margin: 50px;
 `;
