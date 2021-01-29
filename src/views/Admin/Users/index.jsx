@@ -30,7 +30,6 @@ export default () => {
         size="large"
         onClick={() => (getType().length > 0 ? history.push(`/users/add/${getType()}`) : null)}
         title="Register"
-
       />
       {/* <Table data={data} header={header} /> */}
 

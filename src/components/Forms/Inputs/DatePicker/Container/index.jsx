@@ -166,5 +166,5 @@ export default ({
       </TabletAndDesktopContainer>
     );
   }
-  return <>Hello</>;
+  return <></>;
 };

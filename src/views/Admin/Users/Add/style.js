@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+export const SubmitForm = styled.form``;
+
 export const Container = styled.div`
   margin: 50px;
 `;
