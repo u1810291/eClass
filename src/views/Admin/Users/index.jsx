@@ -2,83 +2,19 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Container } from './style';
 import Dropdown from '../../../components/Forms/Dropdowns';
-// import Table from '../../../components/Table';
 import { options } from './helper';
-// import { useShowModal } from '../../../hooks/modal';
 import { PrimaryButton } from '../../../components/Buttons';
-// import Service from '../../../services/admin/student';
-
-// const SecondChildComponent = () => (
-//   <>
-//     <h1>Child component: 2</h1>
-//   </>
-// );
-
-// const FirstChildComponent = () => {
-//   const { showFullScreen } = useShowModal();
-//   const openFullScreenModal = () => {
-//     showFullScreen({
-//       title: 'Back to Child One',
-//       body: SecondChildComponent
-//     });
-//   };
-//   return (
-//     <div style={{ position: 'absolute' }}>
-//       <h1>Child component: 1</h1>
-//       <PrimaryButton
-//         className="my-2"
-//         size="large"
-//         onClick={openFullScreenModal}
-//         title="Go to child 2"
-//       />
-//     </div>
-//   );
-// };
-
-// const ParentComponent = () => {
-//   const { showFullScreen } = useShowModal();
-//   const openFullScreenModal = () => {
-//     showFullScreen({
-//       title: 'Back to Parent',
-//       body: FirstChildComponent
-//     });
-//   };
-
-//   return (
-//     <div style={{ position: 'absolute' }}>
-//       <h1>Parent component</h1>
-//       <PrimaryButton
-//         className="my-2"
-//         size="large"
-//         onClick={openFullScreenModal}
-//         title="Go to child 1"
-//       />
-//     </div>
-//   );
-// };
 
 export default () => {
-  // const [data, setData] = useState([]);
-  // Service.getAllStudents().then((res) => {
-  //   console.log(res.data.content);
-  //   setData(res.data.content);
-  // }).catch((err) => console.log(err));
-
   const [userType, setUserType] = useState(undefined);
-  // const { showFullScreen } = useShowModal();
   const history = useHistory();
-  // const nestedFullScreenModals = () => (
-  //   showFullScreen({
-  //     title: 'Back to Home',
-  //     body: ParentComponent
-  //   }));
 
   const getType = () => {
     // eslint-disable-next-line no-nested-ternary
     const value = options.map((i) => (i.id === userType ? i.value.length
       ? `${i.value.charAt(0).toLowerCase()}${i.value.slice(1, i.value.length)}`
       : '' : ''));
-    return value.filter((i) => i === ' ');
+    return value.filter((i) => i !== '');
   };
   return (
     <Container>
@@ -89,39 +25,11 @@ export default () => {
         onChange={setUserType}
         size="large"
       />
-
-      {/* <PrimaryButton
-        className="my-2"
-        size="large"
-        onClick={nestedFullScreenModals}
-        title="Nested modals"
-      /> */}
       <PrimaryButton
         className="my-2"
         size="large"
-        onClick={() => history.push(`/users/add/${getType()}`)}
-        title="Register Student"
-
-      />
-      <PrimaryButton
-        className="my-2"
-        size="large"
-        onClick={() => history.push('/users/add/student')}
-        title="Register Student"
-
-      />
-      <PrimaryButton
-        className="my-2"
-        size="large"
-        onClick={() => history.push('/users/add/teacher')}
-        title="Register Teacher"
-
-      />
-      <PrimaryButton
-        className="my-2"
-        size="large"
-        onClick={() => history.push('/users/add/admin')}
-        title="Register Admin"
+        onClick={() => (getType().length > 0 ? history.push(`/users/add/${getType()}`) : null)}
+        title="Register"
 
       />
       {/* <Table data={data} header={header} /> */}
