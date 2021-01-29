@@ -72,6 +72,7 @@ export default () => {
       specialization: Yup.string().required('Specialization is required')
     }),
     onSubmit: (values, { setSubmitting }) => {
+      console.log(values);
       setSubmitting(true);
       setSubmitting(false);
       // dispatch(setStudent(values, () => {
