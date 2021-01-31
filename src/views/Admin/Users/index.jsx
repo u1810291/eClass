@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import {
   Container, Header, Search, Filter, Body
@@ -22,7 +22,10 @@ export default () => {
       : '' : ''));
     return value.filter((i) => i !== '') || null;
   };
-  users.getUsers(getType().length === 0 ? 'student' : getType()).then((res) => setData(res.data.content)).catch((err) => console.log(err));
+  useEffect(() => {
+    users.getUsers(getType().length === 0 ? 'student' : getType()).then((res) => setData(res.data.content)).catch((err) => console.log(err));
+    console.log(data);
+  });
   return (
     <Container>
       <Header>
