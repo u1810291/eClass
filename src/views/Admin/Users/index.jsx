@@ -28,8 +28,7 @@ export default () => {
     dispatch(fetchData());
     // users.getUsers(getType().length === 0 ? 'student'
     // : getType()).then((res) => setData(res.data.content)).catch((err) => console.log(err));
-    console.log(data);
-  });
+  }, [fetchData]);
   return (
     <Container>
       <Header>
@@ -58,7 +57,7 @@ export default () => {
         />
       </Filter>
       <Body>
-
+        {console.log(data)}
         <Table data={data} header={header} />
       </Body>
 

@@ -9,23 +9,16 @@ import {
 
 import { dataSelector } from './selectors';
 
-const getType = () => {
-  // eslint-disable-next-line no-nested-ternary
-  const value = options.map((i) => (i.id === userType ? i.value.length
-    ? `${i.value.charAt(0).toLowerCase()}${i.value.slice(1, i.value.length)}`
-    : '' : ''));
-  return value.filter((i) => i !== '') || null;
-};
-
-function* fetchData(user) {
+function* fetchData() {
   try {
-    const res = yield service.getUsers(getType().length === 0 ? 'student' : getType());
-    console.log(res);
+    const res = yield service.getUsers('student');
     const { data } = dataSelector(res.data);
+    console.log(data);
     yield put(setError(''));
     yield put(setData(data));
     yield put(setLoading(false));
   } catch (error) {
+    console.log(error);
     yield put(setError(error.message));
   }
 }
