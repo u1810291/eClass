@@ -61,19 +61,19 @@ export default () => {
       lang: 'ru',
       phone: Yup.array().required('Phone is required').of(Yup.number().positive().integer()).unique('Phone numbers must be unique'),
       phone_description: Yup.string().required('Description to number is required'),
-      comment_description: Yup.string().notRequired(),
+      comment_description: Yup.string().required(),
       parent_full_name: Yup.string().required('Full name is required'),
-      parent_description: Yup.string().notRequired(),
+      parent_description: Yup.string().required(),
       parent_phone: Yup.array().required('Phone is required').of(Yup.number().positive().integer()).unique('Phone numbers must be unique'),
-      parent_phone_description: Yup.string().notRequired(),
+      parent_phone_description: Yup.string().required(),
       school_number: Yup.string().required('School is required'),
       city_name: Yup.string().required('City is required'),
       address: Yup.string().required('Address is required'),
       specialization: Yup.string().required('Specialization is required')
     }),
     onSubmit: (values, { setSubmitting }) => {
-      console.log(values);
       setSubmitting(true);
+      console.log(values);
       setSubmitting(false);
       // dispatch(setStudent(values, () => {
       //   setSubmitting(false);
