@@ -1,8 +1,9 @@
 import { takeLatest, put } from 'redux-saga/effects';
 import types from '../../../constants/action-types';
 import service from '../../../services/auth';
+
 import {
-  setAccessToken, setRefreshToken, setExpiresAt, setError
+  setAccessToken, setRefreshToken, setExpiresAt, setError, setStudent, setTeacher, setAdmin
 } from './actions';
 
 function* login({ payload, success }) {
@@ -25,7 +26,35 @@ function* validate({ payload }) {
   }
 }
 
+function* regStudent() {
+  try {
+    const res = yield service.registerStudent();
+    yield put(setStudent(res.data));
+  } catch (error) {
+    yield put(setError(error.message));
+  }
+}
+function* regTeacher() {
+  try {
+    const res = yield service.registerStudent();
+    yield put(setTeacher(res.data));
+  } catch (error) {
+    yield put(setError(error.message));
+  }
+}
+function* regAdmin() {
+  try {
+    const res = yield service.registerStudent();
+    yield put(setAdmin(res.data));
+  } catch (error) {
+    yield put(setError(error.message));
+  }
+}
 export default function* authSaga() {
   yield takeLatest(types.AUTH_LOGIN, login);
   yield takeLatest(types.AUTH_VERIFY, validate);
+
+  yield takeLatest(types.AUTH_REGISTER_STUDENT, regStudent);
+  yield takeLatest(types.AUTH_REGISTER_TEACHER, regTeacher);
+  yield takeLatest(types.AUTH_REGISTER_ADMIN, regAdmin);
 }

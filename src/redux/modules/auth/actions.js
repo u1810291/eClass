@@ -7,3 +7,7 @@ export const logout = () => ({ type: types.AUTH_LOGOUT });
 export const setError = () => ({ type: types.AUTH_ERROR });
 export const verify = (payload) => ({ type: types.AUTH_VERIFY, payload });
 export const login = (payload, success) => ({ type: types.AUTH_LOGIN, payload, success });
+
+export const setStudent = (payload) => ({ type: types.AUTH_REGISTER_STUDENT, payload });
+export const setTeacher = (payload) => ({ type: types.AUTH_REGISTER_TEACHER, payload });
+export const setAdmin = (payload) => ({ type: types.AUTH_REGISTER_ADMIN, payload });

@@ -7,7 +7,7 @@ import { InputBlock, DatepickerInput } from '../style';
 import { ErrorText } from '../../Error/style';
 import CalendarComponent from './Container';
 import { ClickOutside } from '../../../../hooks/click-outside';
-import Icon from '../../../Icon';
+// import Icon from '../../../Icon';
 import { Wrapper } from './style';
 
 export default (props) => {
@@ -147,7 +147,8 @@ export default (props) => {
         {displayValue || (
           <Wrapper white={white}>
             {placeholder}
-            <Icon icon={isPopoverOpen ? 'top' : 'buttom'} color={white ? '#262626' : '#7E8299'} />
+            {/* <Icon icon={isPopoverOpen ? 'top' : 'buttom'}
+             color={white ? '#262626' : '#7E8299'} /> */}
           </Wrapper>
         )}
       </DatepickerInput>

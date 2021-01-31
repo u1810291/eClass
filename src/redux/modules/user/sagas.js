@@ -1,7 +1,9 @@
 import { takeLatest, put } from 'redux-saga/effects';
 import types from '../../../constants/action-types';
 import service from '../../../services/profiles';
-import { setData, setError } from './actions';
+import {
+  setData, setError
+} from './actions';
 
 function* fetchData() {
   try {

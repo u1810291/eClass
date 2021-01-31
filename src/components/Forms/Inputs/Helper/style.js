@@ -3,6 +3,22 @@ import {
   getType, label, helperText, getBorderRadius
 } from '../style';
 
+export const HelperWrapper = styled.div`
+  position: absolute;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  font-size: 13px;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  padding: 0px 13px;
+  background: rgb(233, 233, 233);
+  cursor: pointer;
+  height: 50px;
+`;
+
 const transition = keyframes`    
   transition: all 0.2s;
   touch-action: manipulation;
@@ -23,7 +39,7 @@ export const Input = styled.input`
   }
   border-radius: ${getBorderRadius};
   outline: none !important;
-  text-indent: 10px;
+  text-indent: 30px;
 
   ${({ search: isSearch }) => isSearch && search} ::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -48,14 +64,10 @@ export const Label = styled.label`
 
 export const Container = styled.div`
   width: 100%;
-`;
-export const InnerContainer = styled.div`
-  width: 100%;
-  display: flex;
   position: relative;
+  display: flex;
   align-items: center;
 `;
 export const Helper = styled.div`
   ${helperText}
-  position: absolute;
 `;
