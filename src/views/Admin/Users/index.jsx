@@ -4,13 +4,15 @@ import {
   Container, Header, Search, Filter, Body
 } from './style';
 import Dropdown from '../../../components/Forms/Dropdowns';
-import { options } from './helper';
+import { options, header } from './helper';
 import { SearchableInput } from '../../../components/Forms/Inputs';
 import { PrimaryButton } from '../../../components/Buttons';
-// import Table from '../../../components/Table';
+import Table from '../../../components/Table';
+import users from '../../../services/admin/users';
 
 export default () => {
   const [userType, setUserType] = useState(undefined);
+  const [data, setData] = useState([]);
   const history = useHistory();
 
   const getType = () => {
@@ -18,8 +20,9 @@ export default () => {
     const value = options.map((i) => (i.id === userType ? i.value.length
       ? `${i.value.charAt(0).toLowerCase()}${i.value.slice(1, i.value.length)}`
       : '' : ''));
-    return value.filter((i) => i !== '');
+    return value.filter((i) => i !== '') || null;
   };
+  users.getUsers(getType().length === 0 ? 'student' : getType()).then((res) => setData(res.data.content)).catch((err) => console.log(err));
   return (
     <Container>
       <Header>
@@ -49,7 +52,7 @@ export default () => {
       </Filter>
       <Body>
 
-        {/* <Table data={data} header={header} /> */}
+        <Table data={data} header={header} />
       </Body>
 
     </Container>
