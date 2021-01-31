@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import {
   Container, Header, Search, Filter, Body
 } from './style';
@@ -8,12 +9,13 @@ import { options, header } from './helper';
 import { SearchableInput } from '../../../components/Forms/Inputs';
 import { PrimaryButton } from '../../../components/Buttons';
 import Table from '../../../components/Table';
-import users from '../../../services/admin/users';
+import { fetchData } from '../../../redux/modules/admin/users/actions';
 
 export default () => {
   const [userType, setUserType] = useState(undefined);
-  const [data, setData] = useState([]);
+  const { data } = useSelector((state) => state.adminUsersReducers);
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const getType = () => {
     // eslint-disable-next-line no-nested-ternary
@@ -23,7 +25,9 @@ export default () => {
     return value.filter((i) => i !== '') || null;
   };
   useEffect(() => {
-    users.getUsers(getType().length === 0 ? 'student' : getType()).then((res) => setData(res.data.content)).catch((err) => console.log(err));
+    dispatch(fetchData());
+    // users.getUsers(getType().length === 0 ? 'student'
+    // : getType()).then((res) => setData(res.data.content)).catch((err) => console.log(err));
     console.log(data);
   });
   return (
