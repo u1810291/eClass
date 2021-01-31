@@ -73,7 +73,7 @@ export default () => {
     }),
     onSubmit: (values, { setSubmitting }) => {
       setSubmitting(true);
-      console.log(values);
+      // console.log(values);
       setSubmitting(false);
       // dispatch(setStudent(values, () => {
       //   setSubmitting(false);

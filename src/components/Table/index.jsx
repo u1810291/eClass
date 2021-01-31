@@ -138,7 +138,6 @@ function App({ data: tableData, header }) {
     []
   );
 
-  console.log(tableData);
   return (
     <Styles>
       <Table

@@ -13,12 +13,10 @@ function* fetchData() {
   try {
     const res = yield service.getUsers('student');
     const { data } = dataSelector(res.data);
-    console.log(data);
     yield put(setError(''));
     yield put(setData(data));
     yield put(setLoading(false));
   } catch (error) {
-    console.log(error);
     yield put(setError(error.message));
   }
 }

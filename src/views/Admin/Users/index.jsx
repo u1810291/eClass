@@ -57,7 +57,6 @@ export default () => {
         />
       </Filter>
       <Body>
-        {console.log(data)}
         <Table data={data} header={header} />
       </Body>
 
