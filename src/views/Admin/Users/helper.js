@@ -15,31 +15,14 @@ export const options = [
 ];
 
 export const header = [{
-  Header: () => null, // No header
+  Header: () => 'Address', // No header
   id: 'expander', // It needs an ID
   Cell: ({ row }) => (
     <span {...row.getToggleRowExpandedProps()}>
-      {row.isExpanded ? 'v' : '>'}
+      {row.original.address}
     </span>
   ),
   SubCell: () => null
-},
-{
-  Header: 'Rescheduled',
-  accessor: (d) => d.rescheduled,
-  SubCell: (cellProps) => (
-    <>
-      🥳
-      {cellProps.value}
-      {' '}
-      🎉
-    </>
-  )
-},
-
-{
-  Header: 'Address',
-  accessor: (d) => d.address
 },
 {
   Header: 'Confirmed',
