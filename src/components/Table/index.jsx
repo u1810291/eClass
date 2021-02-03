@@ -4,7 +4,9 @@ import React, {
 } from 'react';
 
 import { useExpanded, useTable } from 'react-table';
-import { Styles } from './style';
+import {
+  Container, TR, THead, TBody
+} from './style';
 import makeData from './makeData';
 
 function SubRows({
@@ -92,7 +94,7 @@ function Table({ columns: userColumns, data, renderRowSubComponent }) {
   return (
     <>
       <table {...getTableProps()}>
-        <thead>
+        <THead>
           {headerGroups.map((headerGroup) => (
             <tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map((column) => (
@@ -100,24 +102,24 @@ function Table({ columns: userColumns, data, renderRowSubComponent }) {
               ))}
             </tr>
           ))}
-        </thead>
-        <tbody {...getTableBodyProps()}>
+        </THead>
+        <TBody {...getTableBodyProps()}>
           {rows.map((row) => {
             prepareRow(row);
             const rowProps = row.getRowProps();
             return (
               <React.Fragment key={rowProps.key}>
-                <tr {...rowProps}>
+                <TR {...rowProps}>
                   {row.cells.map((cell) => (
                     <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
                   ))}
-                </tr>
+                </TR>
                 {row.isExpanded
                 && renderRowSubComponent({ row, rowProps, visibleColumns })}
               </React.Fragment>
             );
           })}
-        </tbody>
+        </TBody>
       </table>
     </>
   );
@@ -125,7 +127,6 @@ function Table({ columns: userColumns, data, renderRowSubComponent }) {
 
 function App({ data: tableData, header }) {
   const columns = useMemo(() => header, [header]);
-
   const data = useMemo(() => tableData, [tableData]);
 
   const renderRowSubComponent = useCallback(
@@ -140,13 +141,13 @@ function App({ data: tableData, header }) {
   );
 
   return (
-    <Styles>
+    <Container>
       <Table
         columns={columns}
         data={data}
         renderRowSubComponent={renderRowSubComponent}
       />
-    </Styles>
+    </Container>
   );
 }
 

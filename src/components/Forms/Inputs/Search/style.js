@@ -53,7 +53,7 @@ export const Label = styled.label`
 `;
 
 export const Container = styled.div`
-  width: 100%;
+  min-width: 100%;
   display: flex;
   position: relative;
   align-items: center;

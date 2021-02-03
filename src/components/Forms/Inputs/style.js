@@ -211,6 +211,7 @@ export const InputBlock = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
+  
 `;
 
 export const TextareaView = styled.textarea`
@@ -234,9 +235,9 @@ export const DatepickerInput = styled.div`
   border-radius: 8px;
   color: ${({ white }) => (white ? '#262626' : '#7E8299')};
   line-height: 18px;
-  height: 43px;
+  height: 46px;
   padding: 0px 24px;
-  border: 0;
+  border: 1px solid #e2e2ea;
   outline: none;
   justify-content: center;
   &:hover {
