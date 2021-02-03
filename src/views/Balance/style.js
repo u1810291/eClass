@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Continer = styled.div`
-  margin: 20px;
+  margin: 10px;
 `;
 
 export const Header = styled.div`

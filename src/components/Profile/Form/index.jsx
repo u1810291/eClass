@@ -6,7 +6,7 @@ import { NormalInput } from '../../Forms/Inputs';
 export default ({ title }) => (
   <Container>
     <Forms>
-      <Card>
+      <Card bordered>
         {title}
         <InputsContainer>
           <InputsContainer.Head>

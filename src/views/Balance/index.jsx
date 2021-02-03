@@ -17,7 +17,8 @@ export default () => {
           Total balance: 750.000sums
         </Header.Right>
       </Header>
-      <Card color="#1AA7E8" size="small">
+
+      <Card color="#FFFFFF" size="small">
         {data}
         Balance
       </Card>
