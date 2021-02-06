@@ -10,7 +10,6 @@ const tabletDesktop = css`
   ${common};
   grid-template-areas: "sidebar content";
   grid-template-columns: auto 1fr;
-  height: 100vh;
 `;
 
 export const DesktopContainer = styled.div`
