@@ -1,7 +1,9 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useState, useEffect } from 'react';
 import Card from '../../components/Card';
-import { Continer, Header, CardsContainer } from './style';
+import {
+  Continer, Header, CardsContainer, Body
+} from './style';
 import { getRandColor } from '../../utils/random-color';
 
 export default () => {
@@ -19,17 +21,20 @@ export default () => {
           Total balance: 750.000sums
         </Header.Right>
       </Header>
-      <Card color="#FFFFFF" size="small">
-        <CardsContainer>
+      <Body>
 
-          {[...Array(20)].map((el, i) => (
-            <Card key={i} color={getRandColor()} size="small">
-              {data}
-              Balance
-            </Card>
-          ))}
-        </CardsContainer>
-      </Card>
+        <Card color="#FFFFFF" size="small">
+          <CardsContainer>
+
+            {[...Array(20)].map((el, i) => (
+              <Card key={i} color={getRandColor()} size="small">
+                {data}
+                Balance
+              </Card>
+            ))}
+          </CardsContainer>
+        </Card>
+      </Body>
     </Continer>
   );
 };

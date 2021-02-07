@@ -4,6 +4,7 @@ const common = css`
   width: 99vw;
   height: 99vh;
   display: grid;
+  word-break: break-all;
 `;
 
 const tabletDesktop = css`

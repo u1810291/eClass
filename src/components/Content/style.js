@@ -19,8 +19,8 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   position: relative;
-  width: 75vw;
-  height: 75vh;
+  width: 98%;
+  height: 98%;
   border-radius: 25px;
   padding: 0 10px;
   margin-right: 20px;

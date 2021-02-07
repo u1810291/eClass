@@ -13,6 +13,9 @@ Header.Right = styled.div`
 `;
 Header.Left = styled.div`
 `;
+export const Body = styled.div`
+  width: 100%;
+`;
 
 export const CardsContainer = styled.div`
   display: grid;
