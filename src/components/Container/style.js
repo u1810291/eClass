@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
 
 const common = css`
-  width: 100vw;
-  height: 100vh;
+  width: 99vw;
+  height: 99vh;
   display: grid;
 `;
 
@@ -17,6 +17,10 @@ export const DesktopContainer = styled.div`
 `;
 
 export const TabletContainer = styled.div`
+  ${tabletDesktop};
+  `;
+
+export const NotebookContainer = styled.div`
   ${tabletDesktop};
 `;
 
