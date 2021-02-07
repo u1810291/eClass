@@ -1,6 +1,8 @@
+/* eslint-disable react/no-array-index-key */
 import React, { useState, useEffect } from 'react';
 import Card from '../../components/Card';
-import { Continer, Header } from './style';
+import { Continer, Header, CardsContainer } from './style';
+import { getRandColor } from '../../utils/random-color';
 
 export default () => {
   const [data, setData] = useState('');
@@ -17,10 +19,16 @@ export default () => {
           Total balance: 750.000sums
         </Header.Right>
       </Header>
-
       <Card color="#FFFFFF" size="small">
-        {data}
-        Balance
+        <CardsContainer>
+
+          {[...Array(20)].map((el, i) => (
+            <Card key={i} color={getRandColor()} size="small">
+              {data}
+              Balance
+            </Card>
+          ))}
+        </CardsContainer>
       </Card>
     </Continer>
   );

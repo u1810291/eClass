@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Continer = styled.div`
-  margin: 10px;
 `;
 
 export const Header = styled.div`
@@ -13,4 +12,10 @@ export const Header = styled.div`
 Header.Right = styled.div`
 `;
 Header.Left = styled.div`
+`;
+
+export const CardsContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 15px;
 `;
