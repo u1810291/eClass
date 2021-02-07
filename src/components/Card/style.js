@@ -8,4 +8,6 @@ export const Container = styled.div.attrs((props) => ({
   border-radius: ${({ size }) => (size !== 'small' ? '25px' : '20px')};
   padding: 20px;
   width: 100%;
+  display: grid;
+  grid-gap: 10px;
 `;
