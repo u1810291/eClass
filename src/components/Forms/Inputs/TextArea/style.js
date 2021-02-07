@@ -5,7 +5,6 @@ export const TextArea = styled.textarea`
   border-radius: 11px;
   background: ${({ white }) => (white ? ' #ffffff' : ' #f5f5f5')};
   height: 98px;
-  padding: 16px;
   outline: none;
   border: 1px solid rgba(174, 179, 205, 0.58);
   &:focus {

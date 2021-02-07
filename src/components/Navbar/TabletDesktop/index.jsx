@@ -75,12 +75,28 @@ export default () => {
               src={Avatar}
               onClick={() => setIsOpen((prevState) => !prevState)}
             />
+            <ClickOutside
+              outClickRef={clickRef}
+              outsideClicked={() => {
+                setIsOpen(false);
+              }}
+            >
+              <DropdownContainer isOpen={isOpen}>
+                <Item onClick={() => handleOnClick('profile')}>
+                  <Text className={classNames('caption', 'weight-semibold', 'text-black-800')}>Profile</Text>
+                </Item>
+                <Item onClick={() => handleOnClick('logout')}>
+                  <Text className={classNames('caption', 'weight-semibold', 'text-black-800')}>Log out</Text>
+                </Item>
+              </DropdownContainer>
+            </ClickOutside>
             <TextContainer>
               <TextContainer.Name>Isaac Williams</TextContainer.Name>
               <TextContainer.Email>kinanthayani@mail.com</TextContainer.Email>
             </TextContainer>
 
             {/* eslint-disable-next-line global-require */}
+
             <Dropdown
               placeholder="RU"
               options={language}
@@ -90,21 +106,6 @@ export default () => {
             />
           </UserInfoContainer>
 
-          <ClickOutside
-            outClickRef={clickRef}
-            outsideClicked={() => {
-              setIsOpen(false);
-            }}
-          >
-            <DropdownContainer isOpen={isOpen}>
-              <Item onClick={() => handleOnClick('profile')}>
-                <Text className={classNames('caption', 'weight-semibold', 'text-black-800')}>Profile</Text>
-              </Item>
-              <Item onClick={() => handleOnClick('logout')}>
-                <Text className={classNames('caption', 'weight-semibold', 'text-black-800')}>Log out</Text>
-              </Item>
-            </DropdownContainer>
-          </ClickOutside>
         </PopupContainer>
       </Content>
     </Container>

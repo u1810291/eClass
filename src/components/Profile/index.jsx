@@ -15,8 +15,8 @@ export default () => (
       <Form title="Student" />
       <Form title="Parent" />
     </Content>
+    <Text>Дополнительная информация</Text>
     <Area>
-      <Text>Дополнительная информация</Text>
       <TextArea white />
     </Area>
   </Container>
