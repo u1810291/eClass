@@ -1,6 +1,13 @@
 import React from 'react';
-import { Container } from './style';
+import { Container, Header, Body } from './style';
 
 export default () => (
-  <Container />
+  <Container>
+    <Header>
+      Header
+    </Header>
+    <Body>
+      Sidebar
+    </Body>
+  </Container>
 );
