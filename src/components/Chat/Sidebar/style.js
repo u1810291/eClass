@@ -33,6 +33,7 @@ export const Body = styled.div`
   grid-gap: 5px;
   grid-template-columns: 1fr;
   height: 100%;
+  width: 100%;
   &::-webkit-scrollbar {
     position: absolute;
     width: 8px;

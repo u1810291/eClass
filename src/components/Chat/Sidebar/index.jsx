@@ -5,6 +5,7 @@ import { Container, Header, Body } from './style';
 
 export default ({ active, setActive }) => {
   console.log(active);
+  setActive(false);
   return (
     <Container>
       <Header>
@@ -16,7 +17,7 @@ export default ({ active, setActive }) => {
             key={i}
             id={i}
             active={active}
-            onClick={() => setActive(true)}
+            onClick={() => console.log('Clicked')}
           />
         ))}
       </Body>
