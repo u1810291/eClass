@@ -1,10 +1,12 @@
 import React from 'react';
 import { ItemWrapper } from './style';
 
-export default ({ id }) => (
-  <ItemWrapper>
+const Item = ({ id, active }) => (
+  <ItemWrapper active={active}>
     {id}
-    {' '}
+    {console.log('some', active)}
     Item
   </ItemWrapper>
 );
+
+export default Item;

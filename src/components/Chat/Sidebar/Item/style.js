@@ -1,11 +1,14 @@
 import styled from 'styled-components';
 
-export const ItemWrapper = styled.div`
-  background: #F2F7FF;
-  cursor: pointer;  
+export const ItemWrapper = styled.div.attrs((props) => ({
+  style: {
+    backgroundColor: props.active ? '#1E75FF' : '#FFFFFF'
+  }
+}))`
+cursor: pointer;  
   border-radius: 15px;
-  &:active {
-    background: #1E75FF;
+  &:hover{
+    background: #F2F7FF;
   }
   width: 100%;
   padding: 20px;
