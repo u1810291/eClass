@@ -7,6 +7,7 @@ export const Container = styled.div`
   background: white;
   padding: 30px;
   margin: 20px;
+  margin-right: 200px;
   border-radius: 42px;
   height: 90%;
   width: 94%;
@@ -18,10 +19,11 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: 98%;
+  height: 98%;
   border-radius: 25px;
   padding: 0 10px;
+  margin-right: 20px;
 
   background: #f4f7fc;
 `;

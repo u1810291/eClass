@@ -1,16 +1,16 @@
 import styled, { css } from 'styled-components';
 
 const common = css`
-  width: 100vw;
-  height: 100vh;
+  width: 99vw;
+  height: 99vh;
   display: grid;
+  word-break: break-all;
 `;
 
 const tabletDesktop = css`
   ${common};
   grid-template-areas: "sidebar content";
   grid-template-columns: auto 1fr;
-  height: 100vh;
 `;
 
 export const DesktopContainer = styled.div`
@@ -18,6 +18,10 @@ export const DesktopContainer = styled.div`
 `;
 
 export const TabletContainer = styled.div`
+  ${tabletDesktop};
+  `;
+
+export const NotebookContainer = styled.div`
   ${tabletDesktop};
 `;
 

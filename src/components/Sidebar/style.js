@@ -5,7 +5,7 @@ export const BodyContainer = styled.div`
   overflow: auto;
   grid-area: body;
   width: 245px;
-  height: 938.73px;
+  height: 100%;
   left: 67px;
   top: 98.06px;
 
