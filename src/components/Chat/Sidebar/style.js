@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   transition: 0.2s width;
+  background: #FFFFFF;
   grid-area: sidebar;
   position: relative;
   display: grid;
@@ -13,6 +14,7 @@ export const Container = styled.div`
   overflow: hidden;
   border: solid 1px black;
   min-width: var(--chat-sidebar-width);
+  height: 100%;
 `;
 
 export const Header = styled.div`

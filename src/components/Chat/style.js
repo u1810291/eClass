@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 98%;
-  height: 90%;
+  height: 88%;
   display: grid;
   word-break: break-all;
   grid-template-areas: "sidebar content";

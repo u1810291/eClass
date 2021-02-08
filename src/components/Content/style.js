@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  overflow-y: auto;
-  overflow-x: auto;
 
   background: white;
   padding: 30px;
@@ -26,4 +24,7 @@ export const Content = styled.div`
   margin-right: 20px;
   word-break: break-all;  
   background: #f4f7fc;
+  overflow-y: auto;
+  overflow-x: auto;
+
 `;

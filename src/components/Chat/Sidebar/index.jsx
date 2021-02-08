@@ -9,7 +9,6 @@ export default () => (
       Header
     </Header>
     <Body>
-      hello
       {[...Array(20)].map((el, i) => (
         <Item key={i} id={i} />))}
     </Body>
