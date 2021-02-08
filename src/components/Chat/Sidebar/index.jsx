@@ -4,7 +4,7 @@ import Item from './Item';
 import { Container, Header, Body } from './style';
 
 export default ({ active, setActive }) => {
-  console.log(active);
+  // console.log(active);
   setActive(false);
   return (
     <Container>
@@ -17,7 +17,7 @@ export default ({ active, setActive }) => {
             key={i}
             id={i}
             active={active}
-            onClick={() => console.log('Clicked')}
+            // onClick={() => console.log('Clicked')}
           />
         ))}
       </Body>
