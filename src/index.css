@@ -17,6 +17,8 @@ body {
 }
 
 :root {
+  --chat-sidebar-width: 230px;
+  --chat-navbar-height: 80px;
   --custom-primary: #0062ff;
   --custom-primary-light: white;
   --custom-secondary: #ffa800;
