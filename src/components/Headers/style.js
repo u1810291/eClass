@@ -147,6 +147,7 @@ export const ButtonContainer = styled.div`
 export const Body = styled.div`
   display: flex;
   justify-content: space-between;
+  padding: 20px;
 `;
 export const Title = styled.div`
   font-style: normal;
@@ -159,14 +160,26 @@ export const SwitchButton = styled.div`
   background: #FFFFFF;
   box-shadow: 0px 11px 13px rgba(124, 136, 177, 0.1), inset 4px 0px 0px #A9C6FF;
   border-radius: 11px;
-  width: 20%;
-`;
+  width: 30%;
+  display: flex;
+  `;
 
 SwitchButton.Button = styled.button`
-  
-  &:active{background: #FFFFFF;}
-  &:focus{background: #FFFFFF;}
+  margin: 5px;
+  padding: 10px;
+  cursor: pointer;
+  border: none;
+  width: 100%;
+  background: #FFFFFF;
+  &:active{
+    background: #FFFFFF;
+  }
   &:hover{
+    background: rgba(214, 236, 255, 0.82);
+  }
+  &:focus{
+    outline: none;
+
     background: rgba(214, 236, 255, 0.82);
   }
   border-radius: 11px;
