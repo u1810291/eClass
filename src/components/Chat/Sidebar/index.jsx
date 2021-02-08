@@ -1,11 +1,10 @@
 /* eslint-disable react/no-array-index-key */
-import React from 'react';
+import React, { useState } from 'react';
 import Item from './Item';
 import { Container, Header, Body } from './style';
 
-export default ({ active, setActive }) => {
-  // console.log(active);
-  setActive(false);
+export default () => {
+  const [active, setActive] = useState(false);
   return (
     <Container>
       <Header>
@@ -17,7 +16,7 @@ export default ({ active, setActive }) => {
             key={i}
             id={i}
             active={active}
-            // onClick={() => console.log('Clicked')}
+            setActive={setActive}
           />
         ))}
       </Body>

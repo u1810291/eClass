@@ -5,7 +5,19 @@ export const ItemWrapper = styled.div`
   cursor: pointer;  
   border-radius: 15px;
   &:hover {
-    background: #F2F7FF;
+    background: #5697ff;
   }
   padding: 20px;
+`;
+
+export const Title = styled.div`
+
+`;
+
+export const Message = styled.div`
+
+`;
+
+export const ImageWrapper = styled.div`
+
 `;
