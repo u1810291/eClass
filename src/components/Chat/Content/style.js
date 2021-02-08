@@ -14,7 +14,7 @@ export const Container = styled.div`
 export const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-conent: space-between;
+  justify-content: space-between;
 `;
 
 export const Messages = styled.div`
@@ -22,5 +22,5 @@ export const Messages = styled.div`
 `;
 
 export const InputWrapper = styled.div`
-  
+  margin: 5px;
 `;
