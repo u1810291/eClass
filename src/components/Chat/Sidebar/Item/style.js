@@ -11,6 +11,8 @@ export const ItemWrapper = styled.div`
   }
   padding: 10px;
   display: flex;
+  align-items: center;
+
 `;
 
 export const Heading = styled.div`

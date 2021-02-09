@@ -5,20 +5,29 @@ export const Container = styled.div`
   overflow-x: auto;
 
   background: white;
-  overflow-y: auto;
+  grid-area: content;
+  position: relative;
   display: grid;
-  grid-gap: 20px;
-  grid-template-rows: var(--navbar-height) 1fr;
+  z-index: 11;
+  grid-template-areas: "navbar"
+                        "body";
+  grid-template-rows: var(--chat-navbar-height);
+  grid-template-columns: 1fr;
+  overflow: hidden;
 `;
 
 export const ContentWrapper = styled.div`
   display: flex;
+  grid-area: body;
   flex-direction: column;
   justify-content: space-between;
+  border: solid 1px black;
+
 `;
 
 export const Messages = styled.div`
-  margin: 5px;
+display: flex;
+position: relative;
 `;
 
 export const InputWrapper = styled.div`

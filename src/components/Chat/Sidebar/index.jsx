@@ -6,6 +6,7 @@ import {
 } from './style';
 import { getRandColor } from '../../../utils/random-color';
 import { PrimaryButton } from '../../Buttons';
+import { SearchableInput } from '../../Forms/Inputs';
 
 export default () => {
   const data = [
@@ -95,6 +96,7 @@ export default () => {
     <Container>
       <Header>
         <PrimaryButton size="medium" color="#0062FF" icon="top" title="Add New" />
+        <SearchableInput size="medium" />
       </Header>
       <Body>
         {data.map((el, i) => (

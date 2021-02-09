@@ -7,6 +7,6 @@ export const Container = styled.div`
   word-break: break-all;
   grid-template-areas: "sidebar content";
   grid-template-columns: auto 1fr;
+  grid-gap: 2px;  
   margin: 40px 20px 40px;
-  border: solid 1px black;
 `;
