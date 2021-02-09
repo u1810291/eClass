@@ -12,7 +12,6 @@ export const Container = styled.div`
   grid-template-rows: var(--navbar-height);
   grid-template-columns: 1fr;
   overflow: hidden;
-  min-width: var(--chat-sidebar-width);
   padding: 2px;
   word-break: break-all;
 `;
@@ -32,7 +31,6 @@ export const Body = styled.div`
   grid-gap: 5px;
   grid-template-columns: 1fr;
   height: 100%;
-  width: 100%;
   &::-webkit-scrollbar {
     position: absolute;
     width: 8px;
