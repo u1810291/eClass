@@ -13,14 +13,15 @@ export const Container = styled.div`
   grid-template-columns: 1fr;
   overflow: hidden;
   min-width: var(--chat-sidebar-width);
-  height: 100%;
+  padding: 2px;
+  word-break: break-all;
 `;
 
 export const Header = styled.div`
   grid-area: header;
   display: flex;
-  -webkit-align-content: flex-end; 
-  justify-content: flex-end; 
+  align-items: center;
+  justify-content: space-between;
   height: var(--navbar-height);
 `;
 
