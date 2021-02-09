@@ -1,11 +1,18 @@
 import React from 'react';
+import { DynamicImage } from '../../DynamicImage';
 import Icon from '../../Icon';
-import { Container, UserInfo, ActionBar } from './style';
+import {
+  Container, UserInfo, ActionBar, UserDetails
+} from './style';
 
 export default () => (
   <Container>
     <UserInfo>
-      Avian Rizky online
+      <DynamicImage name="Avian Rizky" />
+      <UserDetails>
+
+        Avian Rizky online
+      </UserDetails>
     </UserInfo>
     <ActionBar>
       Navbar
