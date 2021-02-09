@@ -12,18 +12,16 @@ export const Container = styled.div`
   grid-template-rows: var(--navbar-height);
   grid-template-columns: 1fr;
   overflow: hidden;
-  border: solid 1px black;
   min-width: var(--chat-sidebar-width);
   height: 100%;
 `;
 
 export const Header = styled.div`
   grid-area: header;
-  display: grid;
-  place-items: center;
+  display: flex;
+  -webkit-align-content: flex-end; 
+  justify-content: flex-end; 
   height: var(--navbar-height);
-  box-sizing: border-box;
-  border: solid 1px black;
 `;
 
 export const Body = styled.div`
@@ -58,5 +56,24 @@ export const Body = styled.div`
   &::-webkit-scrollbar-thumb:hover {
     background: rgba(73, 75, 116, 1);
   }
-  border: solid 1px black;
+`;
+
+export const ItemWrapper = styled.div`
+  
+`;
+
+export const Counter = styled.div`
+  border-radius: 5px;
+  background: grey;
+  margin: 0 0 0 10px;
+  padding: 2px 5px 2px;
+  color: white !important;
+`;
+
+export const Heading = styled.div`
+  display: flex;
+  margin: 2px;
+  font-size: 16px;
+  font-weight: 400;
+  color: ${({ color }) => color};
 `;
