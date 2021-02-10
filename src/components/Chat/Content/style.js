@@ -31,5 +31,16 @@ position: relative;
 `;
 
 export const InputWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 5px;
+`;
+InputWrapper.Item = styled.div`
   margin: 5px;
+  cursor: pointer;
+`;
+
+export const Upload = styled.input`
+  margin: 5px;
+  cursor: pointer;
 `;
