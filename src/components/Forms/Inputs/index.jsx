@@ -6,3 +6,5 @@ export { default as HelperInput } from './Helper';
 export { default as DatePicker } from './DatePicker';
 export { default as TagsInput } from './TagsInput';
 export { default as TextArea } from './TextArea';
+export { default as UploadInput } from './Upload';
+export { default as PasswordInput } from './Password';
