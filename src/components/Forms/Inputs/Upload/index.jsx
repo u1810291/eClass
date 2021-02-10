@@ -1,37 +1,24 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import {
-  Container, Input, Label, Helper, InnerContainer
-} from './style';
+/* eslint-disable react/jsx-props-no-spreading */
+import React, { useRef } from 'react';
+import Icon from '../../../Icon';
+import { Container, FileInputCustom, InputEement } from './style';
 
-const NormalInput = ({
-  placeholder, disabled, size, helperText, label, type, ...others
-}) => (
-  <Container>
-    <InnerContainer>
-      <Input
-        type="file"
-        disabled={disabled}
-        size={size}
-        placeholder={placeholder}
-        // eslint-disable-next-line react/jsx-props-no-spreading
-        {...others}
-      />
-      <Label>{label}</Label>
-    </InnerContainer>
-    <Helper type={type} size={size}>
-      {helperText}
-    </Helper>
-  </Container>
-);
-NormalInput.propTypes = {
-  label: PropTypes.string,
-  size: PropTypes.string
+const FileInput = ({ setFieldValue, ...props }) => {
+  const ref = useRef(null);
+  const handleClick = () => {
+    ref.current.click();
+  };
+  const handleChange = (event) => {
+    setFieldValue(event.target.files[0]);
+  };
+  return (
+    <Container {...props}>
+      <FileInputCustom {...props} onClick={handleClick}>
+        <Icon icon="clip" />
+      </FileInputCustom>
+      <InputEement {...props} type="file" ref={ref} onChange={handleChange} />
+    </Container>
+  );
 };
 
-NormalInput.defaultProps = {
-  label: '',
-  size: 'medium'
-};
-
-export default NormalInput;
+export default FileInput;

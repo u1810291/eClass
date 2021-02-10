@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32">
+  <g id="Mask_Group_45" data-name="Mask Group 45" transform="translate(-134 -494)" clip-path="url(#clip-path)">
+    <g id="download" transform="translate(135.143 494)">
+      <g id="Group_645" data-name="Group 645" transform="translate(0 20.571)">
+        <g id="Group_644" data-name="Group 644">
+          <path id="Path_521" data-name="Path 521" d="M30.571,36a1.143,1.143,0,0,0-1.143,1.143V44a1.143,1.143,0,0,1-1.143,1.143H5.429A1.143,1.143,0,0,1,4.286,44V37.143a1.143,1.143,0,0,0-2.286,0V44a3.429,3.429,0,0,0,3.429,3.429H28.286A3.429,3.429,0,0,0,31.714,44V37.143A1.143,1.143,0,0,0,30.571,36Z" transform="translate(-2 -36)" fill="#fff"/>
+        </g>
+      </g>
+      <g id="Group_647" data-name="Group 647" transform="translate(8.014)">
+        <g id="Group_646" data-name="Group 646">
+          <path id="Path_522" data-name="Path 522" d="M29.364,19.763a1.143,1.143,0,0,0-1.588,0L24.01,23.527V1.143a1.143,1.143,0,0,0-2.286,0V23.527l-3.763-3.763a1.143,1.143,0,0,0-1.616,1.616l5.714,5.714a1.143,1.143,0,0,0,1.616,0l0,0,5.714-5.714A1.143,1.143,0,0,0,29.364,19.763Z" transform="translate(-16.024)" fill="#fff"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

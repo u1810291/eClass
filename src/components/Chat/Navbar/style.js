@@ -5,7 +5,6 @@ export const Container = styled.div`
   justify-content: space-between;
   align-items: center;    
   grid-area: navbar;
-  border: solid 1px black;
 `;
 
 export const UserInfo = styled.div`

@@ -35,6 +35,7 @@ font-weight: 300;
 font-size: 14.2px;
 line-height: 17px;
 /* identical to box height */
+color: #92929D;
 
 letter-spacing: 0.101429px;
 `;
