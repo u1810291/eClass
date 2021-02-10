@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Table from '../../components/Table';
 import { Container } from './style';
-import { fetchData } from '../../redux/modules/lessons/actions';
+import { fetchData } from '../../redux/modules/homeworks/actions';
 import { getHeader } from './helper';
 import HomeworksHeader from '../../components/Headers/HomeworksHeader';
 import Spinner from '../../components/Spinner';
@@ -12,12 +12,13 @@ export default () => {
   const { userInfo } = useSelector((state) => state.userReducer);
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
-  const { data } = useSelector((state) => state.lessonsReducers);
+  const { data } = useSelector((state) => state.homeworksReducers);
   const header = getHeader(userInfo);
+  const lessonId = 'f5f9c496-e6c0-44ea-87e5-c0d75c6bb1e5';
   useEffect(() => {
     setLoading(true);
     if (userInfo !== undefined) {
-      dispatch(fetchData(userInfo.role));
+      dispatch(fetchData({ user: userInfo.role, id: lessonId }));
       setLoading(false);
     }
   }, [fetchData]);

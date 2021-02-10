@@ -9,15 +9,18 @@ import {
 
 import { dataSelector } from './selectors';
 
-function* fetchData(user, id) {
+function* fetchData({ payload: { user, id } }) {
   try {
-    const role = user.user.toLowerCase();
+    console.log(user);
+    const role = user.toLowerCase();
     const res = yield service.getHomeworks(role, id);
+    console.log(res);
     const { data } = dataSelector(res.data);
     yield put(setError(''));
     yield put(setData(data));
     yield put(setLoading(false));
   } catch (error) {
+    console.log(error);
     yield put(setError(error.message));
   }
 }
