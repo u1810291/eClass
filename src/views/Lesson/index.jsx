@@ -8,6 +8,7 @@ import { fetchData as student } from '../../redux/modules/student/lessons/action
 import { fetchData as teacher } from '../../redux/modules/teacher/lessons/actions';
 import { fetchData as admin } from '../../redux/modules/admin/lessons/actions';
 import { adminHeader, teacherHeader, studentHeader } from './helper';
+import LessonsHeader from '../../components/Headers/LessonsHeader';
 
 const AdminPage = ({ userInfo }) => {
   const dispatch = useDispatch();
@@ -33,6 +34,7 @@ const StudentPage = ({ userInfo }) => {
 
   return (
     <Container>
+      <LessonsHeader />
       <Table perms={userInfo.rights} data={data} header={studentHeader} />
     </Container>
   );

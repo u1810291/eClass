@@ -156,12 +156,28 @@ export const Title = styled.div`
   line-height: 24px;
 `;
 
+export const TitleWrapper = styled.div`
+  display: grid;
+  grid-gap: 20px;
+  align-items: center;
+  grid-template-columns: auto auto;
+  gird-template-rows: auto;
+`;
+TitleWrapper.Title = styled.div`
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 24px;
+
+`;
+TitleWrapper.Clear = styled.span`]
+  font-size: 18px;
+  text-decoration: underline;
+  cursor: pointer;
+  color: #92929D;
+`;
+
 export const SwitchButton = styled.div`
-  background: #FFFFFF;
-  box-shadow: 0px 11px 13px rgba(124, 136, 177, 0.1), inset 4px 0px 0px #A9C6FF;
-  border-radius: 11px;
-  width: 30%;
-  display: flex;
   `;
 
 SwitchButton.Button = styled.button`
