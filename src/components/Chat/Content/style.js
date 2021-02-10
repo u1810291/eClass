@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const Container = styled.div`
   overflow-y: auto;
   overflow-x: auto;
-
   background: white;
   grid-area: content;
   position: relative;
@@ -26,8 +25,11 @@ export const ContentWrapper = styled.div`
 `;
 
 export const Messages = styled.div`
-display: flex;
-position: relative;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 70%;
+  word-break: break-all;
 `;
 
 export const InputWrapper = styled.div`
@@ -43,4 +45,11 @@ InputWrapper.Item = styled.div`
 export const Upload = styled.input`
   margin: 5px;
   cursor: pointer;
+`;
+
+export const MessageCard = styled.div`
+  border: solid 1px #e2e2ea;
+  border-radius: 20px;
+  margin: 5px;
+  padding: 8px;
 `;
