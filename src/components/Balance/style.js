@@ -1,10 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-display:flex;
-flex-direction: column;
-overflow: hidden;
-height:100%;
 `;
 
 export const Header = styled.div`
@@ -19,9 +15,11 @@ Header.Left = styled.div`
 `;
 export const Body = styled.div`
   width: 100%;
-`;
+  overflow: auto;
+  `;
 
 export const CardsContainer = styled.div`
+  overflow: auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 15px;
