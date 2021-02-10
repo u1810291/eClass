@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useHistory } from 'react-router-dom';
-import { NormalInput } from '../../../components/Forms/Inputs';
+import { NormalInput, PasswordInput } from '../../../components/Forms/Inputs';
 import { PrimaryButton } from '../../../components/Buttons';
 import {
   AuthForm,
@@ -66,7 +66,8 @@ export default () => {
             value={formik.values.username}
             onChange={(e) => formik.setFieldValue('username', e.target.value)}
           />
-          <NormalInput
+          <PasswordInput
+            eye
             white
             size="large"
             placeholder="Password"
