@@ -18,15 +18,15 @@ export default () => {
         </UserDetails>
       </UserInfo>
       <ActionBar>
-        Navbar
+        {isOn ? 'Unmute' : 'Mute'}
         <Switch
           isOn={isOn}
           white
           id="test"
           handleToggle={() => setIsOn((prevState) => !prevState)}
         />
-        <Icon icon="connection" />
         <Icon icon="video-materials" />
+        <Icon icon="connection" />
       </ActionBar>
     </Container>
   );

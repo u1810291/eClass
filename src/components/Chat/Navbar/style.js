@@ -18,6 +18,11 @@ export const UserDetails = styled.div`
   color: #171725;
 `;
 export const ActionBar = styled.div`
-  display:flex;
+  padding-right: 10px;
+  display:grid;
+  grid-gap: 10px;
+  grid-template-columns: auto auto auto auto ;
+  grid-template-rows: auto; 
+  justify-items: center;
   align-items: center;
 `;
