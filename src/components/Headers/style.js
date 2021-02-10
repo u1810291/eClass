@@ -176,8 +176,12 @@ TitleWrapper.Clear = styled.span`]
   cursor: pointer;
   color: #92929D;
 `;
-
 export const SwitchButton = styled.div`
+  background: #FFFFFF;
+  box-shadow: 0px 11px 13px rgba(124, 136, 177, 0.1), inset 4px 0px 0px #A9C6FF;
+  border-radius: 11px;
+  width: 30%;
+  display: flex;
   `;
 
 SwitchButton.Button = styled.button`

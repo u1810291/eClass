@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  Container, Body, TitleWrapper, SwitchButton
+  Container, Body, TitleWrapper
 } from '../style';
 import Dropdowns from '../../Forms/Dropdowns';
 import { dropdownOptions } from '../../../data/dropdown';
@@ -15,16 +15,14 @@ export default () => {
           <TitleWrapper.Title>Lessons</TitleWrapper.Title>
           <TitleWrapper.Clear>Celar filter</TitleWrapper.Clear>
         </TitleWrapper>
-        <SwitchButton>
-          <Dropdowns
-            placeholder="Sort by date"
-            options={dropdownOptions.commonOptions}
-            value={multipleDropdown}
-            onChange={setMultipleDropdown}
-            size="large"
-            multiple
-          />
-        </SwitchButton>
+        <Dropdowns
+          placeholder="Sort by date"
+          options={dropdownOptions.commonOptions}
+          value={multipleDropdown}
+          onChange={setMultipleDropdown}
+          size="large"
+          multiple
+        />
       </Body>
     </Container>
   );
