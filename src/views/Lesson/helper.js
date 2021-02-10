@@ -122,7 +122,6 @@ export const teacherHeader = [{
 ];
 
 export const getHeader = (userInfo) => {
-  console.log(userInfo);
   switch (userInfo) {
   case userInfo.role === 'STUDENT' || userInfo.role === 'student':
     return studentHeader;
@@ -131,6 +130,6 @@ export const getHeader = (userInfo) => {
   case userInfo.role === 'ADMIN' || userInfo.role === 'admin':
     return adminHeader;
   default:
-    return null;
+    return studentHeader;
   }
 };

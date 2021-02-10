@@ -11,14 +11,13 @@ import { dataSelector } from './selectors';
 
 function* fetchData(user) {
   try {
-    console.log(user);
-    const res = yield service.getAll(user);
+    const role = user.user.toLowerCase();
+    const res = yield service.getAll(role);
     const { data } = dataSelector(res.data);
     yield put(setError(''));
     yield put(setData(data));
     yield put(setLoading(false));
   } catch (error) {
-    console.log(error);
     yield put(setError(error.message));
   }
 }

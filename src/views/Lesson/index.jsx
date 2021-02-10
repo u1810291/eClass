@@ -12,15 +12,12 @@ export default () => {
   const { userInfo } = useSelector((state) => state.userReducer);
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
-  const header = getHeader();
   const { data } = useSelector((state) => state.lessonsReducers);
-
-  console.log(userInfo);
-
+  const header = getHeader(userInfo);
   useEffect(() => {
     setLoading(true);
     if (userInfo !== undefined) {
-      dispatch(fetchData(userInfo));
+      dispatch(fetchData(userInfo.role));
       setLoading(false);
     }
   }, [fetchData]);
@@ -29,7 +26,7 @@ export default () => {
   return (
     <Container>
       <LessonsHeader />
-      <Table perms={userInfo.rights} data={data} header={header(userInfo.role)} />
+      <Table perms={userInfo.rights} data={data} header={header} />
     </Container>
   );
 };
