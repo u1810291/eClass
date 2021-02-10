@@ -5,7 +5,7 @@ import Table from '../../components/Table';
 import { Container } from './style';
 import { fetchData } from '../../redux/modules/lessons/actions';
 import { getHeader } from './helper';
-import LessonsHeader from '../../components/Headers/LessonsHeader';
+import QuizesHeader from '../../components/Headers/QuizesHeader';
 import Spinner from '../../components/Spinner';
 
 export default () => {
@@ -25,7 +25,7 @@ export default () => {
 
   return (
     <Container>
-      <LessonsHeader />
+      <QuizesHeader />
       <Table perms={userInfo.rights} data={data} header={header} />
     </Container>
   );
