@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
 import Table from '../../components/Table';
@@ -6,22 +6,30 @@ import { Container } from './style';
 import { fetchData } from '../../redux/modules/lessons/actions';
 import { getHeader } from './helper';
 import LessonsHeader from '../../components/Headers/LessonsHeader';
+import Spinner from '../../components/Spinner';
 
 export default () => {
   const { userInfo } = useSelector((state) => state.userReducer);
+  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
+  const header = getHeader();
+  const { data } = useSelector((state) => state.lessonsReducers);
 
   console.log(userInfo);
-  const header = getHeader(userInfo.role);
-  const { data } = useSelector((state) => state.lessonsReducers);
+
   useEffect(() => {
-    dispatch(fetchData(userInfo));
+    setLoading(true);
+    if (userInfo !== undefined) {
+      dispatch(fetchData(userInfo));
+      setLoading(false);
+    }
   }, [fetchData]);
+  if (loading) return <Spinner contain black />;
 
   return (
     <Container>
       <LessonsHeader />
-      <Table perms={userInfo.rights} data={data} header={header} />
+      <Table perms={userInfo.rights} data={data} header={header(userInfo.role)} />
     </Container>
   );
 };

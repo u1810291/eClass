@@ -121,13 +121,14 @@ export const teacherHeader = [{
 }
 ];
 
-export const getHeader = (user) => {
-  switch (user) {
-  case user === 'STUDENT' || user === 'student':
+export const getHeader = (userInfo) => {
+  console.log(userInfo);
+  switch (userInfo) {
+  case userInfo.role === 'STUDENT' || userInfo.role === 'student':
     return studentHeader;
-  case user === 'TEACHER' || user === 'teacher':
+  case userInfo.role === 'TEACHER' || userInfo.role === 'teacher':
     return teacherHeader;
-  case user === 'ADMIN' || user === 'admin':
+  case userInfo.role === 'ADMIN' || userInfo.role === 'admin':
     return adminHeader;
   default:
     return null;
