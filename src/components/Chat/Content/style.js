@@ -16,11 +16,12 @@ export const Container = styled.div`
 `;
 
 export const ContentWrapper = styled.div`
-  display: flex;
+  display: grid;
   grid-area: body;
-  flex-direction: column;
-  justify-content: space-between;
+  grid-template-rows: 8fr 1fr;
   border: solid 1px black;
+  height: 100%;
+  overflow-y: auto;
 
 `;
 
@@ -28,28 +29,40 @@ export const Messages = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
-  width: 70%;
+  max-width: 70%;
+  min-width: 20%;
+
   word-break: break-all;
-`;
+  overflow-y: auto;
+  `;
 
 export const InputWrapper = styled.div`
   display: flex;
   align-items: center;
   padding: 5px;
-`;
+  `;
 InputWrapper.Item = styled.div`
   margin: 5px;
   cursor: pointer;
-`;
+  `;
 
 export const Upload = styled.input`
   margin: 5px;
   cursor: pointer;
-`;
+  `;
 
 export const MessageCard = styled.div`
+  overflow-wrap: normal;
+  word-wrap: normal;
+  word-break: normal;
+  line-break: auto; 
+  hyphens: manual;
+
+  
   border: solid 1px #e2e2ea;
   border-radius: 20px;
   margin: 5px;
-  padding: 8px;
+  width:fit-content;
+  height:fit-content;
+  padding: 10px;
 `;

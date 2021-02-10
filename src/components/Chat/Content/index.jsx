@@ -14,8 +14,14 @@ export default () => (
       <Messages>
         {[...Array(30)].map((_, i) => (
           <MessageCard key={i}>
-            {i}
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+            <p>
+              {i}
+              {' '}
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Alias quas temporibus est laboriosam corporis id perferendis
+              cum rem exercitationem rerum tempora iure quo neque
+              laudantium sed natus, ipsum quae dolores!
+            </p>
           </MessageCard>
         ))}
       </Messages>
