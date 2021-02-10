@@ -1,4 +1,4 @@
-import types from '../../../../constants/action-types';
+import types from '../../../constants/action-types';
 
 const defaultState = {
   data: [],
@@ -8,19 +8,19 @@ const defaultState = {
 };
 
 const map = {
-  [types.TABLE_TEACHER_LESSONS_SET_LOADING]: (state, { payload }) => ({
+  [types.TABLE_LESSONS_SET_LOADING]: (state, { payload }) => ({
     ...state,
     loading: payload
   }),
-  [types.TABLE_TEACHER_LESSONS_SET_DATA]: (state, { payload }) => ({
+  [types.TABLE_LESSONS_SET_DATA]: (state, { payload }) => ({
     ...state,
     data: payload
   }),
-  [types.TABLE_TEACHER_LESSONS_SET_TOTAL]: (state, { payload }) => ({
+  [types.TABLE_LESSONS_SET_TOTAL]: (state, { payload }) => ({
     ...state,
     total: payload
   }),
-  [types.TABLE_TEACHER_LESSONS_ERROR]: (state, { payload }) => ({
+  [types.TABLE_LESSONS_ERROR]: (state, { payload }) => ({
     ...state,
     error: payload
   })

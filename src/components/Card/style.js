@@ -10,4 +10,5 @@ export const Container = styled.div.attrs((props) => ({
   width: 100%;
   display: grid;
   grid-gap: 10px;
+  overflow: auto;
 `;
