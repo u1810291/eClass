@@ -19,4 +19,5 @@ export const UserDetails = styled.div`
 `;
 export const ActionBar = styled.div`
   display:flex;
+  align-items: center;
 `;
