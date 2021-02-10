@@ -5,7 +5,7 @@ import { Container } from './style';
 
 export default ({ users }) => (
   <Container>
-    <Sidebar />
+    <Sidebar users={users} />
     <Content />
   </Container>
 );

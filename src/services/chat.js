@@ -20,5 +20,4 @@ export default {
   // Get messages from/to specific user
   getMessageOfUser: ({ id }) => service.get(`/api/v1/chat/message/user/${id}`),
   getMessageOfRoom: ({ id }) => service.get(`/api/v1/chat/message/room/${id}`)
-
 };
