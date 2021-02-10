@@ -4,7 +4,8 @@ export const setLoading = (payload) => ({ type: types.TABLE_HOMEWORS_SET_LOADING
 export const setData = (payload) => ({ type: types.TABLE_HOMEWORS_SET_DATA, payload });
 export const setTotal = (payload) => ({ type: types.TABLE_HOMEWORS_SET_TOTAL, payload });
 export const setError = (payload) => ({ type: types.TABLE_HOMEWORS_ERROR, payload });
-export const fetchData = (userInfo) => ({
+export const fetchData = (userInfo, lessonId) => ({
   type: types.TABLE_HOMEWORS_FETCH_DATA,
-  user: userInfo
+  user: userInfo,
+  id: lessonId
 });

@@ -5,3 +5,4 @@ export { default as authSaga } from './auth/saga';
 export { default as userInfoSaga } from './user/sagas';
 
 export { default as lessonsSaga } from './lessons/sagas';
+export { default as homeworksSaga } from './homeworks/sagas';

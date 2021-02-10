@@ -10,3 +10,4 @@ export { default as adminLessonsReducers } from './admin/lessons/reducers';
 export { default as adminUsersReducers } from './admin/users/reducers';
 
 export { default as lessonsReducers } from './lessons/reducers';
+export { default as homeworksReducers } from './homeworks/reducers';
