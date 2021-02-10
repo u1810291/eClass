@@ -1,3 +1,4 @@
 import React from 'react';
+import Chat from '../../components/Chat';
 
-export default () => <div>Chat</div>;
+export default () => <Chat />;
