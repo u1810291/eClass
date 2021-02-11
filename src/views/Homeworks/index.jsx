@@ -22,7 +22,6 @@ export default () => {
 
   return (
     <Container>
-      {console.log(error)}
       <HomeworksHeader />
       {error ? (
         <TableError message={error} />

@@ -143,7 +143,6 @@ function App({ data: tableData, header, loading }) {
 
   return (
     <Container>
-      {console.log(loading)}
       {loading ? (
         <Spinner contain black />
       ) : (
