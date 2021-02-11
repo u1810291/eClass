@@ -1,5 +1,6 @@
 export function dataSelector(lesson) {
-  const { content } = lesson;
+  // eslint-disable-next-line camelcase
+  const { total_elements, content } = lesson;
   const filtered = content.map((el) => ({
     description: el.description,
     files: el.files.map((item) => item.download_link),
@@ -9,5 +10,5 @@ export function dataSelector(lesson) {
     lesson: el.lesson.id,
     subject: el.subject.name
   }));
-  return { data: filtered };
+  return { total: total_elements, data: filtered };
 }

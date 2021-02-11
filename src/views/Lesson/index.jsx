@@ -20,7 +20,6 @@ export default () => {
   useEffect(() => {
     setLoading(true);
     if (isMounted()) {
-      console.log(isMounted());
       dispatch(fetchData(userInfo.role));
       setLoading(false);
     }

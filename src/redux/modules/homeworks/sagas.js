@@ -4,6 +4,7 @@ import service from '../../../services/teacher/exercise';
 import {
   setData,
   setError,
+  setTotal,
   setLoading
 } from './actions';
 
@@ -11,16 +12,14 @@ import { dataSelector } from './selectors';
 
 function* fetchData({ payload: { user, id } }) {
   try {
-    console.log(user);
     const role = user.toLowerCase();
     const res = yield service.getHomeworks(role, id);
-    console.log(res);
-    const { data } = dataSelector(res.data);
+    const { total, data } = dataSelector(res.data);
     yield put(setError(''));
     yield put(setData(data));
+    yield put(setTotal(total));
     yield put(setLoading(false));
   } catch (error) {
-    console.log(error);
     yield put(setError(error.message));
   }
 }
