@@ -5,9 +5,10 @@ import React, {
 
 import { useExpanded, useTable } from 'react-table';
 import {
-  Container, TR, THead, TBody
+  Container, TR, THead, TBody, TD, MainTableContainer
 } from './style';
 import makeData from './makeData';
+import Spinner from '../Spinner';
 
 function SubRows({
   row, rowProps, visibleColumns, data, loading
@@ -93,7 +94,7 @@ function Table({ columns: userColumns, data, renderRowSubComponent }) {
 
   return (
     <>
-      <table {...getTableProps()}>
+      <MainTableContainer {...getTableProps()}>
         <THead>
           {headerGroups.map((headerGroup) => (
             <tr {...headerGroup.getHeaderGroupProps()}>
@@ -111,7 +112,7 @@ function Table({ columns: userColumns, data, renderRowSubComponent }) {
               <React.Fragment key={rowProps.key}>
                 <TR {...rowProps}>
                   {row.cells.map((cell) => (
-                    <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                    <TD {...cell.getCellProps()}>{cell.render('Cell')}</TD>
                   ))}
                 </TR>
                 {row.isExpanded
@@ -120,12 +121,12 @@ function Table({ columns: userColumns, data, renderRowSubComponent }) {
             );
           })}
         </TBody>
-      </table>
+      </MainTableContainer>
     </>
   );
 }
 
-function App({ data: tableData, header }) {
+function App({ data: tableData, header, loading }) {
   const columns = useMemo(() => header, [header]);
   const data = useMemo(() => tableData, [tableData]);
 
@@ -142,11 +143,16 @@ function App({ data: tableData, header }) {
 
   return (
     <Container>
-      <Table
-        columns={columns}
-        data={data}
-        renderRowSubComponent={renderRowSubComponent}
-      />
+      {console.log(loading)}
+      {loading ? (
+        <Spinner contain black />
+      ) : (
+        <Table
+          columns={columns}
+          data={data}
+          renderRowSubComponent={renderRowSubComponent}
+        />
+      )}
     </Container>
   );
 }

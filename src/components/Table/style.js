@@ -38,7 +38,7 @@ export const THead = styled.thead`
 
 export const TR = styled.tr`
   td{
-    height: 75px;
+    height: 55px;
   }
   border: solid 1px #000;
 
@@ -51,4 +51,13 @@ export const TR = styled.tr`
 export const TBody = styled.tbody`
   tr {
   }
+`;
+
+export const TD = styled.td`
+  max-width: 200px;
+  min-width: 50px;
+`;
+
+export const MainTableContainer = styled.table`
+
 `;
