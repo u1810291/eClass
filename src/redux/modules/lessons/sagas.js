@@ -1,6 +1,6 @@
 import { takeLatest, put } from 'redux-saga/effects';
-import types from '../../../../constants/action-types';
-import service from '../../../../services/teacher/lesson';
+import types from '../../../constants/action-types';
+import service from '../../../services/teacher/lesson';
 import {
   setData,
   setError,
@@ -9,9 +9,10 @@ import {
 
 import { dataSelector } from './selectors';
 
-function* fetchData() {
+function* fetchData(user) {
   try {
-    const res = yield service.getAll();
+    const role = user.user.toLowerCase();
+    const res = yield service.getAll(role);
     const { data } = dataSelector(res.data);
     yield put(setError(''));
     yield put(setData(data));
@@ -22,5 +23,5 @@ function* fetchData() {
 }
 
 export default function* lessonsSaga() {
-  yield takeLatest(types.TABLE_TEACHER_LESSONS_FETCH_DATA, fetchData);
+  yield takeLatest(types.TABLE_LESSONS_FETCH_DATA, fetchData);
 }

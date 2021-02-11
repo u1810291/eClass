@@ -2,7 +2,7 @@
 import { service } from '..';
 
 export default {
-  getAll: () => service.get('/api/v1/teacher/lessons/list'),
+  getAll: (user) => service.get(`/api/v1/${user}/lessons/list`),
   startLesson: ({ id }) => service.post(`/api/v1/teacher/lessons/${id}/start`),
   finishLesson: ({ id }) => service.post(`/api/v1/teacher/lessons/${id}/finish`),
   cancelLesson: ({ id, data }) => service.post(`/api/v1/teacher/lessons/${id}/cancel`, { data }),

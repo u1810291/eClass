@@ -61,11 +61,15 @@ export const studentHeader = [{
 },
 {
   Header: 'Description',
-  accessor: (d) => d.time
+  accessor: (d) => d.description
+},
+{
+  Header: 'Group',
+  accessor: (d) => `${d.group}   ${d.group_name}`
 },
 {
   Header: 'File',
-  accessor: (d) => d.duration
+  accessor: (d) => d.files
 },
 {
   Header: 'Send homework',
@@ -73,7 +77,7 @@ export const studentHeader = [{
 },
 {
   Header: 'Deadline',
-  accessor: (d) => d.link
+  accessor: (d) => d.deadline
 }
 ];
 
@@ -120,3 +124,16 @@ export const teacherHeader = [{
   accessor: (d) => d.link
 }
 ];
+
+export const getHeader = (userInfo) => {
+  switch (userInfo) {
+  case userInfo.role === 'STUDENT' || userInfo.role === 'student':
+    return studentHeader;
+  case userInfo.role === 'TEACHER' || userInfo.role === 'teacher':
+    return teacherHeader;
+  case userInfo.role === 'ADMIN' || userInfo.role === 'admin':
+    return adminHeader;
+  default:
+    return studentHeader;
+  }
+};

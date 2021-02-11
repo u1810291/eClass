@@ -3,81 +3,42 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Table from '../../components/Table';
 import { Container } from './style';
-import { FIVEPLUSADMIN, STUDENT, TEACHER } from '../../constants/roles';
-import { fetchData as student } from '../../redux/modules/student/lessons/actions';
-import { fetchData as teacher } from '../../redux/modules/teacher/lessons/actions';
-import { fetchData as admin } from '../../redux/modules/admin/lessons/actions';
-import { adminHeader, teacherHeader, studentHeader } from './helper';
+import { fetchData } from '../../redux/modules/homeworks/actions';
+import { getHeader } from './helper';
 import HomeworksHeader from '../../components/Headers/HomeworksHeader';
+import Spinner from '../../components/Spinner';
+import TableError from '../../components/Table/Error';
 
-const AdminPage = ({ userInfo }) => {
+export default () => {
+  const { userInfo } = useSelector((state) => state.userReducer);
   const dispatch = useDispatch();
-
-  const { data } = useSelector((state) => state.adminLessonsReducers);
+  const {
+    loading, data, total, error
+  } = useSelector((state) => state.homeworksReducers);
+  const header = getHeader(userInfo);
+  const lessonId = 'f5f9c496-e6c0-44ea-87e5-c0d75c6bb1e5';
   useEffect(() => {
-    dispatch(admin());
-  }, [admin]);
+    if (userInfo !== undefined) {
+      dispatch(fetchData({ user: userInfo.role, id: lessonId }));
+    }
+  }, [fetchData]);
+  if (loading) return <Spinner contain black />;
 
-  return (
-    <Container>
-      <Table perms={userInfo.rights} data={data} header={adminHeader} />
-    </Container>
+  const displayTable = error ? (
+    <TableError message={error} />
+  ) : (
+    <Table
+      total={total}
+      perms={userInfo.rights}
+      data={data}
+      header={header}
+      loading={loading}
+    />
   );
-};
-const StudentPage = ({ userInfo }) => {
-  const dispatch = useDispatch();
-
-  const { data } = useSelector((state) => state.studentLessonsReducers);
-  useEffect(() => {
-    dispatch(student());
-  }, [student]);
-
   return (
     <Container>
       <HomeworksHeader />
-      <Table perms={userInfo.rights} data={data} header={studentHeader} />
+      {displayTable}
     </Container>
   );
-};
-
-const TeacherPage = ({ userInfo }) => {
-  const dispatch = useDispatch();
-
-  const { data } = useSelector((state) => state.teacherLessonsReducers);
-
-  useEffect(() => {
-    dispatch(teacher());
-  }, [teacher]);
-
-  return (
-    <Container>
-      <Table perms={userInfo.rights} data={data} header={teacherHeader} />
-    </Container>
-  );
-};
-export default () => {
-  const { userInfo } = useSelector((state) => state.userReducer);
-
-  if (userInfo.role === FIVEPLUSADMIN) {
-    return (
-      <AdminPage
-        userInfo={userInfo}
-      />
-    );
-  }
-  if (userInfo.role === TEACHER) {
-    return (
-      <TeacherPage
-        userInfo={userInfo}
-      />
-    );
-  }
-  if (userInfo.role === STUDENT) {
-    return (
-      <StudentPage
-        userInfo={userInfo}
-      />
-    );
-  }
-  return <></>;
 };

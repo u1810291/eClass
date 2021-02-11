@@ -120,3 +120,16 @@ export const teacherHeader = [{
   accessor: (d) => d.link
 }
 ];
+
+export const getHeader = (userInfo) => {
+  switch (userInfo) {
+  case userInfo.role === 'STUDENT' || userInfo.role === 'student':
+    return studentHeader;
+  case userInfo.role === 'TEACHER' || userInfo.role === 'teacher':
+    return teacherHeader;
+  case userInfo.role === 'ADMIN' || userInfo.role === 'admin':
+    return adminHeader;
+  default:
+    return studentHeader;
+  }
+};
