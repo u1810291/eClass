@@ -7,6 +7,8 @@ import { fetchData } from '../../redux/modules/lessons/actions';
 import { getHeader } from './helper';
 import LessonsHeader from '../../components/Headers/LessonsHeader';
 import Spinner from '../../components/Spinner';
+import { useMounted } from '../../hooks/mounted';
+// import TableError from '../../components/Table/Error';
 
 export default () => {
   const { userInfo } = useSelector((state) => state.userReducer);
@@ -14,19 +16,30 @@ export default () => {
   const dispatch = useDispatch();
   const { data } = useSelector((state) => state.lessonsReducers);
   const header = getHeader(userInfo);
+  const isMounted = useMounted();
   useEffect(() => {
     setLoading(true);
-    if (userInfo !== undefined) {
+    if (isMounted()) {
+      console.log(isMounted());
       dispatch(fetchData(userInfo.role));
       setLoading(false);
     }
-  }, [fetchData]);
+  }, [fetchData, isMounted]);
   if (loading) return <Spinner contain black />;
+  // const displayTable = {
+  //   tale: error ? (
+  //     <TableError />
+  //   ) : (
 
+  //     <Table perms={userInfo.rights} data={data} header={header} />
+  //   )
+  // };
   return (
     <Container>
       <LessonsHeader />
+      {/* {displayTable} */}
       <Table perms={userInfo.rights} data={data} header={header} />
+
     </Container>
   );
 };

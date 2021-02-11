@@ -1,14 +1,13 @@
-import moment from 'moment';
-
 export function dataSelector(lesson) {
   const { content } = lesson;
   const filtered = content.map((el) => ({
-    date: moment(el.scheduled_start).format('DD.MM.YYYY'),
-    time: moment(el.scheduled_start).format('hh:mm:ss'),
-    duration: el.duration,
-    teacher: el.teacher.full_name,
-    subject: el.subject.name,
-    link: 'undefined'
+    description: el.description,
+    files: el.files.map((item) => item.download_link),
+    group: el.group.description,
+    group_name: el.group.name,
+    id: el.id,
+    lesson: el.lesson.id,
+    subject: el.subject.name
   }));
   return { data: filtered };
 }

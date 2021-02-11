@@ -20,6 +20,7 @@ export default () => {
     if (userInfo !== undefined) {
       dispatch(fetchData({ user: userInfo.role, id: lessonId }));
       setLoading(false);
+      console.log(data);
     }
   }, [fetchData]);
   if (loading) return <Spinner contain black />;
