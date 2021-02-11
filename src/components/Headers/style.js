@@ -68,7 +68,6 @@ export const FilterButton = styled(PrimaryButton)`
 // Containers, and layouts
 export const Container = styled.div`
   width: 100%;
-  margin-bottom: 12px;
   display: flex;
   flex-direction: column;
 `;
@@ -203,4 +202,23 @@ SwitchButton.Button = styled.button`
     background: rgba(214, 236, 255, 0.82);
   }
   border-radius: 11px;
+`;
+
+export const Navigate = styled.div`
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+`;
+
+Navigate.Cards = styled.div`
+  display: flex;
+  overflow-x: auto;
+  flex-wrap: wrap;
+`;
+
+export const InnerCard = styled.div`
+  display: grid;
+  grid-gap: 10px;
+  grid-auto-flow: column;
+  grid-auto-columns: 20%;
 `;

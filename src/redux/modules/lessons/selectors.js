@@ -1,6 +1,7 @@
 import moment from 'moment';
 
 export function dataSelector(lesson) {
+  // eslint-disable-next-line camelcase
   const { total_elements, content } = lesson;
   const filtered = content.map((el) => ({
     date: moment(el.scheduled_start).format('DD.MM.YYYY'),
