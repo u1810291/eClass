@@ -5,35 +5,41 @@ import React, {
 
 import { useExpanded, useTable } from 'react-table';
 import {
-  Container, TR, THead, TBody, TD, MainTableContainer
+  Container,
+  MainTableContainer,
+  THead,
+  TBody,
+  TR,
+  TD,
+  SubTable,
+  SubTD
 } from './style';
-import makeData from './makeData';
 import Spinner from '../Spinner';
+import makeData from './makeData';
 
 function SubRows({
   row, rowProps, visibleColumns, data, loading
 }) {
   if (loading) {
     return (
-      <tr>
-        <td />
-        <td colSpan={visibleColumns.length - 1}>
+      <SubTable.Loading>
+        <SubTD colSpan={visibleColumns.length - 1}>
           Loading...
-        </td>
-      </tr>
+        </SubTD>
+      </SubTable.Loading>
     );
   }
 
   return (
     <>
       {data.map((x, i) => (
-        <tr
+        <SubTable
           {...rowProps}
           // eslint-disable-next-line react/no-array-index-key
           key={`${rowProps.key}-expanded-${i}`}
         >
           {row.cells.map((cell) => (
-            <td
+            <SubTD
               {...cell.getCellProps()}
             >
               {cell.render(cell.column.SubCell ? 'SubCell' : 'Cell', {
@@ -42,21 +48,23 @@ function SubRows({
                       && cell.column.accessor(x, i),
                 row: { ...row, original: x }
               })}
-            </td>
+            </SubTD>
           ))}
-        </tr>
+        </SubTable>
       ))}
     </>
   );
 }
 
-function SubRowAsync({ row, rowProps, visibleColumns }) {
+function SubRowAsync({
+  row, rowProps, visibleColumns
+}) {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setData(makeData(1));
+      setData(makeData(2));
       setLoading(false);
     }, 500);
 
@@ -126,7 +134,9 @@ function Table({ columns: userColumns, data, renderRowSubComponent }) {
   );
 }
 
-function App({ data: tableData, header, loading }) {
+function App({
+  data: tableData, header, loading, subData
+}) {
   const columns = useMemo(() => header, [header]);
   const data = useMemo(() => tableData, [tableData]);
 
@@ -134,6 +144,7 @@ function App({ data: tableData, header, loading }) {
     ({ row, rowProps, visibleColumns }) => (
       <SubRowAsync
         row={row}
+        subData={subData}
         rowProps={rowProps}
         visibleColumns={visibleColumns}
       />

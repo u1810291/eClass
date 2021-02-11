@@ -32,6 +32,7 @@ export default () => {
           data={data}
           header={header}
           loading={loading}
+          subData={data}
         />
       )}
     </Container>
