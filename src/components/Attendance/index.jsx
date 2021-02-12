@@ -2,6 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import Calendar from '../CustomCalendar';
 import { Container, BigCalendar } from './style';
+import Card from '../Card';
 
 export default () => {
   const events = [
@@ -15,11 +16,12 @@ export default () => {
   ];
   return (
     <Container>
-      Attendance page
       <BigCalendar>
-        <Calendar
-          events={events}
-        />
+        <Card>
+          <Calendar
+            events={events}
+          />
+        </Card>
       </BigCalendar>
     </Container>
   );
