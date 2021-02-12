@@ -7,7 +7,7 @@ import CalendarComponent from './Container';
 
 export default (props) => {
   const {
-    value, change, showTimePicker, dateFormat
+    value, change, dateFormat
   } = props;
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
@@ -142,7 +142,6 @@ export default (props) => {
         startDate={startDate}
         endDate={endDate}
         handleOnExpand={handleOnExpand}
-        showTimePicker={showTimePicker}
         handleOnClear={handleOnClear}
       />
     </InputBlock>

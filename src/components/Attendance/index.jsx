@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import moment from 'moment';
 import Calendar from '../CustomCalendar';
 import { Container, BigCalendar, SmallCalendar } from './style';
@@ -6,6 +6,7 @@ import Card from '../Card';
 import CustomCalendarV2 from '../CustomCalendarV2';
 
 export default () => {
+  const [date, setDate] = useState(undefined);
   const events = [
     {
       start: moment().toDate(),
@@ -26,8 +27,13 @@ export default () => {
       </Card>
       <SmallCalendar>
         <Card>
-
-          <CustomCalendarV2 />
+          <CustomCalendarV2
+            name="rangeDate"
+            value={date}
+            change={(value) => setDate(value)}
+            dateFormat="YYYY-MM-DD"
+            white
+          />
         </Card>
         <Card />
       </SmallCalendar>
