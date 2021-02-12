@@ -2,18 +2,9 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   padding: 1rem;
-  overflow: auto;
-  height: 100%;
-  
-  position: relative;
-  --table-table-width: auto;
-  --table-left-right-row-paddings: 25px;
-  --table-cell-right-padding: 36px;
-  --table-cell-left-padding: 16px;
-  --table-sort-icon-size: 5px;
-  --table-row-background-color: transparent;
-  --table-row-between: 14px;
-  --table-margin-first-element-sticky: 125px;
+  overflow:auto;
+  height: ${({ height }) => (height || '600px')};
+
   table {
     width: 100%;
     border-collapse: separate;
@@ -59,8 +50,6 @@ export const TR = styled.tr`
 `;
 
 export const TBody = styled.tbody`
-  tr {
-  }
 `;
 
 export const TD = styled.td`
@@ -69,8 +58,6 @@ export const TD = styled.td`
 `;
 
 export const MainTableContainer = styled.table`
-  overflow:auto;
-  height: ${({ height }) => (height || '400px')};
 `;
 
 export const SubTable = styled.tr``;

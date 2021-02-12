@@ -16,7 +16,6 @@ import {
 } from './style';
 import Spinner from '../Spinner';
 import makeData from './makeData';
-import { Wrapper } from '../Styles/style';
 
 function SubRows({
   row, rowProps, visibleColumns, data, loading
@@ -156,13 +155,11 @@ function App({
       {loading ? (
         <Spinner contain black />
       ) : (
-        <Wrapper>
-          <Table
-            columns={columns}
-            data={data}
-            renderRowSubComponent={renderRowSubComponent}
-          />
-        </Wrapper>
+        <Table
+          columns={columns}
+          data={data}
+          renderRowSubComponent={renderRowSubComponent}
+        />
       )}
     </Container>
   );
