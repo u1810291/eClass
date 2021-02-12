@@ -1,26 +1,19 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import moment from 'moment';
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
-import classNames from 'classnames';
-import { InputBlock, DatepickerInput } from '../Forms/Inputs/style';
-import { ErrorText } from '../Forms/Error/style';
+import { InputBlock } from '../Forms/Inputs/style';
 import CalendarComponent from './Container';
-import { ClickOutside } from '../../hooks/click-outside';
-// import Icon from '../../../Icon';
-import { Wrapper } from './style';
 
 export default (props) => {
   const {
-    placeholder, value, change, error, showTimePicker, white, dateFormat
+    value, change, showTimePicker, dateFormat
   } = props;
-  const clickRef = useRef(null);
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [startTime, setStartTime] = useState(null);
   const [endTime, setEndTime] = useState(null);
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
-  const [displayValue, setdisplayValue] = useState(undefined);
   const [selectionRange, setSelectionRange] = useState({
     startDate: new Date(),
     endDate: new Date(),
@@ -73,7 +66,6 @@ export default (props) => {
         startDate: start1,
         endDate: end1
       });
-      setdisplayValue(`${moment(start1).format(dateFormat)}/${moment(end1).format(dateFormat)}`);
     }
   }, [value, dateFormat]);
 
@@ -124,7 +116,6 @@ export default (props) => {
     setEndDate(new Date());
     setStartTime(null);
     setEndTime(null);
-    setdisplayValue(undefined);
     setSelectionRange({
       key: 'selection',
       startDate: new Date(),
@@ -138,44 +129,22 @@ export default (props) => {
   };
   const mainBlock = (
     <InputBlock>
-      <DatepickerInput
-        ref={clickRef}
-        onClick={() => setIsPopoverOpen((prevState) => !prevState)}
-        white={white}
-        className={classNames('body-medium', 'weight-regular')}
-      >
-        {displayValue || (
-          <Wrapper white={white}>
-            {placeholder}
-            {/* <Icon icon={isPopoverOpen ? 'top' : 'buttom'}
-             color={white ? '#262626' : '#7E8299'} /> */}
-          </Wrapper>
-        )}
-      </DatepickerInput>
-      {error && <ErrorText>{error}</ErrorText>}
-      <ClickOutside
-        outClickRef={clickRef}
-        outsideClicked={() => {
-          setIsPopoverOpen(false);
-        }}
-      >
-        <CalendarComponent
-          selectionRange={selectionRange}
-          startTime={startTime}
-          endTime={endTime}
-          isPopoverOpen={isPopoverOpen}
-          changeStartTime={changeStartTime}
-          changeEndTime={changeEndTime}
-          handleSelect={handleSelect}
-          rangeChange={rangeChange}
-          setIsPopoverOpen={setIsPopoverOpen}
-          startDate={startDate}
-          endDate={endDate}
-          handleOnExpand={handleOnExpand}
-          showTimePicker={showTimePicker}
-          handleOnClear={handleOnClear}
-        />
-      </ClickOutside>
+      <CalendarComponent
+        selectionRange={selectionRange}
+        startTime={startTime}
+        endTime={endTime}
+        isPopoverOpen={isPopoverOpen}
+        changeStartTime={changeStartTime}
+        changeEndTime={changeEndTime}
+        handleSelect={handleSelect}
+        rangeChange={rangeChange}
+        setIsPopoverOpen={setIsPopoverOpen}
+        startDate={startDate}
+        endDate={endDate}
+        handleOnExpand={handleOnExpand}
+        showTimePicker={showTimePicker}
+        handleOnClear={handleOnClear}
+      />
     </InputBlock>
   );
 

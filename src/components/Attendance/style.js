@@ -5,11 +5,14 @@ export const Container = styled.div`
   grid-gap: 10px;
   grid-template-columns: 2fr 1fr;
   margin: 10px 0px 10px;
-`;
+  `;
 
 export const BigCalendar = styled.div`
   padding: 10px;
-`;
+  `;
 export const SmallCalendar = styled.div`
-  padding: 10px;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2fr 1fr;
 `;

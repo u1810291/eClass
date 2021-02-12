@@ -23,10 +23,14 @@ export default () => {
             events={events}
           />
         </BigCalendar>
-        <SmallCalendar>
-          <CustomCalendarV2 />
-        </SmallCalendar>
       </Card>
+      <SmallCalendar>
+        <Card>
+
+          <CustomCalendarV2 />
+        </Card>
+        <Card />
+      </SmallCalendar>
     </Container>
   );
 };
