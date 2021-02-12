@@ -27,5 +27,5 @@ function* fetchData({ payload: { user } }) {
 }
 
 export default function* lessonsSaga() {
-  yield takeLatest(types.TABLE_HOMEWORS_FETCH_DATA, fetchData);
+  yield takeLatest(types.TABLE_QUIZES_FETCH_DATA, fetchData);
 }
