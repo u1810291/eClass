@@ -2,11 +2,15 @@
 import React from 'react';
 import {
   Body,
+  Icon,
   Title,
   Wrapper,
   Navigate,
+  CardBody,
+  MainCard,
   InnerCard,
   Container,
+  CardContent,
   SwitchButton
 } from '../style';
 import Card from '../../Card';
@@ -15,8 +19,7 @@ import { getRandColor } from '../../../utils/random-color';
 export default () => (
   <Container>
     <Navigate>
-
-      <Card size="small" white>
+      <Card size="small">
         <Body>
           <Title>Homeworks</Title>
           <SwitchButton>
@@ -28,11 +31,22 @@ export default () => (
           <Wrapper className="scroll-container">
             <InnerCard>
               {[...Array(15)].map((_, i) => (
-                <Card key={i} color={getRandColor()}>
-                  {i}
-                  {' '}
-                  Hello
-                </Card>
+                <MainCard key={i}>
+
+                  <Card color={getRandColor()}>
+                    <CardContent color={getRandColor()}>
+                      <Card>
+                        <Icon />
+                      </Card>
+                      <CardBody>
+
+                        {i}
+                        {' '}
+                        Hello
+                      </CardBody>
+                    </CardContent>
+                  </Card>
+                </MainCard>
               ))}
             </InnerCard>
           </Wrapper>

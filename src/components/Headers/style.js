@@ -4,7 +4,7 @@ import PrimaryButton from '../Buttons/Primary';
 import { ReactComponent as IconFilter } from '../../assets/icons/filter.svg';
 import { ReactComponent as IconPlus } from '../../assets/icons/plus.svg';
 import { ReactComponent as IconLocation } from '../../assets/icons/location.svg';
-
+import { ReactComponent as Subjects } from '../../assets/icons/subjects.svg';
 import { device } from '../../utils/responsive';
 
 export { ReactComponent as GridIcon } from '../../assets/icons/grid.svg';
@@ -12,6 +12,12 @@ export { ReactComponent as GridIcon } from '../../assets/icons/grid.svg';
 export const Wrapper = styled(Scrollable)`
   overflow-x: auto;
   overflow-y: auto;
+`;
+
+export const Icon = styled(Subjects)`
+  width: 40px;
+  height: 40px;
+  margin: 0;
 `;
 
 export const LocationIcon = styled(IconLocation)`
@@ -73,9 +79,10 @@ export const FilterButton = styled(PrimaryButton)`
 
 // Containers, and layouts
 export const Container = styled.div`
-  width: 100%;
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
 `;
 
 export const Header = styled.div`
@@ -153,6 +160,8 @@ export const Body = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 20px;
+  position: relative;
+  width: 100%;
 `;
 export const Title = styled.div`
   font-style: normal;
@@ -211,9 +220,10 @@ SwitchButton.Button = styled.button`
 `;
 
 export const Navigate = styled.div`
-  margin: 20px;
   display: flex;
   flex-direction: column;
+  position: relative;
+  width: 70%;
 `;
 
 Navigate.Cards = styled.div`
@@ -227,9 +237,32 @@ export const InnerCard = styled.div`
   grid-auto-flow: column;
   grid-auto-columns: 20%;
   cursor: pointer;
-  div{
-    &:hover{
-      opacity: 0.4;
-    }
+`;
+
+export const CardContent = styled.div`
+  display: grid;
+  grid-gap: 10px;
+  grid-auto-flow: column;
+  grid-auto-columns: 40% 60%;
+  &:hover{
+    opacity: 0.7;
   }
+  svg {
+    
+  path{
+    fill: ${({ color }) => (color || '')};
+  }
+  }
+  background-color: inherit !important;
+
+`;
+
+export const CardBody = styled.div`
+`;
+export const MainCard = styled.div`
+  &:hover {    
+    transform: translateY(-10px);
+  }
+  transition-duration: 500ms;
+  padding:10px;
 `;
