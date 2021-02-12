@@ -3,10 +3,16 @@ import PrimaryButton from '../Buttons/Primary';
 import { ReactComponent as IconFilter } from '../../assets/icons/filter.svg';
 import { ReactComponent as IconPlus } from '../../assets/icons/plus.svg';
 import { ReactComponent as IconLocation } from '../../assets/icons/location.svg';
-
+import { ReactComponent as Subjects } from '../../assets/icons/subjects.svg';
 import { device } from '../../utils/responsive';
 
 export { ReactComponent as GridIcon } from '../../assets/icons/grid.svg';
+
+export const Icon = styled(Subjects)`
+  width: 40px;
+  height: 40px;
+  margin: 0;
+`;
 
 export const LocationIcon = styled(IconLocation)`
   margin: 0px 3px;
@@ -67,10 +73,10 @@ export const FilterButton = styled(PrimaryButton)`
 
 // Containers, and layouts
 export const Container = styled.div`
-  width: 100%;
-  margin-bottom: 12px;
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
 `;
 
 export const Header = styled.div`
@@ -147,7 +153,7 @@ export const ButtonContainer = styled.div`
 export const Body = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 20px;
+  padding: 20px;  
 `;
 export const Title = styled.div`
   font-style: normal;
@@ -178,15 +184,26 @@ TitleWrapper.Clear = styled.span`]
 `;
 export const SwitchButton = styled.div`
   background: #FFFFFF;
-  box-shadow: 0px 11px 13px rgba(124, 136, 177, 0.1), inset 4px 0px 0px #A9C6FF;
+  box-shadow: 11px 11px 11px 13px rgba(124, 136, 177, 0.1), inset 4px 0px 0px #A9C6FF;
   border-radius: 11px;
   width: 30%;
   display: flex;
+  height: 50px;
   `;
+
+SwitchButton.Counter = styled.div`
+  margin: 5px;
+  padding: 5px;
+  border-radius: 7px;
+  background: rgba(214, 136, 155, 0.82);
+`;
 
 SwitchButton.Button = styled.button`
   margin: 5px;
   padding: 10px;
+  align-items: center;
+  
+  display: flex;
   cursor: pointer;
   border: none;
   width: 100%;
@@ -203,4 +220,55 @@ SwitchButton.Button = styled.button`
     background: rgba(214, 236, 255, 0.82);
   }
   border-radius: 11px;
+`;
+
+export const Navigate = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  max-width:100%;
+  min-width:100%;
+  flex-wrap: wrap;
+  word-break: break-all;
+`;
+
+Navigate.Cards = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
+
+export const InnerCard = styled.div`
+  display: grid;
+  grid-gap: 10px;
+  grid-auto-flow: column;
+  grid-auto-columns: 20%;
+  cursor: pointer;
+`;
+
+export const CardContent = styled.div`
+  display: grid;
+  grid-gap: 10px;
+  grid-auto-flow: column;
+  grid-auto-columns: 40% 60%;
+  &:hover{
+    opacity: 0.7;
+  }
+  svg {
+    
+  path{
+    fill: ${({ color }) => (color || '')};
+  }
+  }
+  background-color: inherit !important;
+
+`;
+
+export const CardBody = styled.div`
+`;
+export const MainCard = styled.div`
+  &:hover {    
+    transform: translateY(-10px);
+  }
+  transition-duration: 500ms;
+  padding:10px;
 `;

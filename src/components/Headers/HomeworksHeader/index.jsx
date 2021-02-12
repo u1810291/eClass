@@ -1,6 +1,10 @@
+/* eslint-disable react/no-array-index-key */
 import React from 'react';
 import {
-  Container, Body, Title, SwitchButton
+  Body,
+  Container,
+  Title,
+  SwitchButton
 } from '../style';
 
 export default () => (
@@ -8,8 +12,14 @@ export default () => (
     <Body>
       <Title>Homeworks</Title>
       <SwitchButton>
-        <SwitchButton.Button> Not finished works</SwitchButton.Button>
-        <SwitchButton.Button> Finished works</SwitchButton.Button>
+        <SwitchButton.Button>
+          <div>Not finished works</div>
+          <SwitchButton.Counter>15</SwitchButton.Counter>
+        </SwitchButton.Button>
+        <SwitchButton.Button>
+          <div>Finished works</div>
+          <SwitchButton.Counter>15</SwitchButton.Counter>
+        </SwitchButton.Button>
       </SwitchButton>
     </Body>
   </Container>

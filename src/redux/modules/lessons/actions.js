@@ -4,7 +4,4 @@ export const setLoading = (payload) => ({ type: types.TABLE_LESSONS_SET_LOADING,
 export const setData = (payload) => ({ type: types.TABLE_LESSONS_SET_DATA, payload });
 export const setTotal = (payload) => ({ type: types.TABLE_LESSONS_SET_TOTAL, payload });
 export const setError = (payload) => ({ type: types.TABLE_LESSONS_ERROR, payload });
-export const fetchData = (userInfo) => ({
-  type: types.TABLE_LESSONS_FETCH_DATA,
-  user: userInfo
-});
+export const fetchData = (payload) => ({ type: types.TABLE_LESSONS_FETCH_DATA, payload });
