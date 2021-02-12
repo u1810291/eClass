@@ -1,10 +1,16 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
-import ScrollContainer from 'react-indiana-drag-scroll';
 import {
-  Container, Body, Title, SwitchButton, Navigate, InnerCard
+  Body,
+  Title,
+  Wrapper,
+  Navigate,
+  InnerCard,
+  Container,
+  SwitchButton
 } from '../style';
 import Card from '../../Card';
+import { getRandColor } from '../../../utils/random-color';
 
 export default () => (
   <Container>
@@ -19,17 +25,17 @@ export default () => (
           </SwitchButton>
         </Body>
         <Navigate.Cards>
-          <ScrollContainer>
+          <Wrapper className="scroll-container">
             <InnerCard>
               {[...Array(15)].map((_, i) => (
-                <Card key={i} color="#3E3E3E">
+                <Card key={i} color={getRandColor()}>
                   {i}
                   {' '}
                   Hello
                 </Card>
               ))}
             </InnerCard>
-          </ScrollContainer>
+          </Wrapper>
         </Navigate.Cards>
       </Card>
     </Navigate>

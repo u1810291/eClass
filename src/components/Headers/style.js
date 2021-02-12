@@ -1,4 +1,5 @@
 import styled, { keyframes } from 'styled-components';
+import Scrollable from 'react-indiana-drag-scroll';
 import PrimaryButton from '../Buttons/Primary';
 import { ReactComponent as IconFilter } from '../../assets/icons/filter.svg';
 import { ReactComponent as IconPlus } from '../../assets/icons/plus.svg';
@@ -7,6 +8,11 @@ import { ReactComponent as IconLocation } from '../../assets/icons/location.svg'
 import { device } from '../../utils/responsive';
 
 export { ReactComponent as GridIcon } from '../../assets/icons/grid.svg';
+
+export const Wrapper = styled(Scrollable)`
+  overflow-x: auto;
+  overflow-y: auto;
+`;
 
 export const LocationIcon = styled(IconLocation)`
   margin: 0px 3px;
@@ -212,7 +218,6 @@ export const Navigate = styled.div`
 
 Navigate.Cards = styled.div`
   display: flex;
-  overflow-x: auto;
   flex-wrap: wrap;
 `;
 
@@ -221,4 +226,10 @@ export const InnerCard = styled.div`
   grid-gap: 10px;
   grid-auto-flow: column;
   grid-auto-columns: 20%;
+  cursor: pointer;
+  div{
+    &:hover{
+      opacity: 0.4;
+    }
+  }
 `;
