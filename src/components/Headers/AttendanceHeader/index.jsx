@@ -17,37 +17,35 @@ import { Wrapper } from '../../Styles/style';
 
 export default () => (
   <Container>
-    <div>
 
-      <Navigate>
-        <Card size="small">
-          <Body>
-            <Title>Homeworks</Title>
-          </Body>
-          <Navigate.Cards>
-            <Wrapper className="scroll-container">
-              <InnerCard>
-                {[...Array(15)].map((_, i) => (
-                  <MainCard key={i}>
-                    <Card color={getRandColor()}>
-                      <CardContent color={getRandColor()}>
-                        <Card>
-                          <Icon />
-                        </Card>
-                        <CardBody>
-                          {i}
-                          {' '}
-                          Hello
-                        </CardBody>
-                      </CardContent>
-                    </Card>
-                  </MainCard>
-                ))}
-              </InnerCard>
-            </Wrapper>
-          </Navigate.Cards>
-        </Card>
-      </Navigate>
-    </div>
+    <Navigate>
+      <Card size="small">
+        <Body>
+          <Title>Homeworks</Title>
+        </Body>
+        <Navigate.Cards>
+          <Wrapper className="scroll-container">
+            <InnerCard>
+              {[...Array(15)].map((_, i) => (
+                <MainCard key={i}>
+                  <Card color={getRandColor()}>
+                    <CardContent color={getRandColor()}>
+                      <Card>
+                        <Icon />
+                      </Card>
+                      <CardBody>
+                        {i}
+                        {' '}
+                        Hello
+                      </CardBody>
+                    </CardContent>
+                  </Card>
+                </MainCard>
+              ))}
+            </InnerCard>
+          </Wrapper>
+        </Navigate.Cards>
+      </Card>
+    </Navigate>
   </Container>
 );

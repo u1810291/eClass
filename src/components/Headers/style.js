@@ -73,10 +73,7 @@ export const FilterButton = styled(PrimaryButton)`
 
 // Containers, and layouts
 export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  width: 100%;
+  display: block;
 `;
 
 export const Header = styled.div`
@@ -223,13 +220,7 @@ SwitchButton.Button = styled.button`
 `;
 
 export const Navigate = styled.div`
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  max-width:100%;
-  min-width:100%;
-  flex-wrap: wrap;
-  word-break: break-all;
+  display: block;
 `;
 
 Navigate.Cards = styled.div`
