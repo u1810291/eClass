@@ -14,7 +14,7 @@ function* fetchData({ payload: { user } }) {
   try {
     if (user) {
       const role = user.toLowerCase();
-      const res = yield service.getHomeworks(role);
+      const res = yield service.getQuizes(role);
       const { total, data } = dataSelector(res.data);
       yield put(setError(''));
       yield put(setData(data));
