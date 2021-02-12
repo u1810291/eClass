@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Table from '../../components/Table';
 import { Container } from './style';
-import { fetchData } from '../../redux/modules/homeworks/actions';
+import { fetchData } from '../../redux/modules/quizes/actions';
 import { getHeader } from './helper';
 import HomeworksHeader from '../../components/Headers/HomeworksHeader';
 import TableError from '../../components/Table/Error';
@@ -14,7 +14,7 @@ export default () => {
 
   const {
     loading, data, total, error
-  } = useSelector((state) => state.homeworksReducers);
+  } = useSelector((state) => state.quizesReducers);
   const header = getHeader(userInfo);
   useEffect(() => {
     dispatch(fetchData({ user: userInfo.role }));
