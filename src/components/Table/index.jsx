@@ -5,8 +5,16 @@ import React, {
 
 import { useExpanded, useTable } from 'react-table';
 import {
-  Container, TR, THead, TBody
+  Container,
+  MainTableContainer,
+  THead,
+  TBody,
+  TR,
+  TD,
+  SubTable,
+  SubTD
 } from './style';
+import Spinner from '../Spinner';
 import makeData from './makeData';
 
 function SubRows({
@@ -14,25 +22,24 @@ function SubRows({
 }) {
   if (loading) {
     return (
-      <tr>
-        <td />
-        <td colSpan={visibleColumns.length - 1}>
+      <SubTable.Loading>
+        <SubTD colSpan={visibleColumns.length - 1}>
           Loading...
-        </td>
-      </tr>
+        </SubTD>
+      </SubTable.Loading>
     );
   }
 
   return (
     <>
       {data.map((x, i) => (
-        <tr
+        <SubTable
           {...rowProps}
           // eslint-disable-next-line react/no-array-index-key
           key={`${rowProps.key}-expanded-${i}`}
         >
           {row.cells.map((cell) => (
-            <td
+            <SubTD
               {...cell.getCellProps()}
             >
               {cell.render(cell.column.SubCell ? 'SubCell' : 'Cell', {
@@ -41,21 +48,23 @@ function SubRows({
                       && cell.column.accessor(x, i),
                 row: { ...row, original: x }
               })}
-            </td>
+            </SubTD>
           ))}
-        </tr>
+        </SubTable>
       ))}
     </>
   );
 }
 
-function SubRowAsync({ row, rowProps, visibleColumns }) {
+function SubRowAsync({
+  row, rowProps, visibleColumns
+}) {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setData(makeData(1));
+      setData(makeData(2));
       setLoading(false);
     }, 500);
 
@@ -92,40 +101,40 @@ function Table({ columns: userColumns, data, renderRowSubComponent }) {
   );
 
   return (
-    <>
-      <table {...getTableProps()}>
-        <THead>
-          {headerGroups.map((headerGroup) => (
-            <tr {...headerGroup.getHeaderGroupProps()}>
-              {headerGroup.headers.map((column) => (
-                <th {...column.getHeaderProps()}>{column.render('Header')}</th>
-              ))}
-            </tr>
-          ))}
-        </THead>
-        <TBody {...getTableBodyProps()}>
-          {rows.map((row) => {
-            prepareRow(row);
-            const rowProps = row.getRowProps();
-            return (
-              <React.Fragment key={rowProps.key}>
-                <TR {...rowProps}>
-                  {row.cells.map((cell) => (
-                    <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
-                  ))}
-                </TR>
-                {row.isExpanded
+    <MainTableContainer {...getTableProps()}>
+      <THead>
+        {headerGroups.map((headerGroup) => (
+          <tr {...headerGroup.getHeaderGroupProps()}>
+            {headerGroup.headers.map((column) => (
+              <th {...column.getHeaderProps()}>{column.render('Header')}</th>
+            ))}
+          </tr>
+        ))}
+      </THead>
+      <TBody {...getTableBodyProps()}>
+        {rows.map((row) => {
+          prepareRow(row);
+          const rowProps = row.getRowProps();
+          return (
+            <React.Fragment key={rowProps.key}>
+              <TR {...rowProps}>
+                {row.cells.map((cell) => (
+                  <TD {...cell.getCellProps()}>{cell.render('Cell')}</TD>
+                ))}
+              </TR>
+              {row.isExpanded
                 && renderRowSubComponent({ row, rowProps, visibleColumns })}
-              </React.Fragment>
-            );
-          })}
-        </TBody>
-      </table>
-    </>
+            </React.Fragment>
+          );
+        })}
+      </TBody>
+    </MainTableContainer>
   );
 }
 
-function App({ data: tableData, header }) {
+function App({
+  data: tableData, header, loading, subData
+}) {
   const columns = useMemo(() => header, [header]);
   const data = useMemo(() => tableData, [tableData]);
 
@@ -133,6 +142,7 @@ function App({ data: tableData, header }) {
     ({ row, rowProps, visibleColumns }) => (
       <SubRowAsync
         row={row}
+        subData={subData}
         rowProps={rowProps}
         visibleColumns={visibleColumns}
       />
@@ -142,11 +152,15 @@ function App({ data: tableData, header }) {
 
   return (
     <Container>
-      <Table
-        columns={columns}
-        data={data}
-        renderRowSubComponent={renderRowSubComponent}
-      />
+      {loading ? (
+        <Spinner contain black />
+      ) : (
+        <Table
+          columns={columns}
+          data={data}
+          renderRowSubComponent={renderRowSubComponent}
+        />
+      )}
     </Container>
   );
 }

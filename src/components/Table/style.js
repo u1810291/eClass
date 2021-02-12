@@ -2,8 +2,9 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   padding: 1rem;
-  overflow: auto;
-  height: 100%;
+  overflow:auto;
+  height: ${({ height }) => (height || '600px')};
+
   table {
     width: 100%;
     border-collapse: separate;
@@ -38,7 +39,7 @@ export const THead = styled.thead`
 
 export const TR = styled.tr`
   td{
-    height: 75px;
+    height: 55px;
   }
   border: solid 1px #000;
 
@@ -49,6 +50,20 @@ export const TR = styled.tr`
 `;
 
 export const TBody = styled.tbody`
-  tr {
-  }
+`;
+
+export const TD = styled.td`
+  max-width: 200px;
+  min-width: 50px;
+`;
+
+export const MainTableContainer = styled.table`
+`;
+
+export const SubTable = styled.tr``;
+
+SubTable.Loading = styled.tr``;
+
+export const SubTD = styled.td`
+  background: #FFFFFF;
 `;

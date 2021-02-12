@@ -2,8 +2,8 @@ import { service } from '..';
 
 export default {
 
-  getHomeworks: (user, id) => service.get(`/api/v1/${user}/exercise/homework/list?lesson=${id}`),
-  getQuizes: (id) => service.get(`/api/v1/teacher/exercise/controlwork/list?lesson=${id}`),
+  getHomeworks: (user) => service.get(`/api/v1/${user}/exercise/homework/list`),
+  getQuizes: (user) => service.get(`/api/v1/${user}/exercise/controlwork/list`),
   addHomework: (id, data) => service.post(`/api/v1/teacher/exercise/homework/${id}`, { data }),
   addQuize: (id, data) => service.post(`/api/v1/teacher/exercise/controlwork/${id}`, { data }),
   // TODO Needs to be checked before using

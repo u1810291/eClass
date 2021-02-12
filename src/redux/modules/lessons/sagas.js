@@ -4,19 +4,23 @@ import service from '../../../services/teacher/lesson';
 import {
   setData,
   setError,
+  setTotal,
   setLoading
 } from './actions';
 
 import { dataSelector } from './selectors';
 
-function* fetchData(user) {
+function* fetchData({ payload: { user } }) {
   try {
-    const role = user.user.toLowerCase();
-    const res = yield service.getAll(role);
-    const { data } = dataSelector(res.data);
-    yield put(setError(''));
-    yield put(setData(data));
-    yield put(setLoading(false));
+    if (user) {
+      const role = user.toLowerCase();
+      const res = yield service.getAll(role);
+      const { total, data } = dataSelector(res.data);
+      yield put(setError(''));
+      yield put(setData(data));
+      yield put(setTotal(total));
+      yield put(setLoading(false));
+    }
   } catch (error) {
     yield put(setError(error.message));
   }
