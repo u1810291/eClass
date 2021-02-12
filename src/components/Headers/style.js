@@ -1,5 +1,4 @@
 import styled, { keyframes } from 'styled-components';
-import Scrollable from 'react-indiana-drag-scroll';
 import PrimaryButton from '../Buttons/Primary';
 import { ReactComponent as IconFilter } from '../../assets/icons/filter.svg';
 import { ReactComponent as IconPlus } from '../../assets/icons/plus.svg';
@@ -8,11 +7,6 @@ import { ReactComponent as Subjects } from '../../assets/icons/subjects.svg';
 import { device } from '../../utils/responsive';
 
 export { ReactComponent as GridIcon } from '../../assets/icons/grid.svg';
-
-export const Wrapper = styled(Scrollable)`
-  overflow-x: auto;
-  overflow-y: auto;
-`;
 
 export const Icon = styled(Subjects)`
   width: 40px;
@@ -194,11 +188,22 @@ export const SwitchButton = styled.div`
   border-radius: 11px;
   width: 30%;
   display: flex;
+  height: 50px;
   `;
+
+SwitchButton.Counter = styled.div`
+  margin: 5px;
+  padding: 5px;
+  border-radius: 7px;
+  background: rgba(214, 136, 155, 0.82);
+`;
 
 SwitchButton.Button = styled.button`
   margin: 5px;
   padding: 10px;
+  align-items: center;
+  
+  display: flex;
   cursor: pointer;
   border: none;
   width: 100%;
