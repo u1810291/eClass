@@ -159,9 +159,7 @@ export const ButtonContainer = styled.div`
 export const Body = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 20px;
-  position: relative;
-  width: 100%;
+  padding: 20px;  
 `;
 export const Title = styled.div`
   font-style: normal;
@@ -223,7 +221,10 @@ export const Navigate = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
-  width: 70%;
+  max-width:100%;
+  min-width:100%;
+  flex-wrap: wrap;
+  word-break: break-all;
 `;
 
 Navigate.Cards = styled.div`

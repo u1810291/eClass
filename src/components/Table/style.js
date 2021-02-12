@@ -4,6 +4,16 @@ export const Container = styled.div`
   padding: 1rem;
   overflow: auto;
   height: 100%;
+  
+  position: relative;
+  --table-table-width: auto;
+  --table-left-right-row-paddings: 25px;
+  --table-cell-right-padding: 36px;
+  --table-cell-left-padding: 16px;
+  --table-sort-icon-size: 5px;
+  --table-row-background-color: transparent;
+  --table-row-between: 14px;
+  --table-margin-first-element-sticky: 125px;
   table {
     width: 100%;
     border-collapse: separate;

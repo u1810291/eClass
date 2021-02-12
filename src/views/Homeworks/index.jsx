@@ -15,9 +15,8 @@ export default () => {
     loading, data, total, error
   } = useSelector((state) => state.homeworksReducers);
   const header = getHeader(userInfo);
-  const lessonId = 'f5f9c496-e6c0-44ea-87e5-c0d75c6bb1e5';
   useEffect(() => {
-    dispatch(fetchData({ user: userInfo.role, id: lessonId }));
+    dispatch(fetchData({ user: userInfo.role }));
   }, [fetchData]);
 
   return (

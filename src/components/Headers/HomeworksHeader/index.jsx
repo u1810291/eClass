@@ -32,7 +32,6 @@ export default () => (
             <InnerCard>
               {[...Array(15)].map((_, i) => (
                 <MainCard key={i}>
-
                   <Card color={getRandColor()}>
                     <CardContent color={getRandColor()}>
                       <Card>
