@@ -69,7 +69,8 @@ export const TD = styled.td`
 `;
 
 export const MainTableContainer = styled.table`
-
+  overflow:auto;
+  height: ${({ height }) => (height || '400px')};
 `;
 
 export const SubTable = styled.tr``;

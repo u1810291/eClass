@@ -16,6 +16,7 @@ import {
 } from './style';
 import Spinner from '../Spinner';
 import makeData from './makeData';
+import { Wrapper } from '../Styles/style';
 
 function SubRows({
   row, rowProps, visibleColumns, data, loading
@@ -101,36 +102,34 @@ function Table({ columns: userColumns, data, renderRowSubComponent }) {
   );
 
   return (
-    <>
-      <MainTableContainer {...getTableProps()}>
-        <THead>
-          {headerGroups.map((headerGroup) => (
-            <tr {...headerGroup.getHeaderGroupProps()}>
-              {headerGroup.headers.map((column) => (
-                <th {...column.getHeaderProps()}>{column.render('Header')}</th>
-              ))}
-            </tr>
-          ))}
-        </THead>
-        <TBody {...getTableBodyProps()}>
-          {rows.map((row) => {
-            prepareRow(row);
-            const rowProps = row.getRowProps();
-            return (
-              <React.Fragment key={rowProps.key}>
-                <TR {...rowProps}>
-                  {row.cells.map((cell) => (
-                    <TD {...cell.getCellProps()}>{cell.render('Cell')}</TD>
-                  ))}
-                </TR>
-                {row.isExpanded
+    <MainTableContainer {...getTableProps()}>
+      <THead>
+        {headerGroups.map((headerGroup) => (
+          <tr {...headerGroup.getHeaderGroupProps()}>
+            {headerGroup.headers.map((column) => (
+              <th {...column.getHeaderProps()}>{column.render('Header')}</th>
+            ))}
+          </tr>
+        ))}
+      </THead>
+      <TBody {...getTableBodyProps()}>
+        {rows.map((row) => {
+          prepareRow(row);
+          const rowProps = row.getRowProps();
+          return (
+            <React.Fragment key={rowProps.key}>
+              <TR {...rowProps}>
+                {row.cells.map((cell) => (
+                  <TD {...cell.getCellProps()}>{cell.render('Cell')}</TD>
+                ))}
+              </TR>
+              {row.isExpanded
                 && renderRowSubComponent({ row, rowProps, visibleColumns })}
-              </React.Fragment>
-            );
-          })}
-        </TBody>
-      </MainTableContainer>
-    </>
+            </React.Fragment>
+          );
+        })}
+      </TBody>
+    </MainTableContainer>
   );
 }
 
@@ -157,11 +156,13 @@ function App({
       {loading ? (
         <Spinner contain black />
       ) : (
-        <Table
-          columns={columns}
-          data={data}
-          renderRowSubComponent={renderRowSubComponent}
-        />
+        <Wrapper>
+          <Table
+            columns={columns}
+            data={data}
+            renderRowSubComponent={renderRowSubComponent}
+          />
+        </Wrapper>
       )}
     </Container>
   );
