@@ -1,5 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
+import ScrollContainer from 'react-indiana-drag-scroll';
 import {
   Container, Body, Title, SwitchButton, Navigate, InnerCard
 } from '../style';
@@ -18,17 +19,17 @@ export default () => (
           </SwitchButton>
         </Body>
         <Navigate.Cards>
-
-          <InnerCard>
-            {[...Array(15)].map((_, i) => (
-              <Card key={i} color="#3E3E3E">
-                {i}
-                {' '}
-                Hello
-              </Card>
-            ))}
-
-          </InnerCard>
+          <ScrollContainer>
+            <InnerCard>
+              {[...Array(15)].map((_, i) => (
+                <Card key={i} color="#3E3E3E">
+                  {i}
+                  {' '}
+                  Hello
+                </Card>
+              ))}
+            </InnerCard>
+          </ScrollContainer>
         </Navigate.Cards>
       </Card>
     </Navigate>
