@@ -79,6 +79,7 @@ export const FilterButton = styled(PrimaryButton)`
 // Containers, and layouts
 export const Container = styled.div`
   display: block;
+  margin: 10px 0px 0px;
 `;
 
 export const Header = styled.div`

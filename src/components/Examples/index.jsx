@@ -13,10 +13,12 @@ import Typography from './Typography';
 import TextArea from '../Forms/Inputs/TextArea';
 import Color from '../Color';
 import Switch from '../Forms/Switch';
+import DatePicker from '../Forms/Inputs/DatePicker';
 
 export default () => {
   const [isOn, setIsOn] = useState(false);
 
+  const [date, setDate] = useState(undefined);
   return (
     <Container>
       <Color />
@@ -52,13 +54,31 @@ export default () => {
       <DropdownExamples>
         <Dropdowns />
       </DropdownExamples>
+      <h1>Text Area</h1>
       <TextArea placeholder="Textarea..." white />
+      <h1>DatePicker</h1>
+
+      <div style={{ width: '200px' }}>
+
+        <DatePicker
+          placeholder="Date"
+          name="rangeDate"
+          value={date}
+          change={(value) => setDate(value)}
+          showTimePicker={false}
+          dateFormat="YYYY-MM-DD"
+          date={date}
+          white
+        />
+      </div>
+      <h1>Switch</h1>
       <Switch
         isOn={isOn}
         white
         id="test"
         handleToggle={() => setIsOn((prevState) => !prevState)}
       />
+      <h1>Typography</h1>
       <Typography />
 
     </Container>

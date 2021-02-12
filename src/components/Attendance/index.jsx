@@ -1,8 +1,9 @@
 import React from 'react';
 import moment from 'moment';
 import Calendar from '../CustomCalendar';
-import { Container, BigCalendar } from './style';
+import { Container, BigCalendar, SmallCalendar } from './style';
 import Card from '../Card';
+import CustomCalendarV2 from '../CustomCalendarV2';
 
 export default () => {
   const events = [
@@ -16,13 +17,16 @@ export default () => {
   ];
   return (
     <Container>
-      <BigCalendar>
-        <Card>
+      <Card>
+        <BigCalendar>
           <Calendar
             events={events}
           />
-        </Card>
-      </BigCalendar>
+        </BigCalendar>
+        <SmallCalendar>
+          <CustomCalendarV2 />
+        </SmallCalendar>
+      </Card>
     </Container>
   );
 };
