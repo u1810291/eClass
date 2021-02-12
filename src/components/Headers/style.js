@@ -12,6 +12,11 @@ export const Icon = styled(Subjects)`
   width: 40px;
   height: 40px;
   margin: 0;
+  padding: 3px;
+  svg{
+    margin: 5px;
+
+  }
 `;
 
 export const LocationIcon = styled(IconLocation)`

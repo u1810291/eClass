@@ -17,11 +17,10 @@ import { Wrapper } from '../../Styles/style';
 
 export default () => (
   <Container>
-
     <Navigate>
       <Card size="small">
         <Body>
-          <Title>Homeworks</Title>
+          <Title>Attendance</Title>
         </Body>
         <Navigate.Cards>
           <Wrapper className="scroll-container">
