@@ -1,14 +1,21 @@
 import React from 'react';
-import Calendar from 'react-calendar';
+import { Calendar, momentLocalizer } from 'react-big-calendar';
+import moment from 'moment';
 import { Container } from './style';
-import 'react-calendar/dist/Calendar.css';
+import 'react-big-calendar/lib/css/react-big-calendar.css';
 
-export default ({ onChange, value }) => (
+const localizer = momentLocalizer(moment);
+const CustomCalendar = ({ events }) => (
   <Container>
     <Calendar
-      onChange={onChange}
-      value={value}
-      calendarType="US"
+      localizer={localizer}
+      events={events}
+      startAccessor="start"
+      endAccessor="end"
+      style={{ height: 500 }}
     />
+
   </Container>
 );
+
+export default CustomCalendar;
