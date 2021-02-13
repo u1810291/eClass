@@ -2,20 +2,26 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { CircleBody } from './style';
 
-export const Circle = (props) => {
-  const { size, color, text } = props;
+const Circle = (props) => {
+  const {
+    size, color, text, active
+  } = props;
   return (
-    <CircleBody size={size} color={color} text={text} />
+    <CircleBody size={size} color={color} active={active}>
+      {text}
+    </CircleBody>
   );
 };
 
 Circle.prototypes = {
+  active: PropTypes.bool,
   color: PropTypes.string,
   text: PropTypes.string.isRequired,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  size: PropTypes.string
 };
 
 Circle.defaultProps = {
+  active: false,
   text: '',
   color: '#7F88B1',
   size: '1.5em'
