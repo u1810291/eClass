@@ -1,5 +1,4 @@
 import React from 'react';
-import moment from 'moment';
 import * as devices from '../../../constants/devices';
 import { useWindowSize } from '../../../hooks/use-window-size';
 import BottomSheet from '../../BottomSheet';
@@ -8,30 +7,18 @@ import {
   Container,
   DateRange,
   MobileContainer,
-  TabletAndDesktopContainer,
-  Line,
-  ClockRange,
-  DateContainer,
-  FromTo,
-  Close,
-  ButtonContiner
+  TabletAndDesktopContainer
 } from './style';
-import PrimaryButton from '../../Buttons/Primary';
 
 export default ({
   selectionRange,
   isPopoverOpen,
-  handleSelect,
   rangeChange,
-  setIsPopoverOpen,
-  startDate,
-  endDate,
-  handleOnExpand,
-  handleOnClear
+  handleOnExpand
 }) => {
   const { device } = useWindowSize();
   const content = (
-    <Container>
+    <Container showTimePicker>
       <DateRange
         ranges={[selectionRange]}
         onChange={(e) => rangeChange(e)}
@@ -40,97 +27,8 @@ export default ({
         color="red"
         editableDateInputs={false}
         rangeColors={['#0062ff']}
-      />
-      <ButtonContiner>
-        <PrimaryButton
-          size="small"
-          type="button"
-          title="Clear"
-          onClick={handleOnClear}
-          style={{
-            maxWidth: '71px',
-            width: '100%',
-            height: '43px',
-            borderRadius: '8px',
-            fontWeight: '400',
-            alignSelf: 'flex-end'
-          }}
-        />
-        <PrimaryButton
-          size="small"
-          type="button"
-          title="Set"
-          onClick={handleSelect}
-          style={{
-            maxWidth: '71px',
-            width: '100%',
-            height: '43px',
-            borderRadius: '8px',
-            fontWeight: '400',
-            alignSelf: 'flex-end'
-          }}
-        />
-      </ButtonContiner>
 
-      <>
-        <Line />
-        <ClockRange>
-          {device !== devices.MOBILE && (
-            <Close onClick={() => setIsPopoverOpen(false)} />
-          )}
-          <FromTo>
-            <FromTo.Title>From</FromTo.Title>
-            <DateContainer>
-              <DateContainer.Day>
-                {moment(startDate).format('D')}
-              </DateContainer.Day>
-              <DateContainer.Month>
-                {moment(startDate).format('MMM YYYY')}
-              </DateContainer.Month>
-            </DateContainer>
-          </FromTo>
-          <FromTo>
-            <FromTo.Title>To</FromTo.Title>
-            <DateContainer>
-              <DateContainer.Day>
-                {moment(endDate).format('D')}
-              </DateContainer.Day>
-              <DateContainer.Month>
-                {moment(endDate).format('MMM YYYY')}
-              </DateContainer.Month>
-            </DateContainer>
-          </FromTo>
-          <ButtonContiner>
-            <PrimaryButton
-              size="small"
-              type="button"
-              title="Clear"
-              onClick={handleOnClear}
-              style={{
-                maxWidth: '71px',
-                width: '100%',
-                height: '43px',
-                borderRadius: '8px',
-                fontWeight: '400',
-                alignSelf: 'flex-end'
-              }}
-            />
-            <PrimaryButton
-              size="small"
-              type="button"
-              title="Set"
-              onClick={handleSelect}
-              style={{
-                maxWidth: '71px',
-                width: '100%',
-                height: '43px',
-                borderRadius: '8px',
-                fontWeight: '400'
-              }}
-            />
-          </ButtonContiner>
-        </ClockRange>
-      </>
+      />
     </Container>
   );
 
@@ -155,6 +53,13 @@ export default ({
       </TabletAndDesktopContainer>
     );
   }
+  if (device === devices.NOTEBOOK) {
+    return (
+      <TabletAndDesktopContainer open={isPopoverOpen}>
+        {content}
+      </TabletAndDesktopContainer>
+    );
+  }
   if (device === devices.DESKTOP) {
     return (
       <TabletAndDesktopContainer open={isPopoverOpen}>
@@ -162,5 +67,5 @@ export default ({
       </TabletAndDesktopContainer>
     );
   }
-  return <></>;
+  return <>Hello</>;
 };

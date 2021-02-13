@@ -5,7 +5,8 @@ import { device } from '../../../utils/responsive';
 
 export const Container = styled.div`
   display: flex;
-  flex-direction: ${({ showTimePicker }) => (showTimePicker ? 'row' : 'column')};
+  flex-direction: column;
+  width:100%;
   @media ${device.mobile} {
     flex-direction: column;
   }
@@ -20,24 +21,15 @@ export const MobileContainer = styled.div`
 `;
 
 export const TabletAndDesktopContainer = styled.div`
-  display: ${({ open }) => (open ? 'flex' : 'none')};
-  width: fit-content;
-  border-radius: 8px;
-  background: #fff;
-  padding: 25px;
-  z-index: 30;
-  box-shadow: 0px 6px 12px rgba(73, 75, 116, 0.04);
-  position: absolute;
-  top: 100%;
-  left: -25%;
-  margin-top: 6px;
-
+  display: flex;
+  width: 100%;
   @media ${device.mobile} {
     left: 0;
   }
 `;
 
 export const DateRange = styled(DateRangePicker)`
+  width: 100%;
   .rdrMonthAndYearWrapper {
     height: unset;
   }
@@ -46,11 +38,14 @@ export const DateRange = styled(DateRangePicker)`
   }
 
   .rdrDefinedRangesWrapper {
-    display: none;
+    display:none;
+    width:100%;
   }
-
+  
   .rdrMonth {
-    width: 23em;
+  }
+  .rdrCalendarWrapper {
+    width: 100%;
   }
   @media ${device.mobile} {
     .rdrCalendarWrapper {

@@ -211,6 +211,7 @@ export const InputBlock = styled.div`
   display: flex;
   flex-direction: column;
   
+  position: relative;
 `;
 
 export const TextareaView = styled.textarea`
