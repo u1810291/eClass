@@ -12,6 +12,11 @@ export const Icon = styled(Subjects)`
   width: 40px;
   height: 40px;
   margin: 0;
+  padding: 3px;
+  svg{
+    margin: 5px;
+
+  }
 `;
 
 export const LocationIcon = styled(IconLocation)`
@@ -73,10 +78,8 @@ export const FilterButton = styled(PrimaryButton)`
 
 // Containers, and layouts
 export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  width: 100%;
+  display: block;
+  margin: 10px 0px 0px;
 `;
 
 export const Header = styled.div`
@@ -223,13 +226,7 @@ SwitchButton.Button = styled.button`
 `;
 
 export const Navigate = styled.div`
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  max-width:100%;
-  min-width:100%;
-  flex-wrap: wrap;
-  word-break: break-all;
+  display: block;
 `;
 
 Navigate.Cards = styled.div`
