@@ -8,17 +8,6 @@ import { device } from '../../utils/responsive';
 
 export { ReactComponent as GridIcon } from '../../assets/icons/grid.svg';
 
-export const Icon = styled(Subjects)`
-  width: 40px;
-  height: 40px;
-  margin: 0;
-  padding: 3px;
-  svg{
-    margin: 5px;
-
-  }
-`;
-
 export const LocationIcon = styled(IconLocation)`
   margin: 0px 3px;
 `;
@@ -242,6 +231,16 @@ export const InnerCard = styled.div`
   cursor: pointer;
 `;
 
+export const Icon = styled(Subjects)`
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 3px;
+  svg{
+    margin: 5px;
+
+  }
+`;
 export const CardContent = styled.div`
   display: grid;
   grid-gap: 10px;

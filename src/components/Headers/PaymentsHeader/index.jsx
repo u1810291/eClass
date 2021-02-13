@@ -5,7 +5,6 @@ import {
   Body,
   Icon,
   Steps,
-  Title,
   Navigate,
   CardBody,
   MainCard,
@@ -32,7 +31,7 @@ export default () => (
     <Navigate>
       <Card size="small">
         <Body>
-          <Title>Payments</Title>
+          <h3>Choose subject to pay</h3>
         </Body>
         <Navigate.Cards>
           <Wrapper className="scroll-container">
