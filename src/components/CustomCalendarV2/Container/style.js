@@ -29,7 +29,6 @@ export const TabletAndDesktopContainer = styled.div`
 `;
 
 export const DateRange = styled(DateRangePicker)`
-  width: 100%;
   .rdrMonthAndYearWrapper {
     height: unset;
   }
@@ -41,8 +40,14 @@ export const DateRange = styled(DateRangePicker)`
     display:none;
     width:100%;
   }
-  
+  .rdrMonthsVertical {
+    width: 100%;
+    flex-wrap: wrap;
+  }
   .rdrMonth {
+    width:100%;
+    margin:0px !important;
+    padding:0px !important;
   }
   .rdrCalendarWrapper {
     width: 100%;
