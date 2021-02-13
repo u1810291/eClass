@@ -269,3 +269,15 @@ export const MainCard = styled.div`
   transition-duration: 500ms;
   padding:10px;
 `;
+
+export const Steps = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+`;
+
+export const HR = styled.hr`
+  border: 3px solid #E3E0F9;
+  width: 100px;
+`;
