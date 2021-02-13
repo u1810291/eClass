@@ -12,4 +12,5 @@ export const CircleBody = styled.div`
   display:flex;
   justify-content: center;
   align-items: center;
+  color: #6759D1;
 `;
