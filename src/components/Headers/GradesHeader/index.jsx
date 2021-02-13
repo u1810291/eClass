@@ -18,42 +18,39 @@ import { Wrapper } from '../../Styles/style';
 
 export default () => (
   <Container>
-    <div>
+    <Navigate>
+      <Card size="small">
+        <Body>
+          <Title>Homeworks</Title>
+          <SwitchButton>
+            <SwitchButton.Button> Not finished works</SwitchButton.Button>
+            <SwitchButton.Button> Finished works</SwitchButton.Button>
+          </SwitchButton>
+        </Body>
+        <Navigate.Cards>
+          <Wrapper className="scroll-container">
+            <InnerCard>
+              {[...Array(15)].map((_, i) => (
+                <MainCard key={i}>
+                  <Card color={getRandColor()}>
+                    <CardContent color={getRandColor()}>
+                      <Card>
+                        <Icon />
+                      </Card>
+                      <CardBody>
 
-      <Navigate>
-        <Card size="small">
-          <Body>
-            <Title>Homeworks</Title>
-            <SwitchButton>
-              <SwitchButton.Button> Not finished works</SwitchButton.Button>
-              <SwitchButton.Button> Finished works</SwitchButton.Button>
-            </SwitchButton>
-          </Body>
-          <Navigate.Cards>
-            <Wrapper className="scroll-container">
-              <InnerCard>
-                {[...Array(15)].map((_, i) => (
-                  <MainCard key={i}>
-                    <Card color={getRandColor()}>
-                      <CardContent color={getRandColor()}>
-                        <Card>
-                          <Icon />
-                        </Card>
-                        <CardBody>
-
-                          {i}
-                          {' '}
-                          Hello
-                        </CardBody>
-                      </CardContent>
-                    </Card>
-                  </MainCard>
-                ))}
-              </InnerCard>
-            </Wrapper>
-          </Navigate.Cards>
-        </Card>
-      </Navigate>
-    </div>
+                        {i}
+                        {' '}
+                        Hello
+                      </CardBody>
+                    </CardContent>
+                  </Card>
+                </MainCard>
+              ))}
+            </InnerCard>
+          </Wrapper>
+        </Navigate.Cards>
+      </Card>
+    </Navigate>
   </Container>
 );

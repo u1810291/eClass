@@ -156,7 +156,7 @@ export const ButtonContainer = styled.div`
 export const Body = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 20px;  
+  padding: 5px;  
 `;
 export const Title = styled.div`
   font-style: normal;
@@ -203,7 +203,7 @@ SwitchButton.Counter = styled.div`
 
 SwitchButton.Button = styled.button`
   margin: 5px;
-  padding: 10px;
+  padding: 5px;
   align-items: center;
   
   display: flex;
