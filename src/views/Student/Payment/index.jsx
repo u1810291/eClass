@@ -1,3 +1,5 @@
 import React from 'react';
+import Payments from '../../../components/Payments';
+import { Container } from '../style';
 
-export default () => <div>Payments</div>;
+export default () => <Container><Payments /></Container>;
