@@ -5,7 +5,7 @@ import Table from '../../components/Table';
 import { Container } from './style';
 import { fetchData } from '../../redux/modules/quizes/actions';
 import { getHeader } from './helper';
-import HomeworksHeader from '../../components/Headers/HomeworksHeader';
+import QuizesHeader from '../../components/Headers/QuizesHeader';
 import TableError from '../../components/Table/Error';
 
 export default () => {
@@ -22,7 +22,7 @@ export default () => {
 
   return (
     <Container>
-      <HomeworksHeader />
+      <QuizesHeader />
       {error ? (
         <TableError message={error} />
       ) : (
