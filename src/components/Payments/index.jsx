@@ -16,38 +16,36 @@ import { Wrapper } from '../Styles/style';
 import { getRandColor } from '../../utils/random-color';
 import Card from '../Card';
 
-export default ({ data }) => {
-  console.log(data);
-  return (
-    <Container>
-      <StepTwo>
-        <Navigate.Cards>
-          <h3>Please choose one type of course</h3>
-          <Wrapper className="scroll-container">
-            <InnerCard>
-              {[...Array(15)].map((_, i) => (
-                <MainCard key={i}>
-                  <Card>
-                    <CardContent color={getRandColor()}>
-                      <Card>
-                        <Icon />
-                      </Card>
-                      <CardBody>
-                        {i}
-                        {' '}
-                        Hello
-                      </CardBody>
-                    </CardContent>
-                  </Card>
-                </MainCard>
-              ))}
-            </InnerCard>
-          </Wrapper>
-        </Navigate.Cards>
-      </StepTwo>
-      <StepThree />
-      <StepFour />
+export default () => (
+  // console.log(data);
+  <Container>
+    <StepTwo>
+      <h3>Please choose one type of course</h3>
+      <Navigate.Cards>
+        <Wrapper className="scroll-container">
+          <InnerCard>
+            {[...Array(15)].map((_, i) => (
+              <MainCard key={i}>
+                <Card>
+                  <CardContent color={getRandColor()}>
+                    <Card>
+                      <Icon />
+                    </Card>
+                    <CardBody>
+                      {i}
+                      {' '}
+                      Hello
+                    </CardBody>
+                  </CardContent>
+                </Card>
+              </MainCard>
+            ))}
+          </InnerCard>
+        </Wrapper>
+      </Navigate.Cards>
+    </StepTwo>
+    <StepThree />
+    <StepFour />
 
-    </Container>
-  );
-};
+  </Container>
+);
