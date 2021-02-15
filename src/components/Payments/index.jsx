@@ -2,6 +2,8 @@
 import React from 'react';
 import {
   Icon,
+  Pay,
+  Footer,
   StepTwo,
   StepFour,
   Navigate,
@@ -55,24 +57,32 @@ export default () => (
         </Wrapper>
       </Navigate.Cards>
     </StepTwo>
-    <StepThree>
-      Payment type
-      <PaymentType>
-        <PaymentType.List>
-          Click
-        </PaymentType.List>
-        <PaymentType.List>
-          Payme
-        </PaymentType.List>
-        <PaymentType.List>
-          Onlin
-        </PaymentType.List>
-        <PaymentType.List>
-          Cash
-        </PaymentType.List>
-      </PaymentType>
-    </StepThree>
-    <StepFour />
+    <Footer>
+
+      <StepThree>
+        <PaymentType>
+          Payment type
+          <PaymentType.List>
+            Click
+          </PaymentType.List>
+          <PaymentType.List>
+            Payme
+          </PaymentType.List>
+          <PaymentType.List>
+            Onlin
+          </PaymentType.List>
+          <PaymentType.List>
+            Cash
+          </PaymentType.List>
+        </PaymentType>
+      </StepThree>
+      <StepFour>
+        <Pay>
+
+          Some
+        </Pay>
+      </StepFour>
+    </Footer>
 
   </Container>
 );

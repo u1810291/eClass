@@ -70,6 +70,8 @@ export const CardContent = styled.div`
 
 `;
 export const MainCard = styled.div`
+margin: 10px 0px 0px;
+  
   &:hover {    
     transform: translateY(-10px);
   }
@@ -81,7 +83,34 @@ export const StepTwo = styled.div``;
 export const StepThree = styled.div``;
 export const StepFour = styled.div``;
 
-export const PaymentType = styled.ul``;
+export const PaymentType = styled.ul`
+  width: 100%;
+  hewight: 100%;
+
+  background: #FFFFFF;
+  border: 1px solid #EAEDF7;
+  box-shadow: 0px 2px 4px rgba(28, 41, 90, 0.0367952);
+  border-radius: 10px;
+`;
 PaymentType.List = styled.li`
-  
+list-style-type: none;
+`;
+
+export const Pay = styled.div`
+  width: 100%;
+  hewight: 100%;
+
+  background: #FFFFFF;
+  border: 1px solid #EAEDF7;
+  box-shadow: 0px 2px 4px rgba(28, 41, 90, 0.0367952);
+  border-radius: 10px;
+`;
+
+export const Footer = styled.div`
+width: 100%;
+hewight: 100%;
+
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: 1fr 4fr;
 `;
