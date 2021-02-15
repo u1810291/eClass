@@ -8,17 +8,6 @@ import { device } from '../../utils/responsive';
 
 export { ReactComponent as GridIcon } from '../../assets/icons/grid.svg';
 
-export const Icon = styled(Subjects)`
-  width: 40px;
-  height: 40px;
-  margin: 0;
-  padding: 3px;
-  svg{
-    margin: 5px;
-
-  }
-`;
-
 export const LocationIcon = styled(IconLocation)`
   margin: 0px 3px;
 `;
@@ -156,7 +145,7 @@ export const ButtonContainer = styled.div`
 export const Body = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 20px;  
+  padding: 5px;  
 `;
 export const Title = styled.div`
   font-style: normal;
@@ -203,7 +192,7 @@ SwitchButton.Counter = styled.div`
 
 SwitchButton.Button = styled.button`
   margin: 5px;
-  padding: 10px;
+  padding: 5px;
   align-items: center;
   
   display: flex;
@@ -242,6 +231,16 @@ export const InnerCard = styled.div`
   cursor: pointer;
 `;
 
+export const Icon = styled(Subjects)`
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 3px;
+  svg{
+    margin: 5px;
+
+  }
+`;
 export const CardContent = styled.div`
   display: grid;
   grid-gap: 10px;
@@ -268,4 +267,16 @@ export const MainCard = styled.div`
   }
   transition-duration: 500ms;
   padding:10px;
+`;
+
+export const Steps = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+`;
+
+export const HR = styled.hr`
+  border: 3px solid #E3E0F9;
+  width: 100px;
 `;

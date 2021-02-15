@@ -1,31 +1,37 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
 import {
+  HR,
   Body,
   Icon,
-  Title,
+  Steps,
   Navigate,
   CardBody,
   MainCard,
   InnerCard,
   Container,
-  CardContent,
-  SwitchButton
+  CardContent
 } from '../style';
 import Card from '../../Card';
 import { getRandColor } from '../../../utils/random-color';
 import { Wrapper } from '../../Styles/style';
+import Circle from '../../Circle';
 
 export default () => (
   <Container>
+    <Steps>
+      <Circle size="60px" text="1" />
+      <HR />
+      <Circle size="60px" text="2" />
+      <HR />
+      <Circle size="60px" text="3" />
+      <HR />
+      <Circle size="60px" text="4" />
+    </Steps>
     <Navigate>
       <Card size="small">
         <Body>
-          <Title>Homeworks</Title>
-          <SwitchButton>
-            <SwitchButton.Button> Not finished works</SwitchButton.Button>
-            <SwitchButton.Button> Finished works</SwitchButton.Button>
-          </SwitchButton>
+          <h3>Choose subject to pay</h3>
         </Body>
         <Navigate.Cards>
           <Wrapper className="scroll-container">
@@ -38,7 +44,6 @@ export default () => (
                         <Icon />
                       </Card>
                       <CardBody>
-
                         {i}
                         {' '}
                         Hello
