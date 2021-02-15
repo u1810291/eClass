@@ -17,7 +17,24 @@ export const Icon = styled(Subjects)`
 `;
 
 export const CardBody = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: center;
 `;
+
+CardBody.Title = styled.div``;
+
+CardBody.Value = styled.div`
+  padding: 10px 0px 0px;
+`;
+
+CardBody.CheckBox = styled.div`
+  position: absolute;
+  top: 4px;
+  right: 4px;
+`;
+
 export const Navigate = styled.div`
   display: block;
 `;
@@ -63,3 +80,8 @@ export const MainCard = styled.div`
 export const StepTwo = styled.div``;
 export const StepThree = styled.div``;
 export const StepFour = styled.div``;
+
+export const PaymentType = styled.ul``;
+PaymentType.List = styled.li`
+  
+`;

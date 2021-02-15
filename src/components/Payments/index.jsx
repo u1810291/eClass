@@ -10,11 +10,13 @@ import {
   Container,
   StepThree,
   InnerCard,
-  CardContent
+  CardContent,
+  PaymentType
 } from './style';
 import { Wrapper } from '../Styles/style';
 import { getRandColor } from '../../utils/random-color';
 import Card from '../Card';
+import CheckBox from '../CheckBox';
 
 export default () => (
   // console.log(data);
@@ -32,9 +34,18 @@ export default () => (
                       <Icon />
                     </Card>
                     <CardBody>
-                      {i}
-                      {' '}
-                      Hello
+                      <CardBody.Title>
+                        {i}
+                        {' '}
+                        title
+                      </CardBody.Title>
+                      <CardBody.CheckBox>
+                        <CheckBox />
+                      </CardBody.CheckBox>
+                      <CardBody.Value>
+
+                        550.000 sum
+                      </CardBody.Value>
                     </CardBody>
                   </CardContent>
                 </Card>
@@ -44,7 +55,23 @@ export default () => (
         </Wrapper>
       </Navigate.Cards>
     </StepTwo>
-    <StepThree />
+    <StepThree>
+      Payment type
+      <PaymentType>
+        <PaymentType.List>
+          Click
+        </PaymentType.List>
+        <PaymentType.List>
+          Payme
+        </PaymentType.List>
+        <PaymentType.List>
+          Onlin
+        </PaymentType.List>
+        <PaymentType.List>
+          Cash
+        </PaymentType.List>
+      </PaymentType>
+    </StepThree>
     <StepFour />
 
   </Container>
