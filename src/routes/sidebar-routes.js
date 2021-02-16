@@ -10,7 +10,7 @@ import Payment from '../views/Student/Payment';
 import Library from '../views/Library';
 import Video from '../views/Video';
 import Connection from '../views/Student/Connection';
-import Schedule from '../views/Teacher/Shedule';
+import Schedule from '../views/Shedule';
 import Chat from '../views/Chat';
 import Error from '../components/Error';
 import Groups from '../views/Groups';
