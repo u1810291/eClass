@@ -20,6 +20,11 @@ import { getRandColor } from '../../utils/random-color';
 import Card from '../Card';
 import CheckBox from '../CheckBox';
 
+import Cash from '../../assets/icons/cash.svg';
+import Payme from '../../assets/icons/payme.svg';
+import Online from '../../assets/icons/online.svg';
+import Click from '../../assets/icons/click.svg';
+
 export default () => (
   // console.log(data);
   <Container>
@@ -45,7 +50,6 @@ export default () => (
                         <CheckBox />
                       </CardBody.CheckBox>
                       <CardBody.Value>
-
                         550.000 sum
                       </CardBody.Value>
                     </CardBody>
@@ -58,21 +62,35 @@ export default () => (
       </Navigate.Cards>
     </StepTwo>
     <Footer>
-
       <StepThree>
         <PaymentType>
           Payment type
           <PaymentType.List>
-            Click
+            <PaymentType.Icon icon={Click} />
+            <PaymentType.Text>
+
+              Click
+            </PaymentType.Text>
           </PaymentType.List>
           <PaymentType.List>
-            Payme
+            <PaymentType.Icon icon={Payme} />
+            <PaymentType.Text>
+
+              Payme
+            </PaymentType.Text>
           </PaymentType.List>
           <PaymentType.List>
-            Onlin
+            <PaymentType.Icon icon={Online} />
+            <PaymentType.Text>
+
+              Online
+            </PaymentType.Text>
           </PaymentType.List>
           <PaymentType.List>
-            Cash
+            <PaymentType.Icon icon={Cash} />
+            <PaymentType.Text>
+              Cash
+            </PaymentType.Text>
           </PaymentType.List>
         </PaymentType>
       </StepThree>
