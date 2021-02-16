@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  padding: 0px 20px 0px;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr;
+
 `;

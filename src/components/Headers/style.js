@@ -234,10 +234,7 @@ export const InnerCard = styled.div`
 export const Icon = styled(Subjects)`
   width: 40px;
   height: 40px;
-  margin: 0;
-  padding: 3px;
   svg{
-    margin: 5px;
 
   }
 `;
@@ -249,11 +246,15 @@ export const CardContent = styled.div`
   &:hover{
     opacity: 0.7;
   }
-  svg {
-    
-  path{
-    fill: ${({ color }) => (color || '')};
+  &:first-child, div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
+  svg {
+    path{
+      fill: ${({ color }) => (color || '')};
+    }
   }
   background-color: inherit !important;
 

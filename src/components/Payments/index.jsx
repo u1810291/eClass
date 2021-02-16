@@ -2,6 +2,8 @@
 import React from 'react';
 import {
   Icon,
+  Pay,
+  Footer,
   StepTwo,
   StepFour,
   Navigate,
@@ -10,11 +12,18 @@ import {
   Container,
   StepThree,
   InnerCard,
-  CardContent
+  CardContent,
+  PaymentType
 } from './style';
 import { Wrapper } from '../Styles/style';
 import { getRandColor } from '../../utils/random-color';
 import Card from '../Card';
+import CheckBox from '../CheckBox';
+
+import Cash from '../../assets/icons/cash.svg';
+import Payme from '../../assets/icons/payme.svg';
+import Online from '../../assets/icons/online.svg';
+import Click from '../../assets/icons/click.svg';
 
 export default () => (
   // console.log(data);
@@ -32,9 +41,17 @@ export default () => (
                       <Icon />
                     </Card>
                     <CardBody>
-                      {i}
-                      {' '}
-                      Hello
+                      <CardBody.Title>
+                        {i}
+                        {' '}
+                        title
+                      </CardBody.Title>
+                      <CardBody.CheckBox>
+                        <CheckBox />
+                      </CardBody.CheckBox>
+                      <CardBody.Value>
+                        550.000 sum
+                      </CardBody.Value>
                     </CardBody>
                   </CardContent>
                 </Card>
@@ -44,8 +61,46 @@ export default () => (
         </Wrapper>
       </Navigate.Cards>
     </StepTwo>
-    <StepThree />
-    <StepFour />
+    <Footer>
+      <StepThree>
+        <PaymentType>
+          Payment type
+          <PaymentType.List>
+            <PaymentType.Icon icon={Click} />
+            <PaymentType.Text>
+
+              Click
+            </PaymentType.Text>
+          </PaymentType.List>
+          <PaymentType.List>
+            <PaymentType.Icon icon={Payme} />
+            <PaymentType.Text>
+
+              Payme
+            </PaymentType.Text>
+          </PaymentType.List>
+          <PaymentType.List>
+            <PaymentType.Icon icon={Online} />
+            <PaymentType.Text>
+
+              Online
+            </PaymentType.Text>
+          </PaymentType.List>
+          <PaymentType.List>
+            <PaymentType.Icon icon={Cash} />
+            <PaymentType.Text>
+              Cash
+            </PaymentType.Text>
+          </PaymentType.List>
+        </PaymentType>
+      </StepThree>
+      <StepFour>
+        <Pay>
+
+          Some
+        </Pay>
+      </StepFour>
+    </Footer>
 
   </Container>
 );
