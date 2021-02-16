@@ -1,3 +1,4 @@
 import React from 'react';
+import Library from '../../components/Library';
 
-export default () => <div>Library</div>;
+export default () => <Library />;
