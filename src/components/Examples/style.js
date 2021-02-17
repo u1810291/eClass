@@ -17,7 +17,7 @@ export const ButtonGrid = styled.div`
 export const DefaultGrid = styled.div`
   display: grid;
   grid-gap: 20px;
-  grid-template-columns: repeat(30, 1fr);
+  grid-template-columns: repeat(15, 1fr);
 `;
 
 export const Item = styled.div`

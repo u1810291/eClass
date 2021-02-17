@@ -2,7 +2,6 @@
 import React from 'react';
 import {
   Body,
-  Icon,
   Title,
   Navigate,
   CardBody,
@@ -14,6 +13,7 @@ import {
 import Card from '../../Card';
 import { getRandColor } from '../../../utils/random-color';
 import { Wrapper } from '../../Styles/style';
+import Icon from '../../Icon';
 
 export default () => (
   <Container>
@@ -30,7 +30,7 @@ export default () => (
                   <Card color={getRandColor()}>
                     <CardContent color={getRandColor()}>
                       <Card>
-                        <Icon />
+                        <Icon icon="mdi_chemical-weapon" size="40px" />
                       </Card>
                       <CardBody>
                         {i}

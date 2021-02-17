@@ -14,7 +14,7 @@ export default () => (
         {
           [...Array(12)].map((_, i) => (
             <Content.Item key={i}>
-              <Content.Icon />
+
               <Content.ItemBody>
                 <Content.ItemTop>English</Content.ItemTop>
                 <Content.ItemBottom>Subjeect</Content.ItemBottom>

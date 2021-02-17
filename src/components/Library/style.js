@@ -14,7 +14,6 @@ export const Content = styled.div`
 Content.Header = styled.span``;
 
 Content.Item = styled.div``;
-Content.Icon = styled()``;
 Content.ItemBody = styled.div``;
 Content.ItemTop = styled.span``;
 Content.ItemBottom = styled.span``;
