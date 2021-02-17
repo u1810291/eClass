@@ -96,12 +96,12 @@ export default [
   },
   {
     color: '#444',
-    icon: 'notification',
+    icon: 'notification_on',
     size: '2em'
   },
   {
     color: '#444',
-    icon: 'notification2',
+    icon: 'notification_off',
     size: '2em'
   },
   {
@@ -116,7 +116,7 @@ export default [
   },
   {
     color: '#444',
-    icon: 'profile2',
+    icon: 'dashboard',
     size: '2em'
   },
   {

@@ -16,7 +16,9 @@ export default () => {
   const [search, setSearch] = useState('');
   const [date, setDate] = useState(undefined);
   const [status, setStatus] = useState(undefined);
-  console.log(pageSize, pageIndex);
+  const [sort, setSort] = useState();
+
+  console.log(pageSize, pageIndex, sort);
   const dispatch = useDispatch();
   const {
     loading, data, total, error
@@ -72,6 +74,7 @@ export default () => {
           header={header}
           loading={loading}
           subData={data}
+          setSort={setSort}
           onChange={handleOnChange}
         />
       )}

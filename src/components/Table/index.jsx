@@ -3,7 +3,9 @@ import React, {
   useEffect, useState, useCallback, useMemo
 } from 'react';
 
-import { useExpanded, useTable } from 'react-table';
+import {
+  useExpanded, useTable, useSortBy, usePagination
+} from 'react-table';
 import {
   Container,
   MainTableContainer,
@@ -16,6 +18,7 @@ import {
 } from './style';
 import Spinner from '../Spinner';
 import makeData from './makeData';
+import Pagination from './Pagination';
 
 function SubRows({
   row, rowProps, visibleColumns, data, loading
@@ -84,56 +87,103 @@ function SubRowAsync({
   );
 }
 
-function Table({ columns: userColumns, data, renderRowSubComponent }) {
+function Table({
+  columns: userColumns, data, renderRowSubComponent, total, setSort
+}) {
+  const [pgCount, setPgCount] = useState(0);
   const {
     getTableProps,
     getTableBodyProps,
     headerGroups,
     rows,
     prepareRow,
-    visibleColumns
+    visibleColumns,
+    canPreviousPage,
+    pageOptions,
+    canNextPage,
+    pageCount,
+    gotoPage,
+    nextPage,
+    previousPage,
+    setPageSize,
+    state: { pageIndex, pageSize, sortBy }
+
   } = useTable(
     {
       columns: userColumns,
-      data
+      data,
+      manualSortBy: true,
+      initialState: { pageIndex: 0, pageSize: 10 },
+      manualPagination: true,
+      pageCount: pgCount,
+      autoResetPage: false
     },
-    useExpanded
+    useSortBy,
+    useExpanded,
+    usePagination
   );
+  useEffect(() => {
+    const [sorted] = sortBy;
+    setSort(sorted);
+  }, [sortBy, setSort]);
+  useEffect(() => {
+    const count = Math.ceil(total / pageSize);
+    setPgCount(count);
+  }, [pageSize, total]);
 
   return (
-    <MainTableContainer {...getTableProps()}>
-      <THead>
-        {headerGroups.map((headerGroup) => (
-          <tr {...headerGroup.getHeaderGroupProps()}>
-            {headerGroup.headers.map((column) => (
-              <th {...column.getHeaderProps()}>{column.render('Header')}</th>
-            ))}
-          </tr>
-        ))}
-      </THead>
-      <TBody {...getTableBodyProps()}>
-        {rows.map((row) => {
-          prepareRow(row);
-          const rowProps = row.getRowProps();
-          return (
-            <React.Fragment key={rowProps.key}>
-              <TR {...rowProps}>
-                {row.cells.map((cell) => (
-                  <TD {...cell.getCellProps()}>{cell.render('Cell')}</TD>
-                ))}
-              </TR>
-              {row.isExpanded
+    <>
+      <MainTableContainer {...getTableProps()}>
+        <THead>
+          {headerGroups.map((headerGroup) => (
+            <tr {...headerGroup.getHeaderGroupProps()}>
+              {headerGroup.headers.map((column) => (
+                <th {...column.getHeaderProps()}>{column.render('Header')}</th>
+              ))}
+            </tr>
+          ))}
+        </THead>
+        <TBody {...getTableBodyProps()}>
+          {rows.map((row) => {
+            prepareRow(row);
+            const rowProps = row.getRowProps();
+            return (
+              <React.Fragment key={rowProps.key}>
+                <TR {...rowProps}>
+                  {row.cells.map((cell) => (
+                    <TD {...cell.getCellProps()}>{cell.render('Cell')}</TD>
+                  ))}
+                </TR>
+                {row.isExpanded
                 && renderRowSubComponent({ row, rowProps, visibleColumns })}
-            </React.Fragment>
-          );
-        })}
-      </TBody>
-    </MainTableContainer>
+              </React.Fragment>
+            );
+          })}
+        </TBody>
+      </MainTableContainer>
+
+      {total ? (
+        <Pagination
+          canPreviousPage={canPreviousPage}
+          pageOptions={pageOptions}
+          canNextPage={canNextPage}
+          pageCount={pageCount}
+          gotoPage={gotoPage}
+          nextPage={nextPage}
+          previousPage={previousPage}
+          setPageSize={setPageSize}
+          pageSize={pageSize}
+          pageIndex={pageIndex}
+        />
+      ) : (
+        <></>
+      )}
+    </>
   );
 }
 
 function App({
-  data: tableData, header, loading, subData
+  data: tableData, header, loading, subData, total, setSort
 }) {
   const columns = useMemo(() => header, [header]);
   const data = useMemo(() => tableData, [tableData]);
@@ -156,11 +206,14 @@ function App({
         <Spinner contain black />
       ) : (
         <Table
+          setSort={setSort}
+          total={total}
           columns={columns}
           data={data}
           renderRowSubComponent={renderRowSubComponent}
         />
       )}
+
     </Container>
   );
 }
