@@ -28,6 +28,7 @@ export default ({
   endDate,
   handleOnExpand,
   handleOnClear,
+  right,
   showTimePicker = true
 }) => {
   const { device } = useWindowSize();
@@ -154,14 +155,14 @@ export default ({
   if (device === devices.MOBILE) return swipeableWrapper;
   if (device === devices.TABLET) {
     return (
-      <TabletAndDesktopContainer open={isPopoverOpen}>
+      <TabletAndDesktopContainer right={right} open={isPopoverOpen}>
         {content}
       </TabletAndDesktopContainer>
     );
   }
   if (device === devices.DESKTOP) {
     return (
-      <TabletAndDesktopContainer open={isPopoverOpen}>
+      <TabletAndDesktopContainer right={right} open={isPopoverOpen}>
         {content}
       </TabletAndDesktopContainer>
     );

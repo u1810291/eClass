@@ -12,7 +12,7 @@ import { Wrapper } from './style';
 
 export default (props) => {
   const {
-    placeholder, value, change, error, showTimePicker, white, dateFormat
+    placeholder, value, change, error, showTimePicker, white, dateFormat, right
   } = props;
   const clickRef = useRef(null);
   const [startDate, setStartDate] = useState(new Date());
@@ -174,6 +174,7 @@ export default (props) => {
           handleOnExpand={handleOnExpand}
           showTimePicker={showTimePicker}
           handleOnClear={handleOnClear}
+          right={right}
         />
       </ClickOutside>
     </InputBlock>

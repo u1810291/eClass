@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 import React from 'react';
 import {
-  useSelector, shallowEqual, useDispatch
+  useSelector, shallowEqual
 } from 'react-redux';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
@@ -14,14 +14,9 @@ import { Container } from './style';
 import appSelector from '../../redux/selectors/app';
 import Home from '../Home';
 import SignUp from '../../views/Auth/SignUp';
-import { fetchData } from '../../redux/modules/user/actions';
 
 export default () => {
   const { access_token, showModal } = useSelector(appSelector, shallowEqual);
-  const dispatch = useDispatch();
-  if (access_token !== null) {
-    dispatch(fetchData());
-  }
   const publicRoutes = (
     <Container>
       <Switch>

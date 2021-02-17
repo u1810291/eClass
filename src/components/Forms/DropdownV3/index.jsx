@@ -38,12 +38,21 @@ const FilterSelect = ({
   placeholder,
   size,
   icon,
+  key,
   ...props
 }) => {
   const [selectedValue, setSelectedValue] = useState(undefined);
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
   const [selected, setSelected] = useState({});
   const selectRef = useRef(null);
+  const [width, setWidth] = useState(0);
+  const [end, setEnd] = useState(false);
+  const [windowH] = useState(window.innerHeight);
+  const [windowW] = useState(window.innerWidth);
+
+  const handleResize = (e) => {
+    setWidth(e);
+  };
   useEffect(() => {
     if (value) {
       let displayValue = null;
@@ -74,7 +83,21 @@ const FilterSelect = ({
       setSelected({});
     }
   }, [value, options]);
+  useEffect(() => {
+    const vh = document.getElementById(`dropdown-container-${key}`).getBoundingClientRect();
+    const wv = document.getElementById(`selection-container-${key}`).clientWidth;
+    const menuHeight = document.getElementById(`menu-container-${key}`).clientHeight;
 
+    window.addEventListener('resize', handleResize(wv));
+
+    // setWidth(wv);
+    if (vh.bottom + menuHeight > window.innerHeight) {
+      setEnd(true);
+    } else {
+      setEnd(false);
+    }
+    return () => { window.removeEventListener('resize', handleResize); };
+  }, [end, windowW, value, isPopoverOpen, width, windowH, key]);
   const handleClick = useCallback(
     (item) => {
       let $selected = { ...selected };
@@ -119,33 +142,17 @@ const FilterSelect = ({
     }
   };
 
-  const useOnClickOutside = (ref, handler) => {
-    useEffect(() => {
-      const listener = (event) => {
-        // Do nothing if clicking ref's element or descendent elements
-        if (!ref.current || ref.current.contains(event.target)) {
-          return;
-        }
-
-        handler(event);
-      };
-
-      document.addEventListener('mousedown', listener);
-      document.addEventListener('touchstart', listener);
-
-      return () => {
-        document.removeEventListener('mousedown', listener);
-        document.removeEventListener('touchstart', listener);
-      };
-    }, [ref, handler]);
-  };
-
-  useOnClickOutside(selectRef, () => setIsPopoverOpen(false));
-
   return (
-    <SelectContainer ref={selectRef} {...props}>
+    <SelectContainer
+      ref={selectRef}
+      {...props}
+      id={`dropdown-container-${key}`}
+      end={end ? 1 : 0}
+      onMouseLeave={() => setIsPopoverOpen(false)}
+    >
       {label && <SelectLabel size={size}>{label}</SelectLabel>}
       <Select
+        id={`selection-container-${key}`}
         onClick={() => setIsPopoverOpen(!isPopoverOpen)}
         {...props}
         size={size}
@@ -169,10 +176,15 @@ const FilterSelect = ({
               </ValueText>
             </SelectedValue>
           )}
-          <Icon icon={isPopoverOpen ? 'top' : 'buttom'} size="1.3rem" />
+          <Icon icon={isPopoverOpen ? 'top' : 'bottom'} size="1.3rem" />
         </ItemWrapper>
       </Select>
-      <Options open={isPopoverOpen}>
+      <Options
+        id={`menu-container-${key}`}
+        width={width}
+        end={end ? 1 : 0}
+        open={isPopoverOpen}
+      >
         {searchable && options.length > 4 && (
           <InputWrapper>
             <SearchInput
