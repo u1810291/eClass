@@ -14,10 +14,27 @@ import TextArea from '../Forms/Inputs/TextArea';
 import Color from '../Color';
 import Switch from '../Forms/Switch';
 import DatePicker from '../Forms/Inputs/DatePicker';
+import { SingleDropdown } from '../Forms/DropDown';
 
 export default () => {
   const [isOn, setIsOn] = useState(false);
-
+  const single = [
+    {
+      id: 1,
+      value: 'Option 1',
+      name: 'option1'
+    },
+    {
+      id: 2,
+      value: 'Option 2',
+      name: 'option2'
+    },
+    {
+      id: 3,
+      value: 'Option 3',
+      name: 'option3'
+    }
+  ];
   const [date, setDate] = useState(undefined);
   return (
     <Container>
@@ -56,8 +73,13 @@ export default () => {
       </DropdownExamples>
       <h1>Text Area</h1>
       <TextArea placeholder="Textarea..." white />
+      <SingleDropdown
+        onSelect={(value) => console.log(value)}
+        size="large"
+        options={single}
+        white
+      />
       <h1>DatePicker</h1>
-
       <div style={{ width: '200px' }}>
 
         <DatePicker

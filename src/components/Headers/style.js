@@ -131,7 +131,7 @@ const sildeDown = keyframes`
 Header.FilterContainer = styled.div`
   width: 100%;
   display: ${({ open }) => (open ? 'block' : 'none')};
-  /* animation: ${sildeDown} 0.4s; */
+  animation: ${sildeDown} 0.4s;
   z-index: 1;
   transition: all 0.2s;
   transform-origin: top left;
@@ -234,9 +234,8 @@ export const InnerCard = styled.div`
 export const Icon = styled(Subjects)`
   width: 40px;
   height: 40px;
-  svg{
-
-  }
+  max-width: 40px;
+  max-height: 40px;
 `;
 export const CardContent = styled.div`
   display: grid;
@@ -245,11 +244,6 @@ export const CardContent = styled.div`
   grid-auto-columns: 40% 60%;
   &:hover{
     opacity: 0.7;
-  }
-  &:first-child, div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
   svg {
     path{
@@ -260,14 +254,23 @@ export const CardContent = styled.div`
 
 `;
 
+export const CardContentIcon = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+`;
+
 export const CardBody = styled.div`
+  width:100%;
 `;
 export const MainCard = styled.div`
   &:hover {    
     transform: translateY(-10px);
   }
   transition-duration: 500ms;
-  padding:10px;
+  padding: 10px 0px 10px;
 `;
 
 export const Steps = styled.div`
@@ -280,4 +283,10 @@ export const Steps = styled.div`
 export const HR = styled.hr`
   border: 3px solid #E3E0F9;
   width: 100px;
+`;
+
+export const DateWrapper = styled.div`
+  display: grid;
+  grid-gap: 15px;
+  grid-template-columns: repeat(6, 1fr);
 `;

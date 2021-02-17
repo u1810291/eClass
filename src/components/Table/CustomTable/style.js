@@ -37,36 +37,6 @@ export const Icon = styled.span`
   }
 `;
 
-export const Container = styled.div`
-  padding: 1rem;
-  overflow:auto;
-  height: ${({ height }) => (height || '600px')};
-
-  table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0 15px;
-    tr {
-      border-radius: 11px !important;
-      border: solid 1px #000;
-      height: 24px;
-      width: 100%;
-      :last-child {
-        td {
-        }
-      }
-    }
-    th,
-    td {
-      text-align: left;
-      margin: 0;
-      padding: 0.5rem;
-      :last-child {
-      }
-    }
-  }
-`;
-
 export const THead = styled.thead`
   background: none;
   tr{

@@ -210,7 +210,6 @@ export const normal = css`
 export const InputBlock = styled.div`
   display: flex;
   flex-direction: column;
-  
   position: relative;
 `;
 
@@ -243,6 +242,7 @@ export const DatepickerInput = styled.div`
   &:hover {
     cursor: pointer;
   }
+  position:relative;
 `;
 
 export const getType = ({ type }) => {
