@@ -10,6 +10,10 @@ import TableError from '../../components/Table/Error';
 
 export default () => {
   const { userInfo } = useSelector((state) => state.userReducer);
+  const {
+    loading, data, total, error
+  } = useSelector((state) => state.lessonsReducers);
+  const header = getHeader(userInfo);
   const [pageIndex, setPageIndex] = useState(0);
 
   const [pageSize, setPageSize] = useState(0);
@@ -20,10 +24,6 @@ export default () => {
 
   console.log(pageSize, pageIndex, sort);
   const dispatch = useDispatch();
-  const {
-    loading, data, total, error
-  } = useSelector((state) => state.lessonsReducers);
-  const header = getHeader(userInfo);
 
   const dateFilter = useMemo(
     () => (date
