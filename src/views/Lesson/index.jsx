@@ -29,7 +29,6 @@ export default () => {
       : ''),
     [date]
   );
-  console.log(data);
   const sortQuery = useMemo(() => {
     const found = sort && getHeader(userInfo).find(({ id }) => id === sort.id);
     return found
@@ -81,7 +80,6 @@ export default () => {
           subData={data}
           setSort={setSort}
           onChange={handleOnChange}
-
         />
       )}
     </Container>

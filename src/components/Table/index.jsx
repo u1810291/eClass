@@ -8,7 +8,7 @@ import Table from './CustomTable';
 import SubRowAsync from './SubRowAsync';
 import { Container } from './style';
 
-export default({
+export default ({
   data: tableData, header, loading, subData, total, setSort
 }) => {
   const columns = useMemo(() => header, [header]);
@@ -42,6 +42,4 @@ export default({
 
     </Container>
   );
-}
-
-export default App;
+};
