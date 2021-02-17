@@ -23,22 +23,29 @@ export default () => {
   const [date, setDate] = useState(undefined);
   const [sort, setSort] = useState();
 
-  console.log(pageSize, pageIndex, sort);
-
   const dateFilter = useMemo(
     () => (date
       ? `&from_date=${date.start.toISOString()}&to_date=${date.end.toISOString()}`
       : ''),
     [date]
   );
-
+  const sortQuery = useMemo(() => {
+    const found = sort && getHeader(userInfo).find(({ id }) => id === sort.id);
+    return found
+      ? `&sort=${found},${sort.desc ? 'desc' : 'asc'}`
+      : '';
+  }, [sort]);
+  const query = useMemo(
+    () => `${dateFilter}&page=${pageIndex}&size=${pageSize}&${sortQuery}`,
+    [pageIndex, pageSize, sortQuery, dateFilter]
+  );
   useEffect(() => {
     dispatch(fetchData({
       user: userInfo.role,
       isSearch: false,
-      query: `${dateFilter}`
+      query: `${query}`
     }));
-  }, [fetchData, dateFilter]);
+  }, [fetchData, query]);
   const handleOnChange = ({ pageIndex, pageSize }) => {
     setPageIndex(pageIndex);
     setPageSize(pageSize);
@@ -49,12 +56,11 @@ export default () => {
       fetchData({
         user: userInfo.role,
         isSearch: true,
-        query: `${dateFilter}${search ? `&search=${search}` : ''}`
+        query: `${query}${search ? `&search=${search}` : ''}`
       })
     );
     // eslint-disable-next-line
   }, [dispatch, search]);
-
   return (
     <Container>
       <HomeworksHeader
