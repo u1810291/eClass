@@ -29,8 +29,9 @@ export default () => {
       : ''),
     [date]
   );
+  console.log(data);
   const sortQuery = useMemo(() => {
-    const found = sort && getHeader().find(({ id }) => id === sort.id);
+    const found = sort && getHeader(userInfo).find(({ id }) => id === sort.id);
     return found
       ? `&sort=${found},${sort.desc ? 'desc' : 'asc'}`
       : '';

@@ -24,7 +24,7 @@ export default () => {
       : '';
 
     dispatch(setTitle(title));
-  }, [dispatch]);
+  }, [dispatch, fetchData]);
 
   return (
     <Container>
