@@ -74,6 +74,7 @@ export default () => {
       <h1>Text Area</h1>
       <TextArea placeholder="Textarea..." white />
       <SingleDropdown
+        // eslint-disable-next-line no-console
         onSelect={(value) => console.log(value)}
         size="large"
         options={single}
