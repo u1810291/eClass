@@ -4,15 +4,15 @@ import Card from '../Card';
 
 export default () => (
   <Container>
-    <Card>
+    <Card size="small">
 
       1 Library
     </Card>
-    <Card>
+    <Card size="small">
 
       2 Library
     </Card>
-    <Card>
+    <Card size="small">
 
       3 Library
     </Card>

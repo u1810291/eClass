@@ -5,3 +5,5 @@ export const Wrapper = styled(Scrollable)`
   overflow-x: auto;
   overflow-y: auto;
 `;
+
+export const Container = styled.div``;
