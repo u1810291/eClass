@@ -16,6 +16,7 @@ const Single = ({
   const [item, setItem] = useState(placeholder || options[0].value);
   const onClik = (e) => {
     setItem(e.target.value);
+    // eslint-disable-next-line no-console
     if (onSelect) { onSelect(e.target.id); } else { console.log(e.target.value); }
     setOpen(false);
     if (onClick) onClick(e.target.value);
