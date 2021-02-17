@@ -142,29 +142,6 @@ const FilterSelect = ({
     }
   };
 
-  const useOnClickOutside = (ref, handler) => {
-    useEffect(() => {
-      const listener = (event) => {
-        // Do nothing if clicking ref's element or descendent elements
-        if (!ref.current || ref.current.contains(event.target)) {
-          return;
-        }
-
-        handler(event);
-      };
-
-      document.addEventListener('mousedown', listener);
-      document.addEventListener('touchstart', listener);
-
-      return () => {
-        document.removeEventListener('mousedown', listener);
-        document.removeEventListener('touchstart', listener);
-      };
-    }, [ref, handler]);
-  };
-
-  useOnClickOutside(selectRef, () => setIsPopoverOpen(false));
-
   return (
     <SelectContainer
       ref={selectRef}
@@ -202,7 +179,12 @@ const FilterSelect = ({
           <Icon icon={isPopoverOpen ? 'top' : 'bottom'} size="1.3rem" />
         </ItemWrapper>
       </Select>
-      <Options open={isPopoverOpen}>
+      <Options
+        id={`menu-container-${key}`}
+        width={width}
+        end={end ? 1 : 0}
+        open={isPopoverOpen}
+      >
         {searchable && options.length > 4 && (
           <InputWrapper>
             <SearchInput
@@ -218,11 +200,7 @@ const FilterSelect = ({
             </IconWrapper>
           </InputWrapper>
         )}
-        <OptionsWrap
-          id={`menu-container-${key}`}
-          width={width}
-          end={end ? 1 : 0}
-        >
+        <OptionsWrap>
           {options.length > 0 ? (
             options.map((item, i) => (
               <OptionsItem

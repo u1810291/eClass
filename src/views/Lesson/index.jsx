@@ -32,7 +32,7 @@ export default () => {
   const sortQuery = useMemo(() => {
     const found = sort && getHeader().find(({ id }) => id === sort.id);
     return found
-      ? `&sort[${found.accessor}]=${sort.desc ? 'desc' : 'asc'}`
+      ? `&sort=${found},${sort.desc ? 'desc' : 'asc'}`
       : '';
   }, [sort]);
   const query = useMemo(

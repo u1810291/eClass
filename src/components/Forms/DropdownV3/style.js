@@ -129,8 +129,16 @@ export const Options = styled.div`
   border-radius: 8px;
   overflow: hidden;
   z-index: 10;
-  background-color: #fff;
-  min-width: 100%;
+
+  width: ${({ width }) => `${width}px`};
+  height: fit-content;
+  background: #fff;
+  margin-bottom: ${({ end }) => (end ? '45px' : '0')};
+  margin-top: ${({ end }) => (end ? '0' : '45px')};
+  z-index: 10;
+
+
+
 `;
 
 export const OptionsWrap = styled.div`
@@ -146,7 +154,6 @@ export const OptionTextWrapper = styled.div`
 export const OptionsItem = styled.div`
   outline: none;
   display: flex;
-  height: ${getHeight};
   padding: 11px 24px;
   color: ${({ active }) => (active ? '#262626' : '#9D9D9D')};
   box-sizing: border-box;

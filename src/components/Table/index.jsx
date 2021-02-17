@@ -129,6 +129,7 @@ function Table({
   );
   useEffect(() => {
     const [sorted] = sortBy;
+    console.log(sortBy);
     setSort(sorted);
   }, [sortBy, setSort]);
   useEffect(() => {
