@@ -14,7 +14,8 @@ import {
   TR,
   TD,
   SubTable,
-  SubTD
+  SubTD,
+  TableContainer
 } from './style';
 import Spinner from '../Spinner';
 import makeData from './makeData';
@@ -88,7 +89,11 @@ function SubRowAsync({
 }
 
 function Table({
-  columns: userColumns, data, renderRowSubComponent, total, setSort
+  columns: userColumns,
+  data,
+  renderRowSubComponent,
+  total,
+  setSort
 }) {
   const [pgCount, setPgCount] = useState(0);
   const {
@@ -133,34 +138,36 @@ function Table({
 
   return (
     <>
-      <MainTableContainer {...getTableProps()}>
-        <THead>
-          {headerGroups.map((headerGroup) => (
-            <tr {...headerGroup.getHeaderGroupProps()}>
-              {headerGroup.headers.map((column) => (
-                <th {...column.getHeaderProps()}>{column.render('Header')}</th>
-              ))}
-            </tr>
-          ))}
-        </THead>
-        <TBody {...getTableBodyProps()}>
-          {rows.map((row) => {
-            prepareRow(row);
-            const rowProps = row.getRowProps();
-            return (
-              <React.Fragment key={rowProps.key}>
-                <TR {...rowProps}>
-                  {row.cells.map((cell) => (
-                    <TD {...cell.getCellProps()}>{cell.render('Cell')}</TD>
-                  ))}
-                </TR>
-                {row.isExpanded
+      <TableContainer>
+        <MainTableContainer {...getTableProps()}>
+          <THead>
+            {headerGroups.map((headerGroup) => (
+              <tr {...headerGroup.getHeaderGroupProps()}>
+                {headerGroup.headers.map((column) => (
+                  <th {...column.getHeaderProps()}>{column.render('Header')}</th>
+                ))}
+              </tr>
+            ))}
+          </THead>
+          <TBody {...getTableBodyProps()}>
+            {rows.map((row) => {
+              prepareRow(row);
+              const rowProps = row.getRowProps();
+              return (
+                <React.Fragment key={rowProps.key}>
+                  <TR {...rowProps}>
+                    {row.cells.map((cell) => (
+                      <TD {...cell.getCellProps()}>{cell.render('Cell')}</TD>
+                    ))}
+                  </TR>
+                  {row.isExpanded
                 && renderRowSubComponent({ row, rowProps, visibleColumns })}
-              </React.Fragment>
-            );
-          })}
-        </TBody>
-      </MainTableContainer>
+                </React.Fragment>
+              );
+            })}
+          </TBody>
+        </MainTableContainer>
+      </TableContainer>
 
       {total ? (
         <Pagination

@@ -1,5 +1,11 @@
 import styled from 'styled-components';
 
+export const TableContainer = styled.div`
+height: ${({ height }) => (height || '540px')};
+
+overflow:auto;
+`;
+
 export const Container = styled.div`
   padding: 1rem;
   overflow:auto;
@@ -58,6 +64,7 @@ export const TD = styled.td`
 `;
 
 export const MainTableContainer = styled.table`
+
 `;
 
 export const SubTable = styled.tr``;

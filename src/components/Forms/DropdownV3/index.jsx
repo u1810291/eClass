@@ -38,13 +38,21 @@ const FilterSelect = ({
   placeholder,
   size,
   icon,
+  key,
   ...props
 }) => {
   const [selectedValue, setSelectedValue] = useState(undefined);
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
   const [selected, setSelected] = useState({});
   const selectRef = useRef(null);
+  const [width, setWidth] = useState(0);
+  const [end, setEnd] = useState(false);
+  const [windowH] = useState(window.innerHeight);
+  const [windowW] = useState(window.innerWidth);
 
+  const handleResize = (e) => {
+    setWidth(e);
+  };
   useEffect(() => {
     if (value) {
       let displayValue = null;
@@ -75,7 +83,21 @@ const FilterSelect = ({
       setSelected({});
     }
   }, [value, options]);
+  useEffect(() => {
+    const vh = document.getElementById(`dropdown-container-${key}`).getBoundingClientRect();
+    const wv = document.getElementById(`selection-container-${key}`).clientWidth;
+    const menuHeight = document.getElementById(`menu-container-${key}`).clientHeight;
 
+    window.addEventListener('resize', handleResize(wv));
+
+    // setWidth(wv);
+    if (vh.bottom + menuHeight > window.innerHeight) {
+      setEnd(true);
+    } else {
+      setEnd(false);
+    }
+    return () => { window.removeEventListener('resize', handleResize); };
+  }, [end, windowW, value, isPopoverOpen, width, windowH, key]);
   const handleClick = useCallback(
     (item) => {
       let $selected = { ...selected };
@@ -144,9 +166,16 @@ const FilterSelect = ({
   useOnClickOutside(selectRef, () => setIsPopoverOpen(false));
 
   return (
-    <SelectContainer ref={selectRef} {...props}>
+    <SelectContainer
+      ref={selectRef}
+      {...props}
+      id={`dropdown-container-${key}`}
+      end={end ? 1 : 0}
+      onMouseLeave={() => setIsPopoverOpen(false)}
+    >
       {label && <SelectLabel size={size}>{label}</SelectLabel>}
       <Select
+        id={`selection-container-${key}`}
         onClick={() => setIsPopoverOpen(!isPopoverOpen)}
         {...props}
         size={size}
@@ -189,7 +218,11 @@ const FilterSelect = ({
             </IconWrapper>
           </InputWrapper>
         )}
-        <OptionsWrap>
+        <OptionsWrap
+          id={`menu-container-${key}`}
+          width={width}
+          end={end ? 1 : 0}
+        >
           {options.length > 0 ? (
             options.map((item, i) => (
               <OptionsItem
