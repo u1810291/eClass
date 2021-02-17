@@ -25,8 +25,8 @@ export const TabletAndDesktopContainer = styled.div`
   border-radius: 8px;
   background: #fff;
   padding: 25px;
-  // right: auto;
-  left: 0px;
+  right: ${({ right }) => (!right ? '0px' : 'auto')};
+  left: ${({ right }) => (right ? '0px' : 'auto')};
   z-index: 30;
   box-shadow: 0px 6px 12px rgba(73, 75, 116, 0.04);
   position: absolute;

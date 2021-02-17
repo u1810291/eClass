@@ -210,7 +210,6 @@ export const normal = css`
 export const InputBlock = styled.div`
   display: flex;
   flex-direction: column;
-  
   position: relative;
 `;
 
