@@ -25,13 +25,13 @@ export const TabletAndDesktopContainer = styled.div`
   border-radius: 8px;
   background: #fff;
   padding: 25px;
+  // right: auto;
+  left: 0px;
   z-index: 30;
   box-shadow: 0px 6px 12px rgba(73, 75, 116, 0.04);
   position: absolute;
   top: 100%;
-  right: 0;
-  margin-top: 6px;
-  
+
   @media ${device.mobile} {
     left: 0;
   }

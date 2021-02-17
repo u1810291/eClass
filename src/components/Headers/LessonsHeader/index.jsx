@@ -14,16 +14,19 @@ export default ({
         <TitleWrapper.Title>Lessons</TitleWrapper.Title>
         <TitleWrapper.Clear>Celar filter</TitleWrapper.Clear>
       </TitleWrapper>
-      <DatePicker
-        placeholder="Date"
-        name="rangeDate"
-        value={date}
-        change={(value) => setDate(value)}
-        showTimePicker={false}
-        dateFormat="YYYY-MM-DD"
-        date={date}
-        white
-      />
+      <div>
+        <DatePicker
+          placeholder="Date"
+          name="rangeDate"
+          value={date}
+          change={(value) => setDate(value)}
+          showTimePicker={false}
+          dateFormat="YYYY-MM-DD"
+          date={date}
+          white
+          right={false}
+        />
+      </div>
     </Body>
   </Container>
 );
