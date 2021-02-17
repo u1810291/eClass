@@ -21,7 +21,6 @@ export default () => {
   const [pageSize, setPageSize] = useState(0);
   const [search, setSearch] = useState('');
   const [date, setDate] = useState(undefined);
-  const [status, setStatus] = useState(undefined);
   const [sort, setSort] = useState();
 
   console.log(pageSize, pageIndex, sort);
@@ -63,8 +62,6 @@ export default () => {
         search={search}
         setDate={setDate}
         date={date}
-        setStatus={setStatus}
-        status={status}
 
       />
       {error ? (

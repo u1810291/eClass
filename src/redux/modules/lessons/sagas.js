@@ -12,10 +12,10 @@ import { dataSelector } from './selectors';
 
 function* fetchData({ payload }) {
   try {
-    const { user } = payload;
+    const { user, query } = payload;
     if (user) {
       const role = user.toLowerCase();
-      const res = yield service.getAll(role, payload.query);
+      const res = yield service.getAll(role, query);
       const { total, data } = dataSelector(res.data);
       yield put(setError(''));
       yield put(setData(data));

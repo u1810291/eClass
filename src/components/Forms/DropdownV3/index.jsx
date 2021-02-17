@@ -44,6 +44,7 @@ const FilterSelect = ({
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
   const [selected, setSelected] = useState({});
   const selectRef = useRef(null);
+
   useEffect(() => {
     if (value) {
       let displayValue = null;

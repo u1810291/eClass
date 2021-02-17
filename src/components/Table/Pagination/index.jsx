@@ -11,7 +11,7 @@ import Dropdown from '../../Forms/DropdownV3';
 import Icon from '../../Icon';
 import { useButtons } from './useButtons';
 
-const optionData = [
+const options = [
   { value: 10, label: '10 item view' },
   { value: 25, label: '25 item view' },
   { value: 50, label: '50 item view' },
@@ -40,7 +40,7 @@ const Pagination = ({
       <Dropdown
         white
         placeholder="Select"
-        options={optionData}
+        options={options}
         value={pageSize}
         onChange={setPageSize}
         size="large"
