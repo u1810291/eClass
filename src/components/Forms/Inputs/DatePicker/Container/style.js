@@ -29,9 +29,9 @@ export const TabletAndDesktopContainer = styled.div`
   box-shadow: 0px 6px 12px rgba(73, 75, 116, 0.04);
   position: absolute;
   top: 100%;
-  left: -25%;
+  right: 0;
   margin-top: 6px;
-
+  
   @media ${device.mobile} {
     left: 0;
   }

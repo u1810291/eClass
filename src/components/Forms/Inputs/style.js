@@ -243,6 +243,7 @@ export const DatepickerInput = styled.div`
   &:hover {
     cursor: pointer;
   }
+  position:relative;
 `;
 
 export const getType = ({ type }) => {

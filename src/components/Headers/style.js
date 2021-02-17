@@ -146,6 +146,7 @@ export const Body = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 5px;  
+  position: relative;
 `;
 export const Title = styled.div`
   font-style: normal;

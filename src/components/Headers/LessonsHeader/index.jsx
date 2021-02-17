@@ -1,29 +1,29 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Container, Body, TitleWrapper
 } from '../style';
-import Dropdowns from '../../Forms/Dropdowns';
-import { dropdownOptions } from '../../../data/dropdown';
+import DatePicker from '../../Forms/Inputs/DatePicker';
 
-export default () => {
-  const [multipleDropdown, setMultipleDropdown] = useState(undefined);
-
-  return (
-    <Container>
-      <Body>
-        <TitleWrapper>
-          <TitleWrapper.Title>Lessons</TitleWrapper.Title>
-          <TitleWrapper.Clear>Celar filter</TitleWrapper.Clear>
-        </TitleWrapper>
-        <Dropdowns
-          placeholder="Sort by date"
-          options={dropdownOptions.commonOptions}
-          value={multipleDropdown}
-          onChange={setMultipleDropdown}
-          size="large"
-          multiple
-        />
-      </Body>
-    </Container>
-  );
-};
+export default ({
+  setDate,
+  date
+}) => (
+  <Container>
+    <Body>
+      <TitleWrapper>
+        <TitleWrapper.Title>Lessons</TitleWrapper.Title>
+        <TitleWrapper.Clear>Celar filter</TitleWrapper.Clear>
+      </TitleWrapper>
+      <DatePicker
+        placeholder="Date"
+        name="rangeDate"
+        value={date}
+        change={(value) => setDate(value)}
+        showTimePicker={false}
+        dateFormat="YYYY-MM-DD"
+        date={date}
+        white
+      />
+    </Body>
+  </Container>
+);
