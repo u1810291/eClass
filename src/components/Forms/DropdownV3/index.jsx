@@ -169,7 +169,7 @@ const FilterSelect = ({
               </ValueText>
             </SelectedValue>
           )}
-          <Icon icon={isPopoverOpen ? 'top' : 'buttom'} size="1.3rem" />
+          <Icon icon={isPopoverOpen ? 'top' : 'bottom'} size="1.3rem" />
         </ItemWrapper>
       </Select>
       <Options open={isPopoverOpen}>

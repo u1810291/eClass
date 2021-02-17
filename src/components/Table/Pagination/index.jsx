@@ -63,7 +63,7 @@ const Pagination = ({
           onClick={previousPage}
         >
           <Icon
-            icon="left"
+            icon="arrow-left2"
             color={!canPreviousPage ? '#C4C4C4' : '#262626'}
             size="16px"
           />
@@ -73,7 +73,7 @@ const Pagination = ({
           onClick={nextPage}
         >
           <Icon
-            icon="right"
+            icon="arrow-right2"
             color={!canNextPage ? '#C4C4C4' : '#262626'}
             size="16px"
           />
