@@ -285,3 +285,9 @@ export const HR = styled.hr`
   border: 3px solid #E3E0F9;
   width: 100px;
 `;
+
+export const DateWrapper = styled.div`
+  display: grid;
+  grid-gap: 15px;
+  grid-template-columns: repeat(6, 1fr);
+`;

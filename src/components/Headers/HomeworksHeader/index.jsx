@@ -4,10 +4,15 @@ import {
   Body,
   Container,
   Title,
+  DateWrapper,
   SwitchButton
 } from '../style';
+import DatePicker from '../../Forms/Inputs/DatePicker';
 
-export default () => (
+export default ({
+  setDate,
+  date
+}) => (
   <Container>
     <Body>
       <Title>Homeworks</Title>
@@ -22,5 +27,18 @@ export default () => (
         </SwitchButton.Button>
       </SwitchButton>
     </Body>
+    <DateWrapper>
+
+      <DatePicker
+        placeholder="Date"
+        name="rangeDate"
+        value={date}
+        change={(value) => setDate(value)}
+        showTimePicker={false}
+        dateFormat="YYYY-MM-DD"
+        date={date}
+        white
+      />
+    </DateWrapper>
   </Container>
 );
