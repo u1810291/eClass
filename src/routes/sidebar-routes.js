@@ -39,7 +39,7 @@ export const childRoutes = [
     exact: true,
     path: '/profile',
     component: Profile,
-    icon: 'profile2',
+    icon: 'dashboard',
     title: 'Profile',
     permissions: [
       types.UPDATE_ANY_STUDENT_PROFILE,
