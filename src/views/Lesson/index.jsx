@@ -7,13 +7,20 @@ import { fetchData } from '../../redux/modules/lessons/actions';
 import { getHeader } from './helper';
 import LessonsHeader from '../../components/Headers/LessonsHeader';
 import TableError from '../../components/Table/Error';
+import { headerMaker } from '../../components/Table/helper';
 
 export default () => {
   const { userInfo } = useSelector((state) => state.userReducer);
   const {
     loading, data, total, error
   } = useSelector((state) => state.lessonsReducers);
-  const header = getHeader(userInfo);
+
+  const headerData = useSelector(
+    ({ tableReducer }) => tableReducer.lessonsHeader
+  );
+  const headers = useMemo(() => headerMaker(headerData), [headerData]);
+  console.log(headers);
+  // const header = getHeader(userInfo);
   const [pageIndex, setPageIndex] = useState(0);
   const [pageSize, setPageSize] = useState(0);
 
@@ -75,7 +82,7 @@ export default () => {
         <Table
           total={total}
           data={data}
-          header={header}
+          header={headers}
           loading={loading}
           subData={data}
           setSort={setSort}

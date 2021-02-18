@@ -2,7 +2,8 @@ import types from '../../../constants/action-types';
 import * as initial from './common';
 
 const defaultState = {
-  usersHeader: JSON.parse(localStorage.getItem('usersHeader')) || initial.usersHeader
+  usersHeader: JSON.parse(localStorage.getItem('usersHeader')) || initial.usersHeader,
+  lessonsHeader: JSON.parse(localStorage.getItem('usersHeader')) || initial.lessonsHeader
 };
 
 const map = {};

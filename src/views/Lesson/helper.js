@@ -53,7 +53,7 @@ export const studentHeader = [{
   SubCell: (cellProps) => (
     <span {...cellProps.row.getToggleRowExpandedProps()}>
       🥳
-      {console.log(cellProps)}
+      {/* {console.log(cellProps)} */}
       🎉
     </span>
   )
