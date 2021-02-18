@@ -51,12 +51,11 @@ export const studentHeader = [{
   Header: 'Date',
   accessor: (d) => d.date,
   SubCell: (cellProps) => (
-    <>
+    <span {...cellProps.row.getToggleRowExpandedProps()}>
       🥳
-      {cellProps.value}
-      {' '}
+      {console.log(cellProps)}
       🎉
-    </>
+    </span>
   )
 },
 {

@@ -9,7 +9,7 @@ export function dataSelector(lesson) {
     duration: el.duration,
     teacher: el.teacher.full_name,
     subject: el.subject.name,
-    link: 'undefined'
+    link: el.join_url
   }));
   return { total: total_elements, data: filtered };
 }
