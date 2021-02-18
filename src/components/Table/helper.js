@@ -1,6 +1,7 @@
 import React from 'react';
 import UserCell from './UserCell';
 import LinkCell from './LinkCell';
+import DownloadCell from './DownloadCell';
 
 export const headerMaker = (data) => data
   .filter(({ show }) => show)
@@ -23,7 +24,7 @@ export const headerMaker = (data) => data
       // eslint-disable-next-line react/react-in-jsx-scope
       return {
         ...rest,
-        Cell: ({ cell: { value } }) => <StatusCell {...value} />
+        Cell: ({ cell: { value } }) => <DownloadCell {...value} />
       };
     }
     return rest;
