@@ -6,27 +6,27 @@ import Icon from '../Icon';
 
 export default () => (
   <Container>
-    <Card size="small">
-      <Content>
+    <Content>
+      <Card size="small">
         <Content.Header>
           1 Library
         </Content.Header>
         {
-          [...Array(12)].map((_, i) => (
+          [...Array(15)].map((_, i) => (
             <Content.Item key={i}>
-
+              <Icon icon="folder-open" size="30px" />
               <Content.ItemBody>
                 <Content.ItemTop>English</Content.ItemTop>
                 <Content.ItemBottom>Subjeect</Content.ItemBottom>
                 <Content.Cancel>
-                  <Icon icon="cross" size="5px" />
+                  <Icon icon="cross" size="10px" />
                 </Content.Cancel>
               </Content.ItemBody>
             </Content.Item>
           ))
         }
-      </Content>
-    </Card>
+      </Card>
+    </Content>
     <Card size="small">
       2 Library
     </Card>
