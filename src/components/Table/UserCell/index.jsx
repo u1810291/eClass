@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import { Container, Content } from './style';
-import { DynamicImage } from '../../FormElements/DynamicImage';
+import { DynamicImage } from '../../DynamicImage';
 
 const nameClass = classNames('body-medium', 'weight-medium', 'text-black-800');
 const roleClass = classNames('caption', 'weight-regular', 'text-black-400');

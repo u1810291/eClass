@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import UserCell from './UserCell';
 import LinkCell from './LinkCell';
