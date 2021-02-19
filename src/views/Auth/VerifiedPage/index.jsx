@@ -12,8 +12,7 @@ export default () => {
   const handleClick = () => {
     const params = {
       access_token: query.get('access_token'),
-      refresh_token: query.get('refresh_token'),
-      refresh_token_expire_at: query.get('refresh_token_expire_at')
+      refresh_token: query.get('refresh_token')
     };
 
     dispatch(verify(params));

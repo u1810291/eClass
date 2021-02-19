@@ -10,17 +10,21 @@ import {
   TR,
   TD,
   Icon,
+  Cell,
   TableContainer
 } from './style';
 import Pagination from '../Pagination';
+import ToolTip from '../ToolTip';
 
 export default ({
   columns: userColumns,
   data,
   renderRowSubComponent,
   total,
-  setSort
+  setSort,
+  toolTips
 }) => {
+  const [indexT, setIndexT] = useState(-1);
   const [pgCount, setPgCount] = useState(0);
   const {
     getTableProps,
@@ -93,7 +97,7 @@ export default ({
             ))}
           </THead>
           <TBody {...getTableBodyProps()}>
-            {rows.map((row) => {
+            {rows.map((row, index) => {
               prepareRow(row);
               const rowProps = row.getRowProps();
               return (
@@ -102,6 +106,20 @@ export default ({
                     {row.cells.map((cell) => (
                       <TD {...cell.getCellProps()}>{cell.render('Cell')}</TD>
                     ))}
+                    <TD>
+                      <Cell align="end">
+                        <ToolTip
+                          indexT={indexT}
+                          index={index}
+                          itemId={row.original.id}
+                          data={toolTips}
+                          setIndexT={setIndexT}
+                          // onClick={(key) => {
+                          //   setIndexT(key);
+                          // }}
+                        />
+                      </Cell>
+                    </TD>
                   </TR>
                   {row.isExpanded
                 && renderRowSubComponent({ row, rowProps, visibleColumns })}

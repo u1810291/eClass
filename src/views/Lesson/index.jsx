@@ -4,24 +4,26 @@ import { useSelector, useDispatch } from 'react-redux';
 import Table from '../../components/Table';
 import { Container } from './style';
 import { fetchData } from '../../redux/modules/lessons/actions';
-import { getHeader } from './helper';
+import { lessonsHeader } from '../../redux/modules/table/common';
 import LessonsHeader from '../../components/Headers/LessonsHeader';
 import TableError from '../../components/Table/Error';
+import { headerMaker } from '../../components/Table/helper';
+import { toolTips } from './helper';
 
 export default () => {
-  const { userInfo } = useSelector((state) => state.userReducer);
-  const {
-    loading, data, total, error
-  } = useSelector((state) => state.lessonsReducers);
-  const header = getHeader(userInfo);
+  const dispatch = useDispatch();
   const [pageIndex, setPageIndex] = useState(0);
   const [pageSize, setPageSize] = useState(0);
-
   const [search, setSearch] = useState('');
   const [date, setDate] = useState(undefined);
   const [sort, setSort] = useState();
 
-  const dispatch = useDispatch();
+  const { userInfo } = useSelector((state) => state.userReducer);
+  const {
+    loading, data, total, error
+  } = useSelector((state) => state.lessonsReducers);
+  const headerData = useSelector(({ tableReducer }) => tableReducer.lessonsHeader);
+  const headers = useMemo(() => headerMaker(headerData), [headerData]);
 
   const dateFilter = useMemo(
     () => (date
@@ -29,16 +31,19 @@ export default () => {
       : ''),
     [date]
   );
+
   const sortQuery = useMemo(() => {
-    const found = sort && getHeader(userInfo).find(({ id }) => id === sort.id);
+    const found = sort && lessonsHeader.find(({ id }) => id === sort.id);
     return found
       ? `&sort=${found},${sort.desc ? 'desc' : 'asc'}`
       : '';
   }, [sort]);
+
   const query = useMemo(
     () => `${dateFilter}&page=${pageIndex}&size=${pageSize}&${sortQuery}`,
     [pageIndex, pageSize, sortQuery, dateFilter]
   );
+
   useEffect(() => {
     dispatch(fetchData({
       user: userInfo.role,
@@ -46,6 +51,7 @@ export default () => {
       query: `${query}`
     }));
   }, [fetchData, query]);
+
   const handleOnChange = ({ pageIndex, pageSize }) => {
     setPageIndex(pageIndex);
     setPageSize(pageSize);
@@ -59,8 +65,8 @@ export default () => {
         query: `${query}${search ? `&search=${search}` : ''}`
       })
     );
-    // eslint-disable-next-line
   }, [dispatch, search]);
+
   return (
     <Container>
       <LessonsHeader
@@ -75,7 +81,8 @@ export default () => {
         <Table
           total={total}
           data={data}
-          header={header}
+          toolTips={toolTips}
+          header={headers}
           loading={loading}
           subData={data}
           setSort={setSort}

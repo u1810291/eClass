@@ -3,7 +3,7 @@ import types from '../../../constants/action-types';
 import service from '../../../services/auth';
 
 import {
-  setAccessToken, setRefreshToken, setExpiresAt, setError, setStudent, setTeacher, setAdmin
+  setAccessToken, setRefreshToken, setError, setStudent, setTeacher, setAdmin
 } from './actions';
 
 function* login({ payload, success }) {
@@ -20,7 +20,6 @@ function* validate({ payload }) {
     // Handle token verify logic here
     yield put(setAccessToken(payload.access_token));
     yield put(setRefreshToken(payload.refresh_token));
-    yield put(setExpiresAt(payload.refresh_token_expire_at));
   } catch (error) {
     yield put(setError(error.message));
   }

@@ -9,7 +9,7 @@ import SubRowAsync from './SubRowAsync';
 import { Container } from './style';
 
 export default ({
-  data: tableData, header, loading, subData, total, setSort
+  data: tableData, header, loading, subData, total, setSort, toolTips
 }) => {
   const columns = useMemo(() => header, [header]);
   const data = useMemo(() => tableData, [tableData]);
@@ -32,6 +32,7 @@ export default ({
         <Spinner contain black />
       ) : (
         <Table
+          toolTips={toolTips}
           setSort={setSort}
           total={total}
           columns={columns}

@@ -1,53 +1,45 @@
-import types from '../../../constants/action-types';
+import * as types from '../../../constants/tables';
 
-export const genericTypes = [
+export const lessonsHeader = [
   {
-    key: types.ORDERS,
-    headerName: 'ordersHeader'
+    id: 1,
+    Header: 'Date',
+    accessor: 'date',
+    show: true
   },
   {
-    key: types.SINGLE_BRANCH_ORDERS,
-    headerName: 'branchOrdersHeader'
+    id: 2,
+    Header: 'Time',
+    accessor: 'time',
+    show: true
   },
   {
-    key: types.PICKUPS,
-    headerName: 'pickupsHeader'
+    id: 3,
+    Header: 'Duration',
+    accessor: 'duration',
+    show: true
   },
   {
-    key: types.DELIVERIES,
-    headerName: 'deliveriesHeader'
+    id: 4,
+    Header: 'Teacher',
+    accessor: 'teacher',
+    type: 'user',
+    show: true
   },
   {
-    key: types.SHIPMENTS,
-    headerName: 'shipmentsHeader'
+    id: 5,
+    Header: 'Subject',
+    accessor: 'subject',
+    disableSortBy: true,
+    show: true
   },
   {
-    key: types.FEDEX,
-    headerName: 'fedexHeader'
-  },
-  {
-    key: types.WAREHOUSE,
-    headerName: 'warehouseHeader'
-  },
-  {
-    key: types.SPENDINGS,
-    headerName: 'spendingsHeader'
-  },
-  {
-    key: types.SHIPMENT_SINGLE_VIEW,
-    headerName: 'singleShipmentHeader'
-  },
-  {
-    key: types.UPC_ORDERS,
-    headerName: 'UPCOrdersHeader'
-  },
-  {
-    key: types.UPC_FEDEX,
-    headerName: 'UPCFedexHeader'
-  },
-  {
-    key: types.UPC_ONLINE_ORDERS,
-    headerName: 'UPCOnlineOrdersHeader'
+    id: 6,
+    Header: 'Link',
+    accessor: 'link',
+    type: 'link',
+    disableSortBy: true,
+    show: true
   }
 ];
 
@@ -94,5 +86,31 @@ export const usersHeader = [
     accessor: 'address',
     align: 'end',
     show: true
+  }];
+
+export const genericTypes = [
+  {
+    key: types.USERS,
+    headerName: 'usersHeader'
+  },
+  {
+    key: types.GROUPS,
+    headerName: 'groupsHeader'
+  },
+  {
+    key: types.HOMEWORKS,
+    headerName: 'homeworksHeader'
+  },
+  {
+    key: types.LESSONS,
+    headerName: 'lessonsHeader'
+  },
+  {
+    key: types.LOGS,
+    headerName: 'logsHeader'
+  },
+  {
+    key: types.QUIZES,
+    headerName: 'quizesHeader'
   }
 ];

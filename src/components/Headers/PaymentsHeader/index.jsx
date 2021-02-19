@@ -3,7 +3,6 @@ import React from 'react';
 import {
   HR,
   Body,
-  Icon,
   Steps,
   Navigate,
   CardBody,
@@ -16,6 +15,7 @@ import Card from '../../Card';
 import { getRandColor } from '../../../utils/random-color';
 import { Wrapper } from '../../Styles/style';
 import Circle from '../../Circle';
+import Icon from '../../Icon';
 
 export default () => (
   <Container>
@@ -41,7 +41,7 @@ export default () => (
                   <Card color={getRandColor()}>
                     <CardContent color={getRandColor()}>
                       <Card>
-                        <Icon />
+                        <Icon icon="mdi_chemical-weapon" size="40px" />
                       </Card>
                       <CardBody>
                         {i}
