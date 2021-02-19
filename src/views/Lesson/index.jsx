@@ -8,6 +8,7 @@ import { lessonsHeader } from '../../redux/modules/table/common';
 import LessonsHeader from '../../components/Headers/LessonsHeader';
 import TableError from '../../components/Table/Error';
 import { headerMaker } from '../../components/Table/helper';
+import { toolTips } from './helper';
 
 export default () => {
   const dispatch = useDispatch();
@@ -80,6 +81,7 @@ export default () => {
         <Table
           total={total}
           data={data}
+          toolTips={toolTips}
           header={headers}
           loading={loading}
           subData={data}

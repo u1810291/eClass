@@ -13,7 +13,7 @@ export function dataSelector(lesson) {
       image: null
     },
     subject: el.subject.name,
-    link: el.join_url
+    link: { join: el.join_url }
   }));
   return { total: total_elements, data: filtered };
 }

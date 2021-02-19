@@ -1,9 +1,22 @@
 import styled, { css } from 'styled-components';
 
+const paddings = css`
+  padding-left: ${({ left }) => left && 'var(--table-left-right-row-paddings)'};
+  padding-right: ${({ right }) => right && 'var(--table-left-right-row-paddings)'};
+`;
+
 export const TableContainer = styled.div`
 height: ${({ height }) => (height || '540px')};
 
 overflow:auto;
+`;
+export const Cell = styled.div`
+  padding-left: var(--table-cell-left-padding);
+  padding-right: 16px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: ${({ align }) => align && `flex-${align}`};
 `;
 
 const upArrowIcon = css`
@@ -49,8 +62,9 @@ export const TR = styled.tr`
     height: 55px;
   }
   border: solid 1px #000;
-
-  border-radius: 11px !important;
+  {
+    border-right: 2px solid #F5F5F8;
+  };
   background: #FFFFFF;
   box-shadow: 0px 4px 22px rgba(0, 0, 0, 0.06), inset 4px 0px 0px #FF7985; 
 
@@ -60,6 +74,7 @@ export const TBody = styled.tbody`
 `;
 
 export const TD = styled.td`
+  ${paddings}
   max-width: 200px;
   min-width: 50px;
 `;

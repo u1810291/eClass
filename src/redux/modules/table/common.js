@@ -31,6 +31,7 @@ export const lessonsHeader = [
     id: 5,
     Header: 'Link',
     accessor: 'link',
+    type: 'link',
     disableSortBy: true,
     show: true
   }
