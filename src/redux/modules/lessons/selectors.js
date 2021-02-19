@@ -7,9 +7,13 @@ export function dataSelector(lesson) {
     date: moment(el.scheduled_start).format('DD.MM.YYYY'),
     time: moment(el.scheduled_start).format('hh:mm:ss'),
     duration: el.duration,
-    teacher: el.teacher.full_name,
+    teacher: {
+      name: el.teacher.full_name,
+      role: 'Teacher',
+      image: null
+    },
     subject: el.subject.name,
-    link: 'undefined'
+    link: { join: el.join_url }
   }));
   return { total: total_elements, data: filtered };
 }

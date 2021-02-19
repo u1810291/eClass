@@ -39,11 +39,10 @@ export default () => {
       setSubmitting(true);
       dispatch(login(values, (
         access_token,
-        refresh_token,
-        refresh_token_expire_at
+        refresh_token
       ) => {
         setSubmitting(false);
-        history.push(`/verified?access_token=${access_token}&refresh_token=${refresh_token}&refresh_token_expire_at=${refresh_token_expire_at}`);
+        history.push(`/verified?access_token=${access_token}&refresh_token=${refresh_token}`);
       }));
     }
   });
@@ -52,7 +51,11 @@ export default () => {
       <AuthWrapper.Center className="noselect">
         {/* eslint-disable-next-line jsx-a11y/alt-text */}
         <img src={logo} />
-        <AuthForm onSubmit={formik.handleSubmit}>
+        <AuthForm onSubmit={(e) => {
+          e.preventDefault();
+          formik.handleSubmit();
+        }}
+        >
           <AuthHeader>
             <Text>Sign In</Text>
           </AuthHeader>
