@@ -17,9 +17,11 @@ const CustomAxios = {
 service.interceptors.response.use(
   (res) => res,
   (error) => {
-    if (error.response.status === 401) {
+    console.log(error);
+    if (error) {
       window.location.replace('/logout');
       sessionStorage.removeItem('access_token');
+      sessionStorage.removeItem('refresh_token');
     }
     return Promise.reject(error);
   }
