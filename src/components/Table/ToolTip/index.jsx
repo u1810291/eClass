@@ -34,7 +34,7 @@ export default ({
           setOpen((prevState) => !prevState);
         }}
       >
-        <Icon icon="menu3" />
+        <Icon icon={!open ? 'menu3' : 'menu4'} />
       </Button>
       <ClickOutside
         outClickRef={refClick}

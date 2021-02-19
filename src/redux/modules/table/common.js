@@ -4,31 +4,37 @@ export const lessonsHeader = [
   {
     id: 1,
     Header: 'Date',
-    accessor: 'time',
+    accessor: 'date',
     show: true
   },
   {
     id: 2,
+    Header: 'Time',
+    accessor: 'time',
+    show: true
+  },
+  {
+    id: 3,
     Header: 'Duration',
     accessor: 'duration',
     show: true
   },
   {
-    id: 3,
+    id: 4,
     Header: 'Teacher',
     accessor: 'teacher',
     type: 'user',
     show: true
   },
   {
-    id: 4,
+    id: 5,
     Header: 'Subject',
     accessor: 'subject',
     disableSortBy: true,
     show: true
   },
   {
-    id: 5,
+    id: 6,
     Header: 'Link',
     accessor: 'link',
     type: 'link',
