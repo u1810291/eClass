@@ -2,7 +2,9 @@ import React, { useRef, useState } from 'react';
 import classNames from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { Button, ToolTip, OptionButton } from './style';
+import {
+  Button, ToolTip, OptionButton, Container
+} from './style';
 import Icon from '../../Icon';
 import { ClickOutside } from '../../../hooks/click-outside';
 import { useShowModal } from '../../../hooks/modal';
@@ -24,7 +26,7 @@ export default ({
   const state = useSelector((globalState) => globalState);
   const modal = useShowModal();
   return (
-    <>
+    <Container>
       <Button
         ref={refClick}
         onClick={() => {
@@ -57,6 +59,6 @@ export default ({
           ))}
         </ToolTip>
       </ClickOutside>
-    </>
+    </Container>
   );
 };

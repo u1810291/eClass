@@ -1,22 +1,30 @@
 import styled, { css } from 'styled-components';
 
+export const TableContainer = styled.div`
+height: ${({ height }) => (height || '540px')};
+position: relative;
+--table-table-width: auto;
+--table-left-right-row-paddings: 25px;
+--table-cell-right-padding: 36px;
+--table-cell-left-padding: 16px;
+--table-sort-icon-size: 5px;
+--table-row-background-color: transparent;
+--table-row-between: 14px;
+--table-margin-first-element-sticky: 125px;
+
+overflow:auto;
+`;
+
 const paddings = css`
   padding-left: ${({ left }) => left && 'var(--table-left-right-row-paddings)'};
   padding-right: ${({ right }) => right && 'var(--table-left-right-row-paddings)'};
 `;
 
-export const TableContainer = styled.div`
-height: ${({ height }) => (height || '540px')};
-
-overflow:auto;
-`;
 export const Cell = styled.div`
-  padding-left: var(--table-cell-left-padding);
-  padding-right: 16px;
   position: relative;
-  display: flex;
+  display:flex;
+  justify-content: ${({ align }) => `flex-${align}`};
   align-items: center;
-  justify-content: ${({ align }) => align && `flex-${align}`};
 `;
 
 const upArrowIcon = css`
@@ -77,6 +85,7 @@ export const TD = styled.td`
   ${paddings}
   max-width: 200px;
   min-width: 50px;
+
 `;
 
 export const MainTableContainer = styled.table`

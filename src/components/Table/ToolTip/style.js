@@ -4,13 +4,20 @@ const isVisible = css`
   display: ${({ index, indexT, open }) => ((index === indexT && open) ? '' : 'none')};
 `;
 
+export const Container = styled.div`
+  position: relative;
+  display: flex;
+  justify-content:end;
+  align-items: center;
+`;
+
 export const ToolTip = styled.div`
   width: 162px;
   height: 148.6px;
   background: white;
   position: absolute;
-  top: -41px;
-  left: -125px;
+  top: -60px;
+  left: -165px;
   z-index: 3;
   transition: 0.2s display;
   border-radius: 8px;
@@ -39,7 +46,7 @@ export const Button = styled.button`
   cursor: pointer;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: end;
   &:focus {
     outline: none;
   }

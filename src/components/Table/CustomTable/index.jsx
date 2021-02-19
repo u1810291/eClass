@@ -106,8 +106,8 @@ export default ({
                     {row.cells.map((cell) => (
                       <TD {...cell.getCellProps()}>{cell.render('Cell')}</TD>
                     ))}
-                    <TD right>
-                      <Cell>
+                    <TD>
+                      <Cell align="end">
                         <ToolTip
                           indexT={indexT}
                           index={index}
