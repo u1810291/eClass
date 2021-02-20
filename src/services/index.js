@@ -19,21 +19,20 @@ function saveToken(access_token, refresh_token) {
   sessionStorage.setItem('access_token', access_token);
   sessionStorage.setItem('refresh_token', refresh_token);
 }
-// function destroyToken() {
-//   sessionStorage.removeItem('access_token');
-//   sessionStorage.removeItem('refresh_token');
-// }
+function destroyToken() {
+  sessionStorage.removeItem('access_token');
+  sessionStorage.removeItem('refresh_token');
+}
 function refresh() {
   return new Promise((resolve, reject) => {
-    axios.post('/api/v1/refresh', {
+    service.post('/api/v1/refresh', {
       refresh_token: sessionStorage.getItem('refresh_token')
     }).then((response) => {
       saveToken(response.data.access_token, response.data.refresh_token);
       return resolve(response.data.access_token);
     }).catch((error) => {
-      console.log(error);
-      // destroyToken();
-      // window.location.replace('/logout');
+      destroyToken();
+      window.location.replace('/logout');
       return reject(error);
     });
   });
