@@ -12,16 +12,14 @@ import { dataSelector } from './selectors';
 
 function* fetchData({ payload }) {
   try {
-    const { user, query } = payload;
-    if (user) {
-      const role = user.toLowerCase();
-      const res = yield service.getAll(role, query);
-      const { total, data } = dataSelector(res.data);
-      yield put(setError(''));
-      yield put(setData(data));
-      yield put(setTotal(total));
-      yield put(setLoading(false));
-    }
+    const { query } = payload;
+
+    const res = yield service.getAll(query);
+    const { total, data } = dataSelector(res.data);
+    yield put(setError(''));
+    yield put(setData(data));
+    yield put(setTotal(total));
+    yield put(setLoading(false));
   } catch (error) {
     yield put(setError(error.message));
   }

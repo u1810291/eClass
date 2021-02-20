@@ -12,7 +12,7 @@ import Connection from '../views/Student/Connection';
 import Schedule from '../views/Shedule';
 import Chat from '../views/Chat';
 import Groups from '../views/Groups';
-import Lesson from '../views/Student/Lesson';
+import Lesson from '../views/Teacher/Lesson';
 import { TEACHER } from '../constants/roles';
 import ExternalWindow from '../components/ExternalWindow';
 

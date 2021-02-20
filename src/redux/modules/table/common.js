@@ -1,26 +1,22 @@
 import * as types from '../../../constants/tables';
-import { FIVEPLUSADMIN, STUDENT, TEACHER } from '../../../constants/roles';
 
 export const studentLessonsHeader = [
   {
     id: 1,
     Header: 'Date',
     accessor: 'date',
-    roles: [FIVEPLUSADMIN, STUDENT, TEACHER],
     show: true
   },
   {
     id: 2,
     Header: 'Time',
     accessor: 'time',
-    roles: [FIVEPLUSADMIN, STUDENT, TEACHER],
     show: true
   },
   {
     id: 3,
     Header: 'Duration',
     accessor: 'duration',
-    roles: [STUDENT, TEACHER],
     show: true
   },
   {
@@ -28,7 +24,6 @@ export const studentLessonsHeader = [
     Header: 'Teacher',
     accessor: 'teacher',
     type: 'user',
-    roles: [STUDENT, TEACHER],
     show: true
   },
   {
@@ -36,7 +31,6 @@ export const studentLessonsHeader = [
     Header: 'Subject',
     accessor: 'subject',
     disableSortBy: true,
-    roles: [STUDENT, TEACHER],
     show: true
   },
   {
@@ -45,55 +39,91 @@ export const studentLessonsHeader = [
     accessor: 'link',
     type: 'link',
     disableSortBy: true,
-    roles: [TEACHER],
     show: true
   }
 ];
+
+// attendances [{
+//   missed: item.missed,
+//   student: item.student.full_name,
+//   student_username: item.student.username
+// }]
+// canceled
+// finished
+// group_name
+// group_description
+// students [{
+//   student_name: item.full_name,
+//   student_username: item.username
+// }]
+// lesson_id
+// meeting_id
+// meeting_password
+// rescheduled
+// scheduled_start
+// start_url
+// started
+// started_at
+// subject_name
+// subject_id
+// duration
+// teacher: {
+//   name: el.teacher.full_name,
+//   role: 'Teacher',
+//   image: null
+// },
+// subject
+// link
 export const teacherLessonsHeader = [
   {
     id: 1,
     Header: 'Date',
-    accessor: 'date',
-    roles: [FIVEPLUSADMIN, STUDENT, TEACHER],
+    accessor: 'scheduled_start',
     show: true
   },
   {
     id: 2,
-    Header: 'Time',
-    accessor: 'time',
-    roles: [FIVEPLUSADMIN, STUDENT, TEACHER],
+    Header: 'Started at',
+    accessor: 'started_at',
+    SubCell: 'attendances',
     show: true
   },
   {
     id: 3,
-    Header: 'Duration',
-    accessor: 'duration',
-    roles: [STUDENT, TEACHER],
+    Header: 'Group',
+    accessor: 'group_name',
+    SubCell: ['group_description', 'students'],
     show: true
   },
   {
     id: 4,
-    Header: 'Teacher',
-    accessor: 'teacher',
-    type: 'user',
-    roles: [STUDENT, TEACHER],
+    Header: 'Duration',
+    accessor: 'duration',
     show: true
   },
   {
     id: 5,
     Header: 'Subject',
-    accessor: 'subject',
+    accessor: 'subject_name',
+    type: 'user',
     disableSortBy: true,
-    roles: [STUDENT, TEACHER],
     show: true
   },
   {
     id: 6,
-    Header: 'Link',
+    Header: 'Join',
     accessor: 'link',
     type: 'link',
     disableSortBy: true,
-    roles: [TEACHER],
+    show: true
+  },
+  {
+    id: 7,
+    Header: 'Start lesson',
+    accessor: 'start_url',
+    type: 'link',
+    disableSortBy: true,
+    SubCell: ['meeting_id', 'meeting_password'],
     show: true
   }
 ];
@@ -102,21 +132,18 @@ export const adminLessonsHeader = [
     id: 1,
     Header: 'Date',
     accessor: 'date',
-    roles: [FIVEPLUSADMIN, STUDENT, TEACHER],
     show: true
   },
   {
     id: 2,
     Header: 'Time',
     accessor: 'time',
-    roles: [FIVEPLUSADMIN, STUDENT, TEACHER],
     show: true
   },
   {
     id: 3,
     Header: 'Duration',
     accessor: 'duration',
-    roles: [STUDENT, TEACHER],
     show: true
   },
   {
@@ -124,7 +151,6 @@ export const adminLessonsHeader = [
     Header: 'Teacher',
     accessor: 'teacher',
     type: 'user',
-    roles: [STUDENT, TEACHER],
     show: true
   },
   {
@@ -132,7 +158,6 @@ export const adminLessonsHeader = [
     Header: 'Subject',
     accessor: 'subject',
     disableSortBy: true,
-    roles: [STUDENT, TEACHER],
     show: true
   },
   {
@@ -141,7 +166,6 @@ export const adminLessonsHeader = [
     accessor: 'link',
     type: 'link',
     disableSortBy: true,
-    roles: [TEACHER],
     show: true
   }
 ];
