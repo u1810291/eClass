@@ -19,8 +19,6 @@ export function dataSelector(lesson) {
       student_username: item.username
     })),
     lesson_id: el.id,
-    meeting_id: el.meeting_id,
-    meeting_password: el.meeting_password,
     rescheduled: el.rescheduled,
     scheduled_start: moment(el.scheduled_start).format('DD-MM-YYYY hh:mm:ss'),
     started: el.started,
@@ -33,6 +31,8 @@ export function dataSelector(lesson) {
       role: 'Teacher',
       image: null
     },
+    meeting_id: el.meeting_id,
+    meeting_password: el.meeting_password,
     subject: el.subject.name,
     link: {
       join: el.join_url,
