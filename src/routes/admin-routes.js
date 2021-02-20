@@ -12,7 +12,7 @@ import Connection from '../views/Student/Connection';
 import Schedule from '../views/Shedule';
 import Chat from '../views/Chat';
 import Groups from '../views/Groups';
-import Lesson from '../views/Student/Lesson';
+import Lesson from '../views/Admin/Lesson';
 import Users from '../views/Admin/Users';
 import AddUser from '../views/Admin/Users/Add';
 import ExternalWindow from '../views/ExternalWindow';
@@ -138,7 +138,7 @@ export default [
     exact: true,
     path: '/subject',
     component: Examples,
-    icon: 'profile2',
+    icon: 'dashboard',
     title: 'Subject',
     children: []
   },
@@ -146,7 +146,7 @@ export default [
     exact: true,
     path: '/logs',
     component: Examples,
-    icon: 'profile2',
+    icon: 'dashboard',
     title: 'Logs',
     children: []
   },
@@ -154,7 +154,7 @@ export default [
     exact: true,
     path: '/users',
     component: Users,
-    icon: 'profile2',
+    icon: 'dashboard',
     title: 'Users',
     children: [
       {
@@ -184,7 +184,7 @@ export default [
     exact: true,
     path: '/tariff',
     component: Examples,
-    icon: 'profile2',
+    icon: 'dashboard',
     title: 'Tariff',
     children: []
   },

@@ -15,6 +15,7 @@ import {
 } from './style';
 import Pagination from '../Pagination';
 import ToolTip from '../ToolTip';
+import Spinner from '../../Spinner';
 
 export default ({
   columns: userColumns,
@@ -22,7 +23,10 @@ export default ({
   renderRowSubComponent,
   total,
   setSort,
-  toolTips
+  toolTips,
+  onChange,
+  fetchData,
+  loading
 }) => {
   const [indexT, setIndexT] = useState(-1);
   const [pgCount, setPgCount] = useState(0);
@@ -68,6 +72,14 @@ export default ({
     setPgCount(count);
   }, [pageSize, total]);
 
+  useEffect(() => {
+    if (fetchData) {
+      fetchData({ pageIndex, pageSize });
+    } else {
+      onChange({ pageIndex, pageSize });
+    }
+  }, [pageIndex, pageSize, onChange, fetchData]);
+
   const getIcon = (isSorted, isDesc) => ({
     down: isDesc,
     up: !isDesc,
@@ -76,37 +88,41 @@ export default ({
 
   return (
     <>
+
       <TableContainer>
-        <MainTableContainer {...getTableProps()}>
-          <THead>
-            {headerGroups.map((headerGroup) => (
-              <tr {...headerGroup.getHeaderGroupProps()}>
-                {headerGroup.headers.map((column) => (
-                  <th {...column.getHeaderProps(column.getSortByToggleProps())}>
-                    {
-                      column.render('Header')
-                    }
-                    {column.canSort && (
-                      <Icon
-                        {...getIcon(column.isSorted, column.isSortedDesc)}
-                      />
-                    )}
-                  </th>
-                ))}
-              </tr>
-            ))}
-          </THead>
-          <TBody {...getTableBodyProps()}>
-            {rows.map((row, index) => {
-              prepareRow(row);
-              const rowProps = row.getRowProps();
-              return (
-                <React.Fragment key={rowProps.key}>
-                  <TR {...rowProps}>
-                    {row.cells.map((cell) => (
-                      <TD {...cell.getCellProps()}>{cell.render('Cell')}</TD>
-                    ))}
-                    {toolTips
+        {loading ? (
+          <Spinner contain black />
+        ) : (
+          <MainTableContainer {...getTableProps()}>
+            <THead>
+              {headerGroups.map((headerGroup) => (
+                <tr {...headerGroup.getHeaderGroupProps()}>
+                  {headerGroup.headers.map((column) => (
+                    <th {...column.getHeaderProps(column.getSortByToggleProps())}>
+                      {
+                        column.render('Header')
+                      }
+                      {column.canSort && (
+                        <Icon
+                          {...getIcon(column.isSorted, column.isSortedDesc)}
+                        />
+                      )}
+                    </th>
+                  ))}
+                </tr>
+              ))}
+            </THead>
+            <TBody {...getTableBodyProps()}>
+              {rows.map((row, index) => {
+                prepareRow(row);
+                const rowProps = row.getRowProps();
+                return (
+                  <React.Fragment key={rowProps.key}>
+                    <TR {...rowProps}>
+                      {row.cells.map((cell) => (
+                        <TD {...cell.getCellProps()}>{cell.render('Cell')}</TD>
+                      ))}
+                      {toolTips
                     && (
                       <TD>
                         <Cell align="end">
@@ -120,16 +136,16 @@ export default ({
                         </Cell>
                       </TD>
                     )}
-                  </TR>
-                  {row.isExpanded
+                    </TR>
+                    {row.isExpanded
                 && renderRowSubComponent({ row, rowProps, visibleColumns })}
-                </React.Fragment>
-              );
-            })}
-          </TBody>
-        </MainTableContainer>
+                  </React.Fragment>
+                );
+              })}
+            </TBody>
+          </MainTableContainer>
+        )}
       </TableContainer>
-
       {total ? (
         <Pagination
           canPreviousPage={canPreviousPage}

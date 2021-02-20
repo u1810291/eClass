@@ -100,41 +100,19 @@ export const adminLessonsHeader = [
   {
     id: 1,
     Header: 'Date',
-    accessor: 'date',
+    accessor: 'rescheduled',
     show: true
   },
   {
     id: 2,
-    Header: 'Time',
-    accessor: 'time',
+    Header: 'Scheduled start',
+    accessor: 'scheduled_start',
     show: true
   },
   {
     id: 3,
-    Header: 'Duration',
-    accessor: 'duration',
-    show: true
-  },
-  {
-    id: 4,
-    Header: 'Teacher',
-    accessor: 'teacher',
-    type: 'user',
-    show: true
-  },
-  {
-    id: 5,
-    Header: 'Subject',
-    accessor: 'subject',
-    disableSortBy: true,
-    show: true
-  },
-  {
-    id: 6,
-    Header: 'Link',
-    accessor: 'link',
-    type: 'link',
-    disableSortBy: true,
+    Header: 'Time to start',
+    accessor: 'time_to_start',
     show: true
   }
 ];

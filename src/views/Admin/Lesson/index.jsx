@@ -1,13 +1,13 @@
 import React, { useEffect, useMemo, useState } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
-import Table from '../../components/Table';
+import Table from '../../../components/Table';
 import { Container } from './style';
-import { fetchData } from '../../redux/modules/lessons/actions';
-import { lessonsHeader } from '../../redux/modules/table/common';
-import LessonsHeader from '../../components/Headers/LessonsHeader';
-import TableError from '../../components/Table/Error';
-import { headerMaker } from '../../components/Table/helper';
+import { fetchData } from '../../../redux/modules/admin/lessons/actions';
+import { adminLessonsHeader } from '../../../redux/modules/table/common';
+import LessonsHeader from '../../../components/Headers/LessonsHeader';
+import TableError from '../../../components/Table/Error';
+import { headerMaker } from '../../../components/Table/helper';
 import { toolTips } from './helper';
 
 export default () => {
@@ -18,11 +18,10 @@ export default () => {
   const [date, setDate] = useState(undefined);
   const [sort, setSort] = useState();
 
-  const { userInfo } = useSelector((state) => state.userReducer);
   const {
     loading, data, total, error
-  } = useSelector((state) => state.lessonsReducers);
-  const headerData = useSelector(({ tableReducer }) => tableReducer.lessonsHeader);
+  } = useSelector((state) => state.adminLessonsReducers);
+  const headerData = useSelector(({ tableReducer }) => tableReducer.adminLessonsHeader);
   const headers = useMemo(() => headerMaker(headerData), [headerData]);
 
   const dateFilter = useMemo(
@@ -33,7 +32,7 @@ export default () => {
   );
 
   const sortQuery = useMemo(() => {
-    const found = sort && lessonsHeader.find(({ id }) => id === sort.id);
+    const found = sort && adminLessonsHeader.find(({ id }) => id === sort.id);
     return found
       ? `&sort=${found},${sort.desc ? 'desc' : 'asc'}`
       : '';
@@ -45,11 +44,7 @@ export default () => {
   );
 
   useEffect(() => {
-    dispatch(fetchData({
-      user: userInfo.role,
-      isSearch: false,
-      query: `${query}`
-    }));
+    dispatch(fetchData({ query }));
   }, [fetchData, query]);
 
   const handleOnChange = ({ pageIndex, pageSize }) => {
@@ -60,7 +55,6 @@ export default () => {
   useEffect(() => {
     dispatch(
       fetchData({
-        user: userInfo.role,
         isSearch: true,
         query: `${query}${search ? `&search=${search}` : ''}`
       })

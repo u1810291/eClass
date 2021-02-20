@@ -3,13 +3,12 @@ import React, {
   useCallback, useMemo
 } from 'react';
 
-import Spinner from '../Spinner';
 import Table from './CustomTable';
 import SubRowAsync from './SubRowAsync';
 import { Container } from './style';
 
 export default ({
-  data: tableData, header, loading, subData, total, setSort, toolTips
+  data: tableData, header, loading, subData, total, setSort, toolTips, onChange
 }) => {
   const columns = useMemo(() => header, [header]);
   const data = useMemo(() => tableData, [tableData]);
@@ -28,18 +27,16 @@ export default ({
 
   return (
     <Container>
-      {loading ? (
-        <Spinner contain black />
-      ) : (
-        <Table
-          toolTips={toolTips}
-          setSort={setSort}
-          total={total}
-          columns={columns}
-          data={data}
-          renderRowSubComponent={renderRowSubComponent}
-        />
-      )}
+      <Table
+        loading={loading}
+        toolTips={toolTips}
+        setSort={setSort}
+        total={total}
+        columns={columns}
+        data={data}
+        renderRowSubComponent={renderRowSubComponent}
+        onChange={onChange}
+      />
 
     </Container>
   );
