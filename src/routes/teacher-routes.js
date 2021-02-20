@@ -11,7 +11,8 @@ import Video from '../views/Video';
 import Connection from '../views/Student/Connection';
 import Schedule from '../views/Shedule';
 import Chat from '../views/Chat';
-import Lesson from '../views/Student/Lesson';
+import Groups from '../views/Groups';
+import Lesson from '../views/Teacher/Lesson';
 import ExternalWindow from '../views/ExternalWindow';
 
 export default [
@@ -21,6 +22,15 @@ export default [
     component: Profile,
     icon: 'dashboard',
     title: 'Profile',
+    children: []
+  },
+  {
+    hidden: true,
+    except: true,
+    path: '/meeting',
+    component: ExternalWindow,
+    icon: 'dashboard',
+    title: 'External Window',
     children: []
   },
   {
@@ -61,7 +71,6 @@ export default [
     component: Grades,
     icon: 'grades',
     title: 'Grades',
-
     children: []
   },
   {
@@ -87,7 +96,6 @@ export default [
     component: Library,
     icon: 'library',
     title: 'Library',
-
     children: []
   },
   {
@@ -105,7 +113,6 @@ export default [
     component: Connection,
     icon: 'connection',
     title: 'Connection',
-
     children: []
   },
   {
@@ -114,6 +121,7 @@ export default [
     component: Schedule,
     icon: 'reschedule',
     title: 'Schedule',
+
     children: []
   },
   {
@@ -130,14 +138,24 @@ export default [
     component: Examples,
     icon: 'support2',
     title: 'Support',
+
     children: []
   },
   {
     exact: true,
-    path: '/external',
-    component: ExternalWindow,
-    title: 'External',
+    path: '/subject',
+    component: Examples,
     icon: 'dashboard',
+    title: 'Subject',
+    children: []
+  },
+  {
+    exact: true,
+    path: '/groups',
+    component: Groups,
+    icon: 'classess2',
+    title: 'Groups',
     children: []
   }
+
 ];

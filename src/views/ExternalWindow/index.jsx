@@ -1,5 +1,6 @@
-import { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
+import MeetingWindow from '../../components/MeetingWindow';
 
 const ExternalWindow = (props) => {
   const [container, setContainer] = useState(null);
@@ -23,7 +24,8 @@ const ExternalWindow = (props) => {
     return null;
   }, [container]);
 
-  return container && createPortal(props.children, container);
+  // eslint-disable-next-line react/jsx-props-no-spreading
+  return container && createPortal(<MeetingWindow {...props} />, container);
 };
 
 export default ExternalWindow;

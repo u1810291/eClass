@@ -11,7 +11,10 @@ import Video from '../views/Video';
 import Connection from '../views/Student/Connection';
 import Schedule from '../views/Shedule';
 import Chat from '../views/Chat';
+import Groups from '../views/Groups';
 import Lesson from '../views/Student/Lesson';
+import Users from '../views/Admin/Users';
+import AddUser from '../views/Admin/Users/Add';
 import ExternalWindow from '../views/ExternalWindow';
 
 export default [
@@ -70,6 +73,7 @@ export default [
     component: Attendance,
     icon: 'attendance',
     title: 'Attendance',
+
     children: []
   },
   {
@@ -78,7 +82,6 @@ export default [
     component: Payment,
     icon: 'balance',
     title: 'Payment',
-
     children: []
   },
   {
@@ -105,7 +108,6 @@ export default [
     component: Connection,
     icon: 'connection',
     title: 'Connection',
-
     children: []
   },
   {
@@ -130,6 +132,68 @@ export default [
     component: Examples,
     icon: 'support2',
     title: 'Support',
+    children: []
+  },
+  {
+    exact: true,
+    path: '/subject',
+    component: Examples,
+    icon: 'profile2',
+    title: 'Subject',
+    children: []
+  },
+  {
+    exact: true,
+    path: '/logs',
+    component: Examples,
+    icon: 'profile2',
+    title: 'Logs',
+    children: []
+  },
+  {
+    exact: true,
+    path: '/users',
+    component: Users,
+    icon: 'profile2',
+    title: 'Users',
+    children: [
+      {
+        path: '/add/student',
+        title: 'Student',
+        exact: true,
+        hidden: true,
+        component: AddUser
+      },
+      {
+        path: '/add/teacher',
+        title: 'Student',
+        exact: true,
+        hidden: true,
+        component: AddUser
+      },
+      {
+        path: '/add/admin',
+        title: 'Student',
+        exact: true,
+        hidden: true,
+        component: AddUser
+      }
+    ]
+  },
+  {
+    exact: true,
+    path: '/tariff',
+    component: Examples,
+    icon: 'profile2',
+    title: 'Tariff',
+    children: []
+  },
+  {
+    exact: true,
+    path: '/groups',
+    component: Groups,
+    icon: 'classess2',
+    title: 'Groups',
     children: []
   },
   {
