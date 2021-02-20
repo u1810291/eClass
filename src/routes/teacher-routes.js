@@ -13,7 +13,7 @@ import Schedule from '../views/Shedule';
 import Chat from '../views/Chat';
 import Groups from '../views/Groups';
 import Lesson from '../views/Teacher/Lesson';
-import ExternalWindow from '../components/ExternalWindow';
+import ExternalWindow from '../views/ExternalWindow';
 
 export default [
   {
@@ -22,6 +22,15 @@ export default [
     component: Profile,
     icon: 'dashboard',
     title: 'Profile',
+    children: []
+  },
+  {
+    hidden: true,
+    except: true,
+    path: '/meeting',
+    component: ExternalWindow,
+    icon: 'dashboard',
+    title: 'External Window',
     children: []
   },
   {
@@ -147,13 +156,6 @@ export default [
     icon: 'classess2',
     title: 'Groups',
     children: []
-  },
-  {
-    exact: true,
-    path: '/external',
-    component: ExternalWindow,
-    title: 'External',
-    icon: 'dashboard',
-    children: []
   }
+
 ];

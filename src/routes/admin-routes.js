@@ -13,10 +13,9 @@ import Schedule from '../views/Shedule';
 import Chat from '../views/Chat';
 import Groups from '../views/Groups';
 import Lesson from '../views/Student/Lesson';
-import { FIVEPLUSADMIN } from '../constants/roles';
 import Users from '../views/Admin/Users';
 import AddUser from '../views/Admin/Users/Add';
-import ExternalWindow from '../components/ExternalWindow';
+import ExternalWindow from '../views/ExternalWindow';
 
 export default [
   {
@@ -25,10 +24,7 @@ export default [
     component: Profile,
     icon: 'dashboard',
     title: 'Profile',
-    children: [],
-    role: [
-      FIVEPLUSADMIN
-    ]
+    children: []
   },
   {
     exact: true,
@@ -36,10 +32,7 @@ export default [
     component: Lesson,
     icon: 'classess2',
     title: 'Lessons',
-    children: [],
-    role: [
-      FIVEPLUSADMIN
-    ]
+    children: []
   },
   {
     exact: true,
@@ -47,10 +40,7 @@ export default [
     component: Balance,
     icon: 'payment',
     title: 'Balance',
-    children: [],
-    role: [
-      FIVEPLUSADMIN
-    ]
+    children: []
   },
   {
     exact: true,
@@ -58,10 +48,7 @@ export default [
     component: Homeworks,
     icon: 'homeworks',
     title: 'Homeworks',
-    children: [],
-    role: [
-      FIVEPLUSADMIN
-    ]
+    children: []
   },
   {
     exact: true,
@@ -69,10 +56,7 @@ export default [
     component: Quiz,
     icon: 'quiz',
     title: 'Quiz',
-    children: [],
-    role: [
-      FIVEPLUSADMIN
-    ]
+    children: []
   },
   {
     exact: true,
@@ -81,10 +65,7 @@ export default [
     icon: 'grades',
     title: 'Grades',
 
-    children: [],
-    role: [
-      FIVEPLUSADMIN
-    ]
+    children: []
   },
   {
     exact: true,
@@ -93,10 +74,7 @@ export default [
     icon: 'attendance',
     title: 'Attendance',
 
-    children: [],
-    role: [
-      FIVEPLUSADMIN
-    ]
+    children: []
   },
   {
     exact: true,
@@ -104,10 +82,7 @@ export default [
     component: Payment,
     icon: 'balance',
     title: 'Payment',
-    children: [],
-    role: [
-      FIVEPLUSADMIN
-    ]
+    children: []
   },
   {
     exact: true,
@@ -116,10 +91,7 @@ export default [
     icon: 'library',
     title: 'Library',
 
-    children: [],
-    role: [
-      FIVEPLUSADMIN
-    ]
+    children: []
   },
   {
     exact: true,
@@ -128,10 +100,7 @@ export default [
     icon: 'video-materials',
     title: 'Video',
 
-    children: [],
-    role: [
-      FIVEPLUSADMIN
-    ]
+    children: []
   },
   {
     exact: true,
@@ -139,10 +108,7 @@ export default [
     component: Connection,
     icon: 'connection',
     title: 'Connection',
-    children: [],
-    role: [
-      FIVEPLUSADMIN
-    ]
+    children: []
   },
   {
     exact: true,
@@ -150,10 +116,7 @@ export default [
     component: Schedule,
     icon: 'reschedule',
     title: 'Schedule',
-    children: [],
-    role: [
-      FIVEPLUSADMIN
-    ]
+    children: []
   },
   {
     exact: true,
@@ -161,10 +124,7 @@ export default [
     component: Chat,
     icon: 'chat2',
     title: 'Chat',
-    children: [],
-    role: [
-      FIVEPLUSADMIN
-    ]
+    children: []
   },
   {
     exact: true,
@@ -172,10 +132,7 @@ export default [
     component: Examples,
     icon: 'support2',
     title: 'Support',
-    children: [],
-    role: [
-      FIVEPLUSADMIN
-    ]
+    children: []
   },
   {
     exact: true,
@@ -183,10 +140,7 @@ export default [
     component: Examples,
     icon: 'profile2',
     title: 'Subject',
-    children: [],
-    role: [
-      FIVEPLUSADMIN
-    ]
+    children: []
   },
   {
     exact: true,
@@ -194,10 +148,7 @@ export default [
     component: Examples,
     icon: 'profile2',
     title: 'Logs',
-    children: [],
-    role: [
-      FIVEPLUSADMIN
-    ]
+    children: []
   },
   {
     exact: true,
@@ -227,9 +178,6 @@ export default [
         hidden: true,
         component: AddUser
       }
-    ],
-    role: [
-      FIVEPLUSADMIN
     ]
   },
   {
@@ -238,10 +186,7 @@ export default [
     component: Examples,
     icon: 'profile2',
     title: 'Tariff',
-    children: [],
-    role: [
-      FIVEPLUSADMIN
-    ]
+    children: []
   },
   {
     exact: true,
@@ -249,10 +194,7 @@ export default [
     component: Groups,
     icon: 'classess2',
     title: 'Groups',
-    children: [],
-    role: [
-      FIVEPLUSADMIN
-    ]
+    children: []
   },
   {
     exact: true,
@@ -260,9 +202,6 @@ export default [
     component: ExternalWindow,
     title: 'External',
     icon: 'dashboard',
-    children: [],
-    role: [
-      FIVEPLUSADMIN
-    ]
+    children: []
   }
 ];

@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import MeetingWindow from '../MeetingWindow';
+import MeetingWindow from '../../components/MeetingWindow';
 
 const ExternalWindow = (props) => {
   const [container, setContainer] = useState(null);

@@ -12,8 +12,7 @@ import Connection from '../views/Student/Connection';
 import Schedule from '../views/Shedule';
 import Chat from '../views/Chat';
 import Lesson from '../views/Student/Lesson';
-import { STUDENT } from '../constants/roles';
-import ExternalWindow from '../components/ExternalWindow';
+import ExternalWindow from '../views/ExternalWindow';
 
 export default [
   {
@@ -22,10 +21,7 @@ export default [
     component: Profile,
     icon: 'dashboard',
     title: 'Profile',
-    children: [],
-    role: [
-      STUDENT
-    ]
+    children: []
   },
   {
     exact: true,
@@ -33,10 +29,7 @@ export default [
     component: Lesson,
     icon: 'classess2',
     title: 'Lessons',
-    children: [],
-    role: [
-      STUDENT
-    ]
+    children: []
   },
   {
     exact: true,
@@ -44,10 +37,7 @@ export default [
     component: Balance,
     icon: 'payment',
     title: 'Balance',
-    children: [],
-    role: [
-      STUDENT
-    ]
+    children: []
   },
   {
     exact: true,
@@ -55,10 +45,7 @@ export default [
     component: Homeworks,
     icon: 'homeworks',
     title: 'Homeworks',
-    children: [],
-    role: [
-      STUDENT
-    ]
+    children: []
   },
   {
     exact: true,
@@ -66,10 +53,7 @@ export default [
     component: Quiz,
     icon: 'quiz',
     title: 'Quiz',
-    children: [],
-    role: [
-      STUDENT
-    ]
+    children: []
   },
   {
     exact: true,
@@ -78,10 +62,7 @@ export default [
     icon: 'grades',
     title: 'Grades',
 
-    children: [],
-    role: [
-      STUDENT
-    ]
+    children: []
   },
   {
     exact: true,
@@ -89,10 +70,7 @@ export default [
     component: Attendance,
     icon: 'attendance',
     title: 'Attendance',
-    children: [],
-    role: [
-      STUDENT
-    ]
+    children: []
   },
   {
     exact: true,
@@ -101,10 +79,7 @@ export default [
     icon: 'balance',
     title: 'Payment',
 
-    children: [],
-    role: [
-      STUDENT
-    ]
+    children: []
   },
   {
     exact: true,
@@ -113,10 +88,7 @@ export default [
     icon: 'library',
     title: 'Library',
 
-    children: [],
-    role: [
-      STUDENT
-    ]
+    children: []
   },
   {
     exact: true,
@@ -125,10 +97,7 @@ export default [
     icon: 'video-materials',
     title: 'Video',
 
-    children: [],
-    role: [
-      STUDENT
-    ]
+    children: []
   },
   {
     exact: true,
@@ -137,10 +106,7 @@ export default [
     icon: 'connection',
     title: 'Connection',
 
-    children: [],
-    role: [
-      STUDENT
-    ]
+    children: []
   },
   {
     exact: true,
@@ -148,10 +114,7 @@ export default [
     component: Schedule,
     icon: 'reschedule',
     title: 'Schedule',
-    children: [],
-    role: [
-      STUDENT
-    ]
+    children: []
   },
   {
     exact: true,
@@ -159,10 +122,7 @@ export default [
     component: Chat,
     icon: 'chat2',
     title: 'Chat',
-    children: [],
-    role: [
-      STUDENT
-    ]
+    children: []
   },
   {
     exact: true,
@@ -170,10 +130,7 @@ export default [
     component: Examples,
     icon: 'support2',
     title: 'Support',
-    children: [],
-    role: [
-      STUDENT
-    ]
+    children: []
   },
   {
     exact: true,
@@ -181,9 +138,6 @@ export default [
     component: ExternalWindow,
     title: 'External',
     icon: 'dashboard',
-    children: [],
-    role: [
-      STUDENT
-    ]
+    children: []
   }
 ];
