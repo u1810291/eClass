@@ -13,7 +13,6 @@ import Schedule from '../views/Shedule';
 import Chat from '../views/Chat';
 import Groups from '../views/Groups';
 import Lesson from '../views/Teacher/Lesson';
-import { TEACHER } from '../constants/roles';
 import ExternalWindow from '../components/ExternalWindow';
 
 export default [
@@ -23,10 +22,7 @@ export default [
     component: Profile,
     icon: 'dashboard',
     title: 'Profile',
-    children: [],
-    role: [
-      TEACHER
-    ]
+    children: []
   },
   {
     exact: true,
@@ -34,10 +30,7 @@ export default [
     component: Lesson,
     icon: 'classess2',
     title: 'Lessons',
-    children: [],
-    role: [
-      TEACHER
-    ]
+    children: []
   },
   {
     exact: true,
@@ -45,10 +38,7 @@ export default [
     component: Balance,
     icon: 'payment',
     title: 'Balance',
-    children: [],
-    role: [
-      TEACHER
-    ]
+    children: []
   },
   {
     exact: true,
@@ -56,10 +46,7 @@ export default [
     component: Homeworks,
     icon: 'homeworks',
     title: 'Homeworks',
-    children: [],
-    role: [
-      TEACHER
-    ]
+    children: []
   },
   {
     exact: true,
@@ -67,10 +54,7 @@ export default [
     component: Quiz,
     icon: 'quiz',
     title: 'Quiz',
-    children: [],
-    role: [
-      TEACHER
-    ]
+    children: []
   },
   {
     exact: true,
@@ -78,10 +62,7 @@ export default [
     component: Grades,
     icon: 'grades',
     title: 'Grades',
-    children: [],
-    role: [
-      TEACHER
-    ]
+    children: []
   },
   {
     exact: true,
@@ -89,10 +70,7 @@ export default [
     component: Attendance,
     icon: 'attendance',
     title: 'Attendance',
-    children: [],
-    role: [
-      TEACHER
-    ]
+    children: []
   },
   {
     exact: true,
@@ -101,10 +79,7 @@ export default [
     icon: 'balance',
     title: 'Payment',
 
-    children: [],
-    role: [
-      TEACHER
-    ]
+    children: []
   },
   {
     exact: true,
@@ -112,10 +87,7 @@ export default [
     component: Library,
     icon: 'library',
     title: 'Library',
-    children: [],
-    role: [
-      TEACHER
-    ]
+    children: []
   },
   {
     exact: true,
@@ -124,10 +96,7 @@ export default [
     icon: 'video-materials',
     title: 'Video',
 
-    children: [],
-    role: [
-      TEACHER
-    ]
+    children: []
   },
   {
     exact: true,
@@ -135,10 +104,7 @@ export default [
     component: Connection,
     icon: 'connection',
     title: 'Connection',
-    children: [],
-    role: [
-      TEACHER
-    ]
+    children: []
   },
   {
     exact: true,
@@ -147,10 +113,7 @@ export default [
     icon: 'reschedule',
     title: 'Schedule',
 
-    children: [],
-    role: [
-      TEACHER
-    ]
+    children: []
   },
   {
     exact: true,
@@ -158,10 +121,7 @@ export default [
     component: Chat,
     icon: 'chat2',
     title: 'Chat',
-    children: [],
-    role: [
-      TEACHER
-    ]
+    children: []
   },
   {
     exact: true,
@@ -170,10 +130,7 @@ export default [
     icon: 'support2',
     title: 'Support',
 
-    children: [],
-    role: [
-      TEACHER
-    ]
+    children: []
   },
   {
     exact: true,
@@ -181,10 +138,7 @@ export default [
     component: Examples,
     icon: 'dashboard',
     title: 'Subject',
-    children: [],
-    role: [
-      TEACHER
-    ]
+    children: []
   },
   {
     exact: true,
@@ -192,10 +146,7 @@ export default [
     component: Groups,
     icon: 'classess2',
     title: 'Groups',
-    children: [],
-    role: [
-      TEACHER
-    ]
+    children: []
   },
   {
     exact: true,
@@ -203,9 +154,6 @@ export default [
     component: ExternalWindow,
     title: 'External',
     icon: 'dashboard',
-    children: [],
-    role: [
-      TEACHER
-    ]
+    children: []
   }
 ];

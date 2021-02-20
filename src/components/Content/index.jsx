@@ -21,7 +21,9 @@ export default () => {
       <Navbar />
       <Content>
         {childRoutes
-          ? childRoutes.map(({ path, component, children }, index) => (children.length ? (
+          ? childRoutes.map(({
+            path, component, children, props
+          }, index) => (children.length ? (
             <div key={`${index + 1}`}>
               {children.map((child, childIndex) => (
                 <Route
@@ -29,6 +31,7 @@ export default () => {
                   exact={child.exact}
                   path={`${path}${child.path}${child.params || ''}`}
                   component={child.component}
+                  props={props}
                 />
               ))}
               {children.filter(({ hidden }) => !hidden).length ? (

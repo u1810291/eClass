@@ -7,20 +7,16 @@ import { Container, Content, Empty } from './style';
 import { PrimaryButton } from '../../Buttons';
 
 const nameClass = classNames('body-medium', 'weight-medium', 'text-black-800');
-const LinkCell = ({ join, start_url }) => {
+const LinkCell = ({ join }) => {
   const history = useHistory();
   return (
     <Container>
       <Content className={nameClass}>
-        {start_url
+        {join
           ? (
-            <PrimaryButton title="Start meeting" onClick={() => history.push(start_url)} />
+            <PrimaryButton title="Join meeting" onClick={() => history.push(join)} />
           )
-          : join
-            ? (
-              <PrimaryButton title="Join meeting" onClick={() => history.push(join)} />
-            )
-            : <Empty>Not started</Empty>}
+          : <Empty>Not started</Empty>}
       </Content>
     </Container>
   );

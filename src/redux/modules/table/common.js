@@ -113,7 +113,7 @@ export const teacherLessonsHeader = [
     id: 6,
     Header: 'Join',
     accessor: 'link',
-    type: 'link',
+    type: 'join',
     disableSortBy: true,
     show: true
   },
@@ -121,7 +121,7 @@ export const teacherLessonsHeader = [
     id: 7,
     Header: 'Start lesson',
     accessor: 'link',
-    type: 'link',
+    type: 'start',
     disableSortBy: true,
     SubCell: ['meeting_id', 'meeting_password'],
     show: true
