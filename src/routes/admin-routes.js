@@ -423,7 +423,7 @@ export const childRoutes = [
     ],
     children: [],
     role: [
-      FIVEPLUSADMIN, TEACHER
+      FIVEPLUSADMIN
     ]
   },
   {
@@ -437,7 +437,7 @@ export const childRoutes = [
     ],
     children: [],
     role: [
-      FIVEPLUSADMIN, STUDENT, TEACHER
+      FIVEPLUSADMIN
     ]
   }
 ];
