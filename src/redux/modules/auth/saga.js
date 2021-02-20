@@ -9,7 +9,7 @@ import {
 function* login({ payload, success }) {
   try {
     const { data } = yield service.getToken(payload);
-    success(data.access_token, data.refresh_token, data.refresh_token_expire_at);
+    success(data.access_token, data.refresh_token);
   } catch (error) {
     yield put(setError(error.message));
   }

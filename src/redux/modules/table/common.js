@@ -1,22 +1,26 @@
 import * as types from '../../../constants/tables';
+import { FIVEPLUSADMIN, STUDENT, TEACHER } from '../../../constants/roles';
 
 export const lessonsHeader = [
   {
     id: 1,
     Header: 'Date',
     accessor: 'date',
+    roles: [FIVEPLUSADMIN, STUDENT, TEACHER],
     show: true
   },
   {
     id: 2,
     Header: 'Time',
     accessor: 'time',
+    roles: [FIVEPLUSADMIN, STUDENT, TEACHER],
     show: true
   },
   {
     id: 3,
     Header: 'Duration',
     accessor: 'duration',
+    roles: [STUDENT, TEACHER],
     show: true
   },
   {
@@ -24,6 +28,7 @@ export const lessonsHeader = [
     Header: 'Teacher',
     accessor: 'teacher',
     type: 'user',
+    roles: [STUDENT, TEACHER],
     show: true
   },
   {
@@ -31,6 +36,7 @@ export const lessonsHeader = [
     Header: 'Subject',
     accessor: 'subject',
     disableSortBy: true,
+    roles: [STUDENT, TEACHER],
     show: true
   },
   {
@@ -39,6 +45,7 @@ export const lessonsHeader = [
     accessor: 'link',
     type: 'link',
     disableSortBy: true,
+    roles: [TEACHER],
     show: true
   }
 ];

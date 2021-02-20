@@ -1,11 +1,10 @@
 /* eslint-disable camelcase */
 import axios, { execute, service } from '.';
-import { authSelector } from './selectors';
 
 export default {
   // TODO Login
   getToken: ({ username, password }) => service.post('/api/v1/login', { username, password }),
-  refreshToken: ({ refresh_token }) => authSelector(service.post('/api/v1/refresh', { refresh_token })),
+  refreshToken: ({ refresh_token }) => service.post('/api/v1/refresh', { refresh_token }),
   //  TODO Register
   registerStudent: (data) => service.post('/api/v1/register/student', { data }),
   registerTeacher: (data) => service.post('/api/v1/register/teacher', { data }),

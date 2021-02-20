@@ -106,20 +106,20 @@ export default ({
                     {row.cells.map((cell) => (
                       <TD {...cell.getCellProps()}>{cell.render('Cell')}</TD>
                     ))}
-                    <TD>
-                      <Cell align="end">
-                        <ToolTip
-                          indexT={indexT}
-                          index={index}
-                          itemId={row.original.id}
-                          data={toolTips}
-                          setIndexT={setIndexT}
-                          // onClick={(key) => {
-                          //   setIndexT(key);
-                          // }}
-                        />
-                      </Cell>
-                    </TD>
+                    {toolTips
+                    && (
+                      <TD>
+                        <Cell align="end">
+                          <ToolTip
+                            indexT={indexT}
+                            index={index}
+                            itemId={row.original.id}
+                            data={toolTips}
+                            setIndexT={setIndexT}
+                          />
+                        </Cell>
+                      </TD>
+                    )}
                   </TR>
                   {row.isExpanded
                 && renderRowSubComponent({ row, rowProps, visibleColumns })}
