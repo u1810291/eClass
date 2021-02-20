@@ -3,7 +3,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Table from '../../../components/Table';
 import { Container } from './style';
-import { fetchData } from '../../../redux/modules/lessons/actions';
+import { fetchData } from '../../../redux/modules/student/lessons/actions';
 import { lessonsHeader } from '../../../redux/modules/table/common';
 import LessonsHeader from '../../../components/Headers/LessonsHeader';
 import TableError from '../../../components/Table/Error';
@@ -18,10 +18,9 @@ export default () => {
   const [date, setDate] = useState(undefined);
   const [sort, setSort] = useState();
 
-  const { userInfo } = useSelector((state) => state.userReducer);
   const {
     loading, data, total, error
-  } = useSelector((state) => state.lessonsReducers);
+  } = useSelector((state) => state.studentLessonsReducers);
   const headerData = useSelector(({ tableReducer }) => tableReducer.lessonsHeader);
   const headers = useMemo(() => headerMaker(headerData), [headerData]);
 
@@ -46,7 +45,6 @@ export default () => {
 
   useEffect(() => {
     dispatch(fetchData({
-      user: userInfo.role,
       isSearch: false,
       query: `${query}`
     }));
@@ -60,7 +58,6 @@ export default () => {
   useEffect(() => {
     dispatch(
       fetchData({
-        user: userInfo.role,
         isSearch: true,
         query: `${query}${search ? `&search=${search}` : ''}`
       })

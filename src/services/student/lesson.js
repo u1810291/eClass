@@ -2,6 +2,7 @@
 import { service } from '..';
 
 export default {
+  getAll: (query) => service.get(`/api/v1/student/lessons/list?${query}`),
   visitLesson: ({ id }) => service.post(`/api/v1/student/lessons/${id}/visit`),
   declineLesson: ({ id, data }) => service.post(`/api/v1/student/lessons/${id}/decline`, { data }),
   declineUndoLesson: ({ id }) => service.post(`/api/v1/student/lessons/${id}/decline/undo`),
