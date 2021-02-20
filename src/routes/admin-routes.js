@@ -18,7 +18,7 @@ import Users from '../views/Admin/Users';
 import AddUser from '../views/Admin/Users/Add';
 import ExternalWindow from '../components/ExternalWindow';
 
-export const childRoutes = [
+export default [
   {
     exact: true,
     path: '/profile',

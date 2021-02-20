@@ -15,7 +15,7 @@ import Lesson from '../views/Student/Lesson';
 import { STUDENT } from '../constants/roles';
 import ExternalWindow from '../components/ExternalWindow';
 
-export const childRoutes = [
+export default [
   {
     exact: true,
     path: '/profile',
