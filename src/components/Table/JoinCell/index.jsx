@@ -1,3 +1,5 @@
+/* eslint-disable no-nested-ternary */
+/* eslint-disable camelcase */
 import React from 'react';
 import classNames from 'classnames';
 import { useHistory } from 'react-router-dom';
@@ -5,17 +7,20 @@ import { Container, Content, Empty } from './style';
 import { PrimaryButton } from '../../Buttons';
 
 const nameClass = classNames('body-medium', 'weight-medium', 'text-black-800');
-const LinkCell = ({ join }) => {
+const LinkCell = ({ join, start_url }) => {
   const history = useHistory();
-
   return (
     <Container>
       <Content className={nameClass}>
-        {join
+        {start_url
           ? (
-            <PrimaryButton title="Join meeting" onClick={() => history.push(join)} />
+            <PrimaryButton title="Start meeting" onClick={() => history.push(start_url)} />
           )
-          : <Empty>Not started</Empty>}
+          : join
+            ? (
+              <PrimaryButton title="Join meeting" onClick={() => history.push(join)} />
+            )
+            : <Empty>Not started</Empty>}
       </Content>
     </Container>
   );

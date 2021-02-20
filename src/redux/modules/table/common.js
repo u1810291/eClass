@@ -120,7 +120,7 @@ export const teacherLessonsHeader = [
   {
     id: 7,
     Header: 'Start lesson',
-    accessor: 'start_url',
+    accessor: 'link',
     type: 'link',
     disableSortBy: true,
     SubCell: ['meeting_id', 'meeting_password'],

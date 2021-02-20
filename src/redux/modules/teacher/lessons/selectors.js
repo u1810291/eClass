@@ -23,9 +23,8 @@ export function dataSelector(lesson) {
     meeting_password: el.meeting_password,
     rescheduled: el.rescheduled,
     scheduled_start: moment(el.scheduled_start).format('DD-MM-YYYY hh:mm:ss'),
-    start_url: el.start_url,
     started: el.started,
-    started_at: moment(el.started_at).format('DD-MM-YYYY hh:mm:ss'),
+    started_at: moment(el.started_at || '').format('DD-MM-YYYY hh:mm:ss'),
     subject_name: el.subject.name,
     subject_id: el.subject.id,
     duration: el.duration,
@@ -35,7 +34,10 @@ export function dataSelector(lesson) {
       image: null
     },
     subject: el.subject.name,
-    link: { join: el.join_url }
+    link: {
+      join: el.join_url,
+      start_url: el.start_url
+    }
   }));
   return { total: total_elements, data: filtered };
 }
