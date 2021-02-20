@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Table from '../../../components/Table';
 import { Container } from './style';
 import { fetchData } from '../../../redux/modules/student/lessons/actions';
-import { lessonsHeader } from '../../../redux/modules/table/common';
+import { studentLessonsHeader } from '../../../redux/modules/table/common';
 import LessonsHeader from '../../../components/Headers/LessonsHeader';
 import TableError from '../../../components/Table/Error';
 import { headerMaker } from '../../../components/Table/helper';
@@ -21,7 +21,7 @@ export default () => {
   const {
     loading, data, total, error
   } = useSelector((state) => state.studentLessonsReducers);
-  const headerData = useSelector(({ tableReducer }) => tableReducer.lessonsHeader);
+  const headerData = useSelector(({ tableReducer }) => tableReducer.studentLessonsHeader);
   const headers = useMemo(() => headerMaker(headerData), [headerData]);
 
   const dateFilter = useMemo(
@@ -32,7 +32,7 @@ export default () => {
   );
 
   const sortQuery = useMemo(() => {
-    const found = sort && lessonsHeader.find(({ id }) => id === sort.id);
+    const found = sort && studentLessonsHeader.find(({ id }) => id === sort.id);
     return found
       ? `&sort=${found},${sort.desc ? 'desc' : 'asc'}`
       : '';

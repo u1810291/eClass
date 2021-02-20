@@ -1,7 +1,103 @@
 import * as types from '../../../constants/tables';
 import { FIVEPLUSADMIN, STUDENT, TEACHER } from '../../../constants/roles';
 
-export const lessonsHeader = [
+export const studentLessonsHeader = [
+  {
+    id: 1,
+    Header: 'Date',
+    accessor: 'date',
+    roles: [FIVEPLUSADMIN, STUDENT, TEACHER],
+    show: true
+  },
+  {
+    id: 2,
+    Header: 'Time',
+    accessor: 'time',
+    roles: [FIVEPLUSADMIN, STUDENT, TEACHER],
+    show: true
+  },
+  {
+    id: 3,
+    Header: 'Duration',
+    accessor: 'duration',
+    roles: [STUDENT, TEACHER],
+    show: true
+  },
+  {
+    id: 4,
+    Header: 'Teacher',
+    accessor: 'teacher',
+    type: 'user',
+    roles: [STUDENT, TEACHER],
+    show: true
+  },
+  {
+    id: 5,
+    Header: 'Subject',
+    accessor: 'subject',
+    disableSortBy: true,
+    roles: [STUDENT, TEACHER],
+    show: true
+  },
+  {
+    id: 6,
+    Header: 'Link',
+    accessor: 'link',
+    type: 'link',
+    disableSortBy: true,
+    roles: [TEACHER],
+    show: true
+  }
+];
+export const teacherLessonsHeader = [
+  {
+    id: 1,
+    Header: 'Date',
+    accessor: 'date',
+    roles: [FIVEPLUSADMIN, STUDENT, TEACHER],
+    show: true
+  },
+  {
+    id: 2,
+    Header: 'Time',
+    accessor: 'time',
+    roles: [FIVEPLUSADMIN, STUDENT, TEACHER],
+    show: true
+  },
+  {
+    id: 3,
+    Header: 'Duration',
+    accessor: 'duration',
+    roles: [STUDENT, TEACHER],
+    show: true
+  },
+  {
+    id: 4,
+    Header: 'Teacher',
+    accessor: 'teacher',
+    type: 'user',
+    roles: [STUDENT, TEACHER],
+    show: true
+  },
+  {
+    id: 5,
+    Header: 'Subject',
+    accessor: 'subject',
+    disableSortBy: true,
+    roles: [STUDENT, TEACHER],
+    show: true
+  },
+  {
+    id: 6,
+    Header: 'Link',
+    accessor: 'link',
+    type: 'link',
+    disableSortBy: true,
+    roles: [TEACHER],
+    show: true
+  }
+];
+export const adminLessonsHeader = [
   {
     id: 1,
     Header: 'Date',
@@ -109,8 +205,16 @@ export const genericTypes = [
     headerName: 'homeworksHeader'
   },
   {
-    key: types.LESSONS,
-    headerName: 'lessonsHeader'
+    key: types.STUDENT_LESSONS,
+    headerName: 'studentLessonsHeader'
+  },
+  {
+    key: types.TEACHER_LESSONS,
+    headerName: 'teacherLessonsHeader'
+  },
+  {
+    key: types.ADMIN_LESSONS,
+    headerName: 'adminLessonsHeader'
   },
   {
     key: types.LOGS,

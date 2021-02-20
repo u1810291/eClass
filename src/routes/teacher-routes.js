@@ -179,7 +179,7 @@ export default [
     exact: true,
     path: '/subject',
     component: Examples,
-    icon: 'profile2',
+    icon: 'dashboard',
     title: 'Subject',
     children: [],
     role: [

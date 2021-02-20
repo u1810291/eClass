@@ -3,7 +3,9 @@ import * as initial from './common';
 
 const defaultState = {
   usersHeader: JSON.parse(localStorage.getItem('usersHeader')) || initial.usersHeader,
-  lessonsHeader: JSON.parse(localStorage.getItem('usersHeader')) || initial.lessonsHeader
+  studentLessonsHeader: JSON.parse(localStorage.getItem('studentLessonsHeader')) || initial.studentLessonsHeader,
+  teacherLessonsHeader: JSON.parse(localStorage.getItem('teacherLessonsHeader')) || initial.teacherLessonsHeader,
+  adminLessonsHeader: JSON.parse(localStorage.getItem('adminLessonsHeader')) || initial.adminLessonsHeader
 };
 
 const map = {};
