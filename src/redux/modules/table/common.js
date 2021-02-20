@@ -37,43 +37,12 @@ export const studentLessonsHeader = [
     id: 6,
     Header: 'Link',
     accessor: 'link',
-    type: 'link',
+    type: 'join',
     disableSortBy: true,
     show: true
   }
 ];
 
-// attendances [{
-//   missed: item.missed,
-//   student: item.student.full_name,
-//   student_username: item.student.username
-// }]
-// canceled
-// finished
-// group_name
-// group_description
-// students [{
-//   student_name: item.full_name,
-//   student_username: item.username
-// }]
-// lesson_id
-// meeting_id
-// meeting_password
-// rescheduled
-// scheduled_start
-// start_url
-// started
-// started_at
-// subject_name
-// subject_id
-// duration
-// teacher: {
-//   name: el.teacher.full_name,
-//   role: 'Teacher',
-//   image: null
-// },
-// subject
-// link
 export const teacherLessonsHeader = [
   {
     id: 1,
