@@ -14,7 +14,9 @@ import Chat from '../views/Chat';
 import Groups from '../views/Groups';
 import Lesson from '../views/Admin/Lesson';
 import Users from '../views/Admin/Users';
-import AddUser from '../views/Admin/Users/Add';
+import StudentAdd from '../views/Admin/Users/Add/Student';
+import TeacherAdd from '../views/Admin/Users/Add/Teacher';
+import AdminAdd from '../views/Admin/Users/Add/Admin';
 import ExternalWindow from '../views/ExternalWindow';
 
 export default [
@@ -162,21 +164,21 @@ export default [
         title: 'Student',
         exact: true,
         hidden: true,
-        component: AddUser
+        component: StudentAdd
       },
       {
         path: '/add/teacher',
         title: 'Student',
         exact: true,
         hidden: true,
-        component: AddUser
+        component: TeacherAdd
       },
       {
         path: '/add/admin',
         title: 'Student',
         exact: true,
         hidden: true,
-        component: AddUser
+        component: AdminAdd
       }
     ]
   },

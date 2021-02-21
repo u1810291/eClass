@@ -1,15 +1,15 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 
-import Dropdown from '../../../../components/Forms/Dropdowns';
-import { PrimaryButton } from '../../../../components/Buttons';
-import { dropdownOptions } from '../../../../data/dropdown';
+import Dropdown from '../../../../../components/Forms/Dropdowns';
+import { PrimaryButton } from '../../../../../components/Buttons';
+import { dropdownOptions } from '../../../../../data/dropdown';
 import {
   Container, MainInfo, SubmitForm, Body
 } from './style';
-import { NormalInput, TagsInput } from '../../../../components/Forms/Inputs';
-import TextArea from '../../../../components/Forms/Inputs/TextArea';
-import DatePicker from '../../../../components/Forms/Inputs/DatePicker';
+import { NormalInput, TagsInput } from '../../../../../components/Forms/Inputs';
+import TextArea from '../../../../../components/Forms/Inputs/TextArea';
+import DatePicker from '../../../../../components/Forms/Inputs/DatePicker';
 import { useInfoForm } from './hooks';
 
 export default () => {
