@@ -19,8 +19,8 @@ export const MainInfo = styled.div`
 MainInfo.TextArea = styled.div`
   padding-top: 20px;
   padding-bottom: 20px;
-  padding-right: 30px;
   display: flex;
+  width: 100%;
 
 `;
 

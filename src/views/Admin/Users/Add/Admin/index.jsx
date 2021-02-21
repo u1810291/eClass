@@ -5,7 +5,7 @@ import Dropdown from '../../../../../components/Forms/Dropdowns';
 import { PrimaryButton } from '../../../../../components/Buttons';
 import { dropdownOptions } from '../../../../../data/dropdown';
 import {
-  Container, MainInfo, SubmitForm, Body
+  Container, MainInfo, SubmitForm
 } from './style';
 import { NormalInput, TagsInput } from '../../../../../components/Forms/Inputs';
 import TextArea from '../../../../../components/Forms/Inputs/TextArea';
@@ -13,10 +13,7 @@ import DatePicker from '../../../../../components/Forms/Inputs/DatePicker';
 import { useInfoForm } from './hooks';
 
 export default () => {
-  const [commonDropdown, setCommonDropdown] = useState(undefined);
-  const getPath = window.location.pathname.split('/');
   const { formik } = useInfoForm();
-
   return (
     <>
       <Container>
@@ -179,82 +176,7 @@ export default () => {
               value={formik.values.phone_description}
               onChange={(e) => formik.setFieldValue('phone_description', e.target.value)}
             />
-            {getPath[getPath.length - 1] === 'teacher'
-              ? (
-                <>
-                  <NormalInput
-                    white
-                    size="large"
-                    placeholder="Specialization"
-                    name="specialization"
-                    type={formik.touched.specialization && formik.errors.specialization && 'error'}
-                    helperText={formik.touched.specialization
-                      && formik.errors.specialization && formik.errors.specialization}
-                    value={formik.values.specialization}
-                    onChange={(e) => formik.setFieldValue('specialization', e.target.value)}
-                  />
-                  <Dropdown
-                    color="#FFFFFF"
-                    placeholder="Subjects"
-                    name="subjects"
-                    options={dropdownOptions.commonOptions}
-                    value={commonDropdown}
-                    onChange={setCommonDropdown}
-                    size="large"
-                  />
-                </>
-              )
-              : null}
           </MainInfo.Phone>
-          {getPath[getPath.length - 1] === 'student'
-            ? (
-              <Body>
-                <MainInfo>
-                  <NormalInput
-                    white
-                    size="large"
-                    placeholder="First name"
-                    name="parent_full_name"
-                    type={
-                      formik.touched.parent_full_name
-                      && formik.errors.parent_full_name && 'error'
-                    }
-                    helperText={formik.touched.parent_full_name
-                      && formik.errors.parent_full_name && formik.errors.parent_full_name}
-                    value={formik.values.parent_full_name}
-                    onChange={(e) => formik.setFieldValue('parent_full_name', e.target.value)}
-                  />
-                </MainInfo>
-
-                <MainInfo.TextArea>
-                  <TextArea placeholder="Description" white />
-                </MainInfo.TextArea>
-                <MainInfo.Phone>
-                  <TagsInput
-                    white
-                    placeholder="Phones"
-                    size="large"
-                    defaultValue={formik.values.parent_phone}
-                    type={formik.touched.parent_phone && formik.errors.parent_phone && 'error'}
-                    helperText={formik.touched.parent_phone
-                      && formik.errors.parent_phone && formik.errors.parent_phone}
-                    onChange={(e) => formik.setFieldValue('parent_phone', e)}
-                  />
-                  <NormalInput
-                    white
-                    size="large"
-                    placeholder="Description"
-                    type={formik.touched.parent_phone_description
-                    && formik.errors.parent_phone_description && 'error'}
-                    helperText={formik.touched.parent_phone_description
-                      && formik.errors.parent_phone_description
-                      && formik.errors.parent_phone_description}
-                    value={formik.values.parent_phone_description}
-                    onChange={(e) => formik.setFieldValue('parent_phone_description', e.target.value)}
-                  />
-                </MainInfo.Phone>
-              </Body>
-            ) : null}
           <PrimaryButton title="Sign in" type="submit" size="medium" />
         </SubmitForm>
       </Container>

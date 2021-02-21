@@ -18,9 +18,10 @@ export const MainInfo = styled.div`
   `;
 
 export const TextAreaContainer = styled.div`
+  width: 100% !important;
   padding-top: 20px;
   padding-bottom: 20px;
-  min-width: 100% !important;
+
 `;
 
 MainInfo.Body = styled.div`

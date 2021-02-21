@@ -168,14 +168,14 @@ export default [
       },
       {
         path: '/add/teacher',
-        title: 'Student',
+        title: 'Teacher',
         exact: true,
         hidden: true,
         component: TeacherAdd
       },
       {
         path: '/add/admin',
-        title: 'Student',
+        title: 'Admin',
         exact: true,
         hidden: true,
         component: AdminAdd
