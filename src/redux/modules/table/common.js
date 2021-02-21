@@ -127,8 +127,7 @@ export const usersHeader = [
   {
     id: 2,
     Header: 'Full name',
-    accessor: 'fullname',
-    type: 'user',
+    accessor: 'first_name',
     show: true
   },
   {
@@ -149,9 +148,8 @@ export const usersHeader = [
   {
     id: 5,
     Header: 'Phones',
-    accessor: 'phones',
+    accessor: 'school_number',
     align: 'end',
-    prefix: '+',
     show: true
   },
   {

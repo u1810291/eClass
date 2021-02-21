@@ -11,6 +11,7 @@ import {
 import { dataSelector } from './selectors';
 
 function* fetchData({ payload }) {
+  yield put(setLoading(true));
   try {
     const { query } = payload;
 

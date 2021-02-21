@@ -24,11 +24,9 @@ export const Filter = styled.div`
   display:flex;
   width: 100%;
   margin-top: 20px;
+  align-items: center;
+  justify-content: space-between;
 `;
 
 export const Body = styled.div`
-  width: 100%;
-  min-height: 20%;
-  overflow: hidden;
-  margin-top: 20px;
 `;

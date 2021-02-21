@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 
@@ -62,17 +63,53 @@ export const header = [{
 }
 ];
 
-// parents: el.parents.map((i) => [{
-//   description: i.description,
-//   full_name: i.full_name,
-//   phones: i.phones.map((j) => [{
-//     description: j.description,
-//     phone: j.phone
-//   }])
-// }]),
-// phones: el.phones.map((k) => [{
-//   description: k.description,
-//   phone: k.phone
-// }]),
-// school_number: el.school_number,
-// trial_lessons: el.trial_lessons
+export const toolTips = [
+  {
+    name: 'Cancel',
+    icon: 'payment',
+    onClick: () => {
+      alert('Cancel');
+    }
+  },
+
+  {
+    name: 'Reschedule',
+    icon: 'payment',
+    onClick: () => {
+      alert('Reschedule');
+    }
+  },
+
+  {
+    name: 'Response',
+    icon: 'payment',
+    onClick: () => {
+      alert('Response Reschedule');
+    }
+  },
+
+  {
+    name: 'Reject Reschedule',
+    icon: 'payment',
+    onClick: () => {
+      alert('Reject Reschedule');
+    }
+  },
+
+  {
+    name: 'Add Rating',
+    icon: 'payment',
+    onClick: () => {
+      alert('Add Rating');
+    }
+  },
+
+  {
+    name: 'Revoke Rating',
+    icon: 'payment',
+    onClick: () => {
+      alert('Revoke Rating');
+    }
+  }
+
+];

@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useEffect, useState } from 'react';
 import {
@@ -26,7 +27,8 @@ export default ({
   toolTips,
   onChange,
   fetchData,
-  loading
+  loading,
+  height
 }) => {
   const [indexT, setIndexT] = useState(-1);
   const [pgCount, setPgCount] = useState(0);
@@ -89,7 +91,7 @@ export default ({
   return (
     <>
 
-      <TableContainer>
+      <TableContainer height={height}>
         {loading ? (
           <Spinner contain black />
         ) : (

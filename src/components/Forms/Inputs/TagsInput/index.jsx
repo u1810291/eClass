@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import {
-  CloseIcon, Container, TagItem, TagsWrapper
+  CloseIcon, Container, TagItem, TagsWrapper, Input
 } from './style';
 import { Helper } from '../Normal/style';
 
@@ -45,13 +45,12 @@ export const TagsInput = ({
               <CloseIcon onClick={() => { handleDelete(tag); }} />
             </TagItem>
           ))}
-        <input
+        <Input
           type="text"
           value={value}
           onKeyPress={handlePress}
           placeholder={placeholder}
           onChange={(e) => setValue(e.target.value)}
-          style={{ width: '100%' }}
           className={classNames(
             'body-medium',
             'weight-regular',

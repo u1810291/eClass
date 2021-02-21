@@ -5,6 +5,12 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   cursor: text;
+  input{
+    outline: none !important;
+    &:focus{
+      outline: none !important;
+    }
+  }
 `;
 
 const common = css`
@@ -45,6 +51,12 @@ export const getType = ({ type }) => {
   }
 };
 
+export const Input = styled.input`
+  text-indent: 10px;
+  border: none;
+  height: 100%;
+`;
+
 export const TagItem = styled.div`
   display: flex;
   align-items: center;
@@ -76,7 +88,7 @@ export const TagsWrapper = styled.div`
   input {
     border: 0;
     background: none;
-    outline: none;
+    outline: none !important;
   }
 `;
 

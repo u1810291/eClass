@@ -11,6 +11,7 @@ import {
 import { dataSelector } from './selectors';
 
 function* fetchData({ payload }) {
+  yield put(setLoading(true));
   try {
     const res = yield service.getAll(payload.query);
     const { total, data } = dataSelector(res.data);

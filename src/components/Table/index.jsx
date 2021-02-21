@@ -8,7 +8,7 @@ import SubRowAsync from './SubRowAsync';
 import { Container } from './style';
 
 export default ({
-  data: tableData, header, loading, subData, total, setSort, toolTips, onChange
+  data: tableData, header, loading, subData, total, setSort, toolTips, onChange, height
 }) => {
   const columns = useMemo(() => header, [header]);
   const data = useMemo(() => tableData, [tableData]);
@@ -28,6 +28,7 @@ export default ({
   return (
     <Container>
       <Table
+        height={height}
         loading={loading}
         toolTips={toolTips}
         setSort={setSort}

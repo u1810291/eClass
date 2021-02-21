@@ -4,16 +4,19 @@ import service from '../../../../services/admin/users';
 import {
   setData,
   setError,
-  setLoading
+  setLoading,
+  setTotal
 } from './actions';
 
 import { dataSelector } from './selectors';
 
 function* fetchData() {
+  yield put(setLoading(true));
   try {
     const res = yield service.getUsers('student');
-    const { data } = dataSelector(res.data);
+    const { total, data } = dataSelector(res.data);
     yield put(setError(''));
+    yield put(setTotal(total));
     yield put(setData(data));
     yield put(setLoading(false));
   } catch (error) {

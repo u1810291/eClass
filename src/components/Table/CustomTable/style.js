@@ -90,6 +90,4 @@ export const TD = styled.td`
 `;
 
 export const MainTableContainer = styled.table`
-
-border-collapse: collapse;
 `;
