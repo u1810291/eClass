@@ -14,14 +14,13 @@ export const MainInfo = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr); 
   grid-gap: 20px;
+  
   `;
 
-MainInfo.TextArea = styled.div`
+export const TextAreaContainer = styled.div`
   padding-top: 20px;
   padding-bottom: 20px;
-  padding-right: 30px;
-  display: flex;
-
+  min-width: 100% !important;
 `;
 
 MainInfo.Body = styled.div`

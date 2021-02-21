@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 export const TextArea = styled.textarea`
-  width: -webkit-fill-available;
+  width: 100%;
+  text-indent: 20px;
   border-radius: 11px;
   background: ${({ white }) => (white ? ' #ffffff' : ' #f5f5f5')};
   height: 98px;

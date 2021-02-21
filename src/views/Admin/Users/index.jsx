@@ -60,7 +60,9 @@ export default () => {
         <PrimaryButton
           className="my-2"
           size="large"
-          onClick={() => (getType().length > 0 ? history.push(`/users/add/${getType()}`) : history.push('/users/add/student'))}
+          onClick={() => (getType().length > 0
+            ? history.push(`/users/add/${getType()}`)
+            : history.push('/users/add/student'))}
           title="Add new"
         />
       </Filter>
