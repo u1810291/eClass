@@ -8,3 +8,4 @@ export { default as TagsInput } from './TagsInput';
 export { default as TextArea } from './TextArea';
 export { default as UploadInput } from './Upload';
 export { default as PasswordInput } from './Password';
+export { default as SingleDatePicker } from './SingleDatePicker';

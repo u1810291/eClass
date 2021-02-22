@@ -1,7 +1,7 @@
 import React from 'react';
-import * as devices from '../../../constants/devices';
-import { useWindowSize } from '../../../hooks/use-window-size';
-import BottomSheet from '../../BottomSheet';
+import * as devices from '../../../../constants/devices';
+import { useWindowSize } from '../../../../hooks/use-window-size';
+import BottomSheet from '../../../BottomSheet';
 
 import {
   Container,
