@@ -26,10 +26,7 @@ const map = {
     return {
       ...state, refresh_token: payload
     };
-  },
-  [types.AUTH_SET_EXPIRES_AT]: (state, { payload }) => ({
-    ...state, refresh_token_expire_at: payload
-  })
+  }
 };
 
 // eslint-disable-next-line max-len

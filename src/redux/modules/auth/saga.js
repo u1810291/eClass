@@ -3,7 +3,7 @@ import types from '../../../constants/action-types';
 import service from '../../../services/auth';
 
 import {
-  setAccessToken, setRefreshToken, setError, setStudent, setTeacher, setAdmin
+  setAccessToken, setRefreshToken, setError
 } from './actions';
 
 function* login({ payload, success }) {
@@ -25,26 +25,28 @@ function* validate({ payload }) {
   }
 }
 
-function* regStudent() {
+function* regStudent({ payload, success }) {
   try {
-    const res = yield service.registerStudent();
-    yield put(setStudent(res.data));
+    console.log(payload);
+    const { data } = yield service.registerStudent(payload);
+    success(data);
+  } catch (error) {
+    console.log(error);
+    yield put(setError(error.message));
+  }
+}
+function* regTeacher({ payload, success }) {
+  try {
+    const { data } = yield service.registerTeacher(payload);
+    success(data);
   } catch (error) {
     yield put(setError(error.message));
   }
 }
-function* regTeacher() {
+function* regAdmin({ payload, success }) {
   try {
-    const res = yield service.registerStudent();
-    yield put(setTeacher(res.data));
-  } catch (error) {
-    yield put(setError(error.message));
-  }
-}
-function* regAdmin() {
-  try {
-    const res = yield service.registerStudent();
-    yield put(setAdmin(res.data));
+    const { data } = yield service.registerAdmin(payload);
+    success(data);
   } catch (error) {
     yield put(setError(error.message));
   }
