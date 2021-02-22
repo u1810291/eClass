@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 export const TableContainer = styled.div`
-height: ${({ height }) => (height || '540px')};
+height: ${({ height }) => (`${height}px` || '540px')};
 position: relative;
 --table-table-width: auto;
 --table-left-right-row-paddings: 25px;

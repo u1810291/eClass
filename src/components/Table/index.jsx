@@ -26,7 +26,7 @@ export default ({
   );
 
   return (
-    <Container>
+    <Container height={height}>
       <Table
         height={height}
         loading={loading}
