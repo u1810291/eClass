@@ -1,6 +1,8 @@
+/* eslint-disable no-console */
 import { takeLatest, put } from 'redux-saga/effects';
 import types from '../../../constants/action-types';
 import service from '../../../services/auth';
+import { studentSelector } from './selectors';
 
 import {
   setAccessToken, setRefreshToken, setError
@@ -27,9 +29,11 @@ function* validate({ payload }) {
 
 function* regStudent({ payload, success }) {
   try {
-    console.log(payload);
-    const { data } = yield service.registerStudent(payload);
-    success(data);
+    const { data } = studentSelector(payload);
+
+    console.log(data);
+    const res = yield service.registerStudent(data);
+    success(res.data);
   } catch (error) {
     console.log(error);
     yield put(setError(error.message));

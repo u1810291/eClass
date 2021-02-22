@@ -27,13 +27,11 @@ const SingleDatePicker = ({
 
 SingleDatePicker.propTypes = {
   placeholder: PropTypes.string,
-  value: PropTypes.string,
   onChange: PropTypes.func
 };
 
 SingleDatePicker.defaultProps = {
   placeholder: 'Date',
-  value: '',
   onChange: () => {}
 };
 

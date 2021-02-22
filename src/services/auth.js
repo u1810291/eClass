@@ -6,7 +6,7 @@ export default {
   getToken: ({ username, password }) => service.post('/api/v1/login', { username, password }),
   refreshToken: ({ refresh_token }) => service.post('/api/v1/refresh', { refresh_token }),
   //  TODO Register
-  registerStudent: (data) => service.post('/api/v1/register/student', { data }),
+  registerStudent: (data) => service.post('/api/v1/register/student', data),
   registerTeacher: (data) => service.post('/api/v1/register/teacher', { data }),
   registerAdmin: (data) => service.post('/api/v1/register/admin', { data }),
   // TODO Confirm

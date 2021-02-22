@@ -39,7 +39,7 @@ export const useInfoForm = () => {
       username: '',
       password: '',
       email: '',
-      date_of_birth: undefined,
+      date_of_birth: '',
       lang: undefined,
       country: '',
       city_name: '',
@@ -58,10 +58,10 @@ export const useInfoForm = () => {
 
     validationSchema,
     onSubmit: (values, { setSubmitting }) => {
-      console.log(values);
       setSubmitting(true);
       dispatch(regStudent(values, (data) => {
         setSubmitting(false);
+        // eslint-disable-next-line no-console
         console.log(data);
       }));
       history.push('/users');

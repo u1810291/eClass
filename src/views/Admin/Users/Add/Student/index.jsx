@@ -1,89 +1,21 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
-import * as Yup from 'yup';
-import { useDispatch } from 'react-redux';
-import { useFormik } from 'formik';
-import { useHistory } from 'react-router-dom';
-import { regStudent } from '../../../../../redux/modules/auth/actions';
 
 import Dropdown from '../../../../../components/Forms/Dropdowns';
 import { PrimaryButton } from '../../../../../components/Buttons';
-import { dropdownOptions } from '../../../../../data/dropdown';
+import { dropdownOptions, languages } from '../../../../../data/dropdown';
 import {
   Container, MainInfo, SubmitForm, Body
 } from './style';
-import { NormalInput, TagsInput } from '../../../../../components/Forms/Inputs';
+import { NormalInput, TagsInput, SingleDatePicker } from '../../../../../components/Forms/Inputs';
 import TextArea from '../../../../../components/Forms/Inputs/TextArea';
-import DatePicker from '../../../../../components/Forms/Inputs/DatePicker';
+
 import { useInfoForm } from './hooks';
 
 export default () => {
-  const [parentFullname, setParentFullname] = useState();
-  // const { formik } = useInfoForm();
-  const history = useHistory();
-  const dispatch = useDispatch();
+  const [date, setDate] = useState('');
+  const { formik } = useInfoForm();
 
-  const validationSchema = Yup.object().shape({
-    first_name: Yup.string().required('First name is required'),
-    last_name: Yup.string().required('Last name is required'),
-    middle_name: Yup.string().required('Middle name is required'),
-    username: Yup.string().required('Username is required'),
-    password: Yup.string().required('Password is required'),
-    email: Yup.string().required('Email is required'),
-    date_of_birth: Yup.object().shape({ value: Yup.string() }).required('Date of birth is required'),
-    lang: Yup.string().required('Language required'),
-    phone: Yup.array().required('Phone is required'),
-    country: Yup.string().required('Country is required'),
-    // city_name: Yup.string().required('City is required'),
-    school_number: Yup.string().required('School is required'),
-    address: Yup.string().required('Address is required'),
-    phone_description: Yup.string().required('Description to number is required'),
-    comment_description: Yup.string().required('Comment is required'),
-    parent_first_name: Yup.string().required('Full name is required'),
-    parent_last_name: Yup.string().required('Full name is required'),
-    parent_middle_name: Yup.string().required('Full name is required'),
-    // parent_description: Yup.string().required('Description is required'),
-    parent_phone: Yup.array().required('Phone is required'),
-    parent_phone_description: Yup.string().required('Description is required')
-  });
-  const formik = useFormik({
-    initialValues: {
-      first_name: '',
-      last_name: '',
-      middle_name: '',
-      username: '',
-      password: '',
-      email: '',
-      date_of_birth: '',
-      lang: undefined,
-      country: '',
-      // city_name: '',
-      school_number: '',
-      address: '',
-      phone: [],
-      phone_description: '',
-      comment_description: '',
-      parent_first_name: '',
-      parent_last_name: '',
-      parent_middle_name: '',
-      // parent_description: '',
-      parent_phone: [],
-      parent_phone_description: ''
-    },
-
-    validationSchema,
-    onSubmit: (values, { setSubmitting }) => {
-      setSubmitting(true);
-      console.log(values);
-      dispatch(regStudent(values, (data) => {
-        setSubmitting(false);
-        console.log(data);
-      }));
-      history.push('/users');
-    }
-  });
-
-  console.log(formik);
   return (
     <>
       <Container>
@@ -175,24 +107,25 @@ export default () => {
             />
           </MainInfo.TextArea>
           <MainInfo.Body>
-            <DatePicker
-              placeholder="Date of birth"
-              white
-              size="large"
+            <SingleDatePicker
+              placeholder="From"
               name="date_of_birth"
-              value={formik.values.date_of_birth}
-              change={(value) => formik.setFieldValue('date_of_birth', `${value}`)}
-              showTimePicker={false}
-              dateFormat="YYYY-MM-DD"
-              date={formik.values.date_of_birth}
+              value={date}
+              onChange={(value) => {
+                setDate(value);
+                formik.setFieldValue('date_of_birth', value);
+              }}
             />
             <Dropdown
               color="#FFFFFF"
               placeholder="Language"
               name="lang"
-              options={dropdownOptions.commonOptions}
-              value={formik.values.lang}
-              onChange={(e) => formik.setFieldValue('lang', e)}
+              options={languages}
+              value={
+                formik.values.lang
+                && languages.find((el) => el.value === formik.values.lang).id
+              }
+              onChange={(e) => formik.setFieldValue('lang', languages.find((el) => el.id === e).value)}
               size="large"
             />
             <Dropdown
@@ -207,10 +140,10 @@ export default () => {
             <Dropdown
               color="#FFFFFF"
               placeholder="City"
-              name="city"
+              name="city_name"
               options={dropdownOptions.commonOptions}
-              value={formik.values.city}
-              onChange={(e) => formik.setFieldValue('city', e)}
+              value={formik.values.city_name}
+              onChange={(e) => formik.setFieldValue('city_name', e)}
               size="large"
             />
             <NormalInput
@@ -339,6 +272,20 @@ export default () => {
               />
             </MainInfo.Phone>
           </Body>
+          <MainInfo.TextArea>
+            <TextArea
+              white
+              placeholder="Description"
+              type={formik.touched.parent_description
+                && formik.errors.parent_description && 'error'}
+              helperText={formik.touched.parent_description
+                && formik.errors.parent_description
+                && formik.errors.parent_description}
+              value={formik.values.parent_description}
+              name="parent_description"
+              onChange={(e) => formik.setFieldValue('parent_description', e.target.value)}
+            />
+          </MainInfo.TextArea>
           <PrimaryButton title="Create Student" type="submit" size="medium" />
         </SubmitForm>
       </Container>

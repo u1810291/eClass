@@ -1,36 +1,32 @@
-// eslint-disable-next-line no-unused-vars
-const some = {
-  first_name: 'Student2',
-  last_name: 'Testing2',
-  middle_name: 'Just test',
-  username: 'student2',
-  password: 'password123',
-  email: 'student2@email.com',
-  date_of_birth: '1983-07-23',
-  lang: 'ru',
-  phones: [{
-    phone: '495246429',
-    description: 'My phone'
-  }],
-  description: 'Comments',
-  parents: [{
-    full_name: 'Last father name First father name',
-    description: 'father',
-    phones: [{
-      phone: '789456123',
-      description: "Father's phone"
-    }]
-  },
-  {
-    full_name: 'Last mother name First mother name',
-    description: 'mother',
-    phones: [{
-      phone: '456432198',
-      description: "Mother's phone"
-    }]
-  }],
-  school_number: '235',
-  city_id: '56b52635-0529-43a8-a4b9-3f8fb013c680',
-  city_name: 'Tashkent',
-  address: 'Okkurgon 59, 28, 19'
-};
+// import moment from 'moment';
+
+export function studentSelector(data) {
+  const selected = {
+    username: data.username,
+    first_name: data.first_name,
+    last_name: data.last_name,
+    middle_name: data.middle_name,
+    password: data.password,
+    email: data.email,
+    date_of_birth: '1999-02-01',
+    lang: data.lang.toString(),
+    phones: data.phone.map((el) => ({
+      phone: el.toString(),
+      description: 'asdda'
+    })),
+    description: data.phone_description,
+    parents: [{
+      full_name: data.parent_first_name,
+      description: data.parent_description,
+      phones: data.parent_phone.map((el) => ({
+        phone: el.toString(),
+        description: 'asd'
+      }))
+    }],
+    school_number: data.school_number,
+    city_id: data.city_id,
+    city_name: data.city_name.toString(),
+    address: data.address
+  };
+  return { data: JSON.stringify(selected) };
+}

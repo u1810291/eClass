@@ -3,9 +3,9 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
 export const CustomInput = styled.button`
+  height: 48px;
+  width: 100%;
   padding: 12px 16px;
-  border: ${({ white }) => (white ? '1px solid #262626'
-    : '1px solid transparent')};
   color: ${({ white }) => (white ? '#262626' : ' #9d9d9d')};
   border-radius: 8px;
   outline: none;
@@ -14,9 +14,18 @@ export const CustomInput = styled.button`
   &:hover {
     cursor: pointer;
   }
+
+  box-sizing: border-box;
+  border: 1px solid #e2e2ea;
+  background: ${({ white }) => (white ? '#ffffff' : '#F0F8FF')};
+  color: #9d9d9d;
+  .left-right {
+    display: none;
+  }
 `;
 
 export const Container = styled.div`
+
   .react-datepicker {
     box-shadow: 0px 6px 12px rgb(73 75 116 / 4%);
     background-color: #fff;
@@ -41,12 +50,12 @@ export const Container = styled.div`
   }
   .react-datepicker__day--selected {
     border-radius: 4px;
-    background-color: #f24142;
+    background-color: #0062ff;
     color: #fff;
   }
   .react-datepicker__day--keyboard-selected {
     border-radius: 4px;
-    background-color: #f24142;
+    background-color: #0062ff;
     color: #fff;
   }
   .react-datepicker__header {
