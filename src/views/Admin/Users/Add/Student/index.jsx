@@ -140,6 +140,8 @@ export default () => {
               onChange={(e) => formik.setFieldValue('country', e)}
               size="large"
             />
+            {console.log(getDropdowns('city'))}
+            {console.log(dropdownOptions.commonOptions)}
             <Dropdown
               color="#FFFFFF"
               placeholder="City"

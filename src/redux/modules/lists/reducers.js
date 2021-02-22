@@ -5,7 +5,19 @@ const defaultState = {
 };
 
 const map = {
-  [types.SET_LIST_ERROR]: (state, { payload }) => ({
+  [types.TABLE_ADMIN_STUDENTS_SET_LOADING]: (state, { payload }) => ({
+    ...state,
+    loading: payload
+  }),
+  [types.TABLE_ADMIN_STUDENTS_SET_DATA]: (state, { payload }) => ({
+    ...state,
+    data: payload
+  }),
+  [types.TABLE_ADMIN_STUDENTS_SET_TOTAL]: (state, { payload }) => ({
+    ...state,
+    total: payload
+  }),
+  [types.TABLE_ADMIN_STUDENTS_ERROR]: (state, { payload }) => ({
     ...state,
     error: payload
   })
