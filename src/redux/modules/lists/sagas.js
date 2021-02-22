@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { takeLatest, put } from 'redux-saga/effects';
 import types from '../../../constants/action-types';
 import service from '../../../services/lists';
@@ -5,10 +6,12 @@ import {
   setError
 } from './actions';
 
+import { dataSelector, reasonSelector } from './selectors';
+
 function* getCountries() {
   try {
     const res = yield service.countries();
-    console.log(res);
+    const { data } = dataSelector(res.data);
   } catch (error) {
     console.log(error);
     yield put(setError(error.message));
@@ -18,7 +21,7 @@ function* getCountries() {
 function* getCities() {
   try {
     const res = yield service.cities();
-    console.log(res);
+    const { data } = dataSelector(res.data);
   } catch (error) {
     console.log(error);
     yield put(setError(error.message));
@@ -28,7 +31,7 @@ function* getCities() {
 function* getReasons() {
   try {
     const res = yield service.reasons();
-    console.log(res);
+    const { data } = reasonSelector(res.data);
   } catch (error) {
     console.log(error);
     yield put(setError(error.message));

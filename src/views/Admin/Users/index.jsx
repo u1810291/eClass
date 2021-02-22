@@ -71,7 +71,7 @@ export default () => {
           <TableError message={error} />
         ) : (
           <Table
-            height="500px"
+            height="450px"
             total={total}
             data={data}
             toolTips={toolTips}
