@@ -8,3 +8,5 @@ export { default as quizesSaga } from './quizes/sagas';
 export { default as adminLessonsSaga } from './admin/lessons/sagas';
 export { default as teacherLessonsSaga } from './teacher/lessons/sagas';
 export { default as studentLessonsSaga } from './student/lessons/sagas';
+
+export { default as listsSaga } from './lists/sagas';

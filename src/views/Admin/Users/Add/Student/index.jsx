@@ -9,13 +9,16 @@ import {
 } from './style';
 import { NormalInput, TagsInput, SingleDatePicker } from '../../../../../components/Forms/Inputs';
 import TextArea from '../../../../../components/Forms/Inputs/TextArea';
+import { getDropdowns } from '../../../../../hooks';
 
 import { useInfoForm } from './hooks';
 
 export default () => {
   const [date, setDate] = useState('');
   const { formik } = useInfoForm();
-
+  getDropdowns('city');
+  getDropdowns('country');
+  getDropdowns('reasons');
   return (
     <>
       <Container>

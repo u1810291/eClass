@@ -13,3 +13,5 @@ export { default as quizesReducers } from './quizes/reducers';
 export { default as adminLessonsReducers } from './admin/lessons/reducers';
 export { default as teacherLessonsReducers } from './teacher/lessons/reducers';
 export { default as studentLessonsReducers } from './student/lessons/reducers';
+
+export { default as listsReducers } from './lists/reducers';
