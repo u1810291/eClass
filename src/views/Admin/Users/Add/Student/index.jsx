@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Dropdown from '../../../../../components/Forms/Dropdowns';
 import { PrimaryButton } from '../../../../../components/Buttons';
 import { dropdownOptions, languages } from '../../../../../data/dropdown';
@@ -10,17 +10,13 @@ import {
 } from './style';
 import { NormalInput, TagsInput, SingleDatePicker } from '../../../../../components/Forms/Inputs';
 import TextArea from '../../../../../components/Forms/Inputs/TextArea';
-
 import { useInfoForm } from './hooks';
+import { GeneralInfo } from './GeneralInfo';
 
 export default () => {
   const [date, setDate] = useState('');
   const { formik } = useInfoForm();
-
-  const { data, error } = useSelector((state) => state.listsReducers);
-  console.log(data, error);
-  // getDropdowns('city');
-  // getDropdowns('reasons');
+  const { cities, countries } = useSelector((state) => state.listsReducers);
   return (
     <>
       <Container>
@@ -29,74 +25,8 @@ export default () => {
           formik.handleSubmit();
         }}
         >
-          <MainInfo>
-            <NormalInput
-              white
-              name="first_name"
-              size="large"
-              placeholder="First name"
-              type={formik.touched.first_name && formik.errors.first_name && 'error'}
-              helperText={formik.touched.first_name
-                && formik.errors.first_name && formik.errors.first_name}
-              value={formik.values.first_name}
-              onChange={(e) => formik.setFieldValue('first_name', e.target.value)}
-            />
-            <NormalInput
-              white
-              size="large"
-              placeholder="Last name"
-              type={formik.touched.last_name && formik.errors.last_name && 'error'}
-              helperText={formik.touched.last_name
-                && formik.errors.last_name && formik.errors.last_name}
-              value={formik.values.last_name}
-              name="last_name"
-              onChange={(e) => formik.setFieldValue('last_name', e.target.value)}
-            />
-            <NormalInput
-              white
-              size="large"
-              placeholder="Middle name"
-              type={formik.touched.middle_name && formik.errors.middle_name && 'error'}
-              helperText={formik.touched.middle_name
-                && formik.errors.middle_name && formik.errors.middle_name}
-              value={formik.values.middle_name}
-              name="middle_name"
-              onChange={(e) => formik.setFieldValue('middle_name', e.target.value)}
-            />
-            <NormalInput
-              white
-              size="large"
-              placeholder="Username"
-              type={formik.touched.username && formik.errors.username && 'error'}
-              helperText={formik.touched.username
-                && formik.errors.username && formik.errors.username}
-              value={formik.values.username}
-              name="username"
-              onChange={(e) => formik.setFieldValue('username', e.target.value)}
-            />
-            <NormalInput
-              white
-              size="large"
-              placeholder="Password"
-              type={formik.touched.password && formik.errors.password && 'error'}
-              helperText={formik.touched.password
-                && formik.errors.password && formik.errors.password}
-              value={formik.values.password}
-              name="password"
-              onChange={(e) => formik.setFieldValue('password', e.target.value)}
-            />
-            <NormalInput
-              white
-              size="large"
-              placeholder="Email"
-              type={formik.touched.email && formik.errors.email && 'error'}
-              helperText={formik.touched.email
-                && formik.errors.email && formik.errors.email}
-              value={formik.values.email}
-              name="email"
-              onChange={(e) => formik.setFieldValue('email', e.target.value)}
-            />
-          </MainInfo>
+          <GeneralInfo formik={formik} />
+
           <MainInfo.TextArea>
             <TextArea
               white
@@ -137,20 +67,20 @@ export default () => {
               color="#FFFFFF"
               placeholder="Country"
               name="country"
-              options={dropdownOptions.commonOptions}
-              value={formik.values.country}
-              onChange={(e) => formik.setFieldValue('country', e)}
+              options={countries}
+              value={formik.values.country
+                && countries.find((el) => el.value === formik.values.country).id}
+              onChange={(e) => formik.setFieldValue('country', countries.find((el) => el.id === e).value)}
               size="large"
             />
-            {console.log()}
-            {console.log(dropdownOptions.commonOptions)}
             <Dropdown
               color="#FFFFFF"
               placeholder="City"
               name="city_name"
-              options={dropdownOptions.commonOptions}
-              value={formik.values.city_name}
-              onChange={(e) => formik.setFieldValue('city_name', e)}
+              options={cities}
+              value={formik.values.city_name
+                && cities.find((el) => el.value === formik.values.city_name).id}
+              onChange={(e) => formik.setFieldValue('city_name', cities.find((el) => el.id === e).value)}
               size="large"
             />
             <NormalInput

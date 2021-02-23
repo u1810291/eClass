@@ -1,23 +1,29 @@
 import types from '../../../constants/action-types';
-import { genericTypes } from './common';
 
 const defaultState = {
-  data: [],
+  countries: [],
+  cities: [],
+  reasons: [],
   error: ''
 };
 
-const map = {};
-
-genericTypes.forEach(({ key }) => {
-  map[types[`${key}_SET_DATA`]] = (state, { payload }) => ({
+const map = {
+  [types.COUNTRIES_SET_DATA]: (state, { payload }) => ({
     ...state,
-    data: payload
-  });
-  map[types[`${key}_ERROR`]] = (state, { payload }) => ({
+    countries: payload
+  }),
+  [types.REASONS_SET_DATA]: (state, { payload }) => ({
+    ...state,
+    reasons: payload
+  }),
+  [types.CITIES_SET_DATA]: (state, { payload }) => ({
+    ...state,
+    cities: payload
+  }),
+  [types.SET_ERROR]: (state, { payload }) => ({
     ...state,
     error: payload
-  });
-});
-
+  })
+};
 // eslint-disable-next-line max-len
 export default (state, action) => (map[action.type] && map[action.type](state, action)) || state || defaultState;

@@ -12,14 +12,21 @@ import Table from '../../../components/Table';
 import { headerMaker } from '../../../components/Table/helper';
 import { fetchData } from '../../../redux/modules/admin/users/actions';
 import TableError from '../../../components/Table/Error';
+import { getCities, getCountries, getReasons } from '../../../redux/modules/lists/actions';
 
 export default () => {
   const [userType, setUserType] = useState(undefined);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getCities());
+    dispatch(getCountries());
+    dispatch(getReasons());
+  }, [dispatch]);
+
   const {
     loading, data, total, error
   } = useSelector((state) => state.adminUsersReducers);
   const history = useHistory();
-  const dispatch = useDispatch();
   const [sort, setSort] = useState();
 
   const headerData = useSelector(({ tableReducer }) => tableReducer.usersHeader);

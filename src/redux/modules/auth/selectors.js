@@ -28,5 +28,5 @@ export function studentSelector(data) {
     city_name: data.city_name.toString(),
     address: data.address
   };
-  return { data: JSON.stringify(selected) };
+  return { data: selected };
 }

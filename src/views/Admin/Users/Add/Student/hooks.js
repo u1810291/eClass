@@ -3,13 +3,11 @@ import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 import { useHistory } from 'react-router-dom';
 import { regStudent } from '../../../../../redux/modules/auth/actions';
-import { getDropdowns } from '../../../../../hooks';
 
 export const useInfoForm = () => {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  getDropdowns('country');
   const validationSchema = Yup.object().shape({
     first_name: Yup.string().required('First name is required'),
     last_name: Yup.string().required('Last name is required'),

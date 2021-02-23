@@ -3,7 +3,6 @@ export function dataSelector(data) {
   const filtered = content.map((el) => ({
     id: el.id,
     value: el.name
-
   }));
   return { data: filtered };
 }
