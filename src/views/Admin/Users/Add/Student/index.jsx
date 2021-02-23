@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 
+import { useSelector } from 'react-redux';
 import Dropdown from '../../../../../components/Forms/Dropdowns';
 import { PrimaryButton } from '../../../../../components/Buttons';
 import { dropdownOptions, languages } from '../../../../../data/dropdown';
@@ -9,16 +10,17 @@ import {
 } from './style';
 import { NormalInput, TagsInput, SingleDatePicker } from '../../../../../components/Forms/Inputs';
 import TextArea from '../../../../../components/Forms/Inputs/TextArea';
-import { getDropdowns } from '../../../../../hooks';
 
 import { useInfoForm } from './hooks';
 
 export default () => {
   const [date, setDate] = useState('');
   const { formik } = useInfoForm();
-  getDropdowns('city');
-  getDropdowns('country');
-  getDropdowns('reasons');
+
+  const { data, error } = useSelector((state) => state.listsReducers);
+  console.log(data, error);
+  // getDropdowns('city');
+  // getDropdowns('reasons');
   return (
     <>
       <Container>
@@ -140,7 +142,7 @@ export default () => {
               onChange={(e) => formik.setFieldValue('country', e)}
               size="large"
             />
-            {console.log(getDropdowns('city'))}
+            {console.log()}
             {console.log(dropdownOptions.commonOptions)}
             <Dropdown
               color="#FFFFFF"

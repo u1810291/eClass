@@ -1,4 +1,4 @@
-import * as types from '../../../constants/tables';
+import * as types from '../../../constants/global';
 
 export const studentLessonsHeader = [
   {

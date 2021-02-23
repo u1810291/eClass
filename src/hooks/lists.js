@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { getCities, getCountries, getReasons } from '../redux/modules/lists/actions';
 
-export const getDropdowns = (type) => {
+export function getDropdowns(type) {
   const dispatch = useDispatch();
   if (type === 'city') {
     return dispatch(getCities());
@@ -13,4 +13,4 @@ export const getDropdowns = (type) => {
     return dispatch(getReasons());
   }
   return null;
-};
+}

@@ -1,13 +1,13 @@
-import types from '../../../constants/action-types';
+import * as types from '../../../constants/global';
 
 export const genericTypes = [
   {
-    key: types.COUNTRY,
-    name: 'city'
+    key: types.COUNTRIES,
+    name: 'countries'
   },
   {
-    key: types.CITY,
-    name: 'country'
+    key: types.CITIES,
+    name: 'cities'
   },
   {
     key: types.REASONS,
