@@ -26,7 +26,6 @@ export default () => {
         }}
         >
           <GeneralInfo formik={formik} />
-
           <MainInfo.TextArea>
             <TextArea
               white
@@ -46,6 +45,10 @@ export default () => {
               placeholder="From"
               name="date_of_birth"
               value={date}
+              type={formik.touched.date_of_birth
+                && formik.errors.date_of_birth && 'error'}
+              size="large"
+              helperText={formik.errors.date_of_birth}
               onChange={(value) => {
                 setDate(value);
                 formik.setFieldValue('date_of_birth', value);

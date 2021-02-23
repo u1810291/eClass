@@ -1,31 +1,31 @@
 import styled from 'styled-components';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { helperText } from '../style';
 
 export const CustomInput = styled.button`
   height: 48px;
   width: 100%;
+  border: 1px solid ${({ type }) => (type === 'error' ? '#f29392' : '#e2e2ea')} ;
   padding: 12px 16px;
   color: ${({ white }) => (white ? '#262626' : ' #9d9d9d')};
-  border-radius: 8px;
   outline: none;
   background-color: #ffffff;
   text-align: start;
+  border-radius: 8px;
   &:hover {
     cursor: pointer;
   }
-
-  box-sizing: border-box;
-  border: 1px solid #e2e2ea;
-  background: ${({ white }) => (white ? '#ffffff' : '#F0F8FF')};
   color: #9d9d9d;
   .left-right {
     display: none;
   }
-`;
+  `;
 
 export const Container = styled.div`
-
+  position: relative;
+  box-sizing: border-box;
+  border-radius: 8px;
   .react-datepicker {
     box-shadow: 0px 6px 12px rgb(73 75 116 / 4%);
     background-color: #fff;
@@ -97,4 +97,8 @@ export const DatePickerContainer = styled(DatePicker)`
   .react-datepicker-wrapper {
     width: 100%;
   }
+`;
+
+export const Helper = styled.div`
+  ${helperText}
 `;

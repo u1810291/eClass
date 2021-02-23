@@ -4,7 +4,7 @@ import { CustomInput } from '../style';
 
 const CustomButton = React.forwardRef((props, ref) => (
   <CustomInput
-    type="button"
+    type={props.type}
     ref={ref}
     className="example-custom-input"
     onClick={props.onClick}

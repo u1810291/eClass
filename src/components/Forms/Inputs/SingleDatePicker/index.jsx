@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import InputCustom from './CustomButton';
-import { DatePickerContainer, Container } from './style';
+import { DatePickerContainer, Container, Helper } from './style';
 
 const SingleDatePicker = ({
   placeholder,
@@ -10,18 +10,24 @@ const SingleDatePicker = ({
   onChange,
   white,
   style,
+  helperText,
+  type,
+  size,
   ...props
 }) => (
-  <Container>
+  <Container type={type}>
     <DatePickerContainer
       placeholderText={placeholder}
       selected={value}
       onChange={onChange}
       customInput={
-        <InputCustom style={style} white={white} placeholder={placeholder} />
+        <InputCustom type={type || 'button'} style={style} white={white} placeholder={placeholder} />
       }
       {...props}
     />
+    <Helper type={type} size={size}>
+      {helperText}
+    </Helper>
   </Container>
 );
 
