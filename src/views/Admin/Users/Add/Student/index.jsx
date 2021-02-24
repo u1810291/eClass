@@ -127,11 +127,19 @@ export default () => {
               name="phone"
               value={formik.values.phone}
               defaultValue={formik.values.phone}
-              type={formik.touched.phone && formik.errors.phone && 'error'}
-              helperText={formik.errors.phone}
+              type={formik.touched.phone
+                && (formik.touched.phone.length === 0 || formik.errors.phone)
+                ? 'error'
+                : ''}
+              helperText={
+                formik.touched.phone
+                && (formik.touched.phone.length === 0 || formik.errors.phone)
+                  ? formik.errors.phone || 'Phone number is required'
+                  : ''
+              }
               onChange={(e) => formik.setFieldValue('phone', e)}
             />
-            {console.log(formik.errors.phone)}
+            {console.log(formik.errors)}
             <NormalInput
               white
               size="large"
@@ -194,18 +202,22 @@ export default () => {
                 onChange={(e) => formik.setFieldValue('parent_middle_name', e.target.value)}
               />
             </MainInfo>
-            <MainInfo.TextArea>
-              <TextArea placeholder="Description" white />
-            </MainInfo.TextArea>
             <MainInfo.Phone>
               <TagsInput
                 white
                 placeholder="Phones"
                 size="large"
                 defaultValue={formik.values.parent_phone}
-                type={formik.touched.parent_phone && formik.errors.parent_phone && 'error'}
-                helperText={formik.touched.parent_phone
-                      && formik.errors.parent_phone && formik.errors.parent_phone}
+                type={formik.touched.phone
+                  && (formik.touched.phone.length === 0 || formik.errors.phone)
+                  ? 'error'
+                  : ''}
+                helperText={
+                  formik.touched.phone
+                  && (formik.touched.phone.length === 0 || formik.errors.phone)
+                    ? formik.errors.phone || 'Phone number is required'
+                    : ''
+                }
                 onChange={(e) => formik.setFieldValue('parent_phone', [e])}
               />
               <NormalInput

@@ -1,8 +1,10 @@
 import styled, { css } from 'styled-components';
 import { ReactComponent as IconClose } from '../../../../assets/icons/close.svg';
+// import { helperText } from '../style';
 
 export const Container = styled.div`
   display: flex;
+  position: relative;
   flex-direction: column;
   cursor: text;
   input{
@@ -73,7 +75,6 @@ export const TagItem = styled.div`
 
 export const TagsWrapper = styled.div`
   ${common};
-  ${getType};
   border: 1px solid ${({ type }) => (type === 'error' ? '#f29392' : '#e2e2ea')} ;
   background-color: ${({ white }) => (white ? '#ffffff' : '#F5F5F5')};
   &:hover {
@@ -98,4 +99,7 @@ export const CloseIcon = styled(IconClose)`
   margin-left: 8px;
   cursor: pointer;
   fill: #7e8299;
+`;
+
+export const Helper = styled.div`
 `;

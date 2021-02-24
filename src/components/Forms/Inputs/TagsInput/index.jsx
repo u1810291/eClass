@@ -3,9 +3,8 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import {
-  CloseIcon, Container, TagItem, TagsWrapper, Input
+  CloseIcon, Container, TagItem, TagsWrapper, Input, Helper
 } from './style';
-import { Helper } from '../Normal/style';
 
 export const TagsInput = ({
   onChange,

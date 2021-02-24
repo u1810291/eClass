@@ -7,7 +7,7 @@ import { regStudent } from '../../../../../redux/modules/auth/actions';
 export const useInfoForm = () => {
   const history = useHistory();
   const dispatch = useDispatch();
-
+  const phoneNubers = Yup.number().required('Phone is required').min(12, 'Minimum should be 12 digits');
   const validationSchema = Yup.object().shape({
     first_name: Yup.string().required('First name is required'),
     last_name: Yup.string().required('Last name is required'),
@@ -17,7 +17,7 @@ export const useInfoForm = () => {
     email: Yup.string().required('Email is required'),
     date_of_birth: Yup.string().required('Date of birth is required'),
     lang: Yup.string().required('Language required'),
-    phone: Yup.array().required('Phone is required'),
+    phone: Yup.array().of(phoneNubers).min(1, 'Some'),
     country: Yup.string().required('Country is required'),
     city_name: Yup.string().required('City is required'),
     school_number: Yup.string().required('School is required'),
@@ -28,7 +28,7 @@ export const useInfoForm = () => {
     parent_last_name: Yup.string().required('Full name is required'),
     parent_middle_name: Yup.string().required('Full name is required'),
     parent_description: Yup.string().required('Description is required'),
-    parent_phone: Yup.array().required('Phone is required'),
+    parent_phone: Yup.array().of(Yup.number().required('Phone is required')),
     parent_phone_description: Yup.string().required('Description is required')
   });
   const formik = useFormik({
