@@ -15,7 +15,9 @@ body {
   bottom: 0%;
   background: #333366;
 }
-
+#zmmtg-root {
+  display: none;
+}
 :root {
   --chat-sidebar-width: 230px;
   --chat-navbar-height: 80px;

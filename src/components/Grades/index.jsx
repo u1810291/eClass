@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import moment from 'moment';
-import Calendar from '../CustomCalendar';
+import Calendar from '../Calendars/CustomCalendar';
 import {
   Container, BigCalendar, SmallCalendar, Tag
 } from './style';
 import Card from '../Card';
-import CustomCalendarV2 from '../CustomCalendarV2';
+import CustomCalendarV2 from '../Calendars/CustomCalendarV2';
 
 export default () => {
   const [date, setDate] = useState(undefined);

@@ -1,31 +1,43 @@
 /* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable react/react-in-jsx-scope */
 import React from 'react';
 import UserCell from './UserCell';
-import LinkCell from './LinkCell';
+import JoinCell from './JoinCell';
+import StartCell from './StartCell';
 import DownloadCell from './DownloadCell';
+import UploadCell from './UploadCell';
 
 export const headerMaker = (data) => data
   .filter(({ show }) => show)
   .map(({ type, ...rest }) => {
     if (type === 'user') {
-      // eslint-disable-next-line react/react-in-jsx-scope
       return {
         ...rest,
         Cell: ({ cell: { value } }) => <UserCell {...value} />
       };
     }
-    if (type === 'link') {
-      // eslint-disable-next-line react/react-in-jsx-scope
+    if (type === 'join') {
       return {
         ...rest,
-        Cell: ({ cell: { value } }) => <LinkCell {...value} />
+        Cell: ({ cell: { value } }) => <JoinCell {...value} />
+      };
+    }
+    if (type === 'start') {
+      return {
+        ...rest,
+        Cell: ({ cell: { value } }) => <StartCell {...value} />
       };
     }
     if (type === 'download') {
-      // eslint-disable-next-line react/react-in-jsx-scope
       return {
         ...rest,
         Cell: ({ cell: { value } }) => <DownloadCell {...value} />
+      };
+    }
+    if (type === 'upload') {
+      return {
+        ...rest,
+        Cell: ({ cell: { value } }) => <UploadCell {...value} />
       };
     }
     return rest;

@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useEffect, useState } from 'react';
 import {
@@ -15,6 +16,7 @@ import {
 } from './style';
 import Pagination from '../Pagination';
 import ToolTip from '../ToolTip';
+import Spinner from '../../Spinner';
 
 export default ({
   columns: userColumns,
@@ -22,7 +24,11 @@ export default ({
   renderRowSubComponent,
   total,
   setSort,
-  toolTips
+  toolTips,
+  onChange,
+  fetchData,
+  loading,
+  height
 }) => {
   const [indexT, setIndexT] = useState(-1);
   const [pgCount, setPgCount] = useState(0);
@@ -68,6 +74,14 @@ export default ({
     setPgCount(count);
   }, [pageSize, total]);
 
+  useEffect(() => {
+    if (fetchData) {
+      fetchData({ pageIndex, pageSize });
+    } else {
+      onChange({ pageIndex, pageSize });
+    }
+  }, [pageIndex, pageSize, onChange, fetchData]);
+
   const getIcon = (isSorted, isDesc) => ({
     down: isDesc,
     up: !isDesc,
@@ -76,60 +90,64 @@ export default ({
 
   return (
     <>
-      <TableContainer>
-        <MainTableContainer {...getTableProps()}>
-          <THead>
-            {headerGroups.map((headerGroup) => (
-              <tr {...headerGroup.getHeaderGroupProps()}>
-                {headerGroup.headers.map((column) => (
-                  <th {...column.getHeaderProps(column.getSortByToggleProps())}>
-                    {
-                      column.render('Header')
-                    }
-                    {column.canSort && (
-                      <Icon
-                        {...getIcon(column.isSorted, column.isSortedDesc)}
-                      />
-                    )}
-                  </th>
-                ))}
-              </tr>
-            ))}
-          </THead>
-          <TBody {...getTableBodyProps()}>
-            {rows.map((row, index) => {
-              prepareRow(row);
-              const rowProps = row.getRowProps();
-              return (
-                <React.Fragment key={rowProps.key}>
-                  <TR {...rowProps}>
-                    {row.cells.map((cell) => (
-                      <TD {...cell.getCellProps()}>{cell.render('Cell')}</TD>
-                    ))}
-                    <TD>
-                      <Cell align="end">
-                        <ToolTip
-                          indexT={indexT}
-                          index={index}
-                          itemId={row.original.id}
-                          data={toolTips}
-                          setIndexT={setIndexT}
-                          // onClick={(key) => {
-                          //   setIndexT(key);
-                          // }}
-                        />
-                      </Cell>
-                    </TD>
-                  </TR>
-                  {row.isExpanded
-                && renderRowSubComponent({ row, rowProps, visibleColumns })}
-                </React.Fragment>
-              );
-            })}
-          </TBody>
-        </MainTableContainer>
-      </TableContainer>
 
+      <TableContainer height={height}>
+        {loading ? (
+          <Spinner contain black />
+        ) : (
+          <MainTableContainer {...getTableProps()}>
+            <THead>
+              {headerGroups.map((headerGroup) => (
+                <tr {...headerGroup.getHeaderGroupProps()}>
+                  {headerGroup.headers.map((column) => (
+                    <th {...column.getHeaderProps(column.getSortByToggleProps())}>
+                      {
+                        column.render('Header')
+                      }
+                      {column.canSort && (
+                        <Icon
+                          {...getIcon(column.isSorted, column.isSortedDesc)}
+                        />
+                      )}
+                    </th>
+                  ))}
+                </tr>
+              ))}
+            </THead>
+            <TBody {...getTableBodyProps()}>
+              {rows.map((row, index) => {
+                prepareRow(row);
+                const rowProps = row.getRowProps();
+                return (
+                  <React.Fragment key={rowProps.key}>
+                    <TR {...rowProps}>
+                      {row.cells.map((cell) => (
+                        <TD {...cell.getCellProps()}>{cell.render('Cell')}</TD>
+                      ))}
+                      {toolTips
+                    && (
+                      <TD>
+                        <Cell align="end">
+                          <ToolTip
+                            indexT={indexT}
+                            index={index}
+                            itemId={row.original.id}
+                            data={toolTips}
+                            setIndexT={setIndexT}
+                          />
+                        </Cell>
+                      </TD>
+                    )}
+                    </TR>
+                    {row.isExpanded
+                && renderRowSubComponent({ row, rowProps, visibleColumns })}
+                  </React.Fragment>
+                );
+              })}
+            </TBody>
+          </MainTableContainer>
+        )}
+      </TableContainer>
       {total ? (
         <Pagination
           canPreviousPage={canPreviousPage}

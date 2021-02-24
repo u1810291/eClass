@@ -1,7 +1,8 @@
+/* eslint-disable camelcase */
 import moment from 'moment';
 
 export function dataSelector(user) {
-  const { content } = user;
+  const { total_elements, content } = user;
   const filtered = content.map((el) => ({
     address: el.address.address,
     confirmed_by_admin: el.confirmed_by_admin,
@@ -29,5 +30,5 @@ export function dataSelector(user) {
     school_number: el.school_number,
     trial_lessons: el.trial_lessons
   }));
-  return { data: filtered };
+  return { total: total_elements, data: filtered };
 }

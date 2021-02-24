@@ -40,7 +40,7 @@ export const Icon = styled.span`
 export const Container = styled.div`
   padding: 1rem;
   overflow:auto;
-  height: ${({ height }) => (height || '600px')};
+  height: ${({ height }) => (`${parseInt(height, 10) + 60}px` || '600px')};
 
   table {
     width: 100%;

@@ -2,7 +2,8 @@ import styled from 'styled-components';
 import { device } from '../../utils/responsive';
 
 export const BodyContainer = styled.div`
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
   grid-area: body;
   width: 245px;
   height: 100%;

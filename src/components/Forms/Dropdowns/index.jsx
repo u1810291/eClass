@@ -16,7 +16,8 @@ import {
   Select,
   SelectContainer,
   SelectedValue,
-  SelectLabel
+  SelectLabel,
+  Helper
 } from './style';
 import { ReactComponent as ArrowDown } from '../../../assets/icons/arrowClose.svg';
 import { ReactComponent as ArrowUp } from '../../../assets/icons/arrowUp.svg';
@@ -34,6 +35,8 @@ const FilterSelect = ({
   options,
   placeholder,
   size,
+  type,
+  helperText,
   ...props
 }) => {
   const [selectedValue, setSelectedValue] = useState(undefined);
@@ -139,6 +142,7 @@ const FilterSelect = ({
     <SelectContainer ref={selectRef}>
       {label && <SelectLabel size={size}>{label}</SelectLabel>}
       <Select
+        type={type}
         onClick={() => setIsPopoverOpen(!isPopoverOpen)}
         {...props}
         size={size}
@@ -187,6 +191,10 @@ const FilterSelect = ({
           ))}
         </OptionsWrap>
       </Options>
+
+      <Helper type={type} size={size}>
+        {helperText}
+      </Helper>
     </SelectContainer>
   );
 };
