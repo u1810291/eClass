@@ -4,8 +4,7 @@ import { PrimaryButton } from '../../Buttons';
 
 const DownloadCell = (files) => (
   <Container>
-    {console.log(files)}
-    {files
+    {files[0]
       ? <PrimaryButton title="Download" size="large" />
       : <span>No link provided</span>}
   </Container>
