@@ -221,10 +221,13 @@ export const studentHomeworksHeader = [
   },
   {
     Header: 'Group',
-    accessor: 'group group_name',
+    accessor: 'group_name',
     id: 4,
     align: 'end',
-    show: true
+    show: true,
+    SubCell: () => ({
+      accessor: 'group'
+    })
   },
   {
     Header: 'File',

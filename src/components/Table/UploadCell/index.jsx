@@ -4,10 +4,8 @@ import { Container } from './style';
 
 const nameClass = classNames('body-medium', 'weight-medium', 'text-black-800');
 
-const DownloadCell = ({ name }) => (
-  <Container type="button">
-    <span className={nameClass}>{name}</span>
-  </Container>
+const DownloadCell = () => (
+  <Container className={nameClass}> </Container>
 );
 
 export default DownloadCell;

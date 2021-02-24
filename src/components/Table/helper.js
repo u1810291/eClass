@@ -5,6 +5,7 @@ import UserCell from './UserCell';
 import JoinCell from './JoinCell';
 import StartCell from './StartCell';
 import DownloadCell from './DownloadCell';
+import UploadCell from './UploadCell';
 
 export const headerMaker = (data) => data
   .filter(({ show }) => show)
@@ -31,6 +32,12 @@ export const headerMaker = (data) => data
       return {
         ...rest,
         Cell: ({ cell: { value } }) => <DownloadCell {...value} />
+      };
+    }
+    if (type === 'upload') {
+      return {
+        ...rest,
+        Cell: ({ cell: { value } }) => <UploadCell {...value} />
       };
     }
     return rest;
