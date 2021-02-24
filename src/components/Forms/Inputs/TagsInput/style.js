@@ -74,7 +74,7 @@ export const TagItem = styled.div`
 export const TagsWrapper = styled.div`
   ${common};
   ${getType};
-  border: 1px solid #e2e2ea;
+  border: 1px solid ${({ type }) => (type === 'error' ? '#f29392' : '#e2e2ea')} ;
   background-color: ${({ white }) => (white ? '#ffffff' : '#F5F5F5')};
   &:hover {
     background-color: ${({ white }) => (white ? '#ffffff' : '#E9E9E9')};

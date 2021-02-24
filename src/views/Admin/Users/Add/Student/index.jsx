@@ -58,6 +58,9 @@ export default () => {
               color="#FFFFFF"
               placeholder="Language"
               name="lang"
+              type={formik.touched.lang
+                && formik.errors.lang && 'error'}
+              helperText={formik.errors.lang}
               options={languages}
               value={
                 formik.values.lang
@@ -71,6 +74,9 @@ export default () => {
               placeholder="Country"
               name="country"
               options={countries}
+              type={formik.touched.country
+                && formik.errors.country && 'error'}
+              helperText={formik.errors.country}
               value={formik.values.country
                 && countries.find((el) => el.value === formik.values.country).id}
               onChange={(e) => formik.setFieldValue('country', countries.find((el) => el.id === e).value)}
@@ -81,6 +87,9 @@ export default () => {
               placeholder="City"
               name="city_name"
               options={cities}
+              type={formik.touched.city_name
+                && formik.errors.city_name && 'error'}
+              helperText={formik.errors.city_name}
               value={formik.values.city_name
                 && cities.find((el) => el.value === formik.values.city_name).id}
               onChange={(e) => formik.setFieldValue('city_name', cities.find((el) => el.id === e).value)}
@@ -116,12 +125,13 @@ export default () => {
               placeholder="Phones"
               size="large"
               name="phone"
+              value={formik.values.phone}
               defaultValue={formik.values.phone}
               type={formik.touched.phone && formik.errors.phone && 'error'}
-              helperText={formik.touched.phone
-                && formik.errors.phone && formik.errors.phone}
-              onChange={(e) => formik.setFieldValue('phone', [e])}
+              helperText={formik.errors.phone}
+              onChange={(e) => formik.setFieldValue('phone', e)}
             />
+            {console.log(formik.errors.phone)}
             <NormalInput
               white
               size="large"
