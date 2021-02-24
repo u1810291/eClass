@@ -74,6 +74,7 @@ export default () => {
         <TableError message={error} />
       ) : (
         <Table
+          height="590"
           total={total}
           data={data}
           header={header}

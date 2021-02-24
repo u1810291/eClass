@@ -1,4 +1,5 @@
-import * as types from '../../../constants/tables';
+import React from 'react';
+import * as types from '../../../constants/global';
 
 export const studentLessonsHeader = [
   {
@@ -37,43 +38,12 @@ export const studentLessonsHeader = [
     id: 6,
     Header: 'Link',
     accessor: 'link',
-    type: 'link',
+    type: 'join',
     disableSortBy: true,
     show: true
   }
 ];
 
-// attendances [{
-//   missed: item.missed,
-//   student: item.student.full_name,
-//   student_username: item.student.username
-// }]
-// canceled
-// finished
-// group_name
-// group_description
-// students [{
-//   student_name: item.full_name,
-//   student_username: item.username
-// }]
-// lesson_id
-// meeting_id
-// meeting_password
-// rescheduled
-// scheduled_start
-// start_url
-// started
-// started_at
-// subject_name
-// subject_id
-// duration
-// teacher: {
-//   name: el.teacher.full_name,
-//   role: 'Teacher',
-//   image: null
-// },
-// subject
-// link
 export const teacherLessonsHeader = [
   {
     id: 1,
@@ -131,41 +101,19 @@ export const adminLessonsHeader = [
   {
     id: 1,
     Header: 'Date',
-    accessor: 'date',
+    accessor: 'rescheduled',
     show: true
   },
   {
     id: 2,
-    Header: 'Time',
-    accessor: 'time',
+    Header: 'Scheduled start',
+    accessor: 'scheduled_start',
     show: true
   },
   {
     id: 3,
-    Header: 'Duration',
-    accessor: 'duration',
-    show: true
-  },
-  {
-    id: 4,
-    Header: 'Teacher',
-    accessor: 'teacher',
-    type: 'user',
-    show: true
-  },
-  {
-    id: 5,
-    Header: 'Subject',
-    accessor: 'subject',
-    disableSortBy: true,
-    show: true
-  },
-  {
-    id: 6,
-    Header: 'Link',
-    accessor: 'link',
-    type: 'link',
-    disableSortBy: true,
+    Header: 'Time to start',
+    accessor: 'time_to_start',
     show: true
   }
 ];
@@ -180,8 +128,7 @@ export const usersHeader = [
   {
     id: 2,
     Header: 'Full name',
-    accessor: 'fullname',
-    type: 'user',
+    accessor: 'first_name',
     show: true
   },
   {
@@ -202,9 +149,8 @@ export const usersHeader = [
   {
     id: 5,
     Header: 'Phones',
-    accessor: 'phones',
+    accessor: 'school_number',
     align: 'end',
-    prefix: '+',
     show: true
   },
   {
@@ -214,6 +160,153 @@ export const usersHeader = [
     align: 'end',
     show: true
   }];
+
+export const adminHomeworksHeader = [{
+  id: 'expander',
+  Header: 'Phones',
+  accessor: 'school_number',
+  align: 'end',
+  show: true,
+  Cell: ({ row }) => (
+    // eslint-disable-next-line react/jsx-props-no-spreading
+    <span {...row.getToggleRowExpandedProps()}>
+      {row.isExpanded ? 'v' : '>'}
+    </span>
+  )
+},
+{
+  id: 1,
+  accessor: 'rescheduled',
+  align: 'end',
+  show: true,
+  Header: 'Rescheduled'
+},
+{
+  id: 2,
+  Header: 'Scheduled start',
+  accessor: 'scheduled_start',
+  align: 'end',
+  show: true
+},
+{
+  id: 3,
+  Header: 'Time to start',
+  accessor: 'time_to_start',
+  align: 'end',
+  show: true
+}
+];
+
+export const studentHomeworksHeader = [
+  {
+    Header: 'Date',
+    accessor: 'date',
+    id: 1,
+    align: 'end',
+    show: true
+  },
+  {
+    Header: 'Subject',
+    accessor: 'subject',
+    id: 2,
+    align: 'end',
+    show: true
+  },
+  {
+    Header: 'Description',
+    accessor: 'description',
+    id: 3,
+    align: 'end',
+    show: true
+  },
+  {
+    Header: 'Group',
+    accessor: 'group_name',
+    id: 4,
+    align: 'end',
+    show: true,
+    SubCell: () => ({
+      accessor: 'group'
+    })
+  },
+  {
+    Header: 'File',
+    accessor: 'files',
+    id: 5,
+    align: 'end',
+    show: true,
+    type: 'download'
+  },
+  {
+    Header: 'Send homework',
+    accessor: 'teacher',
+    id: 6,
+    align: 'end',
+    type: 'upload',
+    show: true
+  },
+  {
+    Header: 'Deadline',
+    accessor: 'deadline',
+    id: 7,
+    align: 'end',
+    show: true
+  }
+];
+
+export const teacherHomeworksHeader = [{
+  Header: '',
+  id: 'expander',
+  Cell: ({ row }) => (
+    // eslint-disable-next-line react/jsx-props-no-spreading
+    <span {...row.getToggleRowExpandedProps()}>
+      {row.isExpanded ? 'v' : '>'}
+    </span>
+  )
+},
+{
+  Header: 'Date',
+  accessor: 'date',
+  id: 1,
+  align: 'end',
+  show: true
+},
+{
+  Header: 'Time',
+  accessor: 'time',
+  id: 2,
+  align: 'end',
+  show: true
+},
+{
+  Header: 'Duration',
+  accessor: 'duration',
+  id: 3,
+  align: 'end',
+  show: true
+},
+{
+  Header: 'Teacher',
+  accessor: 'teacher',
+  id: 4,
+  align: 'end',
+  show: true
+},
+{
+  Header: 'Subject',
+  accessor: 'subject',
+  id: 5,
+  align: 'end',
+  show: true
+},
+{
+  Header: 'Link',
+  accessor: 'link',
+  id: 6,
+  align: 'end',
+  show: true
+}
+];
 
 export const genericTypes = [
   {
@@ -225,8 +318,16 @@ export const genericTypes = [
     headerName: 'groupsHeader'
   },
   {
-    key: types.HOMEWORKS,
-    headerName: 'homeworksHeader'
+    key: types.STUDENT_HOMEWORKS,
+    headerName: 'studentHomeworksHeader'
+  },
+  {
+    key: types.TEACHER_HOMEWORKS,
+    headerName: 'teacherHomeworksHeader'
+  },
+  {
+    key: types.ADMIN_HOMEWORKS,
+    headerName: 'adminHomeworksHeader'
   },
   {
     key: types.STUDENT_LESSONS,

@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 export const TableContainer = styled.div`
-height: ${({ height }) => (height || '540px')};
+height: ${({ height }) => (`${height}px` || '540px')};
 position: relative;
 --table-table-width: auto;
 --table-left-right-row-paddings: 25px;
@@ -59,6 +59,7 @@ export const Icon = styled.span`
 `;
 
 export const THead = styled.thead`
+  position: sticky;
   background: none;
   tr{
     background: transparent !important;
@@ -89,5 +90,4 @@ export const TD = styled.td`
 `;
 
 export const MainTableContainer = styled.table`
-
 `;

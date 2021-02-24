@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { PureCheckbox as Checkbox } from '../../CheckBox';
+import { helperText } from '../Inputs/style';
 
 export const getFontSize = ({ size }) => {
   switch (size) {
@@ -118,8 +119,8 @@ export const OptionsItem = styled.div`
   }
 `;
 
-export const Select = styled.div`
-  border: 1px solid #e2e2ea;
+export const Select = styled.div`  
+  border: 1px solid ${({ type }) => (type === 'error' ? '#f29392' : '#e2e2ea')} ;
   outline: none;
   display: flex;
   align-items: center;
@@ -182,4 +183,7 @@ export const OptionsItemImg = styled.div`
     height: 100%;
     object-fit: contain;
   }
+`;
+export const Helper = styled.div`
+  ${helperText}
 `;

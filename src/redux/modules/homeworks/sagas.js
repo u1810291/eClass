@@ -27,6 +27,6 @@ function* fetchData({ payload }) {
   }
 }
 
-export default function* lessonsSaga() {
-  yield takeLatest(types.TABLE_HOMEWORS_FETCH_DATA, fetchData);
+export default function* homeworksSaga() {
+  yield takeLatest(types.TABLE_ADMIN_HOMEWORKS_FETCH_DATA, fetchData);
 }

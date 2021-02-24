@@ -12,9 +12,11 @@ import Connection from '../views/Student/Connection';
 import Schedule from '../views/Shedule';
 import Chat from '../views/Chat';
 import Groups from '../views/Groups';
-import Lesson from '../views/Student/Lesson';
+import Lesson from '../views/Admin/Lesson';
 import Users from '../views/Admin/Users';
-import AddUser from '../views/Admin/Users/Add';
+import StudentAdd from '../views/Admin/Users/Add/Student';
+import TeacherAdd from '../views/Admin/Users/Add/Teacher';
+import AdminAdd from '../views/Admin/Users/Add/Admin';
 import ExternalWindow from '../views/ExternalWindow';
 
 export default [
@@ -138,7 +140,7 @@ export default [
     exact: true,
     path: '/subject',
     component: Examples,
-    icon: 'profile2',
+    icon: 'dashboard',
     title: 'Subject',
     children: []
   },
@@ -146,7 +148,7 @@ export default [
     exact: true,
     path: '/logs',
     component: Examples,
-    icon: 'profile2',
+    icon: 'dashboard',
     title: 'Logs',
     children: []
   },
@@ -154,7 +156,7 @@ export default [
     exact: true,
     path: '/users',
     component: Users,
-    icon: 'profile2',
+    icon: 'dashboard',
     title: 'Users',
     children: [
       {
@@ -162,21 +164,21 @@ export default [
         title: 'Student',
         exact: true,
         hidden: true,
-        component: AddUser
+        component: StudentAdd
       },
       {
         path: '/add/teacher',
-        title: 'Student',
+        title: 'Teacher',
         exact: true,
         hidden: true,
-        component: AddUser
+        component: TeacherAdd
       },
       {
         path: '/add/admin',
-        title: 'Student',
+        title: 'Admin',
         exact: true,
         hidden: true,
-        component: AddUser
+        component: AdminAdd
       }
     ]
   },
@@ -184,7 +186,7 @@ export default [
     exact: true,
     path: '/tariff',
     component: Examples,
-    icon: 'profile2',
+    icon: 'dashboard',
     title: 'Tariff',
     children: []
   },

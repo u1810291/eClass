@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import moment from 'moment';
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
-import { InputBlock } from '../Forms/Inputs/style';
+import { InputBlock } from '../../Forms/Inputs/style';
 import CalendarComponent from './Container';
 
 export default (props) => {

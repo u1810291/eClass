@@ -1,5 +1,20 @@
 import AvatarImg from '../assets/images/avatar-2.jpg';
 
+export const languages = [
+  {
+    id: 1,
+    value: 'en'
+  },
+  {
+    id: 2,
+    value: 'ru'
+  },
+  {
+    id: 3,
+    value: 'uz'
+  }
+];
+
 export const dropdownOptions = {
   commonOptions: [
     {

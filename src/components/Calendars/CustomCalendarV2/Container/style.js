@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { DateRangePicker } from 'react-date-range';
-import CloseSvg from '../../../assets/icons/close.svg';
-import { device } from '../../../utils/responsive';
+import CloseSvg from '../../../../assets/icons/close.svg';
+import { device } from '../../../../utils/responsive';
 
 export const Container = styled.div`
   display: flex;
