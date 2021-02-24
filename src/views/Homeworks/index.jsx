@@ -17,7 +17,6 @@ export default () => {
     loading, data, total, error
   } = useSelector((state) => state.studentHomeworksReducers);
   const headerData = useSelector(({ tableReducer }) => tableReducer.studentHomeworksHeader);
-  console.log(data);
   const header = useMemo(() => headerMaker(headerData), [headerData]);
   const [pageIndex, setPageIndex] = useState(0);
 
@@ -66,7 +65,7 @@ export default () => {
         <TableError message={error} />
       ) : (
         <Table
-          height="550"
+          height="540"
           total={total}
           data={data}
           toolTips={toolTips}
