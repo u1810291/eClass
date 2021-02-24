@@ -3,7 +3,7 @@ import React, { useEffect, useState, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Table from '../../components/Table';
 import { Container } from './style';
-import { fetchData } from '../../redux/modules/homeworks/actions';
+import { fetchData } from '../../redux/modules/student/homeworks/actions';
 import { toolTips } from './helper';
 import HomeworksHeader from '../../components/Headers/HomeworksHeader';
 import TableError from '../../components/Table/Error';
@@ -17,7 +17,7 @@ export default () => {
     loading, data, total, error
   } = useSelector((state) => state.studentHomeworksReducers);
   const headerData = useSelector(({ tableReducer }) => tableReducer.studentHomeworksHeader);
-  console.log(headerData);
+  console.log(data);
   const header = useMemo(() => headerMaker(headerData), [headerData]);
   const [pageIndex, setPageIndex] = useState(0);
 

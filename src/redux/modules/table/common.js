@@ -231,13 +231,15 @@ export const studentHomeworksHeader = [
     accessor: 'files',
     id: 5,
     align: 'end',
-    show: true
+    show: true,
+    type: 'download'
   },
   {
     Header: 'Send homework',
     accessor: 'teacher',
     id: 6,
     align: 'end',
+    type: 'upload',
     show: true
   },
   {
