@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { ReactComponent as IconClose } from '../../../../assets/icons/close.svg';
-// import { helperText } from '../style';
+import { helperText } from '../style';
 
 export const Container = styled.div`
   display: flex;
@@ -23,35 +23,6 @@ const common = css`
   border-radius: 8px;
   padding: 8px 0 8px 25px;
 `;
-
-const normal = css`
-  background-color: #f5f5f5;
-  border: 1px solid #e2e2ea;
-
-  &:hover {
-    background-color: #e9e9e9;
-  }
-
-  &:focus {
-    background: #fff;
-    border: 1px solid #262626;
-  }
-`;
-
-const error = css``;
-
-const success = css``;
-
-export const getType = ({ type }) => {
-  switch (type) {
-  case 'error' || 'Error':
-    return error;
-  case 'success' || 'Success':
-    return success;
-  default:
-    return normal;
-  }
-};
 
 export const Input = styled.input`
   text-indent: 10px;
@@ -102,4 +73,7 @@ export const CloseIcon = styled(IconClose)`
 `;
 
 export const Helper = styled.div`
+  ${helperText}
+  bottom: -16px;
+  position: absolute;
 `;

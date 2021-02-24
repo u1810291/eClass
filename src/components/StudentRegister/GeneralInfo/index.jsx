@@ -1,6 +1,6 @@
 import React from 'react';
 import { MainInfo } from '../style';
-import { NormalInput } from '../../../../../../components/Forms/Inputs';
+import { NormalInput } from '../../Forms/Inputs';
 
 export const GeneralInfo = ({ formik }) => (
   <MainInfo>
