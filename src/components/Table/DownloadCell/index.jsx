@@ -1,12 +1,13 @@
 import React from 'react';
-import classNames from 'classnames';
 import { Container } from './style';
+import { PrimaryButton } from '../../Buttons';
 
-const nameClass = classNames('body-medium', 'weight-medium', 'text-black-800');
-
-const DownloadCell = ({ name }) => (
-  <Container type="button">
-    <span className={nameClass}>{name}</span>
+const DownloadCell = (files) => (
+  <Container>
+    {console.log(files)}
+    {files
+      ? <PrimaryButton title="Download" size="large" />
+      : <span>No link provided</span>}
   </Container>
 );
 
