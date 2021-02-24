@@ -1,3 +1,4 @@
+import React from 'react';
 import * as types from '../../../constants/global';
 
 export const studentLessonsHeader = [
@@ -160,6 +161,148 @@ export const usersHeader = [
     show: true
   }];
 
+export const adminHomeworksHeader = [{
+  id: 'expander',
+  Header: 'Phones',
+  accessor: 'school_number',
+  align: 'end',
+  show: true,
+  Cell: ({ row }) => (
+    // eslint-disable-next-line react/jsx-props-no-spreading
+    <span {...row.getToggleRowExpandedProps()}>
+      {row.isExpanded ? 'v' : '>'}
+    </span>
+  )
+},
+{
+  id: 1,
+  accessor: 'rescheduled',
+  align: 'end',
+  show: true,
+  Header: 'Rescheduled'
+},
+{
+  id: 2,
+  Header: 'Scheduled start',
+  accessor: 'scheduled_start',
+  align: 'end',
+  show: true
+},
+{
+  id: 3,
+  Header: 'Time to start',
+  accessor: 'time_to_start',
+  align: 'end',
+  show: true
+}
+];
+
+export const studentHomeworksHeader = [
+  {
+    Header: 'Date',
+    accessor: 'date',
+    id: 1,
+    align: 'end',
+    show: true
+  },
+  {
+    Header: 'Subject',
+    accessor: 'subject',
+    id: 2,
+    align: 'end',
+    show: true
+  },
+  {
+    Header: 'Description',
+    accessor: 'description',
+    id: 3,
+    align: 'end',
+    show: true
+  },
+  {
+    Header: 'Group',
+    accessor: 'group group_name',
+    id: 4,
+    align: 'end',
+    show: true
+  },
+  {
+    Header: 'File',
+    accessor: 'files',
+    id: 5,
+    align: 'end',
+    show: true
+  },
+  {
+    Header: 'Send homework',
+    accessor: 'teacher',
+    id: 6,
+    align: 'end',
+    show: true
+  },
+  {
+    Header: 'Deadline',
+    accessor: 'deadline',
+    id: 7,
+    align: 'end',
+    show: true
+  }
+];
+
+export const teacherHomeworksHeader = [{
+  Header: '',
+  id: 'expander',
+  Cell: ({ row }) => (
+    // eslint-disable-next-line react/jsx-props-no-spreading
+    <span {...row.getToggleRowExpandedProps()}>
+      {row.isExpanded ? 'v' : '>'}
+    </span>
+  )
+},
+{
+  Header: 'Date',
+  accessor: 'date',
+  id: 1,
+  align: 'end',
+  show: true
+},
+{
+  Header: 'Time',
+  accessor: 'time',
+  id: 2,
+  align: 'end',
+  show: true
+},
+{
+  Header: 'Duration',
+  accessor: 'duration',
+  id: 3,
+  align: 'end',
+  show: true
+},
+{
+  Header: 'Teacher',
+  accessor: 'teacher',
+  id: 4,
+  align: 'end',
+  show: true
+},
+{
+  Header: 'Subject',
+  accessor: 'subject',
+  id: 5,
+  align: 'end',
+  show: true
+},
+{
+  Header: 'Link',
+  accessor: 'link',
+  id: 6,
+  align: 'end',
+  show: true
+}
+];
+
 export const genericTypes = [
   {
     key: types.USERS,
@@ -170,8 +313,16 @@ export const genericTypes = [
     headerName: 'groupsHeader'
   },
   {
-    key: types.HOMEWORKS,
-    headerName: 'homeworksHeader'
+    key: types.STUDENT_HOMEWORKS,
+    headerName: 'studentHomeworksHeader'
+  },
+  {
+    key: types.TEACHER_HOMEWORKS,
+    headerName: 'teacherHomeworksHeader'
+  },
+  {
+    key: types.ADMIN_HOMEWORKS,
+    headerName: 'adminHomeworksHeader'
   },
   {
     key: types.STUDENT_LESSONS,

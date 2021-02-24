@@ -3,6 +3,7 @@ export { default as authSaga } from './auth/saga';
 export { default as userInfoSaga } from './user/sagas';
 
 export { default as homeworksSaga } from './homeworks/sagas';
+export { default as studentHomeworksSaga } from './student/homeworks/sagas';
 export { default as quizesSaga } from './quizes/sagas';
 
 export { default as adminLessonsSaga } from './admin/lessons/sagas';

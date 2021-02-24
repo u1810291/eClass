@@ -5,7 +5,10 @@ const defaultState = {
   usersHeader: JSON.parse(localStorage.getItem('usersHeader')) || initial.usersHeader,
   studentLessonsHeader: JSON.parse(localStorage.getItem('studentLessonsHeader')) || initial.studentLessonsHeader,
   teacherLessonsHeader: JSON.parse(localStorage.getItem('teacherLessonsHeader')) || initial.teacherLessonsHeader,
-  adminLessonsHeader: JSON.parse(localStorage.getItem('adminLessonsHeader')) || initial.adminLessonsHeader
+  adminLessonsHeader: JSON.parse(localStorage.getItem('adminLessonsHeader')) || initial.adminLessonsHeader,
+  studentHomeworksHeader: JSON.parse(localStorage.getItem('studentHomeworksHeader')) || initial.studentHomeworksHeader,
+  adminHomeworksHeader: JSON.parse(localStorage.getItem('adminHomeworksHeader')) || initial.adminHomeworksHeader,
+  teacherHomeworksHeader: JSON.parse(localStorage.getItem('teacherHomeworksHeader')) || initial.teacherHomeworksHeader
 };
 
 const map = {};

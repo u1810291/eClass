@@ -1,6 +1,7 @@
 import { service } from '..';
 
 export default {
+  getAll: (query) => service.get(`api/v1/student/exercise/homework?${query}`),
   getExercises: ({ id }) => service.get(`/api/v1/student/exercise/homework/list?lesson=${id}`),
   getQuizes: ({ id }) => service.get(`/api/v1/student/exercise/controlwork/list?lesson=${id}`),
   submitExercise: ({ id, data }) => service.post(`/api/v1/student/exercise/${id}`, { data }),
