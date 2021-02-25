@@ -40,12 +40,9 @@ function* regStudent({ payload, success }) {
 function* regTeacher({ payload, success }) {
   try {
     const { data } = teachersSelector(payload);
-    console.log(data);
     const res = yield service.registerTeacher(data);
-    console.log(res);
     success(res.data);
   } catch (error) {
-    console.log(error);
     yield put(setError(error.message));
   }
 }
