@@ -17,6 +17,13 @@ import ExternalWindow from '../views/ExternalWindow';
 export default [
   {
     exact: true,
+    path: '/',
+    component: Profile,
+    icon: 'dashboard',
+    title: 'Profile',
+    children: []
+  }, {
+    exact: true,
     path: '/profile',
     component: Profile,
     icon: 'dashboard',
