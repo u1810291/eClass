@@ -8,7 +8,7 @@ import { languages } from '../../data/dropdown';
 import {
   Container, MainInfo, SubmitForm, Header
 } from './style';
-import { NormalInput, TagsInput, SingleDatePicker } from '../Forms/Inputs';
+import { NormalInput, TagsInput, CustomDatePickerV2 } from '../Forms/Inputs';
 import TextArea from '../Forms/Inputs/TextArea';
 
 export default ({
@@ -20,7 +20,6 @@ export default ({
 }) => (
   <Container>
     <Header className={classNames('heading-1')}>Create new Admin</Header>
-
     <SubmitForm onSubmit={formik.handleSubmit}>
       <MainInfo>
         <NormalInput
@@ -95,8 +94,7 @@ export default ({
         <TextArea placeholder="Description" white />
       </MainInfo.TextArea>
       <MainInfo.Body>
-        <SingleDatePicker
-          placeholder="From"
+        <CustomDatePickerV2
           name="date_of_birth"
           value={date}
           type={formik.touched.date_of_birth
@@ -195,7 +193,7 @@ export default ({
           onChange={(e) => formik.setFieldValue('phone_description', e.target.value)}
         />
       </MainInfo.Phone>
-      <PrimaryButton title="Sign in" type="submit" size="medium" />
+      <PrimaryButton title="Create admin" type="submit" size="medium" />
     </SubmitForm>
   </Container>
 );

@@ -8,14 +8,14 @@ export const useInfoForm = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const validationSchema = Yup.object().shape({
-    first_name: Yup.string().required('Required'),
-    username: Yup.string().required('Required'),
-    password: Yup.string().required('Required'),
-    last_name: Yup.string().required('Required'),
+    first_name: Yup.string().required('First name is required'),
+    username: Yup.string().required('Username is required'),
+    password: Yup.string().required('Password is required'),
+    last_name: Yup.string().required('Last name is required'),
     middle_name: Yup.string(),
-    email: Yup.string().email().required('Required'),
-    date_of_birth: Yup.string().required('Required'),
-    lang: Yup.string().required('Required'),
+    email: Yup.string().email().required('Email is required'),
+    date_of_birth: Yup.string().required('Date of birth is required'),
+    lang: Yup.string().required('Language is required'),
     description: Yup.string(),
     phone: Yup.array().of(Yup.number().min(998330000000, 'Number should be 12 digits example 99 890 888 55 44').max(998999999999, 'Number should be 12 digits example 99 890 888 55 44')),
     phone_description: Yup.string(),
