@@ -3,7 +3,6 @@ import types from '../../../constants/action-types';
 const defaultState = {
   data: [],
   loading: true,
-  total: 0,
   error: ''
 };
 
@@ -15,10 +14,6 @@ const map = {
   [types.FILES_SET_DATA]: (state, { payload }) => ({
     ...state,
     data: payload
-  }),
-  [types.FILES_SET_TOTAL]: (state, { payload }) => ({
-    ...state,
-    total: payload
   }),
   [types.FILES_ERROR]: (state, { payload }) => ({
     ...state,

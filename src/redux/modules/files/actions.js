@@ -2,7 +2,6 @@ import types from '../../../constants/action-types';
 
 export const setLoading = (payload) => ({ type: types.FILES_SET_LOADING, payload });
 export const setData = (payload) => ({ type: types.FILES_SET_DATA, payload });
-export const setTotal = (payload) => ({ type: types.FILES_SET_TOTAL, payload });
 export const setError = (payload) => ({ type: types.FILES_ERROR, payload });
 
 export const getFiles = (payload) => ({ type: types.FILES_FETCH_DATA, payload });
