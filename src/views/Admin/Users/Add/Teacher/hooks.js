@@ -51,7 +51,7 @@ export const useInfoForm = () => {
     validationSchema,
     onSubmit: (values, { setSubmitting }) => {
       setSubmitting(true);
-      dispatch(regTeacher(values));
+      dispatch(regTeacher(values, (res) => console.log(res)));
       history.push('/users');
     }
   });

@@ -30,8 +30,6 @@ function* validate({ payload }) {
 function* regStudent({ payload, success }) {
   try {
     const { data } = studentSelector(payload);
-
-    console.log(data);
     const res = yield service.registerStudent(data);
     success(res.data);
   } catch (error) {
@@ -41,8 +39,9 @@ function* regStudent({ payload, success }) {
 }
 function* regTeacher({ payload, success }) {
   try {
-    const { data } = yield service.registerTeacher(payload);
-    success(data);
+    const { data } = teachersSelector(payload);
+    const res = yield service.registerTeacher(data);
+    success(res.data);
   } catch (error) {
     yield put(setError(error.message));
   }

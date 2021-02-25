@@ -30,3 +30,10 @@ export function studentSelector(data) {
   };
   return { data: selected };
 }
+
+export function teachersSelector(data) {
+  const selected = {
+
+  };
+  return { data: selected };
+}
