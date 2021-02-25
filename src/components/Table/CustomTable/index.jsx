@@ -115,7 +115,7 @@ export default ({
               ))}
             </THead>
             <TBody {...getTableBodyProps()}>
-              {rows.map((row, index) => {
+              {rows && rows.map((row, index) => {
                 prepareRow(row);
                 const rowProps = row.getRowProps();
                 return (

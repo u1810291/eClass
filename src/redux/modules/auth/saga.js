@@ -2,7 +2,7 @@
 import { takeLatest, put } from 'redux-saga/effects';
 import types from '../../../constants/action-types';
 import service from '../../../services/auth';
-import { studentSelector } from './selectors';
+import { studentSelector, teachersSelector, adminsSelector } from './selectors';
 
 import {
   setAccessToken, setRefreshToken, setError
@@ -30,28 +30,33 @@ function* validate({ payload }) {
 function* regStudent({ payload, success }) {
   try {
     const { data } = studentSelector(payload);
-
-    console.log(data);
     const res = yield service.registerStudent(data);
     success(res.data);
   } catch (error) {
-    console.log(error);
+    // eslint-disable-next-line no-alert
+    alert(error.message);
     yield put(setError(error.message));
   }
 }
 function* regTeacher({ payload, success }) {
   try {
-    const { data } = yield service.registerTeacher(payload);
-    success(data);
+    const { data } = teachersSelector(payload);
+    const res = yield service.registerTeacher(data);
+    success(res.data);
   } catch (error) {
+    // eslint-disable-next-line no-alert
+    alert(error.message);
     yield put(setError(error.message));
   }
 }
 function* regAdmin({ payload, success }) {
   try {
-    const { data } = yield service.registerAdmin(payload);
-    success(data);
+    const { data } = adminsSelector(payload);
+    const res = yield service.registerAdmin(data);
+    success(res.data);
   } catch (error) {
+    // eslint-disable-next-line no-alert
+    alert(error.message);
     yield put(setError(error.message));
   }
 }

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable no-param-reassign */
 /* eslint-disable camelcase */
 import axios from 'axios';
@@ -15,9 +16,9 @@ const CustomAxios = {
   }
 };
 
-function saveToken(access_token, refresh_token) {
-  sessionStorage.setItem('access_token', access_token);
-  sessionStorage.setItem('refresh_token', refresh_token);
+async function saveToken(access_token, refresh_token) {
+  await sessionStorage.setItem('access_token', access_token);
+  await sessionStorage.setItem('refresh_token', refresh_token);
 }
 function destroyToken() {
   sessionStorage.removeItem('access_token');
@@ -29,6 +30,7 @@ function refresh() {
       refresh_token: sessionStorage.getItem('refresh_token')
     }).then((response) => {
       saveToken(response.data.access_token, response.data.refresh_token);
+      window.location.replace('/');
       return resolve(response.data.access_token);
     }).catch((error) => {
       destroyToken();

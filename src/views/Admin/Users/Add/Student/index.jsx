@@ -20,7 +20,6 @@ export default () => {
         cities={cities}
         countries={countries}
       />
-
     </Container>
   );
 };

@@ -18,9 +18,13 @@ export default () => {
   const [userType, setUserType] = useState(undefined);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getCities());
-    dispatch(getCountries());
-    dispatch(getReasons());
+    let isMounted = true;
+    if (isMounted) {
+      dispatch(getCities());
+      dispatch(getCountries());
+      dispatch(getReasons());
+    }
+    return () => { isMounted = false; };
   }, [dispatch]);
 
   const {
