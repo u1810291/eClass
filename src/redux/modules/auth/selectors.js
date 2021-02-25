@@ -33,7 +33,23 @@ export function studentSelector(data) {
 
 export function teachersSelector(data) {
   const selected = {
-
+    username: data.username,
+    password: data.password,
+    first_name: data.first_name,
+    last_name: data.last_name,
+    middle_name: data.middle_name,
+    email: data.email,
+    date_of_birth: data.date_of_birth.toISOString(),
+    lang: data.lang,
+    description: data.description,
+    phones: data.phone.map((el) => ({
+      phone: el,
+      description: 'data'
+    })),
+    city_id: data.city_id,
+    city_name: data.city_name,
+    address: data.address,
+    specialization: data.specialization
   };
   return { data: selected };
 }

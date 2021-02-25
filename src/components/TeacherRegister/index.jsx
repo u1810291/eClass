@@ -15,7 +15,11 @@ export default ({
 }) => (
   <Container>
     <Header className={classNames('heading-1')}>Create new Teacher</Header>
-    <SubmitForm onSubmit={formik.handleSubmit}>
+    <SubmitForm onSubmit={(e) => {
+      e.preventDefault();
+      formik.handleSubmit(e);
+    }}
+    >
       <MainInfo>
         <NormalInput
           white
