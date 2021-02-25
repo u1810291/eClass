@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Table from '../../../components/Table';
 import { Container } from './style';
 import { fetchData } from '../../../redux/modules/teacher/homeworks/actions';
+import { getFiles } from '../../../redux/modules/files/actions';
 import { toolTips } from './helper';
 import HomeworksHeader from '../../../components/Headers/HomeworksHeader';
 import TableError from '../../../components/Table/Error';
@@ -20,7 +21,7 @@ export default () => {
   const header = useMemo(() => headerMaker(headerData), [headerData]);
   const [pageIndex, setPageIndex] = useState(0);
   const files = useSelector((state) => state.filesReducers);
-  console.log(files);
+  console.log(files.data);
 
   const [pageSize, setPageSize] = useState(0);
   const [search, setSearch] = useState('');
@@ -44,6 +45,7 @@ export default () => {
     [pageIndex, pageSize, sortQuery, dateFilter]
   );
   useEffect(() => {
+    dispatch(getFiles());
     dispatch(fetchData({
       query: `${query}`
     }));
