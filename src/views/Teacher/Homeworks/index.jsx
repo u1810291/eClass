@@ -1,28 +1,29 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
 import Table from '../../../components/Table';
 import { Container } from './style';
-import { fetchData } from '../../../redux/modules/teacher/lessons/actions';
-import { teacherLessonsHeader } from '../../../redux/modules/table/common';
-import LessonsHeader from '../../../components/Headers/LessonsHeader';
+import { fetchData } from '../../../redux/modules/student/homeworks/actions';
+import { toolTips } from './helper';
+import HomeworksHeader from '../../../components/Headers/HomeworksHeader';
 import TableError from '../../../components/Table/Error';
 import { headerMaker } from '../../../components/Table/helper';
-import { toolTips } from './helper';
+import { studentHomeworksHeader } from '../../../redux/modules/table/common';
 
 export default () => {
   const dispatch = useDispatch();
+
+  const {
+    loading, data, total, error
+  } = useSelector((state) => state.studentHomeworksReducers);
+  const headerData = useSelector(({ tableReducer }) => tableReducer.studentHomeworksHeader);
+  const header = useMemo(() => headerMaker(headerData), [headerData]);
   const [pageIndex, setPageIndex] = useState(0);
+
   const [pageSize, setPageSize] = useState(0);
   const [search, setSearch] = useState('');
   const [date, setDate] = useState(undefined);
   const [sort, setSort] = useState();
-
-  const {
-    loading, data, total, error
-  } = useSelector((state) => state.teacherLessonsReducers);
-  const headerData = useSelector(({ tableReducer }) => tableReducer.teacherLessonsHeader);
-  const headers = useMemo(() => headerMaker(headerData), [headerData]);
 
   const dateFilter = useMemo(
     () => (date
@@ -30,57 +31,45 @@ export default () => {
       : ''),
     [date]
   );
-
   const sortQuery = useMemo(() => {
-    const found = sort && teacherLessonsHeader.find(({ id }) => id === sort.id);
+    const found = sort && studentHomeworksHeader.find(({ id }) => id === sort.id);
     return found
       ? `&sort=${found},${sort.desc ? 'desc' : 'asc'}`
       : '';
   }, [sort]);
-
   const query = useMemo(
     () => `${dateFilter}&page=${pageIndex}&size=${pageSize}&${sortQuery}`,
     [pageIndex, pageSize, sortQuery, dateFilter]
   );
-
   useEffect(() => {
     dispatch(fetchData({
       isSearch: false,
       query: `${query}`
     }));
   }, [fetchData, query]);
-
   const handleOnChange = ({ pageIndex, pageSize }) => {
     setPageIndex(pageIndex);
     setPageSize(pageSize);
   };
 
-  useEffect(() => {
-    dispatch(
-      fetchData({
-        isSearch: true,
-        query: `${query}${search ? `&search=${search}` : ''}`
-      })
-    );
-  }, [dispatch, search]);
-
   return (
     <Container>
-      <LessonsHeader
+      <HomeworksHeader
         setSearch={setSearch}
         search={search}
         setDate={setDate}
         date={date}
+
       />
       {error ? (
         <TableError message={error} />
       ) : (
         <Table
-          height="590"
+          height="540"
           total={total}
           data={data}
           toolTips={toolTips}
-          header={headers}
+          header={header}
           loading={loading}
           subData={data}
           setSort={setSort}
