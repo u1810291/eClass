@@ -2,13 +2,6 @@ import styled from 'styled-components';
 
 export const SubmitForm = styled.form``;
 
-export const Header = styled.div`
-  display:flex;
-  justify-content: center;
-  align-items: center;
-  padding: 5px 0px 15px;
-`;
-
 export const Body = styled.div`
   padding-top: 25px;
 `;
@@ -27,8 +20,7 @@ MainInfo.TextArea = styled.div`
   padding-top: 20px;
   padding-bottom: 20px;
   display: flex;
-  width: 100% !important;
-
+  width: 100%;
 
 `;
 
