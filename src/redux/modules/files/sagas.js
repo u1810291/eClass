@@ -47,7 +47,7 @@ function* deleteFile(payload) {
 function* getFileById({ payload }) {
   try {
     const { id } = payload;
-    console.log(payload);
+    // console.log(payload);
     const res = yield service.getFileById(id)
       .then((response) => {
         response.blob().then((blob) => {
@@ -59,13 +59,13 @@ function* getFileById({ payload }) {
         });
         // window.location.href = response.url;
       });
-    console.log(res);
+    // console.log(res);
     const { data } = dataSelector(res.data);
     yield put(setError(''));
     yield put(setData(data));
     yield put(setLoading(false));
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     yield put(setError(error.message));
   }
 }
