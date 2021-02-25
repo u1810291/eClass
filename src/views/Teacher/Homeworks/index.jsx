@@ -19,6 +19,8 @@ export default () => {
   const headerData = useSelector(({ tableReducer }) => tableReducer.teacherHomeworksHeader);
   const header = useMemo(() => headerMaker(headerData), [headerData]);
   const [pageIndex, setPageIndex] = useState(0);
+  const files = useSelector((state) => state.filesReducers);
+  console.log(files);
 
   const [pageSize, setPageSize] = useState(0);
   const [search, setSearch] = useState('');
