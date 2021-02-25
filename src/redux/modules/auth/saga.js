@@ -2,7 +2,7 @@
 import { takeLatest, put } from 'redux-saga/effects';
 import types from '../../../constants/action-types';
 import service from '../../../services/auth';
-import { studentSelector, teachersSelector } from './selectors';
+import { studentSelector, teachersSelector, adminsSelector } from './selectors';
 
 import {
   setAccessToken, setRefreshToken, setError
@@ -48,8 +48,9 @@ function* regTeacher({ payload, success }) {
 }
 function* regAdmin({ payload, success }) {
   try {
-    const { data } = yield service.registerAdmin(payload);
-    success(data);
+    const { data } = adminsSelector(payload);
+    const res = yield service.registerAdmin(data);
+    success(res.data);
   } catch (error) {
     yield put(setError(error.message));
   }

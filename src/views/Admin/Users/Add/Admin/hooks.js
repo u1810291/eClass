@@ -1,25 +1,27 @@
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
+import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { regAdmin } from '../../../../../redux/modules/auth/actions';
 
 export const useInfoForm = () => {
+  const dispatch = useDispatch();
   const history = useHistory();
-  const phoneNubers = Yup.number().required('Phone is required').min(12, 'Minimum should be 12 digits');
   const validationSchema = Yup.object().shape({
     first_name: Yup.string().required('Required'),
     username: Yup.string().required('Required'),
     password: Yup.string().required('Required'),
     last_name: Yup.string().required('Required'),
-    middle_name: Yup.string().required('Required'),
-    email: Yup.string().required('Required'),
+    middle_name: Yup.string(),
+    email: Yup.string().email().required('Required'),
     date_of_birth: Yup.string().required('Required'),
     lang: Yup.string().required('Required'),
-    description: Yup.string().required('Required'),
-    phone: Yup.array().of(phoneNubers).min(1, 'Some'),
-    phone_description: Yup.string().required('Required'),
-    country: Yup.string().required('Required'),
-    city_name: Yup.string().required('Required'),
-    address: Yup.string().required('Required')
+    description: Yup.string(),
+    phone: Yup.array().of(Yup.number().min(998330000000, 'Number should be 12 digits example 99 890 888 55 44').max(998999999999, 'Number should be 12 digits example 99 890 888 55 44')),
+    phone_description: Yup.string(),
+    country: Yup.string(),
+    city_name: Yup.string(),
+    address: Yup.string()
   });
   const formik = useFormik({
     initialValues: {
@@ -42,7 +44,11 @@ export const useInfoForm = () => {
     validationSchema,
     onSubmit: (values, { setSubmitting }) => {
       setSubmitting(true);
-      history.push('/users');
+      dispatch(regAdmin(values, (res) => {
+        // eslint-disable-next-line no-alert
+        if (res) alert('Succesfully added');
+        return res ? history.push('/users') : null;
+      }));
     }
   });
 

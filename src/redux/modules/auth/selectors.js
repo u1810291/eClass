@@ -53,3 +53,25 @@ export function teachersSelector(data) {
   };
   return { data: selected };
 }
+
+export function adminsSelector(data) {
+  const selected = {
+    first_name: data.first_name,
+    username: data.username,
+    password: data.password,
+    last_name: data.last_name,
+    middle_name: data.middle_name,
+    email: data.email,
+    date_of_birth: data.date_of_birth,
+    lang: data.lang,
+    description: data.description,
+    phones: data.phone.map((el) => ({
+      phone: el,
+      description: data.phone_description
+    })),
+    country: data.country,
+    city_name: data.city_name,
+    address: data.address
+  };
+  return { data: selected };
+}

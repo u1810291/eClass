@@ -1,11 +1,11 @@
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
-// import { useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { regTeacher } from '../../../../../redux/modules/auth/actions';
 
 export const useInfoForm = () => {
-  // const history = useHistory();
+  const history = useHistory();
   const dispatch = useDispatch();
   const validationSchema = Yup.object().shape({
     username: Yup.string().required('Username is required'),
@@ -52,10 +52,10 @@ export const useInfoForm = () => {
       setSubmitting(true);
       dispatch(regTeacher(values, (res) => {
         setSubmitting(false);
-        // eslint-disable-next-line no-console
-        console.log(res);
+        // eslint-disable-next-line no-alert
+        if (res) alert('Succesfully added');
+        return res ? history.push('/users') : null;
       }));
-      // history.push('/users');
     }
   });
 

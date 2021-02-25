@@ -58,12 +58,12 @@ export const useInfoForm = () => {
     validationSchema,
     onSubmit: (values, { setSubmitting }) => {
       setSubmitting(true);
-      dispatch(regStudent(values, (data) => {
+      dispatch(regStudent(values, (res) => {
         setSubmitting(false);
-        // eslint-disable-next-line no-console
-        console.log(data);
+        // eslint-disable-next-line no-alert
+        if (res) alert('Succesfully added');
+        return res ? history.push('/users') : null;
       }));
-      history.push('/users');
     }
   });
 
