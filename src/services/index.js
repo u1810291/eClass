@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable no-param-reassign */
 /* eslint-disable camelcase */
 import axios from 'axios';
@@ -15,9 +16,9 @@ const CustomAxios = {
   }
 };
 
-function saveToken(access_token, refresh_token) {
-  sessionStorage.setItem('access_token', access_token);
-  sessionStorage.setItem('refresh_token', refresh_token);
+async function saveToken(access_token, refresh_token) {
+  await sessionStorage.setItem('access_token', access_token);
+  await sessionStorage.setItem('refresh_token', refresh_token);
 }
 function destroyToken() {
   sessionStorage.removeItem('access_token');
@@ -48,10 +49,9 @@ service.interceptors.response.use(
       sessionStorage.removeItem('refresh_token');
     }
     if (!status) {
-      refresh();
-      // eslint-disable-next-line no-alert
-      alert('Your access token has been expired');
-      window.location.replace('/');
+      refresh()
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
     }
     return Promise.reject(error);
   }
