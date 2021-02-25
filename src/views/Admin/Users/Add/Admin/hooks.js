@@ -17,6 +17,7 @@ export const useInfoForm = () => {
     description: Yup.string().required('Required'),
     phone: Yup.array().of(phoneNubers).min(1, 'Some'),
     phone_description: Yup.string().required('Required'),
+    country: Yup.string().required('Required'),
     city_name: Yup.string().required('Required'),
     address: Yup.string().required('Required')
   });
@@ -33,6 +34,7 @@ export const useInfoForm = () => {
       description: '',
       phone: [],
       phone_description: '',
+      country: '',
       city_name: '',
       address: ''
     },

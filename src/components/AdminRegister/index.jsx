@@ -1,18 +1,26 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react';
+import React from 'react';
 
+import classNames from 'classnames';
 import Dropdown from '../Forms/Dropdowns';
 import { PrimaryButton } from '../Buttons';
-import { dropdownOptions } from '../../data/dropdown';
+import { languages } from '../../data/dropdown';
 import {
-  Container, MainInfo, SubmitForm
+  Container, MainInfo, SubmitForm, Header
 } from './style';
-import { NormalInput, TagsInput } from '../Forms/Inputs';
+import { NormalInput, TagsInput, SingleDatePicker } from '../Forms/Inputs';
 import TextArea from '../Forms/Inputs/TextArea';
-import DatePicker from '../Forms/Inputs/DatePicker';
 
-export default ({ formik }) => (
+export default ({
+  date,
+  setDate,
+  formik,
+  cities,
+  countries
+}) => (
   <Container>
+    <Header className={classNames('heading-1')}>Create new Admin</Header>
+
     <SubmitForm onSubmit={formik.handleSubmit}>
       <MainInfo>
         <NormalInput
@@ -87,42 +95,58 @@ export default ({ formik }) => (
         <TextArea placeholder="Description" white />
       </MainInfo.TextArea>
       <MainInfo.Body>
-        <DatePicker
-          placeholder="Date of birth"
-          white
-          size="large"
+        <SingleDatePicker
+          placeholder="From"
           name="date_of_birth"
-          value={formik.values.date_of_birth}
-          change={(value) => formik.setFieldValue('date_of_birth', value)}
-          showTimePicker={false}
-          dateFormat="YYYY-MM-DD"
-          date={formik.values.date_of_birth}
+          value={date}
+          type={formik.touched.date_of_birth
+                && formik.errors.date_of_birth && 'error'}
+          size="large"
+          helperText={formik.errors.date_of_birth}
+          onChange={(value) => {
+            setDate(value);
+            formik.setFieldValue('date_of_birth', value);
+          }}
         />
         <Dropdown
           color="#FFFFFF"
           placeholder="Language"
           name="lang"
-          options={dropdownOptions.commonOptions}
-          value={formik.values.lang}
-          onChange={(e) => formik.setFieldValue('lang', e)}
+          type={formik.touched.lang
+                && formik.errors.lang && 'error'}
+          helperText={formik.errors.lang}
+          options={languages}
+          value={
+            formik.values.lang
+                && languages.find((el) => el.value === formik.values.lang).id
+          }
+          onChange={(e) => formik.setFieldValue('lang', languages.find((el) => el.id === e).value)}
           size="large"
         />
         <Dropdown
           color="#FFFFFF"
           placeholder="Country"
           name="country"
-          options={dropdownOptions.commonOptions}
-          value={formik.values.country}
-          onChange={(e) => formik.setFieldValue('country', e)}
+          options={countries}
+          type={formik.touched.country
+                && formik.errors.country && 'error'}
+          helperText={formik.errors.country}
+          value={formik.values.country
+                && countries.find((el) => el.value === formik.values.country).id}
+          onChange={(e) => formik.setFieldValue('country', countries.find((el) => el.id === e).value)}
           size="large"
         />
         <Dropdown
           color="#FFFFFF"
           placeholder="City"
-          name="city"
-          options={dropdownOptions.commonOptions}
-          value={formik.values.city}
-          onChange={(e) => formik.setFieldValue('city', e)}
+          name="city_name"
+          options={cities}
+          type={formik.touched.city_name
+                && formik.errors.city_name && 'error'}
+          helperText={formik.errors.city_name}
+          value={formik.values.city_name
+                && cities.find((el) => el.value === formik.values.city_name).id}
+          onChange={(e) => formik.setFieldValue('city_name', cities.find((el) => el.id === e).value)}
           size="large"
         />
         <NormalInput
@@ -136,17 +160,6 @@ export default ({ formik }) => (
           value={formik.values.address}
           onChange={(e) => formik.setFieldValue('address', e.target.value)}
         />
-        <NormalInput
-          white
-          size="large"
-          placeholder="School number"
-          name="school_number"
-          type={formik.touched.school_number && formik.errors.school_number && 'error'}
-          helperText={formik.touched.school_number
-                && formik.errors.school_number && formik.errors.school_number}
-          value={formik.values.school_number}
-          onChange={(e) => formik.setFieldValue('school_number', e.target.value)}
-        />
       </MainInfo.Body>
       <MainInfo.Phone>
         <TagsInput
@@ -154,10 +167,18 @@ export default ({ formik }) => (
           placeholder="Phones"
           size="large"
           name="phone"
+          value={formik.values.phone}
           defaultValue={formik.values.phone}
-          type={formik.touched.phone && formik.errors.phone && 'error'}
-          helperText={formik.touched.phone
-                && formik.errors.phone && formik.errors.phone}
+          type={formik.touched.phone
+                && (formik.touched.phone.length === 0 || formik.errors.phone)
+            ? 'error'
+            : ''}
+          helperText={
+            formik.touched.phone
+                && (formik.touched.phone.length === 0 || formik.errors.phone)
+              ? formik.errors.phone || 'Phone number is required'
+              : ''
+          }
           onChange={(e) => formik.setFieldValue('phone', e)}
         />
         <NormalInput
@@ -168,7 +189,8 @@ export default ({ formik }) => (
           type={formik.touched.phone_description
               && formik.errors.phone_description && 'error'}
           helperText={formik.touched.phone_description
-                && formik.errors.phone_description && formik.errors.phone_description}
+                && formik.errors.phone_description
+                && formik.errors.phone_description}
           value={formik.values.phone_description}
           onChange={(e) => formik.setFieldValue('phone_description', e.target.value)}
         />

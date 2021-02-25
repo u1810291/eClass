@@ -2,6 +2,13 @@ import styled from 'styled-components';
 
 export const SubmitForm = styled.form``;
 
+export const Header = styled.div`
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 0px 15px;
+`;
+
 export const Body = styled.div`
   padding-top: 25px;
 `;
