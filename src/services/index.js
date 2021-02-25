@@ -49,7 +49,9 @@ service.interceptors.response.use(
     }
     if (!status) {
       refresh();
-      window.location.reload();
+      // eslint-disable-next-line no-alert
+      alert('Your access token has been expired');
+      window.location.replace('/');
     }
     return Promise.reject(error);
   }
