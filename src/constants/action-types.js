@@ -4,6 +4,7 @@ import sidebar from './actions/sidebar';
 import profile from './actions/profile';
 import others from './actions/others';
 import lists from './actions/lists';
+import files from './actions/files';
 import * as table from './actions/table';
 
 export default {
@@ -13,5 +14,6 @@ export default {
   ...auth,
   ...profile,
   ...others,
-  ...lists
+  ...lists,
+  ...files
 };

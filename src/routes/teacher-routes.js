@@ -1,6 +1,6 @@
 import Examples from '../components/Examples';
 import Balance from '../views/Balance';
-import Homeworks from '../views/Homeworks';
+import Homeworks from '../views/Teacher/Homeworks';
 import Profile from '../views/Profile';
 import Quiz from '../views/Quiz';
 import Grades from '../views/Student/Grades';
