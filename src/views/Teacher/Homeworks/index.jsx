@@ -25,7 +25,6 @@ export default () => {
   const [date, setDate] = useState(undefined);
   const [sort, setSort] = useState();
 
-  console.log(loading);
   const dateFilter = useMemo(
     () => (date
       ? `&from_date=${date.start.toISOString()}&to_date=${date.end.toISOString()}`
