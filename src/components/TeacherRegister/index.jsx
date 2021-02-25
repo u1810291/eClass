@@ -7,7 +7,7 @@ import { dropdownOptions, languages } from '../../data/dropdown';
 import {
   Container, MainInfo, SubmitForm, TextAreaContainer, Header
 } from './style';
-import { NormalInput, TagsInput, SingleDatePicker } from '../Forms/Inputs';
+import { NormalInput, TagsInput, CustomDatePickerV2 } from '../Forms/Inputs';
 import TextArea from '../Forms/Inputs/TextArea';
 
 export default ({
@@ -100,8 +100,7 @@ export default ({
         />
       </TextAreaContainer>
       <MainInfo.Body>
-        <SingleDatePicker
-          placeholder="From"
+        <CustomDatePickerV2
           name="date_of_birth"
           value={date}
           type={formik.touched.date_of_birth

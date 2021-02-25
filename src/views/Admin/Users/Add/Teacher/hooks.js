@@ -1,9 +1,12 @@
 import * as Yup from 'yup';
+import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 import { useHistory } from 'react-router-dom';
+import { regTeacher } from '../../../../../redux/modules/auth/actions';
 
 export const useInfoForm = () => {
   const history = useHistory();
+  const dispatch = useDispatch();
   const phoneNubers = Yup.number().min(12, 'Minimum should be 12 digits');
   const validationSchema = Yup.object().shape({
     username: Yup.string().required('Username is required'),
@@ -13,7 +16,7 @@ export const useInfoForm = () => {
     middle_name: Yup.string(),
     email: Yup.string().required('Email is required'),
     date_of_birth: Yup.string().required('Date of birth is required'),
-    lang: Yup.string().required('language is required'),
+    lang: Yup.string().required('Language is required'),
     description: Yup.string(),
     phone: Yup.array().of(phoneNubers),
     phone_description: Yup.string(),
@@ -48,6 +51,7 @@ export const useInfoForm = () => {
     validationSchema,
     onSubmit: (values, { setSubmitting }) => {
       setSubmitting(true);
+      dispatch(regTeacher(values));
       history.push('/users');
     }
   });
