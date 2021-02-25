@@ -19,7 +19,7 @@ export default ({
   countries
 }) => (
   <Container>
-    <Header className={classNames('heading-1')}>Create new Admin</Header>
+    <Header className={classNames('heading-1')}>Create New Admin</Header>
     <SubmitForm onSubmit={formik.handleSubmit}>
       <MainInfo>
         <NormalInput

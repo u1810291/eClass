@@ -33,7 +33,8 @@ function* regStudent({ payload, success }) {
     const res = yield service.registerStudent(data);
     success(res.data);
   } catch (error) {
-    console.log(error);
+    // eslint-disable-next-line no-alert
+    alert(error.message);
     yield put(setError(error.message));
   }
 }
@@ -43,6 +44,8 @@ function* regTeacher({ payload, success }) {
     const res = yield service.registerTeacher(data);
     success(res.data);
   } catch (error) {
+    // eslint-disable-next-line no-alert
+    alert(error.message);
     yield put(setError(error.message));
   }
 }
@@ -52,6 +55,8 @@ function* regAdmin({ payload, success }) {
     const res = yield service.registerAdmin(data);
     success(res.data);
   } catch (error) {
+    // eslint-disable-next-line no-alert
+    alert(error.message);
     yield put(setError(error.message));
   }
 }
