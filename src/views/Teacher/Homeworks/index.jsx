@@ -3,20 +3,20 @@ import React, { useEffect, useState, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Table from '../../../components/Table';
 import { Container } from './style';
-import { fetchData } from '../../../redux/modules/student/homeworks/actions';
+import { fetchData } from '../../../redux/modules/teacher/homeworks/actions';
 import { toolTips } from './helper';
 import HomeworksHeader from '../../../components/Headers/HomeworksHeader';
 import TableError from '../../../components/Table/Error';
 import { headerMaker } from '../../../components/Table/helper';
-import { studentHomeworksHeader } from '../../../redux/modules/table/common';
+import { teacherHomeworksHeader } from '../../../redux/modules/table/common';
 
 export default () => {
   const dispatch = useDispatch();
 
   const {
     loading, data, total, error
-  } = useSelector((state) => state.studentHomeworksReducers);
-  const headerData = useSelector(({ tableReducer }) => tableReducer.studentHomeworksHeader);
+  } = useSelector((state) => state.teacherHomeworksReducers);
+  const headerData = useSelector(({ tableReducer }) => tableReducer.teacherHomeworksHeader);
   const header = useMemo(() => headerMaker(headerData), [headerData]);
   const [pageIndex, setPageIndex] = useState(0);
 
@@ -25,6 +25,7 @@ export default () => {
   const [date, setDate] = useState(undefined);
   const [sort, setSort] = useState();
 
+  console.log(loading);
   const dateFilter = useMemo(
     () => (date
       ? `&from_date=${date.start.toISOString()}&to_date=${date.end.toISOString()}`
@@ -32,7 +33,7 @@ export default () => {
     [date]
   );
   const sortQuery = useMemo(() => {
-    const found = sort && studentHomeworksHeader.find(({ id }) => id === sort.id);
+    const found = sort && teacherHomeworksHeader.find(({ id }) => id === sort.id);
     return found
       ? `&sort=${found},${sort.desc ? 'desc' : 'asc'}`
       : '';
@@ -43,7 +44,6 @@ export default () => {
   );
   useEffect(() => {
     dispatch(fetchData({
-      isSearch: false,
       query: `${query}`
     }));
   }, [fetchData, query]);
