@@ -47,12 +47,25 @@ function* deleteFile(payload) {
 function* getFileById({ payload }) {
   try {
     const { id } = payload;
-    const res = yield service.getFileById(id);
+    console.log(payload);
+    const res = yield service.getFileById(id)
+      .then((response) => {
+        response.blob().then((blob) => {
+          const url = window.URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = 'employees.json';
+          a.click();
+        });
+        // window.location.href = response.url;
+      });
+    console.log(res);
     const { data } = dataSelector(res.data);
     yield put(setError(''));
     yield put(setData(data));
     yield put(setLoading(false));
   } catch (error) {
+    console.log(error);
     yield put(setError(error.message));
   }
 }
