@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { Container } from './style';
 import { useInfoForm } from './hooks';
 
-import StudentRegister from '../../../../../components/StudentRegister';
+import TeacherRegister from '../../../../../components/TeacherRegister';
 
 export default () => {
   const [date, setDate] = useState('');
@@ -13,7 +13,7 @@ export default () => {
   const { cities, countries } = useSelector((state) => state.listsReducers);
   return (
     <Container>
-      <StudentRegister
+      <TeacherRegister
         date={date}
         setDate={setDate}
         formik={formik}

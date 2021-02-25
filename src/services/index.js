@@ -49,9 +49,7 @@ service.interceptors.response.use(
       sessionStorage.removeItem('refresh_token');
     }
     if (!status) {
-      refresh()
-        .then((res) => console.log(res))
-        .catch((err) => console.log(err));
+      refresh();
     }
     return Promise.reject(error);
   }
