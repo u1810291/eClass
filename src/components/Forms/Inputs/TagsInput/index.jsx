@@ -35,7 +35,7 @@ export const TagsInput = ({
 
   return (
     <Container>
-      <TagsWrapper type={type} {...props}>
+      <TagsWrapper type={type || 'button'} {...props}>
         {defaultValue.length > 0
           && defaultValue.map((tag, idx) => (
             // eslint-disable-next-line react/no-array-index-key
@@ -47,7 +47,12 @@ export const TagsInput = ({
         <Input
           type="text"
           value={value}
-          onKeyPress={handlePress}
+          onKeyPress={
+            (e) => {
+              if (e.key === 'Enter') e.preventDefault();
+              handlePress(e);
+            }
+          }
           placeholder={placeholder}
           onChange={(e) => setValue(e.target.value)}
           className={classNames(

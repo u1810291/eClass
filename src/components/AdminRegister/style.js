@@ -27,8 +27,7 @@ MainInfo.TextArea = styled.div`
   padding-top: 20px;
   padding-bottom: 20px;
   display: flex;
-  width: 100% !important;
-
+  width: 100%;
 
 `;
 

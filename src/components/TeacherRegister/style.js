@@ -21,14 +21,13 @@ export const MainInfo = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr); 
   grid-gap: 20px;
+  
   `;
 
-MainInfo.TextArea = styled.div`
+export const TextAreaContainer = styled.div`
+  width: 100% !important;
   padding-top: 20px;
   padding-bottom: 20px;
-  display: flex;
-  width: 100% !important;
-
 
 `;
 

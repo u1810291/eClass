@@ -7,7 +7,6 @@ export const Body = styled.div`
 `;
 
 export const Container = styled.div`
-  margin: 50px;
 `;
 
 export const MainInfo = styled.div`

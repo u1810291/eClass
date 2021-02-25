@@ -1,28 +1,30 @@
 import * as Yup from 'yup';
+import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 import { useHistory } from 'react-router-dom';
+import { regTeacher } from '../../../../../redux/modules/auth/actions';
 
 export const useInfoForm = () => {
   const history = useHistory();
+  const dispatch = useDispatch();
   const validationSchema = Yup.object().shape({
-    username: Yup.string().required('Required'),
-    password: Yup.string().required('Required'),
-    first_name: Yup.string().required('Required'),
-    last_name: Yup.string().required('Required'),
-    middle_name: Yup.string().required('Required'),
-    email: Yup.string().required('Required'),
-    date_of_birth: Yup.string().required('Required'),
-    lang: Yup.string().required('Required'),
-    description: Yup.string().required('Required'),
-    phones: [{
-      phone: Yup.string().required('Required'),
-      description: Yup.string().required('Required')
-    }
-    ],
-    city_id: Yup.string().required('Required'),
-    city_name: Yup.string().required('Required'),
-    address: Yup.string().required('Required'),
-    specialization: Yup.string().required('Required')
+    username: Yup.string().required('Username is required'),
+    password: Yup.string().required('Password is required'),
+    first_name: Yup.string().required('First name is required'),
+    last_name: Yup.string().required('Last name is required'),
+    middle_name: Yup.string(),
+    email: Yup.string().email().required('Email is required'),
+    date_of_birth: Yup.string().required('Date of birth is required'),
+    lang: Yup.string().required('Language is required'),
+    description: Yup.string(),
+    phone: Yup.array().of(Yup.number().min(998330000000, 'Number should be 12 digits example 99 890 888 55 44').max(998999999999, 'Number should be 12 digits example 99 890 888 55 44')),
+    phone_description: Yup.string(),
+    country: Yup.string(),
+    city_id: Yup.string(),
+    city_name: Yup.string(),
+    address: Yup.string(),
+    specialization: Yup.string(),
+    subjects: Yup.string()
   });
   const formik = useFormik({
     initialValues: {
@@ -35,17 +37,25 @@ export const useInfoForm = () => {
       date_of_birth: undefined,
       lang: undefined,
       description: '',
-      phones: [],
+      phone: [],
+      phone_description: '',
+      country: '',
       city_id: '',
       city_name: '',
       address: '',
-      specialization: ''
+      specialization: '',
+      subjects: ''
     },
 
     validationSchema,
     onSubmit: (values, { setSubmitting }) => {
       setSubmitting(true);
-      history.push('/users');
+      dispatch(regTeacher(values, (res) => {
+        setSubmitting(false);
+        // eslint-disable-next-line no-alert
+        if (res) alert('Succesfully added');
+        return res ? history.push('/users') : null;
+      }));
     }
   });
 

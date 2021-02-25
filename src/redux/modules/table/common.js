@@ -254,58 +254,61 @@ export const studentHomeworksHeader = [
   }
 ];
 
-export const teacherHomeworksHeader = [{
-  Header: '',
-  id: 'expander',
-  Cell: ({ row }) => (
-    // eslint-disable-next-line react/jsx-props-no-spreading
-    <span {...row.getToggleRowExpandedProps()}>
-      {row.isExpanded ? 'v' : '>'}
-    </span>
-  )
-},
-{
-  Header: 'Date',
-  accessor: 'date',
-  id: 1,
-  align: 'end',
-  show: true
-},
-{
-  Header: 'Time',
-  accessor: 'time',
-  id: 2,
-  align: 'end',
-  show: true
-},
-{
-  Header: 'Duration',
-  accessor: 'duration',
-  id: 3,
-  align: 'end',
-  show: true
-},
-{
-  Header: 'Teacher',
-  accessor: 'teacher',
-  id: 4,
-  align: 'end',
-  show: true
-},
-{
-  Header: 'Subject',
-  accessor: 'subject',
-  id: 5,
-  align: 'end',
-  show: true
-},
-{
-  Header: 'Link',
-  accessor: 'link',
-  id: 6,
-  align: 'end',
-  show: true
-}
+export const teacherHomeworksHeader = [
+  {
+    Header: 'Date',
+    accessor: 'date',
+    id: 1,
+    align: 'end',
+    show: true
+  },
+  {
+    Header: 'Subject',
+    accessor: 'subject',
+    id: 2,
+    align: 'end',
+    show: true
+  },
+  {
+    Header: 'Description',
+    accessor: 'description',
+    id: 3,
+    align: 'end',
+    show: true
+  },
+  {
+    Header: 'Group',
+    accessor: 'group_name',
+    id: 4,
+    align: 'end',
+    show: true,
+    SubCell: () => ({
+      accessor: 'group'
+    })
+  },
+  {
+    Header: 'File',
+    accessor: 'files',
+    id: 5,
+    align: 'end',
+    show: true,
+    type: 'download'
+  },
+  {
+    Header: 'Send homework',
+    accessor: 'teacher',
+    id: 6,
+    align: 'end',
+    type: 'upload',
+    show: true
+  },
+  {
+    Header: 'Deadline',
+    accessor: 'deadline',
+    id: 7,
+    align: 'end',
+    show: true
+  }
 ];
 
 export const genericTypes = [

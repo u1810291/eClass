@@ -7,8 +7,8 @@ export default {
   refreshToken: ({ refresh_token }) => service.post('/api/v1/refresh', { refresh_token }),
   //  TODO Register
   registerStudent: (data) => service.post('/api/v1/register/student', data),
-  registerTeacher: (data) => service.post('/api/v1/register/teacher', { data }),
-  registerAdmin: (data) => service.post('/api/v1/register/admin', { data }),
+  registerTeacher: (data) => service.post('/api/v1/register/teacher', data),
+  registerAdmin: (data) => service.post('/api/v1/register/admin', data),
   // TODO Confirm
   confirmSMS: ({ code, user }) => service.post(`/api/v1/register/sms/confirm?code=${code}&user=${user}`),
   repeatSMS: ({ user, phone }) => service.post(`/api/v1/register/sms/repeat?user=${user}&phone=${phone}`),

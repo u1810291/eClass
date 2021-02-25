@@ -6,7 +6,7 @@ import {
 
 export const TextArea = styled.textarea`
   border: 1px solid ${({ type }) => (type === 'error' ? '#f29392' : '#e2e2ea')} !important;
-
+  line-height: 18px;
   width: 100%;
   text-indent: 20px;
   border-radius: 11px;
