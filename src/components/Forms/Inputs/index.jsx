@@ -9,3 +9,4 @@ export { default as TextArea } from './TextArea';
 export { default as UploadInput } from './Upload';
 export { default as PasswordInput } from './Password';
 export { default as SingleDatePicker } from './SingleDatePicker';
+export { default as CustomDatePickerV2 } from './DatePickerV2';
