@@ -49,6 +49,7 @@ service.interceptors.response.use(
     }
     if (!status) {
       refresh();
+      window.location.reload();
     }
     return Promise.reject(error);
   }
