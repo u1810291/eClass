@@ -3,16 +3,12 @@ import { service } from '.';
 export default {
   getAll: () => service.get('/api/v1/files/list'),
   uploadFile: (data) => service.post('/api/v1/files/upload', data),
-  downloadFile: (id) => new Promise((resolve, reject) => {
+  downloadFile: () => new Promise((resolve, reject) => {
     setTimeout(() => {
-      fetch(`https://five-plus.co/api/v1/files/download/${id}`, {
-        headers: {
-          Authorization: `Bearer ${window.sessionStorage.getItem('access_token')}`
-        }
-      })
-        .then((response) => response)
+      service.get('/api/v1/files/download/10840068-4c89-4dc4-80fd-be13b590dcee')
         .then((data) => {
-          resolve(data);
+          console.log(data);
+          resolve(data.data);
         }).catch((err) => reject(err));
     }, 2000);
   }),

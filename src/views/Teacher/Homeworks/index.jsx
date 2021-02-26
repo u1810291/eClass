@@ -81,8 +81,8 @@ export default () => {
       />
       <DownloadLink
         label="Download"
-        filename="filename"
-        exportFile={() => getFile('87958fc1-92e3-4b6f-b0fe-4023f71d5104')}
+        filename="filename.pdf"
+        exportFile={() => getFile('555332a3-55c7-4924-b91e-b49a2b2973bf')}
       />
       {error ? (
         <TableError message={error} />
