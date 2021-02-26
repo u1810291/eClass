@@ -6,7 +6,6 @@ import file from '../../../services/files';
 
 const DownloadCell = (files) => (
   <Container>
-    {console.log(files[0])}
     {files[0]
       ? (
         <DownloadLink

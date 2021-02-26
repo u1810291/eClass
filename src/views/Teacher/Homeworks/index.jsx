@@ -24,8 +24,6 @@ export default () => {
   const header = useMemo(() => headerMaker(headerData), [headerData]);
   const [pageIndex, setPageIndex] = useState(0);
   const files = useSelector((state) => state.filesReducers);
-  // eslint-disable-next-line no-console
-  console.log(files.data);
 
   const [pageSize, setPageSize] = useState(0);
   const [search, setSearch] = useState('');
