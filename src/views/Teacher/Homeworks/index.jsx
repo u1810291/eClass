@@ -13,7 +13,6 @@ import HomeworksHeader from '../../../components/Headers/HomeworksHeader';
 import TableError from '../../../components/Table/Error';
 import { headerMaker } from '../../../components/Table/helper';
 import { teacherHomeworksHeader } from '../../../redux/modules/table/common';
-import file from '../../../services/files';
 
 export default () => {
   const dispatch = useDispatch();
@@ -25,8 +24,6 @@ export default () => {
   const header = useMemo(() => headerMaker(headerData), [headerData]);
   const [pageIndex, setPageIndex] = useState(0);
   const files = useSelector((state) => state.filesReducers);
-  // eslint-disable-next-line no-console
-  console.log(files.data);
 
   const [pageSize, setPageSize] = useState(0);
   const [search, setSearch] = useState('');
@@ -60,15 +57,6 @@ export default () => {
     setPageSize(pageSize);
   };
 
-  function handleClick() {
-    // file.downloadFile('87958fc1-92e3-4b6f-b0fe-4023f71d5104')
-    //   .then((response) => {
-    //     console.log(response);
-    //   });
-    // window.location.href = response.url;
-    dispatch(getFileById({ id: '87958fc1-92e3-4b6f-b0fe-4023f71d5104' }));
-  }
-
   return (
     <Container>
       <HomeworksHeader
@@ -78,7 +66,6 @@ export default () => {
         date={date}
 
       />
-      <a onClick={handleClick}>Download</a>
       {error ? (
         <TableError message={error} />
       ) : (
