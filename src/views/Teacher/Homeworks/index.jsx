@@ -61,12 +61,12 @@ export default () => {
   };
 
   function handleClick() {
-    // file.downloadFile('87958fc1-92e3-4b6f-b0fe-4023f71d5104')
-    //   .then((response) => {
-    //     console.log(response);
-    //   });
+    file.downloadFile('87958fc1-92e3-4b6f-b0fe-4023f71d5104')
+      .then((response) => {
+        console.log(response);
+      });
     // window.location.href = response.url;
-    dispatch(getFileById({ id: '87958fc1-92e3-4b6f-b0fe-4023f71d5104' }));
+    // dispatch(getFileById({ id: '87958fc1-92e3-4b6f-b0fe-4023f71d5104' }));
   }
 
   return (
