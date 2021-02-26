@@ -4,7 +4,6 @@
 import React, { useEffect, useState, useMemo } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
-import DownloadLink from 'react-download-link';
 import Table from '../../../components/Table';
 import { Container } from './style';
 import { fetchData } from '../../../redux/modules/teacher/homeworks/actions';
@@ -14,7 +13,6 @@ import HomeworksHeader from '../../../components/Headers/HomeworksHeader';
 import TableError from '../../../components/Table/Error';
 import { headerMaker } from '../../../components/Table/helper';
 import { teacherHomeworksHeader } from '../../../redux/modules/table/common';
-import file from '../../../services/files';
 
 export default () => {
   const dispatch = useDispatch();
@@ -61,15 +59,6 @@ export default () => {
     setPageSize(pageSize);
   };
 
-  // function handleClick() {
-  //   file.downloadFile('87958fc1-92e3-4b6f-b0fe-4023f71d5104')
-  //     .then((response) => {
-  //       console.log(response);
-  //     });
-  //   window.location.href = response.url;
-  //   dispatch(getFileById({ id: '87958fc1-92e3-4b6f-b0fe-4023f71d5104' }));
-  // }
-  const getFile = (id) => file.downloadFile(id);
   return (
     <Container>
       <HomeworksHeader
@@ -78,11 +67,6 @@ export default () => {
         setDate={setDate}
         date={date}
 
-      />
-      <DownloadLink
-        label="Download"
-        filename="filename.pdf"
-        exportFile={() => getFile('555332a3-55c7-4924-b91e-b49a2b2973bf')}
       />
       {error ? (
         <TableError message={error} />
