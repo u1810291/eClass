@@ -12,3 +12,4 @@ export { default as teacherLessonsSaga } from './teacher/lessons/sagas';
 export { default as studentLessonsSaga } from './student/lessons/sagas';
 
 export { default as listsSaga } from './lists/sagas';
+export { default as filesSaga } from './files/sagas';

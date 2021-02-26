@@ -17,3 +17,4 @@ export { default as teacherLessonsReducers } from './teacher/lessons/reducers';
 export { default as studentLessonsReducers } from './student/lessons/reducers';
 
 export { default as listsReducers } from './lists/reducers';
+export { default as filesReducers } from './files/reducers';
