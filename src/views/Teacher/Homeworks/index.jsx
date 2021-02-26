@@ -4,6 +4,7 @@
 import React, { useEffect, useState, useMemo } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
+import DownloadLink from 'react-download-link';
 import Table from '../../../components/Table';
 import { Container } from './style';
 import { fetchData } from '../../../redux/modules/teacher/homeworks/actions';
@@ -60,15 +61,15 @@ export default () => {
     setPageSize(pageSize);
   };
 
-  function handleClick() {
-    file.downloadFile('87958fc1-92e3-4b6f-b0fe-4023f71d5104')
-      .then((response) => {
-        console.log(response);
-      });
-    // window.location.href = response.url;
-    // dispatch(getFileById({ id: '87958fc1-92e3-4b6f-b0fe-4023f71d5104' }));
-  }
-
+  // function handleClick() {
+  //   file.downloadFile('87958fc1-92e3-4b6f-b0fe-4023f71d5104')
+  //     .then((response) => {
+  //       console.log(response);
+  //     });
+  //   window.location.href = response.url;
+  //   dispatch(getFileById({ id: '87958fc1-92e3-4b6f-b0fe-4023f71d5104' }));
+  // }
+  const getFile = (id) => file.downloadFile(id);
   return (
     <Container>
       <HomeworksHeader
@@ -78,7 +79,11 @@ export default () => {
         date={date}
 
       />
-      <a onClick={handleClick}>Download</a>
+      <DownloadLink
+        label="Download"
+        filename="filename"
+        exportFile={() => getFile('87958fc1-92e3-4b6f-b0fe-4023f71d5104')}
+      />
       {error ? (
         <TableError message={error} />
       ) : (

@@ -5,8 +5,12 @@ export default {
   uploadFile: (data) => service.post('/api/v1/files/upload', data),
   downloadFile: (id) => new Promise((resolve, reject) => {
     setTimeout(() => {
-      service.fetch(`/api/v1/files/download/${id}`)
-        .then((response) => response.text())
+      fetch(`https://five-plus.co/api/v1/files/download/${id}`, {
+        headers: {
+          Authorization: `Bearer ${window.sessionStorage.getItem('access_token')}`
+        }
+      })
+        .then((response) => response)
         .then((data) => {
           resolve(data);
         }).catch((err) => reject(err));
