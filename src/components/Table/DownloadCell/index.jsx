@@ -9,17 +9,16 @@ const DownloadCell = (files) => (
     {console.log(files[0])}
     {files[0]
       ? (
-        <PrimaryButton
-          title="Download"
-          size="large"
-          onClick={() => (
-            <DownloadLink
-              label=""
-              filename="filename.pdf"
-              exportFile={() => file.downloadFile(files[0])}
-            />
-          )}
-        />
+        <DownloadLink
+          label="Download"
+          filename="filename.pdf"
+          exportFile={() => file.downloadFile(files[0])}
+        >
+          <PrimaryButton
+            title="Download"
+            size="large"
+          />
+        </DownloadLink>
       )
       : <span>No link provided</span>}
   </Container>
