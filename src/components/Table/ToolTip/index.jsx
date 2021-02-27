@@ -25,7 +25,6 @@ export default ({
   const dispatch = useDispatch();
   const state = useSelector((globalState) => globalState);
   const modal = useShowModal();
-  console.log(modal);
   return (
     <Container>
       <Button
