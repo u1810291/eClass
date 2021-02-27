@@ -6,7 +6,6 @@ export default {
   downloadFile: (id) => new Promise((resolve, reject) => {
     service.get(`/api/v1/files/download/${id}`)
       .then((data) => {
-        console.log(data);
         resolve(data.data);
       }).catch((err) => reject(err));
   }),
