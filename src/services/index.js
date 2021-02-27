@@ -1,4 +1,4 @@
-/* eslint-disable no-console */
+/* eslint-disable no-alert */
 /* eslint-disable no-param-reassign */
 /* eslint-disable camelcase */
 import axios from 'axios';
@@ -33,6 +33,7 @@ function refresh() {
       window.location.replace('/');
       return resolve(response.data.access_token);
     }).catch((error) => {
+      alert('Refresh token expired! You need to login again.');
       destroyToken();
       window.location.replace('/logout');
       return reject(error);
@@ -45,11 +46,13 @@ service.interceptors.response.use(
   (error) => {
     const status = error.response ? error.response.status : null;
     if (status === 401) {
+      alert('Login or password is incorrect');
       window.location.replace('/logout');
       sessionStorage.removeItem('access_token');
       sessionStorage.removeItem('refresh_token');
     }
     if (!status) {
+      alert('Access token expired! Page will be reloaded.');
       refresh();
     }
     return Promise.reject(error);

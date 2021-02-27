@@ -5,6 +5,7 @@ import moment from 'moment';
 export function dataSelector(lesson) {
   const { total_elements, content } = lesson;
   const filtered = content.map((el) => ({
+    id: el.id,
     attendances: el.attendances && el.attendances.map((item) => ({
       missed: item.missed,
       student: item.student.full_name,
