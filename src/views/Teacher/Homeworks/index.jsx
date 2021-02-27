@@ -8,7 +8,6 @@ import Table from '../../../components/Table';
 import { Container } from './style';
 import { fetchData } from '../../../redux/modules/teacher/homeworks/actions';
 import { getFiles, getFileById } from '../../../redux/modules/files/actions';
-import { toolTips } from './helper';
 import HomeworksHeader from '../../../components/Headers/HomeworksHeader';
 import TableError from '../../../components/Table/Error';
 import { headerMaker } from '../../../components/Table/helper';
@@ -73,7 +72,6 @@ export default () => {
           height="540"
           total={total}
           data={data}
-          toolTips={toolTips}
           header={header}
           loading={loading}
           subData={data}
