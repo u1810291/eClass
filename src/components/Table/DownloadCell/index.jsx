@@ -11,7 +11,7 @@ const DownloadCell = (files) => (
           <DownloadLink
             label="Download"
             filename="filename.pdf"
-            exportFile={() => file.downloadFile(files[0])}
+            exportFile={() => Promise.resolve(file.downloadFile(files[0]))}
           />
         </Content>
       )

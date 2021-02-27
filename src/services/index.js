@@ -1,4 +1,4 @@
-/* eslint-disable no-console */
+/* eslint-disable no-alert */
 /* eslint-disable no-param-reassign */
 /* eslint-disable camelcase */
 import axios from 'axios';
@@ -45,6 +45,7 @@ service.interceptors.response.use(
   (error) => {
     const status = error.response ? error.response.status : null;
     if (status === 401) {
+      alert('Login or password is incorrect');
       window.location.replace('/logout');
       sessionStorage.removeItem('access_token');
       sessionStorage.removeItem('refresh_token');
