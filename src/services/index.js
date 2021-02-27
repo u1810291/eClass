@@ -33,6 +33,7 @@ function refresh() {
       window.location.replace('/');
       return resolve(response.data.access_token);
     }).catch((error) => {
+      alert('Refresh token expired! You need to login again.');
       destroyToken();
       window.location.replace('/logout');
       return reject(error);
@@ -51,6 +52,7 @@ service.interceptors.response.use(
       sessionStorage.removeItem('refresh_token');
     }
     if (!status) {
+      alert('Access token expired! Page will be reloaded.');
       refresh();
     }
     return Promise.reject(error);

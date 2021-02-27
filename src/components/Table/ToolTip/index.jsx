@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import classNames from 'classnames';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import {
   Button, ToolTip, OptionButton, Container
 } from './style';
@@ -21,9 +21,9 @@ export default ({
 }) => {
   const [open, setOpen] = useState(false);
   const refClick = useRef(null);
-  // const history = useHistory();
-  // const dispatch = useDispatch();
-  // const state = useSelector((globalState) => globalState);
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const state = useSelector((globalState) => globalState);
   const modal = useShowModal();
   return (
     <Container>
@@ -45,7 +45,12 @@ export default ({
         <ToolTip index={index} indexT={indexT} open={open}>
           {data.map(({ name, icon, onClick: ItemClick }, positionIndex) => (
             <OptionButton
-              onClick={() => { ItemClick(itemId, { ...modal }); console.log('object'); }}
+              onClick={() => ItemClick(itemId, {
+                history,
+                dispatch,
+                state,
+                ...modal
+              })}
               key={`${positionIndex + 1}`}
             >
               <Icon icon={icon} size="16px" color="#7e8299" />
