@@ -57,7 +57,7 @@ export const toolTips = [
       showBlured({
         id,
         title: 'Box Details',
-        body: BoxDetails
+        body: AddHomework
       });
     }
   },
