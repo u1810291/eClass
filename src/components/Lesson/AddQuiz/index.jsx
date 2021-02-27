@@ -1,7 +1,9 @@
 import React from 'react';
 
+import { Container } from './style';
+
 export default () => (
-  <div>
+  <Container>
     Add quiz
-  </div>
+  </Container>
 );
