@@ -6,7 +6,7 @@ import { Container, Title, Body } from './style';
 import { NormalInput, SingleDatePicker } from '../../Forms/Inputs';
 import { PrimaryButton } from '../../Buttons';
 
-const AddHomework = ({ handleCreate, title }) => {
+const CreateLesson = ({ handleCreate, title }) => {
   const { formik } = handleCreate();
   return (
     <Container>
@@ -59,9 +59,9 @@ const AddHomework = ({ handleCreate, title }) => {
   );
 };
 
-AddHomework.propTypes = {
+CreateLesson.propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
   handleCreate: PropTypes.func.isRequired
 };
 
-export default AddHomework;
+export default CreateLesson;
