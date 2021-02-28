@@ -8,19 +8,19 @@ const defaultState = {
 };
 
 const map = {
-  [types.TABLE_ADMIN_LESSONS_SET_LOADING]: (state, { payload }) => ({
+  [types.TABLE_ADMIN_GROUPS_SET_LOADING]: (state, { payload }) => ({
     ...state,
     loading: payload
   }),
-  [types.TABLE_ADMIN_LESSONS_SET_DATA]: (state, { payload }) => ({
+  [types.TABLE_ADMIN_GROUPS_SET_DATA]: (state, { payload }) => ({
     ...state,
     data: payload
   }),
-  [types.TABLE_ADMIN_LESSONS_SET_TOTAL]: (state, { payload }) => ({
+  [types.TABLE_ADMIN_GROUPS_SET_TOTAL]: (state, { payload }) => ({
     ...state,
     total: payload
   }),
-  [types.TABLE_ADMIN_LESSONS_ERROR]: (state, { payload }) => ({
+  [types.TABLE_ADMIN_GROUPS_ERROR]: (state, { payload }) => ({
     ...state,
     error: payload
   })

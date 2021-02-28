@@ -10,8 +10,6 @@ const AddHomework = ({ handleAdd, title }) => {
   const { formik } = handleAdd();
   return (
     <Container>
-      {console.log(formik.errors)}
-      {console.log(formik.values.file)}
       <Title className={classNames('heading-3')}>{title}</Title>
       <Body onSubmit={formik.handleSubmit}>
         <SingleDatePicker
