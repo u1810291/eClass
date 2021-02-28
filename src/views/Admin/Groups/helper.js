@@ -1,10 +1,15 @@
 /* eslint-disable no-alert */
+import CreateLesson from '../../../components/Groups/CreateLesson';
+
 export const toolTips = [
   {
     name: 'Create lesson',
     icon: 'payment',
-    onClick: () => {
-      alert('Add lesson');
+    onClick: (id, { showBlured }) => {
+      showBlured({
+        title: 'Add homework',
+        body: () => <CreateLesson handleAdd={() => handleAdd(id)} />
+      });
     }
   },
   {
