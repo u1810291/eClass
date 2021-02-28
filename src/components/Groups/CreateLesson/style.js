@@ -7,7 +7,6 @@ export const Container = styled.div`
   padding:20px;
   background: white;
   width: 400px;
-  height: 500px;
 `;
 
 export const Title = styled.div`
