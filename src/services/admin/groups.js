@@ -1,7 +1,7 @@
 import { service } from '..';
 
 export default {
-  getAll: () => service.get('/api/v1/group/list?full=true'),
+  getAll: (query) => service.get(`/api/v1/group/list?${query}`),
   createGroup: () => service.post('/api/v1/group'),
   updateGroupIdInBody: ({ data }) => service.put('/api/v1/group/', data),
   updateGroupIdInParams: ({ id, data }) => service.put(`/api/v1/group/${id}`, data),
