@@ -55,7 +55,7 @@ export const toolTips = [
     icon: 'payment',
     onClick: (_, { showBlured }) => {
       showBlured({
-        title: 'Box Details',
+        title: 'Add homework',
         body: AddHomework
       });
     }
