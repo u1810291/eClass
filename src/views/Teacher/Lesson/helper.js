@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 import AddHomework from '../../../components/Lesson/AddHomework';
 import { uploadFile } from '../../../redux/modules/files/actions';
 
-const handleAdd = () => {
+const handleAdd = (id) => {
   const dispatch = useDispatch();
   const validationSchema = Yup.object().shape({
     desc: Yup.string(),
@@ -18,16 +18,17 @@ const handleAdd = () => {
   const formik = useFormik({
     initialValues: {
       desc: '',
-      from_date: undefined,
-      till_date: undefined,
+      from_date: '',
+      till_date: '',
       file: []
     },
     validationSchema,
     onSubmit: (values, { setSubmitting }) => {
       setSubmitting(true);
-      dispatch(uploadFile(values, (res) => {
+      dispatch(uploadFile({ values, id }, (res) => {
         // eslint-disable-next-line no-alert
-        if (res) alert('Succesfully added');
+        if (res) alert('Succesfully added!');
+        if (!res) alert('Something went wrong!');
         return res;
       }));
     }
@@ -89,7 +90,7 @@ export const toolTips = [
     onClick: (id, { showBlured }) => {
       showBlured({
         title: 'Add homework',
-        body: () => <AddHomework handleAdd={handleAdd} id={id} />
+        body: () => <AddHomework handleAdd={() => handleAdd(id)} />
       });
     }
   },

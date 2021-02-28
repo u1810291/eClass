@@ -21,14 +21,18 @@ function* getFiles() {
   }
 }
 
-function* uploadFile(payload) {
+function* uploadFile({ payload }) {
   try {
-    const { data } = dataSelector(payload.data);
+    console.log(payload);
+    const data = dataSelector(payload.values);
+    console.log(data);
     const res = yield service.uploadFile(data);
+    console.log(res);
     yield put(setError(''));
     yield put(setData(res.data));
     yield put(setLoading(false));
   } catch (error) {
+    console.log(error);
     yield put(setError(error.message));
   }
 }

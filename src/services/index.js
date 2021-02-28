@@ -74,6 +74,7 @@ export function execute(promise) {
       .catch(reject);
   });
 }
+export const formData = { 'Content-Type': 'multipart/form-data' };
 
 export { service };
 export default CustomAxios.instance;

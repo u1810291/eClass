@@ -3,14 +3,15 @@ import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { Container, Title, Body } from './style';
-import { NormalInput, SingleDatePicker, UploadInput } from '../../Forms/Inputs';
+import { NormalInput, SingleDatePicker } from '../../Forms/Inputs';
 import { PrimaryButton } from '../../Buttons';
 
-const AddHomework = ({ handleAdd, title, id }) => {
+const AddHomework = ({ handleAdd, title }) => {
   const { formik } = handleAdd();
   return (
     <Container>
-      {console.log(id)}
+      {console.log(formik.errors)}
+      {console.log(formik.values.file)}
       <Title className={classNames('heading-3')}>{title}</Title>
       <Body onSubmit={formik.handleSubmit}>
         <SingleDatePicker
@@ -50,8 +51,9 @@ const AddHomework = ({ handleAdd, title, id }) => {
           value={formik.values.desc}
           onChange={(e) => formik.setFieldValue('desc', e.target.value)}
         />
-        <UploadInput
-          setFieldValue={(value) => formik.setFieldValue('file', value)}
+        <input
+          type="file"
+          onChange={(e) => formik.setFieldValue('file', [e.target.files[0]])}
         />
         <PrimaryButton size="large" type="submit" title="Submit" />
       </Body>
