@@ -20,7 +20,7 @@ export default () => {
 
   const {
     loading, data, total, error
-  } = useSelector((state) => state.adminLessonsReducers);
+  } = useSelector((state) => state.adminGroupsReducers);
   const headerData = useSelector(({ tableReducer }) => tableReducer.adminLessonsHeader);
   const headers = useMemo(() => headerMaker(headerData), [headerData]);
 
