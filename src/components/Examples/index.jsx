@@ -14,6 +14,7 @@ import TextArea from '../Forms/Inputs/TextArea';
 import Color from '../Color';
 import Switch from '../Forms/Switch';
 import DatePicker from '../Forms/Inputs/DatePicker';
+import DatePickers from './Inputs/DatePickers';
 import { SingleDropdown } from '../Forms/DropDown';
 
 export default () => {
@@ -80,15 +81,20 @@ export default () => {
         options={single}
         white
       />
+      <div>
+        <h4>Date pickers</h4>
+        <DatePickers />
+      </div>
       <h1>DatePicker</h1>
       <div style={{ width: '200px' }}>
 
         <DatePicker
+          right
           placeholder="Date"
           name="rangeDate"
           value={date}
           change={(value) => setDate(value)}
-          showTimePicker={false}
+          showTimePicker
           dateFormat="YYYY-MM-DD"
           date={date}
           white
