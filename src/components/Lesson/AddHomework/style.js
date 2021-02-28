@@ -7,3 +7,11 @@ export const Container = styled.div`
   background: white;
 
 `;
+
+export const Title = styled.div``;
+
+export const Body = styled.form`
+  display:flex;
+  flex-direction: column;
+
+`;
