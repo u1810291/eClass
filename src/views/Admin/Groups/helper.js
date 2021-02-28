@@ -1,5 +1,10 @@
 /* eslint-disable no-alert */
+import React from 'react';
 import CreateLesson from '../../../components/Groups/CreateLesson';
+
+const handleCreate = () => {
+
+};
 
 export const toolTips = [
   {
@@ -8,7 +13,7 @@ export const toolTips = [
     onClick: (id, { showBlured }) => {
       showBlured({
         title: 'Add homework',
-        body: () => <CreateLesson handleAdd={() => handleAdd(id)} />
+        body: () => <CreateLesson handleCreate={() => handleCreate(id)} />
       });
     }
   },

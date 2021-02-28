@@ -6,8 +6,8 @@ import { Container, Title, Body } from './style';
 import { NormalInput, SingleDatePicker } from '../../Forms/Inputs';
 import { PrimaryButton } from '../../Buttons';
 
-const AddHomework = ({ handleAdd, title }) => {
-  const { formik } = handleAdd();
+const AddHomework = ({ handleCreate, title }) => {
+  const { formik } = handleCreate();
   return (
     <Container>
       <Title className={classNames('heading-3')}>{title}</Title>
@@ -61,7 +61,7 @@ const AddHomework = ({ handleAdd, title }) => {
 
 AddHomework.propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
-  handleAdd: PropTypes.func.isRequired
+  handleCreate: PropTypes.func.isRequired
 };
 
 export default AddHomework;
