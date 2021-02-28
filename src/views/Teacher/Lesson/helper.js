@@ -1,6 +1,40 @@
 /* eslint-disable no-alert */
-import AddHomework from '../../../components/Lesson/AddHomework';
+import React from 'react';
 
+import * as Yup from 'yup';
+import { useFormik } from 'formik';
+import { useDispatch } from 'react-redux';
+import AddHomework from '../../../components/Lesson/AddHomework';
+import { uploadFile } from '../../../redux/modules/files/actions';
+
+const handleAdd = (id) => {
+  const dispatch = useDispatch();
+  const validationSchema = Yup.object().shape({
+    desc: Yup.string(),
+    from_date: Yup.string().required('Required'),
+    till_date: Yup.string().required('Required'),
+    file: Yup.array().required('Required')
+  });
+  const formik = useFormik({
+    initialValues: {
+      desc: '',
+      from_date: '',
+      till_date: '',
+      file: []
+    },
+    validationSchema,
+    onSubmit: (values, { setSubmitting }) => {
+      setSubmitting(true);
+      dispatch(uploadFile({ values, id }, (res) => {
+        // eslint-disable-next-line no-alert
+        if (res) alert('Succesfully added!');
+        if (!res) alert('Something went wrong!');
+        return res;
+      }));
+    }
+  });
+  return { formik };
+};
 export const toolTips = [
   {
     name: 'Cancel',
@@ -55,9 +89,8 @@ export const toolTips = [
     icon: 'payment',
     onClick: (id, { showBlured }) => {
       showBlured({
-        id,
-        title: 'Box Details',
-        body: AddHomework
+        title: 'Add homework',
+        body: () => <AddHomework handleAdd={() => handleAdd(id)} />
       });
     }
   },
