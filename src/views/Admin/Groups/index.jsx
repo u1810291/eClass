@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Table from '../../../components/Table';
 import { Container } from './style';
 import { fetchData } from '../../../redux/modules/admin/groups/actions';
-import { adminLessonsHeader } from '../../../redux/modules/table/common';
+import { groupsHeader } from '../../../redux/modules/table/common';
 import LessonsHeader from '../../../components/Headers/LessonsHeader';
 import TableError from '../../../components/Table/Error';
 import { headerMaker } from '../../../components/Table/helper';
@@ -21,9 +21,8 @@ export default () => {
   const {
     loading, data, total, error
   } = useSelector((state) => state.adminGroupsReducers);
-  const headerData = useSelector(({ tableReducer }) => tableReducer.adminLessonsHeader);
+  const headerData = useSelector(({ tableReducer }) => tableReducer.groupsHeader);
   const headers = useMemo(() => headerMaker(headerData), [headerData]);
-
   const dateFilter = useMemo(
     () => (date
       ? `&from_date=${date.start.toISOString()}&to_date=${date.end.toISOString()}`
@@ -32,7 +31,7 @@ export default () => {
   );
 
   const sortQuery = useMemo(() => {
-    const found = sort && adminLessonsHeader.find(({ id }) => id === sort.id);
+    const found = sort && groupsHeader.find(({ id }) => id === sort.id);
     return found
       ? `&sort=${found},${sort.desc ? 'desc' : 'asc'}`
       : '';

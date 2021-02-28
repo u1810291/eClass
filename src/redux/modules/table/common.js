@@ -311,6 +311,45 @@ export const teacherHomeworksHeader = [
   }
 ];
 
+export const groupsHeader = [
+  {
+    Header: 'Description',
+    accessor: 'description',
+    id: 1,
+    align: 'end',
+    show: true
+  },
+  {
+    Header: 'Finish date',
+    accessor: 'finish_date',
+    id: 2,
+    align: 'end',
+    show: true
+  },
+  {
+    Header: 'Start date',
+    accessor: 'start_date',
+    id: 3,
+    align: 'end',
+    show: true
+  },
+  {
+    Header: 'Group name',
+    accessor: 'official_name',
+    id: 4,
+    align: 'end',
+    show: true
+  },
+  {
+    Header: 'Teacher',
+    accessor: 'teacher',
+    id: 5,
+    align: 'end',
+    show: true,
+    type: 'user'
+  }
+];
+
 export const genericTypes = [
   {
     key: types.USERS,
