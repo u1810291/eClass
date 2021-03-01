@@ -1,23 +1,19 @@
 import React from 'react';
 import DownloadLink from 'react-download-link';
-import { Container } from './style';
-import { PrimaryButton } from '../../Buttons';
+import { Container, Content } from './style';
 import file from '../../../services/files';
 
 const DownloadCell = (files) => (
-  <Container>
+  <Container size="large">
     {files[0]
       ? (
-        <DownloadLink
-          label="Download"
-          filename="filename.pdf"
-          exportFile={() => file.downloadFile(files[0])}
-        >
-          <PrimaryButton
-            title="Download"
-            size="large"
+        <Content size="large">
+          <DownloadLink
+            label="Download"
+            filename="filename.pdf"
+            exportFile={() => Promise.resolve(file.downloadFile(files[0]))}
           />
-        </DownloadLink>
+        </Content>
       )
       : <span>No link provided</span>}
   </Container>

@@ -45,7 +45,6 @@ export default () => {
 
   useEffect(() => {
     dispatch(fetchData({
-      isSearch: false,
       query: `${query}`
     }));
   }, [fetchData, query]);
@@ -54,15 +53,6 @@ export default () => {
     setPageIndex(pageIndex);
     setPageSize(pageSize);
   };
-
-  useEffect(() => {
-    dispatch(
-      fetchData({
-        isSearch: true,
-        query: `${query}${search ? `&search=${search}` : ''}`
-      })
-    );
-  }, [dispatch, search]);
 
   return (
     <Container>

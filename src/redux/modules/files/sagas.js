@@ -21,9 +21,9 @@ function* getFiles() {
   }
 }
 
-function* uploadFile(payload) {
+function* uploadFile({ payload }) {
   try {
-    const { data } = dataSelector(payload.data);
+    const data = dataSelector(payload.values);
     const res = yield service.uploadFile(data);
     yield put(setError(''));
     yield put(setData(res.data));

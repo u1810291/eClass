@@ -1,9 +1,9 @@
-import { service } from '..';
+import { service, formData } from '..';
 
 export default {
   getAll: (query) => service.get(`/api/v1/teacher/exercise/homework/list?${query}`),
   getQuizes: (user) => service.get(`/api/v1/${user}/exercise/controlwork/list`),
-  addHomework: (id, data) => service.post(`/api/v1/teacher/exercise/homework/${id}`, { data }),
+  addHomework: (id, data) => service.post(`/api/v1/teacher/exercise/homework/${id}?${data}`, { headers: { formData } }),
   addQuize: (id, data) => service.post(`/api/v1/teacher/exercise/controlwork/${id}`, { data }),
   // TODO Needs to be checked before using
   deleteQuize: (id) => service.delete(`/api/v1/teacher/exercise/controlwork/${id}`),
