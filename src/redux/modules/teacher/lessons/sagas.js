@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { takeLatest, put } from 'redux-saga/effects';
 import { success } from '../../../../components/Forms/Inputs/style';
 import types from '../../../../constants/action-types';
@@ -12,8 +13,8 @@ import {
 import { dataSelector } from './selectors';
 
 function* fetchData({ payload }) {
-  yield put(setLoading(true));
   try {
+    yield put(setLoading(true));
     const { query } = payload;
 
     const res = yield service.getAll(query);
@@ -27,15 +28,16 @@ function* fetchData({ payload }) {
   }
 }
 function* startLesson({ payload }) {
-  yield put(setLoading(true));
   try {
-    const { query } = payload;
-    const res = yield service.startLesson(query);
+    yield put(setLoading(true));
+    console.log(payload);
+    const res = yield service.startLesson(payload);
     yield put(setError(''));
+    console.log(res);
     success(res);
     yield put(setLoading(false));
   } catch (error) {
-    yield put(setError(error.message));
+    console.log(error);
   }
 }
 

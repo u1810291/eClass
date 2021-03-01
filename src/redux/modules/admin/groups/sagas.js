@@ -12,8 +12,8 @@ import {
 import { dataSelector } from './selectors';
 
 function* fetchData({ payload }) {
-  yield put(setLoading(true));
   try {
+    yield put(setLoading(true));
     const res = yield service.getAll(payload.query);
     const { total, data } = dataSelector(res.data);
     yield put(setError(''));
@@ -26,8 +26,8 @@ function* fetchData({ payload }) {
 }
 
 function* createLesson({ payload, success }) {
-  yield put(setLoading(true));
   try {
+    yield put(setLoading(true));
     const res = yield lesson.createLesson(payload);
     yield put(setError(''));
     success(res.data);
