@@ -7,6 +7,5 @@ export function dataSelector(data) {
   formData.append('till_date', data.till_date.toISOString());
   formData.append('from_date', data.from_date.toISOString());
   formData.append('type', data.type);
-  console.log(Object.fromEntries(formData));
   return formData;
 }
