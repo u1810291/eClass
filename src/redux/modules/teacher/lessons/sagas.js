@@ -37,7 +37,7 @@ function* startLesson({ payload }) {
     success(res);
   } catch (error) {
     console.log(error.response.data);
-    alert(error.response.data);
+    alert(error.response.data.error_message);
   }
 }
 
