@@ -3,13 +3,13 @@ import React from 'react';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHideModal } from '../../../hooks/modal';
 import { createLesson } from '../../../redux/modules/admin/groups/actions';
 import CreateLesson from '../../../components/Groups/CreateLesson';
 
 const handleCreate = (id) => {
   const dispatch = useDispatch();
-  const history = useHistory();
+
   const validationSchema = Yup.object().shape({
     start_date: Yup.string().required('Required')
   });
@@ -24,11 +24,11 @@ const handleCreate = (id) => {
       dispatch(createLesson(data, (res) => {
         // eslint-disable-next-line no-alert
         if (res) {
-          alert('Succesfully added!');
-          return history.push('/groups');
+          return alert('Succesfully added!');
         }
-        return null;
+        return alert('Something went Wrong!');
       }));
+      dispatch(useHideModal());
     }
   });
   return { formik };

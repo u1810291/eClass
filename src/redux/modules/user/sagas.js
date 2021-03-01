@@ -7,9 +7,12 @@ import {
 
 function* fetchData() {
   try {
+    console.log('asd');
     const res = yield service.whoAmI();
+    console.log(res);
     yield put(setData(res.data));
   } catch (error) {
+    console.log(error);
     yield put(setError(error.message));
   }
 }

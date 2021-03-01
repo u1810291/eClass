@@ -25,6 +25,7 @@ export default () => {
   useEffect(() => {
     setLoading(true);
     if (access_token) {
+      console.log('object');
       dispatch(fetchData());
       setLoading(false);
     }
