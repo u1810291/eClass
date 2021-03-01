@@ -8,7 +8,8 @@ const defaultState = {
   adminLessonsHeader: JSON.parse(localStorage.getItem('adminLessonsHeader')) || initial.adminLessonsHeader,
   studentHomeworksHeader: JSON.parse(localStorage.getItem('studentHomeworksHeader')) || initial.studentHomeworksHeader,
   adminHomeworksHeader: JSON.parse(localStorage.getItem('adminHomeworksHeader')) || initial.adminHomeworksHeader,
-  teacherHomeworksHeader: JSON.parse(localStorage.getItem('teacherHomeworksHeader')) || initial.teacherHomeworksHeader
+  teacherHomeworksHeader: JSON.parse(localStorage.getItem('teacherHomeworksHeader')) || initial.teacherHomeworksHeader,
+  groupsHeader: JSON.parse(localStorage.getItem('groupsHeader')) || initial.groupsHeader
 };
 
 const map = {};

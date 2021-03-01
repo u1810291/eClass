@@ -12,8 +12,7 @@ export const Container = styled.div`
 `;
 
 export const ToolTip = styled.div`
-  width: 162px;
-  height: 148.6px;
+
   background: white;
   position: absolute;
   top: -60px;

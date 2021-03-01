@@ -3,8 +3,8 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Table from '../../../components/Table';
 import { Container } from './style';
-import { fetchData } from '../../../redux/modules/teacher/lessons/actions';
-import { teacherLessonsHeader } from '../../../redux/modules/table/common';
+import { fetchData } from '../../../redux/modules/admin/groups/actions';
+import { groupsHeader } from '../../../redux/modules/table/common';
 import LessonsHeader from '../../../components/Headers/LessonsHeader';
 import TableError from '../../../components/Table/Error';
 import { headerMaker } from '../../../components/Table/helper';
@@ -20,10 +20,9 @@ export default () => {
 
   const {
     loading, data, total, error
-  } = useSelector((state) => state.teacherLessonsReducers);
-  const headerData = useSelector(({ tableReducer }) => tableReducer.teacherLessonsHeader);
+  } = useSelector((state) => state.adminGroupsReducers);
+  const headerData = useSelector(({ tableReducer }) => tableReducer.groupsHeader);
   const headers = useMemo(() => headerMaker(headerData), [headerData]);
-
   const dateFilter = useMemo(
     () => (date
       ? `&from_date=${date.start.toISOString()}&to_date=${date.end.toISOString()}`
@@ -32,7 +31,7 @@ export default () => {
   );
 
   const sortQuery = useMemo(() => {
-    const found = sort && teacherLessonsHeader.find(({ id }) => id === sort.id);
+    const found = sort && groupsHeader.find(({ id }) => id === sort.id);
     return found
       ? `&sort=${found},${sort.desc ? 'desc' : 'asc'}`
       : '';
@@ -44,15 +43,22 @@ export default () => {
   );
 
   useEffect(() => {
-    dispatch(fetchData({
-      query: `${query}`
-    }));
+    dispatch(fetchData({ query }));
   }, [fetchData, query]);
 
   const handleOnChange = ({ pageIndex, pageSize }) => {
     setPageIndex(pageIndex);
     setPageSize(pageSize);
   };
+
+  useEffect(() => {
+    dispatch(
+      fetchData({
+        isSearch: true,
+        query: `${query}${search ? `&search=${search}` : ''}`
+      })
+    );
+  }, [dispatch, search]);
 
   return (
     <Container>

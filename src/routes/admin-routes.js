@@ -11,7 +11,7 @@ import Video from '../views/Video';
 import Connection from '../views/Student/Connection';
 import Schedule from '../views/Shedule';
 import Chat from '../views/Chat';
-import Groups from '../views/Groups';
+import Groups from '../views/Admin/Groups';
 import Lesson from '../views/Admin/Lesson';
 import Users from '../views/Admin/Users';
 import StudentAdd from '../views/Admin/Users/Add/Student';

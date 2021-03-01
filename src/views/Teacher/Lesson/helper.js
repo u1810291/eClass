@@ -6,6 +6,7 @@ import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
 import AddHomework from '../../../components/Lesson/AddHomework';
 import { uploadFile } from '../../../redux/modules/files/actions';
+import { startLesson } from '../../../redux/modules/teacher/lessons/actions';
 
 const handleAdd = (id) => {
   const dispatch = useDispatch();
@@ -36,6 +37,16 @@ const handleAdd = (id) => {
   return { formik };
 };
 export const toolTips = [
+  {
+    name: 'Start',
+    icon: 'payment',
+    onClick: (id, { dispatch }) => {
+      dispatch(startLesson(id, (response) => {
+        if (response) { alert('Lesson started!'); }
+        return response;
+      }));
+    }
+  },
   {
     name: 'Cancel',
     icon: 'payment',
