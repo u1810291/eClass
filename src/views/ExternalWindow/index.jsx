@@ -7,7 +7,7 @@ const ExternalWindow = (props) => {
   const newWindow = useRef(null);
   const width = window.outerWidth;
   const height = window.outerHeight;
-
+  console.log(props.location.state);
   useEffect(() => {
     setContainer(document.createElement('div'));
   }, []);

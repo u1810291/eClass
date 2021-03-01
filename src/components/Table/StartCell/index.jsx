@@ -8,8 +8,9 @@ import { Container, Content, Empty } from './style';
 import { PrimaryButton } from '../../Buttons';
 
 const nameClass = classNames('body-medium', 'weight-medium', 'text-black-800');
-const LinkCell = ({ start_url }) => {
+const LinkCell = ({ start_url, rest }) => {
   const history = useHistory();
+  console.log(rest);
   return (
     <Container>
       <Content className={nameClass}>
