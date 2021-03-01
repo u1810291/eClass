@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /* eslint-disable no-console */
 import { takeLatest, put } from 'redux-saga/effects';
 import { success } from '../../../../components/Forms/Inputs/style';
@@ -24,20 +25,19 @@ function* fetchData({ payload }) {
     yield put(setTotal(total));
     yield put(setLoading(false));
   } catch (error) {
-    yield put(setError(error.message));
+    yield put(setError(error.response.data.error_code, error.response.data.error_message));
   }
 }
 function* startLesson({ payload }) {
   try {
-    yield put(setLoading(true));
     console.log(payload);
     const res = yield service.startLesson(payload);
     yield put(setError(''));
     console.log(res);
     success(res);
-    yield put(setLoading(false));
   } catch (error) {
-    console.log(error);
+    console.log(error.response.data);
+    alert(error.response.data);
   }
 }
 

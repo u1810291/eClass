@@ -21,6 +21,7 @@ const handleAdd = (id) => {
       desc: '',
       from_date: '',
       till_date: '',
+      type: 'HOME_WORK',
       file: []
     },
     validationSchema,
