@@ -1,4 +1,5 @@
 import { takeLatest, put } from 'redux-saga/effects';
+import { success } from '../../../../components/Forms/Inputs/style';
 import types from '../../../../constants/action-types';
 import service from '../../../../services/teacher/lesson';
 import {
@@ -25,7 +26,20 @@ function* fetchData({ payload }) {
     yield put(setError(error.message));
   }
 }
+function* startLesson({ payload }) {
+  yield put(setLoading(true));
+  try {
+    const { query } = payload;
+    const res = yield service.startLesson(query);
+    yield put(setError(''));
+    success(res);
+    yield put(setLoading(false));
+  } catch (error) {
+    yield put(setError(error.message));
+  }
+}
 
 export default function* lessonsSaga() {
   yield takeLatest(types.TABLE_TEACHER_LESSONS_FETCH_DATA, fetchData);
+  yield takeLatest(types.TEACHER_START_LESSONS, startLesson);
 }

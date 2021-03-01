@@ -31,6 +31,7 @@ function* createLesson({ payload, success }) {
     const res = yield lesson.createLesson(payload);
     yield put(setError(''));
     success(res.data);
+    yield put(setLoading(false));
   } catch (error) {
     yield put(setError(error.message));
   }
