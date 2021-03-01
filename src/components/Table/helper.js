@@ -25,7 +25,7 @@ export const headerMaker = (data) => data
     if (type === 'start') {
       return {
         ...rest,
-        Cell: ({ cell: { value } }) => <StartCell {...value} />
+        Cell: ({ cell: { value } }) => <StartCell {...value} rest={rest} />
       };
     }
     if (type === 'download') {
