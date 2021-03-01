@@ -13,8 +13,7 @@ import Typography from './Typography';
 import TextArea from '../Forms/Inputs/TextArea';
 import Color from '../Color';
 import Switch from '../Forms/Switch';
-import DatePicker from '../Forms/Inputs/DatePicker';
-import DatePickers from './Inputs/DatePickers';
+import { DatePicker, SingleDatePicker, CustomDatePickerV2 } from '../Forms/Inputs';
 import { SingleDropdown } from '../Forms/DropDown';
 
 export default () => {
@@ -81,23 +80,31 @@ export default () => {
         options={single}
         white
       />
-      <div>
-        <h4>Date pickers</h4>
-        <DatePickers />
-      </div>
       <h1>DatePicker</h1>
-      <div style={{ width: '200px' }}>
-
+      <div style={{ width: '500px' }}>
         <DatePicker
           right
           placeholder="Date"
-          name="rangeDate"
+          name="rangeDate1"
           value={date}
           change={(value) => setDate(value)}
-          showTimePicker
+          showTimePicker={false}
           dateFormat="YYYY-MM-DD"
           date={date}
           white
+        />
+        <SingleDatePicker
+          value={date}
+          showTimeSelect
+          placeholder="Date"
+          name="rangeDate2"
+          onChange={(value) => setDate(value)}
+        />
+        <CustomDatePickerV2
+          value={date}
+          placeholder="Date"
+          name="rangeDate3"
+          onChange={(value) => setDate(value)}
         />
       </div>
       <h1>Switch</h1>

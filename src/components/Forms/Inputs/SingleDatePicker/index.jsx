@@ -13,16 +13,19 @@ const SingleDatePicker = ({
   helperText,
   type,
   size,
+  showTimeSelect,
   ...props
 }) => (
   <Container type={type}>
     <DatePickerContainer
+      showTimeSelect={showTimeSelect}
       placeholderText={placeholder}
       selected={value}
       onChange={onChange}
       customInput={
         <InputCustom type={type || 'button'} style={style} white={white} placeholder={placeholder} />
       }
+      timeClassName={(time) => (time.getHours() > 12 ? 'text-success' : 'text-error')}
       {...props}
     />
     <Helper type={type} size={size}>
