@@ -3,7 +3,6 @@ import React from 'react';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
-import { useHideModal } from '../../../hooks/modal';
 import { createLesson } from '../../../redux/modules/admin/groups/actions';
 import CreateLesson from '../../../components/Groups/CreateLesson';
 
@@ -28,7 +27,6 @@ const handleCreate = (id) => {
         }
         return alert('Something went Wrong!');
       }));
-      dispatch(useHideModal());
     }
   });
   return { formik };
