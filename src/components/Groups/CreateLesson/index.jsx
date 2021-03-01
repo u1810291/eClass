@@ -3,24 +3,24 @@ import React, { useState } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { Container, Title, Body } from './style';
-import { CustomDatePickerV2 } from '../../Forms/Inputs';
+import { TimePicker } from '../../Forms/Inputs';
 import { PrimaryButton } from '../../Buttons';
 
 const CreateLesson = ({ handleCreate, title }) => {
   const { formik } = handleCreate();
-  const [date, setDate] = useState('');
+  const [date, setDate] = useState();
   return (
     <Container>
       <Title className={classNames('heading-3')}>{title}</Title>
       <Body onSubmit={formik.handleSubmit}>
-        <CustomDatePickerV2
+        <TimePicker
           name="start_date"
           placeholder="Start Date"
           value={date}
-          type={formik.touched.date_of_birth
-            && formik.errors.date_of_birth && 'error'}
+          type={formik.touched.start_date
+            && formik.errors.start_date && 'error'}
           size="large"
-          helperText={formik.errors.date_of_birth}
+          helperText={formik.errors.start_date}
           onChange={(e) => {
             setDate(e);
             formik.setFieldValue('start_date', e);

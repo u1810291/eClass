@@ -25,15 +25,12 @@ function* fetchData({ payload }) {
   }
 }
 
-function* createLesson({ payload }) {
+function* createLesson({ payload, success }) {
   yield put(setLoading(true));
   try {
-    console.log(payload);
-    const data = dataSelector(payload);
-    const res = yield lesson.createLesson(data);
-    console.log(res);
+    const res = yield lesson.createLesson(payload);
     yield put(setError(''));
-    yield put(setData(res.data));
+    success(res.data);
   } catch (error) {
     yield put(setError(error.message));
   }
