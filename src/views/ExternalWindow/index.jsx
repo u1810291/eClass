@@ -22,7 +22,6 @@ const ExternalWindow = (props) => {
     }
     return null;
   }, [container]);
-
   // eslint-disable-next-line react/jsx-props-no-spreading
   return container && createPortal(<MeetingWindow {...props} />, container);
 };
