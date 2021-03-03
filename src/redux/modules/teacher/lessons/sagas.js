@@ -10,7 +10,7 @@ import {
   setLoading
 } from './actions';
 
-import { dataSelector } from './selectors';
+import { dataSelector, startLessonSelector } from './selectors';
 
 function* fetchData({ payload }) {
   try {
@@ -24,20 +24,21 @@ function* fetchData({ payload }) {
     yield put(setTotal(total));
     yield put(setLoading(false));
   } catch (error) {
-    yield put(setError(error.message));
+    yield put(setError(error.response.data.error_message));
   }
 }
 function* startLesson({ payload }) {
   try {
-    yield put(setLoading(true));
     console.log(payload);
     const res = yield service.startLesson(payload);
+    const { data } = startLessonSelector(res.data.content);
     yield put(setError(''));
     console.log(res);
-    success(res);
-    yield put(setLoading(false));
+    success(data);
   } catch (error) {
-    console.log(error);
+    // eslint-disable-next-line no-alert
+    alert(error.response.data.error_message);
+    console.log(error.response.data.error_message);
   }
 }
 
