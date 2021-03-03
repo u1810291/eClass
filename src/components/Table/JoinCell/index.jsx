@@ -8,7 +8,9 @@ import { Container, Content, Empty } from './style';
 import { PrimaryButton } from '../../Buttons';
 
 const nameClass = classNames('body-medium', 'weight-medium', 'text-black-800');
-const LinkCell = ({ join }) => {
+const LinkCell = ({ data }) => {
+  console.log(data);
+  const join = data.link.join_url;
   const history = useHistory();
   return (
     <Container>
