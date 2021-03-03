@@ -20,7 +20,7 @@ function* getCountries() {
     yield put(setCountries(data));
   } catch (error) {
     console.log(error);
-    yield put(setError(error.message));
+    yield put(setError(error.response.data.error_message));
   }
 }
 
@@ -32,7 +32,7 @@ function* getCities() {
     yield put(setCities(data));
   } catch (error) {
     console.log(error);
-    yield put(setError(error.message));
+    yield put(setError(error.response.data.error_message));
   }
 }
 
@@ -44,7 +44,7 @@ function* getReasons() {
     yield put(setReasons(data));
   } catch (error) {
     console.log(error);
-    yield put(setError(error.message));
+    yield put(setError(error.response.data.error_message));
   }
 }
 
