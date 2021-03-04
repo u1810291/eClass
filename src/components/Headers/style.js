@@ -15,6 +15,7 @@ export const LocationIcon = styled(IconLocation)`
 export const Right = styled.div`
   display: grid;
   grid-gap: 10px;
+  grid-template-columns: 1fr 1fr;
 `;
 // Buttons, and its icons
 export const FilterIcon = styled(IconFilter)`
