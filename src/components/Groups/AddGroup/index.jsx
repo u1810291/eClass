@@ -9,41 +9,41 @@ import { dropdownOptions, languages } from '../../../data/dropdown';
 
 import Card from '../../Card';
 
-export default (formik) => {
+export default ({ formik }) => {
   const [date, setDate] = useState(new Date());
+  console.log(formik);
   return (
     <Container>
       <Card>
         <Body>
           <Header>
             <NormalInput
-              placeholder="Group name"
-              value={formik.values.name}
-              type={formik.touched.name
-                && formik.errors.name && 'error'}
-              helperText={formik.touched.name && formik.errors.name && 'error'}
-              onChange={(e) => formik.setFieldValue('name', e.tartget.value)}
-              name="name"
               size="large"
+              placeholder="Group name"
+              type={formik.touched.name && formik.errors.name && 'error'}
+              helperText={formik.touched.name
+                     && formik.errors.name && formik.errors.name}
+              value={formik.values.name}
+              onChange={(e) => formik.setFieldValue('name', e.target.value)}
+              name="name"
             />
             <NormalInput
               placeholder="Official name"
-              value={formik.values.official_name}
-              type={formik.touched.official_name
-                && formik.errors.official_name && 'error'}
+              type={formik.touched.official_name && formik.errors.official_name && 'error'}
               helperText={formik.touched.official_name
-                && formik.errors.official_name && 'error'}
-              onChange={(e) => formik.setFieldValue('official_name', e.tartget.value)}
+                     && formik.errors.official_name && formik.errors.official_name}
+              value={formik.values.official_name}
+              onChange={(e) => formik.setFieldValue('official_name', e.target.value)}
               name="official_name"
               size="large"
             />
             <NormalInput
               placeholder="Description"
+              type={formik.touched.description && formik.errors.description && 'error'}
+              helperText={formik.touched.description
+                     && formik.errors.description && formik.errors.description}
               value={formik.values.description}
-              type={formik.touched.description
-                && formik.errors.description && 'error'}
-              helperText={formik.touched.description && formik.errors.description && 'error'}
-              onChange={(e) => formik.setFieldValue('description', e.tartget.value)}
+              onChange={(e) => formik.setFieldValue('description', e.target.value)}
               name="description"
               size="large"
             />
@@ -88,42 +88,42 @@ export default (formik) => {
             />
             <NormalInput
               placeholder="Percent for teacher"
+              type={formik.touched.salary_percent && formik.errors.salary_percent && 'error'}
+              helperText={formik.touched.salary_percent
+                     && formik.errors.salary_percent && formik.errors.salary_percent}
               value={formik.values.salary_percent}
-              type={formik.touched.salary_percent
-                && formik.errors.salary_percent && 'error'}
-              helperText={formik.touched.salary_percent && formik.errors.salary_percent && 'error'}
-              onChange={(e) => formik.setFieldValue('salary_percent', e.tartget.value)}
+              onChange={(e) => formik.setFieldValue('salary_percent', e.target.value)}
               name="salary_percent"
               size="large"
             />
             <NormalInput
               placeholder="Number of room"
+              type={formik.touched.official_name && formik.errors.official_name && 'error'}
+              helperText={formik.touched.official_name
+                     && formik.errors.official_name && formik.errors.official_name}
               value={formik.values.official_name}
-              type={formik.touched.official_name
-                && formik.errors.official_name && 'error'}
-              helperText={formik.touched.official_name && formik.errors.official_name && 'error'}
-              onChange={(e) => formik.setFieldValue('official_name', e.tartget.value)}
+              onChange={(e) => formik.setFieldValue('official_name', e.target.value)}
               name="official_name"
               size="large"
             />
             <NormalInput
               placeholder="Price for one lesson"
+              type={formik.touched.price && formik.errors.price && 'error'}
+              helperText={formik.touched.price
+                     && formik.errors.price && formik.errors.price}
               value={formik.values.price}
-              type={formik.touched.price
-                && formik.errors.price && 'error'}
-              helperText={formik.touched.price && formik.errors.price && 'error'}
-              onChange={(e) => formik.setFieldValue('price', e.tartget.value)}
+              onChange={(e) => formik.setFieldValue('price', e.target.value)}
               name="price"
               size="large"
             />
             <NormalInput
               label="Price for one lesson with discount"
               placeholder="Price for one lesson with discount"
+              type={formik.touched.price_with_discount && formik.errors.price_with_discount && 'error'}
+              helperText={formik.touched.price_with_discount
+                     && formik.errors.price_with_discount && formik.errors.price_with_discount}
               value={formik.values.price_with_discount}
-              type={formik.touched.price_with_discount
-                && formik.errors.price_with_discount && 'error'}
-              helperText={formik.touched.price_with_discount && formik.errors.price_with_discount && 'error'}
-              onChange={(e) => formik.setFieldValue('price_with_discount', e.tartget.value)}
+              onChange={(e) => formik.setFieldValue('price_with_discount', e.target.value)}
               name="price_with_discount"
               size="large"
             />
