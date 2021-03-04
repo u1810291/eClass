@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import {
   Container, Body, Header, Footer, Main
 } from './style';
-import { NormalInput } from '../../Forms/Inputs';
+import { NormalInput, CustomDatePickerV2 } from '../../Forms/Inputs';
 import Dropdown from '../../Forms/Dropdowns';
 import { dropdownOptions } from '../../../data/dropdown';
 
@@ -11,6 +11,8 @@ import Card from '../../Card';
 
 export default () => {
   const [commonDropdown, setCommonDropdown] = useState(undefined);
+  const [date, setDate] = useState(undefined);
+
   return (
     <Container>
       <Card>
@@ -48,7 +50,20 @@ export default () => {
             <NormalInput label="Price for one lesson with discount" placeholder="Price for one lesson with discount" />
           </Main>
           <Footer>
-            Footer
+            <NormalInput placeholder="Duration" />
+
+            <CustomDatePickerV2
+              value={date}
+              placeholder="Date"
+              name="rangeDate3"
+              onChange={(value) => setDate(value)}
+            />
+            <CustomDatePickerV2
+              value={date}
+              placeholder="Date"
+              name="rangeDate3"
+              onChange={(value) => setDate(value)}
+            />
           </Footer>
         </Body>
       </Card>
