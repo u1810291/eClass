@@ -12,6 +12,7 @@ import Connection from '../views/Student/Connection';
 import Schedule from '../views/Shedule';
 import Chat from '../views/Chat';
 import Groups from '../views/Admin/Groups';
+import AddGroup from '../views/Admin/Groups/AddGroup';
 import Lesson from '../views/Admin/Lesson';
 import Users from '../views/Admin/Users';
 import StudentAdd from '../views/Admin/Users/Add/Student';
@@ -196,7 +197,15 @@ export default [
     component: Groups,
     icon: 'classess2',
     title: 'Groups',
-    children: []
+    children: [
+      {
+        path: '/add',
+        title: 'Admin',
+        exact: true,
+        hidden: true,
+        component: AddGroup
+      }
+    ]
   },
   {
     exact: true,
