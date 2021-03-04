@@ -9,7 +9,7 @@ import { dropdownOptions, languages } from '../../../data/dropdown';
 
 import Card from '../../Card';
 
-export default ({ formik }) => {
+export default (formik) => {
   const [date, setDate] = useState(new Date());
   return (
     <Container>
@@ -31,7 +31,8 @@ export default ({ formik }) => {
               value={formik.values.official_name}
               type={formik.touched.official_name
                 && formik.errors.official_name && 'error'}
-              helperText={formik.toucher.official_name && formik.errors.official_name && 'error'}
+              helperText={formik.touched.official_name
+                && formik.errors.official_name && 'error'}
               onChange={(e) => formik.setFieldValue('official_name', e.tartget.value)}
               name="official_name"
               size="large"
@@ -41,7 +42,7 @@ export default ({ formik }) => {
               value={formik.values.description}
               type={formik.touched.description
                 && formik.errors.description && 'error'}
-              helperText={formik.toucher.description && formik.errors.description && 'error'}
+              helperText={formik.touched.description && formik.errors.description && 'error'}
               onChange={(e) => formik.setFieldValue('description', e.tartget.value)}
               name="description"
               size="large"
@@ -90,7 +91,7 @@ export default ({ formik }) => {
               value={formik.values.salary_percent}
               type={formik.touched.salary_percent
                 && formik.errors.salary_percent && 'error'}
-              helperText={formik.toucher.salary_percent && formik.errors.salary_percent && 'error'}
+              helperText={formik.touched.salary_percent && formik.errors.salary_percent && 'error'}
               onChange={(e) => formik.setFieldValue('salary_percent', e.tartget.value)}
               name="salary_percent"
               size="large"
@@ -100,7 +101,7 @@ export default ({ formik }) => {
               value={formik.values.official_name}
               type={formik.touched.official_name
                 && formik.errors.official_name && 'error'}
-              helperText={formik.toucher.official_name && formik.errors.official_name && 'error'}
+              helperText={formik.touched.official_name && formik.errors.official_name && 'error'}
               onChange={(e) => formik.setFieldValue('official_name', e.tartget.value)}
               name="official_name"
               size="large"
@@ -110,7 +111,7 @@ export default ({ formik }) => {
               value={formik.values.price}
               type={formik.touched.price
                 && formik.errors.price && 'error'}
-              helperText={formik.toucher.price && formik.errors.price && 'error'}
+              helperText={formik.touched.price && formik.errors.price && 'error'}
               onChange={(e) => formik.setFieldValue('price', e.tartget.value)}
               name="price"
               size="large"
@@ -121,7 +122,7 @@ export default ({ formik }) => {
               value={formik.values.price_with_discount}
               type={formik.touched.price_with_discount
                 && formik.errors.price_with_discount && 'error'}
-              helperText={formik.toucher.price_with_discount && formik.errors.price_with_discount && 'error'}
+              helperText={formik.touched.price_with_discount && formik.errors.price_with_discount && 'error'}
               onChange={(e) => formik.setFieldValue('price_with_discount', e.tartget.value)}
               name="price_with_discount"
               size="large"
