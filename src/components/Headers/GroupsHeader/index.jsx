@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import {
-  Container, Body, TitleWrapper
+  Container, Body, TitleWrapper, Right
 } from '../style';
 import { DatePicker } from '../../Forms/Inputs';
 import { PrimaryButton } from '../../Buttons';
@@ -19,7 +19,7 @@ export default ({
           <TitleWrapper.Title>Groups</TitleWrapper.Title>
           <TitleWrapper.Clear>Celar filter</TitleWrapper.Clear>
         </TitleWrapper>
-        <div>
+        <Right>
           <PrimaryButton title="Add group" onClick={() => history.push('/groups/add')} />
           <DatePicker
             placeholder="Date"
@@ -32,7 +32,7 @@ export default ({
             white
             right={false}
           />
-        </div>
+        </Right>
       </Body>
     </Container>
   );
