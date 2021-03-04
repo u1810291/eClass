@@ -43,7 +43,6 @@ export default () => {
               onChange={setCommonDropdown}
               size="large"
             />
-
             <NormalInput placeholder="Percent for teacher" />
             <NormalInput placeholder="Number of room" />
             <NormalInput placeholder="Price for one lesson" />
@@ -51,7 +50,6 @@ export default () => {
           </Main>
           <Footer>
             <NormalInput placeholder="Duration" />
-
             <CustomDatePickerV2
               value={date}
               placeholder="Date"
