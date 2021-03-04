@@ -10,3 +10,8 @@ export const createLesson = (payload, success) => ({
   payload,
   success
 });
+export const addGroup = (payload, success) => ({
+  type: types.TABLE_ADMIN_GROUPS_CREATE_GROUP,
+  payload,
+  success
+});
