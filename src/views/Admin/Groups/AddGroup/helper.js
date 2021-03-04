@@ -5,7 +5,7 @@ import { addGroup } from '../../../../redux/modules/admin/groups/actions';
 
 export const usingFormik = () => {
   const dispatch = useDispatch();
-  const validationSchema = Yup.object.shape({
+  const validationSchema = Yup.object().shape({
     name: Yup.string().required('Required'),
     official_name: Yup.string().required('Required'),
     description: Yup.string().required('Required'),
