@@ -5,7 +5,7 @@ import Table from '../../../components/Table';
 import { Container } from './style';
 import { fetchData } from '../../../redux/modules/admin/groups/actions';
 import { groupsHeader } from '../../../redux/modules/table/common';
-import LessonsHeader from '../../../components/Headers/LessonsHeader';
+import GroupsHeader from '../../../components/Headers/GroupsHeader';
 import TableError from '../../../components/Table/Error';
 import { headerMaker } from '../../../components/Table/helper';
 import { toolTips } from './helper';
@@ -62,7 +62,7 @@ export default () => {
 
   return (
     <Container>
-      <LessonsHeader
+      <GroupsHeader
         setSearch={setSearch}
         search={search}
         setDate={setDate}

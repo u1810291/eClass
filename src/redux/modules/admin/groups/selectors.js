@@ -40,3 +40,30 @@ export function dataSelector(lesson) {
   }));
   return { total: total_elements, data: filtered };
 }
+
+export function addGroupSelector(data) {
+  const filtered = {
+    name: data.name,
+    official_name: data.official_name,
+    description: data.description,
+    group_lang: data.lang,
+    salary_percent: data.salary_percent,
+    price: data.price,
+    price_with_discount: data.price_with_discount,
+    lesson_duration: data.lesson_duration,
+    teacher_id: data.teacher_id,
+    subject_id: data.subject_id,
+    group_names: data.group_names.map((el) => ({
+      lang: el.lang,
+      name: el.name,
+      description: el.description
+    })),
+    study_days: data.study_days.map((el) => ({
+      day_of_week: el.day_of_week,
+      start_time: el.start_time
+    })),
+    start_date: data.start_date,
+    finish_date: data.finish_date
+  };
+  return { data: filtered };
+}
