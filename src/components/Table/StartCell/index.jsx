@@ -11,7 +11,6 @@ const nameClass = classNames('body-medium', 'weight-medium', 'text-black-800');
 const LinkCell = ({ data }) => {
   const history = useHistory();
   const { start_url } = data.link;
-
   return (
     <Container>
       <Content className={nameClass}>
