@@ -11,7 +11,6 @@ import Card from '../../Card';
 
 export default ({ formik }) => {
   const [date, setDate] = useState(new Date());
-  console.log(formik);
   return (
     <Container>
       <Card>
