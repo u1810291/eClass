@@ -1,6 +1,6 @@
+/* eslint-disable no-alert */
 /* eslint-disable no-console */
 import { takeLatest, put } from 'redux-saga/effects';
-import { success } from '../../../../components/Forms/Inputs/style';
 import types from '../../../../constants/action-types';
 import service from '../../../../services/teacher/lesson';
 import {
@@ -10,7 +10,7 @@ import {
   setLoading
 } from './actions';
 
-import { dataSelector } from './selectors';
+import { dataSelector, startLessonSelector } from './selectors';
 
 function* fetchData({ payload }) {
   try {
@@ -24,24 +24,22 @@ function* fetchData({ payload }) {
     yield put(setTotal(total));
     yield put(setLoading(false));
   } catch (error) {
-    yield put(setError(error.message));
+    yield put(setError(error.response.data.error_message));
   }
 }
-function* startLesson({ payload }) {
+function* startLesson({ payload, success }) {
   try {
-    yield put(setLoading(true));
-    console.log(payload);
     const res = yield service.startLesson(payload);
-    yield put(setError(''));
-    console.log(res);
-    success(res);
-    yield put(setLoading(false));
+    const data = startLessonSelector(res.data);
+    success(data);
   } catch (error) {
-    console.log(error);
+    // eslint-disable-next-line no-alert
+    alert(error.response.data.error_message);
+    console.log(error.response.data.error_message);
   }
 }
 
-export default function* lessonsSaga() {
+export default function* teacherLessonsSaga() {
   yield takeLatest(types.TABLE_TEACHER_LESSONS_FETCH_DATA, fetchData);
   yield takeLatest(types.TEACHER_START_LESSONS, startLesson);
 }

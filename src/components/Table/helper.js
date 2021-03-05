@@ -19,13 +19,13 @@ export const headerMaker = (data) => data
     if (type === 'join') {
       return {
         ...rest,
-        Cell: ({ cell: { value } }) => <JoinCell {...value} />
+        Cell: ({ cell }) => <JoinCell data={cell.row.original} />
       };
     }
     if (type === 'start') {
       return {
         ...rest,
-        Cell: ({ cell: { value } }) => <StartCell {...value} />
+        Cell: ({ cell }) => <StartCell data={cell.row.original} />
       };
     }
     if (type === 'download') {

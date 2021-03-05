@@ -21,7 +21,7 @@ function* fetchData({ payload }) {
     yield put(setTotal(total));
     yield put(setLoading(false));
   } catch (error) {
-    yield put(setError(error.message));
+    yield put(setError(error.response.data.error_message));
   }
 }
 
@@ -33,11 +33,22 @@ function* createLesson({ payload, success }) {
     success(res.data);
     yield put(setLoading(false));
   } catch (error) {
-    yield put(setError(error.message));
+    yield put(setError(error.response.data.error_message));
+  }
+} function* addGroup({ payload, success }) {
+  try {
+    yield put(setLoading(true));
+    const res = yield lesson.createLesson(payload);
+    yield put(setError(''));
+    success(res.data);
+    yield put(setLoading(false));
+  } catch (error) {
+    yield put(setError(error.response.data.error_message));
   }
 }
 
-export default function* lessonsSaga() {
+export default function* adminGroupsSaga() {
   yield takeLatest(types.TABLE_ADMIN_GROUPS_FETCH_DATA, fetchData);
   yield takeLatest(types.TABLE_ADMIN_GROUPS_CREATE_LESSON, createLesson);
+  yield takeLatest(types.TABLE_ADMIN_GROUPS_CREATE_GROUP, addGroup);
 }

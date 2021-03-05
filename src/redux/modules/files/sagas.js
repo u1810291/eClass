@@ -7,29 +7,29 @@ import {
   setLoading
 } from './actions';
 
-import { dataSelector } from './selectors';
+import { dataSelector, getFilesSelector } from './selectors';
 
 function* getFiles() {
   try {
     const res = yield service.getAll();
-    const { data } = dataSelector(res.data);
+    const { data } = getFilesSelector(res.data);
     yield put(setError(''));
     yield put(setData(data));
     yield put(setLoading(false));
   } catch (error) {
-    yield put(setError(error.message));
+    yield put(setError(error.response.data.error_message));
   }
 }
 
-function* uploadFile({ payload }) {
+function* uploadFile({ payload, success }) {
   try {
-    const data = dataSelector(payload.values);
+    const { data } = dataSelector(payload.values);
     const res = yield service.uploadFile(data);
     yield put(setError(''));
-    yield put(setData(res.data));
-    yield put(setLoading(false));
+    success(res);
   } catch (error) {
-    yield put(setError(error.message));
+    // eslint-disable-next-line no-alert
+    alert(error.response.data.error_message);
   }
 }
 
@@ -40,7 +40,7 @@ function* deleteFile(payload) {
     yield put(setError(''));
     yield put(setLoading(false));
   } catch (error) {
-    yield put(setError(error.message));
+    yield put(setError(error.response.data.error_message));
   }
 }
 
@@ -66,7 +66,7 @@ function* getFileById({ payload }) {
     yield put(setLoading(false));
   } catch (error) {
     // console.log(error);
-    yield put(setError(error.message));
+    yield put(setError(error.response.data.error_message));
   }
 }
 

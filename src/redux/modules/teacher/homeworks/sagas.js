@@ -20,7 +20,7 @@ function* fetchData({ payload }) {
     yield put(setTotal(total));
     yield put(setLoading(false));
   } catch (error) {
-    yield put(setError(error.message));
+    yield put(setError(error.response.data.error_message));
   }
 }
 

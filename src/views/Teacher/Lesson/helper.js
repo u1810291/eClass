@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import AddHomework from '../../../components/Lesson/AddHomework';
 import { uploadFile } from '../../../redux/modules/files/actions';
 import { startLesson } from '../../../redux/modules/teacher/lessons/actions';
+import MeetingWindow from '../../../components/MeetingWindow';
 
 const handleAdd = (id) => {
   const dispatch = useDispatch();
@@ -21,6 +22,7 @@ const handleAdd = (id) => {
       desc: '',
       from_date: '',
       till_date: '',
+      type: 'HOME_WORK',
       file: []
     },
     validationSchema,
@@ -40,9 +42,13 @@ export const toolTips = [
   {
     name: 'Start',
     icon: 'payment',
-    onClick: (id, { dispatch }) => {
+    onClick: (id, { dispatch, showFullScreen }) => {
       dispatch(startLesson(id, (response) => {
         if (response) { alert('Lesson started!'); }
+        showFullScreen({
+          title: 'Zoom Meeting',
+          body: () => <MeetingWindow data={response} />
+        });
         return response;
       }));
     }

@@ -42,3 +42,39 @@ export function dataSelector(lesson) {
   }));
   return { total: total_elements, data: filtered };
 }
+
+export function startLessonSelector(data) {
+  const filtered = {
+    attendances: data.attendances.map((el) => ({
+      missed: el.missed,
+      student: {
+        full_name: el.student.full_name,
+        id: el.student.id,
+        username: el.student.username
+      }
+    })),
+    canceled: data.canceled,
+    duration: data.duration,
+    finished: data.finished,
+    group: {
+      description: data.group.description,
+      id: data.group.id,
+      name: data.group.name
+    },
+    id: data.id,
+    rescheduled: data.rescheduled,
+    scheduled_start: data.scheduled_start,
+    started: data.started,
+    started_at: data.started_at,
+    subject: {
+      id: data.subject.id,
+      name: data.subject.name
+    },
+    teacher: {
+      full_name: data.teacher.full_name,
+      id: data.teacher.id,
+      username: data.teacher.username
+    }
+  };
+  return { data: filtered };
+}

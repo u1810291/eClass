@@ -20,10 +20,10 @@ function* fetchData() {
     yield put(setData(data));
     yield put(setLoading(false));
   } catch (error) {
-    yield put(setError(error.message));
+    yield put(setError(error.response.data.error_message));
   }
 }
 
-export default function* lessonsSaga() {
+export default function* adminUsersSaga() {
   yield takeLatest(types.TABLE_ADMIN_STUDENTS_FETCH_DATA, fetchData);
 }

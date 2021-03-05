@@ -93,7 +93,7 @@ export const teacherLessonsHeader = [
     accessor: 'link',
     type: 'start',
     disableSortBy: true,
-    SubCell: ['meeting_id', 'meeting_password'],
+    SubCell: 'meeting_id',
     show: true
   }
 ];
@@ -102,18 +102,21 @@ export const adminLessonsHeader = [
     id: 1,
     Header: 'Date',
     accessor: 'rescheduled',
+    disableSortBy: true,
     show: true
   },
   {
     id: 2,
     Header: 'Scheduled start',
     accessor: 'scheduled_start',
+    disableSortBy: true,
     show: true
   },
   {
     id: 3,
     Header: 'Time to start',
     accessor: 'time_to_start',
+    disableSortBy: true,
     show: true
   }
 ];
@@ -123,12 +126,14 @@ export const usersHeader = [
     id: 1,
     Header: 'ID',
     accessor: 'id',
+    disableSortBy: true,
     show: true
   },
   {
     id: 2,
     Header: 'Full name',
     accessor: 'first_name',
+    disableSortBy: true,
     show: true
   },
   {
@@ -136,6 +141,7 @@ export const usersHeader = [
     Header: 'Email',
     accessor: 'email',
     type: 'email',
+    disableSortBy: true,
     show: true
   },
   {
@@ -144,6 +150,7 @@ export const usersHeader = [
     accessor: 'dateOfBirth',
     align: 'end',
     suffix: 'pcs',
+    disableSortBy: true,
     show: true
   },
   {
@@ -151,6 +158,7 @@ export const usersHeader = [
     Header: 'Phones',
     accessor: 'school_number',
     align: 'end',
+    disableSortBy: true,
     show: true
   },
   {
@@ -158,6 +166,7 @@ export const usersHeader = [
     Header: 'Address',
     accessor: 'address',
     align: 'end',
+    disableSortBy: true,
     show: true
   }];
 
@@ -166,6 +175,7 @@ export const adminHomeworksHeader = [{
   Header: 'Phones',
   accessor: 'school_number',
   align: 'end',
+  disableSortBy: true,
   show: true,
   Cell: ({ row }) => (
     // eslint-disable-next-line react/jsx-props-no-spreading
@@ -179,6 +189,7 @@ export const adminHomeworksHeader = [{
   accessor: 'rescheduled',
   align: 'end',
   show: true,
+  disableSortBy: true,
   Header: 'Rescheduled'
 },
 {
@@ -186,6 +197,7 @@ export const adminHomeworksHeader = [{
   Header: 'Scheduled start',
   accessor: 'scheduled_start',
   align: 'end',
+  disableSortBy: true,
   show: true
 },
 {
@@ -193,6 +205,7 @@ export const adminHomeworksHeader = [{
   Header: 'Time to start',
   accessor: 'time_to_start',
   align: 'end',
+  disableSortBy: true,
   show: true
 }
 ];
@@ -202,6 +215,7 @@ export const studentHomeworksHeader = [
     Header: 'Date',
     accessor: 'date',
     id: 1,
+    disableSortBy: true,
     align: 'end',
     show: true
   },
@@ -210,6 +224,7 @@ export const studentHomeworksHeader = [
     accessor: 'subject',
     id: 2,
     align: 'end',
+    disableSortBy: true,
     show: true
   },
   {
@@ -217,6 +232,7 @@ export const studentHomeworksHeader = [
     accessor: 'description',
     id: 3,
     align: 'end',
+    disableSortBy: true,
     show: true
   },
   {
@@ -224,6 +240,7 @@ export const studentHomeworksHeader = [
     accessor: 'group_name',
     id: 4,
     align: 'end',
+    disableSortBy: true,
     show: true,
     SubCell: () => ({
       accessor: 'group'
@@ -233,6 +250,7 @@ export const studentHomeworksHeader = [
     Header: 'File',
     accessor: 'files',
     id: 5,
+    disableSortBy: true,
     align: 'end',
     show: true,
     type: 'download'
@@ -243,6 +261,7 @@ export const studentHomeworksHeader = [
     id: 6,
     align: 'end',
     type: 'upload',
+    disableSortBy: true,
     show: true
   },
   {
@@ -250,6 +269,7 @@ export const studentHomeworksHeader = [
     accessor: 'deadline',
     id: 7,
     align: 'end',
+    disableSortBy: true,
     show: true
   }
 ];
@@ -260,6 +280,7 @@ export const teacherHomeworksHeader = [
     accessor: 'date',
     id: 1,
     align: 'end',
+    disableSortBy: true,
     show: true
   },
   {
@@ -267,6 +288,7 @@ export const teacherHomeworksHeader = [
     accessor: 'subject',
     id: 2,
     align: 'end',
+    disableSortBy: true,
     show: true
   },
   {
@@ -274,6 +296,7 @@ export const teacherHomeworksHeader = [
     accessor: 'description',
     id: 3,
     align: 'end',
+    disableSortBy: true,
     show: true
   },
   {
@@ -281,6 +304,7 @@ export const teacherHomeworksHeader = [
     accessor: 'group_name',
     id: 4,
     align: 'end',
+    disableSortBy: true,
     show: true,
     SubCell: () => ({
       accessor: 'group'
@@ -291,6 +315,7 @@ export const teacherHomeworksHeader = [
     accessor: 'files',
     id: 5,
     align: 'end',
+    disableSortBy: true,
     show: true,
     type: 'download'
   },
@@ -299,6 +324,7 @@ export const teacherHomeworksHeader = [
     accessor: 'teacher',
     id: 6,
     align: 'end',
+    disableSortBy: true,
     type: 'upload',
     show: true
   },
@@ -307,6 +333,7 @@ export const teacherHomeworksHeader = [
     accessor: 'deadline',
     id: 7,
     align: 'end',
+    disableSortBy: true,
     show: true
   }
 ];
@@ -317,12 +344,14 @@ export const groupsHeader = [
     accessor: 'description',
     id: 1,
     align: 'end',
+    disableSortBy: true,
     show: true
   },
   {
     Header: 'Finish date',
     accessor: 'finish_date',
     id: 2,
+    disableSortBy: true,
     align: 'end',
     show: true
   },
@@ -331,6 +360,7 @@ export const groupsHeader = [
     accessor: 'start_date',
     id: 3,
     align: 'end',
+    disableSortBy: true,
     show: true
   },
   {
@@ -338,6 +368,7 @@ export const groupsHeader = [
     accessor: 'official_name',
     id: 4,
     align: 'end',
+    disableSortBy: true,
     show: true
   },
   {
@@ -345,9 +376,138 @@ export const groupsHeader = [
     accessor: 'teacher',
     id: 5,
     align: 'end',
+    disableSortBy: true,
     show: true,
     type: 'user'
   }
+];
+
+export const adminQuizesHeader = [{
+  id: 1,
+  Header: 'Rescheduled',
+  accessor: 'rescheduled',
+  align: 'end',
+  disableSortBy: true,
+  show: true
+},
+{
+  id: 2,
+  align: 'end',
+  disableSortBy: true,
+  show: true,
+  Header: 'Scheduled start',
+  accessor: 'scheduled_start'
+},
+{
+  id: 3,
+  align: 'end',
+  disableSortBy: true,
+  show: true,
+  Header: 'Time to start',
+  accessor: 'time_to_start'
+}
+];
+
+export const studentQuizesHeader = [{
+  id: 1,
+  align: 'end',
+  disableSortBy: true,
+  show: true,
+  Header: 'Group',
+  accessor: 'group'
+},
+{
+  id: 2,
+  align: 'end',
+  disableSortBy: true,
+  show: true,
+  Header: 'Group name',
+  accessor: 'group_name'
+},
+{
+  id: 3,
+  align: 'end',
+  disableSortBy: true,
+  show: true,
+  Header: 'Description',
+  accessor: 'description'
+},
+{
+  id: 4,
+  align: 'end',
+  disableSortBy: true,
+  show: true,
+  Header: 'Lesson',
+  accessor: 'lesson'
+},
+{
+  id: 5,
+  align: 'end',
+  disableSortBy: true,
+  show: true,
+  Header: 'Subject',
+  accessor: 'subject'
+},
+{
+  id: 6,
+  align: 'end',
+  disableSortBy: true,
+  show: true,
+  Header: 'Download',
+  type: 'download',
+  accessor: 'files'
+}
+];
+
+export const teacherQuizesHeader = [{
+  id: 1,
+  align: 'end',
+  disableSortBy: true,
+  show: true,
+  Header: 'Group',
+  accessor: 'group'
+},
+{
+  id: 2,
+  align: 'end',
+  disableSortBy: true,
+  show: true,
+  Header: 'Group name',
+  accessor: 'group_name'
+},
+{
+  id: 3,
+  align: 'end',
+  disableSortBy: true,
+  show: true,
+  Header: 'Description',
+  accessor: 'description'
+},
+{
+  id: 4,
+  align: 'end',
+  disableSortBy: true,
+  show: true,
+  Header: 'Lesson',
+  accessor: 'lesson'
+},
+{
+  id: 5,
+  align: 'end',
+  disableSortBy: true,
+  show: true,
+  Header: 'Subject',
+  accessor: 'subject'
+},
+{
+  id: 6,
+  align: 'end',
+  disableSortBy: true,
+  show: true,
+  Header: 'Download',
+  type: 'download',
+  accessor: 'files'
+}
 ];
 
 export const genericTypes = [
@@ -388,7 +548,15 @@ export const genericTypes = [
     headerName: 'logsHeader'
   },
   {
-    key: types.QUIZES,
-    headerName: 'quizesHeader'
+    key: types.ADMIN_QUIZES,
+    headerName: 'adminQuizesHeader'
+  },
+  {
+    key: types.TEACHER_QUIZES,
+    headerName: 'teacherQuizesHeader'
+  },
+  {
+    key: types.STUDENT_QUIZES,
+    headerName: 'studentQuizesHeader'
   }
 ];
