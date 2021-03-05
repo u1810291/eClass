@@ -14,15 +14,12 @@ function* fetchData() {
   yield put(setLoading(true));
   try {
     const res = yield service.getQuizes();
-    console.log(res);
     const { total, data } = dataSelector(res.data);
-    console.log(data);
     yield put(setError(''));
     yield put(setData(data));
     yield put(setTotal(total));
     yield put(setLoading(false));
   } catch (error) {
-    console.log(error);
     yield put(setError(error.response.data.error_message));
   }
 }

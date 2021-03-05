@@ -18,7 +18,6 @@ export default () => {
     loading, data, total, error
   } = useSelector((state) => state.teacherQuizesReducers);
 
-  console.log(data);
   const headerData = useSelector(({ tableReducer }) => tableReducer.teacherQuizesHeader);
   const header = useMemo(() => headerMaker(headerData), [headerData]);
   const [pageIndex, setPageIndex] = useState(0);
