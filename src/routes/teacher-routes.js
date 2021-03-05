@@ -2,7 +2,7 @@ import Examples from '../components/Examples';
 import Balance from '../views/Balance';
 import Homeworks from '../views/Teacher/Homeworks';
 import Profile from '../views/Profile';
-import Quiz from '../views/Quiz';
+import Quiz from '../views/Teacher/Quiz';
 import Grades from '../views/Student/Grades';
 import Attendance from '../views/Student/Attendance';
 import Payment from '../views/Student/Payment';

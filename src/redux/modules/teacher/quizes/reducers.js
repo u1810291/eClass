@@ -1,26 +1,26 @@
-import types from '../../../constants/action-types';
+import types from '../../../../constants/action-types';
 
 const defaultState = {
   data: [],
-  loading: true,
+  loading: false,
   total: 0,
   error: ''
 };
 
 const map = {
-  [types.TABLE_STUDENT_QUIZES_SET_LOADING]: (state, { payload }) => ({
+  [types.TABLE_TEACHER_QUIZES_SET_LOADING]: (state, { payload }) => ({
     ...state,
     loading: payload
   }),
-  [types.TABLE_STUDENT_QUIZES_SET_DATA]: (state, { payload }) => ({
+  [types.TABLE_TEACHER_QUIZES_SET_DATA]: (state, { payload }) => ({
     ...state,
     data: payload
   }),
-  [types.TABLE_STUDENT_QUIZES_SET_TOTAL]: (state, { payload }) => ({
+  [types.TABLE_TEACHER_QUIZES_SET_TOTAL]: (state, { payload }) => ({
     ...state,
     total: payload
   }),
-  [types.TABLE_STUDENT_QUIZES_ERROR]: (state, { payload }) => ({
+  [types.TABLE_TEACHER_QUIZES_ERROR]: (state, { payload }) => ({
     ...state,
     error: payload
   })

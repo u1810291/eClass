@@ -11,6 +11,12 @@ import Card from '../../Card';
 
 export default ({ formik }) => {
   const [date, setDate] = useState(new Date());
+  // const [groupNames, setGroupNames] = useState([{
+  //   lang: '',
+  //   name: '',
+  //   description: ''
+  // }]);
+  // formik.setFieldValue('group_names', groupNames);
   return (
     <Container>
       <Card>
@@ -46,7 +52,36 @@ export default ({ formik }) => {
               name="description"
               size="large"
             />
-
+            <NormalInput
+              size="large"
+              placeholder="Group name in russian"
+              type={formik.touched.name && formik.errors.name && 'error'}
+              helperText={formik.touched.name
+                     && formik.errors.name && formik.errors.name}
+              value={formik.values.name}
+              onChange={(e) => formik.setFieldValue('name', e.target.value)}
+              name="name"
+            />
+            <NormalInput
+              placeholder="Official name in russian"
+              type={formik.touched.official_name && formik.errors.official_name && 'error'}
+              helperText={formik.touched.official_name
+                     && formik.errors.official_name && formik.errors.official_name}
+              value={formik.values.official_name}
+              onChange={(e) => formik.setFieldValue('official_name', e.target.value)}
+              name="official_name"
+              size="large"
+            />
+            <NormalInput
+              placeholder="Description in russian"
+              type={formik.touched.description && formik.errors.description && 'error'}
+              helperText={formik.touched.description
+                     && formik.errors.description && formik.errors.description}
+              value={formik.values.description}
+              onChange={(e) => formik.setFieldValue('description', e.target.value)}
+              name="description"
+              size="large"
+            />
           </Header>
           <Main>
             <Dropdown

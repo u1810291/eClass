@@ -1,14 +1,14 @@
 import React, { useEffect, useMemo, useState } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
-import Table from '../../components/Table';
+import Table from '../../../components/Table';
 import { Container } from './style';
-import { fetchData } from '../../redux/modules/quizes/actions';
-import { headerMaker } from '../../components/Table/helper';
-import { studentQuizesHeader } from '../../redux/modules/table/common';
 
-import QuizesHeader from '../../components/Headers/QuizesHeader';
-import TableError from '../../components/Table/Error';
+import { fetchData } from '../../../redux/modules/teacher/quizes/actions';
+import { teacherLessonsHeader } from '../../../redux/modules/table/common';
+import QuizesHeader from '../../../components/Headers/QuizesHeader';
+import TableError from '../../../components/Table/Error';
+import { headerMaker } from '../../../components/Table/helper';
 
 export default () => {
   const { userInfo } = useSelector((state) => state.userReducer);
@@ -16,9 +16,9 @@ export default () => {
 
   const {
     loading, data, total, error
-  } = useSelector((state) => state.quizesReducers);
+  } = useSelector((state) => state.teacherQuizesReducers);
 
-  const headerData = useSelector(({ tableReducer }) => tableReducer.studentQuizesHeader);
+  const headerData = useSelector(({ tableReducer }) => tableReducer.teacherQuizesHeader);
   const header = useMemo(() => headerMaker(headerData), [headerData]);
   const [pageIndex, setPageIndex] = useState(0);
   const [pageSize, setPageSize] = useState(0);
@@ -34,7 +34,7 @@ export default () => {
     [date]
   );
   const sortQuery = useMemo(() => {
-    const found = sort && studentQuizesHeader.find(({ id }) => id === sort.id);
+    const found = sort && teacherLessonsHeader.find(({ id }) => id === sort.id);
     return found
       ? `&sort=${found},${sort.desc ? 'desc' : 'asc'}`
       : '';

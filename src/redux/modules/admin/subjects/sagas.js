@@ -1,7 +1,6 @@
 import { takeLatest, put } from 'redux-saga/effects';
 import types from '../../../../constants/action-types';
-import service from '../../../../services/admin/groups';
-import lesson from '../../../../services/admin/lesson';
+import service from '../../../../services/admin/subjects';
 import {
   setData,
   setError,
@@ -11,10 +10,10 @@ import {
 
 import { dataSelector } from './selectors';
 
-function* fetchData({ payload }) {
+function* fetchData() {
   try {
     yield put(setLoading(true));
-    const res = yield service.getAll(payload.query);
+    const res = yield service.getAll();
     const { total, data } = dataSelector(res.data);
     yield put(setError(''));
     yield put(setData(data));
@@ -25,20 +24,10 @@ function* fetchData({ payload }) {
   }
 }
 
-function* createLesson({ payload, success }) {
+function* addSubject({ payload, success }) {
   try {
     yield put(setLoading(true));
-    const res = yield lesson.createLesson(payload);
-    yield put(setError(''));
-    success(res.data);
-    yield put(setLoading(false));
-  } catch (error) {
-    yield put(setError(error.response.data.error_message));
-  }
-} function* addGroup({ payload, success }) {
-  try {
-    yield put(setLoading(true));
-    const res = yield lesson.createLesson(payload);
+    const res = yield service.createSubject(payload);
     yield put(setError(''));
     success(res.data);
     yield put(setLoading(false));
@@ -47,8 +36,7 @@ function* createLesson({ payload, success }) {
   }
 }
 
-export default function* adminGroupsSaga() {
+export default function* subjectsSaga() {
   yield takeLatest(types.TABLE_ADMIN_GROUPS_FETCH_DATA, fetchData);
-  yield takeLatest(types.TABLE_ADMIN_GROUPS_CREATE_LESSON, createLesson);
-  yield takeLatest(types.TABLE_ADMIN_GROUPS_CREATE_GROUP, addGroup);
+  yield takeLatest(types.TABLE_ADMIN_GROUPS_CREATE_GROUP, addSubject);
 }

@@ -382,6 +382,134 @@ export const groupsHeader = [
   }
 ];
 
+export const adminQuizesHeader = [{
+  id: 1,
+  Header: 'Rescheduled',
+  accessor: 'rescheduled',
+  align: 'end',
+  disableSortBy: true,
+  show: true
+},
+{
+  id: 2,
+  align: 'end',
+  disableSortBy: true,
+  show: true,
+  Header: 'Scheduled start',
+  accessor: 'scheduled_start'
+},
+{
+  id: 3,
+  align: 'end',
+  disableSortBy: true,
+  show: true,
+  Header: 'Time to start',
+  accessor: 'time_to_start'
+}
+];
+
+export const studentQuizesHeader = [{
+  id: 1,
+  align: 'end',
+  disableSortBy: true,
+  show: true,
+  Header: 'Group',
+  accessor: 'group'
+},
+{
+  id: 2,
+  align: 'end',
+  disableSortBy: true,
+  show: true,
+  Header: 'Group name',
+  accessor: 'group_name'
+},
+{
+  id: 3,
+  align: 'end',
+  disableSortBy: true,
+  show: true,
+  Header: 'Description',
+  accessor: 'description'
+},
+{
+  id: 4,
+  align: 'end',
+  disableSortBy: true,
+  show: true,
+  Header: 'Lesson',
+  accessor: 'lesson'
+},
+{
+  id: 5,
+  align: 'end',
+  disableSortBy: true,
+  show: true,
+  Header: 'Subject',
+  accessor: 'subject'
+},
+{
+  id: 6,
+  align: 'end',
+  disableSortBy: true,
+  show: true,
+  Header: 'Download',
+  type: 'download',
+  accessor: 'files'
+}
+];
+
+export const teacherQuizesHeader = [{
+  id: 1,
+  align: 'end',
+  disableSortBy: true,
+  show: true,
+  Header: 'Group',
+  accessor: 'group'
+},
+{
+  id: 2,
+  align: 'end',
+  disableSortBy: true,
+  show: true,
+  Header: 'Group name',
+  accessor: 'group_name'
+},
+{
+  id: 3,
+  align: 'end',
+  disableSortBy: true,
+  show: true,
+  Header: 'Description',
+  accessor: 'description'
+},
+{
+  id: 4,
+  align: 'end',
+  disableSortBy: true,
+  show: true,
+  Header: 'Lesson',
+  accessor: 'lesson'
+},
+{
+  id: 5,
+  align: 'end',
+  disableSortBy: true,
+  show: true,
+  Header: 'Subject',
+  accessor: 'subject'
+},
+{
+  id: 6,
+  align: 'end',
+  disableSortBy: true,
+  show: true,
+  Header: 'Download',
+  type: 'download',
+  accessor: 'files'
+}
+];
+
 export const genericTypes = [
   {
     key: types.USERS,
@@ -420,7 +548,15 @@ export const genericTypes = [
     headerName: 'logsHeader'
   },
   {
-    key: types.QUIZES,
-    headerName: 'quizesHeader'
+    key: types.ADMIN_QUIZES,
+    headerName: 'adminQuizesHeader'
+  },
+  {
+    key: types.TEACHER_QUIZES,
+    headerName: 'teacherQuizesHeader'
+  },
+  {
+    key: types.STUDENT_QUIZES,
+    headerName: 'studentQuizesHeader'
   }
 ];

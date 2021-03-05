@@ -24,6 +24,6 @@ function* fetchData() {
   }
 }
 
-export default function* lessonsSaga() {
+export default function* adminUsersSaga() {
   yield takeLatest(types.TABLE_ADMIN_STUDENTS_FETCH_DATA, fetchData);
 }
