@@ -25,17 +25,7 @@ function* fetchData({ payload }) {
   }
 }
 
-function* createLesson({ payload, success }) {
-  try {
-    yield put(setLoading(true));
-    const res = yield lesson.createLesson(payload);
-    yield put(setError(''));
-    success(res.data);
-    yield put(setLoading(false));
-  } catch (error) {
-    yield put(setError(error.response.data.error_message));
-  }
-} function* addGroup({ payload, success }) {
+function* addSubject({ payload, success }) {
   try {
     yield put(setLoading(true));
     const res = yield lesson.createLesson(payload);
@@ -47,8 +37,8 @@ function* createLesson({ payload, success }) {
   }
 }
 
-export default function* lessonsSaga() {
+export default function* subjectsSaga() {
   yield takeLatest(types.TABLE_ADMIN_GROUPS_FETCH_DATA, fetchData);
   yield takeLatest(types.TABLE_ADMIN_GROUPS_CREATE_LESSON, createLesson);
-  yield takeLatest(types.TABLE_ADMIN_GROUPS_CREATE_GROUP, addGroup);
+  yield takeLatest(types.TABLE_ADMIN_GROUPS_CREATE_GROUP, addSubject);
 }
