@@ -1,6 +1,5 @@
 export const USERS = 'USERS';
 export const HOMEWORKS = 'HOMEWORKS';
-export const QUIZES = 'QUIZES';
 export const LOGS = 'LOGS';
 export const GROUPS = 'GROUPS';
 
@@ -15,3 +14,7 @@ export const REASONS = 'REASONS';
 export const STUDENT_HOMEWORKS = 'STUDENT_HOMEWORKS';
 export const TEACHER_HOMEWORKS = 'TEACHER_HOMEWORKS';
 export const ADMIN_HOMEWORKS = 'ADMIN_HOMEWORKS';
+
+export const ADMIN_QUIZES = 'ADMIN_QUIZES';
+export const TEACHER_QUIZES = 'TEACHER_QUIZES';
+export const STUDENT_QUIZES = 'STUDENT_QUIZES';

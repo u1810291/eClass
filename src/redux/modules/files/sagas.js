@@ -1,4 +1,5 @@
 import { takeLatest, put } from 'redux-saga/effects';
+import { success } from '../../../components/Forms/Inputs/style';
 import types from '../../../constants/action-types';
 import service from '../../../services/files';
 import {
@@ -7,12 +8,12 @@ import {
   setLoading
 } from './actions';
 
-import { dataSelector } from './selectors';
+import { dataSelector, getFilesSelector } from './selectors';
 
 function* getFiles() {
   try {
     const res = yield service.getAll();
-    const { data } = dataSelector(res.data);
+    const { data } = getFilesSelector(res.data);
     yield put(setError(''));
     yield put(setData(data));
     yield put(setLoading(false));
@@ -23,13 +24,13 @@ function* getFiles() {
 
 function* uploadFile({ payload }) {
   try {
-    const data = dataSelector(payload.values);
+    const { data } = dataSelector(payload.values);
     const res = yield service.uploadFile(data);
     yield put(setError(''));
-    yield put(setData(res.data));
-    yield put(setLoading(false));
+    console.log(res);
+    success(res);
   } catch (error) {
-    yield put(setError(error.response.data.error_message));
+    alert(error.response.data.error_message);
   }
 }
 

@@ -28,6 +28,7 @@ const handleAdd = (id) => {
     validationSchema,
     onSubmit: (values, { setSubmitting }) => {
       setSubmitting(true);
+      console.log(values);
       dispatch(uploadFile({ values, id }, (res) => {
         // eslint-disable-next-line no-alert
         if (res) alert('Succesfully added!');

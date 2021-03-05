@@ -382,6 +382,144 @@ export const groupsHeader = [
   }
 ];
 
+export const adminQuizesHeader = [{
+  id: 1,
+  Header: 'Rescheduled',
+  accessor: 'rescheduled',
+  align: 'end',
+  disableSortBy: true,
+  show: true
+},
+{
+  id: 2,
+  align: 'end',
+  disableSortBy: true,
+  show: true,
+  Header: 'Scheduled start',
+  accessor: 'scheduled_start'
+},
+{
+  id: 3,
+  align: 'end',
+  disableSortBy: true,
+  show: true,
+  Header: 'Time to start',
+  accessor: 'time_to_start'
+}
+];
+
+export const studentQuizesHeader = [{
+  id: 1,
+  align: 'end',
+  disableSortBy: true,
+  show: true,
+  Header: 'Date',
+  accessor: 'date'
+},
+{
+  id: 2,
+  align: 'end',
+  disableSortBy: true,
+  show: true,
+  Header: 'Subject',
+  accessor: 'subject'
+},
+{
+  id: 3,
+  align: 'end',
+  disableSortBy: true,
+  show: true,
+  Header: 'Description',
+  accessor: 'description'
+},
+{
+  id: 4,
+  align: 'end',
+  disableSortBy: true,
+  show: true,
+  Header: 'Group',
+  accessor: 'group'
+},
+{
+  id: 5,
+  align: 'end',
+  disableSortBy: true,
+  show: true,
+  type: 'download',
+  Header: 'File',
+  accessor: 'files'
+},
+{
+  id: 6,
+  align: 'end',
+  disableSortBy: true,
+  show: true,
+  type: 'upload',
+  Header: 'Send homework',
+  accessor: 'teacher'
+},
+{
+  id: 7,
+  align: 'end',
+  disableSortBy: true,
+  show: true,
+  Header: 'Deadline',
+  accessor: 'deadline'
+}
+];
+
+export const teacherQuizesHeader = [{
+
+  id: 1,
+  align: 'end',
+  disableSortBy: true,
+  show: true,
+  Header: 'Date',
+  accessor: 'date'
+},
+{
+  id: 2,
+  align: 'end',
+  disableSortBy: true,
+  show: true,
+  Header: 'Time',
+  accessor: 'time'
+},
+{
+  id: 3,
+  align: 'end',
+  disableSortBy: true,
+  show: true,
+  Header: 'Duration',
+  accessor: 'duration'
+},
+{
+  id: 4,
+  align: 'end',
+  disableSortBy: true,
+  show: true,
+  Header: 'Teacher',
+  accessor: 'teacher'
+},
+{
+  id: 5,
+  align: 'end',
+  disableSortBy: true,
+  show: true,
+  Header: 'Subject',
+  accessor: 'subject'
+},
+{
+  id: 6,
+  align: 'end',
+  disableSortBy: true,
+  show: true,
+  type: 'upload',
+  Header: 'Upload',
+  accessor: 'link'
+}
+];
+
 export const genericTypes = [
   {
     key: types.USERS,
@@ -420,7 +558,15 @@ export const genericTypes = [
     headerName: 'logsHeader'
   },
   {
-    key: types.QUIZES,
-    headerName: 'quizesHeader'
+    key: types.ADMIN_QUIZES,
+    headerName: 'adminQuizesHeader'
+  },
+  {
+    key: types.TEACHER_QUIZES,
+    headerName: 'teacherQuizesHeader'
+  },
+  {
+    key: types.STUDENT_QUIZES,
+    headerName: 'studentQuizesHeader'
   }
 ];

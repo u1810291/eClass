@@ -7,5 +7,10 @@ export function dataSelector(data) {
   formData.append('till_date', data.till_date.toISOString());
   formData.append('from_date', data.from_date.toISOString());
   formData.append('type', data.type);
-  return formData;
+  return { data: formData };
+}
+
+export function getFilesSelector(data) {
+  const { content } = data;
+  return { data: content };
 }

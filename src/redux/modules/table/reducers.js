@@ -3,12 +3,19 @@ import * as initial from './common';
 
 const defaultState = {
   usersHeader: JSON.parse(localStorage.getItem('usersHeader')) || initial.usersHeader,
+
   studentLessonsHeader: JSON.parse(localStorage.getItem('studentLessonsHeader')) || initial.studentLessonsHeader,
   teacherLessonsHeader: JSON.parse(localStorage.getItem('teacherLessonsHeader')) || initial.teacherLessonsHeader,
   adminLessonsHeader: JSON.parse(localStorage.getItem('adminLessonsHeader')) || initial.adminLessonsHeader,
+
   studentHomeworksHeader: JSON.parse(localStorage.getItem('studentHomeworksHeader')) || initial.studentHomeworksHeader,
   adminHomeworksHeader: JSON.parse(localStorage.getItem('adminHomeworksHeader')) || initial.adminHomeworksHeader,
   teacherHomeworksHeader: JSON.parse(localStorage.getItem('teacherHomeworksHeader')) || initial.teacherHomeworksHeader,
+
+  adminQuizesHeader: JSON.parse(localStorage.getItem('adminQuizesHeader')) || initial.adminQuizesHeader,
+  teacherQuizesHeader: JSON.parse(localStorage.getItem('teacherQuizesHeader')) || initial.teacherQuizesHeader,
+  studentQuizesHeader: JSON.parse(localStorage.getItem('studentQuizesHeader')) || initial.studentQuizesHeader,
+
   groupsHeader: JSON.parse(localStorage.getItem('groupsHeader')) || initial.groupsHeader
 };
 
