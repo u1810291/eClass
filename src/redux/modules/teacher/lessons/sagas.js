@@ -31,7 +31,6 @@ function* startLesson({ payload, success }) {
   try {
     const res = yield service.startLesson(payload);
     const data = startLessonSelector(res.data);
-    console.log(payload);
     success(data);
   } catch (error) {
     // eslint-disable-next-line no-alert
