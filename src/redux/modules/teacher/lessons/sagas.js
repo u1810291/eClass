@@ -32,6 +32,7 @@ function* startLesson({ payload }) {
   try {
     console.log(payload);
     const res = yield service.startLesson(payload);
+    console.log(res);
     const { data } = startLessonSelector(res.data.content);
     yield put(setError(''));
     console.log(res);
