@@ -1,5 +1,4 @@
 import { takeLatest, put } from 'redux-saga/effects';
-import { success } from '../../../components/Forms/Inputs/style';
 import types from '../../../constants/action-types';
 import service from '../../../services/files';
 import {
@@ -22,7 +21,7 @@ function* getFiles() {
   }
 }
 
-function* uploadFile({ payload }) {
+function* uploadFile({ payload, success }) {
   try {
     const { data } = dataSelector(payload.values);
     const res = yield service.uploadFile(data);

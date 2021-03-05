@@ -10,7 +10,6 @@ import { PrimaryButton } from '../../Buttons';
 const nameClass = classNames('body-medium', 'weight-medium', 'text-black-800');
 const LinkCell = ({ data }) => {
   // eslint-disable-next-line no-console
-  console.log(data);
   const { join_url } = data.link;
   const history = useHistory();
   return (
