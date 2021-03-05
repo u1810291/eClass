@@ -27,7 +27,6 @@ export const getNested = (obj, path) => {
 
 export const useStyles = (stylePath) => {
   useEffect(() => {
-    console.log('stlye path ::', stylePath);
     const { head } = document;
     const link = document.createElement('link');
 
