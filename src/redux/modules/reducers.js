@@ -22,3 +22,5 @@ export { default as listsReducers } from './lists/reducers';
 export { default as filesReducers } from './files/reducers';
 
 export { default as adminGroupsReducers } from './admin/groups/reducers';
+
+export { default as subjectsReducers } from './admin/subjects/reducers';
