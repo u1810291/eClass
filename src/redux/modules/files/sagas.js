@@ -27,9 +27,9 @@ function* uploadFile({ payload }) {
     const { data } = dataSelector(payload.values);
     const res = yield service.uploadFile(data);
     yield put(setError(''));
-    console.log(res);
     success(res);
   } catch (error) {
+    // eslint-disable-next-line no-alert
     alert(error.response.data.error_message);
   }
 }

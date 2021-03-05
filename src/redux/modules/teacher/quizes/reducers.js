@@ -2,7 +2,7 @@ import types from '../../../../constants/action-types';
 
 const defaultState = {
   data: [],
-  loading: true,
+  loading: false,
   total: 0,
   error: ''
 };
