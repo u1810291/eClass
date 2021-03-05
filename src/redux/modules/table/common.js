@@ -413,16 +413,16 @@ export const studentQuizesHeader = [{
   align: 'end',
   disableSortBy: true,
   show: true,
-  Header: 'Date',
-  accessor: 'date'
+  Header: 'Group',
+  accessor: 'group'
 },
 {
   id: 2,
   align: 'end',
   disableSortBy: true,
   show: true,
-  Header: 'Subject',
-  accessor: 'subject'
+  Header: 'Group name',
+  accessor: 'group_name'
 },
 {
   id: 3,
@@ -437,34 +437,25 @@ export const studentQuizesHeader = [{
   align: 'end',
   disableSortBy: true,
   show: true,
-  Header: 'Group',
-  accessor: 'group'
+  Header: 'Lesson',
+  accessor: 'lesson'
 },
 {
   id: 5,
   align: 'end',
   disableSortBy: true,
   show: true,
-  type: 'download',
-  Header: 'File',
-  accessor: 'files'
+  Header: 'Subject',
+  accessor: 'subject'
 },
 {
   id: 6,
   align: 'end',
   disableSortBy: true,
   show: true,
-  type: 'upload',
-  Header: 'Send homework',
-  accessor: 'teacher'
-},
-{
-  id: 7,
-  align: 'end',
-  disableSortBy: true,
-  show: true,
-  Header: 'Deadline',
-  accessor: 'deadline'
+  Header: 'Download',
+  type: 'download',
+  accessor: 'files'
 }
 ];
 

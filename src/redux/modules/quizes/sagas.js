@@ -1,6 +1,6 @@
 import { takeLatest, put } from 'redux-saga/effects';
 import types from '../../../constants/action-types';
-import service from '../../../services/teacher/exercise';
+import service from '../../../services/student/exercise';
 import {
   setData,
   setError,
