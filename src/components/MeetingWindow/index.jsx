@@ -1,13 +1,14 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
 /* eslint-disable no-console */
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ZoomMtg } from '@zoomus/websdk';
 import { useHistory } from 'react-router-dom';
 import { Container } from './style';
 // import { PrimaryButton } from '../Buttons';
 
 export default (data) => {
+  const [open, setOpen] = useState(false);
   ZoomMtg.setZoomJSLib('https://source.zoom.us/1.9.0/lib', '/av');
   ZoomMtg.preLoadWasm();
   ZoomMtg.prepareJssdk();
@@ -88,11 +89,11 @@ export default (data) => {
         style={{
           height: '20px', width: '50px', border: 'solid 1px black', background: 'green'
         }}
-        onClick={() => { console.log('object'); insideMeeting(); }}
+        onClick={() => { console.log('object'); insideMeeting(); setOpen(true); }}
       >
         Start
       </button>
-      <div id="zmmtg-root" />
+      <div id="zmmtg-root" style={{ display: open ? 'flex' : 'none' }} />
       <div id="aria-notify-area" />
 
     </Container>
