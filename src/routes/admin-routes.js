@@ -139,14 +139,6 @@ export default [
   },
   {
     exact: true,
-    path: '/subject',
-    component: Examples,
-    icon: 'dashboard',
-    title: 'Subject',
-    children: []
-  },
-  {
-    exact: true,
     path: '/logs',
     component: Examples,
     icon: 'dashboard',

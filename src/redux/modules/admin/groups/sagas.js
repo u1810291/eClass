@@ -6,14 +6,15 @@ import {
   setData,
   setError,
   setLoading,
-  setTotal
+  setTotal,
+  setSubjects
 } from './actions';
 
-import { dataSelector } from './selectors';
+import { dataSelector, subjectsSelector } from './selectors';
 
 function* fetchData({ payload }) {
+  yield put(setLoading(true));
   try {
-    yield put(setLoading(true));
     const res = yield service.getAll(payload.query);
     const { total, data } = dataSelector(res.data);
     yield put(setError(''));
@@ -21,7 +22,7 @@ function* fetchData({ payload }) {
     yield put(setTotal(total));
     yield put(setLoading(false));
   } catch (error) {
-    yield put(setError(error.response.data.error_message));
+    yield put(setError(error));
   }
 }
 
@@ -33,7 +34,7 @@ function* createLesson({ payload, success }) {
     success(res.data);
     yield put(setLoading(false));
   } catch (error) {
-    yield put(setError(error.response.data.error_message));
+    yield put(setError(error || error));
   }
 } function* addGroup({ payload, success }) {
   try {
@@ -43,7 +44,26 @@ function* createLesson({ payload, success }) {
     success(res.data);
     yield put(setLoading(false));
   } catch (error) {
-    yield put(setError(error.response.data.error_message));
+    yield put(setError(error));
+  }
+}
+
+function* getSubjects() {
+  try {
+    const res = yield service.getAll();
+    const { data } = subjectsSelector(res.data);
+    yield put(setSubjects(data));
+  } catch (error) {
+    yield put(setError(error));
+  }
+}
+
+function* addSubject({ payload, success }) {
+  try {
+    const res = yield service.createSubject(payload);
+    success(res.data);
+  } catch (error) {
+    yield put(setError(error));
   }
 }
 
@@ -51,4 +71,7 @@ export default function* adminGroupsSaga() {
   yield takeLatest(types.TABLE_ADMIN_GROUPS_FETCH_DATA, fetchData);
   yield takeLatest(types.TABLE_ADMIN_GROUPS_CREATE_LESSON, createLesson);
   yield takeLatest(types.TABLE_ADMIN_GROUPS_CREATE_GROUP, addGroup);
+
+  yield takeLatest(types.TABLE_ADMIN_SUBJECTS_CREATE_SUBJECT, addSubject);
+  yield takeLatest(types.TABLE_ADMIN_SUBJECTS_FETCH_DATA, getSubjects);
 }
