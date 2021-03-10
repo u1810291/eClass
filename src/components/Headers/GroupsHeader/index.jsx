@@ -8,32 +8,8 @@ import { useShowModal } from '../../../hooks/modal';
 import AddSubject from '../../AddSubject';
 import AddGroup from '../../../views/Admin/Groups/AddGroup';
 
-export default ({ useFomrHandler }) => {
+export default ({ useFormHandler }) => {
   const { showBlured } = useShowModal();
-  const { formik, formValues, setFormValues } = useFomrHandler();
-  const handleOnAddProduct = () => {
-    const nextId = formValues.length + 1;
-    setformValues((prevState) => [
-      ...prevState,
-      {
-        [`name${nextId}`]: '',
-        [`lang${nextId}`]: '',
-        [`description${nextId}`]: ''
-      }
-    ]);
-    formik.setValues({
-      ...formik.values,
-      ...{
-        [`pname${nextId}`]: '',
-        [`quantity${nextId}`]: '',
-        [`price${nextId}`]: '',
-        [`note${nextId}`]: '',
-        [`weight${nextId}`]: '',
-        [`weighttype${nextId}`]: '',
-        [`file${nextId}`]: ''
-      }
-    });
-  };
   return (
     <Container>
       <Body>
@@ -53,7 +29,7 @@ export default ({ useFomrHandler }) => {
             title="Add subject"
             onClick={() => showBlured({
               title: 'Add subject',
-              body: () => <AddSubject />
+              body: () => <AddSubject useFormHandler={useFormHandler} />
             })}
           />
         </Right>

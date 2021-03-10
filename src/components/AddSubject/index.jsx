@@ -2,13 +2,10 @@ import React from 'react';
 
 import { Container } from './style';
 import { NormalInput } from '../Forms/Inputs';
-import Dropdown from '../Forms/Dropdowns';
-import { languages } from '../../data/dropdown';
+import { PrimaryButton } from '../Buttons';
 
 export default ({ formik }) => (
   <Container>
-    Add Subject
-
     <NormalInput
       placeholder="Subject Name"
       white
@@ -31,22 +28,6 @@ export default ({ formik }) => (
       value={formik.values.description}
       onChange={(e) => formik.setFieldValue('description', e.target.value)}
     />
-    <Dropdown
-      color="#FFFFFF"
-      placeholder="Language"
-      name="lang"
-      type={formik.touched.lang
-                && formik.errors.lang && 'error'}
-      helperText={formik.errors.lang}
-      options={languages}
-      value={
-        formik.values.lang
-                && languages.find((el) => el.value === formik.values.lang).id
-      }
-      onChange={(e) => formik.setFieldValue('lang', languages.find((el) => el.id === e).value)}
-      size="large"
-    />
-
     <NormalInput
       placeholder="Subject Name"
       white
@@ -69,22 +50,6 @@ export default ({ formik }) => (
       value={formik.values.description}
       onChange={(e) => formik.setFieldValue('description', e.target.value)}
     />
-    <Dropdown
-      color="#FFFFFF"
-      placeholder="Language"
-      name="lang"
-      type={formik.touched.lang
-                && formik.errors.lang && 'error'}
-      helperText={formik.errors.lang}
-      options={languages}
-      value={
-        formik.values.lang
-                && languages.find((el) => el.value === formik.values.lang).id
-      }
-      onChange={(e) => formik.setFieldValue('lang', languages.find((el) => el.id === e).value)}
-      size="large"
-    />
-
     <NormalInput
       placeholder="Subject Name"
       white
@@ -107,20 +72,10 @@ export default ({ formik }) => (
       value={formik.values.description}
       onChange={(e) => formik.setFieldValue('description', e.target.value)}
     />
-    <Dropdown
-      color="#FFFFFF"
-      placeholder="Language"
-      name="lang"
-      type={formik.touched.lang
-                && formik.errors.lang && 'error'}
-      helperText={formik.errors.lang}
-      options={languages}
-      value={
-        formik.values.lang
-                && languages.find((el) => el.value === formik.values.lang).id
-      }
-      onChange={(e) => formik.setFieldValue('lang', languages.find((el) => el.id === e).value)}
+    <PrimaryButton
+      title="Add subject"
       size="large"
+      onClick={() => handleSubjectAdd()}
     />
   </Container>
 );
