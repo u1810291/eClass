@@ -6,7 +6,7 @@ import {
 import { NormalInput, SingleDatePicker } from '../../Forms/Inputs';
 import Dropdown from '../../Forms/Dropdowns';
 import { dropdownOptions, languages } from '../../../data/dropdown';
-
+import { PrimaryButton } from '../../Buttons';
 import Card from '../../Card';
 
 export default ({ groupAddFormik }) => {
@@ -157,16 +157,6 @@ export default ({ groupAddFormik }) => {
               size="large"
             />
             <NormalInput
-              placeholder="Number of room"
-              type={formik.touched.official_name && formik.errors.official_name && 'error'}
-              helperText={formik.touched.official_name
-                     && formik.errors.official_name && formik.errors.official_name}
-              value={formik.values.official_name}
-              onChange={(e) => formik.setFieldValue('official_name', e.target.value)}
-              name="official_name"
-              size="large"
-            />
-            <NormalInput
               placeholder="Price for one lesson"
               type={formik.touched.price && formik.errors.price && 'error'}
               helperText={formik.touched.price
@@ -203,6 +193,7 @@ export default ({ groupAddFormik }) => {
               onChange={(value) => setDate(value)}
             />
           </Footer>
+          <PrimaryButton title="Add group" size="large" />
         </Body>
       </Card>
     </Container>
