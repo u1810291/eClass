@@ -139,5 +139,5 @@ export const groupAddFormik = () => {
     }
   });
 
-  return formik;
+  return { formik };
 };
