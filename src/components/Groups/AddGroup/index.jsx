@@ -12,75 +12,100 @@ import Card from '../../Card';
 export default ({ groupAddFormik }) => {
   const [date, setDate] = useState(new Date());
   const { formik } = groupAddFormik();
-  // const [groupNames, setGroupNames] = useState([{
-  //   lang: '',
-  //   name: '',
-  //   description: ''
-  // }]);
-  // formik.setFieldValue('group_names', groupNames);
   return (
     <Container>
       <Card>
         <Body>
           <Header>
             <NormalInput
+              label="Group name"
               size="large"
               placeholder="Group name"
-              type={formik.touched.name && formik.errors.name && 'error'}
-              helperText={formik.touched.name
-                     && formik.errors.name && formik.errors.name}
-              value={formik.values.name}
-              onChange={(e) => formik.setFieldValue('name', e.target.value)}
-              name="name"
+              type={formik.touched.en_name && formik.errors.en_name && 'error'}
+              helperText={formik.touched.en_name
+                     && formik.errors.en_name && formik.errors.en_name}
+              value={formik.values.en_name}
+              onChange={(e) => formik.setFieldValue('en_name', e.target.value)}
+              name="en_name"
             />
             <NormalInput
-              placeholder="Official name"
-              type={formik.touched.official_name && formik.errors.official_name && 'error'}
-              helperText={formik.touched.official_name
-                     && formik.errors.official_name && formik.errors.official_name}
-              value={formik.values.official_name}
-              onChange={(e) => formik.setFieldValue('official_name', e.target.value)}
-              name="official_name"
+              placeholder="Official en_name"
+              type={formik.touched.official_en_name && formik.errors.official_en_name && 'error'}
+              helperText={formik.touched.official_en_name
+                     && formik.errors.official_en_name && formik.errors.official_en_name}
+              value={formik.values.official_en_name}
+              onChange={(e) => formik.setFieldValue('official_en_name', e.target.value)}
+              name="official_en_name"
               size="large"
             />
             <NormalInput
               placeholder="Description"
-              type={formik.touched.description && formik.errors.description && 'error'}
-              helperText={formik.touched.description
-                     && formik.errors.description && formik.errors.description}
-              value={formik.values.description}
-              onChange={(e) => formik.setFieldValue('description', e.target.value)}
-              name="description"
+              type={formik.touched.en_description && formik.errors.en_description && 'error'}
+              helperText={formik.touched.en_description
+                     && formik.errors.en_description && formik.errors.en_description}
+              value={formik.values.en_description}
+              onChange={(e) => formik.setFieldValue('en_description', e.target.value)}
+              name="en_description"
               size="large"
             />
             <NormalInput
               size="large"
               placeholder="Group name in russian"
-              type={formik.touched.name && formik.errors.name && 'error'}
-              helperText={formik.touched.name
-                     && formik.errors.name && formik.errors.name}
-              value={formik.values.name}
-              onChange={(e) => formik.setFieldValue('name', e.target.value)}
-              name="name"
+              type={formik.touched.name && formik.errors.ru_name && 'error'}
+              helperText={formik.touched.ru_name
+                     && formik.errors.ru_name && formik.errors.ru_name}
+              value={formik.values.ru_name}
+              onChange={(e) => formik.setFieldValue('ru_name', e.target.value)}
+              name="ru_name"
             />
             <NormalInput
-              placeholder="Official name in russian"
-              type={formik.touched.official_name && formik.errors.official_name && 'error'}
-              helperText={formik.touched.official_name
-                     && formik.errors.official_name && formik.errors.official_name}
-              value={formik.values.official_name}
-              onChange={(e) => formik.setFieldValue('official_name', e.target.value)}
-              name="official_name"
+              placeholder="Official ru_name in russian"
+              type={formik.touched.official_ru_name && formik.errors.official_ru_name && 'error'}
+              helperText={formik.touched.official_ru_name
+                     && formik.errors.official_ru_name && formik.errors.official_ru_name}
+              value={formik.values.official_ru_name}
+              onChange={(e) => formik.setFieldValue('official_ru_name', e.target.value)}
+              name="official_ru_name"
               size="large"
             />
             <NormalInput
               placeholder="Description in russian"
-              type={formik.touched.description && formik.errors.description && 'error'}
-              helperText={formik.touched.description
-                     && formik.errors.description && formik.errors.description}
-              value={formik.values.description}
-              onChange={(e) => formik.setFieldValue('description', e.target.value)}
-              name="description"
+              type={formik.touched.ru_description && formik.errors.ru_description && 'error'}
+              helperText={formik.touched.ru_description
+                     && formik.errors.ru_description && formik.errors.ru_description}
+              value={formik.values.ru_description}
+              onChange={(e) => formik.setFieldValue('ru_description', e.target.value)}
+              name="ru_description"
+              size="large"
+            />
+            <NormalInput
+              size="large"
+              placeholder="Group name in uzbek"
+              type={formik.touched.uz_name && formik.errors.uz_name && 'error'}
+              helperText={formik.touched.uz_name
+                     && formik.errors.uz_name && formik.errors.uz_name}
+              value={formik.values.uz_name}
+              onChange={(e) => formik.setFieldValue('uz_name', e.target.value)}
+              name="uz_name"
+            />
+            <NormalInput
+              placeholder="Official uz_name in uzbek"
+              type={formik.touched.official_uz_name && formik.errors.official_uz_name && 'error'}
+              helperText={formik.touched.official_uz_name
+                     && formik.errors.official_uz_name && formik.errors.official_uz_name}
+              value={formik.values.official_uz_name}
+              onChange={(e) => formik.setFieldValue('official_uz_name', e.target.value)}
+              name="official_uz_name"
+              size="large"
+            />
+            <NormalInput
+              placeholder="Description in uzbek"
+              type={formik.touched.uz_description && formik.errors.uz_description && 'error'}
+              helperText={formik.touched.uz_description
+                     && formik.errors.uz_description && formik.errors.uz_description}
+              value={formik.values.uz_description}
+              onChange={(e) => formik.setFieldValue('uz_description', e.target.value)}
+              name="uz_description"
               size="large"
             />
           </Header>

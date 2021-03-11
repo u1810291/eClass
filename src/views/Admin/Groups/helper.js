@@ -95,9 +95,15 @@ export function subjectAddFormik() {
 export const groupAddFormik = () => {
   const dispatch = useDispatch();
   const validationSchema = Yup.object().shape({
-    name: Yup.string().required('Required'),
-    official_name: Yup.string().required('Required'),
-    description: Yup.string().required('Required'),
+    en_name: Yup.string().required('Required'),
+    official_en_name: Yup.string().required('Required'),
+    en_description: Yup.string(),
+    ru_name: Yup.string().required('Required'),
+    official_ru_name: Yup.string().required('Required'),
+    ru_description: Yup.string(),
+    uz_name: Yup.string().required('Required'),
+    official_uz_name: Yup.string().required('Required'),
+    uz_description: Yup.string(),
     group_lang: Yup.string(),
     salary_percent: Yup.string(),
     price: Yup.string(),
@@ -113,9 +119,15 @@ export const groupAddFormik = () => {
 
   const formik = useFormik({
     initialValues: {
-      name: '',
-      official_name: '',
-      description: '',
+      en_name: '',
+      official_en_name: '',
+      en_description: '',
+      ru_name: '',
+      official_ru_name: '',
+      ru_description: '',
+      uz_name: '',
+      official_uz_name: '',
+      uz_description: '',
       group_lang: '',
       salary_percent: '',
       price: '',
@@ -123,7 +135,6 @@ export const groupAddFormik = () => {
       lesson_duration: '',
       teacher_id: '',
       subject_id: '',
-      group_names: [],
       study_days: [],
       start_date: '',
       finish_date: ''
