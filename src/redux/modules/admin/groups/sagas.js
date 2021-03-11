@@ -6,11 +6,10 @@ import {
   setData,
   setError,
   setLoading,
-  setTotal,
-  setSubjects
+  setTotal
 } from './actions';
 
-import { dataSelector, subjectsSelector } from './selectors';
+import { dataSelector } from './selectors';
 
 function* fetchData({ payload }) {
   yield put(setLoading(true));
@@ -36,7 +35,9 @@ function* createLesson({ payload, success }) {
   } catch (error) {
     yield put(setError(error || error));
   }
-} function* addGroup({ payload, success }) {
+}
+
+function* addGroup({ payload, success }) {
   try {
     yield put(setLoading(true));
     const res = yield lesson.createLesson(payload);
@@ -48,30 +49,8 @@ function* createLesson({ payload, success }) {
   }
 }
 
-function* getSubjects() {
-  try {
-    const res = yield service.getAll();
-    const { data } = subjectsSelector(res.data);
-    yield put(setSubjects(data));
-  } catch (error) {
-    yield put(setError(error));
-  }
-}
-
-function* addSubject({ payload, success }) {
-  try {
-    const res = yield service.createSubject(payload);
-    success(res.data);
-  } catch (error) {
-    yield put(setError(error));
-  }
-}
-
 export default function* adminGroupsSaga() {
   yield takeLatest(types.TABLE_ADMIN_GROUPS_FETCH_DATA, fetchData);
   yield takeLatest(types.TABLE_ADMIN_GROUPS_CREATE_LESSON, createLesson);
   yield takeLatest(types.TABLE_ADMIN_GROUPS_CREATE_GROUP, addGroup);
-
-  yield takeLatest(types.TABLE_ADMIN_SUBJECTS_CREATE_SUBJECT, addSubject);
-  yield takeLatest(types.TABLE_ADMIN_SUBJECTS_FETCH_DATA, getSubjects);
 }

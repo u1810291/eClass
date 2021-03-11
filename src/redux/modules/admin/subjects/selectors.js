@@ -12,7 +12,7 @@ export function dataSelector(lesson) {
   return { total: total_elements, data: filtered };
 }
 
-export function addGroupSelector(data) {
+export function addSubjectSelector(data) {
   const filtered = { data };
   return { data: filtered };
 }
