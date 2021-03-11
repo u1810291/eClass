@@ -8,7 +8,7 @@ import { groupsHeader } from '../../../redux/modules/table/common';
 import GroupsHeader from '../../../components/Headers/GroupsHeader';
 import TableError from '../../../components/Table/Error';
 import { headerMaker } from '../../../components/Table/helper';
-import { toolTips, useFormHandler } from './helper';
+import { toolTips, addSubjectFormik, addGroupFormik } from './helper';
 
 export default () => {
   const dispatch = useDispatch();
@@ -48,7 +48,8 @@ export default () => {
       <GroupsHeader
         setSearch={setSearch}
         search={search}
-        useFormHandler={useFormHandler}
+        addSubjectFormik={addSubjectFormik}
+        addGroupFormik={addGroupFormik}
       />
       {error ? (
         <TableError message={error} />
