@@ -9,8 +9,9 @@ import { dropdownOptions, languages } from '../../../data/dropdown';
 
 import Card from '../../Card';
 
-export default ({ formik }) => {
+export default ({ groupAddFormik }) => {
   const [date, setDate] = useState(new Date());
+  const { formik } = groupAddFormik();
   // const [groupNames, setGroupNames] = useState([{
   //   lang: '',
   //   name: '',
