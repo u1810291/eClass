@@ -192,14 +192,12 @@ export default ({ groupAddFormik }) => {
             <NormalInput placeholder="Duration" />
             <SingleDatePicker
               value={date}
-              showTimeSelect
               placeholder="Date"
               name="start_date"
               onChange={(value) => setDate(value)}
             />
             <SingleDatePicker
               value={date}
-              showTimeSelect
               placeholder="Date"
               name="finish_date"
               onChange={(value) => setDate(value)}

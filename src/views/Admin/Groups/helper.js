@@ -1,5 +1,5 @@
 /* eslint-disable no-alert */
-import React, { useState } from 'react';
+import React from 'react';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
@@ -67,29 +67,28 @@ export const toolTips = [
 ];
 
 export function subjectAddFormik() {
-  const [formValues, setformValues] = useState([
-    {
-      name: '',
-      lang: '',
-      description: ''
-    }
-  ]);
   const validationSchema = Yup.object().shape({
-    name: Yup.string().required('Required'),
-    subject_lang: Yup.string().required('Required'),
-    description: Yup.string().required('Required'),
-    subject_names: Yup.array().required('Required')
+    en_name: Yup.string().required('Required'),
+    en_description: Yup.string().required('Required'),
+    ru_name: Yup.string().required('Required'),
+    ru_description: Yup.string().required('Required'),
+    uz_name: Yup.string().required('Required'),
+    uz_description: Yup.string().required('Required'),
+    subject_lang: Yup.string().required('Required')
   });
   const formik = useFormik({
     initialValues: {
-      name: '',
-      subject_lang: '',
-      description: '',
-      subject_names: []
+      en_name: '',
+      en_description: '',
+      ru_name: '',
+      ru_description: '',
+      uz_name: '',
+      uz_description: '',
+      subject_lang: ''
     },
     validationSchema
   });
-  return { formik, formValues, setformValues };
+  return { formik };
 }
 
 export const groupAddFormik = () => {
