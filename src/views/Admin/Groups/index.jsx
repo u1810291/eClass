@@ -8,7 +8,8 @@ import { groupsHeader } from '../../../redux/modules/table/common';
 import GroupsHeader from '../../../components/Headers/GroupsHeader';
 import TableError from '../../../components/Table/Error';
 import { headerMaker } from '../../../components/Table/helper';
-import { toolTips, addSubjectFormik, addGroupFormik } from './helper';
+import { toolTips, subjectAddFormik, groupAddFormik } from './helper';
+import { fetchData as subjectFetch } from '../../../redux/modules/admin/subjects/actions';
 
 export default () => {
   const dispatch = useDispatch();
@@ -36,8 +37,9 @@ export default () => {
   );
 
   useEffect(() => {
+    dispatch(subjectFetch());
     dispatch(fetchData({ query }));
-  }, [fetchData, query]);
+  }, [fetchData, query, subjectFetch]);
 
   const handleOnChange = ({ pageIndex, pageSize }) => {
     setPageIndex(pageIndex);
@@ -48,8 +50,8 @@ export default () => {
       <GroupsHeader
         setSearch={setSearch}
         search={search}
-        addSubjectFormik={addSubjectFormik}
-        addGroupFormik={addGroupFormik}
+        subjectAddFormik={subjectAddFormik}
+        groupAddFormik={groupAddFormik}
       />
       {error ? (
         <TableError message={error} />

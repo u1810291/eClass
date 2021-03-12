@@ -53,29 +53,16 @@ export function addGroupSelector(data) {
     lesson_duration: data.lesson_duration,
     teacher_id: data.teacher_id,
     subject_id: data.subject_id,
-    group_names: data.group_names.map((el) => ({
-      lang: el.lang,
-      name: el.name,
-      description: el.description
-    })),
-    study_days: data.study_days.map((el) => ({
-      day_of_week: el.day_of_week,
-      start_time: el.start_time
-    })),
+    group_names: [{
+      name: data.ru_name,
+      description: data.ru_description
+    }, {
+      name: data.uz_name,
+      description: data.uz_description
+    }],
+    study_days: data.study_days,
     start_date: data.start_date,
     finish_date: data.finish_date
   };
   return { data: filtered };
-}
-
-export function subjectsSelector(lesson) {
-  const { total_elements, content } = lesson;
-  const filtered = content.map((el) => ({
-    id: el.id,
-    lang: el.lang,
-    name: el.name,
-    subject_lang: el.subject_lang,
-    description: el.description
-  }));
-  return { total: total_elements, data: filtered };
 }

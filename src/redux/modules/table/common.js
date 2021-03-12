@@ -132,7 +132,7 @@ export const usersHeader = [
   {
     id: 2,
     Header: 'Full name',
-    accessor: 'first_name',
+    accessor: 'full_name',
     disableSortBy: true,
     show: true
   },
@@ -147,7 +147,7 @@ export const usersHeader = [
   {
     id: 4,
     Header: 'Date of birth',
-    accessor: 'dateOfBirth',
+    accessor: 'date_of_birth',
     align: 'end',
     suffix: 'pcs',
     disableSortBy: true,
@@ -156,7 +156,8 @@ export const usersHeader = [
   {
     id: 5,
     Header: 'Phones',
-    accessor: 'school_number',
+    accessor: 'phones',
+    type: 'user',
     align: 'end',
     disableSortBy: true,
     show: true

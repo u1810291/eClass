@@ -1,5 +1,5 @@
 /* eslint-disable no-alert */
-import React, { useState } from 'react';
+import React from 'react';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
@@ -66,38 +66,44 @@ export const toolTips = [
   }
 ];
 
-export function addSubjectFormik() {
-  const [formValues, setformValues] = useState([
-    {
-      name: '',
-      lang: '',
-      description: ''
-    }
-  ]);
+export function subjectAddFormik() {
   const validationSchema = Yup.object().shape({
-    name: Yup.string().required('Required'),
-    subject_lang: Yup.string().required('Required'),
-    description: Yup.string().required('Required'),
-    subject_names: Yup.array().required('Required')
+    en_name: Yup.string().required('Required'),
+    en_description: Yup.string().required('Required'),
+    ru_name: Yup.string().required('Required'),
+    ru_description: Yup.string().required('Required'),
+    uz_name: Yup.string().required('Required'),
+    uz_description: Yup.string().required('Required'),
+    subject_lang: Yup.string().required('Required')
   });
   const formik = useFormik({
     initialValues: {
-      name: '',
-      subject_lang: '',
-      description: '',
-      subject_names: []
+      en_name: '',
+      en_description: '',
+      ru_name: '',
+      ru_description: '',
+      uz_name: '',
+      uz_description: '',
+      subject_lang: ''
     },
     validationSchema
   });
-  return { formik, formValues, setformValues };
+  return { formik };
 }
 
-export const addGroupFormik = () => {
+export const groupAddFormik = () => {
   const dispatch = useDispatch();
+
   const validationSchema = Yup.object().shape({
-    name: Yup.string().required('Required'),
-    official_name: Yup.string().required('Required'),
-    description: Yup.string().required('Required'),
+    en_name: Yup.string().required('Required'),
+    official_en_name: Yup.string().required('Required'),
+    en_description: Yup.string(),
+    ru_name: Yup.string().required('Required'),
+    official_ru_name: Yup.string().required('Required'),
+    ru_description: Yup.string(),
+    uz_name: Yup.string().required('Required'),
+    official_uz_name: Yup.string().required('Required'),
+    uz_description: Yup.string(),
     group_lang: Yup.string(),
     salary_percent: Yup.string(),
     price: Yup.string(),
@@ -113,9 +119,15 @@ export const addGroupFormik = () => {
 
   const formik = useFormik({
     initialValues: {
-      name: '',
-      official_name: '',
-      description: '',
+      en_name: '',
+      official_en_name: '',
+      en_description: '',
+      ru_name: '',
+      official_ru_name: '',
+      ru_description: '',
+      uz_name: '',
+      official_uz_name: '',
+      uz_description: '',
       group_lang: '',
       salary_percent: '',
       price: '',
@@ -123,7 +135,6 @@ export const addGroupFormik = () => {
       lesson_duration: '',
       teacher_id: '',
       subject_id: '',
-      group_names: [],
       study_days: [],
       start_date: '',
       finish_date: ''
@@ -139,5 +150,5 @@ export const addGroupFormik = () => {
     }
   });
 
-  return formik;
+  return { formik };
 };

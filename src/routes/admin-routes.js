@@ -188,7 +188,8 @@ export default [
     component: Groups,
     icon: 'classess2',
     title: 'Groups',
-    children: []
+    children: [
+    ]
   },
   {
     exact: true,

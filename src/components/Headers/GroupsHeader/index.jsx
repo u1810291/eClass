@@ -8,7 +8,7 @@ import { useShowModal } from '../../../hooks/modal';
 import AddSubject from '../../AddSubject';
 import AddGroup from '../../Groups/AddGroup';
 
-export default ({ addSubjectFormik, addGroupFormik }) => {
+export default ({ subjectAddFormik, groupAddFormik }) => {
   const { showBlured } = useShowModal();
   return (
     <Container>
@@ -22,14 +22,14 @@ export default ({ addSubjectFormik, addGroupFormik }) => {
             title="Add group"
             onClick={() => showBlured({
               title: 'Add group',
-              body: () => <AddGroup addGroupFormik={addGroupFormik} />
+              body: () => <AddGroup groupAddFormik={groupAddFormik} />
             })}
           />
           <PrimaryButton
             title="Add subject"
             onClick={() => showBlured({
               title: 'Add subject',
-              body: () => <AddSubject addSubjectFormik={addSubjectFormik} />
+              body: () => <AddSubject subjectAddFormik={subjectAddFormik} />
             })}
           />
         </Right>
