@@ -39,7 +39,7 @@ export const toolTips = [
     icon: 'payment',
     onClick: (id, { showBlured }) => {
       showBlured({
-        title: 'Add homework',
+        title: 'Create Lesson',
         body: () => <CreateLesson handleCreate={() => handleCreate(id)} />
       });
     }

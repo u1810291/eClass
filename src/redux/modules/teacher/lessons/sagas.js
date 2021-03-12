@@ -30,12 +30,11 @@ function* fetchData({ payload }) {
 function* startLesson({ payload, success }) {
   try {
     const res = yield service.startLesson(payload);
-    const data = startLessonSelector(res.data);
+    const { data } = startLessonSelector(res.data);
     success(data);
   } catch (error) {
     // eslint-disable-next-line no-alert
-    alert(error);
-    console.log(error);
+    alert(error.response ? error.response.data.error_message : error);
   }
 }
 
