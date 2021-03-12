@@ -8,7 +8,7 @@ import {
   setTotal
 } from './actions';
 
-import { dataSelector } from './selectors';
+import { dataSelector, addSubjectSelector } from './selectors';
 
 function* fetchData() {
   try {
@@ -26,11 +26,11 @@ function* fetchData() {
 
 function* addSubject({ payload, success }) {
   try {
-    yield put(setLoading(true));
-    const res = yield service.createSubject(payload);
+    console.log(payload);
+    const { data } = addSubjectSelector(payload);
+    const res = yield service.createSubject(data);
     yield put(setError(''));
     success(res.data);
-    yield put(setLoading(false));
   } catch (error) {
     yield put(setError(error));
   }

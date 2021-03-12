@@ -3,12 +3,14 @@ import React from 'react';
 import { Container, Body } from './style';
 import { NormalInput } from '../Forms/Inputs';
 import { PrimaryButton } from '../Buttons';
+import Dropdown from '../Forms/Dropdowns';
+import { languages } from '../../data/dropdown';
 
 export default ({ subjectAddFormik }) => {
-  const { formik, handleSubjectAdd } = subjectAddFormik();
+  const { formik } = subjectAddFormik();
   return (
-    <Container>
-      <Body onSubmit={formik.handleSubmit}>
+    <Container onSubmit={formik.handleSubmit}>
+      <Body>
         <NormalInput
           placeholder="Subject Name"
           white
@@ -75,11 +77,26 @@ export default ({ subjectAddFormik }) => {
           value={formik.values.uz_description}
           onChange={(e) => formik.setFieldValue('uz_description', e.target.value)}
         />
+        <Dropdown
+          placeholder="Language"
+          options={languages}
+          type={formik.touched.subject_lang
+                && formik.errors.subject_lang && 'error'}
+          helperText={formik.errors.subject_lang}
+          value={
+            formik.values.subject_lang
+                  && languages.find((el) => el.value === formik.values.subject_lang).id
+          }
+          onChange={(e) => formik.setFieldValue('subject_lang',
+            languages.find((el) => el.id === e).value)}
+          size="large"
+          name="subject_lang"
+        />
       </Body>
       <PrimaryButton
         title="Add subject"
         size="large"
-        onClick={() => handleSubjectAdd()}
+        type="submit"
       />
     </Container>
   );
