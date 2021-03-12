@@ -1,17 +1,15 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+
 import {
   Container, Body, TitleWrapper, Right
 } from '../style';
-import { DatePicker } from '../../Forms/Inputs';
 import { PrimaryButton } from '../../Buttons';
+import { useShowModal } from '../../../hooks/modal';
+import AddSubject from '../../AddSubject';
+import AddGroup from '../../Groups/AddGroup';
 
-export default ({
-  setDate,
-  date
-}) => {
-  const history = useHistory();
-
+export default ({ subjectAddFormik, groupAddFormik }) => {
+  const { showBlured } = useShowModal();
   return (
     <Container>
       <Body>
@@ -20,17 +18,19 @@ export default ({
           <TitleWrapper.Clear>Celar filter</TitleWrapper.Clear>
         </TitleWrapper>
         <Right>
-          <PrimaryButton title="Add group" onClick={() => history.push('/groups/add')} />
-          <DatePicker
-            placeholder="Date"
-            name="rangeDate"
-            value={date}
-            change={(value) => setDate(value)}
-            showTimePicker={false}
-            dateFormat="YYYY-MM-DD"
-            date={date}
-            white
-            right={false}
+          <PrimaryButton
+            title="Add group"
+            onClick={() => showBlured({
+              title: 'Add group',
+              body: () => <AddGroup groupAddFormik={groupAddFormik} />
+            })}
+          />
+          <PrimaryButton
+            title="Add subject"
+            onClick={() => showBlured({
+              title: 'Add subject',
+              body: () => <AddSubject subjectAddFormik={subjectAddFormik} />
+            })}
           />
         </Right>
       </Body>

@@ -20,7 +20,7 @@ function* fetchData() {
     yield put(setTotal(total));
     yield put(setLoading(false));
   } catch (error) {
-    yield put(setError(error.response.data.error_message));
+    yield put(setError(error));
   }
 }
 
@@ -32,11 +32,11 @@ function* addSubject({ payload, success }) {
     success(res.data);
     yield put(setLoading(false));
   } catch (error) {
-    yield put(setError(error.response.data.error_message));
+    yield put(setError(error));
   }
 }
 
 export default function* subjectsSaga() {
-  yield takeLatest(types.TABLE_ADMIN_GROUPS_FETCH_DATA, fetchData);
-  yield takeLatest(types.TABLE_ADMIN_GROUPS_CREATE_GROUP, addSubject);
+  yield takeLatest(types.TABLE_ADMIN_SUBJECTS_FETCH_DATA, fetchData);
+  yield takeLatest(types.TABLE_ADMIN_SUBJECTS_CREATE_SUBJECT, addSubject);
 }

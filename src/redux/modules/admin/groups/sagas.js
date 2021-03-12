@@ -12,8 +12,8 @@ import {
 import { dataSelector } from './selectors';
 
 function* fetchData({ payload }) {
+  yield put(setLoading(true));
   try {
-    yield put(setLoading(true));
     const res = yield service.getAll(payload.query);
     const { total, data } = dataSelector(res.data);
     yield put(setError(''));
@@ -21,7 +21,7 @@ function* fetchData({ payload }) {
     yield put(setTotal(total));
     yield put(setLoading(false));
   } catch (error) {
-    yield put(setError(error.response.data.error_message));
+    yield put(setError(error));
   }
 }
 
@@ -33,9 +33,11 @@ function* createLesson({ payload, success }) {
     success(res.data);
     yield put(setLoading(false));
   } catch (error) {
-    yield put(setError(error.response.data.error_message));
+    yield put(setError(error || error));
   }
-} function* addGroup({ payload, success }) {
+}
+
+function* addGroup({ payload, success }) {
   try {
     yield put(setLoading(true));
     const res = yield lesson.createLesson(payload);
@@ -43,7 +45,7 @@ function* createLesson({ payload, success }) {
     success(res.data);
     yield put(setLoading(false));
   } catch (error) {
-    yield put(setError(error.response.data.error_message));
+    yield put(setError(error));
   }
 }
 

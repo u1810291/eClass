@@ -17,7 +17,7 @@ function* getFiles() {
     yield put(setData(data));
     yield put(setLoading(false));
   } catch (error) {
-    yield put(setError(error.response.data.error_message));
+    yield put(setError(error));
   }
 }
 
@@ -29,7 +29,7 @@ function* uploadFile({ payload, success }) {
     success(res);
   } catch (error) {
     // eslint-disable-next-line no-alert
-    alert(error.response.data.error_message);
+    alert(error);
   }
 }
 
@@ -40,7 +40,7 @@ function* deleteFile(payload) {
     yield put(setError(''));
     yield put(setLoading(false));
   } catch (error) {
-    yield put(setError(error.response.data.error_message));
+    yield put(setError(error));
   }
 }
 
@@ -66,7 +66,7 @@ function* getFileById({ payload }) {
     yield put(setLoading(false));
   } catch (error) {
     // console.log(error);
-    yield put(setError(error.response.data.error_message));
+    yield put(setError(error));
   }
 }
 
