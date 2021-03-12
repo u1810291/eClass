@@ -14,7 +14,8 @@ export default ({ groupAddFormik }) => {
   const [date, setDate] = useState(new Date());
   const { formik } = groupAddFormik();
   const { data } = useSelector((state) => state.subjectsReducers);
-
+  const { data: teachers } = useSelector((state) => state.adminUsersReducers);
+  console.log(teachers);
   return (
     <Container>
       <Card>

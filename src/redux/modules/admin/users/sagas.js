@@ -14,6 +14,7 @@ function* fetchData({ payload }) {
   yield put(setLoading(true));
   try {
     const res = yield service.getUsers(payload);
+    console.log(res);
     const { total, data } = dataSelector(payload, res.data);
     yield put(setError(''));
     yield put(setTotal(total));

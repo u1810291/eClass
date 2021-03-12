@@ -3,7 +3,9 @@
 import { takeLatest, put } from 'redux-saga/effects';
 import types from '../../../constants/action-types';
 import service from '../../../services/lists';
+import users from '../../../services/admin/users';
 import {
+  setData,
   setError,
   setCities,
   setCountries,
@@ -48,8 +50,19 @@ function* getReasons() {
   }
 }
 
+function* getUser({ payload }) {
+  try {
+    const res = yield users.getUsers(payload);
+    console.log(res);
+    yield setData(res.data);
+  } catch (error) {
+    yield put(setError(error));
+  }
+}
+
 export default function* listsSaga() {
   yield takeLatest(types.COUNTRIES_FETCH_DATA, getCountries);
   yield takeLatest(types.CITIES_FETCH_DATA, getCities);
   yield takeLatest(types.REASONS_FETCH_DATA, getReasons);
+  yield takeLatest(types.USERS_FETCH_DATA, getUser);
 }

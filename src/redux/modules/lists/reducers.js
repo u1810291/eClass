@@ -1,6 +1,7 @@
 import types from '../../../constants/action-types';
 
 const defaultState = {
+  users: [],
   countries: [],
   cities: [],
   reasons: [],
@@ -8,6 +9,10 @@ const defaultState = {
 };
 
 const map = {
+  [types.DROPDOWN_USERS_SET_DATA]: (state, { payload }) => ({
+    ...state,
+    users: payload
+  }),
   [types.COUNTRIES_SET_DATA]: (state, { payload }) => ({
     ...state,
     countries: payload
