@@ -6,7 +6,7 @@ import {
 } from './style';
 import { NormalInput, SingleDatePicker } from '../../Forms/Inputs';
 import Dropdown from '../../Forms/Dropdowns';
-import { dropdownOptions, languages } from '../../../data/dropdown';
+import { languages } from '../../../data/dropdown';
 import { PrimaryButton } from '../../Buttons';
 import Card from '../../Card';
 
@@ -14,7 +14,7 @@ export default ({ groupAddFormik }) => {
   const [date, setDate] = useState(new Date());
   const { formik } = groupAddFormik();
   const { data } = useSelector((state) => state.subjectsReducers);
-
+  const { users: teachers } = useSelector((state) => state.listsReducers);
   return (
     <Container>
       <Card>
@@ -141,9 +141,11 @@ export default ({ groupAddFormik }) => {
             />
             <Dropdown
               placeholder="Teacher"
-              options={dropdownOptions.commonOptions}
-              value={formik.values.teacher_id}
-              onChange={(e) => formik.setFieldValue('teacher_id', e)}
+              options={teachers}
+              value={formik.values.teacher_id
+              && teachers.find((el) => el.value === formik.values.teacher_id).id}
+              onChange={(e) => formik.setFieldValue('teacher_id',
+                teachers.find((el) => el.id === e).value)}
               helperText={formik.errors.teacher_id}
               type={formik.touched.teacher_id
                 && formik.errors.teacher_id

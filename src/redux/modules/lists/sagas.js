@@ -3,14 +3,16 @@
 import { takeLatest, put } from 'redux-saga/effects';
 import types from '../../../constants/action-types';
 import service from '../../../services/lists';
+import users from '../../../services/admin/users';
 import {
+  setData,
   setError,
   setCities,
   setCountries,
   setReasons
 } from './actions';
 
-import { dataSelector, reasonSelector } from './selectors';
+import { dataSelector, reasonSelector, userSelector } from './selectors';
 
 function* getCountries() {
   try {
@@ -48,8 +50,19 @@ function* getReasons() {
   }
 }
 
+function* getUser({ payload }) {
+  try {
+    const res = yield users.getUsers(payload);
+    const { data } = userSelector(res.data);
+    yield put(setData(data));
+  } catch (error) {
+    yield put(setError(error));
+  }
+}
+
 export default function* listsSaga() {
   yield takeLatest(types.COUNTRIES_FETCH_DATA, getCountries);
   yield takeLatest(types.CITIES_FETCH_DATA, getCities);
   yield takeLatest(types.REASONS_FETCH_DATA, getReasons);
+  yield takeLatest(types.USERS_FETCH_DATA, getUser);
 }

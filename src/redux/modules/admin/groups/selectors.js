@@ -43,9 +43,9 @@ export function dataSelector(lesson) {
 
 export function addGroupSelector(data) {
   const filtered = {
-    name: data.name,
-    official_name: data.official_name,
-    description: data.description,
+    name: data.en_name,
+    official_name: data.en_official_name,
+    description: data.en_description,
     group_lang: data.lang,
     salary_percent: data.salary_percent,
     price: data.price,

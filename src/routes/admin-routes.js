@@ -1,15 +1,8 @@
 import Examples from '../components/Examples';
 import Balance from '../views/Balance';
-import Homeworks from '../views/Homeworks';
 import Profile from '../views/Profile';
-import Quiz from '../views/Quiz';
-import Grades from '../views/Student/Grades';
-import Attendance from '../views/Student/Attendance';
 import Payment from '../views/Student/Payment';
 import Library from '../views/Library';
-import Video from '../views/Video';
-import Connection from '../views/Student/Connection';
-import Schedule from '../views/Shedule';
 import Chat from '../views/Chat';
 import Groups from '../views/Admin/Groups';
 import Lesson from '../views/Admin/Lesson';
@@ -46,40 +39,6 @@ export default [
   },
   {
     exact: true,
-    path: '/homeworks',
-    component: Homeworks,
-    icon: 'homeworks',
-    title: 'Homeworks',
-    children: []
-  },
-  {
-    exact: true,
-    path: '/quiz',
-    component: Quiz,
-    icon: 'quiz',
-    title: 'Quiz',
-    children: []
-  },
-  {
-    exact: true,
-    path: '/grades',
-    component: Grades,
-    icon: 'grades',
-    title: 'Grades',
-
-    children: []
-  },
-  {
-    exact: true,
-    path: '/attendance',
-    component: Attendance,
-    icon: 'attendance',
-    title: 'Attendance',
-
-    children: []
-  },
-  {
-    exact: true,
     path: '/payment',
     component: Payment,
     icon: 'balance',
@@ -97,27 +56,10 @@ export default [
   },
   {
     exact: true,
-    path: '/video',
-    component: Video,
-    icon: 'video-materials',
-    title: 'Video',
-
-    children: []
-  },
-  {
-    exact: true,
-    path: '/connection',
-    component: Connection,
-    icon: 'connection',
-    title: 'Connection',
-    children: []
-  },
-  {
-    exact: true,
-    path: '/schedule',
-    component: Schedule,
-    icon: 'reschedule',
-    title: 'Schedule',
+    path: '/groups',
+    component: Groups,
+    icon: 'classess2',
+    title: 'Groups',
     children: []
   },
   {
@@ -126,14 +68,6 @@ export default [
     component: Chat,
     icon: 'chat2',
     title: 'Chat',
-    children: []
-  },
-  {
-    exact: true,
-    path: '/support',
-    component: Examples,
-    icon: 'support2',
-    title: 'Support',
     children: []
   },
   {
@@ -181,15 +115,6 @@ export default [
     icon: 'dashboard',
     title: 'Tariff',
     children: []
-  },
-  {
-    exact: true,
-    path: '/groups',
-    component: Groups,
-    icon: 'classess2',
-    title: 'Groups',
-    children: [
-    ]
   },
   {
     exact: true,

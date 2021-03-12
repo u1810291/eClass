@@ -9,7 +9,7 @@ import {
   setTotal
 } from './actions';
 
-import { dataSelector } from './selectors';
+import { dataSelector, addGroupSelector } from './selectors';
 
 function* fetchData({ payload }) {
   yield put(setLoading(true));
@@ -40,7 +40,8 @@ function* createLesson({ payload, success }) {
 function* addGroup({ payload, success }) {
   try {
     yield put(setLoading(true));
-    const res = yield lesson.createLesson(payload);
+    const data = addGroupSelector(payload);
+    const res = yield service.createGroup(data);
     yield put(setError(''));
     success(res.data);
     yield put(setLoading(false));

@@ -45,15 +45,15 @@ export function dataSelector(lesson) {
 
 export function startLessonSelector(data) {
   const filtered = {
-    api_key: data.api_key,
-    attendances: data.attendances.map((el) => ({
+    api_key: data.api_key ? data.api_key : '',
+    attendances: data.attendances ? data.attendances.map((el) => ({
       missed: el.missed,
       student: {
         full_name: el.student.full_name,
         id: el.student.id,
         username: el.student.username
       }
-    })),
+    })) : '',
     canceled: data.canceled,
     duration: data.duration,
     finished: data.finished,
@@ -62,19 +62,19 @@ export function startLessonSelector(data) {
       id: data.group.id,
       name: data.group.name
     },
-    students: data.students.map((el) => ({
+    students: data.students ? data.students.map((el) => ({
       full_name: el.full_name,
       id: el.id,
       username: el.username
-    })),
+    })) : '',
     id: data.id,
-    join_url: data.join_url,
-    meeting_id: data.meeting_id,
-    meeting_password: data.meeting_password,
+    join_url: data.join_url ? data.join_url : '',
+    meeting_id: data.meeting_id ? data.meeting_id : '',
+    meeting_password: data.meeting_password ? data.meeting_password : '',
     rescheduled: data.rescheduled,
     scheduled_start: data.scheduled_start,
-    signature: data.signature,
-    start_url: data.start_url,
+    signature: data.signature ? data.signature : '',
+    start_url: data.start_url ? data.start_url : '',
     started: data.started,
     started_at: data.started_at,
     subject: {
