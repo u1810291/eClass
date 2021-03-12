@@ -15,7 +15,6 @@ export default ({ groupAddFormik }) => {
   const { formik } = groupAddFormik();
   const { data } = useSelector((state) => state.subjectsReducers);
 
-  console.log(data);
   return (
     <Container>
       <Card>
