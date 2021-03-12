@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+import { useSelector } from 'react-redux';
 import {
   Container, Body, Header, Footer, Main
 } from './style';
@@ -12,6 +13,9 @@ import Card from '../../Card';
 export default ({ groupAddFormik }) => {
   const [date, setDate] = useState(new Date());
   const { formik } = groupAddFormik();
+  const { data } = useSelector((state) => state.subjectsReducers);
+
+  console.log(data);
   return (
     <Container>
       <Card>
@@ -126,9 +130,11 @@ export default ({ groupAddFormik }) => {
             />
             <Dropdown
               placeholder="Subject"
-              options={dropdownOptions.commonOptions}
-              value={formik.values.subject_id}
-              onChange={(e) => formik.setFieldValue('subject_id', e)}
+              options={data}
+              value={formik.values.subject_id
+              && data.find((el) => el.value === formik.values.subject_id).id}
+              onChange={(e) => formik.setFieldValue('subject_id',
+                data.find((el) => el.id === e).value)}
               helperText={formik.values.subject_id
                 && formik.values.subject_id}
               type={formik.touched.subject_id

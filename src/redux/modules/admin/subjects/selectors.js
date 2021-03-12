@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 
-export function dataSelector(lesson) {
-  const { total_elements, content } = lesson;
+export function dataSelector(subject) {
+  const { content } = subject;
   const filtered = content.map((el) => ({
     id: el.id,
     lang: el.lang,
@@ -9,7 +9,7 @@ export function dataSelector(lesson) {
     subject_lang: el.subject_lang,
     description: el.description
   }));
-  return { total: total_elements, data: filtered };
+  return { data: filtered };
 }
 
 export function addSubjectSelector(data) {
