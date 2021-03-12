@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
 import { createLesson, addGroup } from '../../../redux/modules/admin/groups/actions';
+import { addSubject } from '../../../redux/modules/admin/subjects/actions';
 import CreateLesson from '../../../components/Groups/CreateLesson';
 
 const handleCreate = (id) => {
@@ -38,7 +39,7 @@ export const toolTips = [
     icon: 'payment',
     onClick: (id, { showBlured }) => {
       showBlured({
-        title: 'Add homework',
+        title: 'Create Lesson',
         body: () => <CreateLesson handleCreate={() => handleCreate(id)} />
       });
     }
@@ -67,6 +68,8 @@ export const toolTips = [
 ];
 
 export function subjectAddFormik() {
+  const dispatch = useDispatch();
+
   const validationSchema = Yup.object().shape({
     en_name: Yup.string().required('Required'),
     en_description: Yup.string().required('Required'),
@@ -86,7 +89,15 @@ export function subjectAddFormik() {
       uz_description: '',
       subject_lang: ''
     },
-    validationSchema
+    validationSchema,
+    onSubmit: (values, { setSubmitting }) => {
+      setSubmitting(true);
+      dispatch(addSubject(values, (success) => {
+        // eslint-disable-next-line no-alert
+        alert('Succesfully added');
+        return success;
+      }));
+    }
   });
   return { formik };
 }

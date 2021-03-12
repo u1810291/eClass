@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Table from '../../../components/Table';
 import { Container } from './style';
 import { fetchData } from '../../../redux/modules/admin/groups/actions';
+import { getUser } from '../../../redux/modules/lists/actions';
 import { groupsHeader } from '../../../redux/modules/table/common';
 import GroupsHeader from '../../../components/Headers/GroupsHeader';
 import TableError from '../../../components/Table/Error';
@@ -32,14 +33,15 @@ export default () => {
   }, [sort]);
 
   const query = useMemo(
-    () => ` page=${pageIndex}&size=${pageSize}${sortQuery}`,
+    () => `page=${pageIndex}&size=${pageSize}${sortQuery}`,
     [pageIndex, pageSize, sortQuery]
   );
 
   useEffect(() => {
     dispatch(subjectFetch());
+    dispatch(getUser('teacher'));
     dispatch(fetchData({ query }));
-  }, [fetchData, query, subjectFetch]);
+  }, [dispatch, query]);
 
   const handleOnChange = ({ pageIndex, pageSize }) => {
     setPageIndex(pageIndex);

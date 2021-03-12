@@ -13,6 +13,22 @@ export function dataSelector(subject) {
 }
 
 export function addSubjectSelector(data) {
-  const filtered = { data };
+  const filtered = {
+    name: data.en_name,
+    subject_lang: data.subject_lang,
+    description: data.en_description,
+    subject_names:
+      [
+        {
+          lang: 'ru',
+          name: data.ru_name,
+          description: data.ru_description
+        },
+        {
+          lang: 'uz',
+          name: data.uz_name,
+          description: data.uz_description
+        }]
+  };
   return { data: filtered };
 }

@@ -59,7 +59,6 @@ export default () => {
         />
       </Search>
       <Filter>
-
         <Dropdown
           placeholder="Select"
           options={options}
@@ -70,7 +69,6 @@ export default () => {
           }}
           size="large"
         />
-
         <PrimaryButton
           className="my-2"
           size="large"
