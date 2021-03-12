@@ -8,14 +8,14 @@ import { groupsHeader } from '../../../redux/modules/table/common';
 import GroupsHeader from '../../../components/Headers/GroupsHeader';
 import TableError from '../../../components/Table/Error';
 import { headerMaker } from '../../../components/Table/helper';
-import { toolTips } from './helper';
+import { toolTips, subjectAddFormik, groupAddFormik } from './helper';
+import { fetchData as subjectFetch } from '../../../redux/modules/admin/subjects/actions';
 
 export default () => {
   const dispatch = useDispatch();
   const [pageIndex, setPageIndex] = useState(0);
   const [pageSize, setPageSize] = useState(0);
   const [search, setSearch] = useState('');
-  const [date, setDate] = useState(undefined);
   const [sort, setSort] = useState();
 
   const {
@@ -23,12 +23,6 @@ export default () => {
   } = useSelector((state) => state.adminGroupsReducers);
   const headerData = useSelector(({ tableReducer }) => tableReducer.groupsHeader);
   const headers = useMemo(() => headerMaker(headerData), [headerData]);
-  const dateFilter = useMemo(
-    () => (date
-      ? `&from_date=${date.start.toISOString()}&to_date=${date.end.toISOString()}`
-      : ''),
-    [date]
-  );
 
   const sortQuery = useMemo(() => {
     const found = sort && groupsHeader.find(({ id }) => id === sort.id);
@@ -38,35 +32,26 @@ export default () => {
   }, [sort]);
 
   const query = useMemo(
-    () => `${dateFilter}&page=${pageIndex}&size=${pageSize}&${sortQuery}`,
-    [pageIndex, pageSize, sortQuery, dateFilter]
+    () => ` page=${pageIndex}&size=${pageSize}${sortQuery}`,
+    [pageIndex, pageSize, sortQuery]
   );
 
   useEffect(() => {
+    dispatch(subjectFetch());
     dispatch(fetchData({ query }));
-  }, [fetchData, query]);
+  }, [fetchData, query, subjectFetch]);
 
   const handleOnChange = ({ pageIndex, pageSize }) => {
     setPageIndex(pageIndex);
     setPageSize(pageSize);
   };
-
-  useEffect(() => {
-    dispatch(
-      fetchData({
-        isSearch: true,
-        query: `${query}${search ? `&search=${search}` : ''}`
-      })
-    );
-  }, [dispatch, search]);
-
   return (
     <Container>
       <GroupsHeader
         setSearch={setSearch}
         search={search}
-        setDate={setDate}
-        date={date}
+        subjectAddFormik={subjectAddFormik}
+        groupAddFormik={groupAddFormik}
       />
       {error ? (
         <TableError message={error} />

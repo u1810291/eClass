@@ -15,7 +15,8 @@ import TableError from '../../../components/Table/Error';
 import { getCities, getCountries, getReasons } from '../../../redux/modules/lists/actions';
 
 export default () => {
-  const [userType, setUserType] = useState(undefined);
+  const [userType, setUserType] = useState(1);
+  const [userName, setUserName] = useState('student');
   const dispatch = useDispatch();
   useEffect(() => {
     let isMounted = true;
@@ -46,9 +47,8 @@ export default () => {
   const onChangeFunc = () => null;
 
   useEffect(() => {
-    dispatch(fetchData());
-  }, [fetchData]);
-
+    dispatch(fetchData(userName.toLowerCase()));
+  }, [fetchData, setUserName, userName]);
   return (
     <Container>
       <Search>
@@ -64,7 +64,10 @@ export default () => {
           placeholder="Select"
           options={options}
           value={userType}
-          onChange={setUserType}
+          onChange={(e) => {
+            setUserType(e);
+            setUserName(() => options.find((el) => (el.id === e)).value.toString());
+          }}
           size="large"
         />
 
@@ -73,7 +76,7 @@ export default () => {
           size="large"
           onClick={() => (getType().length > 0
             ? history.push(`/users/add/${getType()}`)
-            : history.push('/users/add/student'))}
+            : history.push(`/users/add/${userType}`))}
           title="Add new"
         />
       </Filter>

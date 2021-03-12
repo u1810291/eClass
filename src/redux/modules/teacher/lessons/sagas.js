@@ -24,7 +24,7 @@ function* fetchData({ payload }) {
     yield put(setTotal(total));
     yield put(setLoading(false));
   } catch (error) {
-    yield put(setError(error.response.data.error_message));
+    yield put(setError(error));
   }
 }
 function* startLesson({ payload, success }) {
@@ -34,8 +34,8 @@ function* startLesson({ payload, success }) {
     success(data);
   } catch (error) {
     // eslint-disable-next-line no-alert
-    alert(error.response.data.error_message);
-    console.log(error.response.data.error_message);
+    alert(error);
+    console.log(error);
   }
 }
 
