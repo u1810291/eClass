@@ -12,7 +12,7 @@ import {
   setReasons
 } from './actions';
 
-import { dataSelector, reasonSelector } from './selectors';
+import { dataSelector, reasonSelector, userSelector } from './selectors';
 
 function* getCountries() {
   try {
@@ -53,8 +53,9 @@ function* getReasons() {
 function* getUser({ payload }) {
   try {
     const res = yield users.getUsers(payload);
-    console.log(res);
-    yield setData(res.data);
+    const { data } = userSelector(res.data);
+    console.log(data);
+    yield setData(data);
   } catch (error) {
     yield put(setError(error));
   }

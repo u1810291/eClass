@@ -21,3 +21,12 @@ export function reasonSelector(data) {
   }));
   return { data: filtered };
 }
+
+export function userSelector(users) {
+  const { content } = users;
+  const filtered = content.map((el) => ({
+    id: el.id,
+    name: el.first_name
+  }));
+  return { data: filtered };
+}
