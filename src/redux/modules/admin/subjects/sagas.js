@@ -26,7 +26,6 @@ function* fetchData() {
 
 function* addSubject({ payload, success }) {
   try {
-    console.log(payload);
     const { data } = addSubjectSelector(payload);
     const res = yield service.createSubject(data);
     yield put(setError(''));
