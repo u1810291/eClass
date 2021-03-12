@@ -54,8 +54,7 @@ function* getUser({ payload }) {
   try {
     const res = yield users.getUsers(payload);
     const { data } = userSelector(res.data);
-    console.log(data);
-    yield setData(data);
+    yield put(setData(data));
   } catch (error) {
     yield put(setError(error));
   }
