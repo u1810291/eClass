@@ -5,7 +5,7 @@ export function dataSelector(subject) {
   const filtered = content.map((el) => ({
     id: el.id,
     lang: el.lang,
-    name: el.name,
+    value: el.name,
     subject_lang: el.subject_lang,
     description: el.description
   }));

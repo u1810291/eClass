@@ -135,8 +135,7 @@ export default ({ groupAddFormik }) => {
               && data.find((el) => el.value === formik.values.subject_id).id}
               onChange={(e) => formik.setFieldValue('subject_id',
                 data.find((el) => el.id === e).value)}
-              helperText={formik.values.subject_id
-                && formik.values.subject_id}
+              helperText={formik.errors.subject_id}
               type={formik.touched.subject_id
               && formik.errors.subject_id && 'error'}
               size="large"

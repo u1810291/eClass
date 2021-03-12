@@ -10,11 +10,12 @@ import {
 
 import { dataSelector } from './selectors';
 
-function* fetchData() {
+function* fetchData({ payload }) {
   yield put(setLoading(true));
   try {
-    const res = yield service.getUsers('student');
-    const { total, data } = dataSelector(res.data);
+    const res = yield service.getUsers(payload);
+    console.log(res);
+    const { total, data } = dataSelector(payload, res.data);
     yield put(setError(''));
     yield put(setTotal(total));
     yield put(setData(data));
