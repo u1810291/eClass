@@ -14,10 +14,11 @@ const StudyDays = () => {
   const handleTimeTime = (id, value) => {
     const times = { day_of_week: id, start_time: moment(value).format('HH:mm') };
     console.log(time.filter((el) => el.day_of_week !== id));
-    setTime((prev) => (prev.length !== 0
-      ? time.length !== 0 ? time.filter((el) => el.day_of_week !== id)
-        : prev.concat(times)
-      : [times]));
+    if (time.length !== 0) {
+      setTime(time.filter((el) => el.day_of_week !== id));
+    } else {
+      setTime((prev) => prev.concat(times));
+    }
   };
   console.log(time);
 
