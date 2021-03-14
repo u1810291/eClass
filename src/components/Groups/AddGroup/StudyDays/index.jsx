@@ -3,51 +3,31 @@ import React, { useState } from 'react';
 import { Container, DaysContainer, Item } from '../style';
 import SingleDatePicker from '../../../Forms/Inputs/SingleDatePicker';
 import CheckBox from '../../../CheckBox';
+import { studyDays } from '../../../../constants/dropdown';
 
-export default () => {
-  const [date, setDate] = useState(new Date());
-  const studyDays = [
-    {
-      id: 1,
-      weekDay: 'Monday'
-    },
-    {
-      id: 2,
-      weekDay: 'Tuesday'
-    },
-    {
-      id: 3,
-      weekDay: 'Wednesday'
-    },
-    {
-      id: 4,
-      weekDay: 'Thursday'
-    },
-    {
-      id: 5,
-      weekDay: 'Friday'
-    },
-    {
-      id: 6,
-      weekDay: 'Saturday'
-    },
-    {
-      id: 7,
-      weekDay: 'Sunday'
-    }];
+const StudyDays = () => {
+  // eslint-disable-next-line no-unused-vars
+  const [date, setDate] = useState();
+  const [time, setTime] = useState();
+  console.log(time);
+
   return (
     <Container>
       <DaysContainer>
         {studyDays.map((el) => (
           <Item key={el.id}>
-            <CheckBox />
+            <Item.Head>
+              <CheckBox />
+              {el.weekDay}
+            </Item.Head>
             <SingleDatePicker
               showTimeSelectOnly
+              timeFormat="HH:mm"
               value={date}
               showTimeSelect
               placeholder="Date"
               name="start_date"
-              onChange={(value) => setDate(value)}
+              onChange={(value) => { setTime((prev) => [{ prev, value }]); setDate(value); }}
             />
           </Item>
         ))}
@@ -55,3 +35,5 @@ export default () => {
     </Container>
   );
 };
+
+export default StudyDays;

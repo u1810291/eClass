@@ -43,3 +43,8 @@ export const StudyCard = styled.div`
 `;
 
 export const Item = styled.div``;
+
+Item.Head = styled.div`
+  padding: 5px;
+  display: flex;
+`;
