@@ -32,7 +32,7 @@ export default ({ groupAddFormik }) => {
               name="en_name"
             />
             <NormalInput
-              placeholder="Official en_name"
+              placeholder="Official name in english"
               type={formik.touched.official_en_name && formik.errors.official_en_name && 'error'}
               helperText={formik.touched.official_en_name
                      && formik.errors.official_en_name && formik.errors.official_en_name}
@@ -62,7 +62,7 @@ export default ({ groupAddFormik }) => {
               name="ru_name"
             />
             <NormalInput
-              placeholder="Official ru_name in russian"
+              placeholder="Official name in russian"
               type={formik.touched.official_ru_name && formik.errors.official_ru_name && 'error'}
               helperText={formik.touched.official_ru_name
                      && formik.errors.official_ru_name && formik.errors.official_ru_name}
@@ -92,7 +92,7 @@ export default ({ groupAddFormik }) => {
               name="uz_name"
             />
             <NormalInput
-              placeholder="Official uz_name in uzbek"
+              placeholder="Official name in uzbek"
               type={formik.touched.official_uz_name && formik.errors.official_uz_name && 'error'}
               helperText={formik.touched.official_uz_name
                      && formik.errors.official_uz_name && formik.errors.official_uz_name}
@@ -187,7 +187,9 @@ export default ({ groupAddFormik }) => {
           <Footer>
             <NormalInput placeholder="Duration" />
             <SingleDatePicker
+              showTimeSelectOnly
               value={date}
+              showTimeSelect
               placeholder="Date"
               name="start_date"
               onChange={(value) => setDate(value)}
