@@ -1,5 +1,7 @@
+/* eslint-disable no-nested-ternary */
 import React, { useState } from 'react';
 
+import moment from 'moment';
 import { Container, DaysContainer, Item } from '../style';
 import SingleDatePicker from '../../../Forms/Inputs/SingleDatePicker';
 import CheckBox from '../../../CheckBox';
@@ -8,7 +10,15 @@ import { studyDays } from '../../../../constants/dropdown';
 const StudyDays = () => {
   // eslint-disable-next-line no-unused-vars
   const [date, setDate] = useState();
-  const [time, setTime] = useState();
+  const [time, setTime] = useState([]);
+  const handleTimeTime = (id, value) => {
+    const times = { day_of_week: id, start_time: moment(value).format('HH:mm') };
+    console.log(time.filter((el) => el.day_of_week !== id));
+    setTime((prev) => (prev.length !== 0
+      ? time.length !== 0 ? time.filter((el) => el.day_of_week !== id)
+        : prev.concat(times)
+      : [times]));
+  };
   console.log(time);
 
   return (
@@ -23,11 +33,11 @@ const StudyDays = () => {
             <SingleDatePicker
               showTimeSelectOnly
               timeFormat="HH:mm"
-              value={date}
+              // value={date}
               showTimeSelect
               placeholder="Date"
               name="start_date"
-              onChange={(value) => { setTime((prev) => [{ prev, value }]); setDate(value); }}
+              onChange={(value) => { handleTimeTime(el.id, value); setDate(value); }}
             />
           </Item>
         ))}
