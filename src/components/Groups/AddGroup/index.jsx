@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 
 import { useSelector } from 'react-redux';
 import {
-  Container, Body, Header, Footer, Main
+  Container, Body, Header, Footer, Main, StudyCard
 } from './style';
 import { NormalInput, SingleDatePicker } from '../../Forms/Inputs';
 import Dropdown from '../../Forms/Dropdowns';
 import { languages } from '../../../data/dropdown';
 import { PrimaryButton } from '../../Buttons';
 import Card from '../../Card';
+import StudyDays from './StudyDays';
 
 export default ({ groupAddFormik }) => {
   const [date, setDate] = useState(new Date());
@@ -112,6 +113,10 @@ export default ({ groupAddFormik }) => {
               size="large"
             />
           </Header>
+          <StudyCard>
+
+            <StudyDays />
+          </StudyCard>
           <Main>
             <Dropdown
               placeholder="Language"
@@ -185,11 +190,8 @@ export default ({ groupAddFormik }) => {
             />
           </Main>
           <Footer>
-            <NormalInput placeholder="Duration" />
             <SingleDatePicker
-              showTimeSelectOnly
               value={date}
-              showTimeSelect
               placeholder="Date"
               name="start_date"
               onChange={(value) => setDate(value)}
