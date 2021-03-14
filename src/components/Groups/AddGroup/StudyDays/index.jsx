@@ -6,12 +6,40 @@ import CheckBox from '../../../CheckBox';
 
 export default () => {
   const [date, setDate] = useState(new Date());
-  const studyDays = [1, 2, 3, 4, 5, 6, 7];
+  const studyDays = [
+    {
+      id: 1,
+      weekDay: 'Monday'
+    },
+    {
+      id: 2,
+      weekDay: 'Tuesday'
+    },
+    {
+      id: 3,
+      weekDay: 'Wednesday'
+    },
+    {
+      id: 4,
+      weekDay: 'Thursday'
+    },
+    {
+      id: 5,
+      weekDay: 'Friday'
+    },
+    {
+      id: 6,
+      weekDay: 'Saturday'
+    },
+    {
+      id: 7,
+      weekDay: 'Sunday'
+    }];
   return (
     <Container>
       <DaysContainer>
         {studyDays.map((el) => (
-          <Item key={el}>
+          <Item key={el.id}>
             <CheckBox />
             <SingleDatePicker
               showTimeSelectOnly
