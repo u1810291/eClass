@@ -14,14 +14,22 @@ const SingleDatePicker = ({
   type,
   size,
   showTimeSelect,
+  dateFormat,
+  timeFormat,
+  showTimeSelectOnly,
+  filterDate,
   ...props
 }) => (
   <Container type={type}>
     <DatePickerContainer
+      showTimeSelectOnly={showTimeSelectOnly}
       showTimeSelect={showTimeSelect}
       placeholderText={placeholder}
       selected={value}
       onChange={onChange}
+      dateFormat={dateFormat}
+      timeFormat={timeFormat}
+      filterDate={filterDate}
       customInput={
         <InputCustom type={type || 'button'} style={style} white={white} placeholder={placeholder} />
       }

@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 
 import { useSelector } from 'react-redux';
 import {
-  Container, Body, Header, Footer, Main
+  Container, Body, Header, Footer, Main, StudyCard
 } from './style';
 import { NormalInput, SingleDatePicker } from '../../Forms/Inputs';
 import Dropdown from '../../Forms/Dropdowns';
 import { languages } from '../../../data/dropdown';
 import { PrimaryButton } from '../../Buttons';
 import Card from '../../Card';
+import StudyDays from './StudyDays';
 
 export default ({ groupAddFormik }) => {
   const [date, setDate] = useState(new Date());
@@ -32,7 +33,7 @@ export default ({ groupAddFormik }) => {
               name="en_name"
             />
             <NormalInput
-              placeholder="Official en_name"
+              placeholder="Official name in english"
               type={formik.touched.official_en_name && formik.errors.official_en_name && 'error'}
               helperText={formik.touched.official_en_name
                      && formik.errors.official_en_name && formik.errors.official_en_name}
@@ -62,7 +63,7 @@ export default ({ groupAddFormik }) => {
               name="ru_name"
             />
             <NormalInput
-              placeholder="Official ru_name in russian"
+              placeholder="Official name in russian"
               type={formik.touched.official_ru_name && formik.errors.official_ru_name && 'error'}
               helperText={formik.touched.official_ru_name
                      && formik.errors.official_ru_name && formik.errors.official_ru_name}
@@ -92,7 +93,7 @@ export default ({ groupAddFormik }) => {
               name="uz_name"
             />
             <NormalInput
-              placeholder="Official uz_name in uzbek"
+              placeholder="Official name in uzbek"
               type={formik.touched.official_uz_name && formik.errors.official_uz_name && 'error'}
               helperText={formik.touched.official_uz_name
                      && formik.errors.official_uz_name && formik.errors.official_uz_name}
@@ -112,6 +113,10 @@ export default ({ groupAddFormik }) => {
               size="large"
             />
           </Header>
+          <StudyCard>
+
+            <StudyDays />
+          </StudyCard>
           <Main>
             <Dropdown
               placeholder="Language"
@@ -185,7 +190,6 @@ export default ({ groupAddFormik }) => {
             />
           </Main>
           <Footer>
-            <NormalInput placeholder="Duration" />
             <SingleDatePicker
               value={date}
               placeholder="Date"
