@@ -18,14 +18,12 @@ const StudyDays = ({ formik }) => {
     }
     return setTime((prev) => prev.concat(times));
   };
-  // console.log(formik.values);
   useEffect(() => {
     formik.setValues({
       ...formik.values,
       study_days: time
     });
   }, [time, setTime]);
-  // console.log(formik.errors);
   return (
     <Container>
       <DaysContainer>
