@@ -13,14 +13,12 @@ const StudyDays = () => {
   const [time, setTime] = useState([]);
   const handleTimeTime = (id, value) => {
     const times = { day_of_week: id, start_time: moment(value).format('HH:mm') };
-    console.log(time.filter((el) => el.day_of_week !== id));
     if (time.length !== 0) {
       setTime(time.filter((el) => el.day_of_week !== id));
     } else {
       setTime((prev) => prev.concat(times));
     }
   };
-  console.log(time);
 
   return (
     <Container>
