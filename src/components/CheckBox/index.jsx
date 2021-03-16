@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React from 'react';
 import { Checkbox as PureCheckbox } from './style';
 

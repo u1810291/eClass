@@ -122,7 +122,6 @@ export const groupAddFormik = () => {
     lesson_duration: Yup.string(),
     teacher_id: Yup.string(),
     subject_id: Yup.string(),
-    group_names: Yup.array().required('Required'),
     study_days: Yup.array().required('Required'),
     start_date: Yup.string(),
     finish_date: Yup.string()
@@ -130,6 +129,7 @@ export const groupAddFormik = () => {
 
   const formik = useFormik({
     initialValues: {
+
       en_name: '',
       official_en_name: '',
       en_description: '',
@@ -140,10 +140,10 @@ export const groupAddFormik = () => {
       official_uz_name: '',
       uz_description: '',
       group_lang: '',
-      salary_percent: '',
-      price: '',
-      price_with_discount: '',
-      lesson_duration: '',
+      salary_percent: undefined,
+      price: undefined,
+      price_with_discount: undefined,
+      lesson_duration: undefined,
       teacher_id: '',
       subject_id: '',
       study_days: [],
@@ -153,6 +153,7 @@ export const groupAddFormik = () => {
     validationSchema,
     onSubmit: (values, { setSubmitting }) => {
       setSubmitting(true);
+      console.log(values);
       dispatch(addGroup(values, (success) => {
         // eslint-disable-next-line no-alert
         alert('Succesfully added');

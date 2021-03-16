@@ -1,5 +1,4 @@
-/* eslint-disable no-nested-ternary */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import moment from 'moment';
 import { Container, DaysContainer, Item } from '../style';
@@ -7,28 +6,35 @@ import SingleDatePicker from '../../../Forms/Inputs/SingleDatePicker';
 import CheckBox from '../../../CheckBox';
 import { studyDays } from '../../../../constants/dropdown';
 
-const StudyDays = () => {
+const StudyDays = ({ formik }) => {
   // eslint-disable-next-line no-unused-vars
   const [date, setDate] = useState();
   const [time, setTime] = useState([]);
-  const handleTimeTime = (id, value) => {
-    const times = { day_of_week: id, start_time: moment(value).format('HH:mm') };
-    console.log(time.filter((el) => el.day_of_week !== id));
-    if (time.length !== 0) {
+  const handleTime = (id, value) => {
+    const times = [{ day_of_week: parseInt(id, 10), start_time: moment(value).format('HH:mm') }];
+    if (time.find((el) => el.day_of_week === id)) {
       setTime(time.filter((el) => el.day_of_week !== id));
-    } else {
-      setTime((prev) => prev.concat(times));
+      return setTime((prev) => prev.concat(times));
     }
+    return setTime((prev) => prev.concat(times));
   };
-  console.log(time);
-
+  // console.log(formik.values);
+  useEffect(() => {
+    formik.setValues({
+      ...formik.values,
+      study_days: time
+    });
+  }, [time, setTime]);
+  // console.log(formik.errors);
   return (
     <Container>
       <DaysContainer>
-        {studyDays.map((el) => (
+        {studyDays.map((el, i) => (
           <Item key={el.id}>
             <Item.Head>
-              <CheckBox />
+              <CheckBox
+                onChange={() => setTime(time.filter((item) => item.day_of_week !== i + 1))}
+              />
               {el.weekDay}
             </Item.Head>
             <SingleDatePicker
@@ -36,9 +42,9 @@ const StudyDays = () => {
               timeFormat="HH:mm"
               // value={date}
               showTimeSelect
-              placeholder="Date"
+              placeholder="Time"
               name="start_date"
-              onChange={(value) => { handleTimeTime(el.id, value); setDate(value); }}
+              onChange={(value) => { handleTime(el.id, value); setDate(value); }}
             />
           </Item>
         ))}

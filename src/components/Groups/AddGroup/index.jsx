@@ -12,15 +12,17 @@ import Card from '../../Card';
 import StudyDays from './StudyDays';
 
 export default ({ groupAddFormik }) => {
-  const [date, setDate] = useState(new Date());
+  const [start, setStart] = useState(new Date());
+  const [finish, setFinish] = useState(new Date());
   const { formik } = groupAddFormik();
   const { data } = useSelector((state) => state.subjectsReducers);
   const { users: teachers } = useSelector((state) => state.listsReducers);
   return (
     <Container>
       <Card>
-        <Body>
+        <Body onSubmit={formik.handleSubmit}>
           <Header>
+            {console.log(formik.values)}
             <NormalInput
               label="Group name"
               size="large"
@@ -114,8 +116,7 @@ export default ({ groupAddFormik }) => {
             />
           </Header>
           <StudyCard>
-
-            <StudyDays />
+            <StudyDays formik={formik} />
           </StudyCard>
           <Main>
             <Dropdown
@@ -163,7 +164,8 @@ export default ({ groupAddFormik }) => {
               helperText={formik.touched.salary_percent
                      && formik.errors.salary_percent && formik.errors.salary_percent}
               value={formik.values.salary_percent}
-              onChange={(e) => formik.setFieldValue('salary_percent', e.target.value)}
+              onChange={(e) => formik.setFieldValue('salary_percent',
+                parseInt(e.target.value, 10))}
               name="salary_percent"
               size="large"
             />
@@ -173,37 +175,51 @@ export default ({ groupAddFormik }) => {
               helperText={formik.touched.price
                      && formik.errors.price && formik.errors.price}
               value={formik.values.price}
-              onChange={(e) => formik.setFieldValue('price', e.target.value)}
+              onChange={(e) => formik.setFieldValue('price',
+                parseInt(e.target.value, 10))}
               name="price"
               size="large"
             />
             <NormalInput
               label="Price for one lesson with discount"
               placeholder="Price for one lesson with discount"
-              type={formik.touched.price_with_discount && formik.errors.price_with_discount && 'error'}
+              type={formik.touched.price_with_discount
+                && formik.errors.price_with_discount
+                && 'error'}
               helperText={formik.touched.price_with_discount
                      && formik.errors.price_with_discount && formik.errors.price_with_discount}
               value={formik.values.price_with_discount}
-              onChange={(e) => formik.setFieldValue('price_with_discount', e.target.value)}
+              onChange={(e) => formik.setFieldValue('price_with_discount', parseInt(e.target.value, 10))}
               name="price_with_discount"
               size="large"
             />
           </Main>
           <Footer>
+            <NormalInput
+              label="Lesson Duration"
+              placeholder="Lesson Duration"
+              type={formik.touched.lesson_duration && formik.errors.lesson_duration && 'error'}
+              helperText={formik.touched.lesson_duration
+                     && formik.errors.lesson_duration && formik.errors.lesson_duration}
+              value={formik.values.lesson_duration}
+              onChange={(e) => formik.setFieldValue('lesson_duration', parseInt(e.target.value, 10))}
+              name="lesson_duration"
+              size="large"
+            />
             <SingleDatePicker
-              value={date}
+              value={start}
               placeholder="Date"
               name="start_date"
-              onChange={(value) => setDate(value)}
+              onChange={(value) => { setStart(value); formik.setFieldValue('start_date', value); }}
             />
             <SingleDatePicker
-              value={date}
+              value={finish}
               placeholder="Date"
               name="finish_date"
-              onChange={(value) => setDate(value)}
+              onChange={(value) => { setFinish(value); formik.setFieldValue('finish_date', value); }}
             />
           </Footer>
-          <PrimaryButton title="Add group" size="large" />
+          <PrimaryButton type="submit" title="Add group" size="large" />
         </Body>
       </Card>
     </Container>
