@@ -41,7 +41,6 @@ function* addGroup({ payload, success }) {
   try {
     const { data } = addGroupSelector(payload);
     const res = yield service.createGroup(data);
-    console.log(res);
     yield put(setError(''));
     success(res);
   } catch (error) {

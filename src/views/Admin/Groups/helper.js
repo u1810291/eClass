@@ -116,10 +116,10 @@ export const groupAddFormik = () => {
     official_uz_name: Yup.string().required('Required'),
     uz_description: Yup.string(),
     group_lang: Yup.string(),
-    salary_percent: Yup.string(),
-    price: Yup.string(),
-    price_with_discount: Yup.string(),
-    lesson_duration: Yup.string(),
+    salary_percent: Yup.number(),
+    price: Yup.number(),
+    price_with_discount: Yup.number(),
+    lesson_duration: Yup.number(),
     teacher_id: Yup.string(),
     subject_id: Yup.string(),
     study_days: Yup.array().required('Required'),
@@ -129,7 +129,6 @@ export const groupAddFormik = () => {
 
   const formik = useFormik({
     initialValues: {
-
       en_name: '',
       official_en_name: '',
       en_description: '',

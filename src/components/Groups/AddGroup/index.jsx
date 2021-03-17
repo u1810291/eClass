@@ -136,9 +136,9 @@ export default ({ groupAddFormik }) => {
               placeholder="Subject"
               options={data}
               value={formik.values.subject_id
-              && data.find((el) => el.value === formik.values.subject_id).id}
+              && data.find((el) => el.id === formik.values.subject_id).id}
               onChange={(e) => formik.setFieldValue('subject_id',
-                data.find((el) => el.id === e).value)}
+                data.find((el) => el.id === e).id)}
               helperText={formik.errors.subject_id}
               type={formik.touched.subject_id
               && formik.errors.subject_id && 'error'}
@@ -161,10 +161,10 @@ export default ({ groupAddFormik }) => {
               placeholder="Percent for teacher"
               type={formik.touched.salary_percent && formik.errors.salary_percent && 'error'}
               helperText={formik.touched.salary_percent
-                     && formik.errors.salary_percent && formik.errors.salary_percent}
+                     && formik.errors.salary_percent
+                     && formik.errors.salary_percent}
               value={formik.values.salary_percent}
-              onChange={(e) => formik.setFieldValue('salary_percent',
-                parseInt(e.target.value, 10))}
+              onChange={(e) => formik.setFieldValue('salary_percent', e.target.value)}
               name="salary_percent"
               size="large"
             />
@@ -174,8 +174,7 @@ export default ({ groupAddFormik }) => {
               helperText={formik.touched.price
                      && formik.errors.price && formik.errors.price}
               value={formik.values.price}
-              onChange={(e) => formik.setFieldValue('price',
-                parseInt(e.target.value, 10))}
+              onChange={(e) => formik.setFieldValue('price', e.target.value)}
               name="price"
               size="large"
             />
@@ -186,9 +185,10 @@ export default ({ groupAddFormik }) => {
                 && formik.errors.price_with_discount
                 && 'error'}
               helperText={formik.touched.price_with_discount
-                     && formik.errors.price_with_discount && formik.errors.price_with_discount}
+                     && formik.errors.price_with_discount
+                     && formik.errors.price_with_discount}
               value={formik.values.price_with_discount}
-              onChange={(e) => formik.setFieldValue('price_with_discount', parseInt(e.target.value, 10))}
+              onChange={(e) => formik.setFieldValue('price_with_discount', e.target.value)}
               name="price_with_discount"
               size="large"
             />
@@ -201,7 +201,7 @@ export default ({ groupAddFormik }) => {
               helperText={formik.touched.lesson_duration
                      && formik.errors.lesson_duration && formik.errors.lesson_duration}
               value={formik.values.lesson_duration}
-              onChange={(e) => formik.setFieldValue('lesson_duration', parseInt(e.target.value, 10))}
+              onChange={(e) => formik.setFieldValue('lesson_duration', e.target.value)}
               name="lesson_duration"
               size="large"
             />
