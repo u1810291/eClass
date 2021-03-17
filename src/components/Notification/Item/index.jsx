@@ -31,7 +31,7 @@ export default ({
             {' '}
             {action}
           </span>
-          <CloseButton onClick={() => dispatch(closeNotify(id))}><Icon icon="close" /></CloseButton>
+          <CloseButton onClick={() => dispatch(closeNotify(id))}><Icon icon="cross" /></CloseButton>
         </div>
         <Caption className={caption}>{comment}</Caption>
         <Time className={caption}>{moment(new Date()).format('LT')}</Time>
