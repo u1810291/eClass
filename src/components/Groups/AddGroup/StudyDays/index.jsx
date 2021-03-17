@@ -10,30 +10,20 @@ const StudyDays = ({ formik }) => {
   // eslint-disable-next-line no-unused-vars
   const [date, setDate] = useState();
   const [time, setTime] = useState([]);
-<<<<<<< HEAD
-  const handleTimeTime = (id, value) => {
-    const times = { day_of_week: id, start_time: moment(value).format('HH:mm') };
-    if (time.length !== 0) {
-=======
   const handleTime = (id, value) => {
     const times = [{ day_of_week: parseInt(id, 10), start_time: `${moment(value).format('HH:mm')}Z` }];
     if (time.find((el) => el.day_of_week === id)) {
->>>>>>> f51f466e62127a84d65ff6617b1f8fa778ba95f0
       setTime(time.filter((el) => el.day_of_week !== id));
       return setTime((prev) => prev.concat(times));
     }
     return setTime((prev) => prev.concat(times));
   };
-<<<<<<< HEAD
-
-=======
   useEffect(() => {
     formik.setValues({
       ...formik.values,
       study_days: time
     });
   }, [time, setTime]);
->>>>>>> f51f466e62127a84d65ff6617b1f8fa778ba95f0
   return (
     <Container>
       <DaysContainer>
