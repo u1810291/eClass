@@ -153,7 +153,6 @@ export const groupAddFormik = () => {
     validationSchema,
     onSubmit: (values, { setSubmitting }) => {
       setSubmitting(true);
-      console.log(values);
       dispatch(addGroup(values, (success) => {
         // eslint-disable-next-line no-alert
         alert('Succesfully added');
