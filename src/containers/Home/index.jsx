@@ -1,15 +1,24 @@
 /* eslint-disable camelcase */
-import React from 'react';
+import React, { useEffect } from 'react';
 
+import { useDispatch } from 'react-redux';
 import Container from '../../components/Container';
 import Sidebar from '../../components/Sidebar';
 import Content from '../../components/Content';
 import Notification from '../../components/Notification';
+import { notifyMultiple } from '../../redux/modules/notifications/actions';
 
-export default () => (
-  <Container>
-    <Sidebar />
-    <Content />
-    <Notification />
-  </Container>
-);
+export default () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(notifyMultiple(notifications));
+  }, [dispatch]);
+
+  return (
+    <Container>
+      <Sidebar />
+      <Content />
+      <Notification />
+    </Container>
+  );
+};

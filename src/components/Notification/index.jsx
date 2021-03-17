@@ -10,6 +10,7 @@ import { Container } from './style';
 
 export default () => {
   const { items } = useSelector((state) => state.notificationReducer);
+  console.log(items);
   return (
     <Container>
       <TransitionGroup className="notification-list">

@@ -24,3 +24,5 @@ export { default as filesReducers } from './files/reducers';
 export { default as adminGroupsReducers } from './admin/groups/reducers';
 
 export { default as subjectsReducers } from './admin/subjects/reducers';
+
+export { default as notificationReducer } from './notifications/reducers';

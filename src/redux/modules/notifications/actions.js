@@ -15,6 +15,7 @@ export const closeNotify = (id) => ({
 export const notify = (data) => (dispatch, getState) => {
   const { notificationReducer: { items } } = getState();
   const payload = { id: (new Date()).getTime(), ...data };
+  console.log('object');
   if (items.length === 3) {
     dispatch(removeLast());
     dispatch(addNotify(payload));
