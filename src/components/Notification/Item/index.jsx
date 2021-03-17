@@ -5,9 +5,9 @@ import moment from 'moment';
 import {
   Container, Wrapper, CloseButton, Time, Caption
 } from './style';
-import { DynamicImage as Image } from '../../FormElements/DynamicImage';
+import { DynamicImage as Image } from '../../DynamicImage';
 import Icon from '../../Icon';
-import { closeNotify } from '../../../redux/modules/notification/actions';
+import { closeNotify } from '../../../redux/modules/notifications/actions';
 
 const classname = classNames('border-primary', 'white-900', 'shadow-primary-3');
 const header = classNames('body-large', 'text-black-800');
