@@ -44,7 +44,7 @@ function* addGroup({ payload, success }) {
     const res = yield service.createGroup(data);
     console.log(res);
     yield put(setError(''));
-    success(res.data);
+    success(res);
   } catch (error) {
     console.log(error);
     yield put(setError(error));

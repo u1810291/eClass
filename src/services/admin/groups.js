@@ -2,7 +2,7 @@ import { service } from '..';
 
 export default {
   getAll: (query) => service.get(`/api/v1/group/list?${query}`),
-  createGroup: () => service.post('/api/v1/group'),
+  createGroup: (data) => { console.log(data); service.post('/api/v1/group', data); },
   updateGroupIdInBody: ({ data }) => service.put('/api/v1/group/', data),
   updateGroupIdInParams: ({ id, data }) => service.put(`/api/v1/group/${id}`, data),
   deleteGroupSubIdInParams: ({ id }) => service.delete(`/api/v1/group/${id}`),

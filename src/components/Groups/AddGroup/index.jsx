@@ -17,12 +17,12 @@ export default ({ groupAddFormik }) => {
   const { formik } = groupAddFormik();
   const { data } = useSelector((state) => state.subjectsReducers);
   const { users: teachers } = useSelector((state) => state.listsReducers);
+  console.log(teachers);
   return (
     <Container>
       <Card>
         <Body onSubmit={formik.handleSubmit}>
           <Header>
-            {console.log(formik.values)}
             <NormalInput
               label="Group name"
               size="large"
@@ -151,7 +151,7 @@ export default ({ groupAddFormik }) => {
               value={formik.values.teacher_id
               && teachers.find((el) => el.value === formik.values.teacher_id).id}
               onChange={(e) => formik.setFieldValue('teacher_id',
-                teachers.find((el) => el.id === e).value)}
+                teachers.find((el) => el.id === e).id)}
               helperText={formik.errors.teacher_id}
               type={formik.touched.teacher_id
                 && formik.errors.teacher_id
