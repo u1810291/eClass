@@ -44,7 +44,8 @@ function* addGroup({ payload, success }) {
     yield put(setError(''));
     success(res);
   } catch (error) {
-    yield put(setError(error));
+
+    // yield put(setError(error));
   }
 }
 

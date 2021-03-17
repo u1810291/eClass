@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import { createLesson, addGroup } from '../../../redux/modules/admin/groups/actions';
 import { addSubject } from '../../../redux/modules/admin/subjects/actions';
 import CreateLesson from '../../../components/Groups/CreateLesson';
+import { useHideModal } from '../../../hooks/modal';
 
 const handleCreate = (id) => {
   const dispatch = useDispatch();
@@ -104,7 +105,7 @@ export function subjectAddFormik() {
 
 export const groupAddFormik = () => {
   const dispatch = useDispatch();
-
+  const { hideModal } = useHideModal();
   const validationSchema = Yup.object().shape({
     en_name: Yup.string().required('Required'),
     official_en_name: Yup.string().required('Required'),
@@ -139,10 +140,10 @@ export const groupAddFormik = () => {
       official_uz_name: '',
       uz_description: '',
       group_lang: '',
-      salary_percent: undefined,
-      price: undefined,
-      price_with_discount: undefined,
-      lesson_duration: undefined,
+      salary_percent: '',
+      price: '',
+      price_with_discount: '',
+      lesson_duration: '',
       teacher_id: '',
       subject_id: '',
       study_days: [],
@@ -153,8 +154,8 @@ export const groupAddFormik = () => {
     onSubmit: (values, { setSubmitting }) => {
       setSubmitting(true);
       dispatch(addGroup(values, (success) => {
-        // eslint-disable-next-line no-alert
-        alert('Succesfully added');
+        console.log(success);
+        hideModal();
         return success;
       }));
     }

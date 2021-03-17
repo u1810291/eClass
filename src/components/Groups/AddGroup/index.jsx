@@ -158,11 +158,10 @@ export default ({ groupAddFormik }) => {
               size="large"
             />
             <NormalInput
+              white
               placeholder="Percent for teacher"
-              type={formik.touched.salary_percent && formik.errors.salary_percent && 'error'}
-              helperText={formik.touched.salary_percent
-                     && formik.errors.salary_percent
-                     && formik.errors.salary_percent}
+              type={formik.errors.salary_percent && 'error'}
+              helperText={formik.errors.salary_percent}
               value={formik.values.salary_percent}
               onChange={(e) => formik.setFieldValue('salary_percent', e.target.value)}
               name="salary_percent"

@@ -11,7 +11,7 @@ const StudyDays = ({ formik }) => {
   const [date, setDate] = useState();
   const [time, setTime] = useState([]);
   const handleTime = (id, value) => {
-    const times = [{ day_of_week: parseInt(id, 10), start_time: moment(value).format('HH:mm') }];
+    const times = [{ day_of_week: parseInt(id, 10), start_time: `${moment(value).format('HH:mm')}Z` }];
     if (time.find((el) => el.day_of_week === id)) {
       setTime(time.filter((el) => el.day_of_week !== id));
       return setTime((prev) => prev.concat(times));
