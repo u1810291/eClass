@@ -2,23 +2,25 @@ import React, { useState } from 'react';
 
 import { useSelector } from 'react-redux';
 import {
-  Container, Body, Header, Footer, Main
+  Container, Body, Header, Footer, Main, StudyCard
 } from './style';
 import { NormalInput, SingleDatePicker } from '../../Forms/Inputs';
 import Dropdown from '../../Forms/Dropdowns';
 import { languages } from '../../../data/dropdown';
 import { PrimaryButton } from '../../Buttons';
 import Card from '../../Card';
+import StudyDays from './StudyDays';
 
 export default ({ groupAddFormik }) => {
-  const [date, setDate] = useState(new Date());
+  const [start, setStart] = useState(new Date());
+  const [finish, setFinish] = useState(new Date());
   const { formik } = groupAddFormik();
   const { data } = useSelector((state) => state.subjectsReducers);
   const { users: teachers } = useSelector((state) => state.listsReducers);
   return (
     <Container>
       <Card>
-        <Body>
+        <Body onSubmit={formik.handleSubmit}>
           <Header>
             <NormalInput
               label="Group name"
@@ -32,7 +34,7 @@ export default ({ groupAddFormik }) => {
               name="en_name"
             />
             <NormalInput
-              placeholder="Official en_name"
+              placeholder="Official name in english"
               type={formik.touched.official_en_name && formik.errors.official_en_name && 'error'}
               helperText={formik.touched.official_en_name
                      && formik.errors.official_en_name && formik.errors.official_en_name}
@@ -62,7 +64,7 @@ export default ({ groupAddFormik }) => {
               name="ru_name"
             />
             <NormalInput
-              placeholder="Official ru_name in russian"
+              placeholder="Official name in russian"
               type={formik.touched.official_ru_name && formik.errors.official_ru_name && 'error'}
               helperText={formik.touched.official_ru_name
                      && formik.errors.official_ru_name && formik.errors.official_ru_name}
@@ -92,7 +94,7 @@ export default ({ groupAddFormik }) => {
               name="uz_name"
             />
             <NormalInput
-              placeholder="Official uz_name in uzbek"
+              placeholder="Official name in uzbek"
               type={formik.touched.official_uz_name && formik.errors.official_uz_name && 'error'}
               helperText={formik.touched.official_uz_name
                      && formik.errors.official_uz_name && formik.errors.official_uz_name}
@@ -112,6 +114,9 @@ export default ({ groupAddFormik }) => {
               size="large"
             />
           </Header>
+          <StudyCard>
+            <StudyDays formik={formik} />
+          </StudyCard>
           <Main>
             <Dropdown
               placeholder="Language"
@@ -131,9 +136,9 @@ export default ({ groupAddFormik }) => {
               placeholder="Subject"
               options={data}
               value={formik.values.subject_id
-              && data.find((el) => el.value === formik.values.subject_id).id}
+              && data.find((el) => el.id === formik.values.subject_id).id}
               onChange={(e) => formik.setFieldValue('subject_id',
-                data.find((el) => el.id === e).value)}
+                data.find((el) => el.id === e).id)}
               helperText={formik.errors.subject_id}
               type={formik.touched.subject_id
               && formik.errors.subject_id && 'error'}
@@ -143,9 +148,9 @@ export default ({ groupAddFormik }) => {
               placeholder="Teacher"
               options={teachers}
               value={formik.values.teacher_id
-              && teachers.find((el) => el.value === formik.values.teacher_id).id}
+              && teachers.find((el) => el.id === formik.values.teacher_id).id}
               onChange={(e) => formik.setFieldValue('teacher_id',
-                teachers.find((el) => el.id === e).value)}
+                teachers.find((el) => el.id === e).id)}
               helperText={formik.errors.teacher_id}
               type={formik.touched.teacher_id
                 && formik.errors.teacher_id
@@ -153,10 +158,10 @@ export default ({ groupAddFormik }) => {
               size="large"
             />
             <NormalInput
+              white
               placeholder="Percent for teacher"
-              type={formik.touched.salary_percent && formik.errors.salary_percent && 'error'}
-              helperText={formik.touched.salary_percent
-                     && formik.errors.salary_percent && formik.errors.salary_percent}
+              type={formik.errors.salary_percent && 'error'}
+              helperText={formik.errors.salary_percent}
               value={formik.values.salary_percent}
               onChange={(e) => formik.setFieldValue('salary_percent', e.target.value)}
               name="salary_percent"
@@ -175,9 +180,12 @@ export default ({ groupAddFormik }) => {
             <NormalInput
               label="Price for one lesson with discount"
               placeholder="Price for one lesson with discount"
-              type={formik.touched.price_with_discount && formik.errors.price_with_discount && 'error'}
+              type={formik.touched.price_with_discount
+                && formik.errors.price_with_discount
+                && 'error'}
               helperText={formik.touched.price_with_discount
-                     && formik.errors.price_with_discount && formik.errors.price_with_discount}
+                     && formik.errors.price_with_discount
+                     && formik.errors.price_with_discount}
               value={formik.values.price_with_discount}
               onChange={(e) => formik.setFieldValue('price_with_discount', e.target.value)}
               name="price_with_discount"
@@ -185,21 +193,31 @@ export default ({ groupAddFormik }) => {
             />
           </Main>
           <Footer>
-            <NormalInput placeholder="Duration" />
+            <NormalInput
+              label="Lesson Duration"
+              placeholder="Lesson Duration"
+              type={formik.touched.lesson_duration && formik.errors.lesson_duration && 'error'}
+              helperText={formik.touched.lesson_duration
+                     && formik.errors.lesson_duration && formik.errors.lesson_duration}
+              value={formik.values.lesson_duration}
+              onChange={(e) => formik.setFieldValue('lesson_duration', e.target.value)}
+              name="lesson_duration"
+              size="large"
+            />
             <SingleDatePicker
-              value={date}
+              value={start}
               placeholder="Date"
               name="start_date"
-              onChange={(value) => setDate(value)}
+              onChange={(value) => { setStart(value); formik.setFieldValue('start_date', value); }}
             />
             <SingleDatePicker
-              value={date}
+              value={finish}
               placeholder="Date"
               name="finish_date"
-              onChange={(value) => setDate(value)}
+              onChange={(value) => { setFinish(value); formik.setFieldValue('finish_date', value); }}
             />
           </Footer>
-          <PrimaryButton title="Add group" size="large" />
+          <PrimaryButton type="submit" title="Add group" size="large" />
         </Body>
       </Card>
     </Container>

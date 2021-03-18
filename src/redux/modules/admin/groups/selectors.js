@@ -44,7 +44,7 @@ export function dataSelector(lesson) {
 export function addGroupSelector(data) {
   const filtered = {
     name: data.en_name,
-    official_name: data.en_official_name,
+    official_name: data.official_en_name,
     description: data.en_description,
     group_lang: data.lang,
     salary_percent: data.salary_percent,
@@ -54,15 +54,17 @@ export function addGroupSelector(data) {
     teacher_id: data.teacher_id,
     subject_id: data.subject_id,
     group_names: [{
+      lang: 'ru',
       name: data.ru_name,
       description: data.ru_description
     }, {
+      lang: 'uz',
       name: data.uz_name,
       description: data.uz_description
     }],
     study_days: data.study_days,
-    start_date: data.start_date,
-    finish_date: data.finish_date
+    start_date: data.start_date.toISOString(),
+    finish_date: data.finish_date.toISOString()
   };
   return { data: filtered };
 }
