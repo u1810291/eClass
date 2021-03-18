@@ -7,9 +7,35 @@ import { createLesson, addGroup } from '../../../redux/modules/admin/groups/acti
 import { addSubject } from '../../../redux/modules/admin/subjects/actions';
 // import { notify } from '../../../redux/modules/notifications/actions';
 import CreateLesson from '../../../components/Groups/CreateLesson';
+import EditGroup from '../../../components/Groups/EditGroup';
 import { useHideModal } from '../../../hooks/modal';
 
 const handleCreate = (id) => {
+  const dispatch = useDispatch();
+
+  const validationSchema = Yup.object().shape({
+    start_date: Yup.string().required('Required')
+  });
+  const formik = useFormik({
+    initialValues: {
+      start_date: ''
+    },
+    validationSchema,
+    onSubmit: (values, { setSubmitting }) => {
+      setSubmitting(true);
+      const data = { group: id, start_date: values.start_date.toISOString() };
+      dispatch(createLesson(data, (res) => {
+        // eslint-disable-next-line no-alert
+        if (res) {
+          return alert('Succesfully added!');
+        }
+        return alert('Something went Wrong!');
+      }));
+    }
+  });
+  return { formik };
+};
+const handleEdit = (id) => {
   const dispatch = useDispatch();
 
   const validationSchema = Yup.object().shape({
@@ -43,6 +69,16 @@ export const toolTips = [
       showBlured({
         title: 'Create Lesson',
         body: () => <CreateLesson handleCreate={() => handleCreate(id)} />
+      });
+    }
+  },
+  {
+    name: 'Edit group',
+    icon: 'payment',
+    onClick: (id, { showBlured }) => {
+      showBlured({
+        title: 'Create Lesson',
+        body: () => <EditGroup handleCreate={() => handleEdit(id)} />
       });
     }
   },
