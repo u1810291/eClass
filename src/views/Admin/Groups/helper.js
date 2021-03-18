@@ -52,7 +52,7 @@ const handleEdit = (id) => {
       dispatch(createLesson(data, (res) => {
         // eslint-disable-next-line no-alert
         if (res) {
-          return alert('Succesfully added!');
+          return alert('Succesfully editted!');
         }
         return alert('Something went Wrong!');
       }));
