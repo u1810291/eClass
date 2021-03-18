@@ -5,6 +5,7 @@ import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
 import { createLesson, addGroup } from '../../../redux/modules/admin/groups/actions';
 import { addSubject } from '../../../redux/modules/admin/subjects/actions';
+// import { notify } from '../../../redux/modules/notifications/actions';
 import CreateLesson from '../../../components/Groups/CreateLesson';
 import { useHideModal } from '../../../hooks/modal';
 
@@ -127,7 +128,6 @@ export const groupAddFormik = () => {
     start_date: Yup.string(),
     finish_date: Yup.string()
   });
-
   const formik = useFormik({
     initialValues: {
       en_name: '',
@@ -154,7 +154,6 @@ export const groupAddFormik = () => {
     onSubmit: (values, { setSubmitting }) => {
       setSubmitting(true);
       dispatch(addGroup(values, (success) => {
-        console.log(success);
         hideModal();
         return success;
       }));

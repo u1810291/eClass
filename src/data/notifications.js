@@ -7,7 +7,7 @@ export default [
     image: require('../assets/images/avatar.png')
   },
   {
-    name: 'TheFarhod',
+    name: 'Kelly Doe',
     action: 'moved the card',
     comment: 'Need to design categorized search field to DONE on',
     image: require('../assets/images/avatar.png')
