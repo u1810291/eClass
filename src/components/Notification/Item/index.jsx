@@ -18,7 +18,6 @@ export default ({
   id, name, comment, action, image
 }) => {
   const dispatch = useDispatch();
-
   return (
     <Container className={classname}>
       <div>

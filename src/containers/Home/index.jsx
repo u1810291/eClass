@@ -6,7 +6,7 @@ import Container from '../../components/Container';
 import Sidebar from '../../components/Sidebar';
 import Content from '../../components/Content';
 import Notification from '../../components/Notification';
-import { notifications } from '../../data/notifications';
+import notifications from '../../data/notifications';
 import { notifyMultiple } from '../../redux/modules/notifications/actions';
 
 export default () => {

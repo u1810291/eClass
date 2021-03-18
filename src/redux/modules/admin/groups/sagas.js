@@ -44,8 +44,18 @@ function* addGroup({ payload, success }) {
     yield put(setError(''));
     success(res);
   } catch (error) {
+    yield put(setError(error));
+  }
+}
 
-    // yield put(setError(error));
+function* editGroup({ payload, response }) {
+  try {
+    const { data } = addGroupSelector(payload);
+    const res = service.updateGroupIdInBody(data);
+    yield put(setError(''));
+    response(res.data);
+  } catch (error) {
+    response(error);
   }
 }
 
@@ -53,4 +63,5 @@ export default function* adminGroupsSaga() {
   yield takeLatest(types.TABLE_ADMIN_GROUPS_FETCH_DATA, fetchData);
   yield takeLatest(types.TABLE_ADMIN_GROUPS_CREATE_LESSON, createLesson);
   yield takeLatest(types.TABLE_ADMIN_GROUPS_CREATE_GROUP, addGroup);
+  yield takeLatest(types.TABLE_ADMIN_GROUPS_EDIT_GROUP, editGroup);
 }
