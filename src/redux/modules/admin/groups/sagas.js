@@ -39,14 +39,13 @@ function* createLesson({ payload, success }) {
 
 function* addGroup({ payload, success }) {
   try {
-    yield put(setLoading(true));
-    const data = addGroupSelector(payload);
+    const { data } = addGroupSelector(payload);
     const res = yield service.createGroup(data);
     yield put(setError(''));
-    success(res.data);
-    yield put(setLoading(false));
+    success(res);
   } catch (error) {
-    yield put(setError(error));
+
+    // yield put(setError(error));
   }
 }
 

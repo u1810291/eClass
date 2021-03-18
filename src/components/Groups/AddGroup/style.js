@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
 `;
 
-export const Body = styled.div`
+export const Body = styled.form`
   padding: 20px;
   display:grid;
   grid-gap:10px;
@@ -28,7 +28,7 @@ export const Footer = styled.div`
   display:grid;
   grid-gap: 10px;
   grid-area: footer;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns:1fr 1fr 1fr;
 `;
 
 export const DaysContainer = styled.div`
