@@ -11,10 +11,10 @@ import { PrimaryButton } from '../../Buttons';
 import Card from '../../Card';
 import StudyDays from './StudyDays';
 
-export default ({ groupAddFormik }) => {
+export default ({ handleEdit }) => {
   const [start, setStart] = useState(new Date());
   const [finish, setFinish] = useState(new Date());
-  const { formik } = groupAddFormik();
+  const { formik } = handleEdit();
   const { data } = useSelector((state) => state.subjectsReducers);
   const { users: teachers } = useSelector((state) => state.listsReducers);
   return (

@@ -3,7 +3,7 @@ import React from 'react';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
-import { createLesson, addGroup } from '../../../redux/modules/admin/groups/actions';
+import { createLesson, addGroup, editGroup } from '../../../redux/modules/admin/groups/actions';
 import { addSubject } from '../../../redux/modules/admin/subjects/actions';
 // import { notify } from '../../../redux/modules/notifications/actions';
 import CreateLesson from '../../../components/Groups/CreateLesson';
@@ -37,24 +37,57 @@ const handleCreate = (id) => {
 };
 const handleEdit = (id) => {
   const dispatch = useDispatch();
-
+  const { hideModal } = useHideModal();
   const validationSchema = Yup.object().shape({
-    start_date: Yup.string().required('Required')
+    en_name: Yup.string().required('Required'),
+    official_en_name: Yup.string().required('Required'),
+    en_description: Yup.string(),
+    ru_name: Yup.string().required('Required'),
+    official_ru_name: Yup.string().required('Required'),
+    ru_description: Yup.string(),
+    uz_name: Yup.string().required('Required'),
+    official_uz_name: Yup.string().required('Required'),
+    uz_description: Yup.string(),
+    group_lang: Yup.string(),
+    salary_percent: Yup.number(),
+    price: Yup.number(),
+    price_with_discount: Yup.number(),
+    lesson_duration: Yup.number(),
+    teacher_id: Yup.string(),
+    subject_id: Yup.string(),
+    study_days: Yup.array().required('Required'),
+    start_date: Yup.string(),
+    finish_date: Yup.string()
   });
   const formik = useFormik({
     initialValues: {
-      start_date: ''
+      id,
+      en_name: '',
+      official_en_name: '',
+      en_description: '',
+      ru_name: '',
+      official_ru_name: '',
+      ru_description: '',
+      uz_name: '',
+      official_uz_name: '',
+      uz_description: '',
+      group_lang: '',
+      salary_percent: '',
+      price: '',
+      price_with_discount: '',
+      lesson_duration: '',
+      teacher_id: '',
+      subject_id: '',
+      study_days: [],
+      start_date: '',
+      finish_date: ''
     },
     validationSchema,
     onSubmit: (values, { setSubmitting }) => {
       setSubmitting(true);
-      const data = { group: id, start_date: values.start_date.toISOString() };
-      dispatch(createLesson(data, (res) => {
-        // eslint-disable-next-line no-alert
-        if (res) {
-          return alert('Succesfully editted!');
-        }
-        return alert('Something went Wrong!');
+      dispatch(editGroup(values, (success) => {
+        hideModal();
+        return success;
       }));
     }
   });
@@ -78,7 +111,7 @@ export const toolTips = [
     onClick: (id, { showBlured }) => {
       showBlured({
         title: 'Create Lesson',
-        body: () => <EditGroup handleCreate={() => handleEdit(id)} />
+        body: () => <EditGroup handleEdit={() => handleEdit(id)} />
       });
     }
   },

@@ -10,20 +10,16 @@ export const fetchData = (payload) => ({
   payload
 });
 
-export const getGroupById = (payload) => ({
-  type: types.TABLE_ADMIN_GROUPS_FETCH_DATA_BY_ID,
-  payload
-});
-
 export const addGroup = (payload, success) => ({
   type: types.TABLE_ADMIN_GROUPS_CREATE_GROUP,
   payload,
   success
 });
-export const editGroup = (payload, success) => ({
+
+export const editGroup = (payload, response) => ({
   type: types.TABLE_ADMIN_GROUPS_EDIT_GROUP,
   payload,
-  success
+  response
 });
 
 export const createLesson = (payload, success) => ({
