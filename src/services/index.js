@@ -54,9 +54,8 @@ service.interceptors.response.use(
       sessionStorage.removeItem('refresh_token');
     }
     if (!status) {
-      // alert('Access token expired! Page will be reloaded.');
-      // refresh();
-      console.log(error);
+      alert('Access token expired! Page will be reloaded.');
+      refresh();
     }
     return Promise.reject(error);
   }
