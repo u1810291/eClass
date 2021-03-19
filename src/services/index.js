@@ -6,6 +6,7 @@ import axios from 'axios';
 const baseURL = process.env.REACT_APP_SERVICE_URL;
 
 const service = axios.create({ baseURL });
+
 const CustomAxios = {
   _instance: null,
   get instance() {
@@ -16,14 +17,15 @@ const CustomAxios = {
   }
 };
 
-async function saveToken(access_token, refresh_token) {
-  await sessionStorage.setItem('access_token', access_token);
-  await sessionStorage.setItem('refresh_token', refresh_token);
+function saveToken(access_token, refresh_token) {
+  sessionStorage.setItem('access_token', access_token);
+  sessionStorage.setItem('refresh_token', refresh_token);
 }
 function destroyToken() {
   sessionStorage.removeItem('access_token');
   sessionStorage.removeItem('refresh_token');
 }
+// eslint-disable-next-line no-unused-vars
 function refresh() {
   return new Promise((resolve, reject) => {
     service.post('/api/v1/refresh', {

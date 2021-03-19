@@ -5,7 +5,7 @@ import {
 } from '../style';
 import { PrimaryButton } from '../../Buttons';
 import { useShowModal } from '../../../hooks/modal';
-import AddSubject from '../../AddSubject';
+import AddSubject from '../../Groups/AddSubject';
 import AddGroup from '../../Groups/AddGroup';
 
 export default ({ subjectAddFormik, groupAddFormik }) => {
