@@ -1,12 +1,21 @@
 import React from 'react';
-import classNames from 'classnames';
-import { Container } from './style';
+import DownloadLink from 'react-download-link';
+import { Container, Content } from './style';
+import file from '../../../services/files';
 
-const nameClass = classNames('body-medium', 'weight-medium', 'text-black-800');
-
-const DownloadCell = ({ name }) => (
-  <Container>
-    <span className={nameClass}>{name}</span>
+const DownloadCell = (files) => (
+  <Container size="large">
+    {files[0]
+      ? (
+        <Content size="large">
+          <DownloadLink
+            label="Download"
+            filename="filename.pdf"
+            exportFile={() => Promise.resolve(file.downloadFile(files[0]))}
+          />
+        </Content>
+      )
+      : <span>No link provided</span>}
   </Container>
 );
 

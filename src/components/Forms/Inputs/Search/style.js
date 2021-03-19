@@ -31,7 +31,7 @@ export const Input = styled.input`
   border-radius: ${getBorderRadius};
   outline: none !important;
   text-indent: 15px;
-
+  width:100%;
   ${({ search: isSearch }) => isSearch && search} ::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;

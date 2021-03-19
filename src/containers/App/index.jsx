@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   useSelector, shallowEqual, useDispatch
 } from 'react-redux';
@@ -16,14 +16,17 @@ import Home from '../Home';
 import SignUp from '../../views/Auth/SignUp';
 
 import { fetchData } from '../../redux/modules/user/actions';
+import Spinner from '../../components/Spinner';
 
 export default () => {
   const { access_token, showModal } = useSelector(appSelector, shallowEqual);
-
+  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   useEffect(() => {
+    setLoading(true);
     if (access_token) {
       dispatch(fetchData());
+      setLoading(false);
     }
   },
   [fetchData, access_token]);
@@ -45,7 +48,8 @@ export default () => {
   const protectedRoutes = (
     <Container show={showModal}>
       <Switch>
-        <Route path="/" component={Home} />
+        {loading ? <Spinner contain black />
+          : <Route path="/" component={Home} />}
       </Switch>
     </Container>
   );

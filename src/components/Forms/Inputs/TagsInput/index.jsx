@@ -3,9 +3,8 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import {
-  CloseIcon, Container, TagItem, TagsWrapper
+  CloseIcon, Container, TagItem, TagsWrapper, Input, Helper
 } from './style';
-import { Helper } from '../Normal/style';
 
 export const TagsInput = ({
   onChange,
@@ -36,7 +35,7 @@ export const TagsInput = ({
 
   return (
     <Container>
-      <TagsWrapper {...props}>
+      <TagsWrapper type={type || 'button'} {...props}>
         {defaultValue.length > 0
           && defaultValue.map((tag, idx) => (
             // eslint-disable-next-line react/no-array-index-key
@@ -45,13 +44,17 @@ export const TagsInput = ({
               <CloseIcon onClick={() => { handleDelete(tag); }} />
             </TagItem>
           ))}
-        <input
+        <Input
           type="text"
           value={value}
-          onKeyPress={handlePress}
+          onKeyPress={
+            (e) => {
+              if (e.key === 'Enter') e.preventDefault();
+              handlePress(e);
+            }
+          }
           placeholder={placeholder}
           onChange={(e) => setValue(e.target.value)}
-          style={{ width: '100%' }}
           className={classNames(
             'body-medium',
             'weight-regular',

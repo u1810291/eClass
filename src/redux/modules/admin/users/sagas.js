@@ -4,23 +4,26 @@ import service from '../../../../services/admin/users';
 import {
   setData,
   setError,
-  setLoading
+  setLoading,
+  setTotal
 } from './actions';
 
 import { dataSelector } from './selectors';
 
-function* fetchData() {
+function* fetchData({ payload }) {
+  yield put(setLoading(true));
   try {
-    const res = yield service.getUsers('student');
-    const { data } = dataSelector(res.data);
+    const res = yield service.getUsers(payload);
+    const { total, data } = dataSelector(payload, res.data);
     yield put(setError(''));
+    yield put(setTotal(total));
     yield put(setData(data));
     yield put(setLoading(false));
   } catch (error) {
-    yield put(setError(error.message));
+    yield put(setError(error));
   }
 }
 
-export default function* lessonsSaga() {
+export default function* adminUsersSaga() {
   yield takeLatest(types.TABLE_ADMIN_STUDENTS_FETCH_DATA, fetchData);
 }

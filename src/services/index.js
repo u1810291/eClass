@@ -1,3 +1,5 @@
+/* eslint-disable no-alert */
+/* eslint-disable no-param-reassign */
 /* eslint-disable camelcase */
 import axios from 'axios';
 
@@ -14,13 +16,44 @@ const CustomAxios = {
   }
 };
 
+async function saveToken(access_token, refresh_token) {
+  await sessionStorage.setItem('access_token', access_token);
+  await sessionStorage.setItem('refresh_token', refresh_token);
+}
+function destroyToken() {
+  sessionStorage.removeItem('access_token');
+  sessionStorage.removeItem('refresh_token');
+}
+function refresh() {
+  return new Promise((resolve, reject) => {
+    service.post('/api/v1/refresh', {
+      refresh_token: sessionStorage.getItem('refresh_token')
+    }).then((response) => {
+      saveToken(response.data.access_token, response.data.refresh_token);
+      window.location.replace('/');
+      return resolve(response.data.access_token);
+    }).catch((error) => {
+      alert('Refresh token expired! You need to login again.');
+      destroyToken();
+      window.location.replace('/logout');
+      return reject(error);
+    });
+  });
+}
+
 service.interceptors.response.use(
   (res) => res,
   (error) => {
-    if (error.response.status === 401 || error.response.status === 403) {
+    const status = error.response ? error.response.status : null;
+    if (status === 401) {
+      alert('Login or password is incorrect');
       window.location.replace('/logout');
       sessionStorage.removeItem('access_token');
       sessionStorage.removeItem('refresh_token');
+    }
+    if (!status) {
+      alert('Access token expired! Page will be reloaded.');
+      refresh();
     }
     return Promise.reject(error);
   }
@@ -28,8 +61,8 @@ service.interceptors.response.use(
 
 service.interceptors.request.use((config) => {
   const access_token = sessionStorage.getItem('access_token');
-  // eslint-disable-next-line no-param-reassign
   config.headers.Authorization = `Bearer ${access_token}`;
+  if (typeof config.data === typeof FormData) config.headers['Content-Type'] = 'multipart/form-data';
   return config;
 });
 

@@ -8,7 +8,7 @@ const roleClass = classNames('caption', 'weight-regular', 'text-black-400');
 
 const UserCell = ({ name, role, image }) => (
   <Container>
-    <DynamicImage width="38" height="38" name={name} imgSrc={image} />
+    <DynamicImage width="38" height="38" name={name || 'Some Name'} imgSrc={image} />
     <Content>
       <span className={nameClass}>{name}</span>
       <span className={roleClass}>{role}</span>

@@ -1,17 +1,19 @@
+/* eslint-disable no-console */
 import { takeLatest, put } from 'redux-saga/effects';
 import types from '../../../constants/action-types';
 import service from '../../../services/auth';
+import { studentSelector, teachersSelector, adminsSelector } from './selectors';
 
 import {
-  setAccessToken, setRefreshToken, setError, setStudent, setTeacher, setAdmin
+  setAccessToken, setRefreshToken, setError
 } from './actions';
 
 function* login({ payload, success }) {
   try {
     const { data } = yield service.getToken(payload);
-    success(data.access_token, data.refresh_token, data.refresh_token_expire_at);
+    success(data.access_token, data.refresh_token);
   } catch (error) {
-    yield put(setError(error.message));
+    yield put(setError(error));
   }
 }
 
@@ -21,32 +23,41 @@ function* validate({ payload }) {
     yield put(setAccessToken(payload.access_token));
     yield put(setRefreshToken(payload.refresh_token));
   } catch (error) {
-    yield put(setError(error.message));
+    yield put(setError(error));
   }
 }
 
-function* regStudent() {
+function* regStudent({ payload, success }) {
   try {
-    const res = yield service.registerStudent();
-    yield put(setStudent(res.data));
+    const { data } = studentSelector(payload);
+    const res = yield service.registerStudent(data);
+    success(res.data);
   } catch (error) {
-    yield put(setError(error.message));
+    // eslint-disable-next-line no-alert
+    alert(error);
+    yield put(setError(error));
   }
 }
-function* regTeacher() {
+function* regTeacher({ payload, success }) {
   try {
-    const res = yield service.registerStudent();
-    yield put(setTeacher(res.data));
+    const { data } = teachersSelector(payload);
+    const res = yield service.registerTeacher(data);
+    success(res.data);
   } catch (error) {
-    yield put(setError(error.message));
+    // eslint-disable-next-line no-alert
+    alert(error);
+    yield put(setError(error));
   }
 }
-function* regAdmin() {
+function* regAdmin({ payload, success }) {
   try {
-    const res = yield service.registerStudent();
-    yield put(setAdmin(res.data));
+    const { data } = adminsSelector(payload);
+    const res = yield service.registerAdmin(data);
+    success(res.data);
   } catch (error) {
-    yield put(setError(error.message));
+    // eslint-disable-next-line no-alert
+    alert(error);
+    yield put(setError(error));
   }
 }
 export default function* authSaga() {

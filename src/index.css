@@ -5,6 +5,8 @@
   margin: 0;
   padding: 0;
   font-family: "Museo Sans Cyrl 500";
+  scrollbar-width: thin;
+
 }
 
 body {
@@ -15,7 +17,9 @@ body {
   bottom: 0%;
   background: #333366;
 }
-
+#zmmtg-root {
+  display: none;
+}
 :root {
   --chat-sidebar-width: 230px;
   --chat-navbar-height: 80px;

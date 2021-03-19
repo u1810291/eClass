@@ -13,7 +13,7 @@ const FileInput = ({ setFieldValue, ...props }) => {
   };
   return (
     <Container {...props}>
-      <FileInputCustom {...props} onClick={handleClick}>
+      <FileInputCustom {...props} type="button" onClick={handleClick}>
         <Icon icon="clip" />
       </FileInputCustom>
       <InputEement {...props} type="file" ref={ref} onChange={handleChange} />
