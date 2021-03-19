@@ -16,9 +16,10 @@ export const addGroup = (payload, success) => ({
   success
 });
 
-export const editGroup = (payload, response) => ({
+export const editGroup = (payload, id, response) => ({
   type: types.TABLE_ADMIN_GROUPS_EDIT_GROUP,
   payload,
+  id,
   response
 });
 

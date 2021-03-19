@@ -48,10 +48,10 @@ function* addGroup({ payload, success }) {
   }
 }
 
-function* editGroup({ payload, response }) {
+function* editGroup({ payload, id, response }) {
   try {
     const { data } = addGroupSelector(payload);
-    const res = service.updateGroupIdInBody(data);
+    const res = service.updateGroupIdInParams(data, id);
     yield put(setError(''));
     response(res.data);
   } catch (error) {

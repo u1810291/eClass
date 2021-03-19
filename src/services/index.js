@@ -6,6 +6,7 @@ import axios from 'axios';
 const baseURL = process.env.REACT_APP_SERVICE_URL;
 
 const service = axios.create({ baseURL });
+
 const CustomAxios = {
   _instance: null,
   get instance() {
@@ -24,6 +25,7 @@ function destroyToken() {
   sessionStorage.removeItem('access_token');
   sessionStorage.removeItem('refresh_token');
 }
+// eslint-disable-next-line no-unused-vars
 function refresh() {
   return new Promise((resolve, reject) => {
     service.post('/api/v1/refresh', {
@@ -52,8 +54,9 @@ service.interceptors.response.use(
       sessionStorage.removeItem('refresh_token');
     }
     if (!status) {
-      alert('Access token expired! Page will be reloaded.');
-      refresh();
+      // alert('Access token expired! Page will be reloaded.');
+      // refresh();
+      console.log(error);
     }
     return Promise.reject(error);
   }

@@ -61,7 +61,6 @@ const handleEdit = (id) => {
   });
   const formik = useFormik({
     initialValues: {
-      id,
       en_name: '',
       official_en_name: '',
       en_description: '',
@@ -85,7 +84,7 @@ const handleEdit = (id) => {
     validationSchema,
     onSubmit: (values, { setSubmitting }) => {
       setSubmitting(true);
-      dispatch(editGroup(values, (success) => {
+      dispatch(editGroup(values, id, (success) => {
         hideModal();
         return success;
       }));
