@@ -17,9 +17,9 @@ const CustomAxios = {
   }
 };
 
-async function saveToken(access_token, refresh_token) {
-  await sessionStorage.setItem('access_token', access_token);
-  await sessionStorage.setItem('refresh_token', refresh_token);
+function saveToken(access_token, refresh_token) {
+  sessionStorage.setItem('access_token', access_token);
+  sessionStorage.setItem('refresh_token', refresh_token);
 }
 function destroyToken() {
   sessionStorage.removeItem('access_token');
