@@ -1,13 +1,13 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable max-len */
 /* eslint-disable no-console */
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import { ZoomMtg } from '@zoomus/websdk';
 import { useHistory } from 'react-router-dom';
 import { Container } from './style';
+import { fetchData } from '../../redux/modules/lessons/actions';
 // import { PrimaryButton } from '../Buttons';
 
-export default (data) => {
+export default ({ data }) => {
   const [open, setOpen] = useState(false);
   ZoomMtg.setZoomJSLib('https://source.zoom.us/1.9.0/lib', '/av');
   ZoomMtg.preLoadWasm();
