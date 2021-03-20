@@ -47,7 +47,7 @@ service.interceptors.response.use(
     const status = error.response ? error.response.status : null;
     if (status === 401) {
       alert('Login or password is incorrect');
-      // window.location.replace('/logout');
+      window.location.replace('/logout');
       sessionStorage.removeItem('access_token');
       sessionStorage.removeItem('refresh_token');
     }
@@ -65,7 +65,6 @@ service.interceptors.request.use((config) => {
   const access_token = sessionStorage.getItem('access_token');
   config.headers.Authorization = `Bearer ${access_token}`;
   if (typeof config.data === typeof FormData) config.headers['Content-Type'] = 'multipart/form-data';
-  console.log(config);
   return config;
 });
 
