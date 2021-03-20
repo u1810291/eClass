@@ -26,3 +26,5 @@ export { default as adminGroupsReducers } from './admin/groups/reducers';
 export { default as subjectsReducers } from './admin/subjects/reducers';
 
 export { default as notificationReducer } from './notifications/reducers';
+
+export { default as lessonReducer } from './lessons/reducers';
