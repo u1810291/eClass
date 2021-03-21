@@ -1,25 +1,40 @@
 import { takeLatest, put } from 'redux-saga/effects';
 import types from '../../../constants/action-types';
-import service from '../../../services/student/exercise';
+import serviceT from '../../../services/teacher/lesson';
+import serviceS from '../../../services/student/lesson';
 import {
-  setData,
-  setError
+  setDataT,
+  setErrorT,
+  setDataS,
+  setErrorS
 } from './actions';
 
 import { dataSelector } from './selectors';
 
-function* fetchData() {
+function* teacherSign({ payload }) {
   try {
-    const res = yield service.getQuizes();
+    const res = yield serviceT.getSignature(payload);
     console.log(res);
     const { data } = dataSelector(res.data);
-    yield put(setError(''));
-    yield put(setData(data));
+    yield put(setErrorT(''));
+    yield put(setDataT(data));
   } catch (error) {
-    yield put(setError(error));
+    yield put(setErrorT(error));
+  }
+}
+function* studentSign({ payload }) {
+  try {
+    const res = yield serviceS.getSignature(payload);
+    console.log(res);
+    const { data } = dataSelector(res.data);
+    yield put(setErrorS(''));
+    yield put(setDataS(data));
+  } catch (error) {
+    yield put(setErrorS(error));
   }
 }
 
 export default function* studentQuizesSaga() {
-  yield takeLatest(types.TABLE_LESSON_FETCH_DATA, fetchData);
+  yield takeLatest(types.LESSON_TEACHER_FETCH_DATA, teacherSign);
+  yield takeLatest(types.LESSON_STUDENT_FETCH_DATA, studentSign);
 }

@@ -1,18 +1,28 @@
 import types from '../../../constants/action-types';
 
 const defaultState = {
-  data: [],
-  error: ''
+  teacherData: [],
+  teacherError: '',
+  studentData: [],
+  studentError: ''
 };
 
 const map = {
-  [types.TABLE_LESSON_SET_DATA]: (state, { payload }) => ({
+  [types.LESSON_TEACHER_SET_DATA]: (state, { payload }) => ({
     ...state,
-    data: payload
+    teacherData: payload
   }),
-  [types.TABLE_LESSON_ERROR]: (state, { payload }) => ({
+  [types.LESSON_TEACHER_ERROR]: (state, { payload }) => ({
     ...state,
-    error: payload
+    teacherError: payload
+  }),
+  [types.LESSON_STUDENT_SET_DATA]: (state, { payload }) => ({
+    ...state,
+    studentData: payload
+  }),
+  [types.LESSON_STUDENT_ERROR]: (state, { payload }) => ({
+    ...state,
+    studentError: payload
   })
 };
 
