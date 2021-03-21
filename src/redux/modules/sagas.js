@@ -20,4 +20,4 @@ export { default as adminGroupsSaga } from './admin/groups/sagas';
 
 export { default as subjectsSaga } from './admin/subjects/sagas';
 
-export { default as lessonsSaga } from './lessons/sagas';
+export { default as lessonSaga } from './lessons/sagas';

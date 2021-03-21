@@ -2,21 +2,24 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { ZoomMtg } from '@zoomus/websdk';
 import { useHistory } from 'react-router-dom';
 import { Container } from './style';
-import { fetchData } from '../../redux/modules/lessons/actions';
+import { teacherSign } from '../../redux/modules/lessons/actions';
 // import { PrimaryButton } from '../Buttons';
 
 export default ({ data }) => {
   const dispatch = useDispatch();
+  const { teacherData } = useSelector((state) => state.lessonReducer);
   const [open, setOpen] = useState(false);
   ZoomMtg.setZoomJSLib('https://source.zoom.us/1.9.0/lib', '/av');
   ZoomMtg.preLoadWasm();
   ZoomMtg.prepareJssdk();
+  console.log(data);
+  console.log(teacherData);
   useEffect(() => {
-    dispatch(fetchData(data));
+    dispatch(teacherSign(data));
   }, []);
   const API_KEY = 'daaFEhvXSqSsFSC0MN1vbQ';
   const meetConfig = {

@@ -13,7 +13,8 @@ import { dataSelector } from './selectors';
 
 function* teacherSign({ payload }) {
   try {
-    const res = yield serviceT.getSignature(payload);
+    console.log(payload);
+    const res = yield serviceT.getStignature(payload);
     console.log(res);
     const { data } = dataSelector(res.data);
     yield put(setErrorT(''));

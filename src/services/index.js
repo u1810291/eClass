@@ -51,9 +51,6 @@ service.interceptors.response.use(
       sessionStorage.removeItem('access_token');
       sessionStorage.removeItem('refresh_token');
     }
-    if (error) {
-      alert('Some thing went wrong');
-    }
     if (!status) {
       refresh();
     }
