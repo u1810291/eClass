@@ -47,7 +47,7 @@ export const toolTips = [
         if (response) { alert('Lesson started!'); }
         showFullScreen({
           title: 'Zoom Meeting',
-          body: () => <MeetingWindow data={response} />
+          body: () => <MeetingWindow data={id} />
         });
         return response;
       }));

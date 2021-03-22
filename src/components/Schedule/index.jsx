@@ -6,10 +6,12 @@ import {
 } from './style';
 import Card from '../Card';
 import CustomCalendarV2 from '../Calendars/CustomCalendarV2';
+
 import Icon from '../Icon';
 
 export default () => {
   const [date, setDate] = useState(undefined);
+
   const events = [
     {
       start: moment().toDate(),

@@ -16,11 +16,16 @@ export const addGroup = (payload, success) => ({
   success
 });
 
-export const editGroup = (payload, id, response) => ({
+export const editGroup = (payload, id, success) => ({
   type: types.TABLE_ADMIN_GROUPS_EDIT_GROUP,
   payload,
   id,
-  response
+  success
+});
+export const deleteGroup = (payload, success) => ({
+  type: types.TABLE_ADMIN_GROUPS_DELETE_GROUP,
+  payload,
+  success
 });
 
 export const createLesson = (payload, success) => ({
