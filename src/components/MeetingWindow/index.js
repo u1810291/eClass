@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { Container } from './style';
 import { teacherSign } from '../../redux/modules/lessons/actions';
-// eslint-disable-next-line
+
 declare var ZoomMtg;
 
 // import { PrimaryButton } from '../Buttons';
@@ -15,7 +15,8 @@ ZoomMtg.setZoomJSLib('https://source.zoom.us/1.9.1/lib', '/av');
 
 ZoomMtg.preLoadWasm();
 ZoomMtg.prepareJssdk();
-export default ({ data }) => {
+
+function App({ data }) {
   const dispatch = useDispatch();
   const { teacherData } = useSelector((state) => state.lessonReducer);
   useEffect(() => {
@@ -64,13 +65,13 @@ export default ({ data }) => {
   }
   return (
     <Container>
-
       <main>
         <h1>Zoom WebSDK Sample React</h1>
-        <div className="zmmtg-root"></div>
+        <div className="zmmtg-root" />
         <button type="button" onClick={getSignature}>Join Meeting</button>
       </main>
-
     </Container>
   );
-};
+}
+
+export default App;
