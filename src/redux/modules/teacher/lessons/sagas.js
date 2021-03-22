@@ -34,7 +34,6 @@ function* startLesson({ payload, success }) {
     console.log(data);
     success(data);
   } catch (error) {
-    // eslint-disable-next-line no-alert
     console.log(error);
   }
 }
