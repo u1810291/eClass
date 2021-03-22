@@ -8,6 +8,7 @@ import { addSubject } from '../../../redux/modules/admin/subjects/actions';
 // import { notify } from '../../../redux/modules/notifications/actions';
 import CreateLesson from '../../../components/Groups/CreateLesson';
 import EditGroup from '../../../components/Groups/EditGroup';
+import DeleteGroup from '../../../components/Groups/DeleteGroup';
 import { useHideModal } from '../../../hooks/modal';
 
 const handleCreate = (id) => {
@@ -117,8 +118,11 @@ export const toolTips = [
   {
     name: 'Delete group',
     icon: 'payment',
-    onClick: () => {
-      alert('Delete group');
+    onClick: (id, { showBlured }) => {
+      showBlured({
+        title: 'Delete group',
+        body: () => <DeleteGroup id={id} />
+      });
     }
   },
   {

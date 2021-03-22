@@ -31,10 +31,11 @@ function* startLesson({ payload, success }) {
   try {
     const res = yield service.startLesson(payload);
     const { data } = startLessonSelector(res.data);
+    console.log(data);
     success(data);
   } catch (error) {
     // eslint-disable-next-line no-alert
-    alert(error.response ? error.response.data.error_message : error);
+    console.log(error);
   }
 }
 

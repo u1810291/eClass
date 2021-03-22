@@ -5,15 +5,10 @@ import Profile from '../views/Profile';
 import Quiz from '../views/Teacher/Quiz';
 import Grades from '../views/Student/Grades';
 import Attendance from '../views/Student/Attendance';
-import Payment from '../views/Student/Payment';
-import Library from '../views/Library';
-import Video from '../views/Video';
-import Connection from '../views/Student/Connection';
 import Schedule from '../views/Shedule';
 import Chat from '../views/Chat';
 import Groups from '../views/Groups';
 import Lesson from '../views/Teacher/Lesson';
-import ExternalWindow from '../views/ExternalWindow';
 
 export default [
   {
@@ -22,15 +17,6 @@ export default [
     component: Profile,
     icon: 'dashboard',
     title: 'Profile',
-    children: []
-  },
-  {
-    hidden: true,
-    except: true,
-    path: '/meeting',
-    component: ExternalWindow,
-    icon: 'dashboard',
-    title: 'External Window',
     children: []
   },
   {
@@ -83,40 +69,6 @@ export default [
   },
   {
     exact: true,
-    path: '/payment',
-    component: Payment,
-    icon: 'balance',
-    title: 'Payment',
-
-    children: []
-  },
-  {
-    exact: true,
-    path: '/library',
-    component: Library,
-    icon: 'library',
-    title: 'Library',
-    children: []
-  },
-  {
-    exact: true,
-    path: '/video',
-    component: Video,
-    icon: 'video-materials',
-    title: 'Video',
-
-    children: []
-  },
-  {
-    exact: true,
-    path: '/connection',
-    component: Connection,
-    icon: 'connection',
-    title: 'Connection',
-    children: []
-  },
-  {
-    exact: true,
     path: '/schedule',
     component: Schedule,
     icon: 'reschedule',
@@ -130,15 +82,6 @@ export default [
     component: Chat,
     icon: 'chat2',
     title: 'Chat',
-    children: []
-  },
-  {
-    exact: true,
-    path: '/support',
-    component: Examples,
-    icon: 'support2',
-    title: 'Support',
-
     children: []
   },
   {
