@@ -6,7 +6,7 @@ import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
 import AddHomework from '../../../components/Lesson/AddHomework';
 import { uploadFile } from '../../../redux/modules/files/actions';
-import { startLesson } from '../../../redux/modules/teacher/lessons/actions';
+import { startLesson, cancelLesson } from '../../../redux/modules/teacher/lessons/actions';
 import MeetingWindow from '../../../components/MeetingWindow';
 
 const handleAdd = (id) => {
@@ -56,8 +56,10 @@ export const toolTips = [
   {
     name: 'Cancel',
     icon: 'payment',
-    onClick: () => {
-      alert('Cancel');
+    onClick: (id, { dispatch }) => {
+      dispatch(cancelLesson(id, (success) => {
+        if (success) alert('Canceled');
+      }));
     }
   },
 

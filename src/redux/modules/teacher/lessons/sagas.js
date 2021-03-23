@@ -10,7 +10,11 @@ import {
   setLoading
 } from './actions';
 
-import { dataSelector, startLessonSelector } from './selectors';
+import {
+  dataSelector,
+  startLessonSelector,
+  cancelLessonSelector
+} from './selectors';
 
 function* fetchData({ payload }) {
   try {
@@ -38,7 +42,19 @@ function* startLesson({ payload, success }) {
   }
 }
 
+function* cancelLesson({ payload, success }) {
+  try {
+    const res = yield service.cancelLesson(payload);
+    const { data } = cancelLessonSelector(res.data);
+    console.log(data);
+    success(data);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export default function* teacherLessonsSaga() {
   yield takeLatest(types.TABLE_TEACHER_LESSONS_FETCH_DATA, fetchData);
   yield takeLatest(types.TEACHER_START_LESSONS, startLesson);
+  yield takeLatest(types.TEACHER_CANCEL_LESSONS, cancelLesson);
 }
