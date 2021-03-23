@@ -56,10 +56,11 @@ export const toolTips = [
   {
     name: 'Cancel',
     icon: 'payment',
-    onClick: (id, { dispatch }) => {
-      dispatch(cancelLesson(id, (success) => {
-        if (success) alert('Canceled');
-      }));
+    onClick: (id, { showBlured }) => {
+      showBlured({
+        title: 'Cancel lesson',
+        body: () => <CancelLesson id={id} />
+      });
     }
   },
 
