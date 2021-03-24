@@ -5,8 +5,9 @@ import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
 import AddHomework from '../../../components/Lesson/AddHomework';
+import CancelLesson from '../../../components/Lesson/CancelLesson';
 import { uploadFile } from '../../../redux/modules/files/actions';
-import { startLesson, cancelLesson } from '../../../redux/modules/teacher/lessons/actions';
+import { startLesson } from '../../../redux/modules/teacher/lessons/actions';
 import MeetingWindow from '../../../components/MeetingWindow';
 
 const handleAdd = (id) => {
