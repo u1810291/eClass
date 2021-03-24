@@ -5,6 +5,7 @@ import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
 import AddHomework from '../../../components/Lesson/AddHomework';
+import CancelLesson from '../../../components/Lesson/CancelLesson';
 import { uploadFile } from '../../../redux/modules/files/actions';
 import { startLesson } from '../../../redux/modules/teacher/lessons/actions';
 import MeetingWindow from '../../../components/MeetingWindow';
@@ -56,8 +57,11 @@ export const toolTips = [
   {
     name: 'Cancel',
     icon: 'payment',
-    onClick: () => {
-      alert('Cancel');
+    onClick: (id, { showBlured }) => {
+      showBlured({
+        title: 'Cancel lesson',
+        body: () => <CancelLesson id={id} />
+      });
     }
   },
 

@@ -11,3 +11,9 @@ export const startLesson = (payload, success) => ({
   payload,
   success
 });
+
+export const cancelLesson = (payload, success) => ({
+  type: types.TEACHER_CANCEL_LESSONS,
+  payload,
+  success
+});
