@@ -54,7 +54,8 @@
   "lint:fix": "eslint --fix ."
  },
  "eslintConfig": {
-  "extends": "react-app"
+  "extends": "react-app",
+  "parser": "babel-eslint"
  },
  "browserslist": {
   "production": [

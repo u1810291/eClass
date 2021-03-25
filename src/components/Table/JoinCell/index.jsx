@@ -9,13 +9,12 @@ import { PrimaryButton } from '../../Buttons';
 
 const nameClass = classNames('body-medium', 'weight-medium', 'text-black-800');
 const LinkCell = ({ data }) => {
-  // eslint-disable-next-line no-console
-  const join_url = data.link;
+  console.log(data);
   const history = useHistory();
   return (
     <Container>
       <Content className={nameClass}>
-        {join_url && join_url
+        {data.link?.join_url
           ? (
             <PrimaryButton title="Join lesson" onClick={() => history.push({ pathname: '/meeting', state: data })} />
           )
