@@ -32,6 +32,7 @@ function refresh() {
       refresh_token: sessionStorage.getItem('refresh_token')
     }).then((response) => {
       saveToken(response.data.access_token, response.data.refresh_token);
+      alert('Some');
       window.location.replace('/');
       return resolve(response.data.access_token);
     }).catch((error) => {

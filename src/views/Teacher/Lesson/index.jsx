@@ -10,6 +10,8 @@ import TableError from '../../../components/Table/Error';
 import { headerMaker } from '../../../components/Table/helper';
 import { toolTips } from './helper';
 
+
+
 export default () => {
   const dispatch = useDispatch();
   const [pageIndex, setPageIndex] = useState(0);

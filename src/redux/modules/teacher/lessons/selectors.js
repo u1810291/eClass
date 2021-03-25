@@ -92,5 +92,5 @@ export function startLessonSelector(data) {
 }
 
 export function cancelLessonSelector(data) {
-  return data;
+  return { data };
 }
