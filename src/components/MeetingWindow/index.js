@@ -4,12 +4,10 @@ import React, { useEffect, useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { Container } from './style';
-import { teacherSign } from '../../redux/modules/lessons/actions';
+import { Container, ZoomFrame } from './style';
+import { PrimaryButton } from '../Buttons';
 
 declare var ZoomMtg;
-
-// import { PrimaryButton } from '../Buttons';
 
 ZoomMtg.setZoomJSLib('https://source.zoom.us/1.9.1/lib', '/av');
 
@@ -18,18 +16,12 @@ ZoomMtg.prepareJssdk();
 
 function App({ data }) {
   const dispatch = useDispatch();
-  const { teacherData } = useSelector((state) => state.lessonReducer);
-  useEffect(() => {
-    dispatch(teacherSign(data));
-  }, []);
-  console.log(teacherData);
-
-  const apiKey = teacherData.api_key;
-  const meetingNumber = teacherData.meeting_id;
+  const apiKey = data.api_key;
+  const meetingNumber = data.meeting_id;
   const leaveUrl = `${window.location.pathname}?ROLE=${1}&USERNAME=${'USERNAME'}`;
   const userName = 'Teacher';
   const userEmail = 'some@some.com';
-  const passWord = '284472';
+  const passWord = data.meeting_password;
 
   function startMeeting(signature) {
     document.getElementById('zmmtg-root').style.display = 'block';
@@ -38,7 +30,6 @@ function App({ data }) {
       isSupportAV: true,
       success: (success) => {
         console.log(success);
-
         ZoomMtg.join({
           signature,
           meetingNumber,
@@ -61,15 +52,13 @@ function App({ data }) {
   }
   function getSignature(e) {
     e.preventDefault();
-    startMeeting(teacherData.signature);
+    startMeeting(data.signature);
   }
   return (
     <Container>
-      <main>
-        <h1>Zoom WebSDK Sample React</h1>
-        <div className="zmmtg-root" />
-        <button type="button" onClick={getSignature}>Join Meeting</button>
-      </main>
+      <h1>Welcome to zoom lesson</h1>
+      <PrimaryButton title="Join Meeting" type="button" onClick={getSignature} />
+      <ZoomFrame id="zmmtg-root" title="zoom-root" className="zmmtg-root" />
     </Container>
   );
 }
