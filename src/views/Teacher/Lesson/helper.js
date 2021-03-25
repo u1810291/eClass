@@ -10,6 +10,7 @@ import { uploadFile } from '../../../redux/modules/files/actions';
 import { startLesson, cancelLesson } from '../../../redux/modules/teacher/lessons/actions';
 import MeetingWindow from '../../../components/MeetingWindow';
 import { getReasons } from '../../../redux/modules/lists/actions';
+import { useHideModal } from '../../../hooks/modal';
 
 const handleAdd = (id) => {
   const dispatch = useDispatch();
@@ -42,6 +43,8 @@ const handleAdd = (id) => {
 };
 
 const cancelingLesson = (id) => {
+  const { hideModal } = useHideModal();
+
   const dispatch = useDispatch();
   const validationSchema = Yup.object().shape({
     reason: Yup.string().required('Required'),
@@ -54,10 +57,9 @@ const cancelingLesson = (id) => {
     },
     validationSchema,
     onSubmit: (values, { setSubmitting }) => {
-      console.log(values);
       setSubmitting(true);
-      dispatch(cancelLesson({ id, reason: values }, (response) => {
-        console.log(response);
+      dispatch(cancelLesson({ id, reason: values }, () => {
+        hideModal();
       }));
       setSubmitting(false);
     }
