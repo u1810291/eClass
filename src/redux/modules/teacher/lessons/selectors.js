@@ -90,3 +90,7 @@ export function startLessonSelector(data) {
   };
   return { data: filtered };
 }
+
+export function cancelLessonSelector(data) {
+  return { data };
+}

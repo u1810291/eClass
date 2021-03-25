@@ -1,13 +1,16 @@
 /* eslint-disable no-alert */
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import AddHomework from '../../../components/Lesson/AddHomework';
+import CancelLesson from '../../../components/Lesson/CancelLesson';
 import { uploadFile } from '../../../redux/modules/files/actions';
-import { startLesson } from '../../../redux/modules/teacher/lessons/actions';
+import { startLesson, cancelLesson } from '../../../redux/modules/teacher/lessons/actions';
 import MeetingWindow from '../../../components/MeetingWindow';
+import { getReasons } from '../../../redux/modules/lists/actions';
+import { useHideModal } from '../../../hooks/modal';
 
 const handleAdd = (id) => {
   const dispatch = useDispatch();
@@ -38,6 +41,39 @@ const handleAdd = (id) => {
   });
   return { formik };
 };
+
+const cancelingLesson = (id) => {
+  const { hideModal } = useHideModal();
+
+  const dispatch = useDispatch();
+  const validationSchema = Yup.object().shape({
+    reason: Yup.string().required('Required'),
+    comment: Yup.string().required('Required')
+  });
+  const formik = useFormik({
+    initialValues: {
+      reason: '',
+      comment: ''
+    },
+    validationSchema,
+    onSubmit: (values, { setSubmitting }) => {
+      setSubmitting(true);
+      dispatch(cancelLesson({ id, reason: values }, () => {
+        hideModal();
+      }));
+      setSubmitting(false);
+    }
+  });
+  const { reasons } = useSelector((state) => state.listsReducers);
+  useEffect(() => {
+    dispatch(getReasons());
+  }, [getReasons]);
+
+  return {
+    reasons, formik
+  };
+};
+
 export const toolTips = [
   {
     name: 'Start',
@@ -56,8 +92,11 @@ export const toolTips = [
   {
     name: 'Cancel',
     icon: 'payment',
-    onClick: () => {
-      alert('Cancel');
+    onClick: (id, { showBlured }) => {
+      showBlured({
+        title: 'Cancel lesson',
+        body: () => <CancelLesson id={id} cancelingLesson={cancelingLesson} />
+      });
     }
   },
 

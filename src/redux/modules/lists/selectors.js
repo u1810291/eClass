@@ -12,7 +12,7 @@ export function reasonSelector(data) {
   const filtered = content.map((el) => ({
     description: el.description,
     id: el.id,
-    name: el.name,
+    value: el.name,
     names: el.names.map((item) => ({
       description: item.description,
       id: item.id,
