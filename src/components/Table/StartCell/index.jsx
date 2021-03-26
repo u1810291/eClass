@@ -1,22 +1,25 @@
 /* eslint-disable no-nested-ternary */
 /* eslint-disable camelcase */
 import React from 'react';
-import { useHistory } from 'react-router-dom';
 
 import classNames from 'classnames';
 import { Container, Content, Empty } from './style';
 import { PrimaryButton } from '../../Buttons';
+import { useShowModal } from '../../../hooks/modal';
+import MeetingWindow from '../../MeetingWindow';
 
 const nameClass = classNames('body-medium', 'weight-medium', 'text-black-800');
 const LinkCell = ({ data }) => {
-  const history = useHistory();
-  const { start_url } = data.link;
+  const { showFullScreen } = useShowModal();
   return (
     <Container>
       <Content className={nameClass}>
-        {start_url
+        {data.link && data.link.start_url
           ? (
-            <PrimaryButton title="Start lesson" onClick={() => history.push({ pathname: '/meeting', state: data })} />
+            <PrimaryButton
+              title="Start lesson"
+              onClick={() => showFullScreen({ title: 'Join meeting', body: () => <MeetingWindow data={data} /> })}
+            />
           )
           : <Empty>Not started</Empty>}
       </Content>

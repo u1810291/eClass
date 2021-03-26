@@ -13,17 +13,19 @@ ZoomMtg.setZoomJSLib('https://source.zoom.us/1.9.1/lib', '/av');
 ZoomMtg.preLoadWasm();
 ZoomMtg.prepareJssdk();
 
-function App({ data }) {
-  const dispatch = useDispatch();
-  const apiKey = data.api_key;
-  const meetingNumber = data.meeting_id;
+function MeetingWindow({ data }) {
+  const teacherData = data();
+  console.log(teacherData);
+  const apiKey = teacherData.api_key;
+  const meetingNumber = teacherData.meeting_id;
   const leaveUrl = `${window.location.pathname}?ROLE=${1}&USERNAME=${'USERNAME'}`;
   const userName = 'Teacher';
   const userEmail = 'some@some.com';
-  const passWord = data.meeting_password;
+  const passWord = teacherData.meeting_password;
 
   function startMeeting(signature) {
     document.getElementById('zmmtg-root').style.display = 'block';
+    console.log(signature);
     ZoomMtg.init({
       leaveUrl,
       isSupportAV: true,
@@ -51,7 +53,7 @@ function App({ data }) {
   }
   function getSignature(e) {
     e.preventDefault();
-    startMeeting(data.signature);
+    startMeeting(teacherData.signature);
   }
   return (
     <Container>
@@ -62,4 +64,4 @@ function App({ data }) {
   );
 }
 
-export default App;
+export default MeetingWindow;

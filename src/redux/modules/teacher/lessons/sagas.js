@@ -35,7 +35,6 @@ function* startLesson({ payload, success }) {
   try {
     const res = yield service.startLesson(payload);
     const { data } = startLessonSelector(res.data);
-    console.log(data);
     success(data);
   } catch (error) {
     console.log(error);

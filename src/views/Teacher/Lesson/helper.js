@@ -11,7 +11,6 @@ import { startLesson, cancelLesson } from '../../../redux/modules/teacher/lesson
 import MeetingWindow from '../../../components/MeetingWindow';
 import { getReasons } from '../../../redux/modules/lists/actions';
 import { useHideModal } from '../../../hooks/modal';
-import { teacherSign } from '../../../redux/modules/lessons/actions';
 
 const handleAdd = (id) => {
   const dispatch = useDispatch();
@@ -78,15 +77,17 @@ export const toolTips = [
   {
     name: 'Start',
     icon: 'payment',
-    onClick: (id, { dispatch, showFullScreen }) => {
+    onClick: (id, {
+      dispatch, showFullScreen, teacher, data
+    }) => {
       dispatch(startLesson(id, (response) => {
-        if (response) { alert('Lesson started!'); }
-        dispatch(teacherSign(id));
-        const { teacherData } = useSelector((state) => state.lessonReducer);
+        teacher(id);
+        console.log(data);
         showFullScreen({
           title: 'Zoom Meeting',
-          body: () => <MeetingWindow data={teacherData} />
+          body: () => <MeetingWindow data={data} />
         });
+        if (response) { alert('Lesson started!'); }
         return response;
       }));
     }
