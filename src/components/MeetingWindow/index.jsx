@@ -12,8 +12,6 @@ ZoomMtg.preLoadWasm();
 ZoomMtg.prepareJssdk();
 
 function MeetingWindow({ data }) {
-  const { hideFullScreen } = useHideModal();
-  const dispatch = useDispatch();
   const teacherData = data();
   const apiKey = teacherData.api_key;
   const meetingNumber = teacherData.meeting_id;
