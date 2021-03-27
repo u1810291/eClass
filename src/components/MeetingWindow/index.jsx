@@ -1,9 +1,7 @@
 /* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
-import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
 import { Container, ZoomFrame } from './style';
 import { PrimaryButton } from '../Buttons';
 
@@ -14,8 +12,9 @@ ZoomMtg.preLoadWasm();
 ZoomMtg.prepareJssdk();
 
 function MeetingWindow({ data }) {
+  const { hideFullScreen } = useHideModal();
+  const dispatch = useDispatch();
   const teacherData = data();
-  console.log(teacherData);
   const apiKey = teacherData.api_key;
   const meetingNumber = teacherData.meeting_id;
   const leaveUrl = `${window.location.pathname}?ROLE=${1}&USERNAME=${'USERNAME'}`;
@@ -25,10 +24,10 @@ function MeetingWindow({ data }) {
 
   function startMeeting(signature) {
     document.getElementById('zmmtg-root').style.display = 'block';
-    console.log(signature);
     ZoomMtg.init({
       leaveUrl,
       isSupportAV: true,
+      debug: false,
       success: (success) => {
         console.log(success);
         ZoomMtg.join({
@@ -59,7 +58,6 @@ function MeetingWindow({ data }) {
     <Container>
       <h1>Welcome to zoom lesson</h1>
       <PrimaryButton title="Join Meeting" type="button" onClick={getSignature} />
-      <ZoomFrame id="zmmtg-root" title="zoom-root" className="zmmtg-root" />
     </Container>
   );
 }

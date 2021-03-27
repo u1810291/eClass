@@ -78,14 +78,13 @@ export const toolTips = [
     name: 'Start',
     icon: 'payment',
     onClick: (id, {
-      dispatch, showFullScreen, teacher, data
+      dispatch, showFullScreen, teacher, teachers
     }) => {
       dispatch(startLesson(id, (response) => {
         teacher(id);
-        console.log(data);
         showFullScreen({
           title: 'Zoom Meeting',
-          body: () => <MeetingWindow data={data} />
+          body: () => <MeetingWindow data={teachers} />
         });
         if (response) { alert('Lesson started!'); }
         return response;

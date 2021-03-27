@@ -10,7 +10,6 @@ import Users from '../views/Admin/Users';
 import StudentAdd from '../views/Admin/Users/Add/Student';
 import TeacherAdd from '../views/Admin/Users/Add/Teacher';
 import AdminAdd from '../views/Admin/Users/Add/Admin';
-import ExternalWindow from '../views/ExternalWindow';
 
 export default [
   {
@@ -114,14 +113,6 @@ export default [
     component: Examples,
     icon: 'dashboard',
     title: 'Tariff',
-    children: []
-  },
-  {
-    exact: true,
-    path: '/external',
-    component: ExternalWindow,
-    title: 'External',
-    icon: 'dashboard',
     children: []
   }
 ];

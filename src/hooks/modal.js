@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   hide, show, pushFullScreen, popFullScreen
 } from '../redux/modules/modal/actions';
-import { teacherSign } from '../redux/modules/lessons/actions';
+import { teacherSign, studentSign } from '../redux/modules/lessons/actions';
 
 export const useModal = () => useSelector(({ modalReducer }) => modalReducer);
 
@@ -26,11 +26,21 @@ export const useZoomCall = () => {
   const teacher = useCallback((props) => {
     dispatch(teacherSign(props));
   }, [dispatch]);
-  const data = () => {
+
+  const teachers = () => {
     const { teacherData } = useSelector((state) => state.lessonReducer);
     return teacherData;
   };
-  return { teacher, data };
+  const student = useCallback((props) => {
+    dispatch(studentSign(props));
+  }, [dispatch]);
+  const students = () => {
+    const { studentData } = useSelector((state) => state.lessonReducer);
+    return studentData;
+  };
+  return {
+    teacher, teachers, students, student
+  };
 };
 
 export const useHideModal = () => {
