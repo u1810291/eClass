@@ -63,7 +63,7 @@ export default () => {
       })
     );
   }, [dispatch, search]);
-
+  console.log(toolTips);
   return (
     <Container>
       <LessonsHeader

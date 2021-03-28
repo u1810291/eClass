@@ -129,6 +129,7 @@ export default ({
                     && (
                       <TD>
                         <Cell align="end">
+                          {console.log(row)}
                           <ToolTip
                             indexT={indexT}
                             index={index}

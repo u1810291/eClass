@@ -81,12 +81,11 @@ export function startLessonSelector(data) {
       id: data.subject.id,
       name: data.subject.name
     },
-    teacher:
-{
-  full_name: data.teacher.full_name,
-  id: data.teacher.id,
-  username: data.teacher.username
-}
+    teacher: {
+      full_name: data.teacher.full_name,
+      id: data.teacher.id,
+      username: data.teacher.username
+    }
   };
   return { data: filtered };
 }
