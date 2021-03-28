@@ -3,7 +3,6 @@
 import React from 'react';
 import UserCell from './UserCell';
 import JoinCell from './JoinCell';
-import StartCell from './StartCell';
 import DownloadCell from './DownloadCell';
 import UploadCell from './UploadCell';
 
@@ -20,12 +19,6 @@ export const headerMaker = (data) => data
       return {
         ...rest,
         Cell: ({ cell }) => <JoinCell data={cell.row.original} />
-      };
-    }
-    if (type === 'start') {
-      return {
-        ...rest,
-        Cell: ({ cell }) => <StartCell data={cell.row.original} />
       };
     }
     if (type === 'download') {

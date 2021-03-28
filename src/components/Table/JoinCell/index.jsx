@@ -10,15 +10,15 @@ import MeetingWindow from '../../MeetingWindow';
 
 const nameClass = classNames('body-medium', 'weight-medium', 'text-black-800');
 const LinkCell = ({ data }) => {
-  const { showFullScreen } = useShowModal();
+  const { showBlured } = useShowModal();
   return (
     <Container>
       <Content className={nameClass}>
-        {data.link && data.link.join_url
+        {data.link?.join_url
           ? (
             <PrimaryButton
               title="Join lesson"
-              onClick={() => showFullScreen({ title: 'Join meeting', body: <MeetingWindow data={data} /> })}
+              onClick={() => showBlured({ title: 'Join meeting', body: <MeetingWindow data={data} /> })}
             />
           )
           : <Empty>Not started</Empty>}

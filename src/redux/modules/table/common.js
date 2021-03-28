@@ -86,15 +86,6 @@ export const teacherLessonsHeader = [
     type: 'join',
     disableSortBy: true,
     show: true
-  },
-  {
-    id: 7,
-    Header: 'Start lesson',
-    accessor: 'link',
-    type: 'start',
-    disableSortBy: true,
-    SubCell: 'meeting_id',
-    show: true
   }
 ];
 export const adminLessonsHeader = [

@@ -53,6 +53,7 @@ export default () => {
     setPageIndex(pageIndex);
     setPageSize(pageSize);
   };
+  console.log(data);
 
   return (
     <Container>
