@@ -48,6 +48,10 @@ body {
   display: none;
 }
 
+.audio-option-menu__pop-menu {
+  margin-left: 100px;
+}
+
 :root {
   --chat-sidebar-width: 230px;
   --chat-navbar-height: 80px;
