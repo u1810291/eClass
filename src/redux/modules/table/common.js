@@ -33,14 +33,6 @@ export const studentLessonsHeader = [
     accessor: 'subject',
     disableSortBy: true,
     show: true
-  },
-  {
-    id: 6,
-    Header: 'Link',
-    accessor: 'link',
-    type: 'join',
-    disableSortBy: true,
-    show: true
   }
 ];
 
@@ -76,14 +68,6 @@ export const teacherLessonsHeader = [
     Header: 'Subject',
     accessor: 'subject_name',
     type: 'user',
-    disableSortBy: true,
-    show: true
-  },
-  {
-    id: 6,
-    Header: 'Join',
-    accessor: 'link',
-    type: 'join',
     disableSortBy: true,
     show: true
   }

@@ -5,7 +5,7 @@ export function dataSelector(lesson) {
   const { total_elements, content } = lesson;
   const filtered = content.map((el) => ({
     date: moment(el.scheduled_start).format('DD.MM.YYYY'),
-    time: moment(el.scheduled_start).format('hh:mm:ss'),
+    time: moment(el.scheduled_start).format('HH:mm:ss'),
     duration: el.duration,
     teacher: {
       name: el.teacher.full_name,
