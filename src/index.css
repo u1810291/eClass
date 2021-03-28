@@ -45,11 +45,6 @@ body {
 }
 
 #zmmtg-root {
-  width: 80%;
-  height: 80%;
-  position: fixed;
-  top: 18%;
-  left: 10%;
   display: none;
 }
 

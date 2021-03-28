@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components';
 
+export const Main = styled.div``;
+
 export const TableContainer = styled.div`
 height: ${({ height }) => (`${height}px` || '540px')};
 position: relative;

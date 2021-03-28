@@ -38,7 +38,7 @@ export const Icon = styled.span`
 `;
 
 export const Container = styled.div`
-  padding: 1rem;
+  padding: 0 1rem 0;
   overflow:auto;
   height: ${({ height }) => (`${parseInt(height, 10) + 60}px` || '600px')};
 

@@ -78,11 +78,11 @@ export const toolTips = [
     name: 'Start',
     icon: 'payment',
     onClick: (id, {
-      dispatch, showFullScreen, teacher, teachers
+      dispatch, showBlured, teacher, teachers
     }) => {
       dispatch(startLesson(id, (response) => {
         teacher(id);
-        showFullScreen({
+        showBlured({
           title: 'Zoom Meeting',
           body: () => <MeetingWindow data={teachers} />
         });
