@@ -72,18 +72,8 @@ function* editGroup({ payload, id, success }) {
 
 function* deleteGroup({ payload, success }) {
   try {
-    const res = new Promise((resolve, reject) => {
-      service.deleteGroupIdInParams(payload)
-        .then((res) => {
-          console.log(res);
-          resolve(res);
-        })
-        .catch((err) => {
-          console.log(err);
-
-          reject(err);
-        });
-    });
+    const res = service.deleteGroupIdInParams(payload);
+    console.log(res);
     yield put(setError(''));
     success([res.data]);
   } catch (error) {
