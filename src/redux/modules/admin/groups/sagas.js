@@ -48,6 +48,16 @@ function* addGroup({ payload, success }) {
     yield put(setError(error));
   }
 }
+function* addStudent({ payload, success }) {
+  try {
+    const { data } = addGroupSelector(payload);
+    const res = yield service.addGroupStudents(data);
+    yield put(setError(''));
+    success(res);
+  } catch (error) {
+    yield put(setError(error));
+  }
+}
 
 function* editGroup({ payload, id, success }) {
   try {
@@ -87,4 +97,5 @@ export default function* adminGroupsSaga() {
   yield takeLatest(types.TABLE_ADMIN_GROUPS_CREATE_GROUP, addGroup);
   yield takeLatest(types.TABLE_ADMIN_GROUPS_EDIT_GROUP, editGroup);
   yield takeLatest(types.TABLE_ADMIN_GROUPS_DELETE_GROUP, deleteGroup);
+  yield takeLatest(types.TABLE_ADMIN_GROUPS_ADD_STUDENT_GROUP, addStudent);
 }
