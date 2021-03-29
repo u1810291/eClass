@@ -4,8 +4,8 @@ import moment from 'moment';
 export function dataSelector(payload, user) {
   const { total_elements, content } = user;
   if (payload === 'student') {
-    const student = content.map((el, i) => ({
-      id: i + 1,
+    const student = content.map((el) => ({
+      id: el.id,
       address: el.address.address,
       confirmed_by_admin: el.confirmed_by_admin,
       date_of_birth: moment(el.date_of_birth).format('DD-MM-YYYY'),

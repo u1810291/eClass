@@ -114,5 +114,13 @@ export default [
     icon: 'dashboard',
     title: 'Tariff',
     children: []
+  },
+  {
+    exact: true,
+    path: '/example',
+    component: Examples,
+    icon: 'dashboard',
+    title: 'Tariff',
+    children: []
   }
 ];

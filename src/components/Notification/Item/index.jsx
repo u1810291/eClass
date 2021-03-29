@@ -5,34 +5,28 @@ import moment from 'moment';
 import {
   Container, Wrapper, CloseButton, Time, Caption
 } from './style';
-import { DynamicImage as Image } from '../../DynamicImage';
 import Icon from '../../Icon';
 import { closeNotify } from '../../../redux/modules/notifications/actions';
 
 const classname = classNames('border-primary', 'white-900', 'shadow-primary-3');
-const header = classNames('body-large', 'text-black-800');
-const username = classNames('weight-semibold');
-const caption = classNames('button-large', 'text-black-400', 'weight-regular');
+const caption = classNames('button-large', 'text-white-900', 'weight-regular');
 
 export default ({
-  id, name, comment, action, image
+  id, message, icon
 }) => {
   const dispatch = useDispatch();
   return (
-    <Container className={classname}>
+    <Container className={classname} icon={icon}>
       <div>
-        <Image width="48" height="48" name="John Doe" imgSrc={image} />
+        <Icon icon={icon} size="26px" color="#FFFFFF" />
       </div>
       <Wrapper>
         <div>
-          <span className={header}>
-            <span className={username}>{name}</span>
-            {' '}
-            {action}
-          </span>
-          <CloseButton onClick={() => dispatch(closeNotify(id))}><Icon icon="cross" /></CloseButton>
+          <CloseButton onClick={() => dispatch(closeNotify(id))}>
+            <Icon icon="cross" size="10px" color="#FFFFFF" />
+          </CloseButton>
         </div>
-        <Caption className={caption}>{comment}</Caption>
+        <Caption className={caption}>{message}</Caption>
         <Time className={caption}>{moment(new Date()).format('LT')}</Time>
       </Wrapper>
     </Container>

@@ -4,7 +4,8 @@ export const setLoading = (payload) => ({ type: types.TABLE_ADMIN_STUDENTS_SET_L
 export const setData = (payload) => ({ type: types.TABLE_ADMIN_STUDENTS_SET_DATA, payload });
 export const setTotal = (payload) => ({ type: types.TABLE_ADMIN_STUDENTS_SET_TOTAL, payload });
 export const setError = (payload) => ({ type: types.TABLE_ADMIN_STUDENTS_ERROR, payload });
-export const fetchData = (payload) => ({
+export const fetchData = (payload, params) => ({
   type: types.TABLE_ADMIN_STUDENTS_FETCH_DATA,
-  payload
+  payload,
+  params
 });

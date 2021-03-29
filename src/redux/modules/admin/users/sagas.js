@@ -10,17 +10,21 @@ import {
 
 import { dataSelector } from './selectors';
 
-function* fetchData({ payload }) {
+function* fetchData({ payload, params }) {
   yield put(setLoading(true));
   try {
-    const res = yield service.getUsers(payload);
+    const res = yield service.getUsers(payload, params);
     const { total, data } = dataSelector(payload, res.data);
     yield put(setError(''));
     yield put(setTotal(total));
     yield put(setData(data));
     yield put(setLoading(false));
   } catch (error) {
-    yield put(setError(error));
+    if (error.response.data.error_message) {
+      yield put(setError(error.response.data.error_message));
+    } else {
+      yield put(setError(error));
+    }
   }
 }
 

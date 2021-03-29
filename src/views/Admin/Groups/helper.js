@@ -1,10 +1,14 @@
 /* eslint-disable no-alert */
-import React from 'react';
+import React, { useEffect } from 'react';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
-import { useDispatch } from 'react-redux';
-import { createLesson, addGroup, editGroup } from '../../../redux/modules/admin/groups/actions';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  createLesson, addGroup, editGroup, addStudent
+} from '../../../redux/modules/admin/groups/actions';
 import { addSubject } from '../../../redux/modules/admin/subjects/actions';
+import { fetchData } from '../../../redux/modules/admin/users/actions';
+import { notify } from '../../../redux/modules/notifications/actions';
 import {
   CreateLesson, EditGroup, DeleteGroup, AddStudent
 } from '../../../components/Groups';
@@ -95,6 +99,11 @@ const handleEdit = (id) => {
 
 const handleAddStudent = (id) => {
   const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchData('student', '?size=10000'));
+  }, [dispatch]);
+  const { data, error } = useSelector((state) => state.adminUsersReducers);
+  const students = data.map((el) => ({ id: el.id, value: el.full_name }));
   const validationSchema = Yup.object().shape({
     student_id: Yup.string().required('Required')
   });
@@ -105,17 +114,18 @@ const handleAddStudent = (id) => {
     validationSchema,
     onSubmit: (values, { setSubmitting }) => {
       setSubmitting(true);
-      const data = { group: id, student_id: values.student_id.toISOString() };
-      dispatch(createLesson(data, (res) => {
+      if (error) dispatch(notify({ message: error, icon: 'cross' }));
+      const data = { id, student_id: values.student_id };
+      dispatch(addStudent(data, (res) => {
         // eslint-disable-next-line no-alert
         if (res) {
-          return alert('Succesfully added!');
+          return notify({ message: 'Succesfully added!', icon: 'checkmark' });
         }
-        return alert('Something went Wrong!');
+        return notify({ message: res, icon: 'cross' });
       }));
     }
   });
-  return { formik };
+  return { formik, students };
 };
 
 export const toolTips = [

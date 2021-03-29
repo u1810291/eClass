@@ -9,6 +9,7 @@ export const Container = styled.div`
   align-items: center;
   position: relative;
   box-sizing: border-box;
+  background: ${({ icon }) => (icon === 'cross' ? '#F94144' : '#55b0ff')};
 `;
 
 export const Wrapper = styled.div`
