@@ -7,10 +7,15 @@ import {
   setData,
   setError,
   setTotal,
-  setLoading
+  setLoading,
+  setStartError
 } from './actions';
 
-import { dataSelector, startLessonSelector } from './selectors';
+import {
+  dataSelector,
+  startLessonSelector,
+  cancelLessonSelector
+} from './selectors';
 
 function* fetchData({ payload }) {
   try {
@@ -27,18 +32,32 @@ function* fetchData({ payload }) {
     yield put(setError(error));
   }
 }
+
 function* startLesson({ payload, success }) {
   try {
     const res = yield service.startLesson(payload);
     const { data } = startLessonSelector(res.data);
+    setStartError('');
     success(data);
   } catch (error) {
-    // eslint-disable-next-line no-alert
-    alert(error.response ? error.response.data.error_message : error);
+    console.log(error);
+    console.log(error.response.data.error_message);
+  }
+}
+
+function* cancelLesson({ payload, success }) {
+  try {
+    console.log(payload);
+    const res = yield service.cancelLesson(payload.id, payload.reason);
+    const { data } = cancelLessonSelector(res.data);
+    success(data);
+  } catch (error) {
+    console.log(error);
   }
 }
 
 export default function* teacherLessonsSaga() {
   yield takeLatest(types.TABLE_TEACHER_LESSONS_FETCH_DATA, fetchData);
   yield takeLatest(types.TEACHER_START_LESSONS, startLesson);
+  yield takeLatest(types.TEACHER_CANCEL_LESSONS, cancelLesson);
 }

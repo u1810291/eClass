@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { takeLatest, put } from 'redux-saga/effects';
 import types from '../../../../constants/action-types';
 import service from '../../../../services/admin/groups';
@@ -44,8 +45,39 @@ function* addGroup({ payload, success }) {
     yield put(setError(''));
     success(res);
   } catch (error) {
+    yield put(setError(error));
+  }
+}
+function* addStudent({ payload, success }) {
+  try {
+    const { data } = addGroupSelector(payload);
+    const res = yield service.addGroupStudents(data);
+    yield put(setError(''));
+    success(res);
+  } catch (error) {
+    yield put(setError(error));
+  }
+}
 
-    // yield put(setError(error));
+function* editGroup({ payload, id, success }) {
+  try {
+    const { data } = addGroupSelector(payload);
+    const res = service.updateGroupIdInParams(data, id);
+    yield put(setError(''));
+    success(res.data);
+  } catch (error) {
+    success(error);
+  }
+}
+
+function* deleteGroup({ payload, success }) {
+  try {
+    const res = service.deleteGroupIdInParams(payload);
+    console.log(res);
+    yield put(setError(''));
+    success([res.data]);
+  } catch (error) {
+    yield put(setError('error'));
   }
 }
 
@@ -53,4 +85,7 @@ export default function* adminGroupsSaga() {
   yield takeLatest(types.TABLE_ADMIN_GROUPS_FETCH_DATA, fetchData);
   yield takeLatest(types.TABLE_ADMIN_GROUPS_CREATE_LESSON, createLesson);
   yield takeLatest(types.TABLE_ADMIN_GROUPS_CREATE_GROUP, addGroup);
+  yield takeLatest(types.TABLE_ADMIN_GROUPS_EDIT_GROUP, editGroup);
+  yield takeLatest(types.TABLE_ADMIN_GROUPS_DELETE_GROUP, deleteGroup);
+  yield takeLatest(types.TABLE_ADMIN_GROUPS_ADD_STUDENT_GROUP, addStudent);
 }

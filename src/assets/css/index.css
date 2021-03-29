@@ -5,6 +5,7 @@
 @import "./colors.css";
 @import "./shadow.css";
 @import "./notification.css";
+@import "./zoom.css";
 
 .center {
   display: grid;

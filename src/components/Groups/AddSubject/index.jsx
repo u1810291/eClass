@@ -1,10 +1,10 @@
 import React from 'react';
 
 import { Container, Body } from './style';
-import { NormalInput } from '../Forms/Inputs';
-import { PrimaryButton } from '../Buttons';
-import Dropdown from '../Forms/Dropdowns';
-import { languages } from '../../data/dropdown';
+import { NormalInput } from '../../Forms/Inputs';
+import { PrimaryButton } from '../../Buttons';
+import Dropdown from '../../Forms/Dropdowns';
+import { languages } from '../../../data/dropdown';
 
 export default ({ subjectAddFormik }) => {
   const { formik } = subjectAddFormik();

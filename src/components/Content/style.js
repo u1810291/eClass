@@ -7,8 +7,8 @@ export const Container = styled.div`
   margin: 20px;
   margin-right: 200px;
   border-radius: 42px;
-  height: 90%;
-  width: 94%;
+  height: 96%;
+  width: 97%;
   overflow-y: auto;
   display: grid;
   grid-gap: 20px;

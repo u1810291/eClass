@@ -21,9 +21,9 @@ export function dataSelector(lesson) {
     })),
     lesson_id: el.id,
     rescheduled: el.rescheduled,
-    scheduled_start: moment(el.scheduled_start).format('DD-MM-YYYY hh:mm:ss'),
+    scheduled_start: moment(el.scheduled_start).format('DD-MM-YYYY HH:mm:ss'),
     started: el.started,
-    started_at: moment(el.started_at || '').format('DD-MM-YYYY hh:mm:ss'),
+    started_at: moment(el.started_at || '').format('DD-MM-YYYY HH:mm:ss'),
     subject_name: el.subject.name,
     subject_id: el.subject.id,
     duration: el.duration,
@@ -81,12 +81,15 @@ export function startLessonSelector(data) {
       id: data.subject.id,
       name: data.subject.name
     },
-    teacher:
-{
-  full_name: data.teacher.full_name,
-  id: data.teacher.id,
-  username: data.teacher.username
-}
+    teacher: {
+      full_name: data.teacher.full_name,
+      id: data.teacher.id,
+      username: data.teacher.username
+    }
   };
   return { data: filtered };
+}
+
+export function cancelLessonSelector(data) {
+  return { data };
 }

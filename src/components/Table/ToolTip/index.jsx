@@ -7,7 +7,7 @@ import {
 } from './style';
 import Icon from '../../Icon';
 import { ClickOutside } from '../../../hooks/click-outside';
-import { useShowModal } from '../../../hooks/modal';
+import { useShowModal, useZoomCall } from '../../../hooks/modal';
 
 const caption = classNames(
   'button-medium',
@@ -25,6 +25,7 @@ export default ({
   const dispatch = useDispatch();
   const state = useSelector((globalState) => globalState);
   const modal = useShowModal();
+  const zoom = useZoomCall();
   return (
     <Container>
       <Button
@@ -49,6 +50,7 @@ export default ({
                 history,
                 dispatch,
                 state,
+                ...zoom,
                 ...modal
               })}
               key={`${positionIndex + 1}`}

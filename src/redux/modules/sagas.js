@@ -19,3 +19,5 @@ export { default as filesSaga } from './files/sagas';
 export { default as adminGroupsSaga } from './admin/groups/sagas';
 
 export { default as subjectsSaga } from './admin/subjects/sagas';
+
+export { default as lessonSaga } from './lessons/sagas';

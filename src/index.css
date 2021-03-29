@@ -9,6 +9,32 @@
 
 }
 
+main {
+  width: 70%;
+  margin: auto;
+  text-align: center;
+}
+
+main button {
+  margin-top: 20px;
+  background-color: #2D8CFF;
+  color: #ffffff;
+  text-decoration: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
+  display: inline-block;
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+main button:hover {
+  background-color: #2681F2;
+}
+
 body {
   position: absolute;
   left: 0%;
@@ -17,9 +43,15 @@ body {
   bottom: 0%;
   background: #333366;
 }
+
 #zmmtg-root {
   display: none;
 }
+
+.audio-option-menu__pop-menu {
+  margin-left: 100px;
+}
+
 :root {
   --chat-sidebar-width: 230px;
   --chat-navbar-height: 80px;
@@ -83,6 +115,7 @@ body {
 ::-webkit-input-placeholder {
   color: #535875 !important;
 }
+
 .apexcharts-legend.apexcharts-align-right .apexcharts-legend-series,
 .apexcharts-legend.apexcharts-align-left .apexcharts-legend-series {
   display: flex !important;
@@ -127,6 +160,7 @@ body {
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
 }
+
 .Dropdown-root {
   width: -webkit-fill-available;
 }

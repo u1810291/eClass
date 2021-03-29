@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
 
 const common = css`
-  width: 99vw;
-  height: 99vh;
+  width: 100%;
+  height: 100%;
   display: grid;
   word-break: break-all;
 `;
