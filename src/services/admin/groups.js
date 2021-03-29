@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import { service } from '..';
 
 export default {
@@ -10,6 +11,6 @@ export default {
   deleteGroupNameIdInParams: (id) => service.delete(`/api/v1/group/${id}`),
 
   getGroupStudents: (id) => service.get(`/api/v1/group/${id}/students`),
-  addGroupStudents: (id, sId) => service.post(`/api/v1/group/${id}/students${sId}`),
-  deleteGroupStudents: (id, sId) => service.delete(`/api/v1/group/${id}/students${sId}`)
+  addGroupStudents: ({ id, student_id }) => service.post(`/api/v1/group/${id}/students${student_id}`),
+  deleteGroupStudents: (id, student_id) => service.delete(`/api/v1/group/${id}/students${student_id}`)
 };

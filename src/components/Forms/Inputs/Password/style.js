@@ -34,7 +34,9 @@ export const IconContainer = styled.div`
 export const EyeIcon = styled(Eye)`
   display: ${({ eye }) => (eye ? 'flex' : 'none')};
   position: absolute;
-  padding-right: 14px;
+  width: 15px;
+  height: 15px;
+  margin-right: 14px;
   margin-left: 5px;
   cursor: pointer;
   & path {

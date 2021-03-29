@@ -5,10 +5,9 @@ import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
 import { createLesson, addGroup, editGroup } from '../../../redux/modules/admin/groups/actions';
 import { addSubject } from '../../../redux/modules/admin/subjects/actions';
-// import { notify } from '../../../redux/modules/notifications/actions';
-import CreateLesson from '../../../components/Groups/CreateLesson';
-import EditGroup from '../../../components/Groups/EditGroup';
-import DeleteGroup from '../../../components/Groups/DeleteGroup';
+import {
+  CreateLesson, EditGroup, DeleteGroup, AddStudent
+} from '../../../components/Groups';
 import { useHideModal } from '../../../hooks/modal';
 
 const handleCreate = (id) => {
@@ -26,7 +25,6 @@ const handleCreate = (id) => {
       setSubmitting(true);
       const data = { group: id, start_date: values.start_date.toISOString() };
       dispatch(createLesson(data, (res) => {
-        // eslint-disable-next-line no-alert
         if (res) {
           return alert('Succesfully added!');
         }
@@ -36,6 +34,7 @@ const handleCreate = (id) => {
   });
   return { formik };
 };
+
 const handleEdit = (id) => {
   const dispatch = useDispatch();
   const { hideModal } = useHideModal();
@@ -94,6 +93,31 @@ const handleEdit = (id) => {
   return { formik };
 };
 
+const handleAddStudent = (id) => {
+  const dispatch = useDispatch();
+  const validationSchema = Yup.object().shape({
+    student_id: Yup.string().required('Required')
+  });
+  const formik = useFormik({
+    initialValues: {
+      student_id: ''
+    },
+    validationSchema,
+    onSubmit: (values, { setSubmitting }) => {
+      setSubmitting(true);
+      const data = { group: id, student_id: values.student_id.toISOString() };
+      dispatch(createLesson(data, (res) => {
+        // eslint-disable-next-line no-alert
+        if (res) {
+          return alert('Succesfully added!');
+        }
+        return alert('Something went Wrong!');
+      }));
+    }
+  });
+  return { formik };
+};
+
 export const toolTips = [
   {
     name: 'Create lesson',
@@ -128,8 +152,11 @@ export const toolTips = [
   {
     name: 'Add student',
     icon: 'payment',
-    onClick: () => {
-      alert('Add student');
+    onClick: (id, { showBlured }) => {
+      showBlured({
+        title: 'Add Student',
+        body: () => <AddStudent handleAddStudent={() => handleAddStudent(id)} />
+      });
     }
   },
   {

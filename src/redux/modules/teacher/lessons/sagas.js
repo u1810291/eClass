@@ -7,7 +7,8 @@ import {
   setData,
   setError,
   setTotal,
-  setLoading
+  setLoading,
+  setStartError
 } from './actions';
 
 import {
@@ -31,14 +32,16 @@ function* fetchData({ payload }) {
     yield put(setError(error));
   }
 }
+
 function* startLesson({ payload, success }) {
   try {
     const res = yield service.startLesson(payload);
     const { data } = startLessonSelector(res.data);
-    console.log(data);
+    setStartError('');
     success(data);
   } catch (error) {
     console.log(error);
+    console.log(error.response.data.error_message);
   }
 }
 

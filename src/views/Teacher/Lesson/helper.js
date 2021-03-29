@@ -73,18 +73,20 @@ const cancelingLesson = (id) => {
     reasons, formik
   };
 };
-
 export const toolTips = [
   {
     name: 'Start',
     icon: 'payment',
-    onClick: (id, { dispatch, showFullScreen }) => {
+    onClick: (id, {
+      dispatch, showBlured, teacher, teachers
+    }) => {
       dispatch(startLesson(id, (response) => {
-        if (response) { alert('Lesson started!'); }
-        showFullScreen({
+        teacher(id);
+        showBlured({
           title: 'Zoom Meeting',
-          body: () => <MeetingWindow data={id} />
+          body: () => <MeetingWindow data={teachers} />
         });
+        if (response) { alert('Lesson started!'); }
         return response;
       }));
     }

@@ -12,7 +12,8 @@ import {
   TD,
   Icon,
   Cell,
-  TableContainer
+  TableContainer,
+  Main
 } from './style';
 import Pagination from '../Pagination';
 import ToolTip from '../ToolTip';
@@ -89,7 +90,7 @@ export default ({
   });
 
   return (
-    <>
+    <Main>
 
       <TableContainer height={height}>
         {loading ? (
@@ -164,6 +165,6 @@ export default ({
       ) : (
         <></>
       )}
-    </>
+    </Main>
   );
 };

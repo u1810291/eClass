@@ -16,6 +16,7 @@ const CreateLesson = ({ handleCreate, title }) => {
         <TimePicker
           name="start_date"
           placeholder="Start Date"
+          timeIntervals={5}
           value={date}
           type={formik.touched.start_date
             && formik.errors.start_date && 'error'}

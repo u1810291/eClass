@@ -4,15 +4,15 @@ import DatePicker from 'react-datepicker';
 
 import { Container } from './style';
 
-export default ({ value, onChange }) => (
+export default ({ value, timeIntervals, onChange }) => (
   <Container>
     <DatePicker
       selected={value}
       onChange={(date) => onChange(date)}
       locale="en"
       showTimeSelect
-      timeFormat="p"
-      timeIntervals={15}
+      timeFormat="HH:mm"
+      timeIntervals={timeIntervals}
       dateFormat="Pp"
     />
   </Container>

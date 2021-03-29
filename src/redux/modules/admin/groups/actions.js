@@ -16,6 +16,12 @@ export const addGroup = (payload, success) => ({
   success
 });
 
+export const addStudent = (payload, success) => ({
+  type: types.TABLE_ADMIN_GROUPS_ADD_STUDENT_GROUP,
+  payload,
+  success
+});
+
 export const editGroup = (payload, id, success) => ({
   type: types.TABLE_ADMIN_GROUPS_EDIT_GROUP,
   payload,
