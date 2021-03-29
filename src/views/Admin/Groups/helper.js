@@ -25,7 +25,6 @@ const handleCreate = (id) => {
       setSubmitting(true);
       const data = { group: id, start_date: values.start_date.toISOString() };
       dispatch(createLesson(data, (res) => {
-        // eslint-disable-next-line no-alert
         if (res) {
           return alert('Succesfully added!');
         }

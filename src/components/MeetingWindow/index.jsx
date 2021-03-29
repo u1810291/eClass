@@ -4,6 +4,7 @@ import React from 'react';
 
 import { Container, ZoomFrame } from './style';
 import { PrimaryButton } from '../Buttons';
+
 declare var ZoomMtg;
 
 ZoomMtg.setZoomJSLib('https://source.zoom.us/1.9.1/lib', '/av');
