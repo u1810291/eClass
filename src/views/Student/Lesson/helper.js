@@ -11,7 +11,6 @@ export const toolTips = [
     onClick: (id, {
       dispatch, showBlured, student, students
     }) => {
-      console.log(id);
       dispatch(joinLesson(id, (response) => {
         student(id);
         showBlured({
