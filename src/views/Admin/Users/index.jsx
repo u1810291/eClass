@@ -1,4 +1,3 @@
-/* eslint-disable eqeqeq */
 import React, { useState, useEffect, useMemo } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
@@ -9,7 +8,7 @@ import { usersHeader } from '../../../redux/modules/table/common';
 
 import Dropdown from '../../../components/Forms/Dropdowns';
 import {
-  options, adminToolTips, teacherToolTips, studentToolTips
+  options, toolTips
 } from './helper';
 import { SearchableInput } from '../../../components/Forms/Inputs';
 import { PrimaryButton } from '../../../components/Buttons';
@@ -27,6 +26,7 @@ export default () => {
   const [sort, setSort] = useState();
   const history = useHistory();
   const dispatch = useDispatch();
+  const { tooltips } = toolTips(userType);
   useEffect(() => {
     let isMounted = true;
     if (isMounted) {
@@ -36,20 +36,6 @@ export default () => {
     }
     return () => { isMounted = false; };
   }, [dispatch]);
-
-  console.log(userType);
-  function toolTips() {
-    if (userType == 1) {
-      return studentToolTips;
-    }
-    if (userType == 2) {
-      return teacherToolTips;
-    }
-    if (userType == 3) {
-      return adminToolTips;
-    }
-    return null;
-  }
 
   const {
     loading, data, total, error
@@ -122,7 +108,7 @@ export default () => {
             height="500"
             total={total}
             data={data}
-            toolTips={toolTips || toolTips}
+            toolTips={tooltips}
             header={headers}
             loading={loading}
             setSort={setSort}

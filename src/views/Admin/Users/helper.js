@@ -1,4 +1,8 @@
+/* eslint-disable eqeqeq */
 /* eslint-disable no-alert */
+import React from 'react';
+import Topup from './Topup';
+
 export const options = [
   {
     id: 1,
@@ -116,51 +120,47 @@ export const teacherToolTips = [
 
 export const studentToolTips = [
   {
-    name: 'Cancel',
+    name: 'Topup',
     icon: 'payment',
-    onClick: () => {
-      alert('Cancel');
+    onClick: (id, { showBlured }) => {
+      showBlured({
+        title: 'Top up student',
+        body: () => <Topup id={id} />
+      });
     }
   },
-
   {
-    name: 'Reschedule',
+    name: 'Edit',
     icon: 'payment',
     onClick: () => {
-      alert('Reschedule');
+      alert('Edit');
     }
   },
-
   {
-    name: 'Response',
+    name: 'Delete',
     icon: 'payment',
     onClick: () => {
-      alert('Response Reschedule');
+      alert('Delete');
     }
   },
-
   {
-    name: 'Reject Reschedule',
+    name: 'Restore',
     icon: 'payment',
     onClick: () => {
-      alert('Reject Reschedule');
-    }
-  },
-
-  {
-    name: 'Add Rating',
-    icon: 'payment',
-    onClick: () => {
-      alert('Add Rating');
-    }
-  },
-
-  {
-    name: 'Revoke Rating',
-    icon: 'payment',
-    onClick: () => {
-      alert('Revoke Rating');
+      alert('Restore');
     }
   }
-
 ];
+
+export function toolTips(userType) {
+  if (userType == 1) {
+    return { tooltips: studentToolTips };
+  }
+  if (userType == 2) {
+    return { tooltips: teacherToolTips };
+  }
+  if (userType == 3) {
+    return { tooltips: adminToolTips };
+  }
+  return { tooltips: null };
+}
