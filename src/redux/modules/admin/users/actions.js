@@ -11,7 +11,10 @@ export const fetchData = (payload, params) => ({
   params
 });
 
-export const setTariffs = (payload) => ({ type: types.ADMIN_SET_TARIFFS, payload });
+export const setTariffs = (payload) => ({
+  type: types.ADMIN_SET_TARIFFS,
+  payload
+});
 
 export const fetchTariffs = (success) => ({
   type: types.ADMIN_FETCH_TARIFFS,
@@ -29,4 +32,14 @@ export const getSingleUser = (payload, params) => ({
   payload,
   params
 });
-export const setSigleUser = (payload) => ({ type: types.ADMIN_SINGLE_USER_SET_DATA, payload });
+
+export const setSigleUser = (payload) => ({
+  type: types.ADMIN_SINGLE_USER_SET_DATA,
+  payload
+});
+
+export const deleteUser = (payload, success) => ({
+  type: types.ADMIN_FETCH_SINGLE_USER,
+  payload,
+  success
+});

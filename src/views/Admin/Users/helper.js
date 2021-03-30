@@ -1,11 +1,12 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable eqeqeq */
 /* eslint-disable no-alert */
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import Topup from './Topup';
-import { fetchTariffs, topUpStudent } from '../../../redux/modules/admin/users/actions';
+import { fetchTariffs, topUpStudent, deleteUser } from '../../../redux/modules/admin/users/actions';
 import DeleteUser from '../../../components/Users/DeleteUser';
 import {
   StudentEditUser,
@@ -57,12 +58,13 @@ const useTopup = (id) => {
   return { tariffs, formik };
 };
 
-const useDelete = (id) => {
+const useDelete = (user, id) => {
   const dispatch = useDispatch();
+  const [token, setToken] = useState();
   useEffect(() => {
-    dispatch();
-  }, []);
-  return id;
+    dispatch(deleteUser({ user, id }, (res) => setToken(res)));
+  }, [deleteUser]);
+  return { token };
 };
 
 export const adminToolTips = [
@@ -211,10 +213,9 @@ export const studentToolTips = [
     name: 'Delete',
     icon: 'payment',
     onClick: (id, { showBlured }) => {
-      const { token } = useDelete(id);
       showBlured({
         title: 'Confirm delete',
-        body: () => <DeleteUser token={token} />
+        body: () => <DeleteUser useDelete={() => useDelete('student', id)} />
       });
     }
   },
