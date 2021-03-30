@@ -30,6 +30,20 @@ function* fetchData({ payload, params }) {
   }
 }
 
+function* getSingleUser({ payload, params }) {
+  try {
+    const res = yield service.getAllSingleUser(payload, params);
+    const { data } = dataSelector(payload, res.data);
+    yield put(setSigleUser(data));
+  } catch (error) {
+    if (error.response.data.error_message) {
+      yield put(setError(error.response.data.error_message));
+    } else {
+      yield put(setError(error));
+    }
+  }
+}
+
 function* fetchTariffs(success) {
   try {
     const res = yield tariffs.getAll();
@@ -61,4 +75,5 @@ export default function* adminUsersSaga() {
   yield takeLatest(types.TABLE_ADMIN_STUDENTS_FETCH_DATA, fetchData);
   yield takeLatest(types.ADMIN_FETCH_TARIFFS, fetchTariffs);
   yield takeLatest(types.ADMIN_TOPUP_STUDENTS, topUpStudent);
+  yield takeLatest(types.ADMIN_FETCH_SINGLE_USER, getSingleUser);
 }

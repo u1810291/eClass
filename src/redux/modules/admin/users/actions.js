@@ -23,3 +23,10 @@ export const topUpStudent = (payload, success) => ({
   payload,
   success
 });
+
+export const getSingleUser = (payload, params) => ({
+  type: types.ADMIN_FETCH_SINGLE_USER,
+  payload,
+  params
+});
+export const setSigleUser = (payload) => ({ type: types.TABLE_ADMIN_STUDENTS_SET_DATA, payload });

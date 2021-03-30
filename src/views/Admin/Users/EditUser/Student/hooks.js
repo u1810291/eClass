@@ -66,6 +66,5 @@ export const useInfoForm = () => {
       }));
     }
   });
-
   return { formik };
 };
