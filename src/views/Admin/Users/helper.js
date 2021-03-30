@@ -6,7 +6,24 @@ import { useFormik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import Topup from './Topup';
 import { fetchTariffs, topUpStudent } from '../../../redux/modules/admin/users/actions';
-import { StudentEditUser, TeacherEditUser, AdmintEditUser } from './EditUser';
+import {
+  StudentEditUser,
+  TeacherEditUser,
+  AdmintEditUser
+} from './EditUser';
+
+export const options = [
+  {
+    id: 1,
+    value: 'Student'
+  }, {
+    id: 2,
+    value: 'Teacher'
+  }, {
+    id: 3,
+    value: 'Admin'
+  }
+];
 
 const useTopup = (id) => {
   const dispatch = useDispatch();
@@ -39,18 +56,7 @@ const useTopup = (id) => {
   return { tariffs, formik };
 };
 
-export const options = [
-  {
-    id: 1,
-    value: 'Student'
-  }, {
-    id: 2,
-    value: 'Teacher'
-  }, {
-    id: 3,
-    value: 'Admin'
-  }
-];
+const useDelete = (id) => id;
 
 export const adminToolTips = [
   {
@@ -99,8 +105,17 @@ export const adminToolTips = [
     onClick: () => {
       alert('Revoke Rating');
     }
+  },
+  {
+    name: 'Edit',
+    icon: 'payment',
+    onClick: (id, { showBlured }) => {
+      showBlured({
+        title: 'Edit user',
+        body: () => <AdmintEditUser id={id} />
+      });
+    }
   }
-
 ];
 
 export const teacherToolTips = [
@@ -150,6 +165,16 @@ export const teacherToolTips = [
     onClick: () => {
       alert('Revoke Rating');
     }
+  },
+  {
+    name: 'Edit',
+    icon: 'payment',
+    onClick: (id, { showBlured }) => {
+      showBlured({
+        title: 'Edit user',
+        body: () => <TeacherEditUser id={id} />
+      });
+    }
   }
 
 ];
@@ -178,8 +203,12 @@ export const studentToolTips = [
   {
     name: 'Delete',
     icon: 'payment',
-    onClick: () => {
-      alert('Delete');
+    onClick: (id, { showBlured }) => {
+      const { token } = useDelete(id);
+      showBlured({
+        title: 'Confirm delete',
+        body: () => <DeleteUser token={token} />
+      });
     }
   },
   {
