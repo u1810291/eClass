@@ -84,5 +84,14 @@ export function dataSelector(payload, user) {
 }
 
 export function tariffSelector(data) {
-  return { data };
+  const filtered = data.content.map((el) => ({
+    amount: el.amount,
+    description: el.description,
+    id: el.id,
+    lang: el.lang,
+    lessons_count: el.lessons_count,
+    value: el.name,
+    tariff_names: el.tariff_names
+  }));
+  return { data: filtered };
 }

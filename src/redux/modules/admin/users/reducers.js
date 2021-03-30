@@ -4,10 +4,15 @@ const defaultState = {
   data: [],
   loading: false,
   total: 0,
-  error: ''
+  error: '',
+  tariffs: []
 };
 
 const map = {
+  [types.ADMIN_SET_TARIFFS]: (state, { payload }) => ({
+    ...state,
+    tariffs: payload
+  }),
   [types.TABLE_ADMIN_STUDENTS_SET_LOADING]: (state, { payload }) => ({
     ...state,
     loading: payload

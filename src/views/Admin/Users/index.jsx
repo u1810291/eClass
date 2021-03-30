@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import {
-  Container, Search, Filter, Body
+  Container, Search, Filter, Body, AddButtons
 } from './style';
 import { usersHeader } from '../../../redux/modules/table/common';
 
@@ -91,14 +91,15 @@ export default () => {
           }}
           size="large"
         />
-        <PrimaryButton
-          className="my-2"
-          size="large"
-          onClick={() => (getType().length > 0
-            ? history.push(`/users/add/${getType()}`)
-            : history.push(`/users/add/${userType}`))}
-          title="Add new"
-        />
+        <AddButtons>
+          <PrimaryButton
+            size="medium"
+            onClick={() => (getType().length > 0
+              ? history.push(`/users/add/${getType()}`)
+              : history.push(`/users/add/${userType}`))}
+            title="Add new"
+          />
+        </AddButtons>
       </Filter>
       <Body>
         {error ? (

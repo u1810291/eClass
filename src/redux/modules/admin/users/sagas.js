@@ -6,7 +6,8 @@ import {
   setData,
   setError,
   setLoading,
-  setTotal
+  setTotal,
+  setTariffs
 } from './actions';
 
 import { dataSelector, tariffSelector } from './selectors';
@@ -30,11 +31,23 @@ function* fetchData({ payload, params }) {
 }
 
 function* fetchTariffs(success) {
-  yield put(setLoading(true));
   try {
     const res = yield tariffs.getAll();
-    const { data } = tariffSelector(res);
-    success(data);
+    const { data } = tariffSelector(res.data);
+    yield put(setTariffs(data));
+  } catch (error) {
+    if (error.response) {
+      success(error.response.data.error_message);
+    } else {
+      success(error);
+    }
+  }
+}
+
+function* topUpStudent({ payload, success }) {
+  try {
+    const res = yield service.topupStudent(payload);
+    success(res.data);
   } catch (error) {
     if (error.response) {
       success(error.response.data.error_message);
@@ -47,4 +60,5 @@ function* fetchTariffs(success) {
 export default function* adminUsersSaga() {
   yield takeLatest(types.TABLE_ADMIN_STUDENTS_FETCH_DATA, fetchData);
   yield takeLatest(types.ADMIN_FETCH_TARIFFS, fetchTariffs);
+  yield takeLatest(types.ADMIN_TOPUP_STUDENTS, topUpStudent);
 }

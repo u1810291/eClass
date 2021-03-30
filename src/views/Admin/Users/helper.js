@@ -1,7 +1,42 @@
 /* eslint-disable eqeqeq */
 /* eslint-disable no-alert */
-import React from 'react';
+import React, { useEffect } from 'react';
+import * as Yup from 'yup';
+import { useFormik } from 'formik';
+import { useDispatch, useSelector } from 'react-redux';
 import Topup from './Topup';
+import { fetchTariffs, topUpStudent } from '../../../redux/modules/admin/users/actions';
+
+const useTopup = (id) => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchTariffs());
+  }, [fetchTariffs]);
+
+  const { tariffs } = useSelector((state) => state.adminUsersReducers);
+  const validationSchema = Yup.object().shape({
+    tariff: Yup.string().required('Required'),
+    amount: Yup.string().required('Required')
+  });
+  const formik = useFormik({
+    initialValues: {
+      tariff: '',
+      amount: ''
+    },
+    validationSchema,
+    onSubmit: (values, { setSubmitting }) => {
+      setSubmitting(true);
+      const data = { student: id, tariff: values.tariff, amount: values.amount };
+      dispatch(topUpStudent(data, (res) => {
+        if (res) {
+          return alert('Succesfully added!');
+        }
+        return alert('Something went Wrong!');
+      }));
+    }
+  });
+  return { tariffs, formik };
+};
 
 export const options = [
   {
@@ -125,15 +160,18 @@ export const studentToolTips = [
     onClick: (id, { showBlured }) => {
       showBlured({
         title: 'Top up student',
-        body: () => <Topup id={id} />
+        body: () => <Topup useTopup={() => useTopup(id)} />
       });
     }
   },
   {
     name: 'Edit',
     icon: 'payment',
-    onClick: () => {
-      alert('Edit');
+    onClick: (id, { showBlured }) => {
+      showBlured({
+        title: 'Edit user',
+        body: () => <EditUser useEditUser={useEditUser} />
+      });
     }
   },
   {
