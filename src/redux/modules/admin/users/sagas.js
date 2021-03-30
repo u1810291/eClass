@@ -72,9 +72,23 @@ function* topUpStudent({ payload, success }) {
   }
 }
 
+function* deleteUser({ payload, success }) {
+  try {
+    const res = yield service.deleteUserRequest(payload);
+    success(res.data);
+  } catch (error) {
+    if (error.response) {
+      success(error.response.data.error_message);
+    } else {
+      success(error);
+    }
+  }
+}
+
 export default function* adminUsersSaga() {
   yield takeLatest(types.TABLE_ADMIN_STUDENTS_FETCH_DATA, fetchData);
   yield takeLatest(types.ADMIN_FETCH_TARIFFS, fetchTariffs);
   yield takeLatest(types.ADMIN_TOPUP_STUDENTS, topUpStudent);
   yield takeLatest(types.ADMIN_FETCH_SINGLE_USER, getSingleUser);
+  yield takeLatest(types.ADMIN_DELETE_SINGLE_USER, deleteUser);
 }

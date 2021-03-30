@@ -6,6 +6,7 @@ import { useFormik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import Topup from './Topup';
 import { fetchTariffs, topUpStudent } from '../../../redux/modules/admin/users/actions';
+import DeleteUser from '../../../components/Users/DeleteUser';
 import {
   StudentEditUser,
   TeacherEditUser,
@@ -56,7 +57,13 @@ const useTopup = (id) => {
   return { tariffs, formik };
 };
 
-const useDelete = (id) => id;
+const useDelete = (id) => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch();
+  }, []);
+  return id;
+};
 
 export const adminToolTips = [
   {
