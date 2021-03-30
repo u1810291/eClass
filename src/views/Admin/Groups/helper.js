@@ -128,56 +128,6 @@ const handleAddStudent = (id) => {
   return { formik, students };
 };
 
-export const toolTips = [
-  {
-    name: 'Create lesson',
-    icon: 'payment',
-    onClick: (id, { showBlured }) => {
-      showBlured({
-        title: 'Create Lesson',
-        body: () => <CreateLesson handleCreate={() => handleCreate(id)} />
-      });
-    }
-  },
-  {
-    name: 'Edit group',
-    icon: 'payment',
-    onClick: (id, { showBlured }) => {
-      showBlured({
-        title: 'Create Lesson',
-        body: () => <EditGroup handleEdit={() => handleEdit(id)} />
-      });
-    }
-  },
-  {
-    name: 'Delete group',
-    icon: 'payment',
-    onClick: (id, { showBlured }) => {
-      showBlured({
-        title: 'Delete group',
-        body: () => <DeleteGroup id={id} />
-      });
-    }
-  },
-  {
-    name: 'Add student',
-    icon: 'payment',
-    onClick: (id, { showBlured }) => {
-      showBlured({
-        title: 'Add Student',
-        body: () => <AddStudent handleAddStudent={() => handleAddStudent(id)} />
-      });
-    }
-  },
-  {
-    name: 'Delete student',
-    icon: 'payment',
-    onClick: () => {
-      alert('Delete student');
-    }
-  }
-];
-
 export function subjectAddFormik() {
   const dispatch = useDispatch();
 
@@ -271,3 +221,53 @@ export const groupAddFormik = () => {
 
   return { formik };
 };
+
+export const toolTips = [
+  {
+    name: 'Create lesson',
+    icon: 'payment',
+    onClick: (id, { showBlured }) => {
+      showBlured({
+        title: 'Create Lesson',
+        body: () => <CreateLesson handleCreate={() => handleCreate(id)} />
+      });
+    }
+  },
+  {
+    name: 'Edit group',
+    icon: 'payment',
+    onClick: (id, { showBlured }) => {
+      showBlured({
+        title: 'Create Lesson',
+        body: () => <EditGroup handleEdit={() => handleEdit(id)} />
+      });
+    }
+  },
+  {
+    name: 'Delete group',
+    icon: 'payment',
+    onClick: (id, { showBlured }) => {
+      showBlured({
+        title: 'Delete group',
+        body: () => <DeleteGroup id={id} />
+      });
+    }
+  },
+  {
+    name: 'Add student',
+    icon: 'payment',
+    onClick: (id, { showBlured }) => {
+      showBlured({
+        title: 'Add Student',
+        body: () => <AddStudent handleAddStudent={() => handleAddStudent(id)} />
+      });
+    }
+  },
+  {
+    name: 'Delete student',
+    icon: 'payment',
+    onClick: () => {
+      alert('Delete student');
+    }
+  }
+];

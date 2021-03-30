@@ -5,8 +5,6 @@ import { PrimaryButton } from '../../Buttons';
 
 export default ({ handleAddStudent }) => {
   const { formik, students } = handleAddStudent();
-  console.log(students);
-  console.log(formik.values.student_id);
   return (
     <Container onSubmit={formik.handleSubmit}>
       <Dropdown

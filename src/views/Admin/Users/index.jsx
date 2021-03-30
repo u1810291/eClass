@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import React, { useState, useEffect, useMemo } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
@@ -36,6 +37,20 @@ export default () => {
     return () => { isMounted = false; };
   }, [dispatch]);
 
+  console.log(userType);
+  function toolTips() {
+    if (userType == 1) {
+      return studentToolTips;
+    }
+    if (userType == 2) {
+      return teacherToolTips;
+    }
+    if (userType == 3) {
+      return adminToolTips;
+    }
+    return null;
+  }
+
   const {
     loading, data, total, error
   } = useSelector((state) => state.adminUsersReducers);
@@ -60,19 +75,6 @@ export default () => {
       ? `${i.value.charAt(0).toLowerCase()}${i.value.slice(1, i.value.length)}`
       : '' : ''));
     return value.filter((i) => i !== '') || null;
-  };
-
-  const toolTips = () => {
-    if (userType === 1) {
-      return adminToolTips;
-    }
-    if (userType === 2) {
-      return teacherToolTips;
-    }
-    if (userType === 3) {
-      return studentToolTips;
-    }
-    return null;
   };
 
   useEffect(() => {
@@ -120,7 +122,7 @@ export default () => {
             height="500"
             total={total}
             data={data}
-            toolTips={toolTips}
+            toolTips={toolTips || toolTips}
             header={headers}
             loading={loading}
             setSort={setSort}
