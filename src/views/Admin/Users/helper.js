@@ -6,8 +6,40 @@ import { useFormik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import Topup from './Topup';
 import { fetchTariffs, topUpStudent } from '../../../redux/modules/admin/users/actions';
+import { StudentEditUser } from './EditUser';
 
 const useTopup = (id) => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchTariffs());
+  }, [fetchTariffs]);
+
+  const { tariffs } = useSelector((state) => state.adminUsersReducers);
+  const validationSchema = Yup.object().shape({
+    tariff: Yup.string().required('Required'),
+    amount: Yup.string().required('Required')
+  });
+  const formik = useFormik({
+    initialValues: {
+      tariff: '',
+      amount: ''
+    },
+    validationSchema,
+    onSubmit: (values, { setSubmitting }) => {
+      setSubmitting(true);
+      const data = { student: id, tariff: values.tariff, amount: values.amount };
+      dispatch(topUpStudent(data, (res) => {
+        if (res) {
+          return alert('Succesfully added!');
+        }
+        return alert('Something went Wrong!');
+      }));
+    }
+  });
+  return { tariffs, formik };
+};
+
+const useEditUser = (id) => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchTariffs());
@@ -170,7 +202,7 @@ export const studentToolTips = [
     onClick: (id, { showBlured }) => {
       showBlured({
         title: 'Edit user',
-        body: () => <EditUser useEditUser={useEditUser} />
+        body: () => <StudentEditUser useEditUser={useEditUser} />
       });
     }
   },
