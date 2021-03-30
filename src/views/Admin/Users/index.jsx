@@ -7,7 +7,9 @@ import {
 import { usersHeader } from '../../../redux/modules/table/common';
 
 import Dropdown from '../../../components/Forms/Dropdowns';
-import { options, toolTips } from './helper';
+import {
+  options, adminToolTips, teacherToolTips, studentToolTips
+} from './helper';
 import { SearchableInput } from '../../../components/Forms/Inputs';
 import { PrimaryButton } from '../../../components/Buttons';
 import Table from '../../../components/Table';
@@ -19,7 +21,6 @@ import { getCities, getCountries, getReasons } from '../../../redux/modules/list
 export default () => {
   const [userType, setUserType] = useState(1);
   const [userName, setUserName] = useState('student');
-
   const [pageIndex, setPageIndex] = useState(0);
   const [pageSize, setPageSize] = useState(0);
   const [sort, setSort] = useState();
@@ -52,12 +53,26 @@ export default () => {
     () => `?page=${pageIndex}&size=${pageSize}${sortQuery}`,
     [pageIndex, pageSize, sortQuery]
   );
+
   const getType = () => {
     // eslint-disable-next-line no-nested-ternary
     const value = options.map((i) => (i.id === userType ? i.value.length
       ? `${i.value.charAt(0).toLowerCase()}${i.value.slice(1, i.value.length)}`
       : '' : ''));
     return value.filter((i) => i !== '') || null;
+  };
+
+  const toolTips = () => {
+    if (userType === 1) {
+      return adminToolTips;
+    }
+    if (userType === 2) {
+      return teacherToolTips;
+    }
+    if (userType === 3) {
+      return studentToolTips;
+    }
+    return null;
   };
 
   useEffect(() => {
@@ -102,7 +117,7 @@ export default () => {
           <TableError message={error} />
         ) : (
           <Table
-            height="450"
+            height="500"
             total={total}
             data={data}
             toolTips={toolTips}

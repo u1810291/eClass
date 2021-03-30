@@ -82,3 +82,7 @@ export function dataSelector(payload, user) {
   }
   return null;
 }
+
+export function tariffSelector(data) {
+  return { data };
+}

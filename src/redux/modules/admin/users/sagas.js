@@ -1,6 +1,7 @@
 import { takeLatest, put } from 'redux-saga/effects';
 import types from '../../../../constants/action-types';
 import service from '../../../../services/admin/users';
+import tariffs from '../../../../services/admin/tariffs';
 import {
   setData,
   setError,
@@ -8,7 +9,7 @@ import {
   setTotal
 } from './actions';
 
-import { dataSelector } from './selectors';
+import { dataSelector, tariffSelector } from './selectors';
 
 function* fetchData({ payload, params }) {
   yield put(setLoading(true));
@@ -28,6 +29,22 @@ function* fetchData({ payload, params }) {
   }
 }
 
+function* fetchTariffs(success) {
+  yield put(setLoading(true));
+  try {
+    const res = yield tariffs.getAll();
+    const { data } = tariffSelector(res);
+    success(data);
+  } catch (error) {
+    if (error.response) {
+      success(error.response.data.error_message);
+    } else {
+      success(error);
+    }
+  }
+}
+
 export default function* adminUsersSaga() {
   yield takeLatest(types.TABLE_ADMIN_STUDENTS_FETCH_DATA, fetchData);
+  yield takeLatest(types.ADMIN_FETCH_TARIFFS, fetchTariffs);
 }

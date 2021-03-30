@@ -9,3 +9,7 @@ export const fetchData = (payload, params) => ({
   payload,
   params
 });
+export const fetchTariffs = (success) => ({
+  type: types.ADMIN_FETCH_TARIFFS,
+  success
+});
