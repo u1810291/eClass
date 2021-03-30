@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Container } from './style';
 import { useInfoForm } from './hooks';
-import { } from '../../../../../redux/modules/admin/users/actions';
+import { getSingleUser } from '../../../../../redux/modules/admin/users/actions';
 import StudentRegister from '../../../../../components/StudentRegister';
 
 export default ({ id }) => {
@@ -13,7 +13,7 @@ export default ({ id }) => {
   const { formik } = useInfoForm(id);
   const { cities, countries } = useSelector((state) => state.listsReducers);
   useEffect(() => {
-    dispatch();
+    dispatch(getSingleUser('student', `student=${id}`));
   }, []);
   return (
     <Container>

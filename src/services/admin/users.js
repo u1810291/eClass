@@ -2,7 +2,7 @@ import { service } from '..';
 
 export default {
   getUsers: (user, params) => service.get(`/api/v1/profiles/${user}/list?${params}`),
-  getAllSingleUser: ({ user, param }) => service.get(`/api/v1/profiles/${user}?User=${param}`),
+  getAllSingleUser: (user, params) => service.get(`/api/v1/profiles/${user}?${params}`),
   updateUser: ({ user, id }) => service.put(`/api/v1/profiles/${user}/${id}`),
   searchUser: ({ user, eaa }) => service.get(`/api/v1/profiles/${user}/search?username=${eaa}`),
   deleteUserRequest: ({ user, id }) => service.delete(`/api/v1/profiles/${user}/${id}/request`),

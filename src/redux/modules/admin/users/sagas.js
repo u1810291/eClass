@@ -5,12 +5,13 @@ import tariffs from '../../../../services/admin/tariffs';
 import {
   setData,
   setError,
-  setLoading,
   setTotal,
-  setTariffs
+  setTariffs,
+  setLoading,
+  setSigleUser
 } from './actions';
 
-import { dataSelector, tariffSelector } from './selectors';
+import { dataSelector, tariffSelector, singleUser } from './selectors';
 
 function* fetchData({ payload, params }) {
   yield put(setLoading(true));
@@ -33,7 +34,8 @@ function* fetchData({ payload, params }) {
 function* getSingleUser({ payload, params }) {
   try {
     const res = yield service.getAllSingleUser(payload, params);
-    const { data } = dataSelector(payload, res.data);
+    console.log(res);
+    const { data } = singleUser(payload, res.data);
     yield put(setSigleUser(data));
   } catch (error) {
     if (error.response.data.error_message) {

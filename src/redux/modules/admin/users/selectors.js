@@ -95,3 +95,84 @@ export function tariffSelector(data) {
   }));
   return { data: filtered };
 }
+
+export function singleUser(payload, data) {
+  if (payload === 'student') {
+    const student = {
+      id: data.id,
+      address: data.address.address,
+      confirmed_by_admin: data.confirmed_by_admin,
+      date_of_birth: moment(data.date_of_birth).format('DD-MM-YYYY'),
+      email: data.email,
+      username: data.username,
+      full_name: `${data.first_name} ${data.last_name} ${data.middle_name}`,
+      password: data.password,
+      limited: data.limited,
+      max_storage: data.max_storage,
+      parents: data.parents.map((i) => [{
+        description: i.description,
+        full_name: i.full_name,
+        phones: i.phones.map((j) => [{
+          description: j.description,
+          phone: j.phone
+        }])
+      }]),
+      phones: data.phones.map((k) => ({
+        id: k.id,
+        description: k.description,
+        phone: k.phone
+      })),
+      school_number: data.school_number,
+      trial_lessons: data.trial_lessons
+    };
+    return { data: student };
+  }
+  if (payload === 'teacher') {
+    const teacher = {
+      address: `${data.address.country} ${data.address.city} ${data.address.address}`,
+      average_rating: data.average_rating,
+      date_of_birth: moment(data.date_of_birth).format('DD-MM-YYYY'),
+      description: data.description,
+      email: data.email,
+      id: i + 1,
+      lang: data.lang,
+      full_name: `${data.first_name} ${data.last_name} ${data.middle_name}`,
+      max_storage: data.max_storage,
+      password: data.password,
+      phones: data.phones.map((item) => ({
+        description: item.description,
+        id: item.id,
+        phone: item.phone
+      })),
+      specialization: data.specialization,
+      subjects: data.subjects.map((item) => ({
+        id: item.id,
+        name: item.name
+      })),
+      username: data.username
+    };
+    return { data: teacher };
+  }
+  if (payload === 'admin') {
+    const admin = {
+      address: `${data.address.country} ${data.address.city} ${data.address.address}`,
+      average_rating: data.average_rating,
+      date_of_birth: moment(data.date_of_birth).format('DD-MM-YYYY'),
+      description: data.description,
+      email: data.email,
+      id: i + 1,
+      lang: data.lang,
+      full_name: `${data.first_name} ${data.last_name} ${data.middle_name}`,
+      max_storage: data.max_storage,
+      password: data.password,
+      phones: data.phones.map((item) => ({
+        description: item.description,
+        id: item.id,
+        phone: item.phone
+      })),
+      username: data.username
+    };
+    return { total: total_elements, data: admin };
+  }
+  return null;
+}

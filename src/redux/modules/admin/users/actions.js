@@ -29,4 +29,4 @@ export const getSingleUser = (payload, params) => ({
   payload,
   params
 });
-export const setSigleUser = (payload) => ({ type: types.TABLE_ADMIN_STUDENTS_SET_DATA, payload });
+export const setSigleUser = (payload) => ({ type: types.ADMIN_SINGLE_USER_SET_DATA, payload });
