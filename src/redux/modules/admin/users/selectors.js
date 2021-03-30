@@ -83,24 +83,11 @@ export function dataSelector(payload, user) {
   return null;
 }
 
-export function tariffSelector(data) {
-  const filtered = data.content.map((el) => ({
-    amount: el.amount,
-    description: el.description,
-    id: el.id,
-    lang: el.lang,
-    lessons_count: el.lessons_count,
-    value: el.name,
-    tariff_names: el.tariff_names
-  }));
-  return { data: filtered };
-}
-
 export function singleUser(payload, data) {
   if (payload === 'student') {
     const student = {
       id: data.id,
-      address: data.address.address,
+      address: data.address,
       confirmed_by_admin: data.confirmed_by_admin,
       date_of_birth: moment(data.date_of_birth).format('DD-MM-YYYY'),
       email: data.email,
@@ -129,12 +116,12 @@ export function singleUser(payload, data) {
   }
   if (payload === 'teacher') {
     const teacher = {
-      address: `${data.address.country} ${data.address.city} ${data.address.address}`,
+      address: data.address,
       average_rating: data.average_rating,
       date_of_birth: moment(data.date_of_birth).format('DD-MM-YYYY'),
       description: data.description,
       email: data.email,
-      id: i + 1,
+      id: data.id,
       lang: data.lang,
       full_name: `${data.first_name} ${data.last_name} ${data.middle_name}`,
       max_storage: data.max_storage,
@@ -155,12 +142,12 @@ export function singleUser(payload, data) {
   }
   if (payload === 'admin') {
     const admin = {
-      address: `${data.address.country} ${data.address.city} ${data.address.address}`,
+      address: data.address.address,
       average_rating: data.average_rating,
       date_of_birth: moment(data.date_of_birth).format('DD-MM-YYYY'),
       description: data.description,
       email: data.email,
-      id: i + 1,
+      id: data.id,
       lang: data.lang,
       full_name: `${data.first_name} ${data.last_name} ${data.middle_name}`,
       max_storage: data.max_storage,
@@ -172,7 +159,20 @@ export function singleUser(payload, data) {
       })),
       username: data.username
     };
-    return { total: total_elements, data: admin };
+    return { data: admin };
   }
   return null;
+}
+
+export function tariffSelector(data) {
+  const filtered = data.content.map((el) => ({
+    amount: el.amount,
+    description: el.description,
+    id: el.id,
+    lang: el.lang,
+    lessons_count: el.lessons_count,
+    value: el.name,
+    tariff_names: el.tariff_names
+  }));
+  return { data: filtered };
 }

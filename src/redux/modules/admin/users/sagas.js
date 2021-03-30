@@ -34,7 +34,6 @@ function* fetchData({ payload, params }) {
 function* getSingleUser({ payload, params }) {
   try {
     const res = yield service.getAllSingleUser(payload, params);
-    console.log(res);
     const { data } = singleUser(payload, res.data);
     yield put(setSigleUser(data));
   } catch (error) {
