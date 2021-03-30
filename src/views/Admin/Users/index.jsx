@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
   Container, Search, Filter, Body
 } from './style';
+import { usersHeader } from '../../../redux/modules/table/common';
+
 import Dropdown from '../../../components/Forms/Dropdowns';
 import { options, toolTips } from './helper';
 import { SearchableInput } from '../../../components/Forms/Inputs';
@@ -17,6 +19,11 @@ import { getCities, getCountries, getReasons } from '../../../redux/modules/list
 export default () => {
   const [userType, setUserType] = useState(1);
   const [userName, setUserName] = useState('student');
+
+  const [pageIndex, setPageIndex] = useState(0);
+  const [pageSize, setPageSize] = useState(0);
+  const [sort, setSort] = useState();
+  const history = useHistory();
   const dispatch = useDispatch();
   useEffect(() => {
     let isMounted = true;
@@ -31,12 +38,20 @@ export default () => {
   const {
     loading, data, total, error
   } = useSelector((state) => state.adminUsersReducers);
-  const history = useHistory();
-  const [sort, setSort] = useState();
 
   const headerData = useSelector(({ tableReducer }) => tableReducer.usersHeader);
   const headers = useMemo(() => headerMaker(headerData), [headerData]);
+  const sortQuery = useMemo(() => {
+    const found = sort && usersHeader.find(({ id }) => id === sort.id);
+    return found
+      ? `&sort=${found},${sort.desc ? 'desc' : 'asc'}`
+      : '';
+  }, [sort]);
 
+  const query = useMemo(
+    () => `?page=${pageIndex}&size=${pageSize}${sortQuery}`,
+    [pageIndex, pageSize, sortQuery]
+  );
   const getType = () => {
     // eslint-disable-next-line no-nested-ternary
     const value = options.map((i) => (i.id === userType ? i.value.length
@@ -44,11 +59,15 @@ export default () => {
       : '' : ''));
     return value.filter((i) => i !== '') || null;
   };
-  const onChangeFunc = () => null;
 
   useEffect(() => {
-    dispatch(fetchData(userName.toLowerCase()));
+    dispatch(fetchData(userName.toLowerCase(), query));
   }, [fetchData, setUserName, userName]);
+
+  const handleOnChange = ({ pageIndex, pageSize }) => {
+    setPageIndex(pageIndex);
+    setPageSize(pageSize);
+  };
   return (
     <Container>
       <Search>
@@ -92,7 +111,7 @@ export default () => {
             setSort={setSort}
             sort={sort}
             subData={data}
-            onChange={onChangeFunc}
+            onChange={handleOnChange}
           />
         )}
       </Body>
