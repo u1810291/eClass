@@ -74,7 +74,8 @@ function* topUpStudent({ payload, success }) {
 
 function* deleteUser({ payload, success }) {
   try {
-    const res = yield service.deleteUserRequest(payload);
+    console.log(payload);
+    const res = yield service.deleteUserRequest(payload.user, payload.id);
     success(res.data);
   } catch (error) {
     if (error.response) {

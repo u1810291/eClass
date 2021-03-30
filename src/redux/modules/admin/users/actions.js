@@ -39,7 +39,7 @@ export const setSigleUser = (payload) => ({
 });
 
 export const deleteUser = (payload, success) => ({
-  type: types.ADMIN_FETCH_SINGLE_USER,
+  type: types.ADMIN_DELETE_SINGLE_USER,
   payload,
   success
 });

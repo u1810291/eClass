@@ -58,11 +58,12 @@ const useTopup = (id) => {
   return { tariffs, formik };
 };
 
-const useDelete = (user, id) => {
+const useDelete = (data) => {
+  console.log(data);
   const dispatch = useDispatch();
   const [token, setToken] = useState();
   useEffect(() => {
-    dispatch(deleteUser({ user, id }, (res) => setToken(res)));
+    dispatch(deleteUser(data, (res) => setToken(res)));
   }, [deleteUser]);
   return { token };
 };
@@ -215,7 +216,7 @@ export const studentToolTips = [
     onClick: (id, { showBlured }) => {
       showBlured({
         title: 'Confirm delete',
-        body: () => <DeleteUser useDelete={() => useDelete('student', id)} />
+        body: () => <DeleteUser id={id} useDelete={useDelete} />
       });
     }
   },
