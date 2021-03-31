@@ -8,19 +8,19 @@ const defaultState = {
 };
 
 const map = {
-  [types.TABLE_STUDENT_HOMEWORKS_SET_LOADING]: (state, { payload }) => ({
+  [types.STUDENT_PROFILE_SET_LOADING]: (state, { payload }) => ({
     ...state,
     loading: payload
   }),
-  [types.TABLE_STUDENT_HOMEWORKS_SET_DATA]: (state, { payload }) => ({
+  [types.STUDENT_PROFILE_SET_DATA]: (state, { payload }) => ({
     ...state,
     data: payload
   }),
-  [types.TABLE_STUDENT_HOMEWORKS_SET_TOTAL]: (state, { payload }) => ({
+  [types.STUDENT_PROFILE_SET_TOTAL]: (state, { payload }) => ({
     ...state,
     total: payload
   }),
-  [types.TABLE_STUDENT_HOMEWORKS_ERROR]: (state, { payload }) => ({
+  [types.STUDENT_PROFILE_ERROR]: (state, { payload }) => ({
     ...state,
     error: payload
   })
