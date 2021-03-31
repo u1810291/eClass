@@ -1,12 +1,19 @@
+import { useEffect } from 'react';
 import * as Yup from 'yup';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useFormik } from 'formik';
 import { useHistory } from 'react-router-dom';
 import { regStudent } from '../../../../../redux/modules/auth/actions';
+import { getSingleUser } from '../../../../../redux/modules/admin/users/actions';
 
-export const useInfoForm = () => {
+export const useInfoForm = (id) => {
   const history = useHistory();
   const dispatch = useDispatch();
+
+  const { single } = useSelector((state) => state.adminUsersReducers);
+  useEffect(() => {
+    dispatch(getSingleUser('student', `student=${id}`));
+  }, []);
   const validationSchema = Yup.object().shape({
     first_name: Yup.string().required('First name is required'),
     last_name: Yup.string().required('Last name is required'),
@@ -66,5 +73,5 @@ export const useInfoForm = () => {
       }));
     }
   });
-  return { formik };
+  return { formik, single };
 };

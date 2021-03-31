@@ -5,10 +5,15 @@ const defaultState = {
   loading: false,
   total: 0,
   error: '',
-  tariffs: []
+  tariffs: [],
+  single: []
 };
 
 const map = {
+  [types.ADMIN_SINGLE_USER_SET_DATA]: (state, { payload }) => ({
+    ...state,
+    single: payload
+  }),
   [types.ADMIN_SET_TARIFFS]: (state, { payload }) => ({
     ...state,
     tariffs: payload

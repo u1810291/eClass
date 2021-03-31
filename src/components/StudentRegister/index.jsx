@@ -12,7 +12,7 @@ import TextArea from '../Forms/Inputs/TextArea';
 import { GeneralInfo } from './GeneralInfo';
 
 export default ({
-  formik, countries, date, setDate, cities
+  formik, countries, date, setDate, cities, single
 }) => (
   <Container>
     <Header className={classNames('heading-1')}>Create new Student</Header>
@@ -21,7 +21,7 @@ export default ({
       formik.handleSubmit();
     }}
     >
-      <GeneralInfo formik={formik} />
+      <GeneralInfo single={single} formik={formik} />
       <MainInfo.TextArea>
         <TextArea
           white
@@ -31,7 +31,7 @@ export default ({
           helperText={formik.touched.comment_description
                 && formik.errors.comment_description
                 && formik.errors.comment_description}
-          value={formik.values.comment_description}
+          value={formik.values.comment_description || single.description}
           name="comment_description"
           onChange={(e) => formik.setFieldValue('comment_description', e.target.value)}
         />
@@ -39,7 +39,7 @@ export default ({
       <MainInfo.Body>
         <CustomDatePickerV2
           name="date_of_birth"
-          value={date}
+          value={date || single.date_of_birth}
           type={formik.touched.date_of_birth
                 && formik.errors.date_of_birth && 'error'}
           size="large"
@@ -57,10 +57,8 @@ export default ({
                 && formik.errors.lang && 'error'}
           helperText={formik.errors.lang}
           options={languages}
-          value={
-            formik.values.lang
-                && languages.find((el) => el.value === formik.values.lang).id
-          }
+          value={(formik.values.lang
+                && languages.find((el) => el.value === (formik.values.lang)).id)}
           onChange={(e) => formik.setFieldValue('lang', languages.find((el) => el.id === e).value)}
           size="large"
         />
@@ -72,8 +70,9 @@ export default ({
           type={formik.touched.country
                 && formik.errors.country && 'error'}
           helperText={formik.errors.country}
-          value={formik.values.country
-                && countries.find((el) => el.value === formik.values.country).id}
+          value={(formik.values.country
+                && countries.find((el) => el.value
+                === (formik.values.country)).id)}
           onChange={(e) => formik.setFieldValue('country', countries.find((el) => el.id === e).value)}
           size="large"
         />
@@ -85,8 +84,9 @@ export default ({
           type={formik.touched.city_name
                 && formik.errors.city_name && 'error'}
           helperText={formik.errors.city_name}
-          value={formik.values.city_name
-                && cities.find((el) => el.value === formik.values.city_name).id}
+          value={(formik.values.city_name
+                && cities.find((el) => el.value
+                === formik.values.city_name).id)}
           onChange={(e) => formik.setFieldValue('city_name', cities.find((el) => el.id === e).value)}
           size="large"
         />
@@ -110,7 +110,7 @@ export default ({
           helperText={formik.touched.school_number
                 && formik.errors.school_number
                 && formik.errors.school_number}
-          value={formik.values.school_number}
+          value={formik.values.school_number || single.school_number}
           onChange={(e) => formik.setFieldValue('school_number', e.target.value)}
         />
       </MainInfo.Body>
@@ -120,8 +120,8 @@ export default ({
           placeholder="Phones"
           size="large"
           name="phone"
-          value={formik.values.phone}
-          defaultValue={formik.values.phone}
+          value={formik.values.phone || single.phones}
+          defaultValue={formik.values.phone || single.phones}
           type={formik.touched.phone
                 && (formik.touched.phone.length === 0 || formik.errors.phone)
             ? 'error'
@@ -202,6 +202,7 @@ export default ({
             placeholder="Phones"
             size="large"
             defaultValue={formik.values.parent_phone}
+            value={formik.values.parent_phone}
             type={formik.touched.phone
                   && (formik.touched.phone.length === 0 || formik.errors.phone)
               ? 'error'

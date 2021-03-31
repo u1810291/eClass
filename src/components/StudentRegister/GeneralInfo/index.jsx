@@ -2,7 +2,7 @@ import React from 'react';
 import { MainInfo } from '../style';
 import { NormalInput } from '../../Forms/Inputs';
 
-export const GeneralInfo = ({ formik }) => (
+export const GeneralInfo = ({ formik, single }) => (
   <MainInfo>
     <NormalInput
       white
@@ -12,7 +12,7 @@ export const GeneralInfo = ({ formik }) => (
       type={formik.touched.first_name && formik.errors.first_name && 'error'}
       helperText={formik.touched.first_name
                 && formik.errors.first_name && formik.errors.first_name}
-      value={formik.values.first_name}
+      value={formik.values.first_name || single.first_name}
       onChange={(e) => formik.setFieldValue('first_name', e.target.value)}
     />
     <NormalInput
@@ -22,7 +22,7 @@ export const GeneralInfo = ({ formik }) => (
       type={formik.touched.last_name && formik.errors.last_name && 'error'}
       helperText={formik.touched.last_name
                 && formik.errors.last_name && formik.errors.last_name}
-      value={formik.values.last_name}
+      value={formik.values.last_name || single.last_name}
       name="last_name"
       onChange={(e) => formik.setFieldValue('last_name', e.target.value)}
     />
@@ -33,7 +33,7 @@ export const GeneralInfo = ({ formik }) => (
       type={formik.touched.middle_name && formik.errors.middle_name && 'error'}
       helperText={formik.touched.middle_name
                 && formik.errors.middle_name && formik.errors.middle_name}
-      value={formik.values.middle_name}
+      value={formik.values.middle_name || single.middle_name}
       name="middle_name"
       onChange={(e) => formik.setFieldValue('middle_name', e.target.value)}
     />
@@ -44,7 +44,7 @@ export const GeneralInfo = ({ formik }) => (
       type={formik.touched.username && formik.errors.username && 'error'}
       helperText={formik.touched.username
                 && formik.errors.username && formik.errors.username}
-      value={formik.values.username}
+      value={formik.values.username || single.username}
       name="username"
       onChange={(e) => formik.setFieldValue('username', e.target.value)}
     />
@@ -55,7 +55,7 @@ export const GeneralInfo = ({ formik }) => (
       type={formik.touched.password && formik.errors.password && 'error'}
       helperText={formik.touched.password
                 && formik.errors.password && formik.errors.password}
-      value={formik.values.password}
+      value={formik.values.password || single.password}
       name="password"
       onChange={(e) => formik.setFieldValue('password', e.target.value)}
     />
@@ -66,7 +66,7 @@ export const GeneralInfo = ({ formik }) => (
       type={formik.touched.email && formik.errors.email && 'error'}
       helperText={formik.touched.email
                 && formik.errors.email && formik.errors.email}
-      value={formik.values.email}
+      value={formik.values.email || single.email}
       name="email"
       onChange={(e) => formik.setFieldValue('email', e.target.value)}
     />
