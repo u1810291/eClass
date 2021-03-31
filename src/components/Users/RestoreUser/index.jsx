@@ -2,12 +2,12 @@ import React from 'react';
 
 import { Container } from './style';
 
-export default ({ id, useDelete }) => {
-  const data = { user: 'student', id };
-  const { token } = useDelete(data);
+export default ({ row, useRestore }) => {
+  const info = { user: 'student', name: row.original.username };
+  const { data } = useRestore(info);
   return (
     <Container>
-      {token}
+      {data}
     </Container>
   );
 };

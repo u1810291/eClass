@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable eqeqeq */
 /* eslint-disable no-alert */
 import React, { useEffect, useState } from 'react';
@@ -6,7 +5,9 @@ import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import Topup from './Topup';
-import { fetchTariffs, topUpStudent, deleteUser } from '../../../redux/modules/admin/users/actions';
+import {
+  fetchTariffs, topUpStudent, deleteUser, restoreUser
+} from '../../../redux/modules/admin/users/actions';
 import DeleteUser from '../../../components/Users/DeleteUser';
 import RestoreUser from '../../../components/Users/RestoreUser';
 import {
@@ -68,52 +69,34 @@ const useDelete = (data) => {
   return { token };
 };
 
+const useRestore = (info) => {
+  const dispatch = useDispatch();
+  const [data, setData] = useState();
+  useEffect(() => {
+    dispatch(restoreUser(info, (res) => setData(res)));
+  }, [restoreUser]);
+  return { data };
+};
+
 export const adminToolTips = [
   {
-    name: 'Cancel',
+    name: 'Delete',
     icon: 'payment',
-    onClick: () => {
-      alert('Cancel');
+    onClick: (id, { showBlured }) => {
+      showBlured({
+        title: 'Confirm delete',
+        body: () => <DeleteUser id={id} useDelete={useDelete} />
+      });
     }
   },
-
   {
-    name: 'Reschedule',
+    name: 'Restore',
     icon: 'payment',
-    onClick: () => {
-      alert('Reschedule');
-    }
-  },
-
-  {
-    name: 'Response',
-    icon: 'payment',
-    onClick: () => {
-      alert('Response Reschedule');
-    }
-  },
-
-  {
-    name: 'Reject Reschedule',
-    icon: 'payment',
-    onClick: () => {
-      alert('Reject Reschedule');
-    }
-  },
-
-  {
-    name: 'Add Rating',
-    icon: 'payment',
-    onClick: () => {
-      alert('Add Rating');
-    }
-  },
-
-  {
-    name: 'Revoke Rating',
-    icon: 'payment',
-    onClick: () => {
-      alert('Revoke Rating');
+    onClick: (_, { row, showBlured }) => {
+      showBlured({
+        title: 'Restore user',
+        body: () => <RestoreUser useRestore={useRestore} row={row} />
+      });
     }
   },
   {
@@ -130,50 +113,23 @@ export const adminToolTips = [
 
 export const teacherToolTips = [
   {
-    name: 'Cancel',
+    name: 'Delete',
     icon: 'payment',
-    onClick: () => {
-      alert('Cancel');
+    onClick: (id, { showBlured }) => {
+      showBlured({
+        title: 'Confirm delete',
+        body: () => <DeleteUser id={id} useDelete={useDelete} />
+      });
     }
   },
-
   {
-    name: 'Reschedule',
+    name: 'Restore',
     icon: 'payment',
-    onClick: () => {
-      alert('Reschedule');
-    }
-  },
-
-  {
-    name: 'Response',
-    icon: 'payment',
-    onClick: () => {
-      alert('Response Reschedule');
-    }
-  },
-
-  {
-    name: 'Reject Reschedule',
-    icon: 'payment',
-    onClick: () => {
-      alert('Reject Reschedule');
-    }
-  },
-
-  {
-    name: 'Add Rating',
-    icon: 'payment',
-    onClick: () => {
-      alert('Add Rating');
-    }
-  },
-
-  {
-    name: 'Revoke Rating',
-    icon: 'payment',
-    onClick: () => {
-      alert('Revoke Rating');
+    onClick: (_, { row, showBlured }) => {
+      showBlured({
+        title: 'Restore user',
+        body: () => <RestoreUser useRestore={useRestore} row={row} />
+      });
     }
   },
   {
@@ -223,10 +179,10 @@ export const studentToolTips = [
   {
     name: 'Restore',
     icon: 'payment',
-    onClick: (id, { showBlured }) => {
+    onClick: (_, { row, showBlured }) => {
       showBlured({
-        title: 'Confirm delete',
-        body: () => <RestoreUser id={id} useDelete={useDelete} />
+        title: 'Restore user',
+        body: () => <RestoreUser useRestore={useRestore} row={row} />
       });
     }
   }

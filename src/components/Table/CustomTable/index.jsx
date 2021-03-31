@@ -130,6 +130,7 @@ export default ({
                       <TD>
                         <Cell align="end">
                           <ToolTip
+                            row={row}
                             indexT={indexT}
                             index={index}
                             itemId={row.original.id}

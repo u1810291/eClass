@@ -43,3 +43,9 @@ export const deleteUser = (payload, success) => ({
   payload,
   success
 });
+
+export const restoreUser = (payload, success) => ({
+  type: types.ADMIN_RESTORE_SINGLE_USER,
+  payload,
+  success
+});
