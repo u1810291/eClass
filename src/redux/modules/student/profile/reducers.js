@@ -16,10 +16,6 @@ const map = {
     ...state,
     data: payload
   }),
-  [types.STUDENT_PROFILE_SET_TOTAL]: (state, { payload }) => ({
-    ...state,
-    total: payload
-  }),
   [types.STUDENT_PROFILE_ERROR]: (state, { payload }) => ({
     ...state,
     error: payload
