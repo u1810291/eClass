@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Topup from './Topup';
 import { fetchTariffs, topUpStudent, deleteUser } from '../../../redux/modules/admin/users/actions';
 import DeleteUser from '../../../components/Users/DeleteUser';
+import RestoreUser from '../../../components/Users/RestoreUser';
 import {
   StudentEditUser,
   TeacherEditUser,
@@ -222,8 +223,11 @@ export const studentToolTips = [
   {
     name: 'Restore',
     icon: 'payment',
-    onClick: () => {
-      alert('Restore');
+    onClick: (id, { showBlured }) => {
+      showBlured({
+        title: 'Confirm delete',
+        body: () => <RestoreUser id={id} useDelete={useDelete} />
+      });
     }
   }
 ];
