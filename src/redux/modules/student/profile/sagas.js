@@ -25,5 +25,5 @@ function* fetchData({ payload }) {
 }
 
 export default function* studentHomeworksSaga() {
-  yield takeLatest(types.TABLE_STUDENT_HOMEWORKS_FETCH_DATA, fetchData);
+  yield takeLatest(types.STUDENT_PROFILE_FETCH_DATA, fetchData);
 }
