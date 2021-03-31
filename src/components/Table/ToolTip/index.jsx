@@ -17,7 +17,7 @@ const caption = classNames(
 );
 
 export default ({
-  index, indexT, setIndexT, data, itemId
+  index, indexT, setIndexT, data, itemId, row
 }) => {
   const [open, setOpen] = useState(false);
   const refClick = useRef(null);
@@ -47,6 +47,7 @@ export default ({
           {data.map(({ name, icon, onClick: ItemClick }, positionIndex) => (
             <OptionButton
               onClick={() => ItemClick(itemId, {
+                row,
                 history,
                 dispatch,
                 state,

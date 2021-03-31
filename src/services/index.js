@@ -64,6 +64,7 @@ service.interceptors.request.use((config) => {
   const access_token = sessionStorage.getItem('access_token');
   config.headers.Authorization = `Bearer ${access_token}`;
   if (typeof config.data === typeof FormData) config.headers['Content-Type'] = 'multipart/form-data';
+
   return config;
 });
 

@@ -50,12 +50,15 @@ function* addGroup({ payload, success }) {
 }
 function* addStudent({ payload, success }) {
   try {
-    const { data } = addGroupSelector(payload);
-    const res = yield service.addGroupStudents(data);
-    yield put(setError(''));
+    console.log(payload);
+    const res = yield service.addGroupStudents(payload);
     success(res);
   } catch (error) {
-    yield put(setError(error));
+    if (error.response) {
+      success(error.response.data.error_message);
+    } else {
+      success(error);
+    }
   }
 }
 

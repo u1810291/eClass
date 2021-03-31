@@ -31,3 +31,9 @@ export const Filter = styled.div`
 
 export const Body = styled.div`
 `;
+
+export const AddButtons = styled.div`
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 1fr;
+`;

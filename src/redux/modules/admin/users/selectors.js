@@ -4,8 +4,8 @@ import moment from 'moment';
 export function dataSelector(payload, user) {
   const { total_elements, content } = user;
   if (payload === 'student') {
-    const student = content.map((el, i) => ({
-      id: i + 1,
+    const student = content.map((el) => ({
+      id: el.id,
       address: el.address.address,
       confirmed_by_admin: el.confirmed_by_admin,
       date_of_birth: moment(el.date_of_birth).format('DD-MM-YYYY'),
@@ -81,4 +81,106 @@ export function dataSelector(payload, user) {
     return { total: total_elements, data: admin };
   }
   return null;
+}
+
+export function singleUser(payload, data) {
+  if (payload === 'student') {
+    const student = {
+      id: data.id,
+      address: data.address,
+      confirmed_by_admin: data.confirmed_by_admin,
+      date_of_birth: data.date_of_birth,
+      email: data.email,
+      lang: data.lang,
+      description: data.description,
+      username: data.username,
+      first_name: data.first_name,
+      last_name: data.last_name,
+      middle_name: data.middle_name,
+      password: data.password,
+      limited: data.limited,
+      max_storage: data.max_storage,
+      parents: data.parents.map((i) => [{
+        description: i.description,
+        full_name: i.full_name,
+        phones: i.phones.map((j) => [{
+          description: j.description,
+          phone: j.phone
+        }])
+      }]),
+      phones: data.phones.map((k) => ({
+        id: k.id,
+        description: k.description,
+        phone: k.phone
+      })),
+      school_number: data.school_number,
+      trial_lessons: data.trial_lessons
+    };
+    return { data: student };
+  }
+  if (payload === 'teacher') {
+    const teacher = {
+      address: data.address,
+      average_rating: data.average_rating,
+      date_of_birth: moment(data.date_of_birth).format('DD-MM-YYYY'),
+      description: data.description,
+      email: data.email,
+      id: data.id,
+      lang: data.lang,
+      first_name: data.first_name,
+      last_name: data.last_name,
+      middle_name: data.middle_name,
+      max_storage: data.max_storage,
+      password: data.password,
+      phones: data.phones.map((item) => ({
+        description: item.description,
+        id: item.id,
+        phone: item.phone
+      })),
+      specialization: data.specialization,
+      subjects: data.subjects.map((item) => ({
+        id: item.id,
+        name: item.name
+      })),
+      username: data.username
+    };
+    return { data: teacher };
+  }
+  if (payload === 'admin') {
+    const admin = {
+      address: data.address,
+      average_rating: data.average_rating,
+      date_of_birth: moment(data.date_of_birth).format('DD-MM-YYYY'),
+      description: data.description,
+      email: data.email,
+      id: data.id,
+      lang: data.lang,
+      first_name: data.first_name,
+      last_name: data.last_name,
+      middle_name: data.middle_name,
+      max_storage: data.max_storage,
+      password: data.password,
+      phones: data.phones.map((item) => ({
+        description: item.description,
+        id: item.id,
+        phone: item.phone
+      })),
+      username: data.username
+    };
+    return { data: admin };
+  }
+  return null;
+}
+
+export function tariffSelector(data) {
+  const filtered = data.content.map((el) => ({
+    amount: el.amount,
+    description: el.description,
+    id: el.id,
+    lang: el.lang,
+    lessons_count: el.lessons_count,
+    value: el.name,
+    tariff_names: el.tariff_names
+  }));
+  return { data: filtered };
 }

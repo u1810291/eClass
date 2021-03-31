@@ -39,7 +39,7 @@ export default () => {
 
   useEffect(() => {
     dispatch(subjectFetch());
-    dispatch(getUser('teacher'));
+    dispatch(getUser('teacher', ''));
     dispatch(fetchData({ query }));
   }, [dispatch, query]);
 
