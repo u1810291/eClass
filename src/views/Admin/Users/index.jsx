@@ -65,12 +65,13 @@ export default () => {
 
   useEffect(() => {
     dispatch(fetchData(userName.toLowerCase(), query));
-  }, [fetchData, setUserName, userName]);
+  }, [fetchData, setUserName, userName, query]);
 
   const handleOnChange = ({ pageIndex, pageSize }) => {
     setPageIndex(pageIndex);
     setPageSize(pageSize);
   };
+
   return (
     <Container>
       <Search>
