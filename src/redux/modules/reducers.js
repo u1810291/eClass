@@ -15,6 +15,7 @@ export { default as lessonReducer } from './lessons/reducers';
 export { default as studentHomeworksReducers } from './student/homeworks/reducers';
 export { default as studentLessonsReducers } from './student/lessons/reducers';
 export { default as studentProfileReducers } from './student/profile/reducers';
+export { default as studentBalanceReducers } from './student/balance/reducers';
 
 export { default as teacherQuizesReducers } from './teacher/quizes/reducers';
 export { default as teacherLessonsReducers } from './teacher/lessons/reducers';
