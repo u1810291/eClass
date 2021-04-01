@@ -4,4 +4,5 @@ export * from './homeworks';
 export * from './quizes';
 export * from './groups';
 export * from './profile';
+export * from './balance';
 export * from './subjects';
