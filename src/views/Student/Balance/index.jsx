@@ -17,10 +17,9 @@ export default () => {
     dispatch(fetchData());
     setDate(moment(new Date()).format('DD-MM-YYYY hh:mm:ss'));
   }, [fetchData]);
-  console.log(data, error, loading);
   return (
     <Container>
-      <Balance date={date} />
+      <Balance date={date} data={data} error={error} loading={loading} />
     </Container>
   );
 };
