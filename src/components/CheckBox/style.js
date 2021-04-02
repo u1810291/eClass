@@ -34,8 +34,8 @@ export const Checkbox = styled.input`
   &:checked::before {
     content: "";
     position: absolute;
-    top: 15%;
-    left: 30%;
+    top: 25%;
+    left: 40%;
     width: 40%;
     height: 40%;
     border-top: 0;
