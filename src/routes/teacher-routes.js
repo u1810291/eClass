@@ -1,5 +1,5 @@
 import Examples from '../components/Examples';
-import Balance from '../views/Balance';
+import Balance from '../views/Teacher/Balance';
 import Homeworks from '../views/Teacher/Homeworks';
 import Profile from '../views/Profile';
 import Quiz from '../views/Teacher/Quiz';
