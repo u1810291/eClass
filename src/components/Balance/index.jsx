@@ -29,7 +29,7 @@ export default ({
               {loading ? <Spinner contain black /> : data.map((el, i) => (
                 <Card key={i} color={getRandColor()} size="small">
                   <Title>
-                    {el.subject_name}
+                    {el.subject_name ? el.subject_name : ''}
                   </Title>
                   <TotalBalance>
                     <TotalBalance.Bold>
