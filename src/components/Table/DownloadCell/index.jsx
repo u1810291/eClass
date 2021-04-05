@@ -1,28 +1,23 @@
 import React from 'react';
 import DownloadLink from 'react-download-link';
 import { Container, Content } from './style';
-import file from '../../../services/files';
+import { service } from '../../../services';
 
-const DownloadCell = (files) => {
-  let id;
-  if (files[0]) {
-    const url = files[0].split('/');
-    id = url[url.length - 1];
-  }
-  return (
-    <Container size="large">
-      {files[0]
-        ? (
-          <Content size="large">
-            <DownloadLink
-              label="Download"
-              filename="filename.pdf"
-              exportFile={() => file.downloadFile(id)}
-            />
-          </Content>
-        )
-        : <span>No link provided</span>}
-    </Container>
-  );
-};
+const DownloadCell = (files) => (
+  <Container size="large">
+    {files[0]
+      ? (
+        <Content size="large">
+          <DownloadLink
+            label="Download"
+            filename="filename.pdf"
+            exportFile={() => Promise((resolve, reject) => service.get(files[0])
+              .then((res) => resolve(res))
+              .catch((err) => reject(err)))}
+          />
+        </Content>
+      )
+      : <span>No link provided</span>}
+  </Container>
+);
 export default DownloadCell;
