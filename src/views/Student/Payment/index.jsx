@@ -3,9 +3,12 @@ import Payments from '../../../components/Payments';
 import PaymentsHeader from '../../../components/Headers/PaymentsHeader';
 import { Container } from '../style';
 
-export default () => (
-  <Container>
-    <PaymentsHeader />
-    <Payments />
-  </Container>
-);
+export default () => {
+  const data = 'dsa';
+  return (
+    <Container>
+      <PaymentsHeader />
+      <Payments data={data} />
+    </Container>
+  );
+};

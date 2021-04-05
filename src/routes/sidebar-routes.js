@@ -1,8 +1,8 @@
 // import Examples from '../components/Examples';
-import Balance from '../views/Balance';
-import Homeworks from '../views/Homeworks';
+import Balance from '../views/Student/Balance';
+import Homeworks from '../views/Student/Homeworks';
 import Profile from '../views/Student/Profile';
-import Quiz from '../views/Quiz';
+import Quiz from '../views/Student/Quiz';
 import Grades from '../views/Student/Grades';
 import Attendance from '../views/Student/Attendance';
 import Payment from '../views/Student/Payment';

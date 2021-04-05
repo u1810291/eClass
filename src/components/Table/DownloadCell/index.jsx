@@ -1,7 +1,7 @@
 import React from 'react';
 import DownloadLink from 'react-download-link';
 import { Container, Content } from './style';
-import file from '../../../services/files';
+import { service } from '../../../services';
 
 const DownloadCell = (files) => (
   <Container size="large">
@@ -11,12 +11,13 @@ const DownloadCell = (files) => (
           <DownloadLink
             label="Download"
             filename="filename.pdf"
-            exportFile={() => Promise.resolve(file.downloadFile(files[0]))}
+            exportFile={() => Promise((resolve, reject) => service.get(files[0])
+              .then((res) => resolve(res))
+              .catch((err) => reject(err)))}
           />
         </Content>
       )
       : <span>No link provided</span>}
   </Container>
 );
-
 export default DownloadCell;
