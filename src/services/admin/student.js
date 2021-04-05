@@ -7,6 +7,5 @@ export default {
   searchStudent: ({ uud }) => service.get(`/api/v1/profiles/student/search?username=${uud}`),
   deleteStudentRequest: ({ id }) => service.delete(`/api/v1/profiles/student/${id}/request`),
   deleteStudent: ({ id, token }) => service.delete(`/api/v1/profiles/student/${id}?token=${token}`),
-  restoreStudent: ({ userName }) => service.delete(`/api/v1/profiles/student/restore?username=${userName}`),
-  topupStudent: ({ data }) => service.delete('/api/v1/finance/topup', { data })
+  restoreStudent: ({ userName }) => service.delete(`/api/v1/profiles/student/restore?username=${userName}`)
 };

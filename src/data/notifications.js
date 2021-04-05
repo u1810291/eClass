@@ -1,21 +1,15 @@
 /* eslint-disable global-require */
 export default [
   {
-    name: 'John Doe',
-    action: 'has commented',
-    comment: 'Et consequatur laboriosam et. Voluptatibus eius sit',
-    image: require('../assets/images/avatar.png')
+    message: 'has commented',
+    icon: 'checkmark'
   },
   {
-    name: 'Kelly Doe',
-    action: 'moved the card',
-    comment: 'Need to design categorized search field to DONE on',
-    image: require('../assets/images/avatar.png')
+    message: 'Need to design categorized search field to DONE on',
+    icon: 'checkmark'
   },
   {
-    name: 'John Doe',
-    action: 'has commented',
-    comment: 'Et consequatur laboriosam et. Voluptatibus eius sit',
-    image: require('../assets/images/avatar.png')
+    message: 'Et consequatur laboriosam et. Voluptatibus eius sit',
+    icon: 'cross'
   }
 ];

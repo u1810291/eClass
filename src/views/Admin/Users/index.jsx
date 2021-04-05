@@ -2,10 +2,14 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import {
-  Container, Search, Filter, Body
+  Container, Search, Filter, Body, AddButtons
 } from './style';
+import { usersHeader } from '../../../redux/modules/table/common';
+
 import Dropdown from '../../../components/Forms/Dropdowns';
-import { options, toolTips } from './helper';
+import {
+  options, toolTips
+} from './helper';
 import { SearchableInput } from '../../../components/Forms/Inputs';
 import { PrimaryButton } from '../../../components/Buttons';
 import Table from '../../../components/Table';
@@ -17,7 +21,12 @@ import { getCities, getCountries, getReasons } from '../../../redux/modules/list
 export default () => {
   const [userType, setUserType] = useState(1);
   const [userName, setUserName] = useState('student');
+  const [pageIndex, setPageIndex] = useState(0);
+  const [pageSize, setPageSize] = useState(0);
+  const [sort, setSort] = useState();
+  const history = useHistory();
   const dispatch = useDispatch();
+  const { tooltips } = toolTips(userType);
   useEffect(() => {
     let isMounted = true;
     if (isMounted) {
@@ -31,11 +40,20 @@ export default () => {
   const {
     loading, data, total, error
   } = useSelector((state) => state.adminUsersReducers);
-  const history = useHistory();
-  const [sort, setSort] = useState();
 
   const headerData = useSelector(({ tableReducer }) => tableReducer.usersHeader);
   const headers = useMemo(() => headerMaker(headerData), [headerData]);
+  const sortQuery = useMemo(() => {
+    const found = sort && usersHeader.find(({ id }) => id === sort.id);
+    return found
+      ? `&sort=${found},${sort.desc ? 'desc' : 'asc'}`
+      : '';
+  }, [sort]);
+
+  const query = useMemo(
+    () => `?page=${pageIndex}&size=${pageSize}${sortQuery}`,
+    [pageIndex, pageSize, sortQuery]
+  );
 
   const getType = () => {
     // eslint-disable-next-line no-nested-ternary
@@ -44,11 +62,16 @@ export default () => {
       : '' : ''));
     return value.filter((i) => i !== '') || null;
   };
-  const onChangeFunc = () => null;
 
   useEffect(() => {
-    dispatch(fetchData(userName.toLowerCase()));
-  }, [fetchData, setUserName, userName]);
+    dispatch(fetchData(userName.toLowerCase(), query));
+  }, [fetchData, setUserName, userName, query]);
+
+  const handleOnChange = ({ pageIndex, pageSize }) => {
+    setPageIndex(pageIndex);
+    setPageSize(pageSize);
+  };
+
   return (
     <Container>
       <Search>
@@ -69,30 +92,31 @@ export default () => {
           }}
           size="large"
         />
-        <PrimaryButton
-          className="my-2"
-          size="large"
-          onClick={() => (getType().length > 0
-            ? history.push(`/users/add/${getType()}`)
-            : history.push(`/users/add/${userType}`))}
-          title="Add new"
-        />
+        <AddButtons>
+          <PrimaryButton
+            size="medium"
+            onClick={() => (getType().length > 0
+              ? history.push(`/users/add/${getType()}`)
+              : history.push(`/users/add/${userType}`))}
+            title="Add new"
+          />
+        </AddButtons>
       </Filter>
       <Body>
         {error ? (
           <TableError message={error} />
         ) : (
           <Table
-            height="450"
+            height="500"
             total={total}
             data={data}
-            toolTips={toolTips}
+            toolTips={tooltips}
             header={headers}
             loading={loading}
             setSort={setSort}
             sort={sort}
             subData={data}
-            onChange={onChangeFunc}
+            onChange={handleOnChange}
           />
         )}
       </Body>

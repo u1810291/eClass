@@ -1,6 +1,20 @@
+/* eslint-disable eqeqeq */
 /* eslint-disable no-alert */
-/* eslint-disable react/jsx-props-no-spreading */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import * as Yup from 'yup';
+import { useFormik } from 'formik';
+import { useDispatch, useSelector } from 'react-redux';
+import Topup from './Topup';
+import {
+  fetchTariffs, topUpStudent, deleteUser, restoreUser
+} from '../../../redux/modules/admin/users/actions';
+import DeleteUser from '../../../components/Users/DeleteUser';
+import RestoreUser from '../../../components/Users/RestoreUser';
+import {
+  StudentEditUser,
+  TeacherEditUser,
+  AdmintEditUser
+} from './EditUser';
 
 export const options = [
   {
@@ -15,101 +29,174 @@ export const options = [
   }
 ];
 
-export const header = [{
-  Header: () => 'Address', // No header
-  id: 'expander', // It needs an ID
-  Cell: ({ row }) => (
-    <span {...row.getToggleRowExpandedProps()}>
-      {row.original.address}
-    </span>
-  ),
-  SubCell: () => null
-},
-{
-  Header: 'Confirmed',
-  accessor: (d) => d.confirmed_by_admin
-},
-{
-  Header: 'Date of birth',
-  accessor: (d) => d.date_of_birth
-},
-{
-  Header: 'Email',
-  accessor: (d) => d.email
-},
-{
-  Header: 'Username',
-  accessor: (d) => d.username
-},
-{
-  Header: 'First name',
-  accessor: (d) => d.first_name
-},
-{
-  Header: 'Last name',
-  accessor: (d) => d.last_name
-},
-{
-  Header: 'Middle name',
-  accessor: (d) => d.middle_name
-},
-{
-  Header: 'School number',
-  accessor: (d) => d.school_number
-},
-{
-  Header: 'Trial lessons',
-  accessor: (d) => d.trial_lessons
-}
+const useTopup = (id) => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchTariffs());
+  }, [fetchTariffs]);
+
+  const { tariffs } = useSelector((state) => state.adminUsersReducers);
+  const validationSchema = Yup.object().shape({
+    tariff: Yup.string().required('Required'),
+    amount: Yup.string().required('Required')
+  });
+  const formik = useFormik({
+    initialValues: {
+      tariff: '',
+      amount: ''
+    },
+    validationSchema,
+    onSubmit: (values, { setSubmitting }) => {
+      setSubmitting(true);
+      const data = { student: id, tariff: values.tariff, amount: values.amount };
+      dispatch(topUpStudent(data, (res) => {
+        if (res) {
+          return alert('Succesfully added!');
+        }
+        return alert('Something went Wrong!');
+      }));
+    }
+  });
+  return { tariffs, formik };
+};
+
+const useDelete = (data) => {
+  const dispatch = useDispatch();
+  const [token, setToken] = useState();
+  useEffect(() => {
+    dispatch(deleteUser(data, (res) => setToken(res)));
+  }, [deleteUser]);
+  return { token };
+};
+
+const useRestore = (info) => {
+  const dispatch = useDispatch();
+  const [data, setData] = useState();
+  useEffect(() => {
+    dispatch(restoreUser(info, (res) => setData(res)));
+  }, [restoreUser]);
+  return { data };
+};
+
+export const adminToolTips = [
+  {
+    name: 'Delete',
+    icon: 'payment',
+    onClick: (id, { showBlured }) => {
+      showBlured({
+        title: 'Confirm delete',
+        body: () => <DeleteUser id={id} useDelete={useDelete} />
+      });
+    }
+  },
+  {
+    name: 'Restore',
+    icon: 'payment',
+    onClick: (_, { row, showBlured }) => {
+      showBlured({
+        title: 'Restore user',
+        body: () => <RestoreUser useRestore={useRestore} row={row} />
+      });
+    }
+  },
+  {
+    name: 'Edit',
+    icon: 'payment',
+    onClick: (id, { showBlured }) => {
+      showBlured({
+        title: 'Edit user',
+        body: () => <AdmintEditUser id={id} />
+      });
+    }
+  }
 ];
 
-export const toolTips = [
+export const teacherToolTips = [
   {
-    name: 'Cancel',
+    name: 'Delete',
     icon: 'payment',
-    onClick: () => {
-      alert('Cancel');
+    onClick: (id, { showBlured }) => {
+      showBlured({
+        title: 'Confirm delete',
+        body: () => <DeleteUser id={id} useDelete={useDelete} />
+      });
     }
   },
-
   {
-    name: 'Reschedule',
+    name: 'Restore',
     icon: 'payment',
-    onClick: () => {
-      alert('Reschedule');
+    onClick: (_, { row, showBlured }) => {
+      showBlured({
+        title: 'Restore user',
+        body: () => <RestoreUser useRestore={useRestore} row={row} />
+      });
     }
   },
-
   {
-    name: 'Response',
+    name: 'Edit',
     icon: 'payment',
-    onClick: () => {
-      alert('Response Reschedule');
-    }
-  },
-
-  {
-    name: 'Reject Reschedule',
-    icon: 'payment',
-    onClick: () => {
-      alert('Reject Reschedule');
-    }
-  },
-
-  {
-    name: 'Add Rating',
-    icon: 'payment',
-    onClick: () => {
-      alert('Add Rating');
-    }
-  },
-
-  {
-    name: 'Revoke Rating',
-    icon: 'payment',
-    onClick: () => {
-      alert('Revoke Rating');
+    onClick: (id, { showBlured }) => {
+      showBlured({
+        title: 'Edit user',
+        body: () => <TeacherEditUser id={id} />
+      });
     }
   }
 
 ];
+
+export const studentToolTips = [
+  {
+    name: 'Topup',
+    icon: 'payment',
+    onClick: (id, { showBlured }) => {
+      showBlured({
+        title: 'Top up student',
+        body: () => <Topup useTopup={() => useTopup(id)} />
+      });
+    }
+  },
+  {
+    name: 'Edit',
+    icon: 'payment',
+    onClick: (id, { showBlured }) => {
+      showBlured({
+        title: 'Edit user',
+        body: () => <StudentEditUser id={id} />
+      });
+    }
+  },
+  {
+    name: 'Delete',
+    icon: 'payment',
+    onClick: (id, { showBlured }) => {
+      showBlured({
+        title: 'Confirm delete',
+        body: () => <DeleteUser id={id} useDelete={useDelete} />
+      });
+    }
+  },
+  {
+    name: 'Restore',
+    icon: 'payment',
+    onClick: (_, { row, showBlured }) => {
+      showBlured({
+        title: 'Restore user',
+        body: () => <RestoreUser useRestore={useRestore} row={row} />
+      });
+    }
+  }
+];
+
+export function toolTips(userType) {
+  if (userType == 1) {
+    return { tooltips: studentToolTips };
+  }
+  if (userType == 2) {
+    return { tooltips: teacherToolTips };
+  }
+  if (userType == 3) {
+    return { tooltips: adminToolTips };
+  }
+  return { tooltips: null };
+}

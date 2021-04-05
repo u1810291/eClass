@@ -25,8 +25,8 @@ import Payme from '../../assets/icons/payme.svg';
 import Online from '../../assets/icons/online.svg';
 import Click from '../../assets/icons/click.svg';
 
-export default () => (
-  // console.log(data);
+// eslint-disable-next-line no-unused-vars
+export default ({ data }) => (
   <Container>
     <StepTwo>
       <h3>Please choose one type of course</h3>
@@ -68,21 +68,18 @@ export default () => (
           <PaymentType.List>
             <PaymentType.Icon icon={Click} />
             <PaymentType.Text>
-
               Click
             </PaymentType.Text>
           </PaymentType.List>
           <PaymentType.List>
             <PaymentType.Icon icon={Payme} />
             <PaymentType.Text>
-
               Payme
             </PaymentType.Text>
           </PaymentType.List>
           <PaymentType.List>
             <PaymentType.Icon icon={Online} />
             <PaymentType.Text>
-
               Online
             </PaymentType.Text>
           </PaymentType.List>
@@ -96,11 +93,9 @@ export default () => (
       </StepThree>
       <StepFour>
         <Pay>
-
           Some
         </Pay>
       </StepFour>
     </Footer>
-
   </Container>
 );
