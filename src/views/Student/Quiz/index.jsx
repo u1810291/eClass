@@ -6,7 +6,7 @@ import { Container } from './style';
 import { fetchData } from '../../../redux/modules/quizes/actions';
 import { headerMaker } from '../../../components/Table/helper';
 import { studentQuizesHeader } from '../../../redux/modules/table/common';
-
+import { toolTips } from './helper';
 import QuizesHeader from '../../../components/Headers/QuizesHeader';
 import TableError from '../../../components/Table/Error';
 
@@ -78,6 +78,7 @@ export default () => {
       ) : (
         <Table
           height="590"
+          toolTips={toolTips}
           total={total}
           data={data}
           header={header}

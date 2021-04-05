@@ -16,8 +16,8 @@ export const ToolTip = styled.div`
   background: white;
   position: absolute;
   top: -60px;
-  left: -165px;
-  z-index: 3;
+  left: -150px;
+  z-index: 1;
   transition: 0.2s display;
   border-radius: 8px;
   box-shadow: 2px 2px 31px -14px rgba(0,0,0,0.38);
@@ -32,7 +32,7 @@ export const ToolTip = styled.div`
     width: 18px;
     height: 18px;
     position: absolute;
-    top: 65px;
+    top: 40px;
     right: -4px;
     transform: rotate(45deg);
   }
