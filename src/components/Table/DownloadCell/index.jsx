@@ -4,7 +4,6 @@ import { Container, Content } from './style';
 import file from '../../../services/files';
 
 const DownloadCell = (files) => {
-  console.log(files[0]);
   let id;
   if (files[0]) {
     const url = files[0].split('/');
