@@ -7,12 +7,12 @@ import {
   Container
 } from './style';
 import Balance from '../../../components/Balance';
-import { fetchData } from '../../../redux/modules/student/balance/actions';
+import { fetchData } from '../../../redux/modules/teacher/balance/actions';
 
 export default () => {
   const [date, setDate] = useState('');
   const dispatch = useDispatch();
-  const { data, error, loading } = useSelector((state) => state.studentBalanceReducers);
+  const { data, error, loading } = useSelector((state) => state.teacherBalanceReducers);
   useEffect(() => {
     dispatch(fetchData());
     setDate(moment(new Date()).format('DD-MM-YYYY hh:mm:ss'));
