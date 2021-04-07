@@ -26,3 +26,4 @@ export { default as adminUsersReducers } from './admin/users/reducers';
 export { default as adminSubjectsReducers } from './admin/subjects/reducers';
 export { default as adminGroupsReducers } from './admin/groups/reducers';
 export { default as adminLessonsReducers } from './admin/lessons/reducers';
+export { default as adminTariffsReducers } from './admin/tariffs/reducers';
