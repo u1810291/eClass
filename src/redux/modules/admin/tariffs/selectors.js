@@ -1,12 +1,19 @@
 /* eslint-disable camelcase */
-import moment from 'moment';
-
 export function dataSelector(lesson) {
   const { total_elements, content } = lesson;
   const filtered = content.map((el) => ({
-    rescheduled: el.rescheduled.toString(),
-    scheduled_start: moment(el.scheduled_start).format('DD-MM-YYYY hh:mm:ss'),
-    time_to_start: `${el.time_to_start.days * -1}-${el.time_to_start.months * -1}-${moment(new Date()).format('YYYY')} ${el.time_to_start.hours * -1}:${el.time_to_start.minutes * -1}`
+    id: el.id,
+    name: el.name,
+    lang: el.lang,
+    amount: el.amount,
+    description: el.description,
+    lessons_count: el.lessons_count,
+    tariff_names: tariff_names.map((item) => ({
+      description: item.description,
+      id: item.id,
+      lang: item.lang,
+      name: item.name
+    }))
   }));
   return { total: total_elements, data: filtered };
 }
