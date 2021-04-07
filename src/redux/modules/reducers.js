@@ -23,6 +23,6 @@ export { default as teacherHomeworksReducers } from './teacher/homeworks/reducer
 export { default as teacherBalanceReducers } from './teacher/balance/reducers';
 
 export { default as adminUsersReducers } from './admin/users/reducers';
-export { default as subjectsReducers } from './admin/subjects/reducers';
+export { default as adminSubjectsReducers } from './admin/subjects/reducers';
 export { default as adminGroupsReducers } from './admin/groups/reducers';
 export { default as adminLessonsReducers } from './admin/lessons/reducers';
