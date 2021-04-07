@@ -1,20 +1,44 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { Container, Content } from './style';
 import Table from '../../../components/Table';
+import { headerMaker } from '../../../components/Table/helper';
 import { fetchData } from '../../../redux/modules/admin/tariffs/actions';
+import { adminTariffsHeader } from '../../../redux/modules/table/common';
+import { toolTips } from './helper';
 
 export default () => {
+  const [pageIndex, setPageIndex] = useState(0);
+  const [pageSize, setPageSize] = useState(0);
+  const [sort, setSort] = useState();
+  const headerData = useSelector(({ tableReducer }) => tableReducer.adminTariffsHeader);
+  const headers = useMemo(() => headerMaker(headerData), [headerData]);
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchData());
-  }, [fetchData]);
   const {
     data, error, total, loading
   } = useSelector((state) => state.adminTariffsReducers);
   // eslint-disable-next-line no-console
   console.log(error);
+  const sortQuery = useMemo(() => {
+    const found = sort && adminTariffsHeader.find(({ id }) => id === sort.id);
+    return found
+      ? `&sort=${found},${sort.desc ? 'desc' : 'asc'}`
+      : '';
+  }, [sort]);
+
+  const query = useMemo(
+    () => `&page=${pageIndex}&size=${pageSize}${sortQuery}`,
+    [pageIndex, pageSize, sortQuery]
+  );
+  const handleOnChange = ({ pageIndex, pageSize }) => {
+    setPageIndex(pageIndex);
+    setPageSize(pageSize);
+  };
+  useEffect(() => {
+    dispatch(fetchData(query));
+  }, [fetchData, query]);
+
   return (
     <Container>
       <Content>
