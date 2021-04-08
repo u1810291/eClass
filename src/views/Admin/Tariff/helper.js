@@ -61,10 +61,10 @@ export const toolTips = [
   {
     name: 'Delete Tariff Name',
     icon: 'payment',
-    onClick: (id, { showBlured }) => {
+    onClick: (_, { row, showBlured }) => {
       showBlured({
         title: 'Delete Tariff name',
-        body: () => <Delete id={id} deleteTariffName={deleteTariffName} />
+        body: () => <Delete id={row.original} deleteTariffName={deleteTariffName} />
       });
     }
   },

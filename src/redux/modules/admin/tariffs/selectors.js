@@ -12,7 +12,7 @@ export function dataSelector(lesson) {
       description: item.description,
       id: item.id,
       lang: item.lang,
-      name: item.name
+      value: item.name
     }))
   }));
   return { total: total_elements, data: filtered };
