@@ -8,7 +8,7 @@ export function dataSelector(lesson) {
     amount: el.amount,
     description: el.description,
     lessons_count: el.lessons_count,
-    tariff_names: tariff_names.map((item) => ({
+    tariff_names: el.tariff_names.map((item) => ({
       description: item.description,
       id: item.id,
       lang: item.lang,

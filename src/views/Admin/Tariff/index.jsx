@@ -1,17 +1,21 @@
 import React, { useEffect, useState, useMemo } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { Container, Content } from './style';
+import { Container } from './style';
+import { toolTips } from './helper';
 import Table from '../../../components/Table';
+import TariffsHeader from '../../../components/Headers/TariffsHeader';
+import TableError from '../../../components/Table/Error';
 import { headerMaker } from '../../../components/Table/helper';
 import { fetchData } from '../../../redux/modules/admin/tariffs/actions';
 import { adminTariffsHeader } from '../../../redux/modules/table/common';
-import { toolTips } from './helper';
 
 export default () => {
   const [pageIndex, setPageIndex] = useState(0);
   const [pageSize, setPageSize] = useState(0);
   const [sort, setSort] = useState();
+  const [search, setSearch] = useState('');
+  const [date, setDate] = useState(undefined);
   const headerData = useSelector(({ tableReducer }) => tableReducer.adminTariffsHeader);
   const headers = useMemo(() => headerMaker(headerData), [headerData]);
   const dispatch = useDispatch();
@@ -36,12 +40,28 @@ export default () => {
     setPageSize(pageSize);
   };
   useEffect(() => {
-    dispatch(fetchData(query));
+    dispatch(fetchData({ query }));
   }, [fetchData, query]);
 
+  useEffect(() => {
+    dispatch(
+      fetchData({
+        isSearch: true,
+        query: `${query}${search ? `&search=${search}` : ''}`
+      })
+    );
+  }, [dispatch, search]);
   return (
     <Container>
-      <Content>
+      <TariffsHeader
+        setSearch={setSearch}
+        search={search}
+        setDate={setDate}
+        date={date}
+      />
+      {error ? (
+        <TableError message={error} />
+      ) : (
         <Table
           height="590"
           total={total}
@@ -53,20 +73,7 @@ export default () => {
           setSort={setSort}
           onChange={handleOnChange}
         />
-      </Content>
-      <Content>
-        <Table
-          height="590"
-          total={total}
-          data={data}
-          toolTips={toolTips}
-          header={headers}
-          loading={loading}
-          subData={data}
-          setSort={setSort}
-          onChange={handleOnChange}
-        />
-      </Content>
+      )}
     </Container>
   );
 };

@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { takeLatest, put } from 'redux-saga/effects';
+import { takeLatest, put, delay } from 'redux-saga/effects';
 import types from '../../../../constants/action-types';
 import service from '../../../../services/admin/tariffs';
 import {
@@ -11,10 +11,11 @@ import {
 
 import { dataSelector } from './selectors';
 
-function* fetchData() {
-  yield put(setLoading(true));
+function* fetchData({ payload }) {
   try {
-    const res = yield service.getAll();
+    if (payload.isSearch) yield delay(500);
+    yield put(setLoading(true));
+    const res = yield service.getAll(payload.query);
     console.log(res);
     const { total, data } = dataSelector(res.data);
     yield put(setError(''));
