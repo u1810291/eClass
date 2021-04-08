@@ -16,9 +16,9 @@ const defaultState = {
   teacherQuizesHeader: JSON.parse(localStorage.getItem('teacherQuizesHeader')) || initial.teacherQuizesHeader,
   studentQuizesHeader: JSON.parse(localStorage.getItem('studentQuizesHeader')) || initial.studentQuizesHeader,
 
-  groupsHeader: JSON.parse(localStorage.getItem('groupsHeader')) || initial.groupsHeader
+  groupsHeader: JSON.parse(localStorage.getItem('groupsHeader')) || initial.groupsHeader,
+  adminTariffsHeader: JSON.parse(localStorage.getItem('adminTariffsHeader')) || initial.adminTariffsHeader
 };
-
 const map = {};
 
 initial.genericTypes.forEach(({ key, headerName }) => {

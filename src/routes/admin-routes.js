@@ -1,7 +1,8 @@
 import Examples from '../components/Examples';
-import Balance from '../views/Balance';
+import Tariff from '../views/Admin/Tariff';
+// import Balance from '../views/Balance';
 import Profile from '../views/Profile';
-import Payment from '../views/Student/Payment';
+// import Payment from '../views/Student/Payment';
 import Library from '../views/Library';
 import Chat from '../views/Chat';
 import Groups from '../views/Admin/Groups';
@@ -28,22 +29,22 @@ export default [
     title: 'Lessons',
     children: []
   },
-  {
-    exact: true,
-    path: '/balance',
-    component: Balance,
-    icon: 'payment',
-    title: 'Balance',
-    children: []
-  },
-  {
-    exact: true,
-    path: '/payment',
-    component: Payment,
-    icon: 'balance',
-    title: 'Payment',
-    children: []
-  },
+  // {
+  //   exact: true,
+  //   path: '/balance',
+  //   component: Balance,
+  //   icon: 'payment',
+  //   title: 'Balance',
+  //   children: []
+  // },
+  // {
+  //   exact: true,
+  //   path: '/payment',
+  //   component: Payment,
+  //   icon: 'balance',
+  //   title: 'Payment',
+  //   children: []
+  // },
   {
     exact: true,
     path: '/library',
@@ -110,15 +111,7 @@ export default [
   {
     exact: true,
     path: '/tariff',
-    component: Examples,
-    icon: 'dashboard',
-    title: 'Tariff',
-    children: []
-  },
-  {
-    exact: true,
-    path: '/example',
-    component: Examples,
+    component: Tariff,
     icon: 'dashboard',
     title: 'Tariff',
     children: []

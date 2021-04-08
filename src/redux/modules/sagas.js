@@ -19,4 +19,5 @@ export { default as studentbalanceSaga } from './student/balance/sagas';
 export { default as adminUsersSaga } from './admin/users/sagas';
 export { default as adminLessonsSaga } from './admin/lessons/sagas';
 export { default as adminGroupsSaga } from './admin/groups/sagas';
-export { default as subjectsSaga } from './admin/subjects/sagas';
+export { default as adminSubjectsSaga } from './admin/subjects/sagas';
+export { default as adminTariffsSaga } from './admin/tariffs/sagas';
