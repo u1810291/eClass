@@ -17,6 +17,7 @@ import { headerMaker } from '../../../components/Table/helper';
 import { fetchData } from '../../../redux/modules/admin/users/actions';
 import TableError from '../../../components/Table/Error';
 import { getCities, getCountries, getReasons } from '../../../redux/modules/lists/actions';
+import { fetchData as subjects } from '../../../redux/modules/admin/subjects/actions';
 
 export default () => {
   const [userType, setUserType] = useState(1);
@@ -33,10 +34,10 @@ export default () => {
       dispatch(getCities());
       dispatch(getCountries());
       dispatch(getReasons());
+      dispatch(subjects());
     }
     return () => { isMounted = false; };
   }, [dispatch]);
-
   const {
     loading, data, total, error
   } = useSelector((state) => state.adminUsersReducers);
