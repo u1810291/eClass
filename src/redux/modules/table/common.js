@@ -486,6 +486,91 @@ export const teacherQuizesHeader = [{
 }
 ];
 
+export const adminAccountsHeader = [{
+  id: 1,
+  align: 'end',
+  disableSortBy: true,
+  show: true,
+  Header: 'Group',
+  accessor: 'group'
+},
+{
+  id: 2,
+  align: 'end',
+  disableSortBy: true,
+  show: true,
+  Header: 'Group name',
+  accessor: 'group_name'
+},
+{
+  id: 3,
+  align: 'end',
+  disableSortBy: true,
+  show: true,
+  Header: 'Description',
+  accessor: 'description'
+},
+{
+  id: 4,
+  align: 'end',
+  disableSortBy: true,
+  show: true,
+  Header: 'Lesson',
+  accessor: 'lesson'
+},
+{
+  id: 5,
+  align: 'end',
+  disableSortBy: true,
+  show: true,
+  Header: 'Subject',
+  accessor: 'subject'
+},
+{
+  id: 6,
+  align: 'end',
+  disableSortBy: true,
+  show: true,
+  Header: 'Download',
+  type: 'download',
+  accessor: 'files'
+}
+];
+
+export const adminTariffsHeader = [{
+  id: 1,
+  align: 'end',
+  disableSortBy: true,
+  show: true,
+  Header: 'Name',
+  accessor: 'name'
+},
+{
+  id: 2,
+  align: 'end',
+  disableSortBy: true,
+  show: true,
+  Header: 'Lang',
+  accessor: 'lang'
+},
+{
+  id: 3,
+  align: 'end',
+  disableSortBy: true,
+  show: true,
+  Header: 'Description',
+  accessor: 'description'
+},
+{
+  id: 4,
+  align: 'end',
+  disableSortBy: true,
+  show: true,
+  Header: 'Lessons count',
+  accessor: 'lessons_count'
+}
+];
+
 export const genericTypes = [
   {
     key: types.USERS,
@@ -534,5 +619,13 @@ export const genericTypes = [
   {
     key: types.STUDENT_QUIZES,
     headerName: 'studentQuizesHeader'
+  },
+  {
+    key: types.ADMIN_TARIFFS,
+    headerName: 'adminTariffsHeader'
+  },
+  {
+    key: types.ADMIN_ACCOUNTS,
+    headerName: 'adminAccountsHeader'
   }
 ];

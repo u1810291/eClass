@@ -1,4 +1,5 @@
 import Examples from '../components/Examples';
+import Tariff from '../views/Admin/Tariff';
 // import Balance from '../views/Balance';
 import Profile from '../views/Profile';
 // import Payment from '../views/Student/Payment';
@@ -110,15 +111,7 @@ export default [
   {
     exact: true,
     path: '/tariff',
-    component: Examples,
-    icon: 'dashboard',
-    title: 'Tariff',
-    children: []
-  },
-  {
-    exact: true,
-    path: '/example',
-    component: Examples,
+    component: Tariff,
     icon: 'dashboard',
     title: 'Tariff',
     children: []

@@ -6,3 +6,5 @@ export * from './groups';
 export * from './profile';
 export * from './balance';
 export * from './subjects';
+export * from './tariffs';
+export * from './zoom';
