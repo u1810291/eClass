@@ -34,7 +34,7 @@ function* regStudent({ payload, success }) {
     success(res.data);
   } catch (error) {
     // eslint-disable-next-line no-alert
-    alert(error);
+    alert(error.response ? error.response.data.error_message : error);
     yield put(setError(error));
   }
 }
@@ -45,7 +45,7 @@ function* regTeacher({ payload, success }) {
     success(res.data);
   } catch (error) {
     // eslint-disable-next-line no-alert
-    alert(error);
+    alert(error.response ? error.response.data.error_message : error);
     yield put(setError(error));
   }
 }
@@ -56,7 +56,7 @@ function* regAdmin({ payload, success }) {
     success(res.data);
   } catch (error) {
     // eslint-disable-next-line no-alert
-    alert(error);
+    alert(error.response ? error.response.data.error_message : error);
     yield put(setError(error));
   }
 }
