@@ -1,7 +1,7 @@
 import { service } from '..';
 
 export default {
-  getUsers: (user, params) => service.get(`/api/v1/profiles/${user}/list${params}`),
+  getUsers: (user, params) => service.get(`/api/v1/profiles/${user}/list?${params}`),
   getAllSingleUser: (user, params) => service.get(`/api/v1/profiles/${user}?${params}`),
   updateUser: (user, id) => service.put(`/api/v1/profiles/${user}/${id}`),
   searchUser: (user, eaa) => service.get(`/api/v1/profiles/${user}/search?username=${eaa}`),

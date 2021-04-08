@@ -52,7 +52,7 @@ export default () => {
   }, [sort]);
 
   const query = useMemo(
-    () => `?page=${pageIndex}&size=${pageSize}${sortQuery}`,
+    () => `page=${pageIndex}&size=${pageSize}${sortQuery}`,
     [pageIndex, pageSize, sortQuery]
   );
 
