@@ -19,6 +19,7 @@ export default () => {
         formik={formik}
         cities={cities}
         countries={countries}
+        single=""
       />
     </Container>
   );

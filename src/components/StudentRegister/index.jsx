@@ -16,6 +16,7 @@ export default ({
 }) => (
   <Container>
     <Header className={classNames('heading-1')}>Create new Student</Header>
+    {console.log(single)}
     <SubmitForm onSubmit={(e) => {
       e.preventDefault();
       formik.handleSubmit();
