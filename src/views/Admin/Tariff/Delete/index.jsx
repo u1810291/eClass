@@ -3,6 +3,7 @@ import React from 'react';
 
 import { useDispatch } from 'react-redux';
 import { PrimaryButton } from '../../../../components/Buttons';
+import { Container } from './style';
 
 export default (props) => {
   const dispatch = useDispatch();
@@ -10,13 +11,13 @@ export default (props) => {
   const { deleteTariff } = props;
   const { deleteTariffName } = props;
   return (
-    <div>
+    <Container>
       Delete
       {deleteTariff
         ? <PrimaryButton title="Delete tariff" onClick={() => dispatch(deleteTariff(id))} />
         : deleteTariffName
           ? <PrimaryButton title="Delete Tariff Name" onClick={() => dispatch(deleteTariffName(id))} />
           : null}
-    </div>
+    </Container>
   );
 };
