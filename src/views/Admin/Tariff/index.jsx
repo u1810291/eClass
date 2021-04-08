@@ -22,8 +22,6 @@ export default () => {
   const {
     data, error, total, loading
   } = useSelector((state) => state.adminTariffsReducers);
-  // eslint-disable-next-line no-console
-  console.log(error);
   const sortQuery = useMemo(() => {
     const found = sort && adminTariffsHeader.find(({ id }) => id === sort.id);
     return found
