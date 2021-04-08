@@ -19,9 +19,11 @@ export default () => {
   const headerData = useSelector(({ tableReducer }) => tableReducer.adminTariffsHeader);
   const headers = useMemo(() => headerMaker(headerData), [headerData]);
   const dispatch = useDispatch();
+
   const {
     data, error, total, loading
   } = useSelector((state) => state.adminTariffsReducers);
+
   const sortQuery = useMemo(() => {
     const found = sort && adminTariffsHeader.find(({ id }) => id === sort.id);
     return found
@@ -33,10 +35,12 @@ export default () => {
     () => `&page=${pageIndex}&size=${pageSize}${sortQuery}`,
     [pageIndex, pageSize, sortQuery]
   );
+
   const handleOnChange = ({ pageIndex, pageSize }) => {
     setPageIndex(pageIndex);
     setPageSize(pageSize);
   };
+
   useEffect(() => {
     dispatch(fetchData({ query }));
   }, [fetchData, query]);
@@ -49,6 +53,7 @@ export default () => {
       })
     );
   }, [dispatch, search]);
+
   return (
     <Container>
       <TariffsHeader
@@ -61,7 +66,6 @@ export default () => {
         <TableError message={error} />
       ) : (
         <Table
-          height="590"
           total={total}
           data={data}
           toolTips={toolTips}
