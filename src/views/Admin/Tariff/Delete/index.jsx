@@ -1,7 +1,14 @@
 import React from 'react';
 
-export default () => (
-  <div>
-    Delete
-  </div>
-);
+import { useDispatch } from 'react-redux';
+
+export default (props) => {
+  // eslint-disable-next-line no-unused-vars
+  const dispatch = useDispatch();
+  console.log(props);
+  return (
+    <div>
+      Delete
+    </div>
+  );
+};

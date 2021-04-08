@@ -1,6 +1,6 @@
 import * as Yup from 'yup';
-import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
+import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { regStudent } from '../../../../../redux/modules/auth/actions';
 

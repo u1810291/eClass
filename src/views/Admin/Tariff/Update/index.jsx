@@ -1,7 +1,11 @@
 import React from 'react';
 
-export default () => (
-  <div>
-    Update tariff
-  </div>
-);
+export default ({ id, useUpdateForm }) => {
+  const { formik } = useUpdateForm(id);
+  console.log(formik);
+  return (
+    <div>
+      Update tariff
+    </div>
+  );
+};
