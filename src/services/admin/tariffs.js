@@ -5,6 +5,12 @@ export default {
   createTariff: (data) => service.put('/api/v1/tariff', data),
   updateTariffIdInBody: (data) => service.put('/api/v1/tariff/', data),
   updateTariffIdInParams: (id, data) => service.put(`/api/v1/tariff/${id}`, data),
-  deleteTariffIdInParams: (id) => service.delete(`/api/v1/tariff/${id}`),
+  deleteTariffIdInParams: (id) => service({
+    url: `/api/v1/tariff/${id}`,
+    method: 'DELETE',
+    headers: {
+      'Access-Control-Allow-Methods': '*'
+    }
+  }),
   deleteTariffNameIdInParams: (id) => service.delete(`/api/v1/tariff/${id}`)
 };
