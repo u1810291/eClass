@@ -31,11 +31,12 @@ function refresh() {
     service.post('/api/v1/refresh', {
       refresh_token: sessionStorage.getItem('refresh_token')
     }).then((response) => {
-      saveToken(response.data.access_token, response.data.refresh_token);
       alert('Access token has expired!');
+      saveToken(response.data.access_token, response.data.refresh_token);
       window.location.replace('/');
       return resolve(response.data.access_token);
     }).catch((error) => {
+      alert('Refresh token has expired!');
       destroyToken();
       window.location.replace('/logout');
       return reject(error);
@@ -47,11 +48,11 @@ service.interceptors.response.use(
   (res) => res,
   (error) => {
     const status = error.response ? error.response.status : null;
-    if (status === 401) {
+    if (parseInt(status, 10) === 401) {
       alert('Login or password is incorrect');
-      window.location.replace('/logout');
-      sessionStorage.removeItem('access_token');
-      sessionStorage.removeItem('refresh_token');
+    }
+    if (parseInt(status, 10) === 403) {
+      refresh();
     }
     if (!status) {
       refresh();
@@ -64,7 +65,6 @@ service.interceptors.request.use((config) => {
   const access_token = sessionStorage.getItem('access_token');
   config.headers.Authorization = `Bearer ${access_token}`;
   if (typeof config.data === typeof FormData) config.headers['Content-Type'] = 'multipart/form-data';
-
   return config;
 });
 

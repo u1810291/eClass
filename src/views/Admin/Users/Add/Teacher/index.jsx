@@ -4,13 +4,14 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Container } from './style';
 import { useInfoForm } from './hooks';
-
 import TeacherRegister from '../../../../../components/TeacherRegister';
 
 export default () => {
   const [date, setDate] = useState('');
   const { formik } = useInfoForm();
   const { cities, countries } = useSelector((state) => state.listsReducers);
+  const { data } = useSelector((state) => state.adminSubjectsReducers);
+
   return (
     <Container>
       <TeacherRegister
@@ -19,6 +20,7 @@ export default () => {
         formik={formik}
         cities={cities}
         countries={countries}
+        subjects={data}
       />
     </Container>
   );

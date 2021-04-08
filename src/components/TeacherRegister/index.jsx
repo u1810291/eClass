@@ -3,7 +3,7 @@ import React from 'react';
 import classNames from 'classnames';
 import Dropdown from '../Forms/Dropdowns';
 import { PrimaryButton } from '../Buttons';
-import { dropdownOptions, languages } from '../../data/dropdown';
+import { languages } from '../../data/dropdown';
 import {
   Container, MainInfo, SubmitForm, TextAreaContainer, Header
 } from './style';
@@ -11,7 +11,7 @@ import { NormalInput, TagsInput, CustomDatePickerV2 } from '../Forms/Inputs';
 import TextArea from '../Forms/Inputs/TextArea';
 
 export default ({
-  formik, cities, countries, date, setDate
+  formik, cities, countries, date, setDate, subjects
 }) => (
   <Container>
     <Header className={classNames('heading-1')}>Create new Teacher</Header>
@@ -207,11 +207,13 @@ export default ({
           type={formik.touched.subjects
                 && formik.errors.subjects && 'error'}
           helperText={formik.errors.subjects}
-          options={dropdownOptions.commonOptions}
-          value={formik.values.subjects}
-          onChange={(e) => formik.setFieldValue('subjects', cities.find((el) => el.id === e).value)}
+          options={subjects}
+          value={formik.values.subjects
+            && subjects.find((el) => el.value === formik.values.subjects).id}
+          onChange={(e) => formik.setFieldValue('subjects', subjects.find((el) => el.id === e).value)}
           size="large"
         />
+
       </MainInfo.Phone>
       <PrimaryButton title="Create teacher" type="submit" size="medium" />
     </SubmitForm>

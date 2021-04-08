@@ -15,6 +15,7 @@ export const Body = styled.div`
 
 export const Container = styled.div`
   margin: 50px;
+  overflow: auto;
 `;
 
 export const MainInfo = styled.div`
