@@ -49,6 +49,7 @@ function* updateTariff({ payload, success }) {
 
 function* deleteTariff({ payload, success }) {
   try {
+    console.log(payload);
     const res = yield service.deleteTariffIdInParams(payload);
     console.log(res);
     success(res);
