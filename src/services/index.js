@@ -36,6 +36,7 @@ function refresh() {
       window.location.replace('/');
       return resolve(response.data.access_token);
     }).catch((error) => {
+      alert('Refresh token has expired!');
       destroyToken();
       window.location.replace('/logout');
       return reject(error);
@@ -47,11 +48,11 @@ service.interceptors.response.use(
   (res) => res,
   (error) => {
     const status = error.response ? error.response.status : null;
-    if (status === 401) {
+    if (parseInt(status, 10) === 401) {
       alert('Login or password is incorrect');
-      window.location.replace('/logout');
-      sessionStorage.removeItem('access_token');
-      sessionStorage.removeItem('refresh_token');
+    }
+    if (parseInt(status, 10) === 403) {
+      refresh();
     }
     if (!status) {
       refresh();
