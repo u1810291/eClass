@@ -31,8 +31,8 @@ function refresh() {
     service.post('/api/v1/refresh', {
       refresh_token: sessionStorage.getItem('refresh_token')
     }).then((response) => {
-      saveToken(response.data.access_token, response.data.refresh_token);
       alert('Access token has expired!');
+      saveToken(response.data.access_token, response.data.refresh_token);
       window.location.replace('/');
       return resolve(response.data.access_token);
     }).catch((error) => {
@@ -65,7 +65,6 @@ service.interceptors.request.use((config) => {
   const access_token = sessionStorage.getItem('access_token');
   config.headers.Authorization = `Bearer ${access_token}`;
   if (typeof config.data === typeof FormData) config.headers['Content-Type'] = 'multipart/form-data';
-
   return config;
 });
 
