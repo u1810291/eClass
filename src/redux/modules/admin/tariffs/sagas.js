@@ -16,7 +16,6 @@ function* fetchData({ payload }) {
     if (payload.isSearch) yield delay(500);
     yield put(setLoading(true));
     const res = yield service.getAll(payload.query);
-    console.log(res);
     const { total, data } = dataSelector(res.data);
     yield put(setError(''));
     yield put(setData(data));
@@ -49,9 +48,7 @@ function* updateTariff({ payload, success }) {
 
 function* deleteTariff({ payload, success }) {
   try {
-    console.log(payload);
     const res = yield service.deleteTariffIdInParams(payload);
-    console.log(res);
     success(res);
   } catch (error) {
     console.log(error);
@@ -61,7 +58,6 @@ function* deleteTariff({ payload, success }) {
 function* deleteTariffName({ payload, success }) {
   try {
     const res = yield service.deleteTariffNameIdInParams(payload);
-    console.log(res);
     success(res);
   } catch (error) {
     console.log(error);
