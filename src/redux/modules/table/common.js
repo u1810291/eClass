@@ -542,16 +542,16 @@ export const adminTariffsHeader = [{
   align: 'end',
   disableSortBy: true,
   show: true,
-  Header: 'Group',
-  accessor: 'group'
+  Header: 'Name',
+  accessor: 'name'
 },
 {
   id: 2,
   align: 'end',
   disableSortBy: true,
   show: true,
-  Header: 'Group name',
-  accessor: 'group_name'
+  Header: 'Lang',
+  accessor: 'lang'
 },
 {
   id: 3,
@@ -566,25 +566,8 @@ export const adminTariffsHeader = [{
   align: 'end',
   disableSortBy: true,
   show: true,
-  Header: 'Lesson',
-  accessor: 'lesson'
-},
-{
-  id: 5,
-  align: 'end',
-  disableSortBy: true,
-  show: true,
-  Header: 'Subject',
-  accessor: 'subject'
-},
-{
-  id: 6,
-  align: 'end',
-  disableSortBy: true,
-  show: true,
-  Header: 'Download',
-  type: 'download',
-  accessor: 'files'
+  Header: 'Lessons count',
+  accessor: 'lessons_count'
 }
 ];
 
