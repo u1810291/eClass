@@ -15,9 +15,8 @@ export const getInitials = (name, delimeter = ' ') => {
   let str = '';
 
   for (let i = 0; i < array.length; i += 1) {
-    str += array[i][0].toUpperCase();
     if (i === 2) break;
+    str += array[i][0].toUpperCase();
   }
-
   return str;
 };
