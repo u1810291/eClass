@@ -7,7 +7,47 @@ import Update from './Update';
 import Delete from './Delete';
 import { deleteTariff, updateTariff, deleteTariffName } from '../../../redux/modules/admin/tariffs/actions';
 
-export const useUpdateForm = (id) => {
+export const useUpdateForm = (row) => {
+  const dispatch = useDispatch();
+  const validationSchema = Yup.object().shape({
+    first_name: Yup.string().required('First name is required'),
+    name: Yup.string().required('Required'),
+    description: Yup.string(),
+    amount: Yup.string().required('Required'),
+    lessons_count: Yup.string().required('Required'),
+    tariff_name_ru: Yup.string().required('Required'),
+    tariff_description_ru: Yup.string(),
+    tariff_name_uz: Yup.string().required('Required'),
+    tariff_description_uz: Yup.string()
+  });
+  const formik = useFormik({
+    initialValues: {
+      id: row.id,
+      name: row.name,
+      lang: row.lang,
+      amount: row.amount,
+      description: row.description,
+      lessons_count: row.lessons_count,
+      tariff_name_ru: '',
+      tariff_description_ru: '',
+      tariff_name_uz: '',
+      tariff_description_uz: ''
+    },
+    validationSchema,
+    onSubmit: (values, { setSubmitting }) => {
+      setSubmitting(true);
+      dispatch(updateTariff(values, (res) => {
+        setSubmitting(false);
+        // eslint-disable-next-line no-alert
+        if (res) alert('Succesfully updated');
+        return res;
+      }));
+    }
+  });
+  return { formik };
+};
+
+export const useAddForm = () => {
   const dispatch = useDispatch();
   const validationSchema = Yup.object().shape({
     first_name: Yup.string().required('First name is required'),
@@ -23,7 +63,6 @@ export const useUpdateForm = (id) => {
   const formik = useFormik({
     initialValues: {
       first_name: '',
-      id,
       name: '',
       description: '',
       amount: '',
@@ -71,10 +110,10 @@ export const toolTips = [
   {
     name: 'Update',
     icon: 'payment',
-    onClick: (id, { showBlured }) => {
+    onClick: (_, { row, showBlured }) => {
       showBlured({
         title: 'Update Tariff',
-        body: () => <Update id={id} useUpdateForm={useUpdateForm} />
+        body: () => <Update row={row.original} useUpdateForm={useUpdateForm} />
       });
     }
   }

@@ -50,10 +50,6 @@ color: #5A5A5A;
 `;
 
 export const DateContainer = styled.div`
-font-style: normal;
-font-weight: 600;
-font-size: 15.5335px;
-line-height: 19px;
 display: flex;
 flex-direction: column;
 `;

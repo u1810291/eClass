@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /* eslint-disable no-console */
 import { takeLatest, put } from 'redux-saga/effects';
 import types from '../../../../constants/action-types';
@@ -22,7 +23,7 @@ function* fetchData({ payload }) {
     yield put(setTotal(total));
     yield put(setLoading(false));
   } catch (error) {
-    yield put(setError(error));
+    yield put(setError(error.response ? error.response.data.error_message : error));
   }
 }
 
@@ -34,7 +35,8 @@ function* createLesson({ payload, success }) {
     success(res.data);
     yield put(setLoading(false));
   } catch (error) {
-    yield put(setError(error || error));
+    alert(error.response ? error.response.data.error_message : error);
+    yield put(setError(error.response ? error.response.data.error_message : error));
   }
 }
 
@@ -45,7 +47,8 @@ function* addGroup({ payload, success }) {
     yield put(setError(''));
     success(res);
   } catch (error) {
-    yield put(setError(error));
+    alert(error.response ? error.response.data.error_message : error);
+    yield put(setError(error.response ? error.response.data.error_message : error));
   }
 }
 function* addStudent({ payload, success }) {
@@ -54,11 +57,8 @@ function* addStudent({ payload, success }) {
     const res = yield service.addGroupStudents(payload);
     success(res);
   } catch (error) {
-    if (error.response) {
-      success(error.response.data.error_message);
-    } else {
-      success(error);
-    }
+    alert(error.response ? error.response.data.error_message : error);
+    success(error.response ? error.response.data.error_message : error);
   }
 }
 
@@ -69,7 +69,8 @@ function* editGroup({ payload, id, success }) {
     yield put(setError(''));
     success(res.data);
   } catch (error) {
-    success(error);
+    alert(error.response ? error.response.data.error_message : error);
+    success(error.response ? error.response.data.error_message : error);
   }
 }
 
@@ -80,7 +81,8 @@ function* deleteGroup({ payload, success }) {
     yield put(setError(''));
     success([res.data]);
   } catch (error) {
-    yield put(setError('error'));
+    alert(error.response ? error.response.data.error_message : error);
+    success(error.response ? error.response.data.error_message : error);
   }
 }
 
