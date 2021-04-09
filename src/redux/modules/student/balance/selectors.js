@@ -12,8 +12,8 @@ export function dataSelector(data) {
     tariff_lang: el.lang,
     tariff_lessons_count: el.lessons_count,
     tariff_name: el.name,
-    subject_id: el.tariff.subject.id,
-    subject_name: el.tariff.subject.name
+    subject_id: el.tariff ? el.tariff.subject.id : '',
+    subject_name: el.tariff ? el.tariff.subject.name : ''
   }));
 
   return { total: total_elements, data: filtered };
