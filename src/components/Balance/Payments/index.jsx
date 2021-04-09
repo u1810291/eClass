@@ -1,13 +1,13 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
-import Card from '../Card';
-import { getRandColor } from '../../utils/random-color';
+import Card from '../../Card';
+import { getRandColor } from '../../../utils/random-color';
 import {
   Header, CardsContainer, Body, Title, TotalBalance, DateContainer
 } from './style';
-import Spinner from '../Spinner';
-import TableError from '../Table/Error';
-import Dropdown from '../Forms/Dropdowns';
+import Spinner from '../../Spinner';
+import TableError from '../../Table/Error';
+import Dropdown from '../../Forms/Dropdowns';
 
 export default ({
   data, error, loading, options, option, setOption
@@ -35,11 +35,11 @@ export default ({
               {loading ? <Spinner contain black /> : data.map((el, i) => (
                 <Card key={i} color={getRandColor()} size="small">
                   <Title>
-                    {el.subject_name ? el.subject_name : ''}
+                    {el.code}
                   </Title>
                   <TotalBalance>
                     <TotalBalance.Bold>
-                      {el.available_balance}
+                      {el.amount}
                       {' '}
                       sum
                     </TotalBalance.Bold>
@@ -47,7 +47,25 @@ export default ({
                   <DateContainer>
                     Last paid lesson
                     {' '}
-                    {el.description}
+                    <div>{el.description}</div>
+                    {el.to
+                      ? (
+                        <span>
+                          To
+                          {' '}
+                          {el.to.full_name}
+                        </span>
+                      )
+                      : ''}
+                    {el.from
+                      ? (
+                        <span>
+                          From
+                          {' '}
+                          {el.from.full_name}
+                        </span>
+                      )
+                      : ''}
                   </DateContainer>
                   <DateContainer.Text>
                     {el.date}

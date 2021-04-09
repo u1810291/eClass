@@ -5,3 +5,4 @@ export const setData = (payload) => ({ type: types.TABLE_STUDENT_BALANCE_SET_DAT
 export const setTotal = (payload) => ({ type: types.TABLE_STUDENT_BALANCE_SET_TOTAL, payload });
 export const setError = (payload) => ({ type: types.TABLE_STUDENT_BALANCE_ERROR, payload });
 export const fetchData = () => ({ type: types.TABLE_STUDENT_BALANCE_FETCH_DATA });
+export const fetchPayments = () => ({ type: types.TABLE_STUDENT_PAYMENTS_FETCH_DATA });

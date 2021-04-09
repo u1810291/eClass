@@ -9,14 +9,27 @@ import {
   setLoading
 } from './actions';
 
-import { dataSelector } from './selectors';
+import { dataSelector, paymentSelector } from './selectors';
 
 function* fetchData() {
   yield put(setLoading(true));
   try {
     const res = yield service.getBalance();
-    console.log(res);
     const { total, data } = dataSelector(res.data);
+    yield put(setError(''));
+    yield put(setData(data));
+    yield put(setTotal(total));
+    yield put(setLoading(false));
+  } catch (error) {
+    yield put(setError(error));
+  }
+}
+function* fetchPayments() {
+  yield put(setLoading(true));
+  try {
+    const res = yield service.getPayments();
+    console.log(res);
+    const { total, data } = paymentSelector(res.data);
     yield put(setError(''));
     yield put(setData(data));
     yield put(setTotal(total));
@@ -29,4 +42,5 @@ function* fetchData() {
 
 export default function* balanceSaga() {
   yield takeLatest(types.TABLE_STUDENT_BALANCE_FETCH_DATA, fetchData);
+  yield takeLatest(types.TABLE_STUDENT_PAYMENTS_FETCH_DATA, fetchPayments);
 }
