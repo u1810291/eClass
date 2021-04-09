@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 
-export const Container = styled.form`
+export const Container = styled.div`
   display: gird;
   grid-gap: 20px;
-  grid-template-columns: 1fr, 1fr;
+  grid-template-columns: repeat(2, 1fr);
   padding: 20px;
 `;
+
+export const Form = styled.div``

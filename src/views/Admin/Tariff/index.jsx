@@ -9,6 +9,7 @@ import TableError from '../../../components/Table/Error';
 import { headerMaker } from '../../../components/Table/helper';
 import { fetchData } from '../../../redux/modules/admin/tariffs/actions';
 import { adminTariffsHeader } from '../../../redux/modules/table/common';
+import { useShowModal } from '../../../hooks/modal';
 
 export default () => {
   const [pageIndex, setPageIndex] = useState(0);
@@ -19,6 +20,7 @@ export default () => {
   const headerData = useSelector(({ tableReducer }) => tableReducer.adminTariffsHeader);
   const headers = useMemo(() => headerMaker(headerData), [headerData]);
   const dispatch = useDispatch();
+  const { showBlured } = useShowModal();
 
   const {
     data, error, total, loading
@@ -61,6 +63,7 @@ export default () => {
         search={search}
         setDate={setDate}
         date={date}
+        showBlured={showBlured}
       />
       {error ? (
         <TableError message={error} />

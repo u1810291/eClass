@@ -5,12 +5,13 @@ import {
 } from '../style';
 import DatePicker from '../../Forms/Inputs/DatePicker';
 import { PrimaryButton } from '../../Buttons';
-import { useShowModal } from '../../../hooks/modal';
 import TariffAdd from '../../../views/Admin/Tariff/Add';
+import { useAddForm } from '../../../views/Admin/Tariff/helper';
 
 export default ({
   setDate,
-  date
+  date,
+  showBlured
 }) => (
   <Container>
     <Body>
@@ -30,7 +31,17 @@ export default ({
           white
           right={false}
         />
-        <PrimaryButton title="Add Tariff" onClick={() => { useShowModal({ title: 'Add Tariff', body: () => <TariffAdd /> }); }} />
+        <PrimaryButton
+          title="Add Tariff"
+          onClick={() => showBlured({
+            title: 'Add Tariff',
+            body: () => (
+              <TariffAdd
+                useAddForm={useAddForm}
+              />
+            )
+          })}
+        />
       </div>
     </Body>
   </Container>
