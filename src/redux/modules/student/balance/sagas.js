@@ -28,7 +28,6 @@ function* fetchPayments() {
   yield put(setLoading(true));
   try {
     const res = yield service.getPayments();
-    console.log(res);
     const { total, data } = paymentSelector(res.data);
     yield put(setError(''));
     yield put(setData(data));

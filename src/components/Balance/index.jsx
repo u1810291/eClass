@@ -30,32 +30,34 @@ export default ({
       ? <TableError message={error} />
       : (
         <Body>
-          <Card color="#FFFFFF" size="small">
-            <CardsContainer>
-              {loading ? <Spinner contain black /> : data.map((el, i) => (
-                <Card key={i} color={getRandColor()} size="small">
-                  <Title>
-                    {el.subject_name ? el.subject_name : ''}
-                  </Title>
-                  <TotalBalance>
-                    <TotalBalance.Bold>
-                      {el.available_balance}
+          {loading ? <Spinner contain black /> : (
+            <Card color="#FFFFFF" size="small">
+              <CardsContainer>
+                {data.map((el, i) => (
+                  <Card key={i} color={getRandColor()} size="small">
+                    <Title>
+                      {el.subject_name ? el.subject_name : ''}
+                    </Title>
+                    <TotalBalance>
+                      <TotalBalance.Bold>
+                        {el.available_balance}
+                        {' '}
+                        sum
+                      </TotalBalance.Bold>
+                    </TotalBalance>
+                    <DateContainer>
+                      Last paid lesson
                       {' '}
-                      sum
-                    </TotalBalance.Bold>
-                  </TotalBalance>
-                  <DateContainer>
-                    Last paid lesson
-                    {' '}
-                    {el.description}
-                  </DateContainer>
-                  <DateContainer.Text>
-                    {el.date}
-                  </DateContainer.Text>
-                </Card>
-              ))}
-            </CardsContainer>
-          </Card>
+                      {el.description}
+                    </DateContainer>
+                    <DateContainer.Text>
+                      {el.date}
+                    </DateContainer.Text>
+                  </Card>
+                ))}
+              </CardsContainer>
+            </Card>
+          )}
         </Body>
       )}
   </>

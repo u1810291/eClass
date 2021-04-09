@@ -37,9 +37,9 @@ export function paymentSelector(data) {
       username: el.to ? el.to.username : ''
     },
     from: {
-      full_name: el.ftom ? el.from.full_name : '',
-      id: el.ftom ? el.from.id : '',
-      username: el.ftom ? el.from.username : ''
+      full_name: el.from ? el.from.full_name : '',
+      id: el.from ? el.from.id : '',
+      username: el.from ? el.from.username : ''
     }
   }));
 

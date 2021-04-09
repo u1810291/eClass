@@ -1,5 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
+import classNames from 'classnames';
 import Card from '../../Card';
 import { getRandColor } from '../../../utils/random-color';
 import {
@@ -36,7 +37,7 @@ export default ({
                 {data.map((el, i) => (
                   <Card key={i} color={getRandColor()} size="small">
                     <Title>
-                      {el.code}
+                      {el.code && el.code.replace(/_/g, '  ')}
                     </Title>
                     <TotalBalance>
                       <TotalBalance.Bold>
@@ -45,21 +46,25 @@ export default ({
                         sum
                       </TotalBalance.Bold>
                     </TotalBalance>
-                    <DateContainer>
+                    <DateContainer className={classNames('heading-5')}>
                       Last paid lesson
                       {' '}
                       <div>{el.description}</div>
                       {el.to
                         ? (
                           <span>
-                            {`To ${el.to.full_name}`}
+                            <div className={classNames('weight-bold')}>To</div>
+                            {' '}
+                            {el.to.full_name}
                           </span>
                         )
                         : ''}
                       {el.from
                         ? (
                           <span>
-                            {`From ${el.from.full_name}`}
+                            <div className={classNames('weight-bold')}>From</div>
+                            {' '}
+                            {el.from.full_name}
                           </span>
                         )
                         : ''}
