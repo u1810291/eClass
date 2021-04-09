@@ -23,7 +23,7 @@ export default () => {
   } = useSelector((state) => state.studentLessonsReducers);
   const headerData = useSelector(({ tableReducer }) => tableReducer.studentLessonsHeader);
   const headers = useMemo(() => headerMaker(headerData), [headerData]);
-
+  console.log(data);
   const dateFilter = useMemo(
     () => (date
       ? `&from_date=${date.start.toISOString()}&to_date=${date.end.toISOString()}`
