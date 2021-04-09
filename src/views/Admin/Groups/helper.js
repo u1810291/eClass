@@ -100,7 +100,7 @@ const handleEdit = (id) => {
 const handleAddStudent = (id) => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchData('student', '?size=10000'));
+    dispatch(fetchData('student', 'size=10000'));
   }, [dispatch]);
   const { data, error } = useSelector((state) => state.adminUsersReducers);
   const students = data.map((el) => ({ id: el.id, value: el.full_name }));
