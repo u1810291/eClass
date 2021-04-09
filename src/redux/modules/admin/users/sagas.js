@@ -26,7 +26,7 @@ function* fetchData({ payload, params }) {
     if (error.response.data.error_message) {
       yield put(setError(error.response.data.error_message));
     } else {
-      yield put(setError(error));
+      yield put(setError(error.response ? error.response.data.error_message : error));
     }
   }
 }
@@ -40,7 +40,7 @@ function* getSingleUser({ payload, params }) {
     if (error.response.data.error_message) {
       yield put(setError(error.response.data.error_message));
     } else {
-      yield put(setError(error));
+      yield put(setError(error.response ? error.response.data.error_message : error));
     }
   }
 }

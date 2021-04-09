@@ -21,7 +21,7 @@ function* fetchData() {
     yield put(setTotal(total));
     yield put(setLoading(false));
   } catch (error) {
-    yield put(setError(error));
+    yield put(setError(error.response ? error.response.data.error_message : error));
   }
 }
 function* fetchPayments() {
@@ -35,7 +35,7 @@ function* fetchPayments() {
     yield put(setLoading(false));
   } catch (error) {
     console.log(error);
-    yield put(setError(error));
+    yield put(setError(error.response ? error.response.data.error_message : error));
   }
 }
 
