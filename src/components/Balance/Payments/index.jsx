@@ -30,50 +30,48 @@ export default ({
       ? <TableError message={error} />
       : (
         <Body>
-          <Card color="#FFFFFF" size="small">
-            <CardsContainer>
-              {loading ? <Spinner contain black /> : data.map((el, i) => (
-                <Card key={i} color={getRandColor()} size="small">
-                  <Title>
-                    {el.code}
-                  </Title>
-                  <TotalBalance>
-                    <TotalBalance.Bold>
-                      {el.amount}
+          {loading ? <Spinner contain black /> : (
+            <Card color="#FFFFFF" size="small">
+              <CardsContainer>
+                {data.map((el, i) => (
+                  <Card key={i} color={getRandColor()} size="small">
+                    <Title>
+                      {el.code}
+                    </Title>
+                    <TotalBalance>
+                      <TotalBalance.Bold>
+                        {el.amount}
+                        {' '}
+                        sum
+                      </TotalBalance.Bold>
+                    </TotalBalance>
+                    <DateContainer>
+                      Last paid lesson
                       {' '}
-                      sum
-                    </TotalBalance.Bold>
-                  </TotalBalance>
-                  <DateContainer>
-                    Last paid lesson
-                    {' '}
-                    <div>{el.description}</div>
-                    {el.to
-                      ? (
-                        <span>
-                          To
-                          {' '}
-                          {el.to.full_name}
-                        </span>
-                      )
-                      : ''}
-                    {el.from
-                      ? (
-                        <span>
-                          From
-                          {' '}
-                          {el.from.full_name}
-                        </span>
-                      )
-                      : ''}
-                  </DateContainer>
-                  <DateContainer.Text>
-                    {el.date}
-                  </DateContainer.Text>
-                </Card>
-              ))}
-            </CardsContainer>
-          </Card>
+                      <div>{el.description}</div>
+                      {el.to
+                        ? (
+                          <span>
+                            {`To ${el.to.full_name}`}
+                          </span>
+                        )
+                        : ''}
+                      {el.from
+                        ? (
+                          <span>
+                            {`From ${el.from.full_name}`}
+                          </span>
+                        )
+                        : ''}
+                    </DateContainer>
+                    <DateContainer.Text>
+                      {el.date}
+                    </DateContainer.Text>
+                  </Card>
+                ))}
+              </CardsContainer>
+            </Card>
+          )}
         </Body>
       )}
   </>
