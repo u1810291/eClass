@@ -1,10 +1,15 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  display: gird;
+  display: grid;
   grid-gap: 20px;
   grid-template-columns: repeat(2, 1fr);
   padding: 20px;
+  margin: 20px;
+  input {
+    text-indent: 0px;
+  }
 `;
 
-export const Form = styled.div``
+export const Form = styled.div`
+`;

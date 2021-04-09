@@ -1,18 +1,20 @@
 import React from 'react';
 
 import { NormalInput } from '../../../../components/Forms/Inputs';
+import { PrimaryButton } from '../../../../components/Buttons';
 import { Container, Form } from './style';
 
 export default ({ useAddForm }) => {
   const { formik } = useAddForm();
+  console.log(formik.errors);
   return (
-    <Container>
-      <Form onSubmit={formik.handleSubmit}>
+    <Form onSubmit={formik.handleSubmit}>
+      <Container>
         <NormalInput
           white
           name="name"
           size="large"
-          placeholder="Write a Name"
+          placeholder="Name"
           type={formik.touched.name && formik.errors.name && 'error'}
           helperText={formik.touched.name
                   && formik.errors.name && formik.errors.name}
@@ -23,7 +25,7 @@ export default ({ useAddForm }) => {
           white
           name="description"
           size="large"
-          placeholder="Write a Description"
+          placeholder="Description"
           type={formik.touched.description && formik.errors.description && 'error'}
           helperText={formik.touched.description
                   && formik.errors.description && formik.errors.description}
@@ -34,7 +36,7 @@ export default ({ useAddForm }) => {
           white
           name="amount"
           size="large"
-          placeholder="Write a Amount"
+          placeholder="Amount"
           type={formik.touched.amount && formik.errors.amount && 'error'}
           helperText={formik.touched.amount
                   && formik.errors.amount && formik.errors.amount}
@@ -45,7 +47,7 @@ export default ({ useAddForm }) => {
           white
           name="lessons_count"
           size="large"
-          placeholder="Write a Lessons Number"
+          placeholder="Lessons Number"
           type={formik.touched.lessons_count && formik.errors.lessons_count && 'error'}
           helperText={formik.touched.lessons_count
                   && formik.errors.lessons_count && formik.errors.lessons_count}
@@ -56,7 +58,7 @@ export default ({ useAddForm }) => {
           white
           name="tariff_name_ru"
           size="large"
-          placeholder="Write a Tariff Name in russian"
+          placeholder="Tariff Name in russian"
           type={formik.touched.tariff_name_ru && formik.errors.tariff_name_ru && 'error'}
           helperText={formik.touched.tariff_name_ru
                   && formik.errors.tariff_name_ru && formik.errors.tariff_name_ru}
@@ -67,7 +69,7 @@ export default ({ useAddForm }) => {
           white
           name="tariff_description_ru"
           size="large"
-          placeholder="Write a Tariff Description in russian"
+          placeholder="Tariff Description in russian"
           type={formik.touched.tariff_description_ru && formik.errors.tariff_description_ru && 'error'}
           helperText={formik.touched.tariff_description_ru
                   && formik.errors.tariff_description_ru && formik.errors.tariff_description_ru}
@@ -78,7 +80,7 @@ export default ({ useAddForm }) => {
           white
           name="tariff_name_uz"
           size="large"
-          placeholder="Write a Tariff Name in uzbek"
+          placeholder="Tariff Name in uzbek"
           type={formik.touched.tariff_name_uz && formik.errors.tariff_name_uz && 'error'}
           helperText={formik.touched.tariff_name_uz
                   && formik.errors.tariff_name_uz && formik.errors.tariff_name_uz}
@@ -89,14 +91,15 @@ export default ({ useAddForm }) => {
           white
           name="tariff_description_uz"
           size="large"
-          placeholder="Write a Tariff Description in uzbek"
+          placeholder="Tariff Description in uzbek"
           type={formik.touched.tariff_description_uz && formik.errors.tariff_description_uz && 'error'}
           helperText={formik.touched.tariff_description_uz
                   && formik.errors.tariff_description_uz && formik.errors.tariff_description_uz}
           value={formik.values.tariff_description_uz}
           onChange={(e) => formik.setFieldValue('tariff_description_uz', e.target.value)}
         />
-      </Form>
-    </Container>
+        <PrimaryButton type="submit" title="Add tariff" size="large" />
+      </Container>
+    </Form>
   );
 };

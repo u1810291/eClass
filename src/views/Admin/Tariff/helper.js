@@ -50,7 +50,6 @@ export const useUpdateForm = (row) => {
 export const useAddForm = () => {
   const dispatch = useDispatch();
   const validationSchema = Yup.object().shape({
-    first_name: Yup.string().required('First name is required'),
     name: Yup.string().required('Required'),
     description: Yup.string(),
     amount: Yup.string().required('Required'),
@@ -62,7 +61,6 @@ export const useAddForm = () => {
   });
   const formik = useFormik({
     initialValues: {
-      first_name: '',
       name: '',
       description: '',
       amount: '',
