@@ -1,8 +1,12 @@
 import React from 'react';
+
 import {
   Container, Body, TitleWrapper
 } from '../style';
 import DatePicker from '../../Forms/Inputs/DatePicker';
+import { PrimaryButton } from '../../Buttons';
+import { useShowModal } from '../../../hooks/modal';
+import TariffAdd from '../../../views/Admin/Tariff/Add';
 
 export default ({
   setDate,
@@ -26,6 +30,7 @@ export default ({
           white
           right={false}
         />
+        <PrimaryButton title="Add Tariff" onClick={() => { useShowModal({ title: 'Add Tariff', body: () => <TariffAdd /> }); }} />
       </div>
     </Body>
   </Container>

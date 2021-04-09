@@ -41,7 +41,7 @@ export default () => {
     dispatch(subjectFetch());
     dispatch(getUser('teacher', ''));
     dispatch(fetchData({ query }));
-  }, [dispatch, query]);
+  }, [dispatch, query, groupAddFormik]);
 
   const handleOnChange = ({ pageIndex, pageSize }) => {
     setPageIndex(pageIndex);

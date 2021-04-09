@@ -184,8 +184,8 @@ export const groupAddFormik = () => {
     teacher_id: Yup.string(),
     subject_id: Yup.string(),
     study_days: Yup.array().required('Required'),
-    start_date: Yup.string(),
-    finish_date: Yup.string()
+    start_date: Yup.string().required('Required'),
+    finish_date: Yup.string().required('Required')
   });
   const formik = useFormik({
     initialValues: {
