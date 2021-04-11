@@ -6,7 +6,6 @@ import { Container, Form } from './style';
 
 export default ({ useAddForm }) => {
   const { formik } = useAddForm();
-  console.log(formik.errors);
   return (
     <Form onSubmit={formik.handleSubmit}>
       <Container>

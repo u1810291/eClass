@@ -5,7 +5,9 @@ import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import Update from './Update';
 import Delete from './Delete';
-import { deleteTariff, updateTariff, deleteTariffName } from '../../../redux/modules/admin/tariffs/actions';
+import {
+  deleteTariff, updateTariff, deleteTariffName, createTariff
+} from '../../../redux/modules/admin/tariffs/actions';
 
 export const useUpdateForm = (row) => {
   const dispatch = useDispatch();
@@ -73,7 +75,7 @@ export const useAddForm = () => {
     validationSchema,
     onSubmit: (values, { setSubmitting }) => {
       setSubmitting(true);
-      dispatch(updateTariff(values, (res) => {
+      dispatch(createTariff(values, (res) => {
         setSubmitting(false);
         // eslint-disable-next-line no-alert
         if (res) alert('Succesfully updated');
