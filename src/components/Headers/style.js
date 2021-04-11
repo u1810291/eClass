@@ -152,6 +152,13 @@ export const Body = styled.div`
   justify-content: space-between;
   padding: 5px;  
 `;
+
+Body.Right = styled.div`
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 1fr 1fr;
+`;
+
 export const Title = styled.div`
   font-style: normal;
   font-weight: 600;

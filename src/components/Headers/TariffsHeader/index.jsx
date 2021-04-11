@@ -19,7 +19,7 @@ export default ({
         <TitleWrapper.Title>Lessons</TitleWrapper.Title>
         <TitleWrapper.Clear>Celar filter</TitleWrapper.Clear>
       </TitleWrapper>
-      <div>
+      <Body.Right>
         <DatePicker
           placeholder="Date"
           name="rangeDate"
@@ -42,7 +42,7 @@ export default ({
             )
           })}
         />
-      </div>
+      </Body.Right>
     </Body>
   </Container>
 );
