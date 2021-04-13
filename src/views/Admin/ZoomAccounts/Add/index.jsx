@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 
+import { useSelector } from 'react-redux';
 import { NormalInput } from '../../../../components/Forms/Inputs';
 import Dropdown from '../../../../components/Forms/Dropdowns';
 import { PrimaryButton } from '../../../../components/Buttons';
 import { Container, Form } from './style';
 
 export default ({ useAddForm }) => {
-  const { formik, users } = useAddForm();
+  const { formik } = useAddForm();
+  const { users } = useSelector((state) => state.listsReducers);
+  const [personal, setPersonal] = useState('');
   const personals = [
     { id: 1, value: 'Personal', isPersonal: true },
     { id: 2, value: 'Not Personal', isPersonal: false }];
@@ -37,17 +40,17 @@ export default ({ useAddForm }) => {
         />
         <Dropdown
           color="#FFFFFF"
-          placeholder="Language"
+          placeholder="Choose one option"
           name="personal"
           type={formik.touched.personal
                 && formik.errors.personal && 'error'}
           helperText={formik.errors.personal}
           options={personals}
-          value={
-            formik.values.personal
-                && personals.find((el) => el.value === formik.values.personal).id
-          }
-          onChange={(e) => formik.setFieldValue('personal', personals.find((el) => el.id === e).value)}
+          value={personal}
+          onChange={(e) => {
+            setPersonal(e);
+            formik.setFieldValue('personal', personals.find((el) => el.id === e).isPersonal);
+          }}
           size="large"
         />
         {
@@ -55,17 +58,14 @@ export default ({ useAddForm }) => {
             ? (
               <Dropdown
                 color="#FFFFFF"
-                placeholder="Language"
+                placeholder="Reserved For"
                 name="reserved_for"
                 type={formik.touched.reserved_for
                   && formik.errors.reserved_for && 'error'}
                 helperText={formik.errors.reserved_for}
                 options={users}
-                value={
-                  formik.values.reserved_for
-                  && users.find((el) => el.value === formik.values.reserved_for).id
-                }
-                onChange={(e) => formik.setFieldValue('reserved_for', users.find((el) => el.id === e).value)}
+                value={formik.values.reserved_for}
+                onChange={(e) => formik.setFieldValue('reserved_for', users.find((el) => el.id === e).isPersonal)}
                 size="large"
               />
             )
