@@ -20,3 +20,33 @@ export const fetchData = (payload) => ({
   type: types.ADMIN_ZOOM_ACCOUNTS_FETCH_DATA,
   payload
 });
+
+export const registerAccount = (payload) => ({
+  type: types.ADMIN_ZOOM_ACCOUNTS_REGISTER,
+  payload
+});
+
+export const unRegisterAccount = (payload) => ({
+  type: types.ADMIN_ZOOM_ACCOUNTS_UNREGISTER,
+  payload
+});
+
+export const stopMeeting = (payload) => ({
+  type: types.ADMIN_ZOOM_ACCOUNTS_STOP_MEETING,
+  payload
+});
+
+export const zoomSignature = (payload) => ({
+  type: types.ADMIN_ZOOM_ACCOUNTS_SIGNATURE,
+  payload
+});
+
+export const getSingleAccount = (payload) => ({
+  type: types.ADMIN_ZOOM_ACCOUNTS_FETCH_SINGLE,
+  payload
+});
+
+export const createMeeting = (payload) => ({
+  type: types.ADMIN_ZOOM_ACCOUNTS_CREATE_MEETING,
+  payload
+});
