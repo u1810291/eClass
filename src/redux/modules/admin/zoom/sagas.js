@@ -26,6 +26,6 @@ function* fetchData({ payload }) {
   }
 }
 
-export default function* lessonsSaga() {
-  yield takeLatest(types.ADMIN_ACCOUNTS_FETCH_DATA, fetchData);
+export default function* adminAccountsSaga() {
+  yield takeLatest(types.ADMIN_ZOOM_ACCOUNTS_FETCH_DATA, fetchData);
 }

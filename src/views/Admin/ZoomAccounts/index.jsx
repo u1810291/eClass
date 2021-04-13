@@ -7,15 +7,15 @@ import Table from '../../../components/Table';
 import ZoomHeader from '../../../components/Headers/ZoomHeader';
 import TableError from '../../../components/Table/Error';
 import { headerMaker } from '../../../components/Table/helper';
-import { fetchData } from '../../../redux/modules/admin/tariffs/actions';
+import { fetchData } from '../../../redux/modules/admin/zoom/actions';
 import { adminAccountsHeader } from '../../../redux/modules/table/common';
 import { useShowModal } from '../../../hooks/modal';
 
 export default () => {
   const [pageIndex, setPageIndex] = useState(0);
-  const [pageSize, setPageSize] = useState(0);
+  const [pageSize, setPageSize] = useState(10);
   const [sort, setSort] = useState();
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState(false);
   const [date, setDate] = useState(undefined);
   const headerData = useSelector(({ tableReducer }) => tableReducer.adminAccountsHeader);
   const headers = useMemo(() => headerMaker(headerData), [headerData]);
@@ -24,7 +24,7 @@ export default () => {
 
   const {
     data, error, total, loading
-  } = useSelector((state) => state.adminTariffsReducers);
+  } = useSelector((state) => state.adminAccountsReducers);
 
   const sortQuery = useMemo(() => {
     const found = sort && adminAccountsHeader.find(({ id }) => id === sort.id);
@@ -46,15 +46,6 @@ export default () => {
   useEffect(() => {
     dispatch(fetchData({ query }));
   }, [fetchData, query]);
-
-  useEffect(() => {
-    dispatch(
-      fetchData({
-        isSearch: true,
-        query: `${query}${search ? `&search=${search}` : ''}`
-      })
-    );
-  }, [dispatch, search]);
 
   return (
     <Container>

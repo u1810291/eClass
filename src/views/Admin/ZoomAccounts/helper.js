@@ -7,7 +7,7 @@ import Update from './Update';
 import Delete from './Delete';
 import {
   deleteTariff, updateTariff, deleteTariffName, createTariff, fetchData
-} from '../../../redux/modules/admin/tariffs/actions';
+} from '../../../redux/modules/admin/zoom/actions';
 import { useHideModal } from '../../../hooks/modal';
 
 export const useUpdateForm = (row) => {
@@ -37,11 +37,17 @@ export const useAddForm = () => {
   const { hideModal } = useHideModal();
   const dispatch = useDispatch();
   const validationSchema = Yup.object().shape({
-    name: Yup.string().required('Required')
+    email: Yup.string().required('Required'),
+    description: Yup.string(),
+    reserved_for: Yup.string(),
+    personal: Yup.bool()
   });
   const formik = useFormik({
     initialValues: {
-      name: ''
+      email: '',
+      description: '',
+      reserved_for: '',
+      personal: ''
     },
     validationSchema,
     onSubmit: (values, { setSubmitting }) => {
