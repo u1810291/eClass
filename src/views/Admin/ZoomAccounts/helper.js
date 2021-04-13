@@ -1,4 +1,5 @@
 /* eslint-disable no-alert */
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
@@ -6,32 +7,15 @@ import { useFormik } from 'formik';
 import Update from './Update';
 import Delete from './Delete';
 import {
-  deleteTariff, updateTariff, deleteTariffName, createTariff, fetchData
+  fetchData,
+  registerAccount,
+  unRegisterAccount,
+  stopMeeting,
+  zoomSignature,
+  getSingleAccount,
+  createMeeting
 } from '../../../redux/modules/admin/zoom/actions';
 import { useHideModal } from '../../../hooks/modal';
-
-export const useUpdateForm = (row) => {
-  const dispatch = useDispatch();
-  const validationSchema = Yup.object().shape({
-    name: Yup.string().required('Required')
-  });
-  const formik = useFormik({
-    initialValues: {
-      id: row.id
-    },
-    validationSchema,
-    onSubmit: (values, { setSubmitting }) => {
-      setSubmitting(true);
-      dispatch(updateTariff(values, (res) => {
-        setSubmitting(false);
-        // eslint-disable-next-line no-alert
-        if (res) alert('Succesfully updated');
-        return res;
-      }));
-    }
-  });
-  return { formik };
-};
 
 export const useAddForm = () => {
   const { hideModal } = useHideModal();
@@ -52,7 +36,7 @@ export const useAddForm = () => {
     validationSchema,
     onSubmit: (values, { setSubmitting }) => {
       setSubmitting(true);
-      dispatch(createTariff(values, (res) => {
+      dispatch(registerAccount(values, (res) => {
         setSubmitting(false);
         // eslint-disable-next-line no-alert
         if (res) alert('Succesfully created');
@@ -71,7 +55,7 @@ export const toolTips = [
     onClick: (id, { showBlured }) => {
       showBlured({
         title: 'Delete Tariff',
-        body: () => <Delete id={id} deleteTariff={deleteTariff} />
+        body: () => <Delete id={id} />
       });
     }
   },
@@ -81,7 +65,9 @@ export const toolTips = [
     onClick: (_, { row, showBlured }) => {
       showBlured({
         title: 'Delete Tariff name',
-        body: () => <Delete id={row.original} deleteTariffName={deleteTariffName} />
+        body: () => (
+          <Delete id={row.original} />
+        )
       });
     }
   },
@@ -91,7 +77,7 @@ export const toolTips = [
     onClick: (_, { row, showBlured }) => {
       showBlured({
         title: 'Update Tariff',
-        body: () => <Update row={row.original} useUpdateForm={useUpdateForm} />
+        body: () => <Update row={row.original} />
       });
     }
   }
