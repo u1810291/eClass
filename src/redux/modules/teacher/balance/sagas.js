@@ -15,7 +15,6 @@ function* fetchData() {
   yield put(setLoading(true));
   try {
     const res = yield service.getBalance();
-    console.log(res);
     const { total, data } = dataSelector(res.data);
     yield put(setError(''));
     yield put(setData(data));
