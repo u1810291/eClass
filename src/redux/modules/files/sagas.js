@@ -59,13 +59,11 @@ function* getFileById({ payload }) {
         });
         // window.location.href = response.url;
       });
-    // console.log(res);
     const { data } = dataSelector(res.data);
     yield put(setError(''));
     yield put(setData(data));
     yield put(setLoading(false));
   } catch (error) {
-    // console.log(error);
     yield put(setError(error.response ? error.response.data.error_message : error));
   }
 }

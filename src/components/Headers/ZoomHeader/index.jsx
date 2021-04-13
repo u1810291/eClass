@@ -5,8 +5,8 @@ import {
 } from '../style';
 import DatePicker from '../../Forms/Inputs/DatePicker';
 import { PrimaryButton } from '../../Buttons';
-import TariffAdd from '../../../views/Admin/Tariff/Add';
-import { useAddForm } from '../../../views/Admin/Tariff/helper';
+import AccountAdd from '../../../views/Admin/ZoomAccounts/Add';
+import { useAddForm } from '../../../views/Admin/ZoomAccounts/helper';
 
 export default ({
   setDate,
@@ -16,7 +16,7 @@ export default ({
   <Container>
     <Body>
       <TitleWrapper>
-        <TitleWrapper.Title>Tariffs</TitleWrapper.Title>
+        <TitleWrapper.Title>Zoom</TitleWrapper.Title>
         <TitleWrapper.Clear>Celar filter</TitleWrapper.Clear>
       </TitleWrapper>
       <Body.Right>
@@ -32,11 +32,11 @@ export default ({
           right={false}
         />
         <PrimaryButton
-          title="Add Tariff"
+          title="Add Zoom Account"
           onClick={() => showBlured({
-            title: 'Add Tariff',
+            title: 'Add Zoom Account',
             body: () => (
-              <TariffAdd
+              <AccountAdd
                 useAddForm={useAddForm}
               />
             )

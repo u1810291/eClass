@@ -29,9 +29,9 @@ function* fetchData({ payload }) {
 function* createTariff({ payload, success }) {
   try {
     const res = yield service.createTariff(payload);
-    console.log(res);
     success(res);
   } catch (error) {
+    success(error);
     console.log(error);
   }
 }

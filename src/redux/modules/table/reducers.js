@@ -17,7 +17,8 @@ const defaultState = {
   studentQuizesHeader: JSON.parse(localStorage.getItem('studentQuizesHeader')) || initial.studentQuizesHeader,
 
   groupsHeader: JSON.parse(localStorage.getItem('groupsHeader')) || initial.groupsHeader,
-  adminTariffsHeader: JSON.parse(localStorage.getItem('adminTariffsHeader')) || initial.adminTariffsHeader
+  adminTariffsHeader: JSON.parse(localStorage.getItem('adminTariffsHeader')) || initial.adminTariffsHeader,
+  adminAccountsHeader: JSON.parse(localStorage.getItem('adminAccountsHeader')) || initial.adminAccountsHeader
 };
 const map = {};
 

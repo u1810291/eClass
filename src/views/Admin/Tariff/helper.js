@@ -5,7 +5,10 @@ import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import Update from './Update';
 import Delete from './Delete';
-import { deleteTariff, updateTariff, deleteTariffName } from '../../../redux/modules/admin/tariffs/actions';
+import {
+  deleteTariff, updateTariff, deleteTariffName, createTariff, fetchData
+} from '../../../redux/modules/admin/tariffs/actions';
+import { useHideModal } from '../../../hooks/modal';
 
 export const useUpdateForm = (row) => {
   const dispatch = useDispatch();
@@ -48,6 +51,7 @@ export const useUpdateForm = (row) => {
 };
 
 export const useAddForm = () => {
+  const { hideModal } = useHideModal();
   const dispatch = useDispatch();
   const validationSchema = Yup.object().shape({
     name: Yup.string().required('Required'),
@@ -73,11 +77,12 @@ export const useAddForm = () => {
     validationSchema,
     onSubmit: (values, { setSubmitting }) => {
       setSubmitting(true);
-      dispatch(updateTariff(values, (res) => {
+      dispatch(createTariff(values, (res) => {
         setSubmitting(false);
         // eslint-disable-next-line no-alert
-        if (res) alert('Succesfully updated');
-        return res;
+        if (res) alert('Succesfully created');
+        hideModal();
+        return fetchData();
       }));
     }
   });
