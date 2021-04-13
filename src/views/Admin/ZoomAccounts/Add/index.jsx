@@ -1,24 +1,28 @@
 import React from 'react';
 
 import { NormalInput } from '../../../../components/Forms/Inputs';
+import Dropdown from '../../../../components/Forms/Dropdowns';
 import { PrimaryButton } from '../../../../components/Buttons';
 import { Container, Form } from './style';
 
 export default ({ useAddForm }) => {
-  const { formik } = useAddForm();
+  const { formik, users } = useAddForm();
+  const personals = [
+    { id: 1, value: 'Personal', isPersonal: true },
+    { id: 2, value: 'Not Personal', isPersonal: false }];
   return (
     <Form onSubmit={formik.handleSubmit}>
       <Container>
         <NormalInput
           white
-          name="name"
+          name="email"
           size="large"
-          placeholder="Name"
-          type={formik.touched.name && formik.errors.name && 'error'}
-          helperText={formik.touched.name
-                  && formik.errors.name && formik.errors.name}
-          value={formik.values.name}
-          onChange={(e) => formik.setFieldValue('name', e.target.value)}
+          placeholder="Email"
+          type={(formik.touched.email && formik.errors.email && 'error') || 'email'}
+          helperText={formik.touched.email
+                  && formik.errors.email && formik.errors.email}
+          value={formik.values.email}
+          onChange={(e) => formik.setFieldValue('email', e.target.value)}
         />
         <NormalInput
           white
@@ -31,72 +35,42 @@ export default ({ useAddForm }) => {
           value={formik.values.description}
           onChange={(e) => formik.setFieldValue('description', e.target.value)}
         />
-        <NormalInput
-          white
-          name="amount"
+        <Dropdown
+          color="#FFFFFF"
+          placeholder="Language"
+          name="personal"
+          type={formik.touched.personal
+                && formik.errors.personal && 'error'}
+          helperText={formik.errors.personal}
+          options={personals}
+          value={
+            formik.values.personal
+                && personals.find((el) => el.value === formik.values.personal).id
+          }
+          onChange={(e) => formik.setFieldValue('personal', personals.find((el) => el.id === e).value)}
           size="large"
-          placeholder="Amount"
-          type={formik.touched.amount && formik.errors.amount && 'error'}
-          helperText={formik.touched.amount
-                  && formik.errors.amount && formik.errors.amount}
-          value={formik.values.amount}
-          onChange={(e) => formik.setFieldValue('amount', e.target.value)}
         />
-        <NormalInput
-          white
-          name="lessons_count"
-          size="large"
-          placeholder="Lessons Number"
-          type={formik.touched.lessons_count && formik.errors.lessons_count && 'error'}
-          helperText={formik.touched.lessons_count
-                  && formik.errors.lessons_count && formik.errors.lessons_count}
-          value={formik.values.lessons_count}
-          onChange={(e) => formik.setFieldValue('lessons_count', e.target.value)}
-        />
-        <NormalInput
-          white
-          name="tariff_name_ru"
-          size="large"
-          placeholder="Tariff Name in russian"
-          type={formik.touched.tariff_name_ru && formik.errors.tariff_name_ru && 'error'}
-          helperText={formik.touched.tariff_name_ru
-                  && formik.errors.tariff_name_ru && formik.errors.tariff_name_ru}
-          value={formik.values.tariff_name_ru}
-          onChange={(e) => formik.setFieldValue('tariff_name_ru', e.target.value)}
-        />
-        <NormalInput
-          white
-          name="tariff_description_ru"
-          size="large"
-          placeholder="Tariff Description in russian"
-          type={formik.touched.tariff_description_ru && formik.errors.tariff_description_ru && 'error'}
-          helperText={formik.touched.tariff_description_ru
-                  && formik.errors.tariff_description_ru && formik.errors.tariff_description_ru}
-          value={formik.values.tariff_description_ru}
-          onChange={(e) => formik.setFieldValue('tariff_description_ru', e.target.value)}
-        />
-        <NormalInput
-          white
-          name="tariff_name_uz"
-          size="large"
-          placeholder="Tariff Name in uzbek"
-          type={formik.touched.tariff_name_uz && formik.errors.tariff_name_uz && 'error'}
-          helperText={formik.touched.tariff_name_uz
-                  && formik.errors.tariff_name_uz && formik.errors.tariff_name_uz}
-          value={formik.values.tariff_name_uz}
-          onChange={(e) => formik.setFieldValue('tariff_name_uz', e.target.value)}
-        />
-        <NormalInput
-          white
-          name="tariff_description_uz"
-          size="large"
-          placeholder="Tariff Description in uzbek"
-          type={formik.touched.tariff_description_uz && formik.errors.tariff_description_uz && 'error'}
-          helperText={formik.touched.tariff_description_uz
-                  && formik.errors.tariff_description_uz && formik.errors.tariff_description_uz}
-          value={formik.values.tariff_description_uz}
-          onChange={(e) => formik.setFieldValue('tariff_description_uz', e.target.value)}
-        />
+        {
+          formik.values.personal
+            ? (
+              <Dropdown
+                color="#FFFFFF"
+                placeholder="Language"
+                name="reserved_for"
+                type={formik.touched.reserved_for
+                  && formik.errors.reserved_for && 'error'}
+                helperText={formik.errors.reserved_for}
+                options={users}
+                value={
+                  formik.values.reserved_for
+                  && users.find((el) => el.value === formik.values.reserved_for).id
+                }
+                onChange={(e) => formik.setFieldValue('reserved_for', users.find((el) => el.id === e).value)}
+                size="large"
+              />
+            )
+            : ''
+        }
         <PrimaryButton type="submit" title="Add tariff" size="large" />
       </Container>
     </Form>

@@ -8,6 +8,7 @@ import ZoomHeader from '../../../components/Headers/ZoomHeader';
 import TableError from '../../../components/Table/Error';
 import { headerMaker } from '../../../components/Table/helper';
 import { fetchData } from '../../../redux/modules/admin/zoom/actions';
+import { fetchData as fetchUsers } from '../../../redux/modules/admin/users/actions';
 import { adminAccountsHeader } from '../../../redux/modules/table/common';
 import { useShowModal } from '../../../hooks/modal';
 
@@ -45,6 +46,7 @@ export default () => {
 
   useEffect(() => {
     dispatch(fetchData({ query }));
+    dispatch(fetchUsers('teacher', ''));
   }, [fetchData, query]);
 
   return (

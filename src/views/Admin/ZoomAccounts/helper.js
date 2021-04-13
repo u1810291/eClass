@@ -31,7 +31,7 @@ export const useAddForm = () => {
       email: '',
       description: '',
       reserved_for: '',
-      personal: ''
+      personal: false
     },
     validationSchema,
     onSubmit: (values, { setSubmitting }) => {
