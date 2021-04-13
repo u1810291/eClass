@@ -10,6 +10,7 @@ export const Header = styled.div`
 `;
 
 Header.Right = styled.div`
+display: flex;
 `;
 Header.Left = styled.div`
 `;

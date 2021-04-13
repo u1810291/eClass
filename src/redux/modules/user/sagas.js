@@ -10,7 +10,7 @@ function* fetchData() {
     const res = yield service.whoAmI();
     yield put(setData(res.data));
   } catch (error) {
-    yield put(setError(error));
+    yield put(setError(error.response ? error.response.data.error_message : error));
   }
 }
 

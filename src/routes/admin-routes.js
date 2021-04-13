@@ -11,6 +11,7 @@ import Users from '../views/Admin/Users';
 import StudentAdd from '../views/Admin/Users/Add/Student';
 import TeacherAdd from '../views/Admin/Users/Add/Teacher';
 import AdminAdd from '../views/Admin/Users/Add/Admin';
+import ZoomAccounts from '../views/Admin/ZoomAccounts';
 
 export default [
   {
@@ -114,6 +115,14 @@ export default [
     component: Tariff,
     icon: 'dashboard',
     title: 'Tariff',
+    children: []
+  },
+  {
+    exact: true,
+    path: '/accounts',
+    component: ZoomAccounts,
+    icon: 'dashboard',
+    title: 'Zoom Accounts',
     children: []
   }
 ];

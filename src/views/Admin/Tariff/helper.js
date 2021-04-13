@@ -5,9 +5,12 @@ import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import Update from './Update';
 import Delete from './Delete';
-import { deleteTariff, updateTariff, deleteTariffName } from '../../../redux/modules/admin/tariffs/actions';
+import {
+  deleteTariff, updateTariff, deleteTariffName, createTariff, fetchData
+} from '../../../redux/modules/admin/tariffs/actions';
+import { useHideModal } from '../../../hooks/modal';
 
-export const useUpdateForm = (id) => {
+export const useUpdateForm = (row) => {
   const dispatch = useDispatch();
   const validationSchema = Yup.object().shape({
     first_name: Yup.string().required('First name is required'),
@@ -17,17 +20,17 @@ export const useUpdateForm = (id) => {
     lessons_count: Yup.string().required('Required'),
     tariff_name_ru: Yup.string().required('Required'),
     tariff_description_ru: Yup.string(),
-    tariff_name_uz: Yup.string().required(),
+    tariff_name_uz: Yup.string().required('Required'),
     tariff_description_uz: Yup.string()
   });
   const formik = useFormik({
     initialValues: {
-      first_name: '',
-      id,
-      name: '',
-      description: '',
-      amount: '',
-      lessons_count: '',
+      id: row.id,
+      name: row.name,
+      lang: row.lang,
+      amount: row.amount,
+      description: row.description,
+      lessons_count: row.lessons_count,
       tariff_name_ru: '',
       tariff_description_ru: '',
       tariff_name_uz: '',
@@ -41,6 +44,45 @@ export const useUpdateForm = (id) => {
         // eslint-disable-next-line no-alert
         if (res) alert('Succesfully updated');
         return res;
+      }));
+    }
+  });
+  return { formik };
+};
+
+export const useAddForm = () => {
+  const { hideModal } = useHideModal();
+  const dispatch = useDispatch();
+  const validationSchema = Yup.object().shape({
+    name: Yup.string().required('Required'),
+    description: Yup.string(),
+    amount: Yup.string().required('Required'),
+    lessons_count: Yup.string().required('Required'),
+    tariff_name_ru: Yup.string().required('Required'),
+    tariff_description_ru: Yup.string(),
+    tariff_name_uz: Yup.string().required(),
+    tariff_description_uz: Yup.string()
+  });
+  const formik = useFormik({
+    initialValues: {
+      name: '',
+      description: '',
+      amount: '',
+      lessons_count: '',
+      tariff_name_ru: '',
+      tariff_description_ru: '',
+      tariff_name_uz: '',
+      tariff_description_uz: ''
+    },
+    validationSchema,
+    onSubmit: (values, { setSubmitting }) => {
+      setSubmitting(true);
+      dispatch(createTariff(values, (res) => {
+        setSubmitting(false);
+        // eslint-disable-next-line no-alert
+        if (res) alert('Succesfully created');
+        hideModal();
+        return fetchData();
       }));
     }
   });
@@ -71,10 +113,10 @@ export const toolTips = [
   {
     name: 'Update',
     icon: 'payment',
-    onClick: (id, { showBlured }) => {
+    onClick: (_, { row, showBlured }) => {
       showBlured({
         title: 'Update Tariff',
-        body: () => <Update id={id} useUpdateForm={useUpdateForm} />
+        body: () => <Update row={row.original} useUpdateForm={useUpdateForm} />
       });
     }
   }

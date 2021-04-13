@@ -1,20 +1,25 @@
 import React from 'react';
+
 import {
   Container, Body, TitleWrapper
 } from '../style';
 import DatePicker from '../../Forms/Inputs/DatePicker';
+import { PrimaryButton } from '../../Buttons';
+import TariffAdd from '../../../views/Admin/Tariff/Add';
+import { useAddForm } from '../../../views/Admin/Tariff/helper';
 
 export default ({
   setDate,
-  date
+  date,
+  showBlured
 }) => (
   <Container>
     <Body>
       <TitleWrapper>
-        <TitleWrapper.Title>Lessons</TitleWrapper.Title>
+        <TitleWrapper.Title>Tariffs</TitleWrapper.Title>
         <TitleWrapper.Clear>Celar filter</TitleWrapper.Clear>
       </TitleWrapper>
-      <div>
+      <Body.Right>
         <DatePicker
           placeholder="Date"
           name="rangeDate"
@@ -26,7 +31,18 @@ export default ({
           white
           right={false}
         />
-      </div>
+        <PrimaryButton
+          title="Add Tariff"
+          onClick={() => showBlured({
+            title: 'Add Tariff',
+            body: () => (
+              <TariffAdd
+                useAddForm={useAddForm}
+              />
+            )
+          })}
+        />
+      </Body.Right>
     </Body>
   </Container>
 );

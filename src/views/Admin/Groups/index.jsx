@@ -15,7 +15,7 @@ import { fetchData as subjectFetch } from '../../../redux/modules/admin/subjects
 export default () => {
   const dispatch = useDispatch();
   const [pageIndex, setPageIndex] = useState(0);
-  const [pageSize, setPageSize] = useState(0);
+  const [pageSize, setPageSize] = useState(10);
   const [search, setSearch] = useState('');
   const [sort, setSort] = useState();
 
@@ -41,7 +41,7 @@ export default () => {
     dispatch(subjectFetch());
     dispatch(getUser('teacher', ''));
     dispatch(fetchData({ query }));
-  }, [dispatch, query]);
+  }, [dispatch, query, groupAddFormik]);
 
   const handleOnChange = ({ pageIndex, pageSize }) => {
     setPageIndex(pageIndex);

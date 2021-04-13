@@ -21,3 +21,4 @@ export { default as adminLessonsSaga } from './admin/lessons/sagas';
 export { default as adminGroupsSaga } from './admin/groups/sagas';
 export { default as adminSubjectsSaga } from './admin/subjects/sagas';
 export { default as adminTariffsSaga } from './admin/tariffs/sagas';
+export { default as adminAccountsSaga } from './admin/zoom/sagas';

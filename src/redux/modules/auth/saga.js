@@ -13,7 +13,7 @@ function* login({ payload, success }) {
     const { data } = yield service.getToken(payload);
     success(data.access_token, data.refresh_token);
   } catch (error) {
-    yield put(setError(error));
+    yield put(setError(error.response ? error.response.data.error_message : error));
   }
 }
 
@@ -23,7 +23,7 @@ function* validate({ payload }) {
     yield put(setAccessToken(payload.access_token));
     yield put(setRefreshToken(payload.refresh_token));
   } catch (error) {
-    yield put(setError(error));
+    yield put(setError(error.response ? error.response.data.error_message : error));
   }
 }
 
@@ -35,7 +35,7 @@ function* regStudent({ payload, success }) {
   } catch (error) {
     // eslint-disable-next-line no-alert
     alert(error.response ? error.response.data.error_message : error);
-    yield put(setError(error));
+    yield put(setError(error.response ? error.response.data.error_message : error));
   }
 }
 function* regTeacher({ payload, success }) {
@@ -46,7 +46,7 @@ function* regTeacher({ payload, success }) {
   } catch (error) {
     // eslint-disable-next-line no-alert
     alert(error.response ? error.response.data.error_message : error);
-    yield put(setError(error));
+    yield put(setError(error.response ? error.response.data.error_message : error));
   }
 }
 function* regAdmin({ payload, success }) {
@@ -57,7 +57,7 @@ function* regAdmin({ payload, success }) {
   } catch (error) {
     // eslint-disable-next-line no-alert
     alert(error.response ? error.response.data.error_message : error);
-    yield put(setError(error));
+    yield put(setError(error.response ? error.response.data.error_message : error));
   }
 }
 export default function* authSaga() {

@@ -2,24 +2,47 @@
 import React, { useState, useEffect } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
-import moment from 'moment';
 import {
   Container
 } from './style';
 import Balance from '../../../components/Balance';
-import { fetchData } from '../../../redux/modules/student/balance/actions';
+import Payments from '../../../components/Balance/Payments';
+import { fetchData, fetchPayments } from '../../../redux/modules/student/balance/actions';
 
 export default () => {
-  const [date, setDate] = useState('');
+  const options = [{ id: 1, value: 'Balance' }, { id: 2, value: 'Payments' }];
+  const [option, setOption] = useState(1);
   const dispatch = useDispatch();
   const { data, error, loading } = useSelector((state) => state.studentBalanceReducers);
   useEffect(() => {
-    dispatch(fetchData());
-    setDate(moment(new Date()).format('DD-MM-YYYY hh:mm:ss'));
-  }, [fetchData]);
+    if (option === 1) dispatch(fetchData());
+    if (option === 2) dispatch(fetchPayments());
+  }, [fetchData, option, setOption]);
   return (
     <Container>
-      <Balance date={date} data={data} error={error} loading={loading} />
+      {option === 1
+        ? (
+          <Balance
+            data={data}
+            error={error}
+            option={option}
+            loading={loading}
+            options={options}
+            setOption={setOption}
+          />
+        )
+        : ''}
+      {option === 2
+        ? (
+          <Payments
+            data={data}
+            error={error}
+            option={option}
+            loading={loading}
+            options={options}
+            setOption={setOption}
+          />
+        ) : ''}
     </Container>
   );
 };

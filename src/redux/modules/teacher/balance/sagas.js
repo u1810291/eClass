@@ -15,14 +15,13 @@ function* fetchData() {
   yield put(setLoading(true));
   try {
     const res = yield service.getBalance();
-    console.log(res);
     const { total, data } = dataSelector(res.data);
     yield put(setError(''));
     yield put(setData(data));
     yield put(setTotal(total));
     yield put(setLoading(false));
   } catch (error) {
-    yield put(setError(error));
+    yield put(setError(error.response ? error.response.data.error_message : error));
   }
 }
 

@@ -100,7 +100,7 @@ const handleEdit = (id) => {
 const handleAddStudent = (id) => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchData('student', '?size=10000'));
+    dispatch(fetchData('student', 'size=10000'));
   }, [dispatch]);
   const { data, error } = useSelector((state) => state.adminUsersReducers);
   const students = data.map((el) => ({ id: el.id, value: el.full_name }));
@@ -184,8 +184,8 @@ export const groupAddFormik = () => {
     teacher_id: Yup.string(),
     subject_id: Yup.string(),
     study_days: Yup.array().required('Required'),
-    start_date: Yup.string(),
-    finish_date: Yup.string()
+    start_date: Yup.string().required('Required'),
+    finish_date: Yup.string().required('Required')
   });
   const formik = useFormik({
     initialValues: {

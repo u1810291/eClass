@@ -6,6 +6,7 @@ import others from './actions/others';
 import notification from './actions/notification';
 import lists from './actions/lists';
 import files from './actions/files';
+import zoom from './actions/zoom';
 import * as table from './actions/table';
 
 export default {
@@ -17,5 +18,6 @@ export default {
   ...others,
   ...lists,
   ...files,
+  ...zoom,
   ...notification
 };

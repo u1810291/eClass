@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /* eslint-disable no-console */
 import { takeLatest, put } from 'redux-saga/effects';
 import types from '../../../../constants/action-types';
@@ -22,7 +23,7 @@ function* fetchData({ payload }) {
     yield put(setTotal(total));
     yield put(setLoading(false));
   } catch (error) {
-    yield put(setError(error));
+    yield put(setError(error.response ? error.response.data.error_message : error));
   }
 }
 
@@ -33,19 +34,19 @@ function* joinLesson({ payload, success }) {
     setStartError('');
     success(data);
   } catch (error) {
-    console.log(error);
-    console.log(error.response.data.error_message);
+    console.log(error.response ? error.response.data.error_message : error);
+    alert(error.response ? error.response.data.error_message : error);
   }
 }
 
 function* cancelLesson({ payload, success }) {
   try {
     const res = yield service.declineLesson(payload.id, payload.reason);
-    console.log(res);
     const { data } = cancelLessonSelector(res.data);
     success(data);
   } catch (error) {
-    console.log(error);
+    console.log(error.response ? error.response.data.error_message : error);
+    alert(error.response ? error.response.data.error_message : error);
   }
 }
 

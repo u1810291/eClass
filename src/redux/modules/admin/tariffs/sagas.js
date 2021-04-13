@@ -22,16 +22,16 @@ function* fetchData({ payload }) {
     yield put(setTotal(total));
     yield put(setLoading(false));
   } catch (error) {
-    yield put(setError(error));
+    yield put(setError(error.response ? error.response.data.error_message : error));
   }
 }
 
 function* createTariff({ payload, success }) {
   try {
     const res = yield service.createTariff(payload);
-    console.log(res);
     success(res);
   } catch (error) {
+    success(error);
     console.log(error);
   }
 }
@@ -52,6 +52,7 @@ function* deleteTariff({ payload, success }) {
     success(res);
   } catch (error) {
     console.log(error);
+    success(error);
   }
 }
 
@@ -61,6 +62,7 @@ function* deleteTariffName({ payload, success }) {
     success(res);
   } catch (error) {
     console.log(error);
+    success(error);
   }
 }
 

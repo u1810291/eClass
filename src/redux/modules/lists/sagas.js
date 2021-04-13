@@ -22,7 +22,7 @@ function* getCountries() {
     yield put(setCountries(data));
   } catch (error) {
     console.log(error);
-    yield put(setError(error));
+    yield put(setError(error.response ? error.response.data.error_message : error));
   }
 }
 
@@ -34,7 +34,7 @@ function* getCities() {
     yield put(setCities(data));
   } catch (error) {
     console.log(error);
-    yield put(setError(error));
+    yield put(setError(error.response ? error.response.data.error_message : error));
   }
 }
 
@@ -46,7 +46,7 @@ function* getReasons() {
     yield put(setReasons(data));
   } catch (error) {
     console.log(error);
-    yield put(setError(error));
+    yield put(setError(error.response ? error.response.data.error_message : error));
   }
 }
 
@@ -56,7 +56,7 @@ function* getUser({ payload }) {
     const { data } = userSelector(res.data);
     yield put(setData(data));
   } catch (error) {
-    yield put(setError(error));
+    yield put(setError(error.response ? error.response.data.error_message : error));
   }
 }
 
