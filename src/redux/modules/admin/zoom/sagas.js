@@ -1,6 +1,6 @@
 import { takeLatest, put } from 'redux-saga/effects';
 import types from '../../../../constants/action-types';
-import service from '../../../../services/admin/lesson';
+import service from '../../../../services/zoom';
 import {
   setData,
   setError,
@@ -13,7 +13,9 @@ import { dataSelector } from './selectors';
 function* fetchData({ payload }) {
   yield put(setLoading(true));
   try {
-    const res = yield service.getLessons(payload.query);
+    console.log(payload);
+    const res = yield service.getAccountList(payload.query);
+    console.log(res);
     const { total, data } = dataSelector(res.data);
     yield put(setError(''));
     yield put(setData(data));

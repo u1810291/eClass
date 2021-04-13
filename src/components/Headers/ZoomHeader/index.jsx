@@ -16,7 +16,7 @@ export default ({
   <Container>
     <Body>
       <TitleWrapper>
-        <TitleWrapper.Title>Tariffs</TitleWrapper.Title>
+        <TitleWrapper.Title>Zoom</TitleWrapper.Title>
         <TitleWrapper.Clear>Celar filter</TitleWrapper.Clear>
       </TitleWrapper>
       <Body.Right>
