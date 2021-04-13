@@ -8,7 +8,7 @@ import ZoomHeader from '../../../components/Headers/ZoomHeader';
 import TableError from '../../../components/Table/Error';
 import { headerMaker } from '../../../components/Table/helper';
 import { fetchData } from '../../../redux/modules/admin/tariffs/actions';
-import { adminTariffsHeader } from '../../../redux/modules/table/common';
+import { adminAccountsHeader } from '../../../redux/modules/table/common';
 import { useShowModal } from '../../../hooks/modal';
 
 export default () => {
@@ -17,7 +17,7 @@ export default () => {
   const [sort, setSort] = useState();
   const [search, setSearch] = useState('');
   const [date, setDate] = useState(undefined);
-  const headerData = useSelector(({ tableReducer }) => tableReducer.adminTariffsHeader);
+  const headerData = useSelector(({ tableReducer }) => tableReducer.adminAccountsHeader);
   const headers = useMemo(() => headerMaker(headerData), [headerData]);
   const dispatch = useDispatch();
   const { showBlured } = useShowModal();
@@ -27,7 +27,7 @@ export default () => {
   } = useSelector((state) => state.adminTariffsReducers);
 
   const sortQuery = useMemo(() => {
-    const found = sort && adminTariffsHeader.find(({ id }) => id === sort.id);
+    const found = sort && adminAccountsHeader.find(({ id }) => id === sort.id);
     return found
       ? `&sort=${found},${sort.desc ? 'desc' : 'asc'}`
       : '';
