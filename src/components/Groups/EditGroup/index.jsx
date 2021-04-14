@@ -14,7 +14,8 @@ import StudyDays from './StudyDays';
 export default ({ handleEdit }) => {
   const [start, setStart] = useState(new Date());
   const [finish, setFinish] = useState(new Date());
-  const { formik } = handleEdit();
+  const { formik, single } = handleEdit();
+  console.log(single);
   const { data } = useSelector((state) => state.adminSubjectsReducers);
   const { users: teachers } = useSelector((state) => state.listsReducers);
   return (

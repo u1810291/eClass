@@ -9,8 +9,14 @@ export const fetchData = (payload) => ({
   type: types.TABLE_ADMIN_GROUPS_FETCH_DATA,
   payload
 });
+
 export const getSingle = (payload) => ({
   type: types.TABLE_ADMIN_GROUPS_FETCH_SINGLE_DATA,
+  payload
+});
+
+export const setSingle = (payload) => ({
+  type: types.TABLE_ADMIN_SET_SINGLE_GROUP,
   payload
 });
 

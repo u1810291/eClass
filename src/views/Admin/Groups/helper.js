@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  createLesson, addGroup, editGroup, addStudent
+  createLesson, addGroup, editGroup, addStudent, getSingle
 } from '../../../redux/modules/admin/groups/actions';
 import { addSubject } from '../../../redux/modules/admin/subjects/actions';
 import { fetchData } from '../../../redux/modules/admin/users/actions';
@@ -42,6 +42,10 @@ const handleCreate = (id) => {
 const handleEdit = (id) => {
   const dispatch = useDispatch();
   const { hideModal } = useHideModal();
+  const { single } = useSelector((state) => state.adminGroupsReducers);
+  useEffect(() => {
+    dispatch(getSingle(id));
+  }, []);
   const validationSchema = Yup.object().shape({
     en_name: Yup.string().required('Required'),
     official_en_name: Yup.string().required('Required'),
@@ -95,7 +99,7 @@ const handleEdit = (id) => {
       }));
     }
   });
-  return { formik };
+  return { formik, single };
 };
 
 const handleAddStudent = (id) => {

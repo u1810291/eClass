@@ -8,7 +8,8 @@ import {
   setData,
   setError,
   setLoading,
-  setTotal
+  setTotal,
+  setSingle
 } from './actions';
 
 import { dataSelector, addGroupSelector } from './selectors';
@@ -62,10 +63,10 @@ function* addStudent({ payload, success }) {
   }
 }
 
-function* editGroup({ payload, id, success }) {
+function* editGroup({ payload, success }) {
   try {
     const { data } = addGroupSelector(payload);
-    const res = service.updateGroupIdInParams(data, id);
+    const res = service.updateGroupIdInBody(data);
     yield put(setError(''));
     success(res.data);
   } catch (error) {
@@ -77,6 +78,7 @@ function* editGroup({ payload, id, success }) {
 function* getSingle({ payload, success }) {
   try {
     const res = service.getSingle(payload.id);
+    yield put(setSingle(res));
     success(res.data);
   } catch (error) {
     alert(error.response ? error.response.data.error_message : error);
