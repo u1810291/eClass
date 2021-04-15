@@ -11,6 +11,8 @@ import { fetchData } from '../../../redux/modules/teacher/balance/actions';
 
 export default () => {
   const [date, setDate] = useState('');
+  const options = [{ id: 1, value: 'Balance' }, { id: 2, value: 'Payments' }];
+  const [option, setOption] = useState(1);
   const dispatch = useDispatch();
   const { data, error, loading } = useSelector((state) => state.teacherBalanceReducers);
   useEffect(() => {
@@ -19,7 +21,15 @@ export default () => {
   }, [fetchData]);
   return (
     <Container>
-      <Balance date={date} data={data} error={error} loading={loading} />
+      <Balance
+        date={date}
+        data={data}
+        error={error}
+        option={option}
+        loading={loading}
+        options={options}
+        setOption={setOption}
+      />
     </Container>
   );
 };
