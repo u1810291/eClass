@@ -40,11 +40,9 @@ const handleCreate = (id) => {
   return { formik };
 };
 
-const handleEdit = (id, row) => {
+const handleEdit = (id) => {
   const dispatch = useDispatch();
   const { hideModal } = useHideModal();
-  console.log(id);
-  console.log(row);
   const validationSchema = Yup.object().shape({
     en_name: Yup.string().required('Required'),
     official_en_name: Yup.string().required('Required'),
@@ -243,7 +241,7 @@ export const toolTips = [
     onClick: (id, { row, showBlured }) => {
       showBlured({
         title: 'Create Lesson',
-        body: () => <EditGroup row={row.original} handleEdit={() => handleEdit(id, row.original)} />
+        body: () => <EditGroup row={row.original} handleEdit={() => handleEdit(id)} />
       });
     }
   },
