@@ -66,15 +66,7 @@ function registerValidSW(swUrl, config) {
     });
 }
 function checkValidServiceWorker(swUrl, config) {
-  fetch(swUrl, {
-    headers: {
-      'Service-Worker': 'script',
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': '*',
-      'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization, access-control-allow-origin, access-control-allow-methods'
-    }
-
-  })
+  fetch(swUrl)
     .then((response) => {
       const contentType = response.headers.get('content-type');
 

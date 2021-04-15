@@ -24,6 +24,7 @@ const map = {
     ...state,
     error: payload
   })
+
 };
 
 // eslint-disable-next-line max-len

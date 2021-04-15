@@ -42,7 +42,7 @@ const StudyDays = ({ formik }) => {
               showTimeSelect
               placeholder="Time"
               name="start_date"
-              onChange={(value) => { handleTime(el.id, value); setDate(value); }}
+              onChange={(value) => { handleTime(el.id, value.getHours() - 5); setDate(value); }}
             />
           </Item>
         ))}

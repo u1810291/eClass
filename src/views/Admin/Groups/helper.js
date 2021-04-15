@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable no-alert */
 import React, { useEffect } from 'react';
 import * as Yup from 'yup';
@@ -65,6 +66,7 @@ const handleEdit = (id) => {
   });
   const formik = useFormik({
     initialValues: {
+      id,
       en_name: '',
       official_en_name: '',
       en_description: '',
@@ -88,7 +90,7 @@ const handleEdit = (id) => {
     validationSchema,
     onSubmit: (values, { setSubmitting }) => {
       setSubmitting(true);
-      dispatch(editGroup(values, id, (success) => {
+      dispatch(editGroup(values, (success) => {
         hideModal();
         return success;
       }));
@@ -236,10 +238,10 @@ export const toolTips = [
   {
     name: 'Edit group',
     icon: 'payment',
-    onClick: (id, { showBlured }) => {
+    onClick: (id, { row, showBlured }) => {
       showBlured({
         title: 'Create Lesson',
-        body: () => <EditGroup handleEdit={() => handleEdit(id)} />
+        body: () => <EditGroup row={row.original} handleEdit={() => handleEdit(id)} />
       });
     }
   },

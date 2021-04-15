@@ -17,6 +17,7 @@ function* fetchData({ payload }) {
   yield put(setLoading(true));
   try {
     const res = yield service.getAll(payload.query);
+    console.log(res);
     const { total, data } = dataSelector(res.data);
     yield put(setError(''));
     yield put(setData(data));
@@ -51,6 +52,7 @@ function* addGroup({ payload, success }) {
     yield put(setError(error.response ? error.response.data.error_message : error));
   }
 }
+
 function* addStudent({ payload, success }) {
   try {
     console.log(payload);
@@ -62,10 +64,10 @@ function* addStudent({ payload, success }) {
   }
 }
 
-function* editGroup({ payload, id, success }) {
+function* editGroup({ payload, success }) {
   try {
     const { data } = addGroupSelector(payload);
-    const res = service.updateGroupIdInParams(data, id);
+    const res = service.updateGroupIdInBody(data);
     yield put(setError(''));
     success(res.data);
   } catch (error) {
