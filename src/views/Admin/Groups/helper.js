@@ -1,10 +1,11 @@
+/* eslint-disable no-console */
 /* eslint-disable no-alert */
 import React, { useEffect } from 'react';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  createLesson, addGroup, editGroup, addStudent, getSingle
+  createLesson, addGroup, editGroup, addStudent
 } from '../../../redux/modules/admin/groups/actions';
 import { addSubject } from '../../../redux/modules/admin/subjects/actions';
 import { fetchData } from '../../../redux/modules/admin/users/actions';
@@ -39,13 +40,11 @@ const handleCreate = (id) => {
   return { formik };
 };
 
-const handleEdit = (id) => {
+const handleEdit = (id, row) => {
   const dispatch = useDispatch();
   const { hideModal } = useHideModal();
-  const { single } = useSelector((state) => state.adminGroupsReducers);
-  useEffect(() => {
-    dispatch(getSingle(id));
-  }, []);
+  console.log(id);
+  console.log(row);
   const validationSchema = Yup.object().shape({
     en_name: Yup.string().required('Required'),
     official_en_name: Yup.string().required('Required'),
@@ -99,7 +98,7 @@ const handleEdit = (id) => {
       }));
     }
   });
-  return { formik, single };
+  return { formik };
 };
 
 const handleAddStudent = (id) => {
@@ -244,7 +243,7 @@ export const toolTips = [
     onClick: (id, { row, showBlured }) => {
       showBlured({
         title: 'Create Lesson',
-        body: () => <EditGroup row={row.original} handleEdit={() => handleEdit(id)} />
+        body: () => <EditGroup row={row.original} handleEdit={() => handleEdit(id, row.original)} />
       });
     }
   },

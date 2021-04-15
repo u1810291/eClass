@@ -4,8 +4,7 @@ const defaultState = {
   data: [],
   loading: false,
   total: 0,
-  error: '',
-  single: {}
+  error: ''
 };
 
 const map = {
@@ -24,11 +23,8 @@ const map = {
   [types.TABLE_ADMIN_GROUPS_ERROR]: (state, { payload }) => ({
     ...state,
     error: payload
-  }),
-  [types.TABLE_ADMIN_SET_SINGLE_GROUP]: (state, { payload }) => ({
-    ...state,
-    single: payload
   })
+
 };
 
 // eslint-disable-next-line max-len

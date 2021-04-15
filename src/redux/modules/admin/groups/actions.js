@@ -10,16 +10,6 @@ export const fetchData = (payload) => ({
   payload
 });
 
-export const getSingle = (payload) => ({
-  type: types.TABLE_ADMIN_GROUPS_FETCH_SINGLE_DATA,
-  payload
-});
-
-export const setSingle = (payload) => ({
-  type: types.TABLE_ADMIN_SET_SINGLE_GROUP,
-  payload
-});
-
 export const addGroup = (payload, success) => ({
   type: types.TABLE_ADMIN_GROUPS_CREATE_GROUP,
   payload,
