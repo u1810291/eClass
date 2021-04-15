@@ -15,6 +15,7 @@ export default ({ handleEdit }) => {
   const [start, setStart] = useState(new Date());
   const [finish, setFinish] = useState(new Date());
   const { formik, single } = handleEdit();
+  // eslint-disable-next-line no-console
   console.log(single);
   const { data } = useSelector((state) => state.adminSubjectsReducers);
   const { users: teachers } = useSelector((state) => state.listsReducers);
