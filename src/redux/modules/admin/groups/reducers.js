@@ -23,6 +23,10 @@ const map = {
   [types.TABLE_ADMIN_GROUPS_ERROR]: (state, { payload }) => ({
     ...state,
     error: payload
+  }),
+  [types.TABLE_ADMIN_GROUPS_SET_SINGLE_GROUP]: (state, { payload }) => ({
+    ...state,
+    error: payload
   })
 
 };

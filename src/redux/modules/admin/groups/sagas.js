@@ -8,7 +8,8 @@ import {
   setData,
   setError,
   setLoading,
-  setTotal
+  setTotal,
+  setSingle
 } from './actions';
 
 import { dataSelector, addGroupSelector } from './selectors';
@@ -23,6 +24,17 @@ function* fetchData({ payload }) {
     yield put(setData(data));
     yield put(setTotal(total));
     yield put(setLoading(false));
+  } catch (error) {
+    yield put(setError(error.response ? error.response.data.error_message : error));
+  }
+}
+
+function* getSingle({ payload }) {
+  try {
+    const res = yield service.getAll(payload.query);
+    console.log(res);
+    const { data } = dataSelector(res.data);
+    yield put(setSingle(data));
   } catch (error) {
     yield put(setError(error.response ? error.response.data.error_message : error));
   }
@@ -90,6 +102,7 @@ function* deleteGroup({ payload, success }) {
 
 export default function* adminGroupsSaga() {
   yield takeLatest(types.TABLE_ADMIN_GROUPS_FETCH_DATA, fetchData);
+  yield takeLatest(types.TABLE_ADMIN_GROUPS_FETCH_SINGLE_GROUP, getSingle);
   yield takeLatest(types.TABLE_ADMIN_GROUPS_CREATE_LESSON, createLesson);
   yield takeLatest(types.TABLE_ADMIN_GROUPS_CREATE_GROUP, addGroup);
   yield takeLatest(types.TABLE_ADMIN_GROUPS_EDIT_GROUP, editGroup);
