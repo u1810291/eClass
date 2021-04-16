@@ -11,12 +11,12 @@ import { PrimaryButton } from '../../Buttons';
 import Card from '../../Card';
 import StudyDays from './StudyDays';
 
-export default ({ row, handleEdit }) => {
+export default ({ handleEdit }) => {
   const [start, setStart] = useState(new Date());
   const [finish, setFinish] = useState(new Date());
-  const { formik } = handleEdit();
+  const { formik, single } = handleEdit();
   // eslint-disable-next-line no-console
-  console.log(row);
+  console.log(single);
   const { data } = useSelector((state) => state.adminSubjectsReducers);
   const { users: teachers } = useSelector((state) => state.listsReducers);
   return (

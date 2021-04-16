@@ -2,6 +2,7 @@ import types from '../../../../constants/action-types';
 
 const defaultState = {
   data: [],
+  single: {},
   loading: false,
   total: 0,
   error: ''
@@ -24,9 +25,9 @@ const map = {
     ...state,
     error: payload
   }),
-  [types.TABLE_ADMIN_GROUPS_SET_SINGLE_GROUP]: (state, { payload }) => ({
+  [types.TABLE_ADMIN_SET_SINGLE_GROUP]: (state, { payload }) => ({
     ...state,
-    error: payload
+    single: payload
   })
 
 };
