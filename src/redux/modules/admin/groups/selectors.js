@@ -68,3 +68,33 @@ export function addGroupSelector(data) {
   };
   return { data: filtered };
 }
+export function editGroupSelector(payload) {
+  const { values, single } = payload;
+  const filtered = {
+    name: values.en_name,
+    official_name: values.official_en_name,
+    description: values.en_description,
+    group_lang: values.lang,
+    salary_percent: parseInt(values.salary_percent, 10),
+    price: parseInt(values.price, 10),
+    price_with_discount: parseInt(values.price_with_discount, 10),
+    lesson_duration: parseInt(values.lesson_duration, 10),
+    teacher_id: values.teacher_id,
+    subject_id: values.subject_id,
+    group_names: [{
+      id: single.group_names[0].id,
+      lang: 'ru',
+      name: values.ru_name,
+      description: values.ru_description
+    }, {
+      id: single.group_names[1].id,
+      lang: 'uz',
+      name: values.uz_name,
+      description: values.uz_description
+    }],
+    study_days: values.study_days,
+    start_date: values.start_date.toISOString(),
+    finish_date: values.finish_date.toISOString()
+  };
+  return { data: filtered };
+}

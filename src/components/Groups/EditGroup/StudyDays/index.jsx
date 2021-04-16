@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from 'react';
 
+/* eslint-disable no-unused-vars */
 import moment from 'moment';
 import { Container, DaysContainer, Item } from '../style';
 import SingleDatePicker from '../../../Forms/Inputs/SingleDatePicker';
 import CheckBox from '../../../CheckBox';
 import { studyDays } from '../../../../constants/dropdown';
 
-const StudyDays = ({ formik }) => {
-  // eslint-disable-next-line no-unused-vars
+const StudyDays = ({ formik, single }) => {
   const [date, setDate] = useState();
   const [time, setTime] = useState([]);
   const handleTime = (id, value) => {
-    const times = [{ day_of_week: parseInt(id, 10), start_time: `${moment(value).format('HH:mm')}Z` }];
+    const times = [{
+      day_of_week: parseInt(id, 10),
+      start_time: `${moment(value).format('HH:mm')}Z`
+    }];
     if (time.find((el) => el.day_of_week === id)) {
       setTime(time.filter((el) => el.day_of_week !== id));
       return setTime((prev) => prev.concat(times));

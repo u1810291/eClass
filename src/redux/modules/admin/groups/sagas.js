@@ -12,7 +12,7 @@ import {
   setSingle
 } from './actions';
 
-import { dataSelector, addGroupSelector } from './selectors';
+import { dataSelector, addGroupSelector, editGroupSelector } from './selectors';
 
 function* fetchData({ payload }) {
   yield put(setLoading(true));
@@ -31,9 +31,7 @@ function* fetchData({ payload }) {
 
 function* getSingle({ payload }) {
   try {
-    console.log(payload);
     const res = yield service.getSingleGroup(payload);
-    console.log(res);
     yield put(setSingle(res.data));
   } catch (error) {
     yield put(setError(error.response ? error.response.data.error_message : error));
@@ -78,7 +76,7 @@ function* addStudent({ payload, success }) {
 
 function* editGroup({ payload, success }) {
   try {
-    const { data } = addGroupSelector(payload);
+    const { data } = editGroupSelector(payload);
     const res = service.updateGroupIdInBody(data);
     yield put(setError(''));
     success(res.data);

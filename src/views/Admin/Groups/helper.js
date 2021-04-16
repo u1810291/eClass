@@ -48,14 +48,14 @@ const handleEdit = (id) => {
   }, []);
   const { single } = useSelector((state) => state.adminGroupsReducers);
   const validationSchema = Yup.object().shape({
-    en_name: Yup.string().required('Required'),
-    official_en_name: Yup.string().required('Required'),
+    en_name: Yup.string(),
+    official_en_name: Yup.string(),
     en_description: Yup.string(),
-    ru_name: Yup.string().required('Required'),
-    official_ru_name: Yup.string().required('Required'),
+    ru_name: Yup.string(),
+    official_ru_name: Yup.string(),
     ru_description: Yup.string(),
-    uz_name: Yup.string().required('Required'),
-    official_uz_name: Yup.string().required('Required'),
+    uz_name: Yup.string(),
+    official_uz_name: Yup.string(),
     uz_description: Yup.string(),
     group_lang: Yup.string(),
     salary_percent: Yup.number(),
@@ -94,12 +94,13 @@ const handleEdit = (id) => {
     validationSchema,
     onSubmit: (values, { setSubmitting }) => {
       setSubmitting(true);
-      dispatch(editGroup(values, (success) => {
+      dispatch(editGroup({ values, single }, (success) => {
         hideModal();
         return success;
       }));
     }
   });
+  console.log(single);
   return { formik, single };
 };
 
@@ -242,10 +243,10 @@ export const toolTips = [
   {
     name: 'Edit group',
     icon: 'payment',
-    onClick: (id, { row, showBlured }) => {
+    onClick: (id, { showBlured }) => {
       showBlured({
         title: 'Create Lesson',
-        body: () => <EditGroup row={row.original} handleEdit={() => handleEdit(id)} />
+        body: () => <EditGroup handleEdit={() => handleEdit(id)} />
       });
     }
   },
