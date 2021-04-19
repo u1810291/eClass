@@ -37,7 +37,7 @@ const useTopup = (id) => {
 
   const { tariffs } = useSelector((state) => state.adminUsersReducers);
   const validationSchema = Yup.object().shape({
-    tariff: Yup.string().required('Required'),
+    tariff: Yup.string(),
     amount: Yup.string().required('Required')
   });
   const formik = useFormik({
