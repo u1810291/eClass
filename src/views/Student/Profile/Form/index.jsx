@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React from 'react';
 import { Container, Forms, InputsContainer } from './style';
 import Card from '../../../../components/Card';

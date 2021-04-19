@@ -17,7 +17,6 @@ export default () => {
     dispatch(fetchData());
   }, []);
   const { data, loading, error } = useSelector((state) => state.studentProfileReducers);
-  console.log(data);
 
   return (
     <Container>
