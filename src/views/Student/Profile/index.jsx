@@ -31,7 +31,7 @@ export default () => {
                 </UserDetails>
                 <Content>
                   <Form title="Student" />
-                  {/* {data.parents.map((el) => <Form key={el.id} data={el} title="Parent" />)} */}
+                  {data.parents && data.parents.map((el) => <Form key={el.id} data={el} title="Parent" />)}
                 </Content>
                 <Text>Дополнительная информация</Text>
                 <Area>

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 import { useSelector } from 'react-redux';
 import { Container } from './style';
-import { useInfoForm } from './hooks';
+import { useInfoForm } from './helper';
 
 import StudentRegister from '../../../../../components/StudentRegister';
 
