@@ -1,9 +1,9 @@
 import React from 'react';
 import { Container, Forms, InputsContainer } from './style';
-import Card from '../../../../../components/Card';
-import { NormalInput } from '../../../../../components/Forms/Inputs';
+import Card from '../../../../components/Card';
+import { NormalInput } from '../../../../components/Forms/Inputs';
 
-export default ({ title }) => (
+const Form = ({ title }) => (
   <Container>
     <Forms>
       <Card bordered>
@@ -31,3 +31,4 @@ export default ({ title }) => (
     </Forms>
   </Container>
 );
+export default Form;

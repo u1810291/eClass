@@ -3,9 +3,9 @@ import classNames from 'classnames';
 import {
   Container, Title, Description, ImageWrapper, UserInfo, Text
 } from './style';
-import Avatar from '../../../../../assets/images/avatar-2.jpg';
+import Avatar from '../../../../assets/images/avatar-2.jpg';
 
-export default ({ data }) => (
+const Info = ({ data }) => (
   <Container>
     <Title className={classNames('weight-semibold', 'heading-6')}>Личный кабинет</Title>
     <Description className={classNames('body-large', 'weight-light')}>
@@ -22,3 +22,5 @@ export default ({ data }) => (
     </UserInfo>
   </Container>
 );
+
+export default Info;
