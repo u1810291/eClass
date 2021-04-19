@@ -17,13 +17,13 @@ export default () => {
     dispatch(fetchData());
   }, []);
   const { data, loading, error } = useSelector((state) => state.studentProfileReducers);
-  console.log(loading);
+  console.log(data);
 
   return (
     <Container>
-      {loading
+      {!loading
         ? (
-          error
+          !error
             ? (
               <>
                 <UserDetails>
@@ -31,7 +31,7 @@ export default () => {
                 </UserDetails>
                 <Content>
                   <Form title="Student" />
-                  <Form title="Parent" />
+                  {/* {data.parents.map((el) => <Form key={el.id} data={el} title="Parent" />)} */}
                 </Content>
                 <Text>Дополнительная информация</Text>
                 <Area>

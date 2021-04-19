@@ -11,7 +11,6 @@ function* fetchData() {
   try {
     yield put(setLoading(true));
     const res = yield service.getProfile();
-    console.log(res);
     yield put(setError(''));
     yield put(setData(res.data));
     yield put(setLoading(false));

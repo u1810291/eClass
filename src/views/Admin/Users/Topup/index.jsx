@@ -20,9 +20,9 @@ export default ({ useTopup }) => {
         size="large"
       />
       <NormalInput
-        label="Group name"
+        label="Group Amount"
         size="large"
-        placeholder="Group name"
+        placeholder="Amount"
         type={formik.touched.amount && formik.errors.amount && 'error'}
         helperText={formik.touched.amount
                && formik.errors.amount && formik.errors.amount}

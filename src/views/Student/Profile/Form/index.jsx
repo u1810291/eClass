@@ -3,11 +3,12 @@ import { Container, Forms, InputsContainer } from './style';
 import Card from '../../../../components/Card';
 import { NormalInput } from '../../../../components/Forms/Inputs';
 
-const Form = ({ title }) => (
+const Form = ({ data, title }) => (
   <Container>
     <Forms>
       <Card bordered>
         {title}
+        {console.log(data)}
         <InputsContainer>
           <InputsContainer.Head>
             <NormalInput size="medium" white placeholder="Имя Ученика" />
