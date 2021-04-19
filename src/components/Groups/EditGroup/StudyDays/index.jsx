@@ -11,8 +11,6 @@ import { studyDays } from '../../../../constants/dropdown';
 const StudyDays = ({ formik, single }) => {
   const [date, setDate] = useState();
   const [time, setTime] = useState([]);
-  // eslint-disable-next-line no-console
-  console.log(single);
   const handleTime = (id, value) => {
     const single_id = single.find((el) => el.day_of_week === id)
     && single.find((el) => el.day_of_week === id).id;
@@ -29,7 +27,6 @@ const StudyDays = ({ formik, single }) => {
     }
     return setTime((prev) => prev.concat(times));
   };
-  console.log(time);
   useEffect(() => {
     formik.setValues({
       ...formik.values,
