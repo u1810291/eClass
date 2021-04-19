@@ -130,8 +130,7 @@ export default ({ handleEdit }) => {
                   helperText={formik.errors.lang}
                   value={(formik.values.lang
                       && languages.find((el) => el.value === formik.values.lang).value)
-                      // eslint-disable-next-line eqeqeq
-                      || languages.find((e) => e.value == single.lang).id}
+                      || languages.find((el) => el.value === single.group_lang)}
                   onChange={(e) => formik.setFieldValue('lang',
                     languages.find((el) => el.id === e).value)}
                   size="large"
