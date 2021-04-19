@@ -100,7 +100,6 @@ const handleEdit = (id) => {
       }));
     }
   });
-  console.log(single);
   return { formik, single };
 };
 

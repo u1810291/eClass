@@ -15,8 +15,6 @@ export default ({ handleEdit }) => {
   const [start, setStart] = useState(new Date());
   const [finish, setFinish] = useState(new Date());
   const { formik, single } = handleEdit();
-  // eslint-disable-next-line no-console
-  console.log(single);
   const { data } = useSelector((state) => state.adminSubjectsReducers);
   const { users: teachers } = useSelector((state) => state.listsReducers);
   return (
@@ -63,7 +61,8 @@ export default ({ handleEdit }) => {
                   type={formik.touched.name && formik.errors.ru_name && 'error'}
                   helperText={formik.touched.ru_name
                    && formik.errors.ru_name && formik.errors.ru_name}
-                  value={formik.values.ru_name || single.group_names[0].name}
+                  value={formik.values.ru_name || (single.group_names[0]
+                    && single.group_names[0].name)}
                   onChange={(e) => formik.setFieldValue('ru_name', e.target.value)}
                   name="ru_name"
                 />
@@ -72,7 +71,8 @@ export default ({ handleEdit }) => {
                   type={formik.touched.official_ru_name && formik.errors.official_ru_name && 'error'}
                   helperText={formik.touched.official_ru_name
                    && formik.errors.official_ru_name && formik.errors.official_ru_name}
-                  value={formik.values.official_ru_name || single.group_names[0].name}
+                  value={formik.values.official_ru_name || (single.group_names[0]
+                    && single.group_names[0].name)}
                   onChange={(e) => formik.setFieldValue('official_ru_name', e.target.value)}
                   name="official_ru_name"
                   size="large"
@@ -93,7 +93,8 @@ export default ({ handleEdit }) => {
                   type={formik.touched.uz_name && formik.errors.uz_name && 'error'}
                   helperText={formik.touched.uz_name
                    && formik.errors.uz_name && formik.errors.uz_name}
-                  value={formik.values.uz_name || single.group_names[1].name}
+                  value={formik.values.uz_name || (single.group_names[1]
+                    && single.group_names[1].name)}
                   onChange={(e) => formik.setFieldValue('uz_name', e.target.value)}
                   name="uz_name"
                 />
@@ -102,7 +103,8 @@ export default ({ handleEdit }) => {
                   type={formik.touched.official_uz_name && formik.errors.official_uz_name && 'error'}
                   helperText={formik.touched.official_uz_name
                    && formik.errors.official_uz_name && formik.errors.official_uz_name}
-                  value={formik.values.official_uz_name || single.group_names[1].name}
+                  value={formik.values.official_uz_name || (single.group_names[1]
+                    && single.group_names[1].name)}
                   onChange={(e) => formik.setFieldValue('official_uz_name', e.target.value)}
                   name="official_uz_name"
                   size="large"
@@ -119,7 +121,7 @@ export default ({ handleEdit }) => {
                 />
               </Header>
               <StudyCard>
-                <StudyDays formik={formik} single={single} />
+                <StudyDays formik={formik} single={single.study_days} />
               </StudyCard>
               <Main>
                 <Dropdown
@@ -129,8 +131,8 @@ export default ({ handleEdit }) => {
                     && formik.errors.lang && 'error'}
                   helperText={formik.errors.lang}
                   value={(formik.values.lang
-                      && languages.find((el) => el.value === formik.values.lang).value)
-                      || languages.find((el) => el.value === single.group_lang)}
+                      && languages.find((el) => el.value === formik.values.lang
+                      || el.value === single.lang).value)}
                   onChange={(e) => formik.setFieldValue('lang',
                     languages.find((el) => el.id === e).value)}
                   size="large"

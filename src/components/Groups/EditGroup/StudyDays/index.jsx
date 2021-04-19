@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import React, { useState, useEffect } from 'react';
 
 /* eslint-disable no-unused-vars */
@@ -10,8 +11,15 @@ import { studyDays } from '../../../../constants/dropdown';
 const StudyDays = ({ formik, single }) => {
   const [date, setDate] = useState();
   const [time, setTime] = useState([]);
+  // eslint-disable-next-line no-console
+  console.log(single);
   const handleTime = (id, value) => {
+    const single_id = single.find((el) => el.day_of_week === id)
+    && single.find((el) => el.day_of_week === id).id;
     const times = [{
+      ...((typeof single_id === 'string'
+      || single_id instanceof String)
+      && { id: single_id }),
       day_of_week: parseInt(id, 10),
       start_time: `${moment(value).format('HH:mm')}Z`
     }];
@@ -21,6 +29,7 @@ const StudyDays = ({ formik, single }) => {
     }
     return setTime((prev) => prev.concat(times));
   };
+  console.log(time);
   useEffect(() => {
     formik.setValues({
       ...formik.values,
