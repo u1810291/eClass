@@ -8,21 +8,30 @@ import {
   setData,
   setError,
   setLoading,
-  setTotal
+  setTotal,
+  setSingle
 } from './actions';
 
-import { dataSelector, addGroupSelector } from './selectors';
+import { dataSelector, addGroupSelector, editGroupSelector } from './selectors';
 
 function* fetchData({ payload }) {
   yield put(setLoading(true));
   try {
     const res = yield service.getAll(payload.query);
-    console.log(res);
     const { total, data } = dataSelector(res.data);
     yield put(setError(''));
     yield put(setData(data));
     yield put(setTotal(total));
     yield put(setLoading(false));
+  } catch (error) {
+    yield put(setError(error.response ? error.response.data.error_message : error));
+  }
+}
+
+function* getSingle({ payload }) {
+  try {
+    const res = yield service.getSingleGroup(payload);
+    yield put(setSingle(res.data));
   } catch (error) {
     yield put(setError(error.response ? error.response.data.error_message : error));
   }
@@ -55,7 +64,6 @@ function* addGroup({ payload, success }) {
 
 function* addStudent({ payload, success }) {
   try {
-    console.log(payload);
     const res = yield service.addGroupStudents(payload);
     success(res);
   } catch (error) {
@@ -66,7 +74,7 @@ function* addStudent({ payload, success }) {
 
 function* editGroup({ payload, success }) {
   try {
-    const { data } = addGroupSelector(payload);
+    const { data } = editGroupSelector(payload);
     const res = service.updateGroupIdInBody(data);
     yield put(setError(''));
     success(res.data);
@@ -79,7 +87,6 @@ function* editGroup({ payload, success }) {
 function* deleteGroup({ payload, success }) {
   try {
     const res = service.deleteGroupIdInParams(payload);
-    console.log(res);
     yield put(setError(''));
     success([res.data]);
   } catch (error) {
@@ -90,6 +97,7 @@ function* deleteGroup({ payload, success }) {
 
 export default function* adminGroupsSaga() {
   yield takeLatest(types.TABLE_ADMIN_GROUPS_FETCH_DATA, fetchData);
+  yield takeLatest(types.TABLE_ADMIN_GROUPS_FETCH_SINGLE_DATA, getSingle);
   yield takeLatest(types.TABLE_ADMIN_GROUPS_CREATE_LESSON, createLesson);
   yield takeLatest(types.TABLE_ADMIN_GROUPS_CREATE_GROUP, addGroup);
   yield takeLatest(types.TABLE_ADMIN_GROUPS_EDIT_GROUP, editGroup);

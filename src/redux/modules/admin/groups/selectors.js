@@ -68,3 +68,37 @@ export function addGroupSelector(data) {
   };
   return { data: filtered };
 }
+export function editGroupSelector(payload) {
+  const { values, single } = payload;
+  const filtered = {
+    id: single.id,
+    ...(values.en_name && { name: values.en_name }),
+    ...(values.official_en_name && { official_name: values.official_en_name }),
+    ...(values.en_description && { description: values.en_description }),
+    ...(values.lang && { group_lang: values.lang }),
+    ...(values.salary_percent && { salary_percent: parseInt(values.salary_percent, 10) }),
+    ...(values.price && { price: parseInt(values.price, 10) }),
+    ...(values.price_with_discount
+      && { price_with_discount: parseInt(values.price_with_discount, 10) }),
+    ...(values.lesson_duration && { lesson_duration: parseInt(values.lesson_duration, 10) }),
+    ...(values.teacher_id && { teacher_id: values.teacher_id }),
+    ...(values.subject_id && { subject_id: values.subject_id }),
+    ...((values.ru_name || values.uz_name) && {
+      group_names: [{
+        ...(values.ru_name && { id: single.group_names[0].id }),
+        ...(values.ru_name && { lang: 'ru' }),
+        ...(values.ru_name && { name: values.ru_name }),
+        ...(values.ru_description && { description: values.ru_description })
+      }, {
+        ...(values.uz_name && { id: single.group_names[1].id }),
+        ...(values.uz_name && { lang: 'uz' }),
+        ...(values.uz_name && { name: values.uz_name }),
+        ...(values.uz_description && { description: values.uz_description })
+      }]
+    }),
+    ...(values.study_days && { study_days: values.study_days }),
+    ...(values.start_date && { start_date: values.start_date.toISOString() }),
+    ...(values.finish_date && { finish_date: values.finish_date.toISOString() })
+  };
+  return { data: filtered };
+}
