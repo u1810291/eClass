@@ -36,6 +36,7 @@ export const useAddForm = () => {
     validationSchema,
     onSubmit: (values, { setSubmitting }) => {
       setSubmitting(true);
+      console.log(values);
       dispatch(registerAccount(values, (res) => {
         setSubmitting(false);
         // eslint-disable-next-line no-alert
