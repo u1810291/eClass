@@ -32,10 +32,9 @@ export const addStudent = (payload, success) => ({
   success
 });
 
-export const editGroup = (payload, id, success) => ({
+export const editGroup = (payload, success) => ({
   type: types.TABLE_ADMIN_GROUPS_EDIT_GROUP,
   payload,
-  id,
   success
 });
 export const deleteGroup = (payload, success) => ({
