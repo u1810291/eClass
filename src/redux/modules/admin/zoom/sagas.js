@@ -29,6 +29,7 @@ function* fetchData({ payload }) {
 
 function* registerAccount({ payload, success }) {
   try {
+    console.log(payload);
     const res = yield service.registerAccount(payload);
     success(res);
   } catch (error) {

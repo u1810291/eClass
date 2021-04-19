@@ -8,7 +8,7 @@ export default ({ handleAddStudent }) => {
   return (
     <Container onSubmit={formik.handleSubmit}>
       <Dropdown
-        placeholder="Language"
+        placeholder="Students"
         options={students}
         type={formik.touched.student_id
                 && formik.errors.student_id && 'error'}

@@ -65,7 +65,7 @@ export default ({ useAddForm }) => {
                 helperText={formik.errors.reserved_for}
                 options={users}
                 value={formik.values.reserved_for}
-                onChange={(e) => formik.setFieldValue('reserved_for', users.find((el) => el.id === e).isPersonal)}
+                onChange={(e) => formik.setFieldValue('reserved_for', users.find((el) => el.id === e).id)}
                 size="large"
               />
             )

@@ -8,13 +8,14 @@ import {
 } from './actions';
 
 function* fetchData() {
-  yield put(setLoading(true));
   try {
+    yield put(setLoading(true));
     const res = yield service.getProfile();
     yield put(setError(''));
     yield put(setData(res.data));
     yield put(setLoading(false));
   } catch (error) {
+    yield put(setLoading(false));
     yield put(setError(error.response ? error.response.data.error_message : error));
   }
 }
