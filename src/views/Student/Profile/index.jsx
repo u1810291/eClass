@@ -8,10 +8,10 @@ export default () => {
   useEffect(() => {
     dispatch(fetchData());
   }, [fetchData]);
-  const { data } = useSelector((state) => state.studentProfileReducers);
+  const { data, loading, error } = useSelector((state) => state.studentProfileReducers);
   return (
     <>
-      <Profile data={data} />
+      <Profile data={data} loading={loading} error={error} />
     </>
   );
 };
