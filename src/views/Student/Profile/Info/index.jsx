@@ -17,7 +17,10 @@ const Info = ({ data }) => (
         <Text.Name>
           {`${data.first_name} ${data.last_name} ${data.middle_name}`}
         </Text.Name>
-        <Text.Email>kinanthayani@mail.com</Text.Email>
+        <Text.Name>
+          {data.date_of_birth}
+        </Text.Name>
+        <Text.Email>{data.email}</Text.Email>
       </Text>
     </UserInfo>
   </Container>

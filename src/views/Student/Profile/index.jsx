@@ -10,6 +10,7 @@ import Info from './Info';
 import { TextArea } from '../../../components/Forms/Inputs';
 import Spinner from '../../../components/Spinner';
 import Error from '../../../components/Error';
+import { useEditForm } from './helper';
 
 export default () => {
   const dispatch = useDispatch();
@@ -17,7 +18,7 @@ export default () => {
     dispatch(fetchData());
   }, []);
   const { data, loading, error } = useSelector((state) => state.studentProfileReducers);
-
+  const { formik } = useEditForm();
   return (
     <Container>
       {!loading
@@ -29,8 +30,19 @@ export default () => {
                   <Info data={data} />
                 </UserDetails>
                 <Content>
-                  <Form title="Student" />
-                  {data.parents && data.parents.map((el) => <Form key={el.id} data={el} title="Parent" />)}
+                  <Form
+                    title="Student"
+                    formik={formik}
+                    data={data}
+                  />
+                  {data.parents && data.parents.map((el) => (
+                    <Form
+                      key={el.id}
+                      title="Parent"
+                      formik={formik}
+                      data={el}
+                    />
+                  ))}
                 </Content>
                 <Text>Дополнительная информация</Text>
                 <Area>
