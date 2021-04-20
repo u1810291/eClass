@@ -4,7 +4,7 @@ import { Container, Forms, InputsContainer } from './style';
 import Card from '../../../../components/Card';
 import { NormalInput } from '../../../../components/Forms/Inputs';
 
-const Form = ({ data, title }) => {
+const Form = ({ formik, data, title }) => {
   const type = `${data.description.charAt(0).toUpperCase()}${data.description.substring(1)}`;
   return (
     <Container>

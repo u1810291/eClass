@@ -2,7 +2,7 @@
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
-import { } from '../../../redux/modules/student/profile';
+import { updateProfile } from '../../../redux/modules/student/profile/actions';
 
 export const useEditForm = () => {
   const dispatch = useDispatch();
@@ -43,7 +43,7 @@ export const useEditForm = () => {
     validationSchema,
     onSubmit: (values, { setSubmitting }) => {
       setSubmitting(true);
-      dispatch(topUpStudent(values, (res) => {
+      dispatch(updateProfile(values, (res) => {
         if (res) {
           return alert('Succesfully added!');
         }
