@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchData } from '../../../redux/modules/student/profile/actions';
 import {
-  UserDetails, Container, Content, Area, Text
+  UserDetails, Container, Content, Area, Text, SubmitForm
 } from './style';
 import Form from './Form';
 import Info from './Info';
@@ -11,6 +11,7 @@ import { TextArea } from '../../../components/Forms/Inputs';
 import Spinner from '../../../components/Spinner';
 import Error from '../../../components/Error';
 import { useEditForm } from './helper';
+import { PrimaryButton } from '../../../components/Buttons';
 
 export default () => {
   const dispatch = useDispatch();
@@ -21,11 +22,11 @@ export default () => {
   const { formik } = useEditForm();
   return (
     <Container>
-      {!loading
-        ? (
-          !error
-            ? (
-              <>
+      {loading
+        ? <Spinner contain black /> : (
+          error
+            ? <Error /> : (
+              <SubmitForm onSubmit={formik.handleSubmit}>
                 <UserDetails>
                   <Info data={data} />
                 </UserDetails>
@@ -48,11 +49,10 @@ export default () => {
                 <Area>
                   <TextArea white />
                 </Area>
-              </>
+                <PrimaryButton type="submit" title="Edit" />
+              </SubmitForm>
             )
-            : <Error />
-        )
-        : <Spinner contain black />}
+        )}
     </Container>
   );
 };
