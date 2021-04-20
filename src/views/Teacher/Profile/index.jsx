@@ -1,0 +1,60 @@
+/* eslint-disable no-nested-ternary */
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { isEmpty } from 'lodash';
+import { fetchData } from '../../../redux/modules/student/profile/actions';
+import {
+  UserDetails, Container, Content, Area, Text, SubmitForm
+} from './style';
+import Form from './Form';
+import Info from './Info';
+import { TextArea } from '../../../components/Forms/Inputs';
+import Spinner from '../../../components/Spinner';
+import Error from '../../../components/Error';
+import { useEditForm } from './helper';
+import { PrimaryButton } from '../../../components/Buttons';
+
+export default () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchData());
+  }, []);
+  const { data, loading, error } = useSelector((state) => state.studentProfileReducers);
+  console.log(isEmpty(data));
+  const { formik } = useEditForm();
+  return (
+    <Container>
+      {loading && !isEmpty(data)
+        ? <Spinner contain black /> : (
+          error
+            ? <Error /> : (
+              <SubmitForm onSubmit={formik.handleSubmit}>
+                <UserDetails>
+                  <Info data={data} />
+                </UserDetails>
+                <Content>
+                  <Form
+                    title="Student"
+                    formik={formik}
+                    data={data}
+                  />
+                  {data.parents && data.parents.map((el) => (
+                    <Form
+                      key={el.id}
+                      title="Parent"
+                      formik={formik}
+                      data={el}
+                    />
+                  ))}
+                </Content>
+                <Text>Дополнительная информация</Text>
+                <Area>
+                  <TextArea white />
+                </Area>
+                <PrimaryButton type="submit" title="Edit" />
+              </SubmitForm>
+            )
+        )}
+    </Container>
+  );
+};
