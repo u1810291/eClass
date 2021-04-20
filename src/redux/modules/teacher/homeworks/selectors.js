@@ -12,3 +12,20 @@ export function dataSelector(lesson) {
   }));
   return { total: total_elements, data: filtered };
 }
+
+export function addHomeworkSelector(data) {
+  // eslint-disable-next-line camelcase
+
+  const formData = new FormData();
+  formData.append('file', data.file[0], data.file[0].name);
+  formData.append('desc', data.desc);
+  formData.append('till_date', data.till_date.toISOString());
+  formData.append('from_date', data.from_date.toISOString());
+  formData.append('type', data.type);
+  return { data: formData };
+}
+
+export function getFilesSelector(data) {
+  const { content } = data;
+  return { data: content };
+}

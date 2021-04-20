@@ -6,13 +6,14 @@ import { useFormik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import AddHomework from '../../../components/Lesson/AddHomework';
 import CancelLesson from '../../../components/Lesson/CancelLesson';
-import { uploadFile } from '../../../redux/modules/files/actions';
+import { addHomework } from '../../../redux/modules/teacher/homeworks/actions';
 import { startLesson, cancelLesson } from '../../../redux/modules/teacher/lessons/actions';
 import MeetingWindow from '../../../components/MeetingWindow';
 import { getReasons } from '../../../redux/modules/lists/actions';
 import { useHideModal } from '../../../hooks/modal';
 
 const handleAdd = (id) => {
+  const { hideModal } = useHideModal();
   const dispatch = useDispatch();
   const validationSchema = Yup.object().shape({
     desc: Yup.string(),
@@ -31,9 +32,12 @@ const handleAdd = (id) => {
     validationSchema,
     onSubmit: (values, { setSubmitting }) => {
       setSubmitting(true);
-      dispatch(uploadFile({ values, id }, (res) => {
+      dispatch(addHomework({ values, id }, (res) => {
         // eslint-disable-next-line no-alert
-        if (res) alert('Succesfully added!');
+        if (res) {
+          alert('Succesfully added!');
+          hideModal();
+        }
         if (!res) alert('Something went wrong!');
         return res;
       }));
@@ -44,7 +48,6 @@ const handleAdd = (id) => {
 
 const cancelingLesson = (id) => {
   const { hideModal } = useHideModal();
-
   const dispatch = useDispatch();
   const validationSchema = Yup.object().shape({
     reason: Yup.string().required('Required'),

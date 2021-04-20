@@ -10,6 +10,7 @@ import {
 } from '../../../redux/modules/admin/users/actions';
 import DeleteUser from '../../../components/Users/DeleteUser';
 import RestoreUser from '../../../components/Users/RestoreUser';
+import { useHideModal } from '../../../hooks/modal';
 import {
   StudentEditUser,
   TeacherEditUser,
@@ -31,6 +32,7 @@ export const options = [
 
 const useTopup = (id) => {
   const dispatch = useDispatch();
+  const { hideModal } = useHideModal();
   useEffect(() => {
     dispatch(fetchTariffs());
   }, [fetchTariffs]);
@@ -51,6 +53,7 @@ const useTopup = (id) => {
       const data = { student: id, tariff: values.tariff, amount: values.amount };
       dispatch(topUpStudent(data, (res) => {
         if (res) {
+          hideModal();
           return alert('Succesfully added!');
         }
         return alert('Something went Wrong!');
@@ -62,9 +65,10 @@ const useTopup = (id) => {
 
 const useDelete = (data) => {
   const dispatch = useDispatch();
+  const { hideModal } = useHideModal();
   const [token, setToken] = useState();
   useEffect(() => {
-    dispatch(deleteUser(data, (res) => setToken(res)));
+    dispatch(deleteUser(data, (res) => setToken(res)), hideModal());
   }, [deleteUser]);
   return { token };
 };
@@ -72,8 +76,9 @@ const useDelete = (data) => {
 const useRestore = (info) => {
   const dispatch = useDispatch();
   const [data, setData] = useState();
+  const { hideModal } = useHideModal();
   useEffect(() => {
-    dispatch(restoreUser(info, (res) => setData(res)));
+    dispatch(restoreUser(info, (res) => setData(res)), hideModal());
   }, [restoreUser]);
   return { data };
 };

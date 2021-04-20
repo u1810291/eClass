@@ -33,7 +33,7 @@ function refresh() {
     }).then((response) => {
       alert('Access token has expired!');
       saveToken(response.data.access_token, response.data.refresh_token);
-      // window.location.replace('/');
+      window.location.replace('/');
       return resolve(response.data.access_token);
     }).catch((error) => {
       alert('Refresh token has expired!');
@@ -52,7 +52,7 @@ service.interceptors.response.use(
       alert('Login or password is incorrect');
     }
     if (parseInt(status, 10) === 403) {
-      // refresh();
+      refresh();
     }
     if (!status) {
       refresh();

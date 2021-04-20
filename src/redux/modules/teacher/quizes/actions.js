@@ -8,3 +8,5 @@ export const fetchData = (payload) => ({
   type: types.TABLE_TEACHER_QUIZES_FETCH_DATA,
   payload
 });
+
+export const addQuiz = (payload) => ({ type: types.TABLE_TEACHER_QUIZES_ADD, payload });
