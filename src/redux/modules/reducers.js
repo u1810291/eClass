@@ -22,6 +22,7 @@ export { default as teacherQuizesReducers } from './teacher/quizes/reducers';
 export { default as teacherLessonsReducers } from './teacher/lessons/reducers';
 export { default as teacherHomeworksReducers } from './teacher/homeworks/reducers';
 export { default as teacherBalanceReducers } from './teacher/balance/reducers';
+export { default as teacherCertificatesReducers } from './teacher/certificates/reducers';
 
 export { default as adminProfileReducers } from './admin/profile/reducers';
 export { default as adminUsersReducers } from './admin/users/reducers';
