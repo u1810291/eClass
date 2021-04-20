@@ -17,6 +17,7 @@ export { default as studentLessonsSaga } from './student/lessons/sagas';
 export { default as studentProfileSaga } from './student/profile/sagas';
 export { default as studentbalanceSaga } from './student/balance/sagas';
 
+export { default as adminProfileSaga } from './admin/profile/sagas';
 export { default as adminUsersSaga } from './admin/users/sagas';
 export { default as adminLessonsSaga } from './admin/lessons/sagas';
 export { default as adminGroupsSaga } from './admin/groups/sagas';
