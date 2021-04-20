@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { takeLatest, put } from 'redux-saga/effects';
 import types from '../../../../constants/action-types';
 import service from '../../../../services/teacher/exercise';
@@ -24,6 +25,16 @@ function* fetchData({ payload }) {
   }
 }
 
+function* addHomework({ payload, success }) {
+  try {
+    const res = yield service.addHomework(payload);
+    yield success(res.data);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export default function* teacherHomeworksSaga() {
   yield takeLatest(types.TABLE_TEACHER_HOMEWORKS_FETCH_DATA, fetchData);
+  yield takeLatest(types.TABLE_TEACHER_HOMEWORKS_ADD, addHomework);
 }
