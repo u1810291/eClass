@@ -10,7 +10,7 @@ export default ({ useTopup }) => {
   return (
     <Container onSubmit={formik.handleSubmit}>
       <Dropdown
-        placeholder="Language"
+        placeholder="Tariff"
         options={tariffs}
         type={formik.touched.tariff
                 && formik.errors.tariff && 'error'}

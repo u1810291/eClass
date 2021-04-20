@@ -1,6 +1,7 @@
 /* eslint-disable no-nested-ternary */
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { isEmpty } from 'lodash';
 import { fetchData } from '../../../redux/modules/student/profile/actions';
 import {
   UserDetails, Container, Content, Area, Text, SubmitForm
@@ -19,10 +20,11 @@ export default () => {
     dispatch(fetchData());
   }, []);
   const { data, loading, error } = useSelector((state) => state.studentProfileReducers);
+  console.log(isEmpty(data));
   const { formik } = useEditForm();
   return (
     <Container>
-      {loading
+      {loading && !isEmpty(data)
         ? <Spinner contain black /> : (
           error
             ? <Error /> : (
