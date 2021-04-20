@@ -3,7 +3,6 @@ import moment from 'moment';
 export function dataSelector(data) {
   // eslint-disable-next-line camelcase
   const { total_elements, content } = data;
-  console.log(content);
   const filtered = content.map((el) => ({
     available_balance: el.available_balance,
     balance: el.balance,
