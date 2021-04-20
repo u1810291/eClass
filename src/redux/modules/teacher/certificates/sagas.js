@@ -49,8 +49,8 @@ function* deleteCertificate({ payload, success }) {
 }
 
 export default function* teacherProfileSaga() {
-  yield takeLatest(types.TEACHER_PROFILE_FETCH_DATA, fetchData);
-  yield takeLatest(types.TEACHER_PROFILE_UPDATE, addCertificate);
-  yield takeLatest(types.TEACHER_PROFILE_UPLOAD_PHOTO, downloadCertificate);
-  yield takeLatest(types.TEACHER_PROFILE_DOWNLOAD_PHOTO, deleteCertificate);
+  yield takeLatest(types.TEACHER_CERTIFICATE_FETCH_DATA, fetchData);
+  yield takeLatest(types.TEACHER_CERTIFICATE_ADD, addCertificate);
+  yield takeLatest(types.TEACHER_CERTIFICATE_DOWNLOAD, downloadCertificate);
+  yield takeLatest(types.TEACHER_CERTIFICATE_DELETE, deleteCertificate);
 }

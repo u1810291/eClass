@@ -7,15 +7,15 @@ const defaultState = {
 };
 
 const map = {
-  [types.TEACHER_PROFILE_SET_LOADING]: (state, { payload }) => ({
+  [types.TEACHER_CERTIFICATE_SET_LOADING]: (state, { payload }) => ({
     ...state,
     loading: payload
   }),
-  [types.TEACHER_PROFILE_SET_DATA]: (state, { payload }) => ({
+  [types.TEACHER_CERTIFICATE_SET_DATA]: (state, { payload }) => ({
     ...state,
     data: payload
   }),
-  [types.TEACHER_PROFILE_ERROR]: (state, { payload }) => ({
+  [types.TEACHER_CERTIFICATE_ERROR]: (state, { payload }) => ({
     ...state,
     error: payload
   })
