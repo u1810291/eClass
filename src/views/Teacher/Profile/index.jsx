@@ -20,7 +20,6 @@ export default () => {
     dispatch(fetchData());
   }, []);
   const { data, loading, error } = useSelector((state) => state.studentProfileReducers);
-  console.log(isEmpty(data));
   const { formik } = useEditForm();
   return (
     <Container>
