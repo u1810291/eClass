@@ -9,7 +9,7 @@ import {
   setLoading
 } from './actions';
 
-import { dataSelector } from './selectors';
+import { dataSelector, addHomeworkSelector } from './selectors';
 
 function* fetchData({ payload }) {
   try {
@@ -27,8 +27,9 @@ function* fetchData({ payload }) {
 
 function* addHomework({ payload, success }) {
   try {
-    const { data } = dataSelector(payload.values);
-    const res = yield service.addHomework(data);
+    console.log(payload);
+    const { data } = addHomeworkSelector(payload.values);
+    const res = yield service.addHomework(payload.id, data);
     yield put(setError(''));
     success(res);
   } catch (error) {
