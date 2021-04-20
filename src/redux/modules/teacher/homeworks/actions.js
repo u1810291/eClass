@@ -11,3 +11,5 @@ export const fetchData = (payload) => ({
   type: types.TABLE_TEACHER_HOMEWORKS_FETCH_DATA,
   payload
 });
+
+export const addHomework = (payload) => ({ type: types.TABLE_TEACHER_HOMEWORKS_ADD, payload });

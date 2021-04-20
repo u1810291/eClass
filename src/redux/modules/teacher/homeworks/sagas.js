@@ -27,10 +27,13 @@ function* fetchData({ payload }) {
 
 function* addHomework({ payload, success }) {
   try {
-    const res = yield service.addHomework(payload);
-    yield success(res.data);
+    const { data } = dataSelector(payload.values);
+    const res = yield service.addHomework(data);
+    yield put(setError(''));
+    success(res);
   } catch (error) {
-    console.log(error);
+    // eslint-disable-next-line no-alert
+    alert(error);
   }
 }
 
