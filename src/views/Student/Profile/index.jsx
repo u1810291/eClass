@@ -30,13 +30,17 @@ export default () => {
                   <Info data={data} />
                 </UserDetails>
                 <Content>
-                  <Form title="Student" formik={formik} />
+                  <Form
+                    title="Student"
+                    formik={formik}
+                    data={data}
+                  />
                   {data.parents && data.parents.map((el) => (
                     <Form
-                      formik={formik}
                       key={el.id}
-                      data={el}
                       title="Parent"
+                      formik={formik}
+                      data={el}
                     />
                   ))}
                 </Content>

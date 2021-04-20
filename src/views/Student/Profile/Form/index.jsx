@@ -5,7 +5,10 @@ import Card from '../../../../components/Card';
 import { NormalInput } from '../../../../components/Forms/Inputs';
 
 const Form = ({ formik, data, title }) => {
-  const type = `${data.description.charAt(0).toUpperCase()}${data.description.substring(1)}`;
+  console.log(data);
+  const type = data.description
+    ? `${data.description.charAt(0).toUpperCase()}
+  ${data.description.substring(1)}` : '';
   return (
     <Container>
       <Forms>
@@ -21,7 +24,7 @@ const Form = ({ formik, data, title }) => {
                 type={formik.touched.first_name && formik.errors.first_name && 'error'}
                 helperText={formik.touched.first_name
                   && formik.errors.first_name && formik.errors.first_name}
-                value={formik.values.first_name || data.full_name}
+                value={formik.values.first_name || data.first_name || data.full_name}
                 onChange={(e) => formik.setFieldValue('first_name', e.target.value)}
               />
               <NormalInput
@@ -32,7 +35,7 @@ const Form = ({ formik, data, title }) => {
                 type={formik.touched.last_name && formik.errors.last_name && 'error'}
                 helperText={formik.touched.last_name
                     && formik.errors.last_name && formik.errors.last_name}
-                value={formik.values.last_name || data.full_name}
+                value={formik.values.last_name || data.first_name || data.full_name}
                 onChange={(e) => formik.setFieldValue('last_name', e.target.value)}
               />
             </InputsContainer.Head>
@@ -44,7 +47,8 @@ const Form = ({ formik, data, title }) => {
                 type={formik.touched.phone_code && formik.errors.phone_code && 'error'}
                 helperText={formik.touched.phone_code
                     && formik.errors.phone_code && formik.errors.phone_code}
-                value={formik.values.phone_code || data.phones[0].phone.substring(0, 3)}
+                value={formik.values.phone_code || (data.phones
+                  && data.phones[0] && data.phones[0].phone.substring(0, 3))}
                 onChange={(e) => formik.setFieldValue('phone_code', e.target.value)}
                 placeholder="+998"
               />
@@ -55,7 +59,9 @@ const Form = ({ formik, data, title }) => {
                 type={formik.touched.phone_code && formik.errors.phone_code && 'error'}
                 helperText={formik.touched.phone_code
                     && formik.errors.phone_code && formik.errors.phone_code}
-                value={formik.values.phone_code || data.phones[0].phone}
+                value={formik.values.phone_code || (data.phones
+                  && data.phones[0]
+                  && data.phones[0].phone)}
                 onChange={(e) => formik.setFieldValue('phone_code', e.target.value)}
                 placeholder={`Номер телефона ${type}`}
               />
