@@ -18,6 +18,7 @@ export default () => {
     if (option === 1) dispatch(fetchData());
     if (option === 2) dispatch(fetchPayments());
   }, [fetchData, option, setOption]);
+
   return (
     <Container>
       {option === 1
