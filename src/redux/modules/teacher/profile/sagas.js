@@ -57,10 +57,10 @@ function* deletePhoto({ payload, success }) {
   }
 }
 
-export default function* studentProfileSaga() {
-  yield takeLatest(types.STUDENT_PROFILE_FETCH_DATA, fetchData);
-  yield takeLatest(types.STUDENT_PROFILE_UPDATE, updateProfile);
-  yield takeLatest(types.STUDENT_PROFILE_UPLOAD_PHOTO, uploadPhoto);
-  yield takeLatest(types.STUDENT_PROFILE_DOWNLOAD_PHOTO, downloadPhoto);
-  yield takeLatest(types.STUDENT_PROFILE_DELETE_PHOTO, deletePhoto);
+export default function* teacherProfileSaga() {
+  yield takeLatest(types.TEACHER_PROFILE_FETCH_DATA, fetchData);
+  yield takeLatest(types.TEACHER_PROFILE_UPDATE, updateProfile);
+  yield takeLatest(types.TEACHER_PROFILE_UPLOAD_PHOTO, uploadPhoto);
+  yield takeLatest(types.TEACHER_PROFILE_DOWNLOAD_PHOTO, downloadPhoto);
+  yield takeLatest(types.TEACHER_PROFILE_DELETE_PHOTO, deletePhoto);
 }
