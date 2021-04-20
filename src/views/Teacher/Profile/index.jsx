@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { isEmpty } from 'lodash';
-import { fetchData } from '../../../redux/modules/student/profile/actions';
+import { fetchData } from '../../../redux/modules/teacher/profile/actions';
 import {
   UserDetails, Container, Content, Area, Text, SubmitForm
 } from './style';
@@ -19,7 +19,7 @@ export default () => {
   useEffect(() => {
     dispatch(fetchData());
   }, []);
-  const { data, loading, error } = useSelector((state) => state.studentProfileReducers);
+  const { data, loading, error } = useSelector((state) => state.teacherProfileReducers);
   const { formik } = useEditForm();
   return (
     <Container>
@@ -50,7 +50,7 @@ export default () => {
                 <Area>
                   <TextArea white />
                 </Area>
-                <PrimaryButton type="submit" title="Edit" />
+                <PrimaryButton type="submit" title="Edit" size="medium" />
               </SubmitForm>
             )
         )}

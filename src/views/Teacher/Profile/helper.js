@@ -2,7 +2,7 @@
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
-import { updateProfile } from '../../../redux/modules/student/profile/actions';
+import { updateProfile } from '../../../redux/modules/teacher/profile/actions';
 
 export const useEditForm = () => {
   const dispatch = useDispatch();

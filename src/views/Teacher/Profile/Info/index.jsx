@@ -9,7 +9,7 @@ const Info = ({ data }) => (
   <Container>
     <Title className={classNames('weight-semibold', 'heading-6')}>Личный кабинет</Title>
     <Description className={classNames('body-large', 'weight-light')}>
-      This information can be edited from your profile page.
+      {data.description}
     </Description>
     <UserInfo>
       <ImageWrapper src={Avatar} />

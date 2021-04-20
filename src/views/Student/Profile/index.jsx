@@ -50,7 +50,7 @@ export default () => {
                 <Area>
                   <TextArea white />
                 </Area>
-                <PrimaryButton type="submit" title="Edit" />
+                <PrimaryButton type="submit" title="Edit" size="medium" />
               </SubmitForm>
             )
         )}
