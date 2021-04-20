@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import { takeLatest, put } from 'redux-saga/effects';
 import types from '../../../../constants/action-types';
-import service from '../../../../services/student/profile';
+import service from '../../../../services/teacher/profile';
 import {
   setData,
   setError,
