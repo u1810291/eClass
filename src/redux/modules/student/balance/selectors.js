@@ -10,12 +10,12 @@ export function dataSelector(data) {
     name: el.name,
     tariff_amount: el.amount,
     tariff_description: el.description,
-    tariff_id: el.tariff.id,
-    tariff_lang: el.tariff.lang,
-    tariff_lessons_count: el.tariff.lessons_count,
-    tariff_name: el.tariff.name,
-    subject_id: el.tariff.subject ? el.tariff.subject.id : '',
-    subject_name: el.tariff.subject ? el.tariff.subject.name : '',
+    tariff_id: el.tariff ? el.tariff.id : '',
+    tariff_lang: el.tariff ? el.tariff.lang : '',
+    tariff_lessons_count: el.tariff ? el.tariff.lessons_count : '',
+    tariff_name: el.tariff ? el.tariff.name : '',
+    subject_id: el.tariff && el.tariff.subject ? el.tariff.subject.id : '',
+    subject_name: el.tariff && el.tariff.subject ? el.tariff.subject.name : '',
     date: moment(new Date()).format('DD-MM-YYYY hh:mm:ss')
   }));
   return { total: total_elements, data: filtered };
