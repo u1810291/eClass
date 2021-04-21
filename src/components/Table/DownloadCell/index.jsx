@@ -5,11 +5,17 @@ import service from '../../../services/files';
 
 const DownloadCell = (files) => (
   <Container size="large">
-    {console.log(files[0].split('/')[files[0].split('/').length - 1])}
     {files[0]
       ? (
         <Content size="large">
-          <a href={service.downloadFile(files[0].split('/')[files[0].split('/').length - 1])}>Donwload</a>
+          <button
+            type="button"
+            onClick={() => service.downloadFile(
+              files[0].split('/')[files[0].split('/').length - 1]
+            )}
+          >
+            Donwload
+          </button>
         </Content>
       )
       : <span>No link provided</span>}
