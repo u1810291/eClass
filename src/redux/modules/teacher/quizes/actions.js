@@ -9,4 +9,8 @@ export const fetchData = (payload) => ({
   payload
 });
 
-export const addQuiz = (payload) => ({ type: types.TABLE_TEACHER_QUIZES_ADD, payload });
+export const addQuiz = (payload, success) => ({
+  type: types.TABLE_TEACHER_QUIZES_ADD,
+  payload,
+  success
+});
