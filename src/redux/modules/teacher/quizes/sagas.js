@@ -27,7 +27,6 @@ function* fetchData() {
 
 function* addQuiz({ payload, success }) {
   try {
-    console.log(payload);
     const { data } = addQuizSelector(payload.values);
     const res = yield service.addQuize(payload.id, data);
     yield put(setError(''));

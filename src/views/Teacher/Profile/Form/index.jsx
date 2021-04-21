@@ -5,7 +5,6 @@ import Card from '../../../../components/Card';
 import { NormalInput } from '../../../../components/Forms/Inputs';
 
 const Form = ({ formik, data, title }) => {
-  console.log(data);
   const type = data.description
     ? `${data.description.charAt(0).toUpperCase()}
   ${data.description.substring(1)}` : '';
