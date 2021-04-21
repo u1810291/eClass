@@ -27,7 +27,6 @@ function* fetchData({ payload }) {
 
 function* addHomework({ payload, success }) {
   try {
-    console.log(payload);
     const { data } = addHomeworkSelector(payload.values);
     const res = yield service.addHomework(payload.id, data);
     yield put(setError(''));

@@ -1,20 +1,21 @@
 import React from 'react';
-import DownloadLink from 'react-download-link';
 import { Container, Content } from './style';
-import { service } from '../../../services';
+import service from '../../../services/files';
+// 0: "https://five-plus.co/api/v1/files/download/b1efe1c9-013f-4ee3-9a60-ae26f594008b"
 
 const DownloadCell = (files) => (
   <Container size="large">
     {files[0]
       ? (
         <Content size="large">
-          <DownloadLink
-            label="Download"
-            filename="filename.pdf"
-            exportFile={() => Promise((resolve, reject) => service.get(files[0])
-              .then((res) => resolve(res))
-              .catch((err) => reject(err)))}
-          />
+          <button
+            type="button"
+            onClick={() => service.downloadFile(
+              files[0].split('/')[files[0].split('/').length - 1]
+            )}
+          >
+            Donwload
+          </button>
         </Content>
       )
       : <span>No link provided</span>}

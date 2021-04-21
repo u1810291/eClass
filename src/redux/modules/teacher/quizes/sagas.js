@@ -9,7 +9,7 @@ import {
   setLoading
 } from './actions';
 
-import { dataSelector } from './selectors';
+import { dataSelector, addQuizSelector } from './selectors';
 
 function* fetchData() {
   yield put(setLoading(true));
@@ -27,10 +27,13 @@ function* fetchData() {
 
 function* addQuiz({ payload, success }) {
   try {
-    const res = yield service.addHomework(payload);
-    yield success(res.data);
+    const { data } = addQuizSelector(payload.values);
+    const res = yield service.addQuize(payload.id, data);
+    yield put(setError(''));
+    success(res);
   } catch (error) {
-    console.log(error);
+    // eslint-disable-next-line no-alert
+    alert(error);
   }
 }
 
