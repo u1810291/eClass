@@ -19,7 +19,7 @@ export default () => {
   const headerData = useSelector(({ tableReducer }) => tableReducer.studentHomeworksHeader);
   const header = useMemo(() => headerMaker(headerData), [headerData]);
   const [pageIndex, setPageIndex] = useState(0);
-  const [pageSize, setPageSize] = useState(0);
+  const [pageSize, setPageSize] = useState(10);
   const [search, setSearch] = useState('');
   const [date, setDate] = useState(undefined);
   const [sort, setSort] = useState();
@@ -57,7 +57,6 @@ export default () => {
         search={search}
         setDate={setDate}
         date={date}
-
       />
       {error ? (
         <TableError message={error} />
