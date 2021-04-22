@@ -64,7 +64,6 @@ function* addGroup({ payload, success }) {
 
 function* addStudent({ payload, success }) {
   try {
-    console.log(payload);
     const res = yield service.addGroupStudents(payload);
     success(res);
   } catch (error) {

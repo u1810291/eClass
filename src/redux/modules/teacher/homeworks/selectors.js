@@ -19,8 +19,8 @@ export function addHomeworkSelector(data) {
   const formData = new FormData();
   formData.append('file', data.file[0], data.file[0].name);
   formData.append('desc', data.desc);
-  formData.append('till_date', data.till_date.toISOString());
-  formData.append('from_date', data.from_date.toISOString());
+  formData.append('till', data.till_date.toISOString());
+  formData.append('from', data.from_date.toISOString());
   return { data: formData };
 }
 

@@ -14,9 +14,7 @@ import { dataSelector } from './selectors';
 function* fetchData({ payload }) {
   yield put(setLoading(true));
   try {
-    console.log(payload);
     const res = yield service.getAccountList(payload.query);
-    console.log(res);
     const { total, data } = dataSelector(res.data);
     yield put(setError(''));
     yield put(setData(data));
@@ -29,7 +27,6 @@ function* fetchData({ payload }) {
 
 function* registerAccount({ payload, success }) {
   try {
-    console.log(payload);
     const res = yield service.registerAccount(payload);
     success(res);
   } catch (error) {
@@ -40,7 +37,6 @@ function* registerAccount({ payload, success }) {
 function* unRegisterAccount({ payload, success }) {
   try {
     const res = yield service.unRegisterAccount(payload);
-    console.log(res);
     success(res);
   } catch (error) {
     console.log(error);

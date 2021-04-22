@@ -39,7 +39,6 @@ function* createTariff({ payload, success }) {
 function* updateTariff({ payload, success }) {
   try {
     const res = yield service.updateTariffIdInBody(payload);
-    console.log(res);
     success(res);
   } catch (error) {
     console.log(error);

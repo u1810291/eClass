@@ -47,7 +47,6 @@ function* deleteFile(payload) {
 function* getFileById({ payload }) {
   try {
     const { id } = payload;
-    // console.log(payload);
     const res = yield service.getFileById(id)
       .then((response) => {
         response.blob().then((blob) => {

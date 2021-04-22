@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 
 import classNames from 'classnames';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import {
   Container,
@@ -15,16 +15,16 @@ import {
   BellContainer,
   TextContainer
 } from './style';
-import { Image, Content } from '../style';
+import { Content } from '../style';
 import Bell from '../../Bell';
 import { logout } from '../../../redux/modules/auth/actions';
 import { ClickOutside } from '../../../hooks/click-outside';
 import Icon from '../../Icon';
-import Avatar from '../../../assets/images/avatar-2.jpg';
 import Dropdown from '../../Forms/Dropdowns';
 import { language } from './options';
 import SearchableInput from '../../Forms/Inputs/Search';
 import PrimaryButton from '../../Buttons/Primary';
+import { DynamicImage } from '../../DynamicImage';
 
 export default () => {
   const clickRef = useRef(null);
@@ -33,6 +33,7 @@ export default () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const [isOpen, setIsOpen] = useState(false);
+  const { userInfo } = useSelector((state) => state.userReducer);
   const handleOnClick = (type) => {
     switch (type) {
     case 'profile':
@@ -70,9 +71,11 @@ export default () => {
         </BellContainer>
         <PopupContainer>
           <UserInfoContainer>
-            <Image
+            <DynamicImage
+              style={{ cursor: 'pointer' }}
               ref={clickRef}
-              src={Avatar}
+              imgSrc=""
+              name={`${userInfo.username}`}
               onClick={() => setIsOpen((prevState) => !prevState)}
             />
             <ClickOutside
@@ -91,12 +94,9 @@ export default () => {
               </DropdownContainer>
             </ClickOutside>
             <TextContainer>
-              <TextContainer.Name>Isaac Williams</TextContainer.Name>
-              <TextContainer.Email>kinanthayani@mail.com</TextContainer.Email>
+              <TextContainer.Name>{userInfo.username}</TextContainer.Name>
+              <TextContainer.Email>{userInfo.email}</TextContainer.Email>
             </TextContainer>
-
-            {/* eslint-disable-next-line global-require */}
-
             <Dropdown
               placeholder="RU"
               options={language}

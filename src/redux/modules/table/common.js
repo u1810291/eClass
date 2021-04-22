@@ -72,6 +72,7 @@ export const teacherLessonsHeader = [
     show: true
   }
 ];
+
 export const adminLessonsHeader = [
   {
     id: 1,
@@ -189,7 +190,7 @@ export const adminHomeworksHeader = [{
 export const studentHomeworksHeader = [
   {
     Header: 'Date',
-    accessor: 'date',
+    accessor: 'start_date',
     id: 1,
     disableSortBy: true,
     align: 'end',
@@ -232,17 +233,8 @@ export const studentHomeworksHeader = [
     type: 'download'
   },
   {
-    Header: 'Send homework',
-    accessor: 'teacher',
-    id: 6,
-    align: 'end',
-    type: 'upload',
-    disableSortBy: true,
-    show: true
-  },
-  {
     Header: 'Deadline',
-    accessor: 'deadline',
+    accessor: 'till_date',
     id: 7,
     align: 'end',
     disableSortBy: true,
