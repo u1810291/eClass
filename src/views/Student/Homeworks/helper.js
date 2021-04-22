@@ -4,7 +4,7 @@ import React from 'react';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
-import AddHomework from '../../../components/Lesson/AddHomework';
+import SubmitHomework from './SubmitHomework';
 import { useHideModal } from '../../../hooks/modal';
 import { submitHomework } from '../../../redux/modules/student/homeworks/actions';
 
@@ -37,14 +37,23 @@ const handleAdd = (id) => {
   return { formik };
 };
 export const toolTips = [
-
   {
-    name: 'Add homework',
+    name: 'Submit homework',
     icon: 'payment',
     onClick: (id, { showBlured }) => {
       showBlured({
-        title: 'Add homework',
-        body: () => <AddHomework handleAdd={() => handleAdd(id)} />
+        title: 'Submit homework',
+        body: () => <SubmitHomework handleAdd={() => handleAdd(id)} />
+      });
+    }
+  },
+  {
+    name: 'Update homework',
+    icon: 'payment',
+    onClick: (id, { showBlured }) => {
+      showBlured({
+        title: 'Update homework',
+        body: () => <SubmitHomework handleAdd={() => handleAdd(id)} />
       });
     }
   },
