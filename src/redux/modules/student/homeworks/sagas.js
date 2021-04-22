@@ -8,7 +8,7 @@ import {
   setLoading
 } from './actions';
 
-import { dataSelector } from './selectors';
+import { dataSelector, submitHomeworkSelector } from './selectors';
 
 function* fetchData({ payload }) {
   try {
@@ -24,6 +24,19 @@ function* fetchData({ payload }) {
   }
 }
 
+function* submitHomework({ payload, success }) {
+  try {
+    const { data } = submitHomeworkSelector(payload.values);
+    const res = yield service.submitExercise(payload.id, data);
+    yield put(setError(''));
+    success(res);
+  } catch (error) {
+    // eslint-disable-next-line no-alert
+    alert(error);
+  }
+}
+
 export default function* studentHomeworksSaga() {
   yield takeLatest(types.TABLE_STUDENT_HOMEWORKS_FETCH_DATA, fetchData);
+  yield takeLatest(types.TABLE_STUDENT_HOMEWORKS_ADD, submitHomework);
 }

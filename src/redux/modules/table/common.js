@@ -233,15 +233,6 @@ export const studentHomeworksHeader = [
     type: 'download'
   },
   {
-    Header: 'Send homework',
-    accessor: 'teacher',
-    id: 6,
-    align: 'end',
-    type: 'upload',
-    disableSortBy: true,
-    show: true
-  },
-  {
     Header: 'Deadline',
     accessor: 'till_date',
     id: 7,
