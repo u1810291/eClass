@@ -6,28 +6,24 @@ import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
 import AddHomework from '../../../components/Lesson/AddHomework';
 import { useHideModal } from '../../../hooks/modal';
-import { } from '../../../redux/modules/student/homeworks/actions';
+import { submitHomework } from '../../../redux/modules/student/homeworks/actions';
 
 const handleAdd = (id) => {
   const { hideModal } = useHideModal();
   const dispatch = useDispatch();
   const validationSchema = Yup.object().shape({
     desc: Yup.string(),
-    from_date: Yup.string().required('Required'),
-    till_date: Yup.string().required('Required'),
     file: Yup.array().required('Required')
   });
   const formik = useFormik({
     initialValues: {
       desc: '',
-      from_date: '',
-      till_date: '',
       file: []
     },
     validationSchema,
     onSubmit: (values, { setSubmitting }) => {
       setSubmitting(true);
-      dispatch(addHomework({ values, id }, (res) => {
+      dispatch(submitHomework({ values, id }, (res) => {
         // eslint-disable-next-line no-alert
         if (res) {
           alert('Succesfully added!');
