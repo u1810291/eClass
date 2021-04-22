@@ -47,7 +47,6 @@ function* startLesson({ payload, success }) {
 
 function* cancelLesson({ payload, success }) {
   try {
-    console.log(payload);
     const res = yield service.cancelLesson(payload.id, payload.reason);
     const { data } = cancelLessonSelector(res.data);
     success(data);
