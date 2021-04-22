@@ -2,22 +2,22 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import Backend from 'i18next-xhr-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
-import translationEN from '../public/assets/locales/en/translations.json';
-import translationAR from '../public/assets/locales/ru/translations.json';
-import translationFR from '../public/assets/locales/uz/translations.json';
+import translationEN from './assets/locales/en/translations.json';
+import translationRU from './assets/locales/ru/translations.json';
+import translationUZ from './assets/locales/uz/translations.json';
 
 const fallbackLng = ['en'];
-const availableLanguages = ['en', 'ar', 'fr'];
+const availableLanguages = ['en', 'ru', 'uz'];
 
 const resources = {
   en: {
     translation: translationEN
   },
-  ar: {
-    translation: translationAR
+  ru: {
+    translation: translationRU
   },
-  fr: {
-    translation: translationFR
+  uz: {
+    translation: translationUZ
   }
 };
 
@@ -28,15 +28,11 @@ i18n
   .init({
     resources,
     fallbackLng,
-
     detection: {
       checkWhitelist: true
     },
-
     debug: false,
-
     whitelist: availableLanguages,
-
     interpolation: {
       escapeValue: false
     }
