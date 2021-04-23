@@ -11,10 +11,9 @@ export default () => {
   useEffect(() => {
     dispatch(fetchData(''));
   }, []);
-  console.log(data, loading, error);
   return (
     <Container>
-      <AttendanceHeader />
+      <AttendanceHeader data={data} loading={loading} error={error} />
       <Attendance />
     </Container>
   );
