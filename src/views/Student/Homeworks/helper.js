@@ -92,12 +92,5 @@ export const toolTips = [
     onClick: () => {
       alert('Delete Homework');
     }
-  },
-  {
-    name: 'Update',
-    icon: 'payment',
-    onClick: () => {
-      alert('Update Homework');
-    }
   }
 ];

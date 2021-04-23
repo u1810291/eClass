@@ -45,7 +45,7 @@ export default () => {
   }, [sort]);
   const query = useMemo(
     () => `${completedFilter}${dateFilter}&page=${pageIndex}&size=${pageSize}&${sortQuery}`,
-    [pageIndex, pageSize, sortQuery, dateFilter]
+    [pageIndex, pageSize, sortQuery, dateFilter, completed]
   );
   useEffect(() => {
     dispatch(fetchData({
