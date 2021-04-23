@@ -1,8 +1,6 @@
 /* eslint-disable no-nested-ternary */
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
 import { isEmpty } from 'lodash';
-import { fetchData } from '../../../redux/modules/student/profile/actions';
 import {
   UserDetails, Container, Content, Area, Text, SubmitForm
 } from './style';
@@ -14,12 +12,9 @@ import Error from '../../../components/Error';
 import { useEditForm } from './helper';
 
 export default () => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchData());
-  }, []);
-  const { data, loading, error } = useSelector((state) => state.studentProfileReducers);
-  const { formik } = useEditForm();
+  const {
+    formik, data, loading, error
+  } = useEditForm();
   return (
     <Container>
       {loading && !isEmpty(data)

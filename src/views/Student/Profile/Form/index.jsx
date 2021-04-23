@@ -23,7 +23,7 @@ const Form = ({ formik, data, title }) => {
                 type={formik.touched.first_name && formik.errors.first_name && 'error'}
                 helperText={formik.touched.first_name
                   && formik.errors.first_name && formik.errors.first_name}
-                value={formik.values.first_name || data.first_name || data.full_name}
+                value={formik.values.first_name || data.first_name || data.full_name || ''}
                 onChange={(e) => formik.setFieldValue('first_name', e.target.value)}
               />
               <NormalInput
