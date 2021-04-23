@@ -26,6 +26,7 @@ function* fetchData({ payload }) {
 
 function* submitHomework({ payload, success }) {
   try {
+    console.log(payload);
     const { data } = submitHomeworkSelector(payload.values);
     const res = yield service.submitExercise(payload.id, data);
     yield put(setError(''));

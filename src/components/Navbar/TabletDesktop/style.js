@@ -4,6 +4,8 @@ export const Header = styled.div`
   display: flex;
   width: 30%;
 `;
+export const ImageWrapper = styled.div`
+`;
 
 export const BellContainer = styled.div`
   border-right: solid 1px #dddee3;
@@ -37,7 +39,6 @@ export const DropdownContainer = styled.div`
   padding: 16px 24px;
   flex-direction: column;
   position: absolute;
-  right: 0;
   top: 100%;
   box-shadow: 0 6px 12px rgba(73, 75, 116, 0.16);
   border-radius: 8px;
