@@ -10,10 +10,9 @@ import {
 
 import { dataSelector, submitHomeworkSelector } from './selectors';
 
-function* fetchData({ payload }) {
+function* fetchData() {
   try {
-    yield put(setLoading(true));
-    const res = yield service.getAll(payload.query);
+    const res = yield service.getQuizes();
     const { total, data } = dataSelector(res.data);
     yield put(setError(''));
     yield put(setData(data));
@@ -24,7 +23,7 @@ function* fetchData({ payload }) {
   }
 }
 
-function* submitHomework({ payload, success }) {
+function* submitQuiz({ payload, success }) {
   try {
     const { data } = submitHomeworkSelector(payload.values);
     const res = yield service.submitExercise(payload.id, data);
@@ -36,7 +35,7 @@ function* submitHomework({ payload, success }) {
   }
 }
 
-function* updateHomework({ payload, success }) {
+function* updateQuiz({ payload, success }) {
   try {
     const { data } = submitHomeworkSelector(payload.values);
     const res = yield service.submitExercise(payload.id, data);
@@ -48,8 +47,8 @@ function* updateHomework({ payload, success }) {
   }
 }
 
-export default function* studentHomeworksSaga() {
-  yield takeLatest(types.TABLE_STUDENT_HOMEWORKS_FETCH_DATA, fetchData);
-  yield takeLatest(types.TABLE_STUDENT_HOMEWORKS_ADD, submitHomework);
-  yield takeLatest(types.TABLE_STUDENT_HOMEWORKS_UPDATE, updateHomework);
+export default function* studentQuizesSaga() {
+  yield takeLatest(types.TABLE_STUDENT_QUIZES_FETCH_DATA, fetchData);
+  yield takeLatest(types.TABLE_STUDENT_QUIZ_ADD, submitQuiz);
+  yield takeLatest(types.TABLE_STUDENT_QUIZ_UPDATE, updateQuiz);
 }
