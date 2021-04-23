@@ -3,7 +3,8 @@ import classNames from 'classnames';
 import {
   Container, Title, Description, ImageWrapper, UserInfo, Text
 } from './style';
-import Avatar from '../../../../assets/images/avatar-2.jpg';
+import { PrimaryButton } from '../../../../components/Buttons';
+import { DynamicImage } from '../../../../components/DynamicImage';
 
 const Info = ({ data }) => (
   <Container>
@@ -12,16 +13,24 @@ const Info = ({ data }) => (
       This information can be edited from your profile page.
     </Description>
     <UserInfo>
-      <ImageWrapper src={Avatar} />
-      <Text>
-        <Text.Name>
-          {`${data.first_name} ${data.last_name} ${data.middle_name}`}
-        </Text.Name>
-        <Text.Name>
-          {data.date_of_birth}
-        </Text.Name>
-        <Text.Email>{data.email}</Text.Email>
-      </Text>
+      <UserInfo.Left>
+        <ImageWrapper>
+          <DynamicImage
+            imgSrc=""
+            name={`${data.first_name} ${data.last_name} ${data.middle_name}`}
+          />
+        </ImageWrapper>
+        <Text>
+          <Text.Name>
+            {`${data.first_name} ${data.last_name} ${data.middle_name}`}
+          </Text.Name>
+          <Text.Name>
+            {data.date_of_birth}
+          </Text.Name>
+          <Text.Email>{data.email}</Text.Email>
+        </Text>
+      </UserInfo.Left>
+      <PrimaryButton type="submit" title="Edit" size="small" />
     </UserInfo>
   </Container>
 );

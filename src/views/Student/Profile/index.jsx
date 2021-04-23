@@ -12,7 +12,6 @@ import { TextArea } from '../../../components/Forms/Inputs';
 import Spinner from '../../../components/Spinner';
 import Error from '../../../components/Error';
 import { useEditForm } from './helper';
-import { PrimaryButton } from '../../../components/Buttons';
 
 export default () => {
   const dispatch = useDispatch();
@@ -50,7 +49,6 @@ export default () => {
                 <Area>
                   <TextArea white />
                 </Area>
-                <PrimaryButton type="submit" title="Edit" size="medium" />
               </SubmitForm>
             )
         )}
