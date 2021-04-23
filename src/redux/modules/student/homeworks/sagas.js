@@ -26,7 +26,18 @@ function* fetchData({ payload }) {
 
 function* submitHomework({ payload, success }) {
   try {
-    console.log(payload);
+    const { data } = submitHomeworkSelector(payload.values);
+    const res = yield service.submitExercise(payload.id, data);
+    yield put(setError(''));
+    success(res);
+  } catch (error) {
+    // eslint-disable-next-line no-alert
+    alert(error);
+  }
+}
+
+function* updateHomework({ payload, success }) {
+  try {
     const { data } = submitHomeworkSelector(payload.values);
     const res = yield service.submitExercise(payload.id, data);
     yield put(setError(''));
@@ -40,4 +51,5 @@ function* submitHomework({ payload, success }) {
 export default function* studentHomeworksSaga() {
   yield takeLatest(types.TABLE_STUDENT_HOMEWORKS_FETCH_DATA, fetchData);
   yield takeLatest(types.TABLE_STUDENT_HOMEWORKS_ADD, submitHomework);
+  yield takeLatest(types.TABLE_STUDENT_HOMEWORKS_UPDATE, updateHomework);
 }

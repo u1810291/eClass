@@ -23,7 +23,14 @@ export default () => {
   const [search, setSearch] = useState('');
   const [date, setDate] = useState(undefined);
   const [sort, setSort] = useState();
+  const [completed, setCompleted] = useState();
 
+  const completedFilter = useMemo(
+    () => (completed
+      ? `&completed=${completed}`
+      : ''),
+    [completed]
+  );
   const dateFilter = useMemo(
     () => (date
       ? `&from_date=${date.start.toISOString()}&to_date=${date.end.toISOString()}`
@@ -37,7 +44,7 @@ export default () => {
       : '';
   }, [sort]);
   const query = useMemo(
-    () => `${dateFilter}&page=${pageIndex}&size=${pageSize}&${sortQuery}`,
+    () => `${completedFilter}${dateFilter}&page=${pageIndex}&size=${pageSize}&${sortQuery}`,
     [pageIndex, pageSize, sortQuery, dateFilter]
   );
   useEffect(() => {
@@ -57,6 +64,7 @@ export default () => {
         search={search}
         setDate={setDate}
         date={date}
+        setCompleted={setCompleted}
       />
       {error ? (
         <TableError message={error} />
