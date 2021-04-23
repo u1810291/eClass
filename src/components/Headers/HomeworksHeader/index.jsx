@@ -11,24 +11,24 @@ import DatePicker from '../../Forms/Inputs/DatePicker';
 
 export default ({
   setDate,
-  date
+  date,
+  setCompleted
 }) => (
   <Container>
     <Body>
       <Title>Homeworks</Title>
       <SwitchButton>
-        <SwitchButton.Button>
+        <SwitchButton.Button type="button" onClick={() => setCompleted(false)}>
           <div>Not finished works</div>
           <SwitchButton.Counter>15</SwitchButton.Counter>
         </SwitchButton.Button>
-        <SwitchButton.Button>
+        <SwitchButton.Button type="button" onClick={() => setCompleted(true)}>
           <div>Finished works</div>
           <SwitchButton.Counter>15</SwitchButton.Counter>
         </SwitchButton.Button>
       </SwitchButton>
     </Body>
     <DateWrapper>
-
       <DatePicker
         placeholder="Date"
         name="rangeDate"

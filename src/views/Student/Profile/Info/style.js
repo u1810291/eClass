@@ -13,21 +13,19 @@ export const Description = styled.div`
 `;
 export const ImageWrapper = styled.div`
   margin-right: 10px;
-  width: 35px;
-  height: 35px;
   margin-left: 10px;
-  background-image: url(${({ src }) => src});
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  border-radius: 50%;
   &:hover {
     cursor: pointer;
   }
 `;
 export const UserInfo = styled.div`
   display: flex;
-  padding-top: 20px;
+  justify-content: space-between;
+`;
+UserInfo.Left = styled.div`
+display: flex;
+padding-top: 20px;
+
 `;
 
 export const Text = styled.div`

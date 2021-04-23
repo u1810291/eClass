@@ -17,3 +17,9 @@ export const submitHomework = (payload, success) => ({
   payload,
   success
 });
+
+export const updateHomework = (payload, success) => ({
+  type: types.TABLE_STUDENT_HOMEWORKS_UPDATE,
+  payload,
+  success
+});

@@ -13,7 +13,8 @@ import {
   Header,
   ButtonContainer,
   BellContainer,
-  TextContainer
+  TextContainer,
+  ImageWrapper
 } from './style';
 import { Content } from '../style';
 import Bell from '../../Bell';
@@ -71,13 +72,16 @@ export default () => {
         </BellContainer>
         <PopupContainer>
           <UserInfoContainer>
-            <DynamicImage
+            <ImageWrapper
               style={{ cursor: 'pointer' }}
               ref={clickRef}
-              imgSrc=""
-              name={`${userInfo.username}`}
               onClick={() => setIsOpen((prevState) => !prevState)}
-            />
+            >
+              <DynamicImage
+                imgSrc=""
+                name={`${userInfo.username}`}
+              />
+            </ImageWrapper>
             <ClickOutside
               outClickRef={clickRef}
               outsideClicked={() => {
