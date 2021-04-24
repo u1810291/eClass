@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Attendance from '../../../components/Attendance';
 import AttendanceHeader from '../../../components/Headers/AttendanceHeader';
@@ -7,14 +7,32 @@ import { fetchData } from '../../../redux/modules/student/lessons/actions';
 
 export default () => {
   const dispatch = useDispatch();
+  const [date, setDate] = useState();
   const { data, loading, error } = useSelector((state) => state.studentLessonsReducers);
+  const dateFilter = useMemo(
+    () => (date
+      ? `&from_date=${date.start.toISOString()}&to_date=${date.end.toISOString()}`
+      : ''),
+    [date]
+  );
+  const query = useMemo(
+    () => `size=40&${dateFilter}`,
+    [dateFilter]
+  );
+
   useEffect(() => {
-    dispatch(fetchData(''));
-  }, []);
+    dispatch(fetchData({ query }));
+  }, [query]);
   return (
     <Container>
-      <AttendanceHeader data={data} loading={loading} error={error} />
-      <Attendance />
+      <AttendanceHeader />
+      <Attendance
+        data={data}
+        loading={loading}
+        error={error}
+        date={date}
+        setDate={setDate}
+      />
     </Container>
   );
 };

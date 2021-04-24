@@ -13,7 +13,7 @@ import { toolTips } from './helper';
 export default () => {
   const dispatch = useDispatch();
   const [pageIndex, setPageIndex] = useState(0);
-  const [pageSize, setPageSize] = useState(0);
+  const [pageSize, setPageSize] = useState(10);
   const [search, setSearch] = useState('');
   const [date, setDate] = useState(undefined);
   const [sort, setSort] = useState();
