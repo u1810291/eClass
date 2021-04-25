@@ -32,8 +32,6 @@ export default () => {
     name: allSubjects.find((s) => s.id === id).name
   }));
 
-  console.log(subjects);
-
   useEffect(() => {
     dispatch(fetchData({ query }));
   }, [query]);
