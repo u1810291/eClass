@@ -13,15 +13,13 @@ import Spinner from '../Spinner';
 export default ({
   data, loading, error, date, setDate
 }) => {
-  const events = [
-    {
-      start: moment().toDate(),
-      end: moment()
-        .add(1, 'days')
-        .toDate(),
-      title: 'Some title'
-    }
-  ];
+  const events = data.map((el) => ({
+    start: moment(el.scheduled_start).toDate(),
+    end: el.finished ? moment(el.finished_at).toDate()
+      : moment(el.scheduled_start).add(1, 'hours').toDate(),
+    // ...( }),
+    title: el.group.name
+  }));
   return (
     <Container>
       {error ? <Error message={error} />
@@ -32,7 +30,6 @@ export default ({
                 ? <Spinner contain black />
                 : (
                   <BigCalendar>
-
                     <Calendar
                       events={events}
                     />
