@@ -15,7 +15,7 @@ import { getRandColor } from '../../../utils/random-color';
 import { Wrapper } from '../../Styles/style';
 import Icon from '../../Icon';
 
-export default () => (
+export default ({ subjects }) => (
   <Container>
     <Navigate>
       <Card size="small">
@@ -25,17 +25,15 @@ export default () => (
         <Navigate.Cards>
           <Wrapper className="scroll-container">
             <InnerCard>
-              {[...Array(15)].map((_, i) => (
-                <MainCard key={i}>
+              {subjects.length && subjects.map((el) => (
+                <MainCard key={el.id}>
                   <Card color={getRandColor()}>
                     <CardContent color={getRandColor()}>
                       <Card>
                         <Icon icon="mdi_chemical-weapon" size="40px" />
                       </Card>
                       <CardBody>
-                        {i}
-                        {' '}
-                        Hello
+                        {el.name}
                       </CardBody>
                     </CardContent>
                   </Card>

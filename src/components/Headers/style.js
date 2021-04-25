@@ -239,7 +239,7 @@ export const InnerCard = styled.div`
   display: grid;
   grid-gap: 10px;
   grid-auto-flow: column;
-  grid-auto-columns: 20%;
+  grid-auto-columns: 250px;
   cursor: pointer;
 `;
 
@@ -253,7 +253,7 @@ export const CardContent = styled.div`
   display: grid;
   grid-gap: 10px;
   grid-auto-flow: column;
-  grid-auto-columns: 40% 60%;
+  grid-auto-columns: 80px 80px;
   &:hover{
     opacity: 0.7;
   } 

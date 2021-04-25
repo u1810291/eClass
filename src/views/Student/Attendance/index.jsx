@@ -15,17 +15,34 @@ export default () => {
       : ''),
     [date]
   );
+
   const query = useMemo(
     () => `size=50&${dateFilter}`,
     [dateFilter]
   );
 
+  const allSubjects = data.length && data.map((el) => ({
+    id: el.subject_id,
+    name: el.subject
+  }));
+
+  const subjects = Array.from(new Set(allSubjects.length
+    && allSubjects.map((el) => el.id))).map((id) => ({
+    id,
+    name: allSubjects.find((s) => s.id === id).name
+  }));
+
+  console.log(subjects);
+
   useEffect(() => {
     dispatch(fetchData({ query }));
   }, [query]);
+
   return (
     <Container>
-      <AttendanceHeader />
+      <AttendanceHeader
+        subjects={subjects}
+      />
       <Attendance
         loading={loading}
         data={data}
