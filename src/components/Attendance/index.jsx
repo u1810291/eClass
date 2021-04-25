@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import moment from 'moment';
 import Calendar from '../Calendars/CustomCalendar';
 import {
@@ -7,9 +7,12 @@ import {
 import Card from '../Card';
 import CustomCalendarV2 from '../Calendars/CustomCalendarV2';
 import Icon from '../Icon';
+import Error from '../Error';
+import Spinner from '../Spinner';
 
-export default () => {
-  const [date, setDate] = useState(undefined);
+export default ({
+  data, loading, error, date, setDate
+}) => {
   const events = [
     {
       start: moment().toDate(),
@@ -21,42 +24,52 @@ export default () => {
   ];
   return (
     <Container>
-      <Card>
-        <BigCalendar>
-          <Calendar
-            events={events}
-          />
-        </BigCalendar>
-      </Card>
-      <SmallCalendar>
-        <Card>
-          <CustomCalendarV2
-            name="rangeDate"
-            value={date}
-            change={(value) => setDate(value)}
-            dateFormat="YYYY-MM-DD"
-            white
-          />
-        </Card>
-        <Card>
-          <Tag>
-            <Tag.Header>
-              <span>Information</span>
-              <Icon icon="profile" />
-            </Tag.Header>
-            <Tag.Body>
-              <Tag.Item>
-                <Tag.Block color="#1FD0A3" />
-                <Tag.Text>Attended</Tag.Text>
-              </Tag.Item>
-              <Tag.Item>
-                <Tag.Block color="#F2A626" />
-                <Tag.Text>Not Attended</Tag.Text>
-              </Tag.Item>
-            </Tag.Body>
-          </Tag>
-        </Card>
-      </SmallCalendar>
+      {error ? <Error message={error} />
+        : (
+          <>
+            <Card>
+              {loading
+                ? <Spinner contain black />
+                : (
+                  <BigCalendar>
+
+                    <Calendar
+                      events={events}
+                    />
+                  </BigCalendar>
+                )}
+            </Card>
+            <SmallCalendar data={data}>
+              <Card>
+                <CustomCalendarV2
+                  name="rangeDate"
+                  value={date}
+                  change={(value) => setDate(value)}
+                  dateFormat="YYYY-MM-DD"
+                  white
+                />
+              </Card>
+              <Card>
+                <Tag>
+                  <Tag.Header>
+                    <span>Information</span>
+                    <Icon icon="profile" />
+                  </Tag.Header>
+                  <Tag.Body>
+                    <Tag.Item>
+                      <Tag.Block color="#1FD0A3" />
+                      <Tag.Text>Attended</Tag.Text>
+                    </Tag.Item>
+                    <Tag.Item>
+                      <Tag.Block color="#F2A626" />
+                      <Tag.Text>Not Attended</Tag.Text>
+                    </Tag.Item>
+                  </Tag.Body>
+                </Tag>
+              </Card>
+            </SmallCalendar>
+          </>
+        )}
     </Container>
   );
 };

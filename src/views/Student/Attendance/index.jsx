@@ -7,7 +7,7 @@ import { fetchData } from '../../../redux/modules/student/lessons/actions';
 
 export default () => {
   const dispatch = useDispatch();
-  const [date, setDate] = useState();
+  const [date, setDate] = useState(undefined);
   const { data, loading, error } = useSelector((state) => state.studentLessonsReducers);
   const dateFilter = useMemo(
     () => (date
@@ -16,7 +16,7 @@ export default () => {
     [date]
   );
   const query = useMemo(
-    () => `size=40&${dateFilter}`,
+    () => `size=50&${dateFilter}`,
     [dateFilter]
   );
 
@@ -27,8 +27,8 @@ export default () => {
     <Container>
       <AttendanceHeader />
       <Attendance
-        data={data}
         loading={loading}
+        data={data}
         error={error}
         date={date}
         setDate={setDate}
