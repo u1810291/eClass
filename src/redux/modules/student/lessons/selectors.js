@@ -6,15 +6,31 @@ export function dataSelector(lesson) {
   const filtered = content.map((el) => ({
     date: moment(el.scheduled_start).format('DD.MM.YYYY'),
     time: moment(el.scheduled_start).format('HH:mm:ss'),
+    scheduled_start: el.scheduled_start,
     id: el.id,
+    started: el.started,
+    finished: el.finished,
+    canceled: el.canceled,
+    rescheduled: el.rescheduled,
     duration: el.duration,
     teacher: {
       name: el.teacher.full_name,
-      role: 'Teacher',
+      role: el.teacher.username,
       image: null
     },
     subject: el.subject.name,
-    link: { join: el.join_url }
+    link: { join: el.join_url },
+    attendance: {
+      declined: el.attendance ? el.attendance.declined : '',
+      missed: el.attendance ? el.attendance.missed : '',
+      start_date: el.attendance ? el.attendance.start_date : ''
+    },
+    ...(el.finished_at && { finished_at: el.finished_at }),
+    group: {
+      id: el.group.id,
+      name: el.group.name,
+      description: el.group.description
+    }
   }));
   return { total: total_elements, data: filtered };
 }

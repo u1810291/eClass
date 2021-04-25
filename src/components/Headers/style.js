@@ -256,12 +256,7 @@ export const CardContent = styled.div`
   grid-auto-columns: 40% 60%;
   &:hover{
     opacity: 0.7;
-  }
-  svg {
-    path{
-      fill: ${({ color }) => (color || '')};
-    }
-  }
+  } 
   background-color: inherit !important;
 
 `;
