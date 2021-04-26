@@ -1,4 +1,6 @@
 import types from '../../../../constants/action-types';
+import { popFullScreen } from '../../modal/actions';
+import eventMock from '../../../../services/student/lesson';
 
 export const setLoading = (payload) => ({ type: types.TABLE_STUDENT_LESSONS_SET_LOADING, payload });
 export const setData = (payload) => ({ type: types.TABLE_STUDENT_LESSONS_SET_DATA, payload });
