@@ -9,6 +9,7 @@ export default () => {
   const dispatch = useDispatch();
   const [date, setDate] = useState(undefined);
   const { data, loading, error } = useSelector((state) => state.teacherLessonsReducers);
+
   const dateFilter = useMemo(
     () => (date
       ? `&from_date=${date.start.toISOString()}&to_date=${date.end.toISOString()}`
@@ -30,6 +31,7 @@ export default () => {
   const clear = () => {
     setDate(undefined);
   };
+
   useEffect(() => {
     dispatch(fetchData({ query: dateFilter }));
   }, [dateFilter]);
