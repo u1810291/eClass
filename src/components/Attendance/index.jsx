@@ -152,6 +152,7 @@ const Attendance = ({
                 ? <Spinner black />
                 : (
                   <BigCalendar>
+                    {console.log(events)}
                     <DragAndDropCalendar
                       popup
                       resizable

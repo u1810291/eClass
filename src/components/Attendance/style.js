@@ -19,10 +19,12 @@ export const Container = styled.div`
   grid-gap: 10px;
   grid-template-columns: 2fr 1fr;
   margin: 10px 0px 0px;
+  
   `;
 
 export const BigCalendar = styled.div`
   padding: 10px 0px 0px;
+  
   `;
 export const SmallCalendar = styled.div`
   display: grid;
