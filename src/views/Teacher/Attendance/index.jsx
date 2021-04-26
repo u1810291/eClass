@@ -16,11 +16,6 @@ export default () => {
     [date]
   );
 
-  const query = useMemo(
-    () => `size=50&${dateFilter}`,
-    [dateFilter]
-  );
-
   const allSubjects = data.length && data.map((el) => ({
     id: el.subject_id,
     name: el.subject
@@ -36,8 +31,8 @@ export default () => {
     setDate(undefined);
   };
   useEffect(() => {
-    dispatch(fetchData({ query }));
-  }, [query]);
+    dispatch(fetchData({ query: dateFilter }));
+  }, [dateFilter]);
 
   return (
     <Container>
