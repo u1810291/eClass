@@ -1,5 +1,19 @@
 import styled from 'styled-components';
 
+export const RightWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+`;
+export const LeftWrapper = styled.div``;
+
+export const CircleEvent = styled.div`
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: ${({ today }) => (today ? 'white' : '#FFA800')};
+`;
+
 export const Container = styled.div`
   display: grid;
   grid-gap: 10px;

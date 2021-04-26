@@ -1,23 +1,67 @@
 import React from 'react';
 import moment from 'moment';
-import { Calendar, momentLocalizer } from 'react-big-calendar';
+import { Calendar, momentLocalizer, Views } from 'react-big-calendar';
 import { useDispatch } from 'react-redux';
 import withDragAndDrop from 'react-big-calendar/lib/addons/dragAndDrop';
 import {
-  Container, BigCalendar, SmallCalendar, Tag
-
+  Container, BigCalendar, SmallCalendar, Tag, RightWrapper, LeftWrapper, CircleEvent
 } from './style';
+import CustomToolbar from './CustomToolbar';
 import Card from '../Card';
 import CustomCalendarV2 from '../Calendars/CustomCalendarV2';
 import Icon from '../Icon';
 import Error from '../Error';
 import Spinner from '../Spinner';
+import { updateEvents, getSingleEvent } from '../../redux/modules/student/lessons/actions';
 import { useShowModal } from '../../hooks/modal';
 import 'react-big-calendar/lib/addons/dragAndDrop/styles.css';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
+import Update from './Update';
 
 const DragAndDropCalendar = withDragAndDrop(Calendar);
 const localizer = momentLocalizer(moment);
+
+const CustomEventMonth = (event) => (
+  <span>
+    <strong style={{ whiteSpace: 'nowrap' }}>
+      {' '}
+      {event.title}
+      {' '}
+    </strong>
+  </span>
+);
+
+const CustomEventWeekDay = (event) => {
+  const today = new Date();
+  return (
+    <span className="custom-event">
+      <LeftWrapper>
+        <CircleEvent
+          today={
+            event.event.start.getDate() === today.getDate()
+            && event.event.start.getMonth() === today.getMonth()
+            && event.event.start.getFullYear() === today.getFullYear()
+          }
+        />
+      </LeftWrapper>
+
+      <RightWrapper>
+        <span style={{ whiteSpace: 'nowrap' }}>
+          {moment(event.event.start).format('hh:mm')}
+          {' '}
+          -
+          {moment(event.event.end).format('hh:mm')}
+        </span>
+        <strong style={{ whiteSpace: 'nowrap' }}>
+          {' '}
+          {event.title}
+          {' '}
+        </strong>
+      </RightWrapper>
+    </span>
+  );
+};
+
 const Attendance = ({
   data, loading, error, date, setDate
 }) => {
@@ -114,7 +158,7 @@ const Attendance = ({
                       selectable
                       formats={formats}
                       allDayAccessor="all-day"
-                      events={eventData}
+                      events={events}
                       localizer={localizer}
                       defaultDate={new Date()}
                       onEventDrop={onEventDrop}
@@ -136,7 +180,6 @@ const Attendance = ({
                         }
                       }}
                       eventPropGetter={eventStyleGetter}
-                      events={events}
                     />
                   </BigCalendar>
                 )}

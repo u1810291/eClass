@@ -18,3 +18,41 @@ export const cancelLesson = (payload, success) => ({
   payload,
   success
 });
+
+export const createEvent = (event) => (dispatch) => {
+  eventMock.create(event).then(({ data }) => {
+    const newEvent = {
+      ...data,
+      start: new Date(data.start),
+      end: new Date(data.end)
+    };
+    dispatch({ type: types.STUDENT_ATTENDANCE_CREATE_EVENT, event: newEvent });
+    dispatch(popFullScreen());
+  });
+};
+
+export const getEvents = () => (dispatch) => {
+  eventMock.getAll().then((res) => {
+    const fixedData = res.map((item) => ({
+      ...item,
+      start: new Date(item.start),
+      end: new Date(item.end)
+    }));
+    dispatch({ type: types.STUDENT_ATTENDANCE_GET_EVENTS, events: fixedData });
+  });
+};
+
+export const updateEvents = (events) => ({
+  type: types.STUDENT_ATTENDANCE_UPDATE_EVENTS,
+  events
+});
+
+export const updateEvent = (event) => ({
+  type: types.STUDENT_ATTENDANCE_UPDATE_EVENT,
+  event
+});
+
+export const getSingleEvent = (event) => ({
+  type: types.STUDENT_ATTENDANCE_GET_EVENT,
+  event
+});
