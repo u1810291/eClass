@@ -3,12 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import Attendance from '../../../components/Attendance';
 import AttendanceHeader from '../../../components/Headers/AttendanceHeader';
 import { Container } from '../style';
-import { fetchData } from '../../../redux/modules/student/lessons/actions';
+import { fetchData } from '../../../redux/modules/teacher/lessons/actions';
 
 export default () => {
   const dispatch = useDispatch();
   const [date, setDate] = useState(undefined);
-  const { data, loading, error } = useSelector((state) => state.studentLessonsReducers);
+  const { data, loading, error } = useSelector((state) => state.teacherLessonsReducers);
   const dateFilter = useMemo(
     () => (date
       ? `&from_date=${date.start.toISOString()}&to_date=${date.end.toISOString()}`
