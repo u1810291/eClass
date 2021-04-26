@@ -32,6 +32,9 @@ export default () => {
     name: allSubjects.find((s) => s.id === id).name
   }));
 
+  const clear = () => {
+    setDate(undefined);
+  };
   useEffect(() => {
     dispatch(fetchData({ query }));
   }, [query]);
@@ -40,6 +43,7 @@ export default () => {
     <Container>
       <AttendanceHeader
         subjects={subjects}
+        clear={clear}
       />
       <Attendance
         loading={loading}

@@ -165,6 +165,12 @@ export const Title = styled.div`
   font-size: 22px;
   line-height: 24px;
 `;
+export const Clear = styled.div`
+  font-style: normal;
+  cursor: pointer;
+  text-decoration: underline;
+  color:red;
+`;
 
 export const TitleWrapper = styled.div`
   display: grid;
@@ -253,7 +259,7 @@ export const CardContent = styled.div`
   display: grid;
   grid-gap: 10px;
   grid-auto-flow: column;
-  grid-auto-columns: 80px 80px;
+  grid-auto-columns: 70px 150px;
   &:hover{
     opacity: 0.7;
   } 

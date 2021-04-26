@@ -8,19 +8,21 @@ import {
   MainCard,
   InnerCard,
   Container,
-  CardContent
+  CardContent,
+  Clear
 } from '../style';
 import Card from '../../Card';
 import { getRandColor } from '../../../utils/random-color';
 import { Wrapper } from '../../Styles/style';
 import Icon from '../../Icon';
 
-export default ({ subjects }) => (
+export default ({ subjects, clear }) => (
   <Container>
     <Navigate>
       <Card size="small">
         <Body>
           <Title>Attendance</Title>
+          <Clear onClick={clear}>Clear filter</Clear>
         </Body>
         <Navigate.Cards>
           <Wrapper className="scroll-container">
