@@ -9,7 +9,6 @@ import {
 import CustomToolbar from './CustomToolbar';
 import Card from '../Card';
 import CustomCalendarV2 from '../Calendars/CustomCalendarV2';
-import Icon from '../Icon';
 import Error from '../Error';
 import Spinner from '../Spinner';
 import { updateEvents, getSingleEvent } from '../../redux/modules/student/lessons/actions';
@@ -203,18 +202,19 @@ const Attendance = ({
               </Card>
               <Card>
                 <Tag>
-                  <Tag.Header>
-                    <span>Information</span>
-                    <Icon icon="profile" />
-                  </Tag.Header>
+                  <Tag.Header><span>Shedule tag</span></Tag.Header>
                   <Tag.Body>
                     <Tag.Item>
                       <Tag.Block color="#1FD0A3" />
-                      <Tag.Text>Attended</Tag.Text>
+                      <Tag.Text>Good mark</Tag.Text>
                     </Tag.Item>
                     <Tag.Item>
                       <Tag.Block color="#F2A626" />
-                      <Tag.Text>Not Attended</Tag.Text>
+                      <Tag.Text>Medium mark</Tag.Text>
+                    </Tag.Item>
+                    <Tag.Item>
+                      <Tag.Block color="#FA573B" />
+                      <Tag.Text>Bad mark</Tag.Text>
                     </Tag.Item>
                   </Tag.Body>
                 </Tag>
