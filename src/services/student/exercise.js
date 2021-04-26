@@ -10,7 +10,9 @@ export default {
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement('a');
       link.href = url;
-      link.setAttribute('download', `${id}.${extension[1]}`); // or any other extension
+      link.setAttribute('download', `${id}.${extension[1] === 'vnd.ms-excel'
+        ? 'xls'
+        : response.headers['content-type'].split('/')}`); // or any other extension
       document.body.appendChild(link);
       link.click();
       link.parentNode.removeChild(link);
