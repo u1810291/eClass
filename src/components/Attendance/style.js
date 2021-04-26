@@ -26,13 +26,13 @@ export const BigCalendar = styled.div`
   padding: 10px 0px 0px;
   height: 500px;
   overflow: auto;  
+
   .custom-event {
     display: flex;
     margin: 8px;
     gap: 8px;
   }
 
-  /* height: var(--content-body-height); */
   .rbc-event-label {
     display: none;
   }
