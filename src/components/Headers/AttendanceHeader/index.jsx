@@ -27,7 +27,7 @@ export default ({ subjects, clear }) => (
         <Navigate.Cards>
           <Wrapper className="scroll-container">
             <InnerCard>
-              {subjects.length && subjects.map((el) => (
+              {subjects.length ? subjects.map((el) => (
                 <MainCard key={el.id}>
                   <Card color={getRandColor()}>
                     <CardContent color={getRandColor()}>
@@ -40,7 +40,20 @@ export default ({ subjects, clear }) => (
                     </CardContent>
                   </Card>
                 </MainCard>
-              ))}
+              )) : (
+                <MainCard>
+                  <Card color={getRandColor()}>
+                    <CardContent color={getRandColor()}>
+                      <Card>
+                        <Icon icon="mdi_chemical-weapon" size="40px" />
+                      </Card>
+                      <CardBody>
+                        There is no subjects available
+                      </CardBody>
+                    </CardContent>
+                  </Card>
+                </MainCard>
+              )}
             </InnerCard>
           </Wrapper>
         </Navigate.Cards>
