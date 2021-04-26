@@ -15,10 +15,13 @@ const Info = ({ data }) => (
     <UserInfo>
       <UserInfo.Left>
         <ImageWrapper>
-          <DynamicImage
-            imgSrc=""
-            name={`${data.first_name} ${data.last_name} ${data.middle_name}`}
-          />
+          {data.last_name
+          && (
+            <DynamicImage
+              imgSrc=""
+              name={`${data.first_name || 'some'} ${data.last_name || 'name'} ${data.middle_name}`}
+            />
+          )}
         </ImageWrapper>
         <Text>
           <Text.Name>

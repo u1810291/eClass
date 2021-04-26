@@ -19,6 +19,7 @@ export function dataSelector(lesson) {
       image: null
     },
     subject: el.subject.name,
+    subject_id: el.subject.id,
     link: { join: el.join_url },
     attendance: {
       declined: el.attendance ? el.attendance.declined : '',

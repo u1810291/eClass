@@ -8,34 +8,34 @@ import {
   MainCard,
   InnerCard,
   Container,
-  CardContent
+  CardContent,
+  Clear
 } from '../style';
 import Card from '../../Card';
 import { getRandColor } from '../../../utils/random-color';
 import { Wrapper } from '../../Styles/style';
 import Icon from '../../Icon';
 
-export default () => (
+export default ({ subjects, clear }) => (
   <Container>
     <Navigate>
       <Card size="small">
         <Body>
           <Title>Attendance</Title>
+          <Clear onClick={clear}>Clear filter</Clear>
         </Body>
         <Navigate.Cards>
           <Wrapper className="scroll-container">
             <InnerCard>
-              {[...Array(15)].map((_, i) => (
-                <MainCard key={i}>
+              {subjects.length && subjects.map((el) => (
+                <MainCard key={el.id}>
                   <Card color={getRandColor()}>
                     <CardContent color={getRandColor()}>
                       <Card>
                         <Icon icon="mdi_chemical-weapon" size="40px" />
                       </Card>
                       <CardBody>
-                        {i}
-                        {' '}
-                        Hello
+                        {el.name}
                       </CardBody>
                     </CardContent>
                   </Card>
