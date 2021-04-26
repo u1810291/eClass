@@ -21,15 +21,15 @@ import Update from './Update';
 const DragAndDropCalendar = withDragAndDrop(Calendar);
 const localizer = momentLocalizer(moment);
 
-// const CustomEventMonth = (event) => (
-//   <span>
-//     <strong style={{ whiteSpace: 'nowrap' }}>
-//       {' '}
-//       {event.title}
-//       {' '}
-//     </strong>
-//   </span>
-// );
+const CustomEventMonth = (event) => (
+  <span>
+    <strong style={{ whiteSpace: 'nowrap' }}>
+      {' '}
+      {event.title}
+      {' '}
+    </strong>
+  </span>
+);
 
 const CustomEventWeekDay = (event) => {
   const today = new Date();
@@ -169,6 +169,9 @@ const Attendance = ({
                       showMultiDayTimes
                       components={{
                         toolbar: CustomToolbar,
+                        month: {
+                          event: CustomEventMonth
+                        },
                         week: {
                           event: CustomEventWeekDay
                         },

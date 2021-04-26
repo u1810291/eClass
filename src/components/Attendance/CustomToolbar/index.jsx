@@ -40,10 +40,8 @@ const viewOptions = [
 ];
 
 export default ({
-  onView, onNavigate, label, switchView
+  onView, onNavigate, label
 }) => {
-  // eslint-disable-next-line no-console
-  console.log(switchView);
   const [activeView, setActiveView] = useState('month');
   const [valueView, setValueView] = useState(undefined);
   const { device } = useWindowSize();
