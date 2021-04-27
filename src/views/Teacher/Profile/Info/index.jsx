@@ -13,24 +13,25 @@ const Info = ({ data }) => (
       {data.description}
     </Description>
     <UserInfo>
-      <ImageWrapper>
-        <DynamicImage
-          imgSrc=""
-          name={`${data.first_name} ${data.last_name} ${data.middle_name}`}
-        />
-      </ImageWrapper>
-      <Text>
-        <Text.Name>
-          {`${data.first_name} ${data.last_name} ${data.middle_name}`}
-        </Text.Name>
-        <Text.Name>
-          {data.date_of_birth}
-        </Text.Name>
-        <Text.Email>{data.email}</Text.Email>
-      </Text>
+      <UserInfo.Left>
+        <ImageWrapper>
+          <DynamicImage
+            imgSrc=""
+            name={`${data.first_name} ${data.last_name} ${data.middle_name}`}
+          />
+        </ImageWrapper>
+        <Text>
+          <Text.Name>
+            {`${data.first_name} ${data.last_name} ${data.middle_name}`}
+          </Text.Name>
+          <Text.Name>
+            {data.date_of_birth}
+          </Text.Name>
+          <Text.Email>{data.email}</Text.Email>
+        </Text>
+      </UserInfo.Left>
+      <PrimaryButton type="submit" title="Save" size="small" />
     </UserInfo>
-    <PrimaryButton type="submit" title="Edit" size="medium" />
-
   </Container>
 );
 

@@ -8,13 +8,20 @@ import { fetchData } from '../../../redux/modules/teacher/lessons/actions';
 export default () => {
   const dispatch = useDispatch();
   const [date, setDate] = useState(undefined);
-  const { data, loading, error } = useSelector((state) => state.teacherLessonsReducers);
-
+  const {
+    data, loading, error, total
+  } = useSelector((state) => state.teacherLessonsReducers);
+  const size = useMemo(
+    () => (total
+      ? `size=${total}`
+      : ''),
+    [total]
+  );
   const dateFilter = useMemo(
     () => (date
-      ? `&from_date=${date.start.toISOString()}&to_date=${date.end.toISOString()}`
+      ? `${size}&from_date=${date.start.toISOString()}&to_date=${date.end.toISOString()}`
       : ''),
-    [date]
+    [date, size]
   );
 
   const allSubjects = data.length && data.map((el) => ({
@@ -34,7 +41,7 @@ export default () => {
 
   useEffect(() => {
     dispatch(fetchData({ query: dateFilter }));
-  }, [dateFilter]);
+  }, [dateFilter, total]);
 
   return (
     <Container>

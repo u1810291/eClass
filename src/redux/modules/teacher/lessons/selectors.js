@@ -19,6 +19,7 @@ export function dataSelector(lesson) {
       student_name: item.full_name,
       student_username: item.username
     })),
+    group: el.group,
     lesson_id: el.id,
     rescheduled: el.rescheduled,
     scheduled_start: moment(el.scheduled_start).format('DD-MM-YYYY HH:mm:ss'),

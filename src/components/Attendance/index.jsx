@@ -70,7 +70,6 @@ const Attendance = ({
 
   const onEventDrop = ({ event, start, end }) => {
     const idx = data.indexOf(event);
-
     const updatedEvent = { ...event, start, end };
     const nextEvents = [...data];
     nextEvents.splice(idx, 1, updatedEvent);

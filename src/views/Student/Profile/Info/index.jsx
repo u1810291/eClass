@@ -33,7 +33,7 @@ const Info = ({ data }) => (
           <Text.Email>{data.email}</Text.Email>
         </Text>
       </UserInfo.Left>
-      <PrimaryButton type="submit" title="Edit" size="small" />
+      <PrimaryButton type="submit" title="Save" size="small" />
     </UserInfo>
   </Container>
 );

@@ -28,8 +28,14 @@ export const ImageWrapper = styled.div`
 export const UserInfo = styled.div`
   display: flex;
   padding-top: 20px;
+  justify-content: space-between;
 `;
 
+UserInfo.Left = styled.div`
+display: flex;
+padding-top: 20px;
+
+`;
 export const Text = styled.div`
   display: flex;
   flex-direction: column;
