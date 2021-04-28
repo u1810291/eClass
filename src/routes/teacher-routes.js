@@ -5,7 +5,7 @@ import Profile from '../views/Teacher/Profile';
 import Quiz from '../views/Teacher/Quiz';
 import Grades from '../views/Teacher/Grades';
 import Attendance from '../views/Teacher/Attendance';
-import Schedule from '../views/Shedule';
+import Schedule from '../views/Teacher/Schedule';
 import Chat from '../views/Chat';
 import Groups from '../views/Groups';
 import Lesson from '../views/Teacher/Lesson';
