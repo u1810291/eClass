@@ -1,4 +1,5 @@
-import Examples from '../components/Examples';
+// import Examples from '../components/Examples';
+// import Groups from '../views/Groups';
 import Balance from '../views/Teacher/Balance';
 import Homeworks from '../views/Teacher/Homeworks';
 import Profile from '../views/Teacher/Profile';
@@ -7,7 +8,6 @@ import Grades from '../views/Teacher/Grades';
 import Attendance from '../views/Teacher/Attendance';
 import Schedule from '../views/Teacher/Schedule';
 import Chat from '../views/Chat';
-import Groups from '../views/Groups';
 import Lesson from '../views/Teacher/Lesson';
 
 export default [
@@ -83,22 +83,22 @@ export default [
     icon: 'chat2',
     title: 'Chat',
     children: []
-  },
-  {
-    exact: true,
-    path: '/subject',
-    component: Examples,
-    icon: 'dashboard',
-    title: 'Subject',
-    children: []
-  },
-  {
-    exact: true,
-    path: '/groups',
-    component: Groups,
-    icon: 'classess2',
-    title: 'Groups',
-    children: []
   }
+  // {
+  //   exact: true,
+  //   path: '/subject',
+  //   component: Examples,
+  //   icon: 'dashboard',
+  //   title: 'Subject',
+  //   children: []
+  // },
+  // {
+  //   exact: true,
+  //   path: '/groups',
+  //   component: Groups,
+  //   icon: 'classess2',
+  //   title: 'Groups',
+  //   children: []
+  // }
 
 ];
