@@ -1,28 +1,21 @@
 /* eslint-disable no-nested-ternary */
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { isEmpty } from 'lodash';
-import { fetchData } from '../../../redux/modules/teacher/profile/actions';
+import React from 'react';
 import {
-  UserDetails, Container, Content, Area, Text, SubmitForm
+  UserDetails, Container, Content, SubmitForm
 } from './style';
 import Form from './Form';
 import Info from './Info';
-import { TextArea } from '../../../components/Forms/Inputs';
 import Spinner from '../../../components/Spinner';
 import Error from '../../../components/Error';
 import { useEditForm } from './helper';
 
 export default () => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchData());
-  }, []);
-  const { data, loading, error } = useSelector((state) => state.teacherProfileReducers);
-  const { formik } = useEditForm();
+  const {
+    formik, data, loading, error
+  } = useEditForm();
   return (
     <Container>
-      {loading && !isEmpty(data)
+      {loading || !Object.keys(data).length
         ? <Spinner contain black /> : (
           error
             ? <Error /> : (
@@ -45,10 +38,6 @@ export default () => {
                     />
                   ))}
                 </Content>
-                <Text>Дополнительная информация</Text>
-                <Area>
-                  <TextArea white />
-                </Area>
               </SubmitForm>
             )
         )}

@@ -21,7 +21,6 @@ export default () => {
     <VerifiedContainer>
       <VerifiedContainer.Inner>
         <VerifiedContainer.Heading>Good job!</VerifiedContainer.Heading>
-        (c) Sarvar A.
         <VerifiedContainer.Text>Your email has been confirmed successfully.</VerifiedContainer.Text>
         <PrimaryButton title="LET'S START" size="large" onClick={handleClick} />
       </VerifiedContainer.Inner>
