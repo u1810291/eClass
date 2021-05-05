@@ -1,14 +1,19 @@
 /* eslint-disable no-alert */
+import { useEffect } from 'react';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
-import { useDispatch } from 'react-redux';
-import { updateProfile } from '../../../redux/modules/teacher/profile/actions';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateProfile, fetchData } from '../../../redux/modules/teacher/profile/actions';
 
 export const useEditForm = () => {
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(fetchData());
+  }, []);
+  const { data, loading, error } = useSelector((state) => state.teacherProfileReducers);
+
   const validationSchema = Yup.object().shape({
-    amount: Yup.string().required('Required'),
     password: Yup.string().required('Required'),
     first_name: Yup.string().required('Required'),
     last_name: Yup.string().required('Required'),
@@ -25,7 +30,6 @@ export const useEditForm = () => {
   });
   const formik = useFormik({
     initialValues: {
-      amount: '',
       password: '',
       first_name: '',
       last_name: '',
@@ -51,5 +55,7 @@ export const useEditForm = () => {
       }));
     }
   });
-  return { formik };
+  return {
+    formik, data, loading, error
+  };
 };

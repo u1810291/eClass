@@ -5,12 +5,12 @@ export const Container = styled.div`
 width: 100%;
 `;
 
-export const SubmitForm = styled.form`
+export const SubmitForm = styled.div`
 
 width: 100%;
 `;
 
-export const Content = styled.div`
+export const Content = styled.form`
   display: flex;
   width: 100%;
 `;

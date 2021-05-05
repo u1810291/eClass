@@ -1,13 +1,17 @@
 /* eslint-disable no-console */
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Container, Forms, InputsContainer } from './style';
 import Card from '../../../../components/Card';
 import { NormalInput } from '../../../../components/Forms/Inputs';
 
 const Form = ({ formik, data, title }) => {
+  console.log(formik.values.first_name);
   const type = data.description
     ? `${data.description.charAt(0).toUpperCase()}
   ${data.description.substring(1)}` : '';
+  useEffect(() => {
+    if (data) formik.setFieldValue('first_name', data.first_name);
+  }, [data]);
   return (
     <Container>
       <Forms>
@@ -23,7 +27,7 @@ const Form = ({ formik, data, title }) => {
                 type={formik.touched.first_name && formik.errors.first_name && 'error'}
                 helperText={formik.touched.first_name
                   && formik.errors.first_name && formik.errors.first_name}
-                value={formik.values.first_name || data.first_name || data.full_name}
+                value={formik.values.first_name}
                 onChange={(e) => formik.setFieldValue('first_name', e.target.value)}
               />
               <NormalInput
@@ -54,14 +58,14 @@ const Form = ({ formik, data, title }) => {
               <NormalInput
                 size="medium"
                 white
-                name="phone_code"
-                type={formik.touched.phone_code && formik.errors.phone_code && 'error'}
-                helperText={formik.touched.phone_code
-                    && formik.errors.phone_code && formik.errors.phone_code}
-                value={formik.values.phone_code || (data.phones
+                name="phone"
+                type={formik.touched.phone && formik.errors.phone && 'error'}
+                helperText={formik.touched.phone
+                    && formik.errors.phone && formik.errors.phone}
+                value={formik.values.phone || (data.phones
                   && data.phones[0]
                   && data.phones[0].phone)}
-                onChange={(e) => formik.setFieldValue('phone_code', e.target.value)}
+                onChange={(e) => formik.setFieldValue('phone', e.target.value)}
                 placeholder={`Номер телефона ${type}`}
               />
             </InputsContainer.Body>

@@ -196,21 +196,28 @@ export const SwitchButton = styled.div`
   background: #FFFFFF;
   box-shadow: 11px 11px 11px 13px rgba(124, 136, 177, 0.1), inset 4px 0px 0px #A9C6FF;
   border-radius: 11px;
-  width: 30%;
+  width: 100%;
   display: flex;
   height: 50px;
   `;
+export const Wrapper = styled.div`
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  min-width: 40%;
+`;
 
 SwitchButton.Counter = styled.div`
-  margin: 5px;
-  padding: 5px;
+  margin: 2px;
+  padding: 2px;
+  min-width: 20px;
   border-radius: 7px;
   background: rgba(214, 136, 155, 0.82);
 `;
 
 SwitchButton.Button = styled.button`
-  margin: 5px;
-  padding: 5px;
+  margin: 2px;
+  padding: 2px;
   align-items: center;
   
   display: flex;
