@@ -24,7 +24,6 @@ export default () => {
   const [date, setDate] = useState(undefined);
   const [sort, setSort] = useState();
   const [completed, setCompleted] = useState();
-  console.log(data);
   const completedFilter = useMemo(
     () => (completed
       ? `&completed=${completed}`
