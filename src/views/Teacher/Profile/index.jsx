@@ -15,15 +15,15 @@ export default () => {
   } = useEditForm();
   return (
     <Container>
-      {loading || !Object.keys(data).length
+      {loading
         ? <Spinner contain black /> : (
           error
             ? <Error /> : (
-              <SubmitForm onSubmit={formik.handleSubmit}>
+              <SubmitForm>
                 <UserDetails>
                   <Info data={data} />
                 </UserDetails>
-                <Content>
+                <Content onSubmit={formik.handleSubmit}>
                   <Form
                     title="Student"
                     formik={formik}

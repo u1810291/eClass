@@ -12,7 +12,7 @@ export default ({
     <Body>
       <TitleWrapper>
         <TitleWrapper.Title>Lessons</TitleWrapper.Title>
-        <TitleWrapper.Clear>Celar filter</TitleWrapper.Clear>
+        <TitleWrapper.Clear onClick={() => setDate(undefined)}>Celar filter</TitleWrapper.Clear>
       </TitleWrapper>
       <div>
         <DatePicker

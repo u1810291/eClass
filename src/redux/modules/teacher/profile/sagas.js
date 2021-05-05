@@ -8,11 +8,20 @@ import {
   setLoading
 } from './actions';
 
+import { dataSelector } from './selectors';
+
 function* fetchData() {
   try {
     yield put(setLoading(true));
     const res = yield service.getProfile();
-    yield put(setError(''));
+    if (res.data.photo_url) {
+      yield put(setError(''));
+      const url = res.data.photo_url.split('api');
+      const image = yield service.getProfilePhoto(`/api${url[1]}`);
+      const { data } = dataSelector(res.data, image);
+      yield put(setData(data));
+      yield put(setLoading(false));
+    }
     yield put(setData(res.data));
     yield put(setLoading(false));
   } catch (error) {
@@ -32,7 +41,9 @@ function* updateProfile({ payload, success }) {
 
 function* uploadPhoto({ payload, success }) {
   try {
+    console.log(payload);
     const res = yield service.uploadPhoto(payload);
+    console.log(res);
     success(res);
   } catch (error) {
     console.log(error);

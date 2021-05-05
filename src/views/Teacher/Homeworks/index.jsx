@@ -23,7 +23,7 @@ export default () => {
   const header = useMemo(() => headerMaker(headerData), [headerData]);
   const [pageIndex, setPageIndex] = useState(0);
   const files = useSelector((state) => state.filesReducers);
-
+  const [completed, setCompleted] = useState();
   const [pageSize, setPageSize] = useState(0);
   const [search, setSearch] = useState('');
   const [date, setDate] = useState(undefined);
@@ -35,6 +35,12 @@ export default () => {
       : ''),
     [date]
   );
+  const completedFilter = useMemo(
+    () => (completed
+      ? `&completed=${completed}`
+      : ''),
+    [completed]
+  );
   const sortQuery = useMemo(() => {
     const found = sort && teacherHomeworksHeader.find(({ id }) => id === sort.id);
     return found
@@ -42,8 +48,8 @@ export default () => {
       : '';
   }, [sort]);
   const query = useMemo(
-    () => `${dateFilter}&page=${pageIndex}&size=${pageSize}&${sortQuery}`,
-    [pageIndex, pageSize, sortQuery, dateFilter]
+    () => `${dateFilter}&page=${pageIndex}&size=${pageSize}&${sortQuery}&${completedFilter}`,
+    [pageIndex, pageSize, sortQuery, dateFilter, completedFilter]
   );
   useEffect(() => {
     dispatch(getFiles());
@@ -63,6 +69,7 @@ export default () => {
         search={search}
         setDate={setDate}
         date={date}
+        setCompleted={setCompleted}
 
       />
       {error ? (
