@@ -19,7 +19,7 @@
   "i18next-xhr-backend": "^3.2.2",
   "icomoon-react": "^2.0.19",
   "javascript-time-ago": "^2.3.3",
-  "lodash": "^4.17.20",
+  "lodash": "^4.17.21",
   "luxon": "^1.26.0",
   "moment": "^2.29.1",
   "namor": "^2.0.2",
