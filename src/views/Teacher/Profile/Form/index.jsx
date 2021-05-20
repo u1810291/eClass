@@ -1,11 +1,9 @@
-/* eslint-disable no-console */
 import React, { useEffect } from 'react';
 import { Container, Forms, InputsContainer } from './style';
 import Card from '../../../../components/Card';
 import { NormalInput } from '../../../../components/Forms/Inputs';
 
 const Form = ({ formik, data, title }) => {
-  console.log(formik.values.first_name);
   const type = data.description
     ? `${data.description.charAt(0).toUpperCase()}
   ${data.description.substring(1)}` : '';
