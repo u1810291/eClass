@@ -1,16 +1,19 @@
+/* eslint-disable no-console */
 import React, { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import classNames from 'classnames';
+
 import {
-  Container,
+  Text,
   Title,
+  UserInfo,
+  Container,
+  InputEement,
   Description,
   ImageWrapper,
-  UserInfo,
-  Text,
-  FileInputCustom,
-  InputEement
+  FileInputCustom
 } from './style';
+
 import { uploadPhoto } from '../../../../redux/modules/teacher/profile/actions';
 import { PrimaryButton } from '../../../../components/Buttons';
 import { DynamicImage } from '../../../../components/DynamicImage';
@@ -32,7 +35,6 @@ const Info = ({ data }) => {
     formData.append('desc', 'Моё фото');
     dispatch(uploadPhoto(formData));
   };
-
   return (
     <Container onSubmit={handleSubmit}>
       <Title className={classNames('weight-semibold', 'heading-6')}>Личный кабинет</Title>
@@ -44,7 +46,7 @@ const Info = ({ data }) => {
           <ImageWrapper type="button" onClick={handleClick}>
             <FileInputCustom>
               <DynamicImage
-                imgSrc={`${data.photo_url}` || ''}
+                imgSrc={`${data.photo_url}.png`}
                 name={`${data.first_name} ${data.last_name} ${data.middle_name}`}
               />
             </FileInputCustom>

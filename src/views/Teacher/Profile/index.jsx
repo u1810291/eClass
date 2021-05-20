@@ -25,18 +25,10 @@ export default () => {
                 </UserDetails>
                 <Content onSubmit={formik.handleSubmit}>
                   <Form
-                    title="Student"
+                    title="Профиль"
                     formik={formik}
                     data={data}
                   />
-                  {data.parents && data.parents.map((el) => (
-                    <Form
-                      key={el.id}
-                      title="Parent"
-                      formik={formik}
-                      data={el}
-                    />
-                  ))}
                 </Content>
               </SubmitForm>
             )

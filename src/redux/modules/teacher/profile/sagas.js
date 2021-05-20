@@ -18,6 +18,8 @@ function* fetchData() {
       yield put(setError(''));
       const url = res.data.photo_url.split('api');
       const image = yield service.getProfilePhoto(`/api${url[1]}`);
+      console.log(image);
+      console.log(new Blob([image.data]));
       const { data } = dataSelector(res.data, image);
       yield put(setData(data));
       yield put(setLoading(false));
@@ -26,6 +28,7 @@ function* fetchData() {
     yield put(setLoading(false));
   } catch (error) {
     yield put(setLoading(false));
+    console.log(error);
     yield put(setError(error.response ? error.response.data.error_message : error));
   }
 }
@@ -33,6 +36,7 @@ function* fetchData() {
 function* updateProfile({ payload, success }) {
   try {
     const res = yield service.updateProfile(payload);
+    console.log(res);
     success(res);
   } catch (error) {
     console.log(error);
