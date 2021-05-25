@@ -4,16 +4,27 @@ import { Container } from './style';
 import { PrimaryButton } from '../../Buttons';
 import Dropdown from '../../Forms/Dropdowns';
 import { NormalInput } from '../../Forms/Inputs';
+import SingleDatePicker from '../../Forms/Inputs/SingleDatePicker';
 
 const CancelLesson = ({
-  id, cancelingLesson
+  id, rescheduleLesson
 }) => {
   const {
     reasons, formik
-  } = cancelingLesson(id);
+  } = rescheduleLesson(id);
   return (
     <Container onSubmit={formik.handleSubmit}>
-      Are you sure to cancel this lesson?
+      Are you sure to reschedule this lesson?
+      <SingleDatePicker
+        value={formik.values.date}
+        showTimeSelect
+        placeholder="Date"
+        name="rangeDate2"
+        type={formik.touched.date && formik.errors.date && 'error'}
+        helperText={formik.touched.date
+        && formik.errors.date && formik.errors.date}
+        onChange={(value) => formik.setFieldValue('date', value)}
+      />
       <NormalInput
         placeholder="Comment"
         white

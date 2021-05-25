@@ -6,6 +6,7 @@ import { useFormik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import AddHomework from '../../../components/Lesson/AddHomework';
 import CancelLesson from '../../../components/Lesson/CancelLesson';
+import Reschedule from '../../../components/Lesson/Reschedule';
 import { addHomework } from '../../../redux/modules/teacher/homeworks/actions';
 import { addQuiz } from '../../../redux/modules/teacher/quizes/actions';
 import { startLesson, cancelLesson } from '../../../redux/modules/teacher/lessons/actions';
@@ -109,6 +110,38 @@ const cancelingLesson = (id) => {
     reasons, formik
   };
 };
+const rescheduleLesson = (id) => {
+  const { hideModal } = useHideModal();
+  const dispatch = useDispatch();
+  const validationSchema = Yup.object().shape({
+    reason: Yup.string().required('Required'),
+    comment: Yup.string().required('Required'),
+    date: Yup.string().required('Required')
+  });
+  const formik = useFormik({
+    initialValues: {
+      reason: '',
+      comment: '',
+      date: ''
+    },
+    validationSchema,
+    onSubmit: (values, { setSubmitting }) => {
+      setSubmitting(true);
+      dispatch(cancelLesson({ id, reason: values }, () => {
+        hideModal();
+      }));
+      setSubmitting(false);
+    }
+  });
+  const { reasons } = useSelector((state) => state.listsReducers);
+  useEffect(() => {
+    dispatch(getReasons());
+  }, [getReasons]);
+
+  return {
+    reasons, formik
+  };
+};
 export const toolTips = [
   {
     name: 'Start',
@@ -137,15 +170,16 @@ export const toolTips = [
       });
     }
   },
-
   {
     name: 'Reschedule',
     icon: 'payment',
-    onClick: () => {
-      alert('Reschedule');
+    onClick: (id, { showBlured }) => {
+      showBlured({
+        title: 'Reschedule lesson',
+        body: () => <Reschedule id={id} rescheduleLesson={rescheduleLesson} />
+      });
     }
   },
-
   {
     name: 'Response',
     icon: 'payment',
@@ -153,7 +187,6 @@ export const toolTips = [
       alert('Response Reschedule');
     }
   },
-
   {
     name: 'Reject Reschedule',
     icon: 'payment',
@@ -161,23 +194,6 @@ export const toolTips = [
       alert('Reject Reschedule');
     }
   },
-
-  {
-    name: 'Add Rating',
-    icon: 'payment',
-    onClick: () => {
-      alert('Add Rating');
-    }
-  },
-
-  {
-    name: 'Revoke Rating',
-    icon: 'payment',
-    onClick: () => {
-      alert('Revoke Rating');
-    }
-  },
-
   {
     name: 'Add homework',
     icon: 'payment',
