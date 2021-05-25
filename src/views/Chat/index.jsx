@@ -19,15 +19,18 @@ export default () => {
     }
   };
   const connect = () => {
-    console.log(sessionStorage.getItem('access_token'));
-    if (sessionStorage.getItem('access_token')) {
-      socket = new SockJS('https://five-plus.co/ws', null, { headers: { 'X-Authorization': `Bearer ${sessionStorage.getItem('access_token')}` } });
+    const token = sessionStorage.getItem('access_token');
+    if (token) {
+      socket = new SockJS(process.env.PUBLIC_URL, null, { headers: { Authorization: `Bearer ${token}` } });
+      console.log(socket);
       stompClient = Stomp.over(socket);
       stompClient.connect(
-        { 'X-Authorization': `Bearer ${sessionStorage.getItem('access_token')}` },
+        { Authorization: `Bearer ${token}` },
         (frame) => {
+          console.log(frame);
           connected = true;
-          stompClient.subscribe('/topic/v1/notification', (tick) => {
+          stompClient.subscribe('/topic/v1/notification', { 'X-Authorization': `Bearer ${token}` }, (tick) => {
+            console.log(tick);
           });
         },
         (error) => {
