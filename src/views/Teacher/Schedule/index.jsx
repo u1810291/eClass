@@ -17,12 +17,6 @@ export default () => {
       : ''),
     [total]
   );
-  const dateFilter = useMemo(
-    () => (date
-      ? `${size}&from_date=${date.start.toISOString()}&to_date=${date.end.toISOString()}`
-      : ''),
-    [date, size]
-  );
 
   const allSubjects = data.length && data.map((el) => ({
     id: el.subject_id,
@@ -38,10 +32,10 @@ export default () => {
   const clear = () => {
     setDate(undefined);
   };
-
+  console.log(data);
   useEffect(() => {
-    dispatch(fetchData({ query: dateFilter }));
-  }, [dateFilter, total]);
+    dispatch(fetchData({ query: size }));
+  }, [size]);
 
   return (
     <Container>
