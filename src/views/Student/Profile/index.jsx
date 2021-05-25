@@ -5,6 +5,7 @@ import {
   UserDetails, Container, Content, Area, Text, SubmitForm
 } from './style';
 import Form from './Form';
+import Parent from './Parent';
 import Info from './Info';
 import { TextArea } from '../../../components/Forms/Inputs';
 import Spinner from '../../../components/Spinner';
@@ -31,8 +32,8 @@ export default () => {
                     formik={formik}
                     data={data}
                   />
-                  {data.parents && data.parents.map((el) => (
-                    <Form
+                  {formik.values.parents && formik.values.parents.map((el) => (
+                    <Parent
                       key={el.id}
                       title="Parent"
                       formik={formik}
@@ -42,7 +43,11 @@ export default () => {
                 </Content>
                 <Text>Дополнительная информация</Text>
                 <Area>
-                  <TextArea white />
+                  <TextArea
+                    white
+                    value={formik.values.description}
+                    onChange={(e) => formik.setFieldValue(e.target.value)}
+                  />
                 </Area>
               </SubmitForm>
             )

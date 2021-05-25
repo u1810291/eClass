@@ -13,15 +13,18 @@ export const Forms = styled.div`
 export const InputsContainer = styled.div`
   padding-top: 15px;
 `;
+
 InputsContainer.Head = styled.div`
   display: flex;
 `;
+
 InputsContainer.Body = styled.div`
   padding-top: 15px;
   margin-bottom: 5px;
   display: grid;
-  grid-template-columns: 100px 1fr;
+  min-width:100%;
 `;
+
 InputsContainer.Footer = styled.div`
   div {
     padding-top: 5px;
