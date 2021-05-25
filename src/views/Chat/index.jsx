@@ -21,14 +21,14 @@ export default () => {
   const connect = () => {
     const token = sessionStorage.getItem('access_token');
     if (token) {
-      socket = new SockJS(`${process.env.REACT_APP_SERVICE_URL}/ws`, null, { headers: { Authorization: `Bearer ${token}` } });
+      socket = new SockJS('https://five-plus.co/ws', null, { headers: { Authorization: `Bearer ${token}` } });
       stompClient = Stomp.over(socket);
       stompClient.connect(
         { Authorization: `Bearer ${token}` },
         (frame) => {
           console.log(frame);
           connected = true;
-          stompClient.subscribe('/topic/v1/notification', { 'X-Authorization': `Bearer ${token}` }, (tick) => {
+          stompClient.subscribe('https://five-plus.co/topic/v1/notification', { Authorization: `Bearer ${token}` }, (tick) => {
             console.log(tick);
           });
         },
