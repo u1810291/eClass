@@ -54,8 +54,20 @@ function* cancelLesson({ payload, success }) {
   }
 }
 
+function* rescheduleLesson({ payload, success }) {
+  try {
+    console.log(payload);
+    const res = yield service.rescheduleLesson({ id: payload.id, data: payload.data });
+    const { data } = cancelLessonSelector(res.data);
+    success(data);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export default function* teacherLessonsSaga() {
   yield takeLatest(types.TABLE_TEACHER_LESSONS_FETCH_DATA, fetchData);
   yield takeLatest(types.TEACHER_START_LESSONS, startLesson);
   yield takeLatest(types.TEACHER_CANCEL_LESSONS, cancelLesson);
+  yield takeLatest(types.TEACHER_RESCHEDULE_LESSONS, rescheduleLesson);
 }

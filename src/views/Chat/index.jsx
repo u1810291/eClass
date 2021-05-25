@@ -21,7 +21,7 @@ export default () => {
   const connect = () => {
     const token = sessionStorage.getItem('access_token');
     if (token) {
-      socket = new SockJS(process.env.PUBLIC_URL, null, { headers: { Authorization: `Bearer ${token}` } });
+      socket = new SockJS(`${process.env.REACT_APP_SERVICE_URL}/ws`, null, { headers: { Authorization: `Bearer ${token}` } });
       console.log(socket);
       stompClient = Stomp.over(socket);
       stompClient.connect(

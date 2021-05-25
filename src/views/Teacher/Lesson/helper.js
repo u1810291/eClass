@@ -9,7 +9,7 @@ import CancelLesson from '../../../components/Lesson/CancelLesson';
 import Reschedule from '../../../components/Lesson/Reschedule';
 import { addHomework } from '../../../redux/modules/teacher/homeworks/actions';
 import { addQuiz } from '../../../redux/modules/teacher/quizes/actions';
-import { startLesson, cancelLesson } from '../../../redux/modules/teacher/lessons/actions';
+import { startLesson, cancelLesson, rescheduleLesson } from '../../../redux/modules/teacher/lessons/actions';
 import MeetingWindow from '../../../components/MeetingWindow';
 import { getReasons } from '../../../redux/modules/lists/actions';
 import { useHideModal } from '../../../hooks/modal';
@@ -110,24 +110,29 @@ const cancelingLesson = (id) => {
     reasons, formik
   };
 };
-const rescheduleLesson = (id) => {
+const reschedule = (id) => {
   const { hideModal } = useHideModal();
   const dispatch = useDispatch();
   const validationSchema = Yup.object().shape({
     reason: Yup.string().required('Required'),
     comment: Yup.string().required('Required'),
-    date: Yup.string().required('Required')
+    new_date: Yup.string().required('Required')
   });
   const formik = useFormik({
     initialValues: {
       reason: '',
       comment: '',
-      date: ''
+      new_date: ''
     },
     validationSchema,
     onSubmit: (values, { setSubmitting }) => {
       setSubmitting(true);
-      dispatch(cancelLesson({ id, reason: values }, () => {
+      const data = {
+        reason: values.reason,
+        comment: values.comment,
+        new_date: values.new_date.toISOString()
+      };
+      dispatch(rescheduleLesson({ id, data }, () => {
         hideModal();
       }));
       setSubmitting(false);
@@ -176,7 +181,7 @@ export const toolTips = [
     onClick: (id, { showBlured }) => {
       showBlured({
         title: 'Reschedule lesson',
-        body: () => <Reschedule id={id} rescheduleLesson={rescheduleLesson} />
+        body: () => <Reschedule id={id} rescheduleLesson={reschedule} />
       });
     }
   },
