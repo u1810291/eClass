@@ -4,7 +4,7 @@ export const Container = styled.div`
   width: 100%;
 `;
 
-export const SubmitForm = styled.div`
+export const SubmitForm = styled.form`
   width: 100%;
 `;
 

@@ -1,6 +1,5 @@
 /* eslint-disable no-console */
-import React, { useRef, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useRef } from 'react';
 import classNames from 'classnames';
 
 import {
@@ -14,29 +13,18 @@ import {
   FileInputCustom
 } from './style';
 
-import { uploadPhoto } from '../../../../redux/modules/teacher/profile/actions';
-import { PrimaryButton } from '../../../../components/Buttons';
 import { DynamicImage } from '../../../../components/DynamicImage';
 
-const Info = ({ data }) => {
+const Info = ({ data, setFieldValue }) => {
   const ref = useRef(null);
-  const dispatch = useDispatch();
-  const [value, setFieldValue] = useState();
   const handleClick = () => {
     ref.current.click();
   };
   const handleChange = (event) => {
     setFieldValue(event.target.files[0]);
   };
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const formData = new FormData();
-    formData.append('file', value);
-    formData.append('desc', 'Моё фото');
-    dispatch(uploadPhoto(formData));
-  };
   return (
-    <Container onSubmit={handleSubmit}>
+    <Container>
       <Title className={classNames('weight-semibold', 'heading-6')}>Личный кабинет</Title>
       <Description className={classNames('body-large', 'weight-light')}>
         {data.description}
@@ -62,7 +50,6 @@ const Info = ({ data }) => {
             <Text.Email>{data.email}</Text.Email>
           </Text>
         </UserInfo.Left>
-        <PrimaryButton type="submit" title="Save" size="small" />
       </UserInfo>
     </Container>
   );
