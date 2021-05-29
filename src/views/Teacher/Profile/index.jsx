@@ -20,11 +20,13 @@ export default () => {
   } = useEditForm();
   const handleSubmit = (event) => {
     event.preventDefault();
-    const formData = new FormData();
-    formData.append('file', value);
-    formData.append('desc', 'Моё фото');
-    dispatch(uploadPhoto(formData));
-    formik.handleSubmit();
+    console.log(event);
+    if (value) {
+      const formData = new FormData();
+      formData.append('file', value);
+      formData.append('desc', 'Моё фото');
+      dispatch(uploadPhoto(formData));
+    }
   };
   return (
     <Container>
@@ -32,10 +34,16 @@ export default () => {
         ? <Spinner contain black /> : (
           error
             ? <Error /> : (
-              <SubmitForm onSubmit={handleSubmit}>
+              <SubmitForm onSubmit={(e) => {
+                e.preventDefault();
+                formik.handleSubmit(e);
+                handleSubmit(e);
+              }}
+              >
                 <UserDetails>
                   <Info data={data} setFieldValue={setFieldValue} />
                 </UserDetails>
+                {console.log(formik.errors)}
                 <Content>
                   <Form
                     title="Профиль"

@@ -18,7 +18,6 @@ export const useEditForm = () => {
     middle_name: Yup.string(),
     email: Yup.string(),
     date_of_birth: Yup.string().required('Required'),
-    lang: Yup.string().required('Required'),
     phones: Yup.array().required('Required')
   });
   const formik = useFormik({
@@ -34,6 +33,7 @@ export const useEditForm = () => {
     validationSchema,
     onSubmit: (values, { setSubmitting }) => {
       setSubmitting(true);
+      console.log(values);
       dispatch(updateProfile(values, (res) => {
         if (res) {
           return alert('Succesfully added!');
