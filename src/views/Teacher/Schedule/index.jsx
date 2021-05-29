@@ -33,7 +33,6 @@ export default () => {
   const clear = () => {
     setDate(undefined);
   };
-  console.log(data);
   useEffect(() => {
     dispatch(fetchData({ query: size }));
   }, [size]);

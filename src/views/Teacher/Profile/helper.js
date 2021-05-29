@@ -33,7 +33,6 @@ export const useEditForm = () => {
     validationSchema,
     onSubmit: (values, { setSubmitting }) => {
       setSubmitting(true);
-      console.log(values);
       dispatch(updateProfile(values, (res) => {
         if (res) {
           return alert('Succesfully added!');

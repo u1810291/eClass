@@ -20,7 +20,6 @@ export default () => {
   } = useEditForm();
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(event);
     if (value) {
       const formData = new FormData();
       formData.append('file', value);
@@ -43,7 +42,6 @@ export default () => {
                 <UserDetails>
                   <Info data={data} setFieldValue={setFieldValue} />
                 </UserDetails>
-                {console.log(formik.errors)}
                 <Content>
                   <Form
                     title="Профиль"

@@ -32,7 +32,7 @@ const CustomEventMonth = (event) => (
 );
 
 const CustomEventWeekDay = (event) => {
-  const today = new Date();
+  const today = new Date().toISOString();
   return (
     <span className="custom-event">
       <LeftWrapper>
@@ -65,6 +65,7 @@ const CustomEventWeekDay = (event) => {
 const Attendance = ({
   data, loading, error, date, setDate
 }) => {
+  const today = new Date();
   const { showBlured } = useShowModal();
   const dispatch = useDispatch();
 
@@ -159,7 +160,7 @@ const Attendance = ({
                       allDayAccessor="all-day"
                       events={events}
                       localizer={localizer}
-                      defaultDate={new Date()}
+                      defaultDate={today}
                       onEventDrop={onEventDrop}
                       defaultView={Views.MONTH}
                       onEventResize={onEventResize}
