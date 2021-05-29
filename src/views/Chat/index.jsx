@@ -21,12 +21,12 @@ export default () => {
   const connect = () => {
     const token = sessionStorage.getItem('access_token');
     if (token) {
-      socket = new SockJS('https://five-plus.co/ws', null, { headers: { Authorization: `Bearer ${token}` } });
+      socket = new SockJS('https://five-plus.co/ws', null, { Authorization: `Bearer ${token}` });
       stompClient = Stomp.over(socket);
       stompClient.connect(
         { Authorization: `Bearer ${token}` },
         (frame) => {
-          console.log(frame);
+          console.log('frame', frame);
           connected = true;
           stompClient.subscribe('https://five-plus.co/topic/v1/notification', { Authorization: `Bearer ${token}` }, (tick) => {
             console.log(tick);

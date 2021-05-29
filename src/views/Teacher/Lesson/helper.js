@@ -186,20 +186,6 @@ export const toolTips = [
     }
   },
   {
-    name: 'Response',
-    icon: 'payment',
-    onClick: () => {
-      alert('Response Reschedule');
-    }
-  },
-  {
-    name: 'Reject Reschedule',
-    icon: 'payment',
-    onClick: () => {
-      alert('Reject Reschedule');
-    }
-  },
-  {
     name: 'Add homework',
     icon: 'payment',
     onClick: (id, { showBlured }) => {
