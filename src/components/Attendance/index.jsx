@@ -32,7 +32,7 @@ const CustomEventMonth = (event) => (
 );
 
 const CustomEventWeekDay = (event) => {
-  const today = new Date().toISOString();
+  const today = new Date();
   return (
     <span className="custom-event">
       <LeftWrapper>
