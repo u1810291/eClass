@@ -24,7 +24,6 @@ const Info = ({ data, setFieldValue }) => {
   const handleChange = (event) => {
     setFieldValue(event.target.files[0]);
   };
-  console.log(data.photo_url && data.photo_url.data);
   const image = data.photo_url && data.photo_url.data && `data:image/png;base64,${btoa(
     new Uint8Array(data.photo_url.data).reduce(
       (data, byte) => data + String.fromCharCode(byte),
@@ -41,14 +40,12 @@ const Info = ({ data, setFieldValue }) => {
         <UserInfo.Left>
           <ImageWrapper type="button" onClick={handleClick}>
             <FileInputCustom>
-              {console.log(typeof image)}
               {typeof image === 'string'
               && (
                 <DynamicImage
                   imgSrc={image}
                   name={`${data.first_name} ${data.last_name} ${data.middle_name}`}
-                />,
-                console.log('object')
+                />
               )}
             </FileInputCustom>
             <InputEement type="file" ref={ref} onChange={handleChange} />
