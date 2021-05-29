@@ -24,15 +24,15 @@ export default () => {
     formData.append('file', value);
     formData.append('desc', 'Моё фото');
     dispatch(uploadPhoto(formData));
+    formik.handleSubmit();
   };
-
   return (
     <Container>
       {loading
         ? <Spinner contain black /> : (
           error
             ? <Error /> : (
-              <SubmitForm onSubmit={() => { formik.handleSubmit(); handleSubmit(); }}>
+              <SubmitForm onSubmit={handleSubmit}>
                 <UserDetails>
                   <Info data={data} setFieldValue={setFieldValue} />
                 </UserDetails>
@@ -44,7 +44,6 @@ export default () => {
                   />
                 </Content>
                 <PrimaryButton type="submit" title="Save" size="medium" />
-
               </SubmitForm>
             )
         )}

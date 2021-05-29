@@ -36,14 +36,13 @@ const Form = ({ formik, title }) => {
               />
             </InputsContainer.Head>
             <InputsContainer.Body>
-              {console.log(formik.values.phones)}
               <TagsInput
                 white
                 placeholder="Phones"
                 size="medium"
                 name="phones"
-                value={[formik.values.phones]}
-                defaultValue={[formik.values.phones]}
+                value={formik.values.phones}
+                defaultValue={formik.values.phones || []}
                 type={formik.touched.phones
                 && (formik.touched.phones.length === 0 || formik.errors.phones)
                   ? 'error'
@@ -52,7 +51,8 @@ const Form = ({ formik, title }) => {
                   && (formik.touched.phones.length === 0 || formik.errors.phones)
                   ? formik.errors.phone || 'Phone number is required'
                   : ''}
-                onChange={(e) => formik.setFieldValue('phone', e)}
+                // eslint-disable-next-line no-unused-expressions
+                onChange={(e) => formik.setFieldValue('phones', e)}
               />
             </InputsContainer.Body>
             <InputsContainer.Footer>

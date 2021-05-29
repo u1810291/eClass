@@ -36,7 +36,7 @@ export const TagsInput = ({
   return (
     <Container>
       <TagsWrapper type={type || 'button'} {...props}>
-        {defaultValue.length > 0
+        {defaultValue && defaultValue.length > 0
           && defaultValue.map((tag, idx) => (
             // eslint-disable-next-line react/no-array-index-key
             <TagItem key={idx}>

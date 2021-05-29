@@ -12,7 +12,6 @@ export const useEditForm = () => {
     dispatch(fetchData());
   }, []);
   const { data, loading, error } = useSelector((state) => state.teacherProfileReducers);
-
   const validationSchema = Yup.object().shape({
     first_name: Yup.string().required('Required'),
     last_name: Yup.string().required('Required'),

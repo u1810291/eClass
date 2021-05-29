@@ -18,6 +18,7 @@ function* fetchData() {
       yield put(setError(''));
       const url = res.data.photo_url.split('api');
       const image = yield service.getProfilePhoto(`/api${url[1]}`);
+      console.log(image);
       const { data } = dataSelector(res.data, image);
       yield put(setData(data));
       yield put(setLoading(false));

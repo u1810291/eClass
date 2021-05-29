@@ -8,7 +8,7 @@ export const SubmitForm = styled.form`
   width: 100%;
 `;
 
-export const Content = styled.form`
+export const Content = styled.div`
   display: flex;
   width: 100%;
 `;
