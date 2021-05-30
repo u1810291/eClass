@@ -40,8 +40,8 @@ const Form = ({ formik, title }) => (
               placeholder="Phones"
               size="medium"
               name="phones"
-              value={[formik.values.phones]}
-              defaultValue={[formik.values.phones]}
+              value={formik.values.phones && [formik.values.phones.map((el) => el.phone)]}
+              defaultValue={formik.values.phones && [formik.values.phones.map((el) => el.phone)]}
               type={formik.touched.phones
                 && (formik.touched.phones.length === 0 || formik.errors.phones)
                 ? 'error'

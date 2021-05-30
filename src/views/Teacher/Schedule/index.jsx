@@ -44,7 +44,6 @@ export default () => {
   }));
 
   useEffect(() => {
-    console.log('object');
     dispatch(fetchData({ query }));
   }, [query]);
 

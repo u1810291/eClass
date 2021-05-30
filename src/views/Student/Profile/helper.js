@@ -38,12 +38,12 @@ export const useEditForm = () => {
       middle_name: data.middle_name,
       email: data.email,
       date_of_birth: data.date_of_birth,
-      phones: data.phones && data.phones.map((el) => el.phone),
+      phones: data.phones && data.phones.map((el) => ({ id: el.id, phone: el.phone })),
       parents: data.parents && data.parents.map(((el) => ({
         id: el.id,
         first_name: el.full_name.split(' ')[0],
         last_name: el.full_name.split(' ')[1],
-        phones: el.phones.map((el) => el.phone)
+        phones: el.phones.map((el) => ({ id: el.id, phone: el.phone }))
       }))),
       school_number: data.school_number,
       city_id: data.city_id,
@@ -53,6 +53,8 @@ export const useEditForm = () => {
     validationSchema,
     onSubmit: (values, { setSubmitting }) => {
       setSubmitting(true);
+      // eslint-disable-next-line no-console
+      console.log(values);
       dispatch(updateProfile(values, (res) => {
         if (res) {
           return alert('Succesfully added!');

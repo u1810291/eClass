@@ -35,9 +35,9 @@ const Form = ({
               white
               name="phones"
               value={formik.values.parents[idx].phones
-                && [formik.values.parents[idx].phones]}
+                && [formik.values.parents[idx].phones.map((el) => el.phone)]}
               defaultValue={formik.values.parents[idx].phones
-                && [formik.values.parents[idx].phones]}
+                && [formik.values.parents[idx].phones.map((el) => el.phone)]}
               onChange={(e) => formik.setFieldValue(`parents[${idx}].phones`, e)}
             />
           </InputsContainer.Body>

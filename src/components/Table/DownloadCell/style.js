@@ -14,6 +14,7 @@ export const Content = styled.div`
     color: white !important;
     text-decoration: none !important;
   }
+  color: white;
   background: ${({ color }) => (color || '#0062FF')};
     cursor: pointer;
     svg {
