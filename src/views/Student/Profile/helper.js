@@ -1,15 +1,11 @@
 /* eslint-disable no-alert */
-import { useEffect } from 'react';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateProfile, fetchData } from '../../../redux/modules/student/profile/actions';
+import { updateProfile } from '../../../redux/modules/student/profile/actions';
 
 export const useEditForm = () => {
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchData());
-  }, []);
   const { data, loading, error } = useSelector((state) => state.studentProfileReducers);
   const validationSchema = Yup.object().shape({
     first_name: Yup.string().required('Required'),
@@ -57,7 +53,7 @@ export const useEditForm = () => {
       console.log(values);
       dispatch(updateProfile(values, (res) => {
         if (res) {
-          return alert('Succesfully added!');
+          return alert('Succesfully updated!');
         }
         return alert('Something went Wrong!');
       }));

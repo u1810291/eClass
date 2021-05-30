@@ -1,6 +1,7 @@
 /* eslint-disable no-nested-ternary */
-import React from 'react';
+import React, { useEffect } from 'react';
 import { isEmpty } from 'lodash';
+import { useDispatch } from 'react-redux';
 import {
   UserDetails, Container, Content, SubmitForm
 } from './style';
@@ -11,11 +12,17 @@ import Spinner from '../../../components/Spinner';
 import Error from '../../../components/Error';
 import { useEditForm } from './helper';
 import { PrimaryButton } from '../../../components/Buttons';
+import { fetchData } from '../../../redux/modules/student/profile/actions';
 
 export default () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchData());
+  }, []);
   const {
     formik, data, loading, error
   } = useEditForm();
+
   return (
     <Container>
       {loading && !isEmpty(data)
