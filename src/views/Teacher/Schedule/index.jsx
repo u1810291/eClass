@@ -16,20 +16,20 @@ export default () => {
   } = useSelector((state) => state.teacherLessonsReducers);
   const dateFilter = useMemo(
     () => (date
-      ? `&from_date=${date.start.toISOString()}&to_date=${date.end.toISOString()}`
+      ? `from_date=${date.start.toISOString()}&to_date=${date.end.toISOString()}`
       : ''),
-    [date]
+    [date, setDate]
   );
-
+  console.log(total);
   const clear = () => {
     setDate(undefined);
   };
-
+  const size = useMemo(
+    () => (total ? `size=${total}&` : ''), [total]
+  );
   const query = useMemo(
-    () => (total
-      ? `size=${total}${dateFilter}`
-      : ''),
-    [total, dateFilter]
+    () => `${size}${dateFilter}`,
+    [size, dateFilter]
   );
 
   const allSubjects = data.length && data.map((el) => ({
@@ -44,7 +44,6 @@ export default () => {
   }));
 
   useEffect(() => {
-    console.log('object');
     dispatch(fetchData({ query }));
   }, [query]);
 
