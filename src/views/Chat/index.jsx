@@ -10,7 +10,7 @@ import Chat from '../../components/Chat';
 export default () => {
   let connected = false;
   let socket = '';
-  let stompClient = '';
+  const stompClient = '';
   const send = () => {
     const send_message = 'hello !';
     if (stompClient && stompClient.connected) {
@@ -22,13 +22,12 @@ export default () => {
     const token = sessionStorage.getItem('access_token');
     if (token) {
       socket = new SockJS('https://five-plus.co/ws', null, { Authorization: `Bearer ${token}` });
-      stompClient = Stomp.over(socket);
+      const stompClient = Stomp.over(socket);
       stompClient.connect(
-        { Authorization: `Bearer ${token}` },
         (frame) => {
           console.log('frame', frame);
           connected = true;
-          stompClient.subscribe('https://five-plus.co/topic/v1/notification', { Authorization: `Bearer ${token}` }, (tick) => {
+          stompClient.subscribe('/topic/v1/notification', { Authorization: `Bearer ${token}` }, (tick) => {
             console.log(tick);
           });
         },
