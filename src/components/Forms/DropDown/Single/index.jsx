@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useState, useEffect } from 'react';
 
@@ -28,10 +29,7 @@ const Single = ({
     const vh = document.getElementById(`dropdown-container-${key}`).getBoundingClientRect();
     const wv = document.getElementById(`selection-container-${key}`).clientWidth;
     const menuHeight = document.getElementById(`menu-container-${key}`).clientHeight;
-
     window.addEventListener('resize', handleResize(wv));
-
-    // setWidth(wv);
     if (vh.bottom + menuHeight > window.innerHeight) {
       setEnd(true);
     } else {
@@ -53,16 +51,16 @@ const Single = ({
       </Selection>
       <Menu id={`menu-container-${key}`} style={{ display: open ? 'flex' : 'none' }} disable width={width} end={end ? 1 : 0}>
         {
-          options.map((itm) => ((
+          options.map((itm, index) => ((
             Array.isArray(itm.value) ? (
-              <div key={itm.id}>
+              <div key={index + 1}>
                 <Menu.Item readOnly disabled key={itm.id} value={itm.name} width={width} />
                 {
-                  itm.value.map((sub) => (
+                  itm.value.map((sub, i) => (
                     <Menu.SubItem
                       id={sub.id}
                       readOnly
-                      key={sub.id}
+                      key={`id-${i}`}
                       onClick={(e) => onClik(e)}
                       value={sub.value}
                       name={sub.name}
@@ -76,7 +74,7 @@ const Single = ({
               : (
                 <Menu.Item
                   id={itm.id}
-                  key={itm.id}
+                  key={index + 1}
                   readOnly
                   onClick={(e) => onClik(e)}
                   value={itm.value}

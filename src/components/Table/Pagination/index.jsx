@@ -7,7 +7,7 @@ import {
   Button,
   ChangeButton
 } from './style';
-import Dropdown from '../../Forms/DropdownV3';
+import { SingleDropdown as Dropdown } from '../../Forms/DropDown';
 import Icon from '../../Icon';
 import { useButtons } from './useButtons';
 
@@ -42,7 +42,7 @@ const Pagination = ({
         placeholder="Select"
         options={options}
         value={pageSize}
-        onChange={setPageSize}
+        onClick={setPageSize}
         size="large"
       />
       <PageButtons repeat={pageCount > 7 ? 7 : pageCount}>
