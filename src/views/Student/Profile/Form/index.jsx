@@ -50,7 +50,7 @@ const Form = ({ formik, title }) => (
                   && (formik.touched.phones.length === 0 || formik.errors.phones)
                 ? formik.errors.phone || 'Phone number is required'
                 : ''}
-              onChange={(e) => formik.setFieldValue('phone', e)}
+              onChange={(e) => formik.setFieldValue('phones', e)}
             />
           </InputsContainer.Body>
           <InputsContainer.Footer>
@@ -77,23 +77,32 @@ const Form = ({ formik, title }) => (
                 formik.setFieldValue('date_of_birth', value);
               }}
             />
-            {title !== 'Parent' ? (
-              <NormalInput
-                size="medium"
-                white
-                placeholder="Школа N или где сейчас учится"
-                name="school_number"
-                value={formik.values.school_number}
-                type={formik.touched.school_number
+            <NormalInput
+              size="medium"
+              white
+              placeholder="Школа N или где сейчас учится"
+              name="school_number"
+              value={formik.values.school_number}
+              type={formik.touched.school_number
                       && formik.errors.school_number && 'error'}
-                helperText={formik.errors.school_number}
-                onChange={(value) => {
-                  formik.setFieldValue('school_number', value);
-                }}
-              />
-            ) : (
-              ''
-            )}
+              helperText={formik.errors.school_number}
+              onChange={(value) => {
+                formik.setFieldValue('school_number', value);
+              }}
+            />
+            <NormalInput
+              size="medium"
+              white
+              placeholder="Адрес"
+              name="address"
+              value={formik.values.address}
+              type={formik.touched.address
+                      && formik.errors.address && 'error'}
+              helperText={formik.errors.address}
+              onChange={(value) => {
+                formik.setFieldValue('address', value);
+              }}
+            />
           </InputsContainer.Footer>
         </InputsContainer>
       </Card>

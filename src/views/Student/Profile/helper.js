@@ -19,7 +19,13 @@ export const useEditForm = () => {
     date_of_birth: Yup.string().required('Required'),
     phones: Yup.array().required(),
     description: Yup.string(),
-    parents: Yup.array().required(),
+    parents: Yup.array().of(
+      Yup.object().shape({
+        first_name: Yup.string(),
+        last_name: Yup.string(),
+        phones: Yup.array().required()
+      })
+    ).required(),
     school_number: Yup.string(),
     city_id: Yup.string(),
     address: Yup.string()
@@ -33,15 +39,21 @@ export const useEditForm = () => {
       email: data.email,
       date_of_birth: data.date_of_birth,
       phones: data.phones && data.phones.map((el) => el.phone),
-      parents: data.parents,
+      parents: data.parents && data.parents.map(((el) => ({
+        id: el.id,
+        first_name: el.full_name.split(' ')[0],
+        last_name: el.full_name.split(' ')[1],
+        phones: el.phones.map((el) => el.phone)
+      }))),
       school_number: data.school_number,
       city_id: data.city_id,
-      address: data.address,
+      address: data.address && data.address.address,
       description: data.description
     },
     validationSchema,
     onSubmit: (values, { setSubmitting }) => {
       setSubmitting(true);
+      console.log(values);
       dispatch(updateProfile(values, (res) => {
         if (res) {
           return alert('Succesfully added!');

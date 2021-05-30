@@ -2,15 +2,15 @@
 import React from 'react';
 import { isEmpty } from 'lodash';
 import {
-  UserDetails, Container, Content, Area, Text, SubmitForm
+  UserDetails, Container, Content, SubmitForm
 } from './style';
 import Form from './Form';
 import Parent from './Parent';
 import Info from './Info';
-import { TextArea } from '../../../components/Forms/Inputs';
 import Spinner from '../../../components/Spinner';
 import Error from '../../../components/Error';
 import { useEditForm } from './helper';
+import { PrimaryButton } from '../../../components/Buttons';
 
 export default () => {
   const {
@@ -32,23 +32,18 @@ export default () => {
                     formik={formik}
                     data={data}
                   />
-                  {formik.values.parents && formik.values.parents.map((el) => (
+                  {formik.values.parents && formik.values.parents.map((el, i) => (
                     <Parent
                       key={el.id}
+                      idx={i}
                       title="Parent"
                       formik={formik}
                       data={el}
                     />
                   ))}
                 </Content>
-                <Text>Дополнительная информация</Text>
-                <Area>
-                  <TextArea
-                    white
-                    value={formik.values.description}
-                    onChange={(e) => formik.setFieldValue(e.target.value)}
-                  />
-                </Area>
+                {console.log(formik.errors)}
+                <PrimaryButton type="submit" size="medium" title="Save" />
               </SubmitForm>
             )
         )}
