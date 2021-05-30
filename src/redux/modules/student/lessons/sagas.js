@@ -41,7 +41,40 @@ function* joinLesson({ payload, success }) {
 
 function* cancelLesson({ payload, success }) {
   try {
-    const res = yield service.declineLesson(payload.id, payload.reason);
+    const res = yield service.declineLesson(payload.id, payload.values);
+    const { data } = cancelLessonSelector(res.data);
+    success(data);
+  } catch (error) {
+    console.log(error.response ? error.response.data.error_message : error);
+    alert(error.response ? error.response.data.error_message : error);
+  }
+}
+
+function* rescheduleLesson({ payload, success }) {
+  try {
+    const res = yield service.rescheduleRequest(payload.id, payload.data);
+    const { data } = cancelLessonSelector(res.data);
+    success(data);
+  } catch (error) {
+    console.log(error.response ? error.response.data.error_message : error);
+    alert(error.response ? error.response.data.error_message : error);
+  }
+}
+
+function* confirmReschedule({ payload, success }) {
+  try {
+    const res = yield service.rescheduleRequest(payload.id, payload.data);
+    const { data } = cancelLessonSelector(res.data);
+    success(data);
+  } catch (error) {
+    console.log(error.response ? error.response.data.error_message : error);
+    alert(error.response ? error.response.data.error_message : error);
+  }
+}
+
+function* closeReschedule({ payload, success }) {
+  try {
+    const res = yield service.rescheduleRequest(payload.id, payload.data);
     const { data } = cancelLessonSelector(res.data);
     success(data);
   } catch (error) {
@@ -54,4 +87,7 @@ export default function* lessonsSaga() {
   yield takeLatest(types.TABLE_STUDENT_LESSONS_FETCH_DATA, fetchData);
   yield takeLatest(types.STUDENT_JOIN_LESSONS, joinLesson);
   yield takeLatest(types.STUDENT_CANCEL_LESSONS, cancelLesson);
+  yield takeLatest(types.STUDENT_RESCHEDULE_LESSONS, rescheduleLesson);
+  yield takeLatest(types.STUDENT_RESCHEDULE_CONFIRM_LESSONS, confirmReschedule);
+  yield takeLatest(types.STUDENT_RESCHEDULE_CLOSE_LESSONS, closeReschedule);
 }

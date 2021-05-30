@@ -58,3 +58,21 @@ export const getSingleEvent = (event) => ({
   type: types.STUDENT_ATTENDANCE_GET_EVENT,
   event
 });
+
+export const rescheduleLesson = (payload, success) => ({
+  type: types.STUDENT_RESCHEDULE_LESSONS,
+  payload,
+  success
+});
+
+export const confirmReschedule = (payload, success) => ({
+  type: types.STUDENT_RESCHEDULE_CONFIRM_LESSONS,
+  payload,
+  success
+});
+
+export const closeReschedule = (payload, success) => ({
+  type: types.STUDENT_RESCHEDULE_CLOSE_LESSONS,
+  payload,
+  success
+});

@@ -19,16 +19,18 @@ const CancelLesson = ({
   return (
     <Container onSubmit={formik.handleSubmit}>
       Are you sure to reschedule this lesson?
-      <SingleDatePicker
-        value={formik.values.new_date || new_date}
-        showTimeSelect
-        placeholder="Date"
-        name="new_date"
-        type={formik.touched.new_date && formik.errors.new_date && 'error'}
-        helperText={formik.touched.new_date
+      {formik.values.new_date ? (
+        <SingleDatePicker
+          value={formik.values.new_date || new_date}
+          showTimeSelect
+          placeholder="Date"
+          name="new_date"
+          type={formik.touched.new_date && formik.errors.new_date && 'error'}
+          helperText={formik.touched.new_date
         && formik.errors.new_date && formik.errors.new_date}
-        onChange={(value) => formik.setFieldValue('new_date', value)}
-      />
+          onChange={(value) => formik.setFieldValue('new_date', value)}
+        />
+      ) : ''}
       <NormalInput
         placeholder="Comment"
         white

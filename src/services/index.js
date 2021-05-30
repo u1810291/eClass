@@ -52,10 +52,10 @@ service.interceptors.response.use(
       alert('Login or password is incorrect');
     }
     if (parseInt(status, 10) === 403) {
-      refresh();
+      // refresh();
     }
     if (!status) {
-      refresh();
+      // refresh();
     }
     return Promise.reject(error);
   }
