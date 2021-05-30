@@ -91,9 +91,9 @@ const Attendance = ({
       style
     };
   };
-  const handleOpenModal = () => showBlured({
+  const handleOpenModal = (event) => showBlured({
     title: 'Dialog example',
-    body: () => <Info />,
+    body: () => <Info event={event} />,
     overflow: 'visible'
   });
 
@@ -129,7 +129,6 @@ const Attendance = ({
     const nextEvents = data.map((existingEvent) => (existingEvent.id === event.id
       ? { ...existingEvent, start: newStartDate, end: newEndDate }
       : existingEvent));
-
     dispatch(updateEvents(nextEvents));
   };
 

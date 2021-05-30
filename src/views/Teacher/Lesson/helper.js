@@ -9,7 +9,9 @@ import CancelLesson from '../../../components/Lesson/CancelLesson';
 import Reschedule from '../../../components/Lesson/Reschedule';
 import { addHomework } from '../../../redux/modules/teacher/homeworks/actions';
 import { addQuiz } from '../../../redux/modules/teacher/quizes/actions';
-import { startLesson, cancelLesson, rescheduleLesson } from '../../../redux/modules/teacher/lessons/actions';
+import {
+  startLesson, cancelLesson, rescheduleLesson
+} from '../../../redux/modules/teacher/lessons/actions';
 import MeetingWindow from '../../../components/MeetingWindow';
 import { getReasons } from '../../../redux/modules/lists/actions';
 import { useHideModal } from '../../../hooks/modal';
