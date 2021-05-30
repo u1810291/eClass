@@ -42,7 +42,6 @@ export default () => {
                     />
                   ))}
                 </Content>
-                {console.log(formik.errors)}
                 <PrimaryButton type="submit" size="medium" title="Save" />
               </SubmitForm>
             )
