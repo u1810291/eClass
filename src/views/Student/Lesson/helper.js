@@ -8,7 +8,9 @@ import { useHideModal } from '../../../hooks/modal';
 import MeetingWindow from '../../../components/MeetingWindow';
 import CancelLesson from '../../../components/Lesson/CancelLesson';
 import Reschedule from '../../../components/Lesson/Reschedule';
-import { joinLesson, cancelLesson, rescheduleLesson } from '../../../redux/modules/student/lessons/actions';
+import {
+  joinLesson, cancelLesson, rescheduleLesson, confirmReschedule, closeReschedule
+} from '../../../redux/modules/student/lessons/actions';
 import { getReasons } from '../../../redux/modules/lists/actions';
 
 const cancelingLesson = (id) => {
@@ -41,6 +43,7 @@ const cancelingLesson = (id) => {
     reasons, formik
   };
 };
+
 export const reschedule = (id) => {
   const { hideModal } = useHideModal();
   const dispatch = useDispatch();
@@ -75,6 +78,7 @@ export const reschedule = (id) => {
     reasons, formik
   };
 };
+
 export const toolTips = [
   {
     name: 'Join',
@@ -116,8 +120,15 @@ export const toolTips = [
   {
     name: 'Reject Reschedule',
     icon: 'payment',
-    onClick: () => {
-      alert('Reject Reschedule');
+    onClick: (id, { dispatch }) => {
+      dispatch(closeReschedule(id, (res) => { if (res) alert('Succesfully rejected'); }));
+    }
+  },
+  {
+    name: 'Confirm Reschedule',
+    icon: 'payment',
+    onClick: (id, { dispatch }) => {
+      dispatch(confirmReschedule(id, (res) => { if (res) alert('Succesfully confirmed'); }));
     }
   },
   {

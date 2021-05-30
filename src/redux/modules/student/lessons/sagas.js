@@ -63,7 +63,7 @@ function* rescheduleLesson({ payload, success }) {
 
 function* confirmReschedule({ payload, success }) {
   try {
-    const res = yield service.rescheduleRequest(payload.id, payload.data);
+    const res = yield service.closeRequest(payload);
     const { data } = cancelLessonSelector(res.data);
     success(data);
   } catch (error) {
@@ -74,7 +74,7 @@ function* confirmReschedule({ payload, success }) {
 
 function* closeReschedule({ payload, success }) {
   try {
-    const res = yield service.rescheduleRequest(payload.id, payload.data);
+    const res = yield service.confirmRescheduleRequest(payload);
     const { data } = cancelLessonSelector(res.data);
     success(data);
   } catch (error) {
