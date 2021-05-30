@@ -39,6 +39,7 @@ export const useEditForm = () => {
         id: el.id,
         first_name: el.full_name.split(' ')[0],
         last_name: el.full_name.split(' ')[1],
+        description: el.description,
         phones: el.phones.map((el) => ({ id: el.id, phone: el.phone }))
       }))),
       school_number: data.school_number,
