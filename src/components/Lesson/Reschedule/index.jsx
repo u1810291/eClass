@@ -1,4 +1,5 @@
-import React from 'react';
+/* eslint-disable camelcase */
+import React, { useEffect } from 'react';
 
 import { Container } from './style';
 import { PrimaryButton } from '../../Buttons';
@@ -7,16 +8,19 @@ import { NormalInput } from '../../Forms/Inputs';
 import SingleDatePicker from '../../Forms/Inputs/SingleDatePicker';
 
 const CancelLesson = ({
-  id, rescheduleLesson
+  id, rescheduleLesson, new_date
 }) => {
   const {
     reasons, formik
   } = rescheduleLesson(id);
+  useEffect(() => {
+    if (new_date) formik.setFieldValue('new_date', new_date);
+  }, [new_date]);
   return (
     <Container onSubmit={formik.handleSubmit}>
       Are you sure to reschedule this lesson?
       <SingleDatePicker
-        value={formik.values.new_date}
+        value={formik.values.new_date || new_date}
         showTimeSelect
         placeholder="Date"
         name="new_date"

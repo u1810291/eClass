@@ -110,7 +110,7 @@ const cancelingLesson = (id) => {
     reasons, formik
   };
 };
-const reschedule = (id) => {
+export const reschedule = (id) => {
   const { hideModal } = useHideModal();
   const dispatch = useDispatch();
   const validationSchema = Yup.object().shape({
