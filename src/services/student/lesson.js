@@ -11,5 +11,5 @@ export default {
   confirmRescheduleRequest: (id) => service.post(`/api/v1/student/lessons/shift/confirm/${id}`),
   closeRequest: (id) => service.post(`/api/v1/student/lessons/shift/close/${id}`),
   addRating: (data) => service.post('/api/v1/student/lessons/rating', data),
-  revokeRating: (tId, gId) => service.post(`/api/v1/student/lessons/rating?teacher=${tId}&group=${gId}`)
+  revokeRating: (tId, gId) => service.delete(`/api/v1/student/lessons/rating?teacher=${tId}&group=${gId}`)
 };

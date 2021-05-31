@@ -14,6 +14,7 @@ export function dataSelector(lesson) {
     rescheduled: el.rescheduled,
     duration: el.duration,
     teacher: {
+      id: el.teacher.id,
       name: el.teacher.full_name,
       role: el.teacher.username,
       image: null

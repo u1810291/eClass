@@ -83,6 +83,28 @@ function* closeReschedule({ payload, success }) {
   }
 }
 
+function* addRating({ payload, success }) {
+  try {
+    const res = yield service.addRating(payload);
+    const { data } = cancelLessonSelector(res.data);
+    success(data);
+  } catch (error) {
+    console.log(error.response ? error.response.data.error_message : error);
+    alert(error.response ? error.response.data.error_message : error);
+  }
+}
+
+function* revokeRating({ payload, success }) {
+  try {
+    const res = yield service.revokeRating(payload.teacher_id, payload.group_id);
+    const { data } = cancelLessonSelector(res.data);
+    success(data);
+  } catch (error) {
+    console.log(error.response ? error.response.data.error_message : error);
+    alert(error.response ? error.response.data.error_message : error);
+  }
+}
+
 export default function* lessonsSaga() {
   yield takeLatest(types.TABLE_STUDENT_LESSONS_FETCH_DATA, fetchData);
   yield takeLatest(types.STUDENT_JOIN_LESSONS, joinLesson);
@@ -90,4 +112,6 @@ export default function* lessonsSaga() {
   yield takeLatest(types.STUDENT_RESCHEDULE_LESSONS, rescheduleLesson);
   yield takeLatest(types.STUDENT_RESCHEDULE_CONFIRM_LESSONS, confirmReschedule);
   yield takeLatest(types.STUDENT_RESCHEDULE_CLOSE_LESSONS, closeReschedule);
+  yield takeLatest(types.STUDENT_ADD_RATING_LESSONS, addRating);
+  yield takeLatest(types.STUDENT_REVOKE_RATING_LESSONS, revokeRating);
 }

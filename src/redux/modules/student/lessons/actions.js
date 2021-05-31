@@ -21,6 +21,18 @@ export const cancelLesson = (payload, success) => ({
   success
 });
 
+export const addRating = (payload, success) => ({
+  type: types.STUDENT_ADD_RATING_LESSONS,
+  payload,
+  success
+});
+
+export const revokeRating = (payload, success) => ({
+  type: types.STUDENT_REVOKE_RATING_LESSONS,
+  payload,
+  success
+});
+
 export const createEvent = (event) => (dispatch) => {
   eventMock.create(event).then(({ data }) => {
     const newEvent = {
