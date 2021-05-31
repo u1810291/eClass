@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable no-alert */
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useEffect } from 'react';
@@ -10,7 +11,13 @@ import CancelLesson from '../../../components/Lesson/CancelLesson';
 import Reschedule from '../../../components/Lesson/Reschedule';
 import AddRating from '../../../components/Lesson/AddRating';
 import {
-  joinLesson, cancelLesson, rescheduleLesson, confirmReschedule, closeReschedule
+  joinLesson,
+  cancelLesson,
+  rescheduleLesson,
+  confirmReschedule,
+  closeReschedule,
+  addRating,
+  revokeRating
 } from '../../../redux/modules/student/lessons/actions';
 import { getReasons } from '../../../redux/modules/lists/actions';
 
@@ -80,9 +87,33 @@ export const reschedule = (id) => {
   };
 };
 
-const addRating = () => {
+const addRate = (teacher_id, group_id) => {
+  const dispatch = useDispatch();
+  const { hideModal } = useHideModal();
+  const validationSchema = Yup.object({
+    stars: Yup.string().required('Required'),
+    comment: Yup.string()
+  });
   const formik = useFormik({
-    initialValues: {}
+    initialValues: {
+      stars: '',
+      comment: ''
+    },
+    validationSchema,
+    onSubmit: (values, { setSubmitting }) => {
+      const data = {
+        teacher: teacher_id,
+        group: group_id,
+        ...values
+      };
+      setSubmitting(true);
+      dispatch(addRating(data, (res) => {
+        if (res) {
+          hideModal();
+          setSubmitting(false);
+        }
+      }));
+    }
   });
   return { formik };
 };
@@ -145,15 +176,18 @@ export const toolTips = [
     onClick: (_, { row, showBlured }) => {
       showBlured({
         title: 'Reschedule lesson',
-        body: () => <AddRating data={row} addRating={addRating} />
+        body: () => <AddRating data={row.original} addRating={addRate} />
       });
     }
   },
   {
     name: 'Revoke Rating',
     icon: 'payment',
-    onClick: () => {
-      alert('Revoke Rating');
+    onClick: (_, { row, dispatch }) => {
+      dispatch(revokeRating({
+        teacher_id: row.original.teacher.id,
+        group_id: row.original.group.id
+      }));
     }
   }
 ];
