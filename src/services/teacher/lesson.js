@@ -7,7 +7,7 @@ export default {
   getStignature: (id) => service.get(`/api/v1/teacher/lessons/${id}/signature`),
   finishLesson: (id) => service.post(`/api/v1/teacher/lessons/${id}/finish`),
   cancelLesson: (id, data) => service.post(`/api/v1/teacher/lessons/${id}/cancel`, data),
-  rescheduleLesson: (id, data) => service.post(`/api/v1/teacher/lessons/${id}/shift`, data),
+  rescheduleLesson: ({ id, data }) => service.post(`/api/v1/teacher/lessons/${id}/shift`, data),
   responseReschedule: (id, data) => service.post(`/api/v1/teacher/lessons/shift/propose/${id}`, data),
   rejectReschedule: (id) => service.post(`/api/v1/teacher/lessons/shift/reject/${id}`),
   addRating: (data) => service.post('/api/v1/teacher/lessons/rating', data),

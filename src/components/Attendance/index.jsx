@@ -16,7 +16,9 @@ import { updateEvents, getSingleEvent } from '../../redux/modules/student/lesson
 import { useShowModal } from '../../hooks/modal';
 import 'react-big-calendar/lib/addons/dragAndDrop/styles.css';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-import Update from './Update';
+import Reschedule from '../Lesson/Reschedule';
+import { reschedule } from '../../views/Teacher/Lesson/helper';
+import Info from './Info';
 
 const DragAndDropCalendar = withDragAndDrop(Calendar);
 const localizer = momentLocalizer(moment);
@@ -65,18 +67,19 @@ const CustomEventWeekDay = (event) => {
 const Attendance = ({
   data, loading, error, date, setDate
 }) => {
+  const today = new Date();
   const { showBlured } = useShowModal();
   const dispatch = useDispatch();
 
-  const onEventDrop = ({ event, start, end }) => {
-    const idx = data.indexOf(event);
-    const updatedEvent = { ...event, start, end };
-    const nextEvents = [...data];
-    nextEvents.splice(idx, 1, updatedEvent);
-    dispatch(updateEvents(nextEvents));
-  };
+  const onEventDrop = ({
+    event, start
+  }) => showBlured({
+    title: 'Update',
+    overflow: 'visible',
+    body: () => <Reschedule id={event.id} new_date={start} rescheduleLesson={reschedule} />
+  });
 
-  const eventStyleGetter = (event, start, end) => {
+  const eventStyleGetter = ({ end }) => {
     const now = moment(new Date()).format('YYYY-MM-DD');
     const $end = moment(end).format('YYYY-MM-DD');
     const style = {
@@ -88,18 +91,11 @@ const Attendance = ({
       style
     };
   };
-  const handleOpenModal = () => showBlured({
+  const handleOpenModal = (event) => showBlured({
     title: 'Dialog example',
-    body: Update,
+    body: () => <Info event={event} />,
     overflow: 'visible'
   });
-
-  const events = data.map((el) => ({
-    start: moment(el.scheduled_start).toDate(),
-    end: el.finished ? moment(el.finished_at).toDate()
-      : moment(el.scheduled_start).add(1, 'hours').toDate(),
-    title: el.group.name
-  }));
 
   const formats = {
     dateFormat: 'D',
@@ -133,12 +129,11 @@ const Attendance = ({
     const nextEvents = data.map((existingEvent) => (existingEvent.id === event.id
       ? { ...existingEvent, start: newStartDate, end: newEndDate }
       : existingEvent));
-
     dispatch(updateEvents(nextEvents));
   };
 
   const onSelect = (event) => {
-    handleOpenModal();
+    handleOpenModal(event);
     dispatch(getSingleEvent(event));
   };
   return (
@@ -157,9 +152,9 @@ const Attendance = ({
                       selectable
                       formats={formats}
                       allDayAccessor="all-day"
-                      events={events}
+                      events={data}
                       localizer={localizer}
-                      defaultDate={new Date()}
+                      defaultDate={today}
                       onEventDrop={onEventDrop}
                       defaultView={Views.MONTH}
                       onEventResize={onEventResize}

@@ -1,19 +1,36 @@
-import React from 'react';
+/* eslint-disable camelcase */
+import React, { useEffect } from 'react';
 
 import { Container } from './style';
 import { PrimaryButton } from '../../Buttons';
 import Dropdown from '../../Forms/Dropdowns';
 import { NormalInput } from '../../Forms/Inputs';
+import SingleDatePicker from '../../Forms/Inputs/SingleDatePicker';
 
 const CancelLesson = ({
-  id, cancelingLesson
+  id, rescheduleLesson, new_date
 }) => {
   const {
     reasons, formik
-  } = cancelingLesson(id);
+  } = rescheduleLesson(id);
+  useEffect(() => {
+    if (new_date) formik.setFieldValue('new_date', new_date);
+  }, [new_date]);
   return (
     <Container onSubmit={formik.handleSubmit}>
-      Are you sure to cancel this lesson?
+      Are you sure to reschedule this lesson?
+      {formik.values.new_date ? (
+        <SingleDatePicker
+          value={formik.values.new_date || new_date}
+          showTimeSelect
+          placeholder="Date"
+          name="new_date"
+          type={formik.touched.new_date && formik.errors.new_date && 'error'}
+          helperText={formik.touched.new_date
+        && formik.errors.new_date && formik.errors.new_date}
+          onChange={(value) => formik.setFieldValue('new_date', value)}
+        />
+      ) : ''}
       <NormalInput
         placeholder="Comment"
         white

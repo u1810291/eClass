@@ -6,9 +6,12 @@ import { useFormik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import AddHomework from '../../../components/Lesson/AddHomework';
 import CancelLesson from '../../../components/Lesson/CancelLesson';
+import Reschedule from '../../../components/Lesson/Reschedule';
 import { addHomework } from '../../../redux/modules/teacher/homeworks/actions';
 import { addQuiz } from '../../../redux/modules/teacher/quizes/actions';
-import { startLesson, cancelLesson } from '../../../redux/modules/teacher/lessons/actions';
+import {
+  startLesson, cancelLesson, rescheduleLesson
+} from '../../../redux/modules/teacher/lessons/actions';
 import MeetingWindow from '../../../components/MeetingWindow';
 import { getReasons } from '../../../redux/modules/lists/actions';
 import { useHideModal } from '../../../hooks/modal';
@@ -109,6 +112,43 @@ const cancelingLesson = (id) => {
     reasons, formik
   };
 };
+export const reschedule = (id) => {
+  const { hideModal } = useHideModal();
+  const dispatch = useDispatch();
+  const validationSchema = Yup.object().shape({
+    reason: Yup.string().required('Required'),
+    comment: Yup.string().required('Required'),
+    new_date: Yup.string().required('Required')
+  });
+  const formik = useFormik({
+    initialValues: {
+      reason: '',
+      comment: '',
+      new_date: ''
+    },
+    validationSchema,
+    onSubmit: (values, { setSubmitting }) => {
+      setSubmitting(true);
+      const data = {
+        reason: values.reason,
+        comment: values.comment,
+        new_date: values.new_date.toISOString()
+      };
+      dispatch(rescheduleLesson({ id, data }, () => {
+        hideModal();
+      }));
+      setSubmitting(false);
+    }
+  });
+  const { reasons } = useSelector((state) => state.listsReducers);
+  useEffect(() => {
+    dispatch(getReasons());
+  }, [getReasons]);
+
+  return {
+    reasons, formik
+  };
+};
 export const toolTips = [
   {
     name: 'Start',
@@ -137,47 +177,16 @@ export const toolTips = [
       });
     }
   },
-
   {
     name: 'Reschedule',
     icon: 'payment',
-    onClick: () => {
-      alert('Reschedule');
+    onClick: (id, { showBlured }) => {
+      showBlured({
+        title: 'Reschedule lesson',
+        body: () => <Reschedule id={id} rescheduleLesson={reschedule} />
+      });
     }
   },
-
-  {
-    name: 'Response',
-    icon: 'payment',
-    onClick: () => {
-      alert('Response Reschedule');
-    }
-  },
-
-  {
-    name: 'Reject Reschedule',
-    icon: 'payment',
-    onClick: () => {
-      alert('Reject Reschedule');
-    }
-  },
-
-  {
-    name: 'Add Rating',
-    icon: 'payment',
-    onClick: () => {
-      alert('Add Rating');
-    }
-  },
-
-  {
-    name: 'Revoke Rating',
-    icon: 'payment',
-    onClick: () => {
-      alert('Revoke Rating');
-    }
-  },
-
   {
     name: 'Add homework',
     icon: 'payment',

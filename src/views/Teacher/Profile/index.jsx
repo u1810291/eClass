@@ -1,5 +1,6 @@
 /* eslint-disable no-nested-ternary */
-import React from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import {
   UserDetails, Container, Content, SubmitForm
 } from './style';
@@ -8,28 +9,47 @@ import Info from './Info';
 import Spinner from '../../../components/Spinner';
 import Error from '../../../components/Error';
 import { useEditForm } from './helper';
+import { PrimaryButton } from '../../../components/Buttons';
+import { uploadPhoto } from '../../../redux/modules/teacher/profile/actions';
 
 export default () => {
+  const dispatch = useDispatch();
+  const [value, setFieldValue] = useState();
   const {
     formik, data, loading, error
   } = useEditForm();
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (value) {
+      const formData = new FormData();
+      formData.append('file', value);
+      formData.append('desc', 'Моё фото');
+      dispatch(uploadPhoto(formData));
+    }
+  };
   return (
     <Container>
       {loading
         ? <Spinner contain black /> : (
           error
             ? <Error /> : (
-              <SubmitForm>
+              <SubmitForm onSubmit={(e) => {
+                e.preventDefault();
+                formik.handleSubmit(e);
+                handleSubmit(e);
+              }}
+              >
                 <UserDetails>
-                  <Info data={data} />
+                  <Info data={data} setFieldValue={setFieldValue} />
                 </UserDetails>
-                <Content onSubmit={formik.handleSubmit}>
+                <Content>
                   <Form
                     title="Профиль"
                     formik={formik}
                     data={data}
                   />
                 </Content>
+                <PrimaryButton type="submit" title="Save" size="medium" />
               </SubmitForm>
             )
         )}

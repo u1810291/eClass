@@ -15,9 +15,13 @@ export default () => {
   const [pageIndex, setPageIndex] = useState(0);
   const [pageSize, setPageSize] = useState(0);
   const [search, setSearch] = useState('');
-  const [date, setDate] = useState(undefined);
+  const curr = new Date();
+  const first = curr.getDate() - curr.getDay();
+  const last = first + 30;
+  const firstday = new Date(curr.setDate(first));
+  const lastday = new Date(curr.setDate(last));
+  const [date, setDate] = useState({ start: firstday, end: lastday });
   const [sort, setSort] = useState();
-
   const {
     loading, data, total, error
   } = useSelector((state) => state.teacherLessonsReducers);

@@ -21,6 +21,12 @@ export const cancelLesson = (payload, success) => ({
   success
 });
 
+export const rescheduleLesson = (payload, success) => ({
+  type: types.TEACHER_RESCHEDULE_LESSONS,
+  payload,
+  success
+});
+
 export const createEvent = (event) => (dispatch) => {
   eventMock.create(event).then(({ data }) => {
     const newEvent = {

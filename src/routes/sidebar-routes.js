@@ -9,7 +9,7 @@ import Payment from '../views/Student/Payment';
 // import Library from '../views/Library';
 // import Video from '../views/Video';
 // import Connection from '../views/Student/Connection';
-import Schedule from '../views/Shedule';
+import Schedule from '../views/Student/Shedule';
 import Chat from '../views/Chat';
 import Lesson from '../views/Student/Lesson';
 

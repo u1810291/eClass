@@ -8,6 +8,8 @@ import {
   setLoading
 } from './actions';
 
+import { updateProfileSelector } from './selectors';
+
 function* fetchData() {
   try {
     yield put(setLoading(true));
@@ -23,7 +25,8 @@ function* fetchData() {
 
 function* updateProfile({ payload, success }) {
   try {
-    const res = yield service.updateProfile(payload);
+    const { data } = yield updateProfileSelector(payload);
+    const res = yield service.updateProfile(data);
     success(res);
   } catch (error) {
     console.log(error);

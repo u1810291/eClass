@@ -3,7 +3,6 @@ import classNames from 'classnames';
 import {
   Container, Title, Description, ImageWrapper, UserInfo, Text
 } from './style';
-import { PrimaryButton } from '../../../../components/Buttons';
 import { DynamicImage } from '../../../../components/DynamicImage';
 
 const Info = ({ data }) => (
@@ -33,7 +32,6 @@ const Info = ({ data }) => (
           <Text.Email>{data.email}</Text.Email>
         </Text>
       </UserInfo.Left>
-      <PrimaryButton type="submit" title="Save" size="small" />
     </UserInfo>
   </Container>
 );

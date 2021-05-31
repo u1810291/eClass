@@ -1,6 +1,6 @@
+/* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable no-console */
-import React, { useRef, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useRef } from 'react';
 import classNames from 'classnames';
 
 import {
@@ -14,29 +14,24 @@ import {
   FileInputCustom
 } from './style';
 
-import { uploadPhoto } from '../../../../redux/modules/teacher/profile/actions';
-import { PrimaryButton } from '../../../../components/Buttons';
 import { DynamicImage } from '../../../../components/DynamicImage';
 
-const Info = ({ data }) => {
+const Info = ({ data, setFieldValue }) => {
   const ref = useRef(null);
-  const dispatch = useDispatch();
-  const [value, setFieldValue] = useState();
   const handleClick = () => {
     ref.current.click();
   };
   const handleChange = (event) => {
     setFieldValue(event.target.files[0]);
   };
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const formData = new FormData();
-    formData.append('file', value);
-    formData.append('desc', 'Моё фото');
-    dispatch(uploadPhoto(formData));
-  };
+  const image = data.photo_url && data.photo_url.data && `data:image/png;base64,${btoa(
+    new Uint8Array(data.photo_url.data).reduce(
+      (data, byte) => data + String.fromCharCode(byte),
+      ''
+    )
+  )}`;
   return (
-    <Container onSubmit={handleSubmit}>
+    <Container>
       <Title className={classNames('weight-semibold', 'heading-6')}>Личный кабинет</Title>
       <Description className={classNames('body-large', 'weight-light')}>
         {data.description}
@@ -45,10 +40,13 @@ const Info = ({ data }) => {
         <UserInfo.Left>
           <ImageWrapper type="button" onClick={handleClick}>
             <FileInputCustom>
-              <DynamicImage
-                imgSrc={`${data.photo_url}.png`}
-                name={`${data.first_name} ${data.last_name} ${data.middle_name}`}
-              />
+              {typeof image === 'string'
+              && (
+                <DynamicImage
+                  imgSrc={image}
+                  name={`${data.first_name} ${data.last_name} ${data.middle_name}`}
+                />
+              )}
             </FileInputCustom>
             <InputEement type="file" ref={ref} onChange={handleChange} />
           </ImageWrapper>
@@ -62,7 +60,6 @@ const Info = ({ data }) => {
             <Text.Email>{data.email}</Text.Email>
           </Text>
         </UserInfo.Left>
-        <PrimaryButton type="submit" title="Save" size="small" />
       </UserInfo>
     </Container>
   );

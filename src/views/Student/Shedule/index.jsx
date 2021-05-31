@@ -1,6 +1,6 @@
 import React from 'react';
-import ScheduleHeader from '../../components/Headers/ScheduleHeader';
-import Schedule from '../../components/Schedule';
+import ScheduleHeader from '../../../components/Headers/ScheduleHeader';
+import Schedule from '../../../components/Schedule';
 import { Container } from './style';
 
 export default () => (

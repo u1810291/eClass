@@ -1,15 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import { Container, Forms, InputsContainer } from './style';
 import Card from '../../../../components/Card';
-import { NormalInput } from '../../../../components/Forms/Inputs';
+import { NormalInput, TagsInput, CustomDatePickerV2 } from '../../../../components/Forms/Inputs';
 
-const Form = ({ formik, data, title }) => {
-  const type = data.description
-    ? `${data.description.charAt(0).toUpperCase()}
-  ${data.description.substring(1)}` : '';
-  useEffect(() => {
-    if (data) formik.setFieldValue('first_name', data.first_name);
-  }, [data]);
+const Form = ({ formik, title }) => {
+  const [date, setDate] = useState();
   return (
     <Container>
       <Forms>
@@ -20,7 +15,7 @@ const Form = ({ formik, data, title }) => {
               <NormalInput
                 size="medium"
                 white
-                placeholder={`${type} name`}
+                placeholder="First name"
                 name="first_name"
                 type={formik.touched.first_name && formik.errors.first_name && 'error'}
                 helperText={formik.touched.first_name
@@ -31,50 +26,60 @@ const Form = ({ formik, data, title }) => {
               <NormalInput
                 size="medium"
                 white
-                placeholder={`${type} name`}
+                placeholder="Last name"
                 name="last_name"
                 type={formik.touched.last_name && formik.errors.last_name && 'error'}
                 helperText={formik.touched.last_name
                     && formik.errors.last_name && formik.errors.last_name}
-                value={formik.values.last_name || data.first_name || data.full_name}
+                value={formik.values.last_name}
                 onChange={(e) => formik.setFieldValue('last_name', e.target.value)}
               />
             </InputsContainer.Head>
             <InputsContainer.Body>
-              <NormalInput
-                size="medium"
+              <TagsInput
                 white
-                name="phone_code"
-                type={formik.touched.phone_code && formik.errors.phone_code && 'error'}
-                helperText={formik.touched.phone_code
-                    && formik.errors.phone_code && formik.errors.phone_code}
-                value={formik.values.phone_code || (data.phones
-                  && data.phones[0] && data.phones[0].phone.substring(0, 3))}
-                onChange={(e) => formik.setFieldValue('phone_code', e.target.value)}
-                placeholder="+998"
-              />
-              <NormalInput
+                placeholder="Phones"
                 size="medium"
-                white
-                name="phone"
-                type={formik.touched.phone && formik.errors.phone && 'error'}
-                helperText={formik.touched.phone
-                    && formik.errors.phone && formik.errors.phone}
-                value={formik.values.phone || (data.phones
-                  && data.phones[0]
-                  && data.phones[0].phone)}
-                onChange={(e) => formik.setFieldValue('phone', e.target.value)}
-                placeholder={`Номер телефона ${type}`}
+                name="phones"
+                value={formik.values.phones}
+                defaultValue={formik.values.phones || []}
+                type={formik.touched.phones
+                && (formik.touched.phones.length === 0 || formik.errors.phones)
+                  ? 'error'
+                  : ''}
+                helperText={formik.touched.phones
+                  && (formik.touched.phones.length === 0 || formik.errors.phones)
+                  ? formik.errors.phone || 'Phone number is required'
+                  : ''}
+                // eslint-disable-next-line no-unused-expressions
+                onChange={(e) => formik.setFieldValue('phones', e)}
               />
             </InputsContainer.Body>
             <InputsContainer.Footer>
-              <NormalInput size="medium" white placeholder="Mail Address" />
-              <NormalInput size="medium" white placeholder="Дата рождения" />
-              {title !== 'Parent' ? (
-                <NormalInput size="medium" white placeholder="Школа N или где сейчас учится" />
-              ) : (
-                ''
-              )}
+              <NormalInput
+                size="medium"
+                white
+                placeholder="Mail Address"
+                name="email"
+                type={formik.touched.email && formik.errors.email && 'error'}
+                helperText={formik.touched.email
+                  && formik.errors.email && formik.errors.email}
+                value={formik.values.email}
+                onChange={(e) => formik.setFieldValue('email', e.target.value)}
+              />
+              <CustomDatePickerV2
+                name="date_of_birth"
+                value={date}
+                // placeholder={formik.values.date_of_birth}
+                type={formik.touched.date_of_birth
+                  && formik.errors.date_of_birth && 'error'}
+                size="large"
+                placeholder="1999-12-12"
+                onChange={(value) => {
+                  setDate(value);
+                  formik.setFieldValue('date_of_birth', value);
+                }}
+              />
             </InputsContainer.Footer>
           </InputsContainer>
         </Card>

@@ -22,9 +22,14 @@ export function dataSelector(lesson) {
     group: el.group,
     lesson_id: el.id,
     rescheduled: el.rescheduled,
-    scheduled_start: moment(el.scheduled_start).format('DD-MM-YYYY HH:mm:ss'),
+    scheduled_start: moment(el.scheduled_start).format('MM-DD-YYYY HH:mm:ss'),
     started: el.started,
-    started_at: moment(el.started_at || '').format('DD-MM-YYYY HH:mm:ss'),
+    started_at: moment(el.started_at || '').format('MM-DD-YYYY HH:mm:ss'),
+    finished_at: moment(el.finished_at
+      || new Date(new Date(el.scheduled_start)
+        .setHours(new Date(el.scheduled_start).getHours() + 1))
+        .setMinutes((new Date(el.scheduled_start).getMinutes() + 29)))
+      .format('MM-DD-YYYY HH:mm:ss'),
     subject_name: el.subject.name,
     subject_id: el.subject.id,
     duration: el.duration,

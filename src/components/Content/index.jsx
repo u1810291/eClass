@@ -45,7 +45,8 @@ export default () => {
           ) : (
             <Route key={`${index + 1}`} path={path} component={component} />
           ))) : ''}
-        <Redirect from="*" to="/profile" />
+        {childRoutes && !childRoutes.find((el) => el.path === `/${window.location.pathname.split('/')[window.location.pathname.split('/').length - 1]}`)
+          ? <Redirect from="*" to="/profile" /> : ''}
       </Content>
     </Container>
   );

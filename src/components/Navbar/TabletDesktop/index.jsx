@@ -65,7 +65,7 @@ export default () => {
           />
         </ButtonContainer>
         <ButtonContainer>
-          <PrimaryButton block="block" title="Chat" size="small" color="#333366" icon="chat" />
+          <PrimaryButton block="block" title="Chat" size="small" color="#333366" icon="chat" onClick={() => history.push('/chat')} />
         </ButtonContainer>
         <BellContainer>
           <Bell Component={<Icon icon="notification_on" />} margin="0 18px" value="1" />

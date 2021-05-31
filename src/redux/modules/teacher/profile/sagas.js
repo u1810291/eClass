@@ -33,6 +33,7 @@ function* fetchData() {
 
 function* updateProfile({ payload, success }) {
   try {
+    console.log(payload);
     const res = yield service.updateProfile(payload);
     console.log(res);
     success(res);

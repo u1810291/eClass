@@ -4,14 +4,13 @@ import { dropdown } from '../style';
 export const Container = styled.div`
   display: flex;
   flex-direction:${({ end }) => (end ? 'column-reverse' : 'column')};
-  width: 100%;
 `;
 
 export const Selection = styled.div`
   ${dropdown}
   display: flex;
   border-radius: 8px;
-  background: ${({ background }) => (background ? 'white' : '#f5f5f5')};
+  background: white;
   cursor: pointer;
   overflow: hidden;
   box-sizing: border-box;
@@ -22,6 +21,7 @@ Selection.Text = styled.div`
   letter-spacing: 0.01em;
   line-height: 24px;
   text-align: left;
+  margin-right: 5px;
   color: ${({ color }) => (color || '#9D9D9D')};
   `;
 Selection.Icon = styled.div`
