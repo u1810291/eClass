@@ -8,6 +8,9 @@ export default {
     .then((response) => {
       // eslint-disable-next-line no-console
       console.log(response);
+      // eslint-disable-next-line no-console
+      console.log(response.headers['content-disposition'] && response.headers['content-disposition'].split('filename="')[1].replace('"', ''));
+      const optionalExt = response.headers['content-disposition'] && response.headers['content-disposition'].split('filename="')[1].replace('"', '');
       const extension = response.headers['content-type'].split('/');
       // eslint-disable-next-line no-nested-ternary
       const ext = extension[1] === 'vnd.ms-excel'
@@ -16,7 +19,7 @@ export default {
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement('a');
       link.href = url;
-      link.setAttribute('download', `${id}.${ext}`); // or any other extension
+      link.setAttribute('download', optionalExt || `${id}.${ext}`); // or any other extension
       document.body.appendChild(link);
       link.click();
       link.parentNode.removeChild(link);
