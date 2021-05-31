@@ -187,7 +187,7 @@ export const toolTips = [
       dispatch(revokeRating({
         teacher_id: row.original.teacher.id,
         group_id: row.original.group.id
-      }));
+      }, (res) => { if (res) alert('Succesfully deleted'); }));
     }
   }
 ];
