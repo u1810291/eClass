@@ -8,6 +8,7 @@ import { useHideModal } from '../../../hooks/modal';
 import MeetingWindow from '../../../components/MeetingWindow';
 import CancelLesson from '../../../components/Lesson/CancelLesson';
 import Reschedule from '../../../components/Lesson/Reschedule';
+import AddRating from '../../../components/Lesson/AddRating';
 import {
   joinLesson, cancelLesson, rescheduleLesson, confirmReschedule, closeReschedule
 } from '../../../redux/modules/student/lessons/actions';
@@ -79,6 +80,13 @@ export const reschedule = (id) => {
   };
 };
 
+const addRating = () => {
+  const formik = useFormik({
+    initialValues: {}
+  });
+  return { formik };
+};
+
 export const toolTips = [
   {
     name: 'Join',
@@ -134,8 +142,11 @@ export const toolTips = [
   {
     name: 'Add Rating',
     icon: 'payment',
-    onClick: () => {
-      alert('Add Rating');
+    onClick: (_, { row, showBlured }) => {
+      showBlured({
+        title: 'Reschedule lesson',
+        body: () => <AddRating data={row} addRating={addRating} />
+      });
     }
   },
   {
