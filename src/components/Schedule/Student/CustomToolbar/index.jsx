@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import classNames from 'classnames';
-import * as devices from '../../../constants/devices';
-import { useWindowSize } from '../../../hooks/use-window-size';
+import * as devices from '../../../../constants/devices';
+import { useWindowSize } from '../../../../hooks/use-window-size';
 import DropDown from './DropdownV2';
 import {
   ToolbarComponent,

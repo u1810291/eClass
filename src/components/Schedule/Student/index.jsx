@@ -7,13 +7,13 @@ import {
   Container, BigCalendar, SmallCalendar, Tag, RightWrapper, LeftWrapper, CircleEvent
 } from './style';
 import CustomToolbar from './CustomToolbar';
-import Card from '../Card';
-import CustomCalendarV2 from '../Calendars/CustomCalendarV2';
-import Icon from '../Icon';
-import Error from '../Error';
-import Spinner from '../Spinner';
-import { updateEvents, getSingleEvent } from '../../redux/modules/student/lessons/actions';
-import { useShowModal } from '../../hooks/modal';
+import Card from '../../Card';
+import CustomCalendarV2 from '../../Calendars/CustomCalendarV2';
+import Icon from '../../Icon';
+import Error from '../../Error';
+import Spinner from '../../Spinner';
+import { updateEvents, getSingleEvent } from '../../../redux/modules/student/lessons/actions';
+import { useShowModal } from '../../../hooks/modal';
 import 'react-big-calendar/lib/addons/dragAndDrop/styles.css';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import Update from './Update';
@@ -94,13 +94,6 @@ const Attendance = ({
     overflow: 'visible'
   });
 
-  const events = data.map((el) => ({
-    start: moment(el.scheduled_start).toDate(),
-    end: el.finished ? moment(el.finished_at).toDate()
-      : moment(el.scheduled_start).add(1, 'hours').toDate(),
-    title: el.group.name
-  }));
-
   const formats = {
     dateFormat: 'D',
     dayFormat: 'ddd'
@@ -157,7 +150,7 @@ const Attendance = ({
                       selectable
                       formats={formats}
                       allDayAccessor="all-day"
-                      events={events}
+                      events={data}
                       localizer={localizer}
                       defaultDate={new Date()}
                       onEventDrop={onEventDrop}

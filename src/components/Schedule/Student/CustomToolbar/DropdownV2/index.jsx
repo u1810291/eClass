@@ -17,10 +17,10 @@ import {
   SelectedValue,
   SelectLabel
 } from './style';
-import { ReactComponent as ArrowDown } from '../../../../assets/icons/arrowClose.svg';
-import { ReactComponent as ArrowUp } from '../../../../assets/icons/arrowUp.svg';
-import { PureCheckbox as Checkbox } from '../../../CheckBox';
-import { ReactComponent as SearchIcon } from '../../../../assets/icons/search.svg';
+import { ReactComponent as ArrowDown } from '../../../../../assets/icons/arrowClose.svg';
+import { ReactComponent as ArrowUp } from '../../../../../assets/icons/arrowUp.svg';
+import { PureCheckbox as Checkbox } from '../../../../CheckBox';
+import { ReactComponent as SearchIcon } from '../../../../../assets/icons/search.svg';
 
 const FilterSelect = ({
   value,

@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components';
-import { SingleDropdown as DropdownV2 } from '../../Forms/DropDown';
+import { SingleDropdown as DropdownV2 } from '../../../Forms/DropDown';
 
-import { device } from '../../../utils/responsive';
-import { ReactComponent as ArrowLeft } from '../../../assets/icons/angle-left.svg';
-import { ReactComponent as ArrowRight } from '../../../assets/icons/angle-right.svg';
+import { device } from '../../../../utils/responsive';
+import { ReactComponent as ArrowLeft } from '../../../../assets/icons/angle-left.svg';
+import { ReactComponent as ArrowRight } from '../../../../assets/icons/angle-right.svg';
 
 export const Dropdown = styled(DropdownV2)``;
 
