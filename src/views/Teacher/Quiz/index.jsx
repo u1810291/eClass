@@ -22,7 +22,7 @@ export default () => {
   const header = useMemo(() => headerMaker(headerData), [headerData]);
   const [pageIndex, setPageIndex] = useState(0);
   const [pageSize, setPageSize] = useState(0);
-
+  const [completed, setCompleted] = useState();
   const [search, setSearch] = useState('');
   const [date, setDate] = useState(undefined);
   const [sort, setSort] = useState();
@@ -33,6 +33,13 @@ export default () => {
       : ''),
     [date]
   );
+
+  const completedFilter = useMemo(
+    () => (completed
+      ? `&completed=${completed}`
+      : ''),
+    [completed]
+  );
   const sortQuery = useMemo(() => {
     const found = sort && teacherLessonsHeader.find(({ id }) => id === sort.id);
     return found
@@ -40,8 +47,8 @@ export default () => {
       : '';
   }, [sort]);
   const query = useMemo(
-    () => `${dateFilter}&page=${pageIndex}&size=${pageSize}&${sortQuery}`,
-    [pageIndex, pageSize, sortQuery, dateFilter]
+    () => `${dateFilter}&page=${pageIndex}&size=${pageSize}&${sortQuery}${completedFilter}`,
+    [pageIndex, pageSize, sortQuery, dateFilter, completedFilter]
   );
   useEffect(() => {
     dispatch(fetchData({
@@ -65,6 +72,13 @@ export default () => {
     );
     // eslint-disable-next-line
   }, [dispatch, search]);
+
+  const clear = () => {
+    setSearch('');
+    setDate(undefined);
+    setSort();
+    setCompleted(false);
+  };
   return (
     <Container>
       <QuizesHeader
@@ -72,6 +86,9 @@ export default () => {
         search={search}
         setDate={setDate}
         date={date}
+        clear={clear}
+        completed={completed}
+        setCompleted={setCompleted}
       />
       {error ? (
         <TableError message={error} />
