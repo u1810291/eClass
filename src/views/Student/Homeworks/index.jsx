@@ -12,7 +12,6 @@ import { studentHomeworksHeader } from '../../../redux/modules/table/common';
 
 export default () => {
   const dispatch = useDispatch();
-
   const {
     loading, data, total, error
   } = useSelector((state) => state.studentHomeworksReducers);
@@ -23,11 +22,11 @@ export default () => {
   const [search, setSearch] = useState('');
   const [date, setDate] = useState(undefined);
   const [sort, setSort] = useState();
-  const [completed, setCompleted] = useState();
+  const [completed, setCompleted] = useState(false);
   const completedFilter = useMemo(
     () => (completed
       ? `&completed=${completed}`
-      : ''),
+      : `&completed=${completed}`),
     [completed]
   );
   const dateFilter = useMemo(
@@ -56,6 +55,12 @@ export default () => {
     setPageIndex(pageIndex);
     setPageSize(pageSize);
   };
+  const clear = () => {
+    setSearch('');
+    setDate(undefined);
+    setSort();
+    setCompleted(false);
+  };
   return (
     <Container>
       <HomeworksHeader
@@ -63,6 +68,7 @@ export default () => {
         search={search}
         setDate={setDate}
         date={date}
+        clear={clear}
         setCompleted={setCompleted}
       />
       {error ? (

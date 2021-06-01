@@ -61,6 +61,12 @@ export default () => {
     setPageIndex(pageIndex);
     setPageSize(pageSize);
   };
+  const clear = () => {
+    setSearch('');
+    setDate(undefined);
+    setSort();
+    setCompleted(false);
+  };
 
   return (
     <Container>
@@ -69,6 +75,7 @@ export default () => {
         search={search}
         setDate={setDate}
         date={date}
+        clear={clear}
         setCompleted={setCompleted}
 
       />
