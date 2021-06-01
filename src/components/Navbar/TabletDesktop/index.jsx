@@ -53,15 +53,6 @@ export default () => {
       </Header>
       <Content>
         <ButtonContainer>
-          <PrimaryButton
-            block="block"
-            title="Technical support"
-            size="small"
-            color="#E8523F"
-            icon="support"
-          />
-        </ButtonContainer>
-        <ButtonContainer>
           <PrimaryButton block="block" title="Chat" size="small" color="#333366" icon="chat" onClick={() => history.push('/chat')} />
         </ButtonContainer>
         <PopupContainer>
