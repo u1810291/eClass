@@ -9,6 +9,7 @@ import { teacherLessonsHeader } from '../../../redux/modules/table/common';
 import QuizesHeader from '../../../components/Headers/QuizesHeader';
 import TableError from '../../../components/Table/Error';
 import { headerMaker } from '../../../components/Table/helper';
+import { toolTips } from './helper';
 
 export default () => {
   const { userInfo } = useSelector((state) => state.userReducer);
@@ -100,6 +101,7 @@ export default () => {
           header={header}
           loading={loading}
           subData={data}
+          toolTips={toolTips}
           setSort={setSort}
           onChange={handleOnChange}
         />

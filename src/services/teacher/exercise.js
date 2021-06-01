@@ -7,9 +7,8 @@ export default {
   addQuize: (id, data) => service.post(`/api/v1/teacher/exercise/controlwork/${id}`, data),
   // TODO Needs to be checked before using
   deleteQuize: (id) => service.delete(`/api/v1/teacher/exercise/controlwork/${id}`),
-
-  markExercise: ({ id, mark }) => service.post(`/api/v1/teacher/exercise/mark/${id}?mark=${mark}`),
-  markExerciseToUploaded: ({ id, mark }) => service.post(`/api/v1/teacher/exercise/mark/${id}/student-new?mark=${mark}`)
+  markExercise: (id, mark) => service.post(`/api/v1/teacher/exercise/mark/${id}?mark=${mark}`),
+  markExerciseToUploaded: (id, mark) => service.post(`/api/v1/teacher/exercise/mark/${id}/student-new?mark=${mark}`)
     .then((response) => {
       const extension = response.headers['content-type'].split('/');
       const url = window.URL.createObjectURL(new Blob([response.data]));
