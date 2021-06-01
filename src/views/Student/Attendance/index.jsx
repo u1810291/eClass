@@ -1,4 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
+
+import moment from 'moment';
 import { useDispatch, useSelector } from 'react-redux';
 import Attendance from '../../../components/Attendance';
 import AttendanceHeader from '../../../components/Headers/AttendanceHeader';
@@ -8,7 +10,9 @@ import { fetchData } from '../../../redux/modules/student/lessons/actions';
 export default () => {
   const dispatch = useDispatch();
   const [date, setDate] = useState(undefined);
-  const { data, loading, error } = useSelector((state) => state.studentLessonsReducers);
+  const {
+    data, loading, error, total
+  } = useSelector((state) => state.studentLessonsReducers);
   const dateFilter = useMemo(
     () => (date
       ? `&from_date=${date.start.toISOString()}&to_date=${date.end.toISOString()}`
@@ -16,9 +20,15 @@ export default () => {
     [date]
   );
 
+  const clear = () => {
+    setDate(undefined);
+  };
+
   const query = useMemo(
-    () => `size=50&${dateFilter}`,
-    [dateFilter]
+    () => (total
+      ? `size=${total}${dateFilter}`
+      : ''),
+    [total, dateFilter]
   );
 
   const allSubjects = data.length && data.map((el) => ({
@@ -32,13 +42,18 @@ export default () => {
     name: allSubjects.find((s) => s.id === id).name
   }));
 
-  const clear = () => {
-    setDate(undefined);
-  };
   useEffect(() => {
     dispatch(fetchData({ query }));
   }, [query]);
 
+  const events = data && data.map((el) => ({
+    id: el.id,
+    start: moment(new Date(el.scheduled_start)).toDate(),
+    end: el.finished ? moment(new Date(el.finished_at)).toDate()
+      : moment(new Date(el.scheduled_start)).add(1, 'hours').toDate(),
+    title: el.group.name,
+    event: { ...el }
+  }));
   return (
     <Container>
       <AttendanceHeader
@@ -47,7 +62,7 @@ export default () => {
       />
       <Attendance
         loading={loading}
-        data={data}
+        data={events}
         error={error}
         date={date}
         setDate={setDate}
