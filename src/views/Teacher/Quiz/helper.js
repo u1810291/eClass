@@ -5,7 +5,7 @@ export const toolTips = [
   {
     name: 'Delete',
     icon: 'payment',
-    onClick: () => deleteExercise()
+    onClick: (id, { dispatch }) => dispatch(deleteExercise(id, (res) => { if (res) alert('Succesfully deleted'); }))
   },
   {
     name: 'Mark',
