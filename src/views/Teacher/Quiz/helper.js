@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 import { deleteExercise, markExercise } from '../../../redux/modules/teacher/homeworks/actions';
 import service from '../../../services/teacher/exercise';
 

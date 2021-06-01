@@ -39,7 +39,7 @@ function* addHomework({ payload, success }) {
 
 function* deleteExercise(payload, success) {
   try {
-    const res = yield service.deleteQuize(payload);
+    const res = yield service.deleteExercise(payload);
     yield success(res);
   } catch (error) {
     alert(error.response ? error.response.data.error_message : error);
