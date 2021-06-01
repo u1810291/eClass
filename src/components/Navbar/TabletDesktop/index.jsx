@@ -12,15 +12,12 @@ import {
   Text,
   Header,
   ButtonContainer,
-  BellContainer,
   TextContainer,
   ImageWrapper
 } from './style';
 import { Content } from '../style';
-import Bell from '../../Bell';
 import { logout } from '../../../redux/modules/auth/actions';
 import { ClickOutside } from '../../../hooks/click-outside';
-import Icon from '../../Icon';
 import Dropdown from '../../Forms/Dropdowns';
 import { language } from './options';
 import SearchableInput from '../../Forms/Inputs/Search';
@@ -67,9 +64,6 @@ export default () => {
         <ButtonContainer>
           <PrimaryButton block="block" title="Chat" size="small" color="#333366" icon="chat" onClick={() => history.push('/chat')} />
         </ButtonContainer>
-        <BellContainer>
-          <Bell Component={<Icon icon="notification_on" />} margin="0 18px" value="1" />
-        </BellContainer>
         <PopupContainer>
           <UserInfoContainer>
             <ImageWrapper

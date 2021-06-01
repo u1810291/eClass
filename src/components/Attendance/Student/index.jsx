@@ -17,7 +17,7 @@ import { useShowModal } from '../../../hooks/modal';
 import 'react-big-calendar/lib/addons/dragAndDrop/styles.css';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import Reschedule from '../../Lesson/Reschedule';
-import { reschedule } from '../../../views/Teacher/Lesson/helper';
+import { reschedule } from '../../../views/Student/Lesson/helper';
 import Info from './Info';
 
 const DragAndDropCalendar = withDragAndDrop(Calendar);
