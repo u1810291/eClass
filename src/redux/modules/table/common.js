@@ -286,23 +286,6 @@ export const teacherHomeworksHeader = [
     disableSortBy: true,
     show: true,
     type: 'download'
-  },
-  {
-    Header: 'Send homework',
-    accessor: 'teacher',
-    id: 6,
-    align: 'end',
-    disableSortBy: true,
-    type: 'upload',
-    show: true
-  },
-  {
-    Header: 'Deadline',
-    accessor: 'deadline',
-    id: 7,
-    align: 'end',
-    disableSortBy: true,
-    show: true
   }
 ];
 
