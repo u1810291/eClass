@@ -1,8 +1,24 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { helperText } from '../style';
+import {
+  label, helperText
+} from '../style';
 
+const transition = keyframes`    
+  transition: all 0.2s;
+  touch-action: manipulation;
+`;
+
+export const Label = styled.label`
+  ${label}
+  animation: ${transition} all 0.2s;
+  pointer-events: none;
+  left: 20px;
+  top: 18px;
+  transition: 0.2s ease all;
+  color: #262626;
+`;
 export const CustomInput = styled.button`
   height: 48px;
   width: 100%;

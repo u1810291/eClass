@@ -12,17 +12,14 @@ import DatePicker from '../../Forms/Inputs/DatePicker';
 export default ({
   setDate,
   date,
-  setCompleted
+  setCompleted,
+  clear
 }) => (
   <Container>
     <Body>
       <TitleWrapper>
         <TitleWrapper.Title>Homeworks</TitleWrapper.Title>
-        <TitleWrapper.Clear onClick={() => {
-          setDate(undefined);
-          setCompleted(undefined);
-        }}
-        >
+        <TitleWrapper.Clear onClick={clear}>
           Celar filter
         </TitleWrapper.Clear>
       </TitleWrapper>

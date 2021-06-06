@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { PureCheckbox as Checkbox } from '../../../CheckBox';
+import { PureCheckbox as Checkbox } from '../../../../CheckBox';
 
 export const getFontSize = ({ size }) => {
   switch (size) {

@@ -3,8 +3,8 @@ import React, { useEffect, useMemo, useState } from 'react';
 
 import moment from 'moment';
 import { useDispatch, useSelector } from 'react-redux';
-import Attendance from '../../../components/Attendance';
-import AttendanceHeader from '../../../components/Headers/AttendanceHeader';
+import Schedule from '../../../components/Schedule/Teacher';
+import ScheduleHeader from '../../../components/Headers/ScheduleHeader';
 import { Container } from '../style';
 import { fetchData } from '../../../redux/modules/teacher/lessons/actions';
 
@@ -57,11 +57,11 @@ export default () => {
   }));
   return (
     <Container>
-      <AttendanceHeader
+      <ScheduleHeader
         subjects={subjects}
         clear={clear}
       />
-      <Attendance
+      <Schedule
         loading={loading}
         data={events}
         error={error}

@@ -12,6 +12,7 @@ import HomeworksHeader from '../../../components/Headers/HomeworksHeader';
 import TableError from '../../../components/Table/Error';
 import { headerMaker } from '../../../components/Table/helper';
 import { teacherHomeworksHeader } from '../../../redux/modules/table/common';
+import { toolTips } from './helper';
 
 export default () => {
   const dispatch = useDispatch();
@@ -61,6 +62,12 @@ export default () => {
     setPageIndex(pageIndex);
     setPageSize(pageSize);
   };
+  const clear = () => {
+    setSearch('');
+    setDate(undefined);
+    setSort();
+    setCompleted(false);
+  };
 
   return (
     <Container>
@@ -69,6 +76,7 @@ export default () => {
         search={search}
         setDate={setDate}
         date={date}
+        clear={clear}
         setCompleted={setCompleted}
 
       />
@@ -78,6 +86,7 @@ export default () => {
         <Table
           height="540"
           total={total}
+          toolTips={toolTips}
           data={data}
           header={header}
           loading={loading}

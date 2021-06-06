@@ -17,3 +17,15 @@ export const addHomework = (payload, success) => ({
   payload,
   success
 });
+
+export const deleteExercise = (payload, success) => ({
+  type: types.TABLE_TEACHER_HOMEWORKS_DELETE,
+  payload,
+  success
+});
+
+export const markExercise = (payload, success) => ({
+  type: types.TABLE_TEACHER_HOMEWORKS_MARK,
+  payload,
+  success
+});

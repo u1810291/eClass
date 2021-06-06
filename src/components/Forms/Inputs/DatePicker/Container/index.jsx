@@ -160,6 +160,13 @@ export default ({
       </TabletAndDesktopContainer>
     );
   }
+  if (device === devices.NOTEBOOK) {
+    return (
+      <TabletAndDesktopContainer right={right} open={isPopoverOpen}>
+        {content}
+      </TabletAndDesktopContainer>
+    );
+  }
   if (device === devices.DESKTOP) {
     return (
       <TabletAndDesktopContainer right={right} open={isPopoverOpen}>

@@ -2,7 +2,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import InputCustom from './CustomButton';
-import { DatePickerContainer, Container, Helper } from './style';
+import {
+  DatePickerContainer, Container, Helper, Label
+} from './style';
 
 const SingleDatePicker = ({
   placeholder,
@@ -18,9 +20,11 @@ const SingleDatePicker = ({
   timeFormat,
   showTimeSelectOnly,
   filterDate,
+  label,
   ...props
 }) => (
   <Container type={type}>
+    {label ? <Label>{label}</Label> : ''}
     <DatePickerContainer
       showTimeSelectOnly={showTimeSelectOnly}
       showTimeSelect={showTimeSelect}

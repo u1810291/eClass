@@ -29,8 +29,8 @@ export const studentLessonsHeader = [
   },
   {
     id: 5,
-    Header: 'Subject',
-    accessor: 'subject',
+    Header: 'Group name',
+    accessor: 'group_name',
     disableSortBy: true,
     show: true
   }
@@ -286,23 +286,6 @@ export const teacherHomeworksHeader = [
     disableSortBy: true,
     show: true,
     type: 'download'
-  },
-  {
-    Header: 'Send homework',
-    accessor: 'teacher',
-    id: 6,
-    align: 'end',
-    disableSortBy: true,
-    type: 'upload',
-    show: true
-  },
-  {
-    Header: 'Deadline',
-    accessor: 'deadline',
-    id: 7,
-    align: 'end',
-    disableSortBy: true,
-    show: true
   }
 ];
 

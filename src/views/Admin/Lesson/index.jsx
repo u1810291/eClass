@@ -45,21 +45,12 @@ export default () => {
 
   useEffect(() => {
     dispatch(fetchData({ query }));
-  }, [fetchData, query]);
+  }, [query]);
 
   const handleOnChange = ({ pageIndex, pageSize }) => {
     setPageIndex(pageIndex);
     setPageSize(pageSize);
   };
-
-  useEffect(() => {
-    dispatch(
-      fetchData({
-        isSearch: true,
-        query: `${query}${search ? `&search=${search}` : ''}`
-      })
-    );
-  }, [dispatch, search]);
 
   return (
     <Container>

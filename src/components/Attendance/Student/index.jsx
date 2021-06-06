@@ -7,17 +7,17 @@ import {
   Container, BigCalendar, SmallCalendar, Tag, RightWrapper, LeftWrapper, CircleEvent
 } from './style';
 import CustomToolbar from './CustomToolbar';
-import Card from '../Card';
-import CustomCalendarV2 from '../Calendars/CustomCalendarV2';
-import Icon from '../Icon';
-import Error from '../Error';
-import Spinner from '../Spinner';
-import { updateEvents, getSingleEvent } from '../../redux/modules/student/lessons/actions';
-import { useShowModal } from '../../hooks/modal';
+import Card from '../../Card';
+import CustomCalendarV2 from '../../Calendars/CustomCalendarV2';
+import Icon from '../../Icon';
+import Error from '../../Error';
+import Spinner from '../../Spinner';
+import { updateEvents, getSingleEvent } from '../../../redux/modules/student/lessons/actions';
+import { useShowModal } from '../../../hooks/modal';
 import 'react-big-calendar/lib/addons/dragAndDrop/styles.css';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-import Reschedule from '../Lesson/Reschedule';
-import { reschedule } from '../../views/Teacher/Lesson/helper';
+import Reschedule from '../../Lesson/Reschedule';
+import { reschedule } from '../../../views/Student/Lesson/helper';
 import Info from './Info';
 
 const DragAndDropCalendar = withDragAndDrop(Calendar);

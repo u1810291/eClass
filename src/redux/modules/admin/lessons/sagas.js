@@ -25,5 +25,5 @@ function* fetchData({ payload }) {
 }
 
 export default function* lessonsSaga() {
-  yield takeLatest(types.ADMIN_TARIFFS_FETCH_DATA, fetchData);
+  yield takeLatest(types.TABLE_ADMIN_LESSONS_FETCH_DATA, fetchData);
 }

@@ -173,7 +173,7 @@ const FilterSelect = ({
           </InputWrapper>
         )}
         <OptionsWrap>
-          {options.map((item) => (
+          {options && options.map((item) => (
             <OptionsItem
               key={item.id}
               onClick={() => handleClick(item)}
