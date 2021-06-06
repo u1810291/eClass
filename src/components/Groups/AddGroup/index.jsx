@@ -35,6 +35,7 @@ export default ({ groupAddFormik }) => {
             />
             <NormalInput
               placeholder="Official name in english"
+              label="Official name in english"
               type={formik.touched.official_en_name && formik.errors.official_en_name && 'error'}
               helperText={formik.touched.official_en_name
                      && formik.errors.official_en_name && formik.errors.official_en_name}
@@ -45,6 +46,7 @@ export default ({ groupAddFormik }) => {
             />
             <NormalInput
               placeholder="Description"
+              label="Description"
               type={formik.touched.en_description && formik.errors.en_description && 'error'}
               helperText={formik.touched.en_description
                      && formik.errors.en_description && formik.errors.en_description}
@@ -56,6 +58,7 @@ export default ({ groupAddFormik }) => {
             <NormalInput
               size="large"
               placeholder="Group name in russian"
+              label="Group name in russian"
               type={formik.touched.name && formik.errors.ru_name && 'error'}
               helperText={formik.touched.ru_name
                      && formik.errors.ru_name && formik.errors.ru_name}
@@ -65,6 +68,7 @@ export default ({ groupAddFormik }) => {
             />
             <NormalInput
               placeholder="Official name in russian"
+              label="Official name in russian"
               type={formik.touched.official_ru_name && formik.errors.official_ru_name && 'error'}
               helperText={formik.touched.official_ru_name
                      && formik.errors.official_ru_name && formik.errors.official_ru_name}
@@ -75,6 +79,7 @@ export default ({ groupAddFormik }) => {
             />
             <NormalInput
               placeholder="Description in russian"
+              label="Description in russian"
               type={formik.touched.ru_description && formik.errors.ru_description && 'error'}
               helperText={formik.touched.ru_description
                      && formik.errors.ru_description && formik.errors.ru_description}
@@ -86,6 +91,7 @@ export default ({ groupAddFormik }) => {
             <NormalInput
               size="large"
               placeholder="Group name in uzbek"
+              label="Group name in uzbek"
               type={formik.touched.uz_name && formik.errors.uz_name && 'error'}
               helperText={formik.touched.uz_name
                      && formik.errors.uz_name && formik.errors.uz_name}
@@ -95,6 +101,7 @@ export default ({ groupAddFormik }) => {
             />
             <NormalInput
               placeholder="Official name in uzbek"
+              label="Official name in uzbek"
               type={formik.touched.official_uz_name && formik.errors.official_uz_name && 'error'}
               helperText={formik.touched.official_uz_name
                      && formik.errors.official_uz_name && formik.errors.official_uz_name}
@@ -105,6 +112,7 @@ export default ({ groupAddFormik }) => {
             />
             <NormalInput
               placeholder="Description in uzbek"
+              label="Description in uzbek"
               type={formik.touched.uz_description && formik.errors.uz_description && 'error'}
               helperText={formik.touched.uz_description
                      && formik.errors.uz_description && formik.errors.uz_description}
@@ -119,6 +127,7 @@ export default ({ groupAddFormik }) => {
           </StudyCard>
           <Main>
             <Dropdown
+              label="Language"
               placeholder="Language"
               options={languages}
               type={formik.touched.lang
@@ -134,6 +143,7 @@ export default ({ groupAddFormik }) => {
             />
             <Dropdown
               placeholder="Subject"
+              label="Subject"
               options={data}
               value={formik.values.subject_id
               && data.find((el) => el.id === formik.values.subject_id).id}
@@ -146,6 +156,7 @@ export default ({ groupAddFormik }) => {
             />
             <Dropdown
               placeholder="Teacher"
+              label="Teacher"
               options={teachers}
               value={formik.values.teacher_id
               && teachers.find((el) => el.id === formik.values.teacher_id).id}
@@ -160,6 +171,7 @@ export default ({ groupAddFormik }) => {
             <NormalInput
               white
               placeholder="Percent for teacher"
+              label="Percent for teacher"
               type={formik.errors.salary_percent && 'error'}
               helperText={formik.errors.salary_percent}
               value={formik.values.salary_percent}
@@ -169,6 +181,7 @@ export default ({ groupAddFormik }) => {
             />
             <NormalInput
               placeholder="Price for one lesson"
+              label="Price for one lesson"
               type={formik.touched.price && formik.errors.price && 'error'}
               helperText={formik.touched.price
                      && formik.errors.price && formik.errors.price}
@@ -206,13 +219,15 @@ export default ({ groupAddFormik }) => {
             />
             <SingleDatePicker
               value={start}
-              placeholder="Date"
+              placeholder="Start Date"
+              label="Start Date"
               name="start_date"
               onChange={(value) => { setStart(value); formik.setFieldValue('start_date', value); }}
             />
             <SingleDatePicker
               value={finish}
-              placeholder="Date"
+              placeholder="Finish Date"
+              label="Finish Date"
               name="finish_date"
               onChange={(value) => { setFinish(value); formik.setFieldValue('finish_date', value); }}
             />

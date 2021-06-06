@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Container, Input, Helper, InnerContainer
+  Container, Input, Helper, InnerContainer, Label
 } from './style';
 
 const NormalInput = ({
@@ -10,9 +10,16 @@ const NormalInput = ({
   size,
   helperText,
   type,
+  label,
   ...others
 }) => (
   <Container>
+    {label
+    && (
+      <Label type={type} size={size}>
+        {label}
+      </Label>
+    )}
     <InnerContainer>
       <Input
         type={type}

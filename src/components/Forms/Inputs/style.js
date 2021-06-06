@@ -275,6 +275,6 @@ export const helperText = css`
 
 export const label = css`
   ${fonts}
-  color: ${getColor};
+  color: ${getColor} !important;
   margin-left: ${getLabelPadding};
 `;
