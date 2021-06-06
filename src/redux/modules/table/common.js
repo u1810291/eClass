@@ -29,8 +29,8 @@ export const studentLessonsHeader = [
   },
   {
     id: 5,
-    Header: 'Subject',
-    accessor: 'subject',
+    Header: 'Group name',
+    accessor: 'group_name',
     disableSortBy: true,
     show: true
   }

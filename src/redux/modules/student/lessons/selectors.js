@@ -34,6 +34,7 @@ export function dataSelector(lesson) {
       start_date: el.attendance ? el.attendance.start_date : ''
     },
     ...(el.finished_at && { finished_at: el.finished_at }),
+    group_name: el.group.name,
     group: {
       id: el.group.id,
       name: el.group.name,

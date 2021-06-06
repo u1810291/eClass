@@ -1,7 +1,7 @@
 import Examples from '../components/Examples';
 import Tariff from '../views/Admin/Tariff';
 // import Balance from '../views/Balance';
-import Profile from '../views/Profile';
+import Profile from '../views/Admin/Profile';
 // import Payment from '../views/Student/Payment';
 import Library from '../views/Library';
 import Chat from '../views/Chat';
