@@ -68,7 +68,7 @@ function* addStudent({ payload, success }) {
     success(res);
   } catch (error) {
     alert(error.response ? error.response.data.error_message : error);
-    success(error.response ? error.response.data.error_message : error);
+    console.log(error.response ? error.response.data.error_message : error);
   }
 }
 
@@ -91,7 +91,7 @@ function* deleteGroup({ payload, success }) {
     success([res.data]);
   } catch (error) {
     alert(error.response ? error.response.data.error_message : error);
-    success(error.response ? error.response.data.error_message : error);
+    console.log(error.response ? error.response.data.error_message : error);
   }
 }
 

@@ -34,13 +34,13 @@ export function dataSelector(payload, user) {
     return { total: total_elements, data: student };
   }
   if (payload === 'teacher') {
-    const teacher = content.map((el, i) => ({
+    const teacher = content.map((el) => ({
       address: `${el.address.country} ${el.address.city} ${el.address.address}`,
       average_rating: el.average_rating,
       date_of_birth: moment(el.date_of_birth).format('DD-MM-YYYY'),
       description: el.description,
       email: el.email,
-      id: i + 1,
+      id: el.id,
       lang: el.lang,
       full_name: `${el.first_name} ${el.last_name} ${el.middle_name}`,
       max_storage: el.max_storage,
@@ -60,13 +60,13 @@ export function dataSelector(payload, user) {
     return { total: total_elements, data: teacher };
   }
   if (payload === 'admin') {
-    const admin = content.map((el, i) => ({
+    const admin = content.map((el) => ({
       address: `${el.address.country} ${el.address.city} ${el.address.address}`,
       average_rating: el.average_rating,
       date_of_birth: moment(el.date_of_birth).format('DD-MM-YYYY'),
       description: el.description,
       email: el.email,
-      id: i + 1,
+      id: el.id,
       lang: el.lang,
       full_name: `${el.first_name} ${el.last_name} ${el.middle_name}`,
       max_storage: el.max_storage,

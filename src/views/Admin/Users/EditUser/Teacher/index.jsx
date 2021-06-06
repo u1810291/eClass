@@ -7,9 +7,9 @@ import { useInfoForm } from './hooks';
 
 import TeacherRegister from '../../../../../components/TeacherRegister';
 
-export default () => {
+export default ({ id }) => {
   const [date, setDate] = useState('');
-  const { formik } = useInfoForm();
+  const { formik } = useInfoForm(id);
   const { cities, countries } = useSelector((state) => state.listsReducers);
   return (
     <Container>
