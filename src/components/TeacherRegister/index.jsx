@@ -164,8 +164,8 @@ export default ({
           placeholder="Phones"
           size="large"
           name="phone"
-          value={formik.values.phone}
-          defaultValue={formik.values.phone}
+          value={[formik.values.phone]}
+          defaultValue={formik.values.phone || []}
           type={formik.touched.phone
             && (formik.touched.phone.length === 0 || formik.errors.phone)
             ? 'error'

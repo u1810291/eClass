@@ -32,6 +32,7 @@ export const useInfoForm = (id) => {
     subjects: Yup.string()
   });
   const formik = useFormik({
+    enableReinitialize: true,
     initialValues: {
       username: single.username,
       first_name: single.first_name,
@@ -40,13 +41,13 @@ export const useInfoForm = (id) => {
       email: single.email,
       date_of_birth: single.date_of_birth,
       lang: single.lang,
-      phone: single.phones,
+      phone: single.phones && single.phones.map((el) => el.phone),
       phone_description: '',
       country: '',
       city_id: '',
-      city_name: single.address && single.address.city,
+      city_name: '',
       specialization: single.specialization,
-      subjects: single.subjects
+      subjects: (single.subjects && single.subjects.length) || ''
     },
 
     validationSchema,
