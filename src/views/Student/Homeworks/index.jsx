@@ -47,7 +47,6 @@ export default () => {
   );
   useEffect(() => {
     dispatch(fetchData({
-      isSearch: false,
       query: `${query}`
     }));
   }, [fetchData, query]);

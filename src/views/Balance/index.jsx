@@ -9,7 +9,7 @@ import Balance from '../../components/Balance';
 export default () => {
   const [date, setDate] = useState('');
   useEffect(() => {
-    setDate(moment(new Date()).format('DD-MM-YYYY hh:mm:ss'));
+    setDate(moment(new Date()).format('MM-DD-YYYY hh:mm:ss'));
   }, [date, setDate]);
   return (
     <Container>

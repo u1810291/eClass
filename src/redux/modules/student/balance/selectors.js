@@ -16,7 +16,7 @@ export function dataSelector(data) {
     tariff_name: el.tariff ? el.tariff.name : '',
     subject_id: el.tariff && el.tariff.subject ? el.tariff.subject.id : '',
     subject_name: el.tariff && el.tariff.subject ? el.tariff.subject.name : '',
-    date: moment(new Date()).format('DD-MM-YYYY hh:mm:ss')
+    date: moment(new Date()).format('MM-DD-YYYY hh:mm:ss')
   }));
   return { total: total_elements, data: filtered };
 }
@@ -27,7 +27,7 @@ export function paymentSelector(data) {
   const filtered = content.map((el) => ({
     amount: el.amount,
     code: el.code,
-    date: moment(el.date).format('DD-MM-YYYY hh:mm:ss'),
+    date: moment(el.date).format('MM-DD-YYYY hh:mm:ss'),
     description: el.description,
     id: el.id,
     reference_id: el.reference_id,
