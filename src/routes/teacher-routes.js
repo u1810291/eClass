@@ -5,8 +5,9 @@ import Homeworks from '../views/Teacher/Homeworks';
 import Profile from '../views/Teacher/Profile';
 import Quiz from '../views/Teacher/Quiz';
 import Grades from '../views/Teacher/Grades';
-import Attendance from '../views/Teacher/Attendance';
+// import Attendance from '../views/Teacher/Attendance';
 import Schedule from '../views/Teacher/Schedule';
+import Groups from '../views/Teacher/Groups';
 import Chat from '../views/Chat';
 import Lesson from '../views/Teacher/Lesson';
 
@@ -61,10 +62,10 @@ export default [
   },
   {
     exact: true,
-    path: '/attendance',
-    component: Attendance,
+    path: '/groups',
+    component: Groups,
     icon: 'attendance',
-    title: 'Attendance',
+    title: 'Groups',
     children: []
   },
   {
