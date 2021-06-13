@@ -14,16 +14,16 @@ import {
   dataSelector
 } from './selectors';
 
-function* getStudents({ payload, success }) {
+function* getStudents({ payload }) {
   try {
     yield put(setLoading(true));
     const res = yield service.getGroupStudents(payload);
+    console.log(res);
     const { total, data } = dataSelector(res.data);
     yield put(setData(data));
     yield put(setError(''));
     yield put(setTotal(total));
     yield put(setLoading(false));
-    success(data);
   } catch (error) {
     console.log(error.response ? error.response.data.error_message : error);
     alert(error.response ? error.response.data.error_message : error);

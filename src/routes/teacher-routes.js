@@ -10,7 +10,7 @@ import Schedule from '../views/Teacher/Schedule';
 import Groups from '../views/Teacher/Groups';
 import Chat from '../views/Chat';
 import Lesson from '../views/Teacher/Lesson';
-import { StudentsList } from '../components/Groups';
+import StudentsList from '../views/Teacher/Groups/StudentsList';
 
 export default [
   {

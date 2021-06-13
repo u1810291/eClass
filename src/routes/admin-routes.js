@@ -68,7 +68,6 @@ export default [
         path: '/students/list/:id',
         hidden: true,
         component: StudentsList,
-        icon: 'classess2',
         title: 'Groups'
       }
     ]

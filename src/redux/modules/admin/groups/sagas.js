@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable no-alert */
 /* eslint-disable no-console */
 import { takeLatest, put } from 'redux-saga/effects';
@@ -9,7 +10,8 @@ import {
   setError,
   setLoading,
   setTotal,
-  setSingle
+  setSingle,
+  setStudents
 } from './actions';
 
 import { dataSelector, addGroupSelector, editGroupSelector } from './selectors';
@@ -98,13 +100,10 @@ function* deleteGroup({ payload, success }) {
 function* getStudents({ payload }) {
   try {
     yield put(setLoading(true));
-    console.log(payload);
-    const res = yield service.getGroupStudents('9b234488-c05f-487f-8501-55713685e045');
-    console.log(res);
-    const { total, data } = dataSelector(res.data);
-    yield put(setData(data));
+    const { data, total_elements } = yield service.getGroupStudents(payload);
+    yield put(setStudents(data.content));
     yield put(setError(''));
-    yield put(setTotal(total));
+    yield put(setTotal(total_elements));
     yield put(setLoading(false));
   } catch (error) {
     console.log(error.response ? error.response.data.error_message : error);

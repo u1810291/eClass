@@ -16,8 +16,7 @@ export const setError = (payload) => ({
   type: types.TABLE_TEACHER_FETCH_STUDENTS_ERROR,
   payload
 });
-export const getStudents = (payload, success) => ({
+export const getStudents = (payload) => ({
   type: types.TABLE_TEACHER_FETCH_STUDENTS_FETCH_DATA,
-  payload,
-  success
+  payload
 });

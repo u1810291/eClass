@@ -8,12 +8,12 @@ import { getStudents } from '../../../../redux/modules/admin/groups/actions';
 export const getGroupStudents = (id) => {
   const dispatch = useDispatch();
   const {
-    data, loading, error, total
+    students, loading, error, total
   } = useSelector((state) => state.adminGroupsReducers);
   useEffect(() => {
     dispatch(getStudents(id));
   }, [id]);
   return {
-    data, total, error, loading
+    students, total, error, loading
   };
 };

@@ -9,10 +9,9 @@ export const fetchStudents = (id) => {
   const dispatch = useDispatch();
   const { data } = useSelector((state) => state.teacherGroupsReducers);
   useEffect(() => {
+    console.log(id);
     if (id) {
-      dispatch(getStudents(id, (res) => {
-        console.log('res', res);
-      }));
+      dispatch(getStudents(id));
     }
   }, [id]);
   return { data };
@@ -22,6 +21,6 @@ export const toolTips = [
   {
     name: 'Students List',
     icon: 'payment',
-    onClick: (id, { history }) => history.push(`/groups/list/${id}`)
+    onClick: (id, { history }) => history.push(`/groups/list/${id}`, [id])
   }
 ];
