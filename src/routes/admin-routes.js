@@ -12,6 +12,7 @@ import StudentAdd from '../views/Admin/Users/Add/Student';
 import TeacherAdd from '../views/Admin/Users/Add/Teacher';
 import AdminAdd from '../views/Admin/Users/Add/Admin';
 import ZoomAccounts from '../views/Admin/ZoomAccounts';
+import StudentsList from '../views/Admin/Groups/StudentsList';
 
 export default [
   {
@@ -61,7 +62,16 @@ export default [
     component: Groups,
     icon: 'classess2',
     title: 'Groups',
-    children: []
+    children: [
+      {
+        exact: true,
+        path: '/students/list/:id',
+        hidden: true,
+        component: StudentsList,
+        icon: 'classess2',
+        title: 'Groups'
+      }
+    ]
   },
   {
     exact: true,

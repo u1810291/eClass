@@ -10,6 +10,11 @@ export const fetchData = (payload) => ({
   payload
 });
 
+export const getStudents = (payload) => ({
+  type: types.TABLE_ADMIN_GROUPS_STUDENTS_FETCH,
+  payload
+});
+
 export const getSingle = (payload) => ({
   type: types.TABLE_ADMIN_GROUPS_FETCH_SINGLE_DATA,
   payload

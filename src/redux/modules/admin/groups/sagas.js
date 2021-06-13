@@ -95,6 +95,23 @@ function* deleteGroup({ payload, success }) {
   }
 }
 
+function* getStudents({ payload }) {
+  try {
+    yield put(setLoading(true));
+    console.log(payload);
+    const res = yield service.getGroupStudents('9b234488-c05f-487f-8501-55713685e045');
+    console.log(res);
+    const { total, data } = dataSelector(res.data);
+    yield put(setData(data));
+    yield put(setError(''));
+    yield put(setTotal(total));
+    yield put(setLoading(false));
+  } catch (error) {
+    console.log(error.response ? error.response.data.error_message : error);
+    alert(error.response ? error.response.data.error_message : error);
+  }
+}
+
 export default function* adminGroupsSaga() {
   yield takeLatest(types.TABLE_ADMIN_GROUPS_FETCH_DATA, fetchData);
   yield takeLatest(types.TABLE_ADMIN_GROUPS_FETCH_SINGLE_DATA, getSingle);
@@ -103,4 +120,5 @@ export default function* adminGroupsSaga() {
   yield takeLatest(types.TABLE_ADMIN_GROUPS_EDIT_GROUP, editGroup);
   yield takeLatest(types.TABLE_ADMIN_GROUPS_DELETE_GROUP, deleteGroup);
   yield takeLatest(types.TABLE_ADMIN_GROUPS_ADD_STUDENT_GROUP, addStudent);
+  yield takeLatest(types.TABLE_ADMIN_GROUPS_STUDENTS_FETCH, getStudents);
 }
