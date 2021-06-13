@@ -11,14 +11,14 @@ import {
 } from './actions';
 
 import {
-  startLessonSelector
+  dataSelector
 } from './selectors';
 
 function* getStudents({ payload, success }) {
   try {
     yield put(setLoading(true));
     const res = yield service.getGroupStudents(payload);
-    const { total, data } = startLessonSelector(res.data);
+    const { total, data } = dataSelector(res.data);
     yield put(setData(data));
     yield put(setError(''));
     yield put(setTotal(total));
@@ -31,5 +31,5 @@ function* getStudents({ payload, success }) {
 }
 
 export default function* teacherLessonsSaga() {
-  yield takeLatest(types.TABLE_TEACHER_FETCH_STUDENTS, getStudents);
+  yield takeLatest(types.TABLE_TEACHER_FETCH_STUDENTS_FETCH_DATA, getStudents);
 }

@@ -1,31 +1,27 @@
 /* eslint-disable no-console */
 /* eslint-disable no-alert */
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { getStudents } from '../../../redux/modules/teacher/groups/actions';
-import {
-  StudentsList
-} from '../../../components/Groups';
 
-const fetchStudents = (id) => {
+export const fetchStudents = (id) => {
   const dispatch = useDispatch();
+  const { data } = useSelector((state) => state.teacherGroupsReducers);
   useEffect(() => {
     if (id) {
-      dispatch(getStudents(id));
+      dispatch(getStudents(id, (res) => {
+        console.log('res', res);
+      }));
     }
   }, [id]);
+  return { data };
 };
 
 export const toolTips = [
   {
     name: 'Students List',
     icon: 'payment',
-    onClick: (id, { showFullScreen }) => {
-      showFullScreen({
-        title: 'Students List',
-        body: () => <StudentsList fetchStudents={() => fetchStudents(id)} />
-      });
-    }
+    onClick: (id, { history }) => history.push(`/groups/list/${id}`)
   }
 ];

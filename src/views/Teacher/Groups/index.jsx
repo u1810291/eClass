@@ -9,7 +9,7 @@ import { groupsHeader } from '../../../redux/modules/table/common';
 import TeacherGroupsHeader from '../../../components/Headers/TeacherGroupsHeader';
 import TableError from '../../../components/Table/Error';
 import { headerMaker } from '../../../components/Table/helper';
-import { toolTips, subjectAddFormik, groupAddFormik } from './helper';
+import { toolTips } from './helper';
 import { fetchData as subjectFetch } from '../../../redux/modules/admin/subjects/actions';
 
 export default () => {
@@ -41,7 +41,7 @@ export default () => {
     dispatch(subjectFetch());
     dispatch(getUser('teacher', ''));
     dispatch(fetchData({ query }));
-  }, [dispatch, query, groupAddFormik]);
+  }, [dispatch, query]);
 
   const handleOnChange = ({ pageIndex, pageSize }) => {
     setPageIndex(pageIndex);
@@ -52,8 +52,6 @@ export default () => {
       <TeacherGroupsHeader
         setSearch={setSearch}
         search={search}
-        subjectAddFormik={subjectAddFormik}
-        groupAddFormik={groupAddFormik}
       />
       {error ? (
         <TableError message={error} />

@@ -16,6 +16,7 @@ export default () => {
     ? adminChildRoutes : userInfo.role === STUDENT
       ? studentChildRoutes : userInfo.role === TEACHER
         ? teacherChildRoutes : null;
+  const path = window.location.pathname.split('/');
   return (
     <Container>
       <Navbar />
@@ -45,7 +46,7 @@ export default () => {
           ) : (
             <Route key={`${index + 1}`} path={path} component={component} />
           ))) : ''}
-        {childRoutes && !childRoutes.find((el) => el.path === `/${window.location.pathname.split('/')[window.location.pathname.split('/').length - 1]}`)
+        {childRoutes && !childRoutes.find((el) => el.path === `/${path[path.length - 1]}`)
           ? <Redirect from="*" to="/profile" /> : ''}
       </Content>
     </Container>

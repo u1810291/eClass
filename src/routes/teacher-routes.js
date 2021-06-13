@@ -10,6 +10,7 @@ import Schedule from '../views/Teacher/Schedule';
 import Groups from '../views/Teacher/Groups';
 import Chat from '../views/Chat';
 import Lesson from '../views/Teacher/Lesson';
+import { StudentsList } from '../components/Groups';
 
 export default [
   {
@@ -66,7 +67,15 @@ export default [
     component: Groups,
     icon: 'attendance',
     title: 'Groups',
-    children: []
+    children: [
+      {
+        exact: true,
+        path: '/list/:id',
+        component: StudentsList,
+        title: 'Groups',
+        hidden: true
+      }
+    ]
   },
   {
     exact: true,
