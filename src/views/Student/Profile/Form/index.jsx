@@ -69,6 +69,7 @@ const Form = ({ formik, title }) => (
             <CustomDatePickerV2
               name="date_of_birth"
               placeholder="Date of birth"
+              lang="en"
               value={formik.values.date_of_birth}
               type={formik.touched.date_of_birth
                     && formik.errors.date_of_birth && 'error'}
@@ -78,6 +79,7 @@ const Form = ({ formik, title }) => (
                 formik.setFieldValue('date_of_birth', value);
               }}
             />
+            {console.log(formik.values.date_of_birth)}
             <NormalInput
               size="medium"
               white

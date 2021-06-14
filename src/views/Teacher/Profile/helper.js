@@ -27,7 +27,7 @@ export const useEditForm = () => {
       last_name: data.last_name,
       middle_name: data.middle_name,
       email: data.email,
-      date_of_birth: data.date_of_birth,
+      date_of_birth: new Date(data.date_of_birth || null),
       phones: data.phones && data.phones.map((el) => el.phone)
     },
     validationSchema,
