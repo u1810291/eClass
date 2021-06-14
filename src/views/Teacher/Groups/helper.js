@@ -7,14 +7,15 @@ import { getStudents } from '../../../redux/modules/teacher/groups/actions';
 
 export const fetchStudents = (id) => {
   const dispatch = useDispatch();
-  const { data } = useSelector((state) => state.teacherGroupsReducers);
+  const {
+    data, loading, error, total
+  } = useSelector((state) => state.adminGroupsReducers);
   useEffect(() => {
-    console.log(id);
-    if (id) {
-      dispatch(getStudents(id));
-    }
+    dispatch(getStudents(id));
   }, [id]);
-  return { data };
+  return {
+    data, total, error, loading
+  };
 };
 
 export const toolTips = [

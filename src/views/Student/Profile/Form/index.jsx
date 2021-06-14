@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React from 'react';
 import { Container, Forms, InputsContainer } from './style';
 import Card from '../../../../components/Card';
@@ -79,7 +78,6 @@ const Form = ({ formik, title }) => (
                 formik.setFieldValue('date_of_birth', value);
               }}
             />
-            {console.log(formik.values.date_of_birth)}
             <NormalInput
               size="medium"
               white

@@ -17,7 +17,7 @@ const StudentsList = ({ data, deleteStudent, group_id }) => {
           <Text>
             <Text.Left>Adderss:</Text.Left>
             <Text.Right>
-              {el.address.address}
+              {el.address && el.address.address}
             </Text.Right>
           </Text>
           <Text>
