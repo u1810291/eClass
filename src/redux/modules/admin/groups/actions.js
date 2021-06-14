@@ -43,8 +43,15 @@ export const editGroup = (payload, success) => ({
   payload,
   success
 });
+
 export const deleteGroup = (payload, success) => ({
   type: types.TABLE_ADMIN_GROUPS_DELETE_GROUP,
+  payload,
+  success
+});
+
+export const removeStudent = (payload, success) => ({
+  type: types.TABLE_ADMIN_GROUPS_DELETE_STUDENT,
   payload,
   success
 });

@@ -23,6 +23,15 @@ export const Body = styled.div`
   grid-area: "right";
   grid-gap: 20px;
   grid-template-columns: repeat(3, 1fr);
+  position:relative;
+`;
+
+export const IconContainer = styled.div`
+  cursor: pointer;
+  position:absolute;
+  bottom: 10px;
+  right: 10px;
+  paddding: 5px;
 `;
 
 export const Left = styled.div`

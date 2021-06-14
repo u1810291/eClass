@@ -7,5 +7,6 @@ export const Container = styled.div.attrs((props) => ({
   box-sizing: border-box;
   border-radius: ${({ size }) => (size !== 'small' ? '25px' : '20px')};
   padding: 15px;
+  position: relative;
   width: 100%;
 `;

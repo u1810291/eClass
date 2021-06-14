@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { Container } from '../style';
 
 import StudentsList from '../../../../components/Groups/StudentsList';
-import { getGroupStudents } from './helper';
+import { getGroupStudents, deleteStudent } from './helper';
 import Spinner from '../../../../components/Spinner';
 import Error from '../../../../components/Error';
 
@@ -17,7 +17,14 @@ export default () => {
     <Container>
       {loading ? <Spinner contain black />
         : error ? <Error message={error} />
-          : <StudentsList data={students} total={total} group={single} />}
+          : (
+            <StudentsList
+              data={students}
+              total={total}
+              group={single}
+              deleteStudent={deleteStudent}
+            />
+          )}
     </Container>
   );
 };

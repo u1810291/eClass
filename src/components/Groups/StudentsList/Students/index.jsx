@@ -1,9 +1,13 @@
+/* eslint-disable camelcase */
 import React from 'react';
 
-import { Body, Text, Students } from '../style';
+import {
+  Body, Text, Students, IconContainer
+} from '../style';
 import Card from '../../../Card';
+import Icon from '../../../Icon';
 
-const StudentsList = ({ data }) => (
+const StudentsList = ({ data, deleteStudent, group_id }) => (
   <Body>
     {data && data.map((el) => (
       <Card bordered key={`key-${el.id}`}>
@@ -113,6 +117,10 @@ const StudentsList = ({ data }) => (
           </Text.Left>
           {el.limited.toString()}
         </Text>
+        <br />
+        <IconContainer onClick={(e) => { e.preventDefault(); deleteStudent(group_id, el.id); }}>
+          <Icon icon="bin" />
+        </IconContainer>
       </Card>
     ))}
   </Body>

@@ -1,9 +1,10 @@
+/* eslint-disable camelcase */
 import { useEffect } from 'react';
 
 // import * as Yup from 'yup';
 // import { useFormik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
-import { getStudents, getSingle } from '../../../../redux/modules/admin/groups/actions';
+import { getStudents, getSingle, removeStudent } from '../../../../redux/modules/admin/groups/actions';
 
 export const getGroupStudents = (id) => {
   const dispatch = useDispatch();
@@ -17,4 +18,11 @@ export const getGroupStudents = (id) => {
   return {
     single, students, total, error, loading
   };
+};
+
+export const deleteStudent = (id, student_id) => {
+  const dispatch = useDispatch();
+  dispatch(removeStudent({ id, student_id }, (res) => {
+    console.log(res);
+  }));
 };

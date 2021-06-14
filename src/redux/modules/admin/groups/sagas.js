@@ -97,6 +97,17 @@ function* deleteGroup({ payload, success }) {
   }
 }
 
+function* removeStudent({ payload, success }) {
+  try {
+    const res = service.deleteGroupStudents(payload);
+    yield put(setError(''));
+    success([res.data]);
+  } catch (error) {
+    alert(error.response ? error.response.data.error_message : error);
+    console.log(error.response ? error.response.data.error_message : error);
+  }
+}
+
 function* getStudents({ payload }) {
   try {
     yield put(setLoading(true));
@@ -120,4 +131,5 @@ export default function* adminGroupsSaga() {
   yield takeLatest(types.TABLE_ADMIN_GROUPS_DELETE_GROUP, deleteGroup);
   yield takeLatest(types.TABLE_ADMIN_GROUPS_ADD_STUDENT_GROUP, addStudent);
   yield takeLatest(types.TABLE_ADMIN_GROUPS_STUDENTS_FETCH, getStudents);
+  yield takeLatest(types.TABLE_ADMIN_GROUPS_DELETE_STUDENT, removeStudent);
 }

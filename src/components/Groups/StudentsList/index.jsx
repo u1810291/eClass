@@ -6,9 +6,9 @@ import {
 import GroupInfo from './GroupInfo';
 import StudentsList from './Students';
 
-export default ({ data, group }) => (
+export default ({ data, group, deleteStudent }) => (
   <Container>
     <GroupInfo data={group} />
-    <StudentsList data={data} />
+    <StudentsList data={data} deleteStudent={deleteStudent} group_id={group.id} />
   </Container>
 );
