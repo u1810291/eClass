@@ -11,8 +11,8 @@ export function dataSelector(lesson) {
     id: el.id,
     lesson: el.lesson.id,
     subject: el.subject.name,
-    start_date: moment(el.start_date).format('DD/MM/YYYY HH:mm'),
-    till_date: moment(el.till_date).format('DD/MM/YYYY HH:mm')
+    start_date: moment(el.start_date).format('MM-DD-YYYY HH:mm'),
+    till_date: moment(el.till_date).format('MM-DD-YYYY HH:mm')
   }));
   return { total: total_elements, data: filtered };
 }

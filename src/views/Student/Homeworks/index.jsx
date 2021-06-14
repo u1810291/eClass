@@ -22,11 +22,11 @@ export default () => {
   const [search, setSearch] = useState('');
   const [date, setDate] = useState(undefined);
   const [sort, setSort] = useState();
-  const [completed, setCompleted] = useState(false);
+  const [completed, setCompleted] = useState();
   const completedFilter = useMemo(
     () => (completed
       ? `&completed=${completed}`
-      : `&completed=${completed}`),
+      : ''),
     [completed]
   );
   const dateFilter = useMemo(
@@ -47,7 +47,6 @@ export default () => {
   );
   useEffect(() => {
     dispatch(fetchData({
-      isSearch: false,
       query: `${query}`
     }));
   }, [fetchData, query]);

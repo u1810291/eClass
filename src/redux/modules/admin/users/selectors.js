@@ -8,7 +8,7 @@ export function dataSelector(payload, user) {
       id: el.id,
       address: el.address.address,
       confirmed_by_admin: el.confirmed_by_admin,
-      date_of_birth: moment(el.date_of_birth).format('DD-MM-YYYY'),
+      date_of_birth: moment(el.date_of_birth).format('MM-DD-YYYY'),
       email: el.email,
       username: el.username,
       full_name: `${el.first_name} ${el.last_name} ${el.middle_name}`,
@@ -37,7 +37,7 @@ export function dataSelector(payload, user) {
     const teacher = content.map((el) => ({
       address: `${el.address.country} ${el.address.city} ${el.address.address}`,
       average_rating: el.average_rating,
-      date_of_birth: moment(el.date_of_birth).format('DD-MM-YYYY'),
+      date_of_birth: moment(el.date_of_birth).format('MM-DD-YYYY'),
       description: el.description,
       email: el.email,
       id: el.id,
@@ -63,7 +63,7 @@ export function dataSelector(payload, user) {
     const admin = content.map((el) => ({
       address: `${el.address.country} ${el.address.city} ${el.address.address}`,
       average_rating: el.average_rating,
-      date_of_birth: moment(el.date_of_birth).format('DD-MM-YYYY'),
+      date_of_birth: moment(el.date_of_birth).format('MM-DD-YYYY'),
       description: el.description,
       email: el.email,
       id: el.id,
@@ -122,7 +122,7 @@ export function singleUser(payload, data) {
     const teacher = {
       address: data.address,
       average_rating: data.average_rating,
-      date_of_birth: moment(data.date_of_birth).format('DD-MM-YYYY'),
+      date_of_birth: moment(data.date_of_birth).format('MM-DD-YYYY'),
       description: data.description,
       email: data.email,
       id: data.id,
@@ -150,7 +150,7 @@ export function singleUser(payload, data) {
     const admin = {
       address: data.address,
       average_rating: data.average_rating,
-      date_of_birth: moment(data.date_of_birth).format('DD-MM-YYYY'),
+      date_of_birth: moment(data.date_of_birth).format('MM-DD-YYYY'),
       description: data.description,
       email: data.email,
       id: data.id,

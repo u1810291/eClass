@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable no-alert */
 /* eslint-disable no-console */
 import { takeLatest, put } from 'redux-saga/effects';
@@ -9,7 +10,8 @@ import {
   setError,
   setLoading,
   setTotal,
-  setSingle
+  setSingle,
+  setStudents
 } from './actions';
 
 import { dataSelector, addGroupSelector, editGroupSelector } from './selectors';
@@ -95,6 +97,32 @@ function* deleteGroup({ payload, success }) {
   }
 }
 
+function* removeStudent({ payload, success }) {
+  try {
+    console.log(payload);
+    const res = service.deleteGroupStudents(payload.id, payload.student_id);
+    yield put(setError(''));
+    success([res.data]);
+  } catch (error) {
+    alert(error.response ? error.response.data.error_message : error);
+    console.log(error.response ? error.response.data.error_message : error);
+  }
+}
+
+function* getStudents({ payload }) {
+  try {
+    yield put(setLoading(true));
+    const { data, total_elements } = yield service.getGroupStudents(payload);
+    yield put(setStudents(data.content));
+    yield put(setError(''));
+    yield put(setTotal(total_elements));
+    yield put(setLoading(false));
+  } catch (error) {
+    console.log(error.response ? error.response.data.error_message : error);
+    alert(error.response ? error.response.data.error_message : error);
+  }
+}
+
 export default function* adminGroupsSaga() {
   yield takeLatest(types.TABLE_ADMIN_GROUPS_FETCH_DATA, fetchData);
   yield takeLatest(types.TABLE_ADMIN_GROUPS_FETCH_SINGLE_DATA, getSingle);
@@ -103,4 +131,6 @@ export default function* adminGroupsSaga() {
   yield takeLatest(types.TABLE_ADMIN_GROUPS_EDIT_GROUP, editGroup);
   yield takeLatest(types.TABLE_ADMIN_GROUPS_DELETE_GROUP, deleteGroup);
   yield takeLatest(types.TABLE_ADMIN_GROUPS_ADD_STUDENT_GROUP, addStudent);
+  yield takeLatest(types.TABLE_ADMIN_GROUPS_STUDENTS_FETCH, getStudents);
+  yield takeLatest(types.TABLE_ADMIN_GROUPS_DELETE_STUDENT, removeStudent);
 }

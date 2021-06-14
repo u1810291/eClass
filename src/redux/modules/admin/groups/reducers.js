@@ -5,7 +5,8 @@ const defaultState = {
   single: {},
   loading: false,
   total: 0,
-  error: ''
+  error: '',
+  students: []
 };
 
 const map = {
@@ -16,6 +17,10 @@ const map = {
   [types.TABLE_ADMIN_GROUPS_SET_DATA]: (state, { payload }) => ({
     ...state,
     data: payload
+  }),
+  [types.TABLE_ADMIN_GROUPS_SET_STUDENTS]: (state, { payload }) => ({
+    ...state,
+    students: payload
   }),
   [types.TABLE_ADMIN_GROUPS_SET_TOTAL]: (state, { payload }) => ({
     ...state,

@@ -3,68 +3,55 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Table from '../../../components/Table';
 import { Container } from './style';
-import { fetchData } from '../../../redux/modules/teacher/lessons/actions';
-import { teacherLessonsHeader } from '../../../redux/modules/table/common';
-import LessonsHeader from '../../../components/Headers/LessonsHeader';
+import { fetchData } from '../../../redux/modules/admin/groups/actions';
+import { getUser } from '../../../redux/modules/lists/actions';
+import { groupsHeader } from '../../../redux/modules/table/common';
+import TeacherGroupsHeader from '../../../components/Headers/TeacherGroupsHeader';
 import TableError from '../../../components/Table/Error';
 import { headerMaker } from '../../../components/Table/helper';
 import { toolTips } from './helper';
+import { fetchData as subjectFetch } from '../../../redux/modules/admin/subjects/actions';
 
 export default () => {
   const dispatch = useDispatch();
   const [pageIndex, setPageIndex] = useState(0);
-  const [pageSize, setPageSize] = useState(0);
+  const [pageSize, setPageSize] = useState(10);
   const [search, setSearch] = useState('');
-  const curr = new Date();
-  const first = curr.getDate() - curr.getDay();
-  const last = first + 7;
-  const firstday = new Date(curr.setDate(first));
-  const lastday = new Date(curr.setDate(last));
-  const [date, setDate] = useState({ start: firstday, end: lastday });
   const [sort, setSort] = useState();
+
   const {
     loading, data, total, error
-  } = useSelector((state) => state.teacherLessonsReducers);
-  const headerData = useSelector(({ tableReducer }) => tableReducer.teacherLessonsHeader);
+  } = useSelector((state) => state.adminGroupsReducers);
+  const headerData = useSelector(({ tableReducer }) => tableReducer.groupsHeader);
   const headers = useMemo(() => headerMaker(headerData), [headerData]);
 
-  const dateFilter = useMemo(
-    () => (date
-      ? `&from_date=${date.start.toISOString()}&to_date=${date.end.toISOString()}`
-      : ''),
-    [date]
-  );
-
   const sortQuery = useMemo(() => {
-    const found = sort && teacherLessonsHeader.find(({ id }) => id === sort.id);
+    const found = sort && groupsHeader.find(({ id }) => id === sort.id);
     return found
-      ? `sort=${'id'},${sort.desc ? 'desc' : 'asc'}`
+      ? `&sort=${found},${sort.desc ? 'desc' : 'asc'}`
       : '';
   }, [sort]);
 
   const query = useMemo(
-    () => `${dateFilter}&page=${pageIndex}&size=${pageSize}&${sortQuery}`,
-    [pageIndex, pageSize, sortQuery, dateFilter]
+    () => `page=${pageIndex}&size=${pageSize}${sortQuery}`,
+    [pageIndex, pageSize, sortQuery]
   );
 
   useEffect(() => {
-    dispatch(fetchData({
-      query: `${query}`
-    }));
-  }, [fetchData, query]);
+    dispatch(subjectFetch());
+    dispatch(getUser('teacher', ''));
+    dispatch(fetchData({ query }));
+  }, [dispatch, query]);
 
   const handleOnChange = ({ pageIndex, pageSize }) => {
     setPageIndex(pageIndex);
     setPageSize(pageSize);
   };
-
   return (
     <Container>
-      <LessonsHeader
+      <TeacherGroupsHeader
         setSearch={setSearch}
         search={search}
-        setDate={setDate}
-        date={date}
       />
       {error ? (
         <TableError message={error} />

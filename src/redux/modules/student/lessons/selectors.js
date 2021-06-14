@@ -4,7 +4,7 @@ export function dataSelector(lesson) {
   // eslint-disable-next-line camelcase
   const { total_elements, content } = lesson;
   const filtered = content.map((el) => ({
-    date: moment(el.scheduled_start).format('DD.MM.YYYY'),
+    date: moment(el.scheduled_start).format('MM-DD-YYYY'),
     time: moment(el.scheduled_start).format('HH:mm:ss'),
     scheduled_start: moment(el.scheduled_start).format('MM-DD-YYYY HH:mm:ss'),
     started_at: moment(el.started_at || '').format('MM-DD-YYYY HH:mm:ss'),

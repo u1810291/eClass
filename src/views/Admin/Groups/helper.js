@@ -270,10 +270,8 @@ export const toolTips = [
     }
   },
   {
-    name: 'Delete student',
+    name: 'Students List',
     icon: 'payment',
-    onClick: () => {
-      alert('Delete student');
-    }
+    onClick: (id, { history }) => history.push(`/groups/students/list/${id}`, [id])
   }
 ];

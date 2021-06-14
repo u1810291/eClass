@@ -17,7 +17,7 @@ export default () => {
   const { data, error, loading } = useSelector((state) => state.teacherBalanceReducers);
   useEffect(() => {
     dispatch(fetchData());
-    setDate(moment(new Date()).format('DD-MM-YYYY hh:mm:ss'));
+    setDate(moment(new Date()).format('MM-DD-YYYY hh:mm:ss'));
   }, [fetchData]);
   return (
     <Container>
