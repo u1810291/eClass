@@ -18,7 +18,6 @@ function* getStudents({ payload }) {
   try {
     yield put(setLoading(true));
     const res = yield service.getGroupStudents(payload);
-    console.log(res);
     const { total, data } = dataSelector(res.data);
     yield put(setData(data));
     yield put(setError(''));

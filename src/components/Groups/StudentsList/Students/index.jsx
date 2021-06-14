@@ -121,9 +121,12 @@ const StudentsList = ({ data, deleteStudent, group_id }) => {
             {el.limited.toString()}
           </Text>
           <br />
-          <IconContainer onClick={() => deleteStudent(dispatch, group_id, el.id)}>
-            <Icon icon="bin" />
-          </IconContainer>
+          {deleteStudent
+          && (
+            <IconContainer onClick={() => deleteStudent(dispatch, group_id, el.id)}>
+              <Icon icon="bin" />
+            </IconContainer>
+          )}
         </Card>
       ))}
     </Body>

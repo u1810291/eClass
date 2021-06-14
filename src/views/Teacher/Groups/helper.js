@@ -9,10 +9,11 @@ export const fetchStudents = (id) => {
   const dispatch = useDispatch();
   const {
     data, loading, error, total
-  } = useSelector((state) => state.adminGroupsReducers);
+  } = useSelector((state) => state.teacherGroupsReducers);
   useEffect(() => {
     dispatch(getStudents(id));
   }, [id]);
+  console.log(data);
   return {
     data, total, error, loading
   };
