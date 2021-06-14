@@ -25,5 +25,6 @@ export const deleteStudent = (dispatch, id, student_id) => dispatch(removeStuden
   student_id
 },
 (res) => {
+  // eslint-disable-next-line no-console
   console.log(res);
 }));
