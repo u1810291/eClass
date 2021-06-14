@@ -20,11 +20,14 @@ export const getGroupStudents = (id) => {
   };
 };
 
-export const deleteStudent = (dispatch, id, student_id) => dispatch(removeStudent({
-  id,
-  student_id
-},
-(res) => {
+export const deleteStudent = (dispatch, id, student_id) => {
+  dispatch(removeStudent({
+    id,
+    student_id
+  },
+  (res) => {
   // eslint-disable-next-line no-console
-  console.log(res);
-}));
+    console.log(res);
+  }));
+  dispatch(getStudents(id));
+};

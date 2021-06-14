@@ -99,10 +99,9 @@ function* deleteGroup({ payload, success }) {
 
 function* removeStudent({ payload, success }) {
   try {
-    console.log(payload);
     const res = service.deleteGroupStudents(payload.id, payload.student_id);
     yield put(setError(''));
-    success([res.data]);
+    success(res.data);
   } catch (error) {
     alert(error.response ? error.response.data.error_message : error);
     console.log(error.response ? error.response.data.error_message : error);
