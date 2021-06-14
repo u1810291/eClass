@@ -26,7 +26,7 @@ export const Body = styled.div`
   position:relative;
 `;
 
-export const IconContainer = styled.div`
+export const IconContainer = styled.button`
   cursor: pointer;
   position:absolute;
   bottom: 10px;

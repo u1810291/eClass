@@ -20,9 +20,10 @@ export const getGroupStudents = (id) => {
   };
 };
 
-export const deleteStudent = (id, student_id) => {
-  const dispatch = useDispatch();
-  dispatch(removeStudent({ id, student_id }, (res) => {
-    console.log(res);
-  }));
-};
+export const deleteStudent = (dispatch, id, student_id) => dispatch(removeStudent({
+  id,
+  student_id
+},
+(res) => {
+  console.log(res);
+}));
