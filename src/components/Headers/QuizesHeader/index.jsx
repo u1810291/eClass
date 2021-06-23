@@ -37,11 +37,11 @@ export default ({
         />
         <SwitchButton>
           <SwitchButton.Button type="button" onClick={() => setCompleted(false)}>
-            <div>Not finished works</div>
+            <div>Not finished</div>
             <SwitchButton.Counter>15</SwitchButton.Counter>
           </SwitchButton.Button>
           <SwitchButton.Button type="button" onClick={() => setCompleted(true)}>
-            <div>Finished works</div>
+            <div>Finished</div>
             <SwitchButton.Counter>15</SwitchButton.Counter>
           </SwitchButton.Button>
         </SwitchButton>

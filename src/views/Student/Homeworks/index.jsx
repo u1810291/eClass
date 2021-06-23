@@ -49,7 +49,7 @@ export default () => {
     dispatch(fetchData({
       query: `${query}`
     }));
-  }, [fetchData, query]);
+  }, [query]);
   const handleOnChange = ({ pageIndex, pageSize }) => {
     setPageIndex(pageIndex);
     setPageSize(pageSize);
