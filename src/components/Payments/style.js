@@ -1,11 +1,55 @@
 import styled from 'styled-components';
 import { ReactComponent as Subjects } from '../../assets/icons/subjects.svg';
+import { ReactComponent as Cash } from '../../assets/icons/cash.svg';
+import { ReactComponent as Online } from '../../assets/icons/online.svg';
+import { ReactComponent as Click } from '../../assets/icons/click.svg';
+import { ReactComponent as Payme } from '../../assets/icons/payme.svg';
 
 export const Container = styled.div`
   margin: 30px 0px 0px;
 `;
 
 export const Icon = styled(Subjects)`
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 3px;
+  svg{
+    margin: 5px;
+  }
+`;
+
+export const CashIcon = styled(Cash)`
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 3px;
+  svg{
+    margin: 5px;
+  }
+`;
+
+export const PaymeIcon = styled(Payme)`
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 3px;
+  svg{
+    margin: 5px;
+  }
+`;
+
+export const OnlineIcon = styled(Online)`
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 3px;
+  svg{
+    margin: 5px;
+  }
+`;
+
+export const ClickIcon = styled(Click)`
   width: 40px;
   height: 40px;
   margin: 0;
@@ -89,11 +133,17 @@ export const PaymentType = styled.ul`
   box-shadow: 0px 2px 4px rgba(28, 41, 90, 0.0367952);
   border-radius: 10px;
 `;
-
+PaymentType.Title = styled.span`
+  margin: 3px 5px 0px;
+`;
 PaymentType.List = styled.li`
-
-  height: 40px;
+  display:flex;
+  justify-content: space-between;
+  align-items: center
+  height: 60px;
+  border-bottom: 1px solid black;
   list-style-type: none;
+  margin: 5px 10px 0px; 
 `;
 
 PaymentType.Icon = styled.div`

@@ -13,17 +13,16 @@ import {
   StepThree,
   InnerCard,
   CardContent,
-  PaymentType
+  PaymentType,
+  PaymeIcon,
+  OnlineIcon,
+  ClickIcon,
+  CashIcon
 } from './style';
 import { Wrapper } from '../Styles/style';
 import { getRandColor } from '../../utils/random-color';
 import Card from '../Card';
 import CheckBox from '../CheckBox';
-
-import Cash from '../../assets/icons/cash.svg';
-import Payme from '../../assets/icons/payme.svg';
-import Online from '../../assets/icons/online.svg';
-import Click from '../../assets/icons/click.svg';
 
 // eslint-disable-next-line no-unused-vars
 export default ({ data }) => (
@@ -64,27 +63,29 @@ export default ({ data }) => (
     <Footer>
       <StepThree>
         <PaymentType>
-          Payment type
+          <PaymentType.Title>
+            Payment type
+          </PaymentType.Title>
           <PaymentType.List>
-            <PaymentType.Icon icon={Click} />
+            <ClickIcon />
             <PaymentType.Text>
               Click
             </PaymentType.Text>
           </PaymentType.List>
           <PaymentType.List>
-            <PaymentType.Icon icon={Payme} />
+            <PaymeIcon />
             <PaymentType.Text>
               Payme
             </PaymentType.Text>
           </PaymentType.List>
           <PaymentType.List>
-            <PaymentType.Icon icon={Online} />
+            <OnlineIcon />
             <PaymentType.Text>
               Online
             </PaymentType.Text>
           </PaymentType.List>
           <PaymentType.List>
-            <PaymentType.Icon icon={Cash} />
+            <CashIcon />
             <PaymentType.Text>
               Cash
             </PaymentType.Text>
