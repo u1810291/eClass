@@ -24,5 +24,5 @@ function* fetchData({ payload }) {
 }
 
 export default function* studentQuizesSaga() {
-  yield takeLatest(types.TABLE_STUDENT_QUIZES_FETCH_DATA, fetchData);
+  yield takeLatest(types.TABLE_ADMIN_QUIZES_FETCH_DATA, fetchData);
 }

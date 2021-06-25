@@ -3,7 +3,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Table from '../../../components/Table';
 import { Container } from './style';
-import { fetchData } from '../../../redux/modules/quizes/actions';
+import { fetchData } from '../../../redux/modules/student/quizes/actions';
 import { headerMaker } from '../../../components/Table/helper';
 import { studentQuizesHeader } from '../../../redux/modules/table/common';
 import { toolTips } from './helper';
@@ -33,7 +33,6 @@ export default () => {
       : ''),
     [completed]
   );
-
   const dateFilter = useMemo(
     () => (date
       ? `&from_date=${date.start.toISOString()}&to_date=${date.end.toISOString()}`
@@ -47,15 +46,14 @@ export default () => {
       : '';
   }, [sort]);
   const query = useMemo(
-    () => `page=${pageIndex}&size=${pageSize}${completedFilter}${dateFilter}${sortQuery}`,
-    [sortQuery, dateFilter, completed, pageIndex, pageSize]
+    () => `${completedFilter}${dateFilter}&page=${pageIndex}&size=${pageSize}&${sortQuery}`,
+    [pageIndex, pageSize, sortQuery, dateFilter, completed]
   );
-
   useEffect(() => {
-    console.log(query);
-    dispatch(fetchData({ query: `${query}` }));
+    dispatch(fetchData({
+      query: `${query}`
+    }));
   }, [query]);
-
   const handleOnChange = ({ pageIndex, pageSize }) => {
     setPageIndex(pageIndex);
     setPageSize(pageSize);
