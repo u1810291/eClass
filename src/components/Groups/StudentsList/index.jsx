@@ -8,7 +8,7 @@ import StudentsList from './Students';
 
 export default ({ data, group, deleteStudent }) => (
   <Container>
-    <GroupInfo data={group} />
-    <StudentsList data={data} deleteStudent={deleteStudent} group_id={group.id} />
+    {group && <GroupInfo data={group} />}
+    <StudentsList data={data} deleteStudent={deleteStudent} group_id={group && group.id} />
   </Container>
 );

@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React from 'react';
 import { Container, Forms, InputsContainer } from './style';
 import Card from '../../../../components/Card';
@@ -69,6 +68,7 @@ const Form = ({ formik, title }) => (
             <CustomDatePickerV2
               name="date_of_birth"
               placeholder="Date of birth"
+              lang="en"
               value={formik.values.date_of_birth}
               type={formik.touched.date_of_birth
                     && formik.errors.date_of_birth && 'error'}

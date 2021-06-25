@@ -5,13 +5,13 @@ import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  createLesson, addGroup, editGroup, addStudent, getSingle
+  createLesson, addGroup, editGroup, addStudent, getSingle, deleteGroup
 } from '../../../redux/modules/admin/groups/actions';
 import { addSubject } from '../../../redux/modules/admin/subjects/actions';
 import { fetchData } from '../../../redux/modules/admin/users/actions';
 import { notify } from '../../../redux/modules/notifications/actions';
 import {
-  CreateLesson, EditGroup, DeleteGroup, AddStudent
+  CreateLesson, EditGroup, AddStudent
 } from '../../../components/Groups';
 import { useHideModal } from '../../../hooks/modal';
 
@@ -252,12 +252,7 @@ export const toolTips = [
   {
     name: 'Delete group',
     icon: 'payment',
-    onClick: (id, { showBlured }) => {
-      showBlured({
-        title: 'Delete group',
-        body: () => <DeleteGroup id={id} />
-      });
-    }
+    onClick: (id, { dispatch }) => dispatch(deleteGroup(id, (res) => { if (res) alert('Successfully deleted'); }))
   },
   {
     name: 'Add student',

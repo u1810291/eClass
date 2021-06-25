@@ -23,14 +23,13 @@ export default ({
           options={options}
           onChange={(e) => setOption(e)}
         />
-        Total balance: 750.000sums
       </Header.Right>
     </Header>
     {error
       ? <TableError message={error} />
       : (
         <Body>
-          {loading ? <Spinner contain black /> : (
+          {loading ? <Spinner contain black /> : data.length && (
             <Card color="#FFFFFF" size="small">
               <CardsContainer>
                 {data.map((el, i) => (

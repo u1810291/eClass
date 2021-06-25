@@ -3,7 +3,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Table from '../../../components/Table';
 import { Container } from './style';
-import { fetchData } from '../../../redux/modules/quizes/actions';
+import { fetchData } from '../../../redux/modules/student/quizes/actions';
 import { headerMaker } from '../../../components/Table/helper';
 import { studentQuizesHeader } from '../../../redux/modules/table/common';
 import { toolTips } from './helper';
@@ -11,7 +11,6 @@ import QuizesHeader from '../../../components/Headers/QuizesHeader';
 import TableError from '../../../components/Table/Error';
 
 export default () => {
-  const { userInfo } = useSelector((state) => state.userReducer);
   const dispatch = useDispatch();
 
   const {
@@ -21,12 +20,19 @@ export default () => {
   const headerData = useSelector(({ tableReducer }) => tableReducer.studentQuizesHeader);
   const header = useMemo(() => headerMaker(headerData), [headerData]);
   const [pageIndex, setPageIndex] = useState(0);
-  const [pageSize, setPageSize] = useState(0);
+  const [pageSize, setPageSize] = useState(10);
 
   const [search, setSearch] = useState('');
   const [date, setDate] = useState(undefined);
+  const [completed, setCompleted] = useState();
   const [sort, setSort] = useState();
 
+  const completedFilter = useMemo(
+    () => (completed
+      ? `&completed=${completed}`
+      : ''),
+    [completed]
+  );
   const dateFilter = useMemo(
     () => (date
       ? `&from_date=${date.start.toISOString()}&to_date=${date.end.toISOString()}`
@@ -40,38 +46,33 @@ export default () => {
       : '';
   }, [sort]);
   const query = useMemo(
-    () => `${dateFilter}&page=${pageIndex}&size=${pageSize}&${sortQuery}`,
-    [pageIndex, pageSize, sortQuery, dateFilter]
+    () => `${completedFilter}${dateFilter}&page=${pageIndex}&size=${pageSize}&${sortQuery}`,
+    [pageIndex, pageSize, sortQuery, dateFilter, completed]
   );
   useEffect(() => {
     dispatch(fetchData({
-      user: userInfo.role,
-      isSearch: false,
       query: `${query}`
     }));
-  }, [fetchData, query]);
+  }, [query]);
   const handleOnChange = ({ pageIndex, pageSize }) => {
     setPageIndex(pageIndex);
     setPageSize(pageSize);
   };
-
-  useEffect(() => {
-    dispatch(
-      fetchData({
-        user: userInfo.role,
-        isSearch: true,
-        query: `${query}${search ? `&search=${search}` : ''}`
-      })
-    );
-    // eslint-disable-next-line
-  }, [dispatch, search]);
+  const clear = () => {
+    setSearch('');
+    setDate(undefined);
+    setSort();
+    setCompleted(false);
+  };
   return (
     <Container>
       <QuizesHeader
+        clear={clear}
         setSearch={setSearch}
         search={search}
         setDate={setDate}
         date={date}
+        setCompleted={setCompleted}
       />
       {error ? (
         <TableError message={error} />

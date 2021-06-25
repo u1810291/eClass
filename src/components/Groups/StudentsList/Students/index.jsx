@@ -17,7 +17,7 @@ const StudentsList = ({ data, deleteStudent, group_id }) => {
           <Text>
             <Text.Left>Adderss:</Text.Left>
             <Text.Right>
-              {el.address.address}
+              {el.address && el.address.address}
             </Text.Right>
           </Text>
           <Text>
@@ -121,9 +121,12 @@ const StudentsList = ({ data, deleteStudent, group_id }) => {
             {el.limited.toString()}
           </Text>
           <br />
-          <IconContainer onClick={() => deleteStudent(dispatch, group_id, el.id)}>
-            <Icon icon="bin" />
-          </IconContainer>
+          {deleteStudent
+          && (
+            <IconContainer onClick={() => deleteStudent(dispatch, group_id, el.id)}>
+              <Icon icon="bin" />
+            </IconContainer>
+          )}
         </Card>
       ))}
     </Body>

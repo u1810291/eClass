@@ -68,7 +68,6 @@ export default () => {
     setSort();
     setCompleted(false);
   };
-
   return (
     <Container>
       <HomeworksHeader
@@ -78,7 +77,6 @@ export default () => {
         date={date}
         clear={clear}
         setCompleted={setCompleted}
-
       />
       {error ? (
         <TableError message={error} />

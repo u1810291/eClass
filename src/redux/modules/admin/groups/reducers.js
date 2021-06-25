@@ -34,7 +34,6 @@ const map = {
     ...state,
     single: payload
   })
-
 };
 
 // eslint-disable-next-line max-len

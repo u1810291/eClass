@@ -1,28 +1,23 @@
 import { takeLatest, put } from 'redux-saga/effects';
-import types from '../../../constants/action-types';
-import service from '../../../services/student/exercise';
+import types from '../../../../constants/action-types';
+import service from '../../../../services/student/exercise';
 import {
-  setData,
   setError,
-  setTotal,
   setLoading
 } from './actions';
 
-import { dataSelector } from './selectors';
-
-function* fetchData({ payload }) {
+function* topUp({ payload, success }) {
   try {
+    yield put(setLoading(true));
     const res = yield service.getQuizes(payload.query);
-    const { total, data } = dataSelector(res.data);
     yield put(setError(''));
-    yield put(setData(data));
-    yield put(setTotal(total));
     yield put(setLoading(false));
+    yield success(res.data);
   } catch (error) {
     yield put(setError(error.response ? error.response.data.error_message : error));
   }
 }
 
 export default function* studentQuizesSaga() {
-  yield takeLatest(types.TABLE_ADMIN_QUIZES_FETCH_DATA, fetchData);
+  yield takeLatest(types.STUDENT_PAYMENTS_TOP_UP, topUp);
 }
