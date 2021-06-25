@@ -12,6 +12,7 @@ import { dataSelector, submitHomeworkSelector } from './selectors';
 
 function* fetchData({ payload }) {
   try {
+    yield put(setLoading(true));
     const res = yield service.getQuizes(payload.query);
     const { total, data } = dataSelector(res.data);
     yield put(setError(''));

@@ -138,12 +138,16 @@ PaymentType.Title = styled.span`
 `;
 PaymentType.List = styled.li`
   display:flex;
+  cursor: pointer;
   justify-content: space-between;
-  align-items: center
-  height: 60px;
-  border-bottom: 1px solid black;
+  align-items: center;
+  height: 60px !important;
+  border-bottom: 1px solid #d8d8d8;
   list-style-type: none;
   margin: 5px 10px 0px; 
+  &:nth-child(5) {
+    border-bottom: none;
+  }
 `;
 
 PaymentType.Icon = styled.div`

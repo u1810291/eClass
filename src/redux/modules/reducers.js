@@ -12,6 +12,7 @@ export { default as filesReducers } from './files/reducers';
 export { default as notificationReducer } from './notifications/reducers';
 export { default as lessonReducer } from './lessons/reducers';
 
+export { default as studentPaymentssReducers } from './student/payments/reducers';
 export { default as studentQuizesReducers } from './student/quizes/reducers';
 export { default as studentHomeworksReducers } from './student/homeworks/reducers';
 export { default as studentLessonsReducers } from './student/lessons/reducers';

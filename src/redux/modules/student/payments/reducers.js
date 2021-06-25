@@ -1,24 +1,13 @@
 import types from '../../../../constants/action-types';
 
 const defaultState = {
-  data: [],
-  loading: false,
-  total: 0,
-  error: ''
+  loading: false
 };
 
 const map = {
-  [types.TABLE_STUDENT_QUIZES_SET_LOADING]: (state, { payload }) => ({
+  [types.STUDENT_PAYMENTS_SET_LOADING]: (state, { payload }) => ({
     ...state,
     loading: payload
-  }),
-  [types.TABLE_STUDENT_QUIZES_SET_DATA]: (state, { payload }) => ({
-    ...state,
-    data: payload
-  }),
-  [types.TABLE_STUDENT_QUIZES_SET_TOTAL]: (state, { payload }) => ({
-    ...state,
-    total: payload
   }),
   [types.TABLE_STUDENT_QUIZES_ERROR]: (state, { payload }) => ({
     ...state,
