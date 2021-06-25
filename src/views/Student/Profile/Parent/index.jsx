@@ -32,12 +32,12 @@ const Form = ({
           </InputsContainer.Head>
           <InputsContainer.Body>
             <TagsInput
-              white
+              placeholder="Phones"
+              size="medium"
               name="phones"
-              value={formik.values.parents[idx].phones
-                && [formik.values.parents[idx].phones.map((el) => el.phone)]}
-              defaultValue={formik.values.parents[idx].phones
-                && [formik.values.parents[idx].phones.map((el) => el.phone)]}
+              value={formik.values.parents[idx].phones}
+              defaultValue={formik.values.parents[idx].phones || []}
+              white
               onChange={(e) => formik.setFieldValue(`parents[${idx}].phones`, e)}
             />
           </InputsContainer.Body>
