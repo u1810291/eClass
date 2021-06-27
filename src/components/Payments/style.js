@@ -66,7 +66,11 @@ export const CardBody = styled.div`
   justify-content: center;
 `;
 
-CardBody.Title = styled.div``;
+CardBody.Title = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
 
 CardBody.Value = styled.div`
   padding: 10px 0px 0px;
@@ -91,7 +95,7 @@ export const InnerCard = styled.div`
   display: grid;
   grid-gap: 10px;
   grid-auto-flow: column;
-  grid-auto-columns: 40%;
+  grid-auto-columns: 250px;
   cursor: pointer;
 `;
 
@@ -110,7 +114,6 @@ export const CardContent = styled.div`
       }
   }
   background-color: inherit !important;
-
 `;
 export const MainCard = styled.div`
   margin: 10px 0px 0px;
@@ -119,7 +122,6 @@ export const MainCard = styled.div`
   }
   transition-duration: 500ms;
   padding:10px;
-  width: 200px;
 `;
 
 export const StepTwo = styled.div``;

@@ -18,7 +18,6 @@ function* fetchData({ payload }) {
     const res = yield service.getGroups(payload);
     const { total, data } = dataSelector(res.data);
     yield put(setError(''));
-    console.log(data);
     yield put(setData(data));
     yield put(setTotal(total));
     yield put(setLoading(false));
