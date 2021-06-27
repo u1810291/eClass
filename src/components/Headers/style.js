@@ -186,7 +186,7 @@ TitleWrapper.Title = styled.div`
   line-height: 24px;
 
 `;
-TitleWrapper.Clear = styled.span`]
+TitleWrapper.Clear = styled.span`
   font-size: 18px;
   text-decoration: underline;
   cursor: pointer;
@@ -209,8 +209,10 @@ export const Wrapper = styled.div`
 
 SwitchButton.Counter = styled.div`
   margin: 2px;
+  display:flex;
+  justify-content: center;
   padding: 2px;
-  min-width: 20px;
+  width: 25px;
   border-radius: 7px;
   background: rgba(214, 136, 155, 0.82);
 `;
@@ -224,7 +226,7 @@ SwitchButton.Button = styled.button`
   cursor: pointer;
   border: none;
   width: 100%;
-  background: #FFFFFF;
+  background: ${({ completed }) => (completed ? '#FFFFFF' : 'rgba(214, 236, 255, 0.82)')};
   &:active{
     background: #FFFFFF;
   }
