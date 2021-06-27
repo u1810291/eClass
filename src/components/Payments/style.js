@@ -91,7 +91,7 @@ export const InnerCard = styled.div`
   display: grid;
   grid-gap: 10px;
   grid-auto-flow: column;
-  grid-auto-columns: 20%;
+  grid-auto-columns: 40%;
   cursor: pointer;
 `;
 
@@ -100,7 +100,7 @@ export const CardContent = styled.div`
   grid-gap: 10px;
   grid-auto-flow: column;
   grid-auto-columns: 40% 60%;
-  width: 100%;
+  width: 200px;
   &:hover {
     opacity: 0.7;
   }
@@ -119,6 +119,7 @@ export const MainCard = styled.div`
   }
   transition-duration: 500ms;
   padding:10px;
+  width: 200px;
 `;
 
 export const StepTwo = styled.div``;
@@ -127,15 +128,20 @@ export const StepFour = styled.div``;
 
 export const PaymentType = styled.ul`
   width: 100%;
-  hewight: 100%;
+  height: 100%;
   background: #FFFFFF;
   border: 1px solid #EAEDF7;
   box-shadow: 0px 2px 4px rgba(28, 41, 90, 0.0367952);
   border-radius: 10px;
 `;
-PaymentType.Title = styled.span`
-  margin: 3px 5px 0px;
+
+PaymentType.Title = styled.div`
+  margin: 3px 10px 0px;
+  height: 30px;
+  display:flex;
+  align-items: center;
 `;
+
 PaymentType.List = styled.li`
   display:flex;
   cursor: pointer;

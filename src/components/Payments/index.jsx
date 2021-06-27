@@ -32,8 +32,8 @@ export default ({ data }) => (
       <Navigate.Cards>
         <Wrapper className="scroll-container">
           <InnerCard>
-            {[...Array(15)].map((_, i) => (
-              <MainCard key={i}>
+            {data.map((el) => (
+              <MainCard key={el.id}>
                 <Card>
                   <CardContent color={getRandColor()}>
                     <Card>
@@ -41,15 +41,15 @@ export default ({ data }) => (
                     </Card>
                     <CardBody>
                       <CardBody.Title>
-                        {i}
-                        {' '}
-                        title
+                        {el.official_name}
                       </CardBody.Title>
                       <CardBody.CheckBox>
                         <CheckBox />
                       </CardBody.CheckBox>
                       <CardBody.Value>
-                        550.000 sum
+                        {el.price}
+                        {' '}
+                        sum
                       </CardBody.Value>
                     </CardBody>
                   </CardContent>

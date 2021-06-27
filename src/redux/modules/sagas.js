@@ -6,6 +6,7 @@ export { default as filesSaga } from './files/sagas';
 export { default as lessonSaga } from './lessons/sagas';
 export { default as homeworksSaga } from './homeworks/sagas';
 
+export { default as studentGroupsSaga } from './student/groups/sagas';
 export { default as studentPaymentsSaga } from './student/payments/sagas';
 export { default as studentQuizesSaga } from './student/quizes/sagas';
 export { default as studentHomeworksSaga } from './student/homeworks/sagas';
