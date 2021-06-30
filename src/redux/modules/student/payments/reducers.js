@@ -1,13 +1,14 @@
 import types from '../../../../constants/action-types';
 
 const defaultState = {
-  loading: false
+  methods: [],
+  error: ''
 };
 
 const map = {
-  [types.STUDENT_PAYMENTS_SET_LOADING]: (state, { payload }) => ({
+  [types.STUDENT_PAYMENTS_SET_METHODS]: (state, { payload }) => ({
     ...state,
-    loading: payload
+    methods: payload
   }),
   [types.TABLE_STUDENT_QUIZES_ERROR]: (state, { payload }) => ({
     ...state,

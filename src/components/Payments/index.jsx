@@ -70,7 +70,7 @@ export default ({ tariffs: { data, loading, error }, methods }) => (
             Payment type
           </PaymentType.Title>
           {methods.map(({ id, method_name, active }) => active && (
-            <PaymentType.List id={id}>
+            <PaymentType.List key={id}>
               <PaymentType.Text>
                 {method_name}
               </PaymentType.Text>

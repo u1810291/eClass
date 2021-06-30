@@ -22,7 +22,7 @@ export default () => {
   const headerData = useSelector(({ tableReducer }) => tableReducer.teacherQuizesHeader);
   const header = useMemo(() => headerMaker(headerData), [headerData]);
   const [pageIndex, setPageIndex] = useState(0);
-  const [pageSize, setPageSize] = useState(0);
+  const [pageSize, setPageSize] = useState(10);
   const [completed, setCompleted] = useState();
   const [search, setSearch] = useState('');
   const [date, setDate] = useState(undefined);
@@ -62,18 +62,6 @@ export default () => {
     setPageIndex(pageIndex);
     setPageSize(pageSize);
   };
-
-  useEffect(() => {
-    dispatch(
-      fetchData({
-        user: userInfo.role,
-        isSearch: true,
-        query: `${query}${search ? `&search=${search}` : ''}`
-      })
-    );
-    // eslint-disable-next-line
-  }, [dispatch, search]);
-
   const clear = () => {
     setSearch('');
     setDate(undefined);
@@ -88,6 +76,7 @@ export default () => {
         setDate={setDate}
         date={date}
         clear={clear}
+        total={total}
         completed={completed}
         setCompleted={setCompleted}
       />
