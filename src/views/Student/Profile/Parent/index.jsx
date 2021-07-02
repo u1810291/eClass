@@ -14,18 +14,18 @@ const Form = ({
         <InputsContainer>
           <InputsContainer.Head>
             <NormalInput
-              size="medium"
               white
-              placeholder="First name"
+              size="medium"
               name="full_name"
+              placeholder="First name"
               value={formik.values.parents[idx].first_name}
               onChange={(e) => formik.setFieldValue(`parents[${idx}].first_name`, e.target.value)}
             />
             <NormalInput
-              size="medium"
               white
-              placeholder="Last name"
+              size="medium"
               name="full_name"
+              placeholder="Last name"
               value={formik.values.parents[idx].last_name}
               onChange={(e) => formik.setFieldValue(`parents[${idx}].last_name`, e.target.value)}
             />
@@ -33,11 +33,11 @@ const Form = ({
           <InputsContainer.Body>
             <TagsInput
               white
+              size="medium"
               name="phones"
-              value={formik.values.parents[idx].phones
-                && [formik.values.parents[idx].phones.map((el) => el.phone)]}
-              defaultValue={formik.values.parents[idx].phones
-                && [formik.values.parents[idx].phones.map((el) => el.phone)]}
+              placeholder="Phones"
+              value={formik.values.parents[idx].phones}
+              defaultValue={formik.values.parents[idx].phones || []}
               onChange={(e) => formik.setFieldValue(`parents[${idx}].phones`, e)}
             />
           </InputsContainer.Body>

@@ -67,11 +67,13 @@ export default () => {
   return (
     <Container>
       <QuizesHeader
+        date={date}
         clear={clear}
-        setSearch={setSearch}
+        total={total}
         search={search}
         setDate={setDate}
-        date={date}
+        setSearch={setSearch}
+        completed={completed}
         setCompleted={setCompleted}
       />
       {error ? (

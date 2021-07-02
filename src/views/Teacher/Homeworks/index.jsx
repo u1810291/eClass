@@ -76,6 +76,7 @@ export default () => {
         setDate={setDate}
         date={date}
         clear={clear}
+        total={total}
         setCompleted={setCompleted}
       />
       {error ? (

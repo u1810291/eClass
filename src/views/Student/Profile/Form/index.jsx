@@ -39,17 +39,17 @@ const Form = ({ formik, title }) => (
               placeholder="Phones"
               size="medium"
               name="phones"
-              value={formik.values.phones && [formik.values.phones.map((el) => el.phone)]}
-              defaultValue={(formik.values.phones
-                && [formik.values.phones.map((el) => el.phone)]) || []}
+              value={formik.values.phones}
+              defaultValue={formik.values.phones || []}
               type={formik.touched.phones
-                && (formik.touched.phones.length === 0 || formik.errors.phones)
+              && (formik.touched.phones.length === 0 || formik.errors.phones)
                 ? 'error'
                 : ''}
               helperText={formik.touched.phones
-                  && (formik.touched.phones.length === 0 || formik.errors.phones)
+                && (formik.touched.phones.length === 0 || formik.errors.phones)
                 ? formik.errors.phone || 'Phone number is required'
                 : ''}
+              // eslint-disable-next-line no-unused-expressions
               onChange={(e) => formik.setFieldValue('phones', e)}
             />
           </InputsContainer.Body>

@@ -22,7 +22,7 @@ export default () => {
   const [search, setSearch] = useState('');
   const [date, setDate] = useState(undefined);
   const [sort, setSort] = useState();
-  const [completed, setCompleted] = useState();
+  const [completed, setCompleted] = useState(false);
   const completedFilter = useMemo(
     () => (completed
       ? `&completed=${completed}`
@@ -63,11 +63,13 @@ export default () => {
   return (
     <Container>
       <HomeworksHeader
-        setSearch={setSearch}
-        search={search}
-        setDate={setDate}
         date={date}
         clear={clear}
+        total={total}
+        search={search}
+        setDate={setDate}
+        setSearch={setSearch}
+        completed={completed}
         setCompleted={setCompleted}
       />
       {error ? (

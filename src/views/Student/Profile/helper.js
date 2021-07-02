@@ -34,13 +34,13 @@ export const useEditForm = () => {
       middle_name: data.middle_name,
       email: data.email,
       date_of_birth: new Date(data.date_of_birth || null),
-      phones: data.phones && data.phones.map((el) => ({ id: el.id, phone: el.phone })),
+      phones: data.phones && data.phones.map((el) => el.phone),
       parents: data.parents && data.parents.map(((el) => ({
         id: el.id,
         first_name: el.full_name.split(' ')[0],
         last_name: el.full_name.split(' ')[1],
         description: el.description,
-        phones: el.phones.map((el) => ({ id: el.id, phone: el.phone }))
+        phones: el.phones && el.phones.map((item) => item.phone)
       }))),
       school_number: data.school_number,
       city_id: data.city_id,

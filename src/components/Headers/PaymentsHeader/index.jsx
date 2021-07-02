@@ -17,7 +17,7 @@ import { Wrapper } from '../../Styles/style';
 import Circle from '../../Circle';
 import Icon from '../../Icon';
 
-export default () => (
+export default ({ data }) => (
   <Container>
     <Steps>
       <Circle size="60px" text="1" />
@@ -36,17 +36,15 @@ export default () => (
         <Navigate.Cards>
           <Wrapper className="scroll-container">
             <InnerCard>
-              {[...Array(15)].map((_, i) => (
-                <MainCard key={i}>
+              {data.map((el) => (
+                <MainCard key={el.id}>
                   <Card color={getRandColor()}>
                     <CardContent color={getRandColor()}>
                       <Card>
                         <Icon icon="mdi_chemical-weapon" size="40px" />
                       </Card>
                       <CardBody>
-                        {i}
-                        {' '}
-                        Hello
+                        {el.official_name}
                       </CardBody>
                     </CardContent>
                   </Card>

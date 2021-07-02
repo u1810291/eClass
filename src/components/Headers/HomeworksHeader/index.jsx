@@ -10,18 +10,26 @@ import {
 import DatePicker from '../../Forms/Inputs/DatePicker';
 
 export default ({
-  setDate,
   date,
-  setCompleted,
-  clear
+  total,
+  clear,
+  setDate,
+  completed,
+  setCompleted
 }) => (
   <Container>
     <Body>
       <TitleWrapper>
-        <TitleWrapper.Title>Homeworks</TitleWrapper.Title>
+        <TitleWrapper.Title>
+          Homeworks
+        </TitleWrapper.Title>
         <TitleWrapper.Clear onClick={clear}>
           Celar filter
         </TitleWrapper.Clear>
+        Total works
+        <SwitchButton.Counter>
+          {total}
+        </SwitchButton.Counter>
       </TitleWrapper>
       <Wrapper>
         <DatePicker
@@ -36,13 +44,11 @@ export default ({
           right
         />
         <SwitchButton>
-          <SwitchButton.Button type="button" onClick={() => setCompleted(false)}>
+          <SwitchButton.Button completed={completed} type="button" onClick={() => setCompleted(false)}>
             <div>Not finished works</div>
-            <SwitchButton.Counter>15</SwitchButton.Counter>
           </SwitchButton.Button>
-          <SwitchButton.Button type="button" onClick={() => setCompleted(true)}>
+          <SwitchButton.Button completed={!completed} type="button" onClick={() => setCompleted(true)}>
             <div>Finished works</div>
-            <SwitchButton.Counter>15</SwitchButton.Counter>
           </SwitchButton.Button>
         </SwitchButton>
       </Wrapper>
