@@ -6,7 +6,11 @@
   padding: 0;
   font-family: "Museo Sans Cyrl 500";
   scrollbar-width: thin;
-
+  -webkit-scrollbar-width: thin;
+  -moz-scrollbar-width: thin;
+  -ms-scrollbar-width: thin;
+  -o-scrollbar-width: thin;
+  scrollbar-width: thin;
 }
 
 main {
@@ -113,6 +117,80 @@ body {
 }
 
 ::-webkit-input-placeholder {
+  color: #535875 !important;
+}
+
+::-moz-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-moz-scrollbar-track {
+  background: transparent;
+  border-radius: 8px;
+}
+
+::-moz-scrollbar-thumb {
+  background: transparent;
+  border-radius: 8px;
+}
+
+::-moz-scrollbar-thumb:hover {
+  background: transparent;
+  border-radius: 8px;
+}
+
+::-moz-input-placeholder {
+  color: #535875 !important;
+}
+
+
+::-ms-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-ms-scrollbar-track {
+  background: transparent;
+  border-radius: 8px;
+}
+
+::-ms-scrollbar-thumb {
+  background: transparent;
+  border-radius: 8px;
+}
+
+::-ms-scrollbar-thumb:hover {
+  background: transparent;
+  border-radius: 8px;
+}
+
+::-ms-input-placeholder {
+  color: #535875 !important;
+}
+
+
+::-o-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-o-scrollbar-track {
+  background: transparent;
+  border-radius: 8px;
+}
+
+::-o-scrollbar-thumb {
+  background: transparent;
+  border-radius: 8px;
+}
+
+::-o-scrollbar-thumb:hover {
+  background: transparent;
+  border-radius: 8px;
+}
+
+::-o-input-placeholder {
   color: #535875 !important;
 }
 
