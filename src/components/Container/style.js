@@ -19,7 +19,7 @@ export const DesktopContainer = styled.div`
 
 export const TabletContainer = styled.div`
   ${tabletDesktop};
-  `;
+`;
 
 export const NotebookContainer = styled.div`
   ${tabletDesktop};
