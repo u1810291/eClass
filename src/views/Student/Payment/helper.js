@@ -14,18 +14,20 @@ export function payment(id) {
       .max(998999999999, 'Number should be 12 digits example 99 890 888 55 44')
       .required('Phone is required')
   });
+  const initialValues = {
+    user_id: id,
+    tariff_id: '',
+    method_id: '',
+    amount: undefined,
+    phone: ''
+  };
   const formik = useFormik({
-    initialValues: {
-      id,
-      tariff_id: '',
-      method_id: '',
-      amount: undefined,
-      phone: ''
-    },
+    initialValues,
     validationSchema,
     onSubmit: (values, { setSubmitting }) => {
       setSubmitting(true);
       dispatch(topUp(values, (res) => {
+        // eslint-disable-next-line no-console
         console.log(res);
       }));
     }

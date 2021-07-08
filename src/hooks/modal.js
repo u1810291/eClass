@@ -26,7 +26,6 @@ export const useZoomCall = () => {
   const teacher = useCallback((props) => {
     dispatch(teacherSign(props));
   }, [dispatch]);
-
   const teachers = () => {
     const { teacherData } = useSelector((state) => state.lessonReducer);
     return teacherData;
