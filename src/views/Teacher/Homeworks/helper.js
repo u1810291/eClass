@@ -12,11 +12,9 @@ export const toolTips = [
   {
     name: 'View',
     icon: 'payment',
-    onClick: (id, { dispatch, showFullScreen }) => {
-      dispatch(showFullScreen({
-        title: 'Homeworks',
-        body: () => <HomeworksView id={id} />
-      }));
-    }
+    onClick: (id, { showFullScreen }) => showFullScreen({
+      title: 'Homeworks',
+      body: () => <HomeworksView id={id} />
+    })
   }
 ];

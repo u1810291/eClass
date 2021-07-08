@@ -12,6 +12,12 @@ export const fetchData = (payload) => ({
   payload
 });
 
+export const setSingle = (payload) => ({ type: types.TABLE_TEACHER_HOMEWORKS_SET_SINGLE, payload });
+export const getSingle = (payload) => ({
+  type: types.TABLE_TEACHER_HOMEWORKS_GET_SINGLE,
+  payload
+});
+
 export const addHomework = (payload, success) => ({
   type: types.TABLE_TEACHER_HOMEWORKS_ADD,
   payload,
