@@ -67,7 +67,6 @@ export const teacherLessonsHeader = [
     id: 5,
     Header: 'Subject',
     accessor: 'subject_name',
-    type: 'user',
     disableSortBy: true,
     show: true
   }
@@ -269,23 +268,18 @@ export const teacherHomeworksHeader = [
     Header: 'Group',
     accessor: 'group',
     id: 5,
-    align: 'end',
     disableSortBy: true,
     show: true,
-    SubCell: () => ({
-      accessor: 'group_id'
-    }),
     type: 'user'
   },
   {
-    Header: 'File',
-    accessor: '',
+    Header: 'Submitted homeworks',
+    accessor: 'submitted',
     id: 6,
-    align: 'end',
     disableSortBy: true,
-    show: true,
-    type: 'download'
+    show: true
   }
+
 ];
 
 export const groupsHeader = [

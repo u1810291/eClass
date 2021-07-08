@@ -19,7 +19,8 @@ export function dataSelector(lesson) {
     start_date: moment(el.start_data).format('DD-MM-YYYY'),
     till_date: moment(el.till_date).format('DD-MM-YYYY'),
     subject: el.subject.name,
-    subject_id: el.subject.id
+    subject_id: el.subject.id,
+    submitted: el.files.length
   }));
   return { total: total_elements, data: filtered };
 }

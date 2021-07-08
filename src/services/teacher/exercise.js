@@ -3,6 +3,7 @@ import { service } from '..';
 export default {
   getAll: (query) => service.get(`/api/v1/teacher/exercise/homework/list?${query}`),
   getQuizes: () => service.get('/api/v1/teacher/exercise/controlwork/list'),
+  getSingleExercise: (id) => service.get(`/api/v1/teacher/exercise/${id}/results`),
   addHomework: (id, data) => service.post(`/api/v1/teacher/exercise/homework/${id}`, data),
   addQuize: (id, data) => service.post(`/api/v1/teacher/exercise/controlwork/${id}`, data),
   // TODO Needs to be checked before using
