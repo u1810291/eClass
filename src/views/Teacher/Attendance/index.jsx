@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 
+import moment from 'moment';
 import { useDispatch, useSelector } from 'react-redux';
 import Attendance from '../../../components/Attendance/Teacher';
 import AttendanceHeader from '../../../components/Headers/AttendanceHeader';
@@ -44,6 +45,14 @@ export default () => {
     dispatch(fetchData({ query: dateFilter }));
   }, [dateFilter, total]);
 
+  const events = data && data.map((el) => ({
+    id: el.id,
+    start: moment(new Date(el.scheduled_start)).toDate(),
+    end: el.finished ? moment(new Date(el.finished_at)).toDate()
+      : moment(new Date(el.scheduled_start)).add(1, 'hours').toDate(),
+    title: el.group.name,
+    event: { ...el }
+  }));
   return (
     <Container>
       <AttendanceHeader
@@ -52,7 +61,7 @@ export default () => {
       />
       <Attendance
         loading={loading}
-        data={data}
+        data={events}
         error={error}
         date={date}
         setDate={setDate}

@@ -5,7 +5,7 @@ import Homeworks from '../views/Teacher/Homeworks';
 import Profile from '../views/Teacher/Profile';
 import Quiz from '../views/Teacher/Quiz';
 import Grades from '../views/Teacher/Grades';
-// import Attendance from '../views/Teacher/Attendance';
+import Attendance from '../views/Teacher/Attendance';
 import Schedule from '../views/Teacher/Schedule';
 import Groups from '../views/Teacher/Groups';
 import Chat from '../views/Chat';
@@ -63,6 +63,14 @@ export default [
   },
   {
     exact: true,
+    path: '/attenadnce',
+    component: Attendance,
+    icon: 'dashboard',
+    title: 'Attendance',
+    children: []
+  },
+  {
+    exact: true,
     path: '/groups',
     component: Groups,
     icon: 'attendance',
@@ -94,14 +102,6 @@ export default [
     title: 'Chat',
     children: []
   }
-  // {
-  //   exact: true,
-  //   path: '/subject',
-  //   component: Examples,
-  //   icon: 'dashboard',
-  //   title: 'Subject',
-  //   children: []
-  // },
   // {
   //   exact: true,
   //   path: '/groups',

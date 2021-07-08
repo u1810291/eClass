@@ -25,8 +25,6 @@ export const Container = styled.div`
 export const BigCalendar = styled.div`
   padding: 10px 0px 0px;
   height: 500px;
-  overflow: auto;  
-
   .custom-event {
     display: flex;
     margin: 8px;
@@ -183,13 +181,11 @@ export const BigCalendar = styled.div`
     column-gap: 5px;
     row-gap: 5px;
   }
-
   .rbc-month-header {
     display: flex;
     flex-direction: row;
     column-gap: 5px;
   }
-
   .rbc-header {
     border-bottom: 0px solid #ebebf3;
     font-family: Poppins, sans-serif;
@@ -309,6 +305,9 @@ export const MobileContainer = styled.div`
 
   .rbc-event {
     display: none;
+  }
+  .rbc-row-segment > .rbc-event{
+    background: rgb(0, 98, 255) !important;
   }
   .rbc-day-slot .rbc-event,
   .rbc-event {

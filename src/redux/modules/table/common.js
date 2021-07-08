@@ -192,7 +192,6 @@ export const studentHomeworksHeader = [
     Header: 'Date',
     accessor: 'start_date',
     id: 1,
-    disableSortBy: true,
     align: 'end',
     show: true
   },
@@ -217,7 +216,6 @@ export const studentHomeworksHeader = [
     accessor: 'group_name',
     id: 4,
     align: 'end',
-    disableSortBy: true,
     show: true,
     SubCell: () => ({
       accessor: 'group'

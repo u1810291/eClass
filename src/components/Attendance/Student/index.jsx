@@ -83,7 +83,7 @@ const Attendance = ({
     const now = moment(new Date()).format('YYYY-MM-DD');
     const $end = moment(end).format('YYYY-MM-DD');
     const style = {
-      backgroundColor: now === $end ? '#F64E60' : '#fff',
+      backgroundColor: now === $end ? '#0062fb' : '#fff',
       color: now === $end ? '#fff' : '#181C32',
       borderColor: now === $end ? '#F64E60' : '#ebebf3'
     };
