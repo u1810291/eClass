@@ -1,14 +1,25 @@
+import moment from 'moment';
+
 export function dataSelector(lesson) {
   // eslint-disable-next-line camelcase
   const { total_elements, content } = lesson;
   const filtered = content.map((el) => ({
     description: el.description,
-    files: el.files.map((item) => item.id),
-    group: el.group.description,
+    files: el.files.map((item) => item),
+    group: {
+      name: el.group.name,
+      role: el.group.description,
+      image: null
+    },
+    group_id: el.group.id,
     group_name: el.group.name,
+    group_description: el.group.description,
     id: el.id,
     lesson: el.lesson.id,
-    subject: el.subject.name
+    start_date: moment(el.start_data).format('DD-MM-YYYY'),
+    till_date: moment(el.till_date).format('DD-MM-YYYY'),
+    subject: el.subject.name,
+    subject_id: el.subject.id
   }));
   return { total: total_elements, data: filtered };
 }

@@ -242,9 +242,17 @@ export const studentHomeworksHeader = [
 
 export const teacherHomeworksHeader = [
   {
-    Header: 'Date',
-    accessor: 'date',
+    Header: 'Start Date',
+    accessor: 'start_date',
     id: 1,
+    align: 'end',
+    disableSortBy: true,
+    show: true
+  },
+  {
+    Header: 'Deadline',
+    accessor: 'till_date',
+    id: 2,
     align: 'end',
     disableSortBy: true,
     show: true
@@ -252,14 +260,6 @@ export const teacherHomeworksHeader = [
   {
     Header: 'Subject',
     accessor: 'subject',
-    id: 2,
-    align: 'end',
-    disableSortBy: true,
-    show: true
-  },
-  {
-    Header: 'Description',
-    accessor: 'description',
     id: 3,
     align: 'end',
     disableSortBy: true,
@@ -267,19 +267,20 @@ export const teacherHomeworksHeader = [
   },
   {
     Header: 'Group',
-    accessor: 'group_name',
-    id: 4,
+    accessor: 'group',
+    id: 5,
     align: 'end',
     disableSortBy: true,
     show: true,
     SubCell: () => ({
-      accessor: 'group'
-    })
+      accessor: 'group_id'
+    }),
+    type: 'user'
   },
   {
     Header: 'File',
-    accessor: 'files',
-    id: 5,
+    accessor: '',
+    id: 6,
     align: 'end',
     disableSortBy: true,
     show: true,
