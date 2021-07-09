@@ -1,8 +1,18 @@
 /* eslint-disable no-alert */
-import React from 'react';
-import { deleteExercise } from '../../../redux/modules/teacher/homeworks/actions';
+import React, { useEffect } from 'react';
+
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteExercise, getSingle } from '../../../redux/modules/teacher/homeworks/actions';
 import HomeworksView from '../../../components/Homeworks/Teacher/HomeworksView';
 
+const homeworks = (id) => {
+  const dispatch = useDispatch();
+  const { single } = useSelector((state) => state.teacherHomeworksReducers);
+  useEffect(() => {
+    dispatch(getSingle(id));
+  }, []);
+  return { single };
+};
 export const toolTips = [
   {
     name: 'Delete',
@@ -14,7 +24,7 @@ export const toolTips = [
     icon: 'payment',
     onClick: (id, { showFullScreen }) => showFullScreen({
       title: 'Homeworks',
-      body: () => <HomeworksView id={id} />
+      body: () => <HomeworksView id={id} getHomeworks={homeworks} />
     })
   }
 ];

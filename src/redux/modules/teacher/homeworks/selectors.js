@@ -1,5 +1,11 @@
 import moment from 'moment';
 
+export function singleHomework(homework) {
+  // eslint-disable-next-line camelcase
+  const { content, total_elements } = homework;
+  return { data: content, total: total_elements };
+}
+
 export function dataSelector(lesson) {
   // eslint-disable-next-line camelcase
   const { total_elements, content } = lesson;

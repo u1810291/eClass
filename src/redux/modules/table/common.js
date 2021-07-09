@@ -273,7 +273,7 @@ export const teacherHomeworksHeader = [
     type: 'user'
   },
   {
-    Header: 'Submitted homeworks',
+    Header: 'Submitted',
     accessor: 'submitted',
     id: 6,
     disableSortBy: true,
