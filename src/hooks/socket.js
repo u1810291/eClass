@@ -1,12 +1,10 @@
 /* eslint-disable camelcase */
 /* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
-import { useSelector } from 'react-redux';
 import SockJS from 'sockjs-client';
 import Stomp from 'webstomp-client';
 
-export function connect() {
-  const { userInfo } = useSelector((state) => state.userReducer);
+export function socket(username) {
   let connected = false;
   let socket = '';
   const stompClient = '';
@@ -17,18 +15,20 @@ export function connect() {
       stompClient.send('/app/hello', JSON.stringify(msg), {});
     }
   };
-  const connect = () => {
+  const connect = (username) => {
     const token = sessionStorage.getItem('access_token');
     if (token) {
       socket = new SockJS('https://five-plus.co/ws');
       const stompClient = Stomp.over(socket);
+      // stompClient.hasDebug = false;
       stompClient.connect({ Authorization: `Bearer ${token}` },
         (frame) => {
+          console.log(frame);
           connected = true;
-          stompClient.subscribe(`/user/${userInfo.username}/v1/chat`, (tick) => {
+          stompClient.subscribe(`/user/${username}/v1/chat`, (tick) => {
             console.log('tick', JSON.parse(tick));
           }, { Authorization: `Bearer ${token}` });
-          stompClient.subscribe(`/user/${userInfo.username}/v1/notification`, (tick) => {
+          stompClient.subscribe(`/user/${username}/v1/notification`, (tick) => {
             console.log('tick', JSON.parse(tick));
           }, { Authorization: `Bearer ${token}` });
           stompClient.subscribe('/topic/v1/chat', (tick) => {
@@ -47,5 +47,5 @@ export function connect() {
     }
     connected = false;
   };
-  return connected ? disconnect() : connect();
+  return connected ? disconnect() : connect(username);
 }

@@ -2,9 +2,9 @@
 import { service } from '.';
 
 export default {
-  getChatRooms: () => service.get('api/v1/chat/rooms/list'),
-  createRoom: ({ data }) => service.post('/api/v1/chat/rooms', { data }),
-  updateRoom: ({ id, data }) => service.put(`/api/v1/chat/rooms/${id}`, { data }),
+  getChatRooms: () => service.get('api/v1/chat/rooms/list?full=true'),
+  createRoom: ({ data }) => service.post('/api/v1/chat/rooms', data),
+  updateRoom: ({ id, data }) => service.put(`/api/v1/chat/rooms/${id}`, data),
   deleteRoom: ({ id }) => service.put(`/api/v1/chat/rooms/${id}`),
   getRoomUsers: ({ id }) => service.get(`/api/v1/chat/rooms/${id}/users`),
   addUserToRoom: ({ id, uuid }) => service.post(`/api/v1/chat/rooms/${id}/users/${uuid}`),
