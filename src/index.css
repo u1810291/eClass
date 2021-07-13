@@ -11,6 +11,7 @@
   -ms-scrollbar-width: thin;
   -o-scrollbar-width: thin;
   scrollbar-width: thin;
+  scroll-behavior: smooth;
 }
 
 main {
