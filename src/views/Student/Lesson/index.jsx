@@ -37,7 +37,7 @@ export default () => {
   );
 
   const sortQuery = useMemo(() => {
-    const found = sort && studentLessonsHeader.find(({ id }) => id === sort.id);
+    const found = sort && studentLessonsHeader.find(({ id }) => id === sort.id).accessor;
     return found
       ? `&sort=${found},${sort.desc ? 'desc' : 'asc'}`
       : '';

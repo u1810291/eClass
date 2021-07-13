@@ -310,6 +310,9 @@ export const MobileContainer = styled.div`
   .rbc-event {
     display: none;
   }
+  .rbc-row-segment > .rbc-event{
+    background: rgb(0, 98, 255) !important;
+  }
   .rbc-day-slot .rbc-event,
   .rbc-event {
     padding-top: 4px;

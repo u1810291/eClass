@@ -26,6 +26,15 @@ function* fetchData({ payload }) {
   }
 }
 
+function* getSingle({ payload }) {
+  try {
+    const res = yield service.getSingleExercise(payload);
+    console.log(res);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 function* addHomework({ payload, success }) {
   try {
     const { data } = addHomeworkSelector(payload.values);
@@ -60,4 +69,5 @@ export default function* teacherHomeworksSaga() {
   yield takeLatest(types.TABLE_TEACHER_HOMEWORKS_ADD, addHomework);
   yield takeLatest(types.TABLE_TEACHER_HOMEWORKS_DELETE, deleteExercise);
   yield takeLatest(types.TABLE_TEACHER_HOMEWORKS_MARK, markExercise);
+  yield takeLatest(types.TABLE_TEACHER_HOMEWORKS_GET_SINGLE, getSingle);
 }

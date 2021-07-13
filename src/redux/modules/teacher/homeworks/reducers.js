@@ -2,6 +2,7 @@ import types from '../../../../constants/action-types';
 
 const defaultState = {
   data: [],
+  single: [],
   loading: false,
   total: 0,
   error: ''
@@ -15,6 +16,10 @@ const map = {
   [types.TABLE_TEACHER_HOMEWORKS_SET_DATA]: (state, { payload }) => ({
     ...state,
     data: payload
+  }),
+  [types.TABLE_TEACHER_HOMEWORKS_SET_SINGLE]: (state, { payload }) => ({
+    ...state,
+    single: payload
   }),
   [types.TABLE_TEACHER_HOMEWORKS_SET_TOTAL]: (state, { payload }) => ({
     ...state,

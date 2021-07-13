@@ -83,7 +83,7 @@ const Attendance = ({
     const now = moment(new Date()).format('YYYY-MM-DD');
     const $end = moment(end).format('YYYY-MM-DD');
     const style = {
-      backgroundColor: now === $end ? '#F64E60' : '#fff',
+      backgroundColor: now === $end ? '#0062fb' : '#fff',
       color: now === $end ? '#fff' : '#181C32',
       borderColor: now === $end ? '#F64E60' : '#ebebf3'
     };
@@ -116,7 +116,6 @@ const Attendance = ({
           minute: time1.get('minute')
         })
       );
-
       newEndDate = new Date(
         eDateTemp.set({
           hour: time2.get('hour'),
@@ -125,7 +124,6 @@ const Attendance = ({
         })
       );
     }
-
     const nextEvents = data.map((existingEvent) => (existingEvent.id === event.id
       ? { ...existingEvent, start: newStartDate, end: newEndDate }
       : existingEvent));
@@ -182,8 +180,7 @@ const Attendance = ({
               <Card>
                 {loading && setDate && !date
                   ? (
-                    <>
-                    </>
+                    <Spinner contain black />
                   )
                   : (
                     <CustomCalendarV2

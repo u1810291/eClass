@@ -131,7 +131,6 @@ export const toolTips = [
           title: 'Zoom Meeting',
           body: () => <MeetingWindow data={students} />
         });
-        if (response) { alert('Lesson started!'); }
         return response;
       }));
     }

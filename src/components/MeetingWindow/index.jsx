@@ -1,8 +1,8 @@
 /* eslint-disable no-console */
-/* eslint-disable no-unused-vars */
 import React from 'react';
 
-import { Container, ZoomFrame } from './style';
+import { useSelector } from 'react-redux';
+import { Container } from './style';
 import { PrimaryButton } from '../Buttons';
 
 declare var ZoomMtg;
@@ -12,13 +12,15 @@ ZoomMtg.preLoadWasm();
 ZoomMtg.prepareJssdk();
 
 function MeetingWindow({ data }) {
-  const teacherData = data();
-  const apiKey = teacherData.api_key;
-  const meetingNumber = teacherData.meeting_id;
-  const leaveUrl = `${window.location.pathname}?ROLE=${1}&USERNAME=${'USERNAME'}`;
-  const userName = 'Teacher';
-  const userEmail = 'some@some.com';
-  const passWord = teacherData.meeting_password;
+  const userData = data();
+  const { userInfo } = useSelector((state) => state.userReducer);
+  const role = userInfo.role === 'TEACHER' ? 1 : 0;
+  const apiKey = userData.api_key;
+  const meetingNumber = userData.meeting_id;
+  const leaveUrl = `${window.location.pathname}?ROLE=${role}&USERNAME=${userInfo.role}`;
+  const userName = userInfo.username;
+  const userEmail = userInfo.email;
+  const passWord = userData.meeting_password;
 
   function startMeeting(signature) {
     document.getElementById('zmmtg-root').style.display = 'block';
@@ -26,8 +28,7 @@ function MeetingWindow({ data }) {
       leaveUrl,
       isSupportAV: true,
       debug: false,
-      success: (success) => {
-        console.log(success);
+      success: () => {
         ZoomMtg.join({
           signature,
           meetingNumber,
@@ -35,9 +36,7 @@ function MeetingWindow({ data }) {
           apiKey,
           userEmail,
           passWord,
-          success: (success) => {
-            console.log(success);
-          },
+          success: (success) => success,
           error: (error) => {
             console.log(error);
           }
@@ -50,11 +49,10 @@ function MeetingWindow({ data }) {
   }
   function getSignature(e) {
     e.preventDefault();
-    startMeeting(teacherData.signature);
+    startMeeting(userData.signature);
   }
   return (
     <Container>
-      <h1>Welcome to zoom lesson</h1>
       <PrimaryButton title="Join Meeting" type="button" onClick={getSignature} />
     </Container>
   );
