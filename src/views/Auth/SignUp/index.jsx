@@ -5,7 +5,8 @@ import classNames from 'classnames';
 import { useHistory } from 'react-router-dom';
 import auth from '../../../services/auth';
 import { PrimaryButton } from '../../../components/Buttons';
-import { NormalInput } from '../../../components/Forms/Inputs';
+import Dropdown from '../../../components/Forms/Dropdowns';
+import { NormalInput, PasswordInput, CustomDatePickerV2 } from '../../../components/Forms/Inputs';
 import {
   AuthForm, ResetPassword, TextCenter, AuthFooter, AuthHeader, AuthWrapper, Text
 } from './style';
@@ -15,12 +16,22 @@ export default () => {
   const history = useHistory();
   const formik = useFormik({
     initialValues: {
+      lang: '',
       email: '',
-      password: ''
+      username: '',
+      password: '',
+      last_name: '',
+      first_name: '',
+      date_of_birth: ''
     },
     validationSchema: Yup.object({
       email: Yup.string().required('Email field is required').email('Invalid email address'),
-      password: Yup.string().required('Password field is required')
+      password: Yup.string().required('Password field is required'),
+      username: Yup.string().required('Username required'),
+      first_name: Yup.string().required('First name is required'),
+      last_name: Yup.string().required('Last name is required'),
+      date_of_birth: Yup.string().required('Date of birth is required'),
+      lang: Yup.string().required('Choose the language')
     }),
     onSubmit: (values, { setSubmitting }) => {
       setSubmitting(true);
@@ -47,6 +58,61 @@ export default () => {
             onChange={(e) => formik.setFieldValue('email', e.target.value)}
           />
           <NormalInput
+            white
+            size="large"
+            placeholder="Username"
+            value={formik.values.username}
+            type={formik.touched.username && formik.errors.username && 'error'}
+            typePwd={formik.touched.username && formik.errors.username && 'error'}
+            helperText={formik.touched.username && formik.errors.username && formik.errors.username}
+            onChange={(e) => formik.setFieldValue('username', e.target.value)}
+          />
+          <CustomDatePickerV2
+            name="date_of_birth"
+            placeholder="Date of birth"
+            lang="en"
+            value={formik.values.date_of_birth}
+            type={formik.touched.date_of_birth
+                    && formik.errors.date_of_birth && 'error'}
+            size="large"
+            helperText={formik.errors.date_of_birth}
+            onChange={(value) => {
+              formik.setFieldValue('date_of_birth', value);
+            }}
+          />
+          <NormalInput
+            white
+            size="large"
+            placeholder="First name"
+            value={formik.values.first_name}
+            type={formik.touched.first_name && formik.errors.first_name && 'error'}
+            helperText={formik.touched.first_name
+              && formik.errors.first_name
+              && formik.errors.first_name}
+            onChange={(e) => formik.setFieldValue('first_name', e.target.value)}
+          />
+          <NormalInput
+            white
+            size="large"
+            placeholder="Last name"
+            value={formik.values.last_name}
+            type={formik.touched.last_name && formik.errors.last_name && 'error'}
+            helperText={formik.touched.last_name
+              && formik.errors.last_name
+              && formik.errors.last_name}
+            onChange={(e) => formik.setFieldValue('last_name', e.target.value)}
+          />
+          <Dropdown
+            white
+            size="large"
+            placeholder="Language"
+            options={[{ id: 1, value: 'ru' }, { id: 2, value: 'uz' }]}
+            value={formik.values.lang}
+            type={formik.touched.lang && formik.errors.lang && 'error'}
+            helperText={formik.touched.lang && formik.errors.lang && formik.errors.lang}
+            onChange={(e) => formik.setFieldValue('lang', e)}
+          />
+          <PasswordInput
             eye
             white
             size="large"
@@ -57,8 +123,9 @@ export default () => {
             helperText={formik.touched.password && formik.errors.password && formik.errors.password}
             onChange={(e) => formik.setFieldValue('password', e.target.value)}
           />
+
           <PrimaryButton
-            title="Sign in"
+            title="Sign Up"
             type="submit"
             size="large"
             disabled={
