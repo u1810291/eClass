@@ -6,6 +6,12 @@ export const logout = () => ({ type: types.AUTH_LOGOUT });
 export const setError = () => ({ type: types.AUTH_ERROR });
 
 export const verify = (payload) => ({ type: types.AUTH_VERIFY, payload });
+export const confirmSMS = (payload, success) => ({
+  type: types.AUTH_CONFIRM_SMS,
+  payload,
+  success
+});
+export const resentCode = (payload) => ({ type: types.AUTH_RESENT_CODE, payload });
 export const login = (payload, success) => ({ type: types.AUTH_LOGIN, payload, success });
 
 export const regStudent = (payload, success) => ({

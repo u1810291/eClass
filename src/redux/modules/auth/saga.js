@@ -61,10 +61,32 @@ function* regAdmin({ payload, success }) {
     yield put(setError(error.response ? error.response.data.error_message : error));
   }
 }
+
+function* confirmSMS({ payload, success }) {
+  try {
+    const res = yield service.confirmSMS({ code: payload.code, user: payload.user });
+    yield success(res);
+    console.log(res);
+  } catch (err) {
+    console.log(err);
+  }
+}
+function* resendSMS({ payload, success }) {
+  try {
+    console.log(payload);
+    const res = yield service.repeatSMS(payload);
+    yield success(res);
+    console.log(res);
+  } catch (err) {
+    console.log(err);
+  }
+}
+
 export default function* authSaga() {
   yield takeLatest(types.AUTH_LOGIN, login);
   yield takeLatest(types.AUTH_VERIFY, validate);
-
+  yield takeLatest(types.AUTH_CONFIRM_SMS, confirmSMS);
+  yield takeLatest(types.AUTH_RESENT_CODE, resendSMS);
   yield takeLatest(types.AUTH_REGISTER_STUDENT, regStudent);
   yield takeLatest(types.AUTH_REGISTER_TEACHER, regTeacher);
   yield takeLatest(types.AUTH_REGISTER_ADMIN, regAdmin);

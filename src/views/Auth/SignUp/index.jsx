@@ -41,7 +41,7 @@ export default () => {
     onSubmit: (values, { setSubmitting }) => {
       setSubmitting(true);
       dispatch(regStudent(values, (res) => {
-        if (res) history.push('/send-sms');
+        if (res) history.push(`/send-sms?user=${values.username}&phone=${values.phone}`);
       }));
     }
   });
