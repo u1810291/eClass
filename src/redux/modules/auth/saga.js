@@ -2,7 +2,7 @@
 import { takeLatest, put } from 'redux-saga/effects';
 import types from '../../../constants/action-types';
 import service from '../../../services/auth';
-import { studentSelector, teachersSelector, adminsSelector } from './selectors';
+import { teachersSelector, adminsSelector } from './selectors';
 
 import {
   setAccessToken, setRefreshToken, setError
@@ -29,10 +29,11 @@ function* validate({ payload }) {
 
 function* regStudent({ payload, success }) {
   try {
-    const { data } = studentSelector(payload);
-    const res = yield service.registerStudent(data);
+    const res = yield service.registerStudent(payload);
+    console.log(res);
     success(res.data);
   } catch (error) {
+    console.log(error);
     // eslint-disable-next-line no-alert
     alert(error.response ? error.response.data.error_message : error);
     yield put(setError(error.response ? error.response.data.error_message : error));

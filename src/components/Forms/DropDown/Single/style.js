@@ -1,9 +1,16 @@
 import styled from 'styled-components';
 import { dropdown } from '../style';
 
+export const MainContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 export const Container = styled.div`
   display: flex;
   flex-direction:${({ end }) => (end ? 'column-reverse' : 'column')};
+  border: 1px solid ${({ type }) => (type === 'error' ? '#f29392' : '#e2e2ea')} ;
+  border-radius: 8px;
 `;
 
 export const Selection = styled.div`
@@ -18,14 +25,17 @@ export const Selection = styled.div`
 `;
 
 Selection.Text = styled.div`
-  letter-spacing: 0.01em;
-  line-height: 24px;
   text-align: left;
   margin-right: 5px;
-  color: ${({ color }) => (color || '#9D9D9D')};
+  color: ${({ color }) => (color ? color.text : '#33333')};
+
   `;
 Selection.Icon = styled.div`
   margin-left: auto;
+  #Path_72 {
+    fill: ${({ color }) => (color ? color.text : '#7E8299')};
+  }
+
 `;
 
 export const Menu = styled.div`
@@ -66,11 +76,6 @@ Menu.SubItem = styled.input`
   outline: none;
   border: none;
   padding-left: 45px;
-
-  font-family: Poppins;
-  font-weight: normal;
-  font-size: 14px;
-  letter-spacing: 0.01em;
   line-height: 24px;
   color: ${({ active }) => (active ? '#262626' : '#9D9D9D')};
 

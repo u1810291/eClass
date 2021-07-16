@@ -1,18 +1,21 @@
 import React from 'react';
+
+import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import classNames from 'classnames';
 import { useHistory } from 'react-router-dom';
-import auth from '../../../services/auth';
 import { PrimaryButton } from '../../../components/Buttons';
-import Dropdown from '../../../components/Forms/Dropdowns';
+import { SingleDropdown as Dropdown } from '../../../components/Forms/DropDown';
 import { NormalInput, PasswordInput, CustomDatePickerV2 } from '../../../components/Forms/Inputs';
 import {
   AuthForm, ResetPassword, TextCenter, AuthFooter, AuthHeader, AuthWrapper, Text
 } from './style';
 import dashboard from '../../../assets/images/dashboard.jpg';
+import { regStudent } from '../../../redux/modules/auth/actions';
 
 export default () => {
+  const dispatch = useDispatch();
   const history = useHistory();
   const formik = useFormik({
     initialValues: {
@@ -22,6 +25,7 @@ export default () => {
       password: '',
       last_name: '',
       first_name: '',
+      phone: '',
       date_of_birth: ''
     },
     validationSchema: Yup.object({
@@ -30,15 +34,15 @@ export default () => {
       username: Yup.string().required('Username required'),
       first_name: Yup.string().required('First name is required'),
       last_name: Yup.string().required('Last name is required'),
+      phone: Yup.string().required('Phone number is required'),
       date_of_birth: Yup.string().required('Date of birth is required'),
       lang: Yup.string().required('Choose the language')
     }),
     onSubmit: (values, { setSubmitting }) => {
       setSubmitting(true);
-      auth.getToken(values).then((data) => {
-        setSubmitting(false);
-        history.push(`/verified?userId=${data.userId}&token=${data.token}`);
-      });
+      dispatch(regStudent(values, (res) => {
+        if (res) history.push('/send-sms');
+      }));
     }
   });
   return (
@@ -52,6 +56,7 @@ export default () => {
             white
             size="large"
             placeholder="Email"
+            label="Phone number"
             type={formik.touched.email && formik.errors.email && 'error'}
             helperText={formik.touched.email && formik.errors.email && formik.errors.email}
             value={formik.values.email}
@@ -60,7 +65,19 @@ export default () => {
           <NormalInput
             white
             size="large"
+            placeholder="Phone"
+            label="Phone number"
+            value={formik.values.phone}
+            type={formik.touched.phone && formik.errors.phone && 'error'}
+            typePwd={formik.touched.phone && formik.errors.phone && 'error'}
+            helperText={formik.touched.phone && formik.errors.phone && formik.errors.phone}
+            onChange={(e) => formik.setFieldValue('phone', e.target.value)}
+          />
+          <NormalInput
+            white
+            size="large"
             placeholder="Username"
+            label="Username"
             value={formik.values.username}
             type={formik.touched.username && formik.errors.username && 'error'}
             typePwd={formik.touched.username && formik.errors.username && 'error'}
@@ -71,6 +88,7 @@ export default () => {
             name="date_of_birth"
             placeholder="Date of birth"
             lang="en"
+            label="Date of birth"
             value={formik.values.date_of_birth}
             type={formik.touched.date_of_birth
                     && formik.errors.date_of_birth && 'error'}
@@ -83,6 +101,7 @@ export default () => {
           <NormalInput
             white
             size="large"
+            label="First name"
             placeholder="First name"
             value={formik.values.first_name}
             type={formik.touched.first_name && formik.errors.first_name && 'error'}
@@ -94,6 +113,7 @@ export default () => {
           <NormalInput
             white
             size="large"
+            label="Last name"
             placeholder="Last name"
             value={formik.values.last_name}
             type={formik.touched.last_name && formik.errors.last_name && 'error'}
@@ -105,17 +125,19 @@ export default () => {
           <Dropdown
             white
             size="large"
+            label="Language"
             placeholder="Language"
             options={[{ id: 1, value: 'ru' }, { id: 2, value: 'uz' }]}
             value={formik.values.lang}
             type={formik.touched.lang && formik.errors.lang && 'error'}
             helperText={formik.touched.lang && formik.errors.lang && formik.errors.lang}
-            onChange={(e) => formik.setFieldValue('lang', e)}
+            onClick={(e) => formik.setFieldValue('lang', e)}
           />
           <PasswordInput
             eye
             white
             size="large"
+            label="Password"
             placeholder="Password"
             value={formik.values.password}
             type={formik.touched.password && formik.errors.password && 'error'}

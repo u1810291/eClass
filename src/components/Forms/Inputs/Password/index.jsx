@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import {
   Container, Input, EyeIcon, Wrapper, Helper
 } from './style';
+import { Label } from '../Normal/style';
 
 const NoramlInput = ({
   placeholder,
@@ -16,11 +17,13 @@ const NoramlInput = ({
   eye,
   position,
   white,
+  label,
   ...others
 }) => {
   const [see, setSee] = useState(false);
   return (
     <Wrapper type={type}>
+      {label && <Label>{label}</Label>}
       <Container>
         <Input
           className={classNames('body-medium', 'weight-light')}

@@ -4,10 +4,22 @@ import React, { useState, useEffect } from 'react';
 
 import { ReactComponent as ArrowDown } from '../../../../assets/icons/arrowClose.svg';
 import { ReactComponent as ArrowUp } from '../../../../assets/icons/arrowUp.svg';
-import { Container, Selection, Menu } from './style';
+import { Label } from '../../Inputs/Normal/style';
+import {
+  MainContainer, Container, Selection, Menu
+} from './style';
 
 const Single = ({
-  onClick, options, placeholder, marginRight, onChange, onSelect, key, size, ...args
+  onClick,
+  options,
+  placeholder,
+  marginRight,
+  onChange,
+  onSelect,
+  key,
+  size,
+  label,
+  ...args
 }) => {
   const [open, setOpen] = useState(false);
   const [end, setEnd] = useState(false);
@@ -38,54 +50,57 @@ const Single = ({
     return () => { window.removeEventListener('resize', handleResize); };
   }, [end, windowW, item, open, width, windowH, key]);
   return (
-    <Container id={`dropdown-container-${key}`} end={end ? 1 : 0} onMouseLeave={() => setOpen(false)}>
-      <Selection size={size} onClick={() => setOpen(!open)} {...args} id={`selection-container-${key}`}>
-        <Selection.Text {...args}>{item}</Selection.Text>
-        <Selection.Icon>
+    <MainContainer>
+      {label && <Label>{label}</Label>}
+      <Container id={`dropdown-container-${key}`} end={end ? 1 : 0} onMouseLeave={() => setOpen(false)}>
+        <Selection size={size} onClick={() => setOpen(!open)} {...args} id={`selection-container-${key}`}>
+          <Selection.Text {...args}>{item}</Selection.Text>
+          <Selection.Icon>
+            {
+              open
+                ? <ArrowUp />
+                : <ArrowDown />
+            }
+          </Selection.Icon>
+        </Selection>
+        <Menu id={`menu-container-${key}`} style={{ display: open ? 'flex' : 'none' }} disable width={width} end={end ? 1 : 0}>
           {
-            open
-              ? <ArrowUp />
-              : <ArrowDown />
-          }
-        </Selection.Icon>
-      </Selection>
-      <Menu id={`menu-container-${key}`} style={{ display: open ? 'flex' : 'none' }} disable width={width} end={end ? 1 : 0}>
-        {
-          options.map((itm, index) => ((
-            Array.isArray(itm.value) ? (
-              <div key={index + 1}>
-                <Menu.Item readOnly disabled key={itm.id} value={itm.name} width={width} />
-                {
-                  itm.value.map((sub, i) => (
-                    <Menu.SubItem
-                      id={sub.id}
-                      readOnly
-                      key={`id-${i}`}
-                      onClick={(e) => onClik(e)}
-                      value={sub.value}
-                      name={sub.name}
-                      active={item === sub.value}
-                      width={width}
-                    />
-                  ))
-                }
-              </div>
-            )
-              : (
-                <Menu.Item
-                  id={itm.id}
-                  key={index + 1}
-                  readOnly
-                  onClick={(e) => onClik(e)}
-                  value={itm.value}
-                  name={itm.name}
-                  active={item === itm.value}
-                />
+            options.map((itm, index) => ((
+              Array.isArray(itm.value) ? (
+                <div key={index + 1}>
+                  <Menu.Item readOnly disabled key={itm.id} value={itm.name} width={width} />
+                  {
+                    itm.value.map((sub, i) => (
+                      <Menu.SubItem
+                        id={sub.id}
+                        readOnly
+                        key={`id-${i}`}
+                        onClick={(e) => onClik(e)}
+                        value={sub.value}
+                        name={sub.name}
+                        active={item === sub.value}
+                        width={width}
+                      />
+                    ))
+                  }
+                </div>
               )
-          )))
-        }
-      </Menu>
-    </Container>
+                : (
+                  <Menu.Item
+                    id={itm.id}
+                    key={index + 1}
+                    readOnly
+                    onClick={(e) => onClik(e)}
+                    value={itm.value}
+                    name={itm.name}
+                    active={item === itm.value}
+                  />
+                )
+            )))
+          }
+        </Menu>
+      </Container>
+    </MainContainer>
   );
 };
 
