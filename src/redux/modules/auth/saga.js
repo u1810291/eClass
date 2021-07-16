@@ -2,7 +2,7 @@
 import { takeLatest, put } from 'redux-saga/effects';
 import types from '../../../constants/action-types';
 import service from '../../../services/auth';
-import { studentSelector, teachersSelector, adminsSelector } from './selectors';
+import { teachersSelector, adminsSelector } from './selectors';
 
 import {
   setAccessToken, setRefreshToken, setError
@@ -29,10 +29,11 @@ function* validate({ payload }) {
 
 function* regStudent({ payload, success }) {
   try {
-    const { data } = studentSelector(payload);
-    const res = yield service.registerStudent(data);
+    const res = yield service.registerStudent(payload);
+    console.log(res);
     success(res.data);
   } catch (error) {
+    console.log(error);
     // eslint-disable-next-line no-alert
     alert(error.response ? error.response.data.error_message : error);
     yield put(setError(error.response ? error.response.data.error_message : error));
@@ -60,10 +61,32 @@ function* regAdmin({ payload, success }) {
     yield put(setError(error.response ? error.response.data.error_message : error));
   }
 }
+
+function* confirmSMS({ payload, success }) {
+  try {
+    const res = yield service.confirmSMS({ code: payload.code, user: payload.user });
+    yield success(res);
+    console.log(res);
+  } catch (err) {
+    console.log(err);
+  }
+}
+function* resendSMS({ payload, success }) {
+  try {
+    console.log(payload);
+    const res = yield service.repeatSMS(payload);
+    yield success(res);
+    console.log(res);
+  } catch (err) {
+    console.log(err);
+  }
+}
+
 export default function* authSaga() {
   yield takeLatest(types.AUTH_LOGIN, login);
   yield takeLatest(types.AUTH_VERIFY, validate);
-
+  yield takeLatest(types.AUTH_CONFIRM_SMS, confirmSMS);
+  yield takeLatest(types.AUTH_RESENT_CODE, resendSMS);
   yield takeLatest(types.AUTH_REGISTER_STUDENT, regStudent);
   yield takeLatest(types.AUTH_REGISTER_TEACHER, regTeacher);
   yield takeLatest(types.AUTH_REGISTER_ADMIN, regAdmin);

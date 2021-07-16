@@ -1,20 +1,24 @@
 import React from 'react';
 
 import DatePicker from 'react-date-picker';
-import { Container } from './style';
+import { Label } from '../Normal/style';
+import { Container, MainContainer } from './style';
 
 const CustomDatePickerV2 = ({
-  onChange, value, lang, placeholder
+  onChange, value, lang, placeholder, label
 }) => (
-  <Container>
-    <DatePicker
-      locale={lang}
-      format="y-MM-dd"
-      onChange={onChange}
-      value={value}
-      placeholder={placeholder}
-    />
-  </Container>
+  <MainContainer>
+    {label && <Label>{label}</Label>}
+    <Container>
+      <DatePicker
+        locale={lang}
+        format="y-MM-dd"
+        onChange={onChange}
+        value={value}
+        placeholder={placeholder}
+      />
+    </Container>
+  </MainContainer>
 );
 
 export default CustomDatePickerV2;

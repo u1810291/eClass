@@ -17,6 +17,7 @@ import SignUp from '../../views/Auth/SignUp';
 
 import { fetchData } from '../../redux/modules/user/actions';
 import Spinner from '../../components/Spinner';
+import RegisterSMS from '../../views/Auth/RegisterSMS';
 
 export default () => {
   const { access_token, showModal } = useSelector(appSelector, shallowEqual);
@@ -38,6 +39,7 @@ export default () => {
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/reset" component={ResetForm} />
         <Route exact path="/pin-signin" component={PinCodeSignIn} />
+        <Route exact path="/send-sms" component={RegisterSMS} />
         <Route exact path="/change-password" component={ChangePassword} />
         <Route exact path="/verified" component={VerifiedPage} />
         <Redirect from="*" to="/signin" />

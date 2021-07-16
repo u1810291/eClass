@@ -121,7 +121,7 @@ export const inputs = css`
 `;
 
 export const fonts = css`
-  font-weight: var(--font-normal);
+  font-weight: var(--font-regular);
   font-size: ${getFontSize};
 `;
 
