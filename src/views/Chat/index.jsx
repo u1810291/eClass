@@ -2,7 +2,6 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Chat from '../../components/Chat';
-import { socket } from '../../hooks/socket';
 import { getStudents } from '../../redux/modules/teacher/groups/actions';
 import { fetchData } from '../../redux/modules/student/groups/actions';
 
@@ -22,7 +21,7 @@ export default () => {
   const users = useMemo(() => setChats({
     ...chats,
     ...(groupUsers.map(({ first_name, ...el }) => ({ name: first_name, ...el })))
-  }), [chatElements]);
+  }), [chatElements, groupUsers]);
   useEffect(() => {
     if (selected) dispatch(getStudents(selected));
   }, [selected]);
@@ -37,8 +36,6 @@ export default () => {
       users={users}
       setSelected={setSelected}
       chats={chats}
-    >
-      {socket()}
-    </Chat>
+    />
   );
 };
