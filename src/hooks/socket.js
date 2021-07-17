@@ -20,7 +20,7 @@ export function socket(username) {
     if (token) {
       socket = new SockJS('https://five-plus.co/ws');
       const stompClient = Stomp.over(socket);
-      // stompClient.hasDebug = false;
+      stompClient.hasDebug = false;
       stompClient.connect({ Authorization: `Bearer ${token}` },
         (frame) => {
           console.log(frame);

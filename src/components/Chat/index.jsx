@@ -3,9 +3,13 @@ import Content from './Content';
 import Sidebar from './Sidebar';
 import { Container } from './style';
 
-export default ({ users }) => (
+export default ({ chats, selected, setSelected }) => (
   <Container>
-    <Sidebar users={users} />
+    <Sidebar
+      chats={chats}
+      selected={selected}
+      setSelected={setSelected}
+    />
     <Content />
   </Container>
 );

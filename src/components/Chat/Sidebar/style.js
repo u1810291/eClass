@@ -26,10 +26,9 @@ export const Header = styled.div`
 
 export const Body = styled.div`
   overflow: auto;
-  grid-area: body;
-  display: grid;
-  grid-gap: 5px;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
+  gap:5px;
   height: 100%;
   &::-webkit-scrollbar {
     position: absolute;

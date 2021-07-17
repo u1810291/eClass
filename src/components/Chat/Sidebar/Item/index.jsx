@@ -6,11 +6,11 @@ import {
 import { DynamicImage } from '../../../DynamicImage';
 
 const Item = ({
-  id, active, setActive, name, imgSrc
+  el, active, setActive, name, imgSrc
 }) => (
   <ItemWrapper
-    active={active}
-    onClick={() => setActive(!active)}
+    active={active === el.id}
+    onClick={() => setActive(el.id)}
   >
     <DynamicImage
       name={name}
@@ -20,15 +20,14 @@ const Item = ({
     <Body>
       <Heading>
         <Title>
-          Title
+          {el.name}
         </Title>
         <Footer>
           {moment(new Date()).format('hh:mm')}
         </Footer>
       </Heading>
       <Message>
-        {id}
-        Item
+        {el.description}
       </Message>
     </Body>
   </ItemWrapper>
