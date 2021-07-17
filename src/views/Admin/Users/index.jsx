@@ -24,6 +24,7 @@ export default () => {
   const [userName, setUserName] = useState('student');
   const [pageIndex, setPageIndex] = useState(0);
   const [pageSize, setPageSize] = useState(10);
+  const [search, setSearch] = useState('');
   const [sort, setSort] = useState();
   const history = useHistory();
   const dispatch = useDispatch();
@@ -51,9 +52,12 @@ export default () => {
       : '';
   }, [sort]);
 
+  const searching = useMemo(
+    () => (search ? `username=${search}` : ''), [search]
+  );
   const query = useMemo(
-    () => `page=${pageIndex}&size=${pageSize}${sortQuery}`,
-    [pageIndex, pageSize, sortQuery]
+    () => `${searching}page=${pageIndex}&size=${pageSize}${sortQuery}`,
+    [pageIndex, pageSize, sortQuery, searching]
   );
 
   const getType = () => {
@@ -65,8 +69,12 @@ export default () => {
   };
 
   useEffect(() => {
-    dispatch(fetchData(userName.toLowerCase(), query));
-  }, [fetchData, setUserName, userName, query]);
+    dispatch(fetchData({ isSearch: false, user: userName.toLowerCase(), action: 'list' }, query));
+  }, [setUserName, userName, query]);
+
+  useEffect(() => {
+    if (search) dispatch(fetchData({ isSearch: true, user: userName.toLowerCase(), action: 'search' }, query));
+  }, [search, setSearch]);
 
   const handleOnChange = ({ pageIndex, pageSize }) => {
     setPageIndex(pageIndex);
@@ -80,6 +88,8 @@ export default () => {
           white
           size="large"
           placeholder="Enter first name"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
         />
       </Search>
       <Filter>

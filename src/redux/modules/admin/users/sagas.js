@@ -1,4 +1,4 @@
-import { takeLatest, put } from 'redux-saga/effects';
+import { takeLatest, put, delay } from 'redux-saga/effects';
 import types from '../../../../constants/action-types';
 import service from '../../../../services/admin/users';
 import tariffs from '../../../../services/admin/tariffs';
@@ -16,13 +16,15 @@ import { dataSelector, tariffSelector, singleUser } from './selectors';
 function* fetchData({ payload, params }) {
   yield put(setLoading(true));
   try {
+    if (payload.isSearch) yield delay(500);
     const res = yield service.getUsers(payload, params);
-    const { total, data } = dataSelector(payload, res.data);
+    const { total, data } = dataSelector(payload.user, res.data);
     yield put(setError(''));
     yield put(setTotal(total));
     yield put(setData(data));
     yield put(setLoading(false));
   } catch (error) {
+    yield put(setLoading(false));
     if (error.response.data.error_message) {
       yield put(setError(error.response.data.error_message));
     } else {
